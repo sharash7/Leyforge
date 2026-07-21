@@ -11,6 +11,7 @@ var _hotbar_buttons: Array[Button] = []
 var _craft_buttons: Array[Button] = []
 var _output_button: Button
 var _craft_panel: PanelContainer
+var _status_label: Label
 
 
 func _ready() -> void:
@@ -20,6 +21,25 @@ func _ready() -> void:
 	Inventory.selected_slot_changed.connect(func(_i: int) -> void: _refresh_hotbar())
 	_refresh_hotbar()
 	_refresh_crafting()
+
+
+var _status_accum := 0.0
+
+func _process(delta: float) -> void:
+	_status_accum += delta
+	if _status_accum < 0.25:
+		return
+	_status_accum = 0.0
+	_update_status()
+
+func _update_status() -> void:
+	if _status_label == null or player == null or player.world == null:
+		return
+	var pos: Vector3 = player.global_position
+	_status_label.text = "Seed %d  ·  %s  ·  (%d, %d, %d)  ·  %d FPS" % [
+		player.world.world_seed, player.world.biome_name_at(pos.x, pos.z),
+		floori(pos.x), floori(pos.y), floori(pos.z), Engine.get_frames_per_second()
+	]
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -87,6 +107,14 @@ func _build_ui() -> void:
 	hint.add_theme_color_override("font_color", Color(1, 1, 1, 0.6))
 	hint.add_theme_font_size_override("font_size", 12)
 	add_child(hint)
+
+	# Status line (top-left): seed, biome, position.
+	_status_label = Label.new()
+	_status_label.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	_status_label.position = Vector2(10, 8)
+	_status_label.add_theme_color_override("font_color", Color(1, 1, 1, 0.75))
+	_status_label.add_theme_font_size_override("font_size", 13)
+	add_child(_status_label)
 
 	# Crafting panel (2x2 grid + output).
 	_craft_panel = PanelContainer.new()

@@ -78,6 +78,12 @@ func is_air(id: int) -> bool:
 	return id == AIR
 
 
+func is_water(id: int) -> bool:
+	# Fluid blocks are rendered on a transparent surface and excluded from
+	# collision. Keep in sync with the registry's "Fluid" category.
+	return id == 7
+
+
 func has_block(id: int) -> bool:
 	return _blocks.has(id)
 
