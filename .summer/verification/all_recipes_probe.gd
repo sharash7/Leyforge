@@ -26,7 +26,7 @@ func _run() -> void:
 		ProgressionState.known_recipes[recipe_id] = true
 	for recipe_id in RecipeRegistry.get_all_recipe_ids():
 		var recipe := RecipeRegistry.get_recipe(recipe_id)
-		if str(recipe["station"]) == "furnace":
+		if str(recipe["station"]) in ["furnace", "mana_furnace"]:
 			_verify_furnace_recipe(recipe)
 		else:
 			_verify_grid_recipe(recipe)
@@ -85,7 +85,8 @@ func _verify_furnace_recipe(recipe: Dictionary) -> void:
 		inputs.append(Inventory.make_stack_from_ref(content_ref))
 	while inputs.size() < 3:
 		inputs.append({})
-	var matched := RecipeRegistry.match_furnace_recipe(inputs)
+	var matched := RecipeRegistry.match_furnace_recipe(
+		inputs, str(recipe["station"]))
 	_check(
 		str(matched.get("id", "")) == str(recipe["id"]),
 		"%s did not match its furnace inputs" % recipe["id"])

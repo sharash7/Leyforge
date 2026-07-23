@@ -9,7 +9,7 @@ const SAVE_PATH := "user://leyforge_save.json"
 const SAVE_TEMP_PATH := "user://leyforge_save.tmp"
 const SAVE_PREVIOUS_PATH := "user://leyforge_save.previous"
 const SAVE_BACKUP_PATH := "user://leyforge_save.backup.json"
-const SAVE_VERSION := 8
+const SAVE_VERSION := 9
 
 @onready var world: VoxelWorld = $VoxelWorld
 @onready var player: Player = $Player
@@ -70,6 +70,7 @@ func _save_game() -> void:
 		"block_entities": world.serialize_block_entities(),
 		"item_drops": world.serialize_item_drops(),
 		"progression": ProgressionState.serialize_state(),
+		"magic_player": MagicState.serialize_state(),
 		"hamlet": HamletState.serialize_state(),
 		"worldgen": world.get_worldgen_manifest(),
 	}
@@ -85,18 +86,30 @@ func _save_game() -> void:
 func _write_verified_temp(data: Dictionary) -> bool:
 	var f := FileAccess.open(SAVE_TEMP_PATH, FileAccess.WRITE)
 	if f == null:
+		push_warning("MAIN: could not open save temp path (%s)" % error_string(
+			FileAccess.get_open_error()))
 		return false
-	f.store_string(JSON.stringify(data))
+	var encoded := JSON.stringify(data)
+	if encoded.is_empty():
+		push_warning("MAIN: save state could not be encoded as JSON")
+		f.close()
+		return false
+	f.store_string(encoded)
 	f.flush()
 	var write_error := f.get_error()
 	f.close()
 	if write_error != OK:
+		push_warning("MAIN: save temp flush failed (%s)" % error_string(write_error))
 		return false
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(SAVE_TEMP_PATH))
 	if not (parsed is Dictionary):
+		push_warning("MAIN: save temp did not parse back to a dictionary")
 		return false
 	var verified: Dictionary = parsed
-	return int(verified.get("version", 0)) == SAVE_VERSION
+	if int(verified.get("version", 0)) != SAVE_VERSION:
+		push_warning("MAIN: save temp version verification failed")
+		return false
+	return true
 
 
 func _commit_temp_save() -> bool:
@@ -157,12 +170,13 @@ func _migrate_save(data: Dictionary) -> Dictionary:
 	var version := int(data.get("version", 0))
 	if version == SAVE_VERSION:
 		return data
-	if version in [2, 3, 4, 5, 6, 7]:
+	if version in [2, 3, 4, 5, 6, 7, 8]:
 		# v2 used raw numeric block ids; v3 introduced stable content identities;
 		# v4 added the Controlled POC Valley manifest. All upgrade in place to the
 		# unified item/progression/functional-block/automation state on the next
 		# save. v7 already has physical world drops and needs no structural
-		# rewrite beyond the version marker.
+		# rewrite beyond the version marker. v8 adds automation; v9 adds
+		# player magic and magic-network state under existing block entities.
 		var legacy_inventory: Dictionary
 		if version == 2:
 			legacy_inventory = {
@@ -184,6 +198,7 @@ func _migrate_save(data: Dictionary) -> Dictionary:
 			"block_entities": data.get("block_entities", {}),
 			"item_drops": data.get("item_drops", []),
 			"progression": data.get("progression", {}),
+			"magic_player": data.get("magic_player", {}),
 			"hamlet": data.get("hamlet", {}),
 			"worldgen": data.get("worldgen", {}) if version >= 4 else {},
 		}
@@ -200,6 +215,11 @@ func _apply_save(data: Dictionary) -> void:
 	var progression_data: Variant = data.get("progression", {})
 	if progression_data is Dictionary and not progression_data.is_empty():
 		ProgressionState.restore_state(progression_data)
+	var magic_player_data: Variant = data.get("magic_player", {})
+	if magic_player_data is Dictionary and not magic_player_data.is_empty():
+		MagicState.restore_state(magic_player_data)
+	else:
+		MagicState.reset()
 	var hamlet_data: Variant = data.get("hamlet", {})
 	if hamlet_data is Dictionary and not hamlet_data.is_empty():
 		if not HamletState.restore_state(hamlet_data, world.world_seed):

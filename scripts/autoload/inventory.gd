@@ -506,7 +506,7 @@ func set_craft_slot(index: int, stack: Dictionary) -> void:
 
 
 func set_crafting_station(station: String) -> void:
-	crafting_station = "workbench" if station == "workbench" else "hand"
+	crafting_station = station if station in ["workbench", "rune_table"] else "hand"
 	# A 2x2 hand grid uses the top-left cells of the persistent 3x3 storage.
 	# Return inaccessible workbench-only cells before shrinking the view.
 	if crafting_station == "hand":
@@ -520,7 +520,7 @@ func set_crafting_station(station: String) -> void:
 
 func get_active_craft_indices() -> Array[int]:
 	var indices: Array[int] = [0, 1, 3, 4]
-	if crafting_station == "workbench":
+	if crafting_station in ["workbench", "rune_table"]:
 		indices = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 	return indices
 
@@ -666,8 +666,9 @@ func restore_state(data: Dictionary) -> void:
 			craft_grid[int(mapping[1])] = deserialize_stack(saved_grid[int(mapping[0])])
 	else:
 		craft_grid.assign(_deserialize_slots(saved_grid, CRAFT_SIZE))
-	crafting_station = "workbench" if str(data.get("crafting_station", "hand")) == "workbench" \
-		else "hand"
+	var saved_station := str(data.get("crafting_station", "hand"))
+	crafting_station = saved_station \
+		if saved_station in ["workbench", "rune_table"] else "hand"
 	selected_slot = clampi(int(data.get("selected_slot", 0)), 0, HOTBAR_SIZE - 1)
 	_update_craft_output()
 	_emit_inventory_changed()

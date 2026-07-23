@@ -43,11 +43,30 @@ func discover_station(stable_id: String) -> void:
 		station = "workbench"
 	elif stable_id == "functional.furnace.stone":
 		station = "furnace"
+	elif stable_id == "magic.rune_table.basic":
+		station = "rune_table"
+	elif stable_id == "magic.furnace.mana":
+		station = "mana_furnace"
 	if station.is_empty():
+		return
+	if station == "rune_table" and not has_basic_magic_knowledge():
 		return
 	for recipe in RecipeRegistry.get_recipes_for_station(station):
 		known_recipes[str(recipe["id"])] = true
 	progression_changed.emit()
+
+
+func unlock_basic_magic(source_id: String) -> void:
+	discovered_content["knowledge.magic.basic_rune"] = true
+	if not source_id.is_empty():
+		discovered_content[source_id] = true
+	for recipe in RecipeRegistry.get_recipes_for_station("rune_table"):
+		known_recipes[str(recipe["id"])] = true
+	progression_changed.emit()
+
+
+func has_basic_magic_knowledge() -> bool:
+	return discovered_content.has("knowledge.magic.basic_rune")
 
 
 func record_harvest(stable_id: String, count: int = 1) -> void:
@@ -76,9 +95,13 @@ func is_recipe_known(recipe_id: String) -> bool:
 
 func _refresh_recipe_knowledge() -> void:
 	# Furnace transformations become known when their primary input is found.
-	for recipe in RecipeRegistry.get_recipes_for_station("furnace"):
-		var inputs: Array = recipe["inputs"]
-		if not inputs.is_empty() and discovered_content.has(str(inputs[0]["stable_id"])):
+	for station in ["furnace", "mana_furnace"]:
+		for recipe in RecipeRegistry.get_recipes_for_station(station):
+			var inputs: Array = recipe["inputs"]
+			if not inputs.is_empty() and discovered_content.has(str(inputs[0]["stable_id"])):
+				known_recipes[str(recipe["id"])] = true
+	if has_basic_magic_knowledge():
+		for recipe in RecipeRegistry.get_recipes_for_station("rune_table"):
 			known_recipes[str(recipe["id"])] = true
 
 

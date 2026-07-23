@@ -17,7 +17,8 @@ func _ref(kind: String, stable_id: String, count: int = 1) -> Dictionary:
 
 
 func _add(id: String, display_name: String, station: String, inputs: Array,
-		output: Dictionary, known_start := false, seconds := 0.0) -> void:
+		output: Dictionary, known_start := false, seconds := 0.0,
+		mana_cost := 0.0) -> void:
 	var definition := {
 		"id": id,
 		"name": display_name,
@@ -26,6 +27,7 @@ func _add(id: String, display_name: String, station: String, inputs: Array,
 		"output": output,
 		"known_start": known_start,
 		"seconds": seconds,
+		"mana_cost": mana_cost,
 	}
 	_recipes[id] = definition
 	_ordered_ids.append(id)
@@ -177,6 +179,65 @@ func _register_stage3_recipes() -> void:
 		_ref("item", "item.material.iron_plate", 4),
 		_ref("item", "item.material.copper_wire", 2),
 	], _ref("block", "automation.village.warehouse_input_hatch"))
+	# Stage 6 entry magic. The normal workbench makes physical station shells;
+	# rune inscriptions and charged cores remain exclusive to the Rune Table.
+	_add("recipe.workbench.material.blank_rune_stone", "Blank Rune Stone", "workbench", [
+		_ref("item", "item.material.stone_brick"),
+		_ref("item", "item.material.glass_piece"),
+	], _ref("item", "item.material.blank_rune_stone", 2))
+	_add("recipe.workbench.block.rune_table", "Rune Table", "workbench", [
+		_ref("item", "item.material.stone_brick", 4),
+		_ref("item", "item.material.copper_wire", 2),
+		_ref("item", "item.material.glass_piece"),
+	], _ref("block", "magic.rune_table.basic"))
+	_add("recipe.workbench.block.mana_furnace", "Mana Furnace", "workbench", [
+		_ref("block", "functional.furnace.stone"),
+		_ref("item", "item.magic.rune.basic"),
+		_ref("item", "item.component.mana_coil", 2),
+		_ref("item", "item.material.copper_plate", 4),
+	], _ref("block", "magic.furnace.mana"))
+	_add("recipe.workbench.block.mana_battery", "Mana Battery", "workbench", [
+		_ref("item", "item.magic.mana_battery_core"),
+		_ref("item", "item.material.copper_plate", 4),
+		_ref("item", "item.material.glass_piece", 2),
+	], _ref("block", "magic.battery.mana"))
+	_add("recipe.workbench.block.mana_conduit", "Basic Mana Conduits", "workbench", [
+		_ref("item", "item.component.mana_coil"),
+		_ref("item", "item.material.copper_wire", 2),
+		_ref("item", "item.material.glass_piece"),
+	], _ref("block", "magic.conduit.mana_basic", 4))
+	_add("recipe.workbench.block.ward_lantern", "Ward Lantern", "workbench", [
+		_ref("item", "item.component.ward_lantern_core"),
+		_ref("block", "light.torch.basic"),
+		_ref("item", "item.material.copper_wire", 2),
+		_ref("item", "item.material.glass_piece", 2),
+	], _ref("block", "magic.ward_lantern.basic"))
+
+	_add("recipe.rune_table.component.mana_coil", "Mana Coil", "rune_table", [
+		_ref("item", "item.material.copper_wire", 4),
+		_ref("item", "item.resource.mana_dust", 2),
+	], _ref("item", "item.component.mana_coil"))
+	_add("recipe.rune_table.rune.basic", "Basic Rune", "rune_table", [
+		_ref("item", "item.material.blank_rune_stone"),
+		_ref("item", "item.resource.mana_dust", 2),
+		_ref("item", "item.material.copper_wire"),
+	], _ref("item", "item.magic.rune.basic"))
+	_add("recipe.rune_table.core.ward_basic", "Basic Ward Core", "rune_table", [
+		_ref("item", "item.magic.rune.basic"),
+		_ref("item", "item.resource.mana_shard", 2),
+		_ref("item", "item.material.copper_plate"),
+		_ref("item", "item.material.glass_piece"),
+	], _ref("item", "item.magic.core.ward_basic"))
+	_add("recipe.rune_table.component.ward_lantern_core", "Ward Lantern Core", "rune_table", [
+		_ref("item", "item.magic.core.ward_basic"),
+		_ref("item", "item.material.iron_plate", 2),
+		_ref("item", "item.material.glass_piece"),
+	], _ref("item", "item.component.ward_lantern_core"))
+	_add("recipe.rune_table.core.mana_battery", "Mana Battery Core", "rune_table", [
+		_ref("item", "item.magic.rune.basic"),
+		_ref("item", "item.resource.mana_shard", 4),
+		_ref("item", "item.material.copper_plate", 2),
+	], _ref("item", "item.magic.mana_battery_core"))
 
 	_add("recipe.furnace.material.clay_brick", "Clay Brick", "furnace", [
 		_ref("item", "item.resource.clay_lump"),
@@ -195,6 +256,24 @@ func _register_stage3_recipes() -> void:
 	_add("recipe.furnace.ingot.iron", "Iron Ingot", "furnace", [
 		_ref("item", "item.resource.raw_iron_ore"),
 	], _ref("item", "item.material.iron_ingot"), false, 18.0)
+	_add("recipe.furnace.magic.mana_shard", "Mana Shards", "furnace", [
+		_ref("item", "item.resource.raw_mana_crystal"),
+	], _ref("item", "item.resource.mana_shard", 2), false, 16.0)
+	_add("recipe.furnace.magic.mana_dust", "Mana Dust", "furnace", [
+		_ref("item", "item.resource.mana_shard"),
+	], _ref("item", "item.resource.mana_dust", 2), false, 10.0)
+	_add("recipe.mana_furnace.ingot.copper", "Mana-refined Copper", "mana_furnace", [
+		_ref("item", "item.resource.raw_copper_ore"),
+	], _ref("item", "item.material.copper_ingot"), false, 9.0, 9.0)
+	_add("recipe.mana_furnace.ingot.iron", "Mana-refined Iron", "mana_furnace", [
+		_ref("item", "item.resource.raw_iron_ore"),
+	], _ref("item", "item.material.iron_ingot"), false, 11.0, 12.0)
+	_add("recipe.mana_furnace.magic.mana_shard", "Resonant Mana Shards", "mana_furnace", [
+		_ref("item", "item.resource.raw_mana_crystal"),
+	], _ref("item", "item.resource.mana_shard", 3), false, 8.0, 8.0)
+	_add("recipe.mana_furnace.magic.mana_dust", "Resonant Mana Dust", "mana_furnace", [
+		_ref("item", "item.resource.mana_shard"),
+	], _ref("item", "item.resource.mana_dust", 3), false, 6.0, 6.0)
 	_register_crafting_patterns()
 
 
@@ -413,6 +492,77 @@ func _register_crafting_patterns() -> void:
 		_cell(1, 2, "item", "item.material.copper_wire"),
 		_cell(2, 2, "item", "item.material.iron_plate"),
 	])
+	_set_shapeless("recipe.workbench.material.blank_rune_stone")
+	_set_pattern("recipe.workbench.block.rune_table", 3, 3, [
+		_cell(0, 0, "item", "item.material.stone_brick"),
+		_cell(1, 0, "item", "item.material.copper_wire"),
+		_cell(2, 0, "item", "item.material.stone_brick"),
+		_cell(0, 1, "item", "item.material.stone_brick"),
+		_cell(1, 1, "item", "item.material.glass_piece"),
+		_cell(2, 1, "item", "item.material.stone_brick"),
+		_cell(1, 2, "item", "item.material.copper_wire"),
+	])
+	_set_pattern("recipe.workbench.block.mana_furnace", 3, 3, [
+		_cell(0, 0, "item", "item.material.copper_plate"),
+		_cell(1, 0, "item", "item.component.mana_coil"),
+		_cell(2, 0, "item", "item.material.copper_plate"),
+		_cell(0, 1, "item", "item.component.mana_coil"),
+		_cell(1, 1, "block", "functional.furnace.stone"),
+		_cell(2, 1, "item", "item.magic.rune.basic"),
+		_cell(0, 2, "item", "item.material.copper_plate"),
+		_cell(2, 2, "item", "item.material.copper_plate"),
+	])
+	_set_pattern("recipe.workbench.block.mana_battery", 3, 3, [
+		_cell(0, 0, "item", "item.material.copper_plate"),
+		_cell(1, 0, "item", "item.material.glass_piece"),
+		_cell(2, 0, "item", "item.material.copper_plate"),
+		_cell(0, 1, "item", "item.material.copper_plate"),
+		_cell(1, 1, "item", "item.magic.mana_battery_core"),
+		_cell(2, 1, "item", "item.material.copper_plate"),
+		_cell(1, 2, "item", "item.material.glass_piece"),
+	])
+	_set_pattern("recipe.workbench.block.mana_conduit", 3, 1, [
+		_cell(0, 0, "item", "item.material.copper_wire", 2),
+		_cell(1, 0, "item", "item.component.mana_coil"),
+		_cell(2, 0, "item", "item.material.glass_piece"),
+	])
+	_set_pattern("recipe.workbench.block.ward_lantern", 3, 3, [
+		_cell(0, 0, "item", "item.material.glass_piece"),
+		_cell(1, 0, "item", "item.material.copper_wire"),
+		_cell(2, 0, "item", "item.material.glass_piece"),
+		_cell(0, 1, "item", "item.material.copper_wire"),
+		_cell(1, 1, "item", "item.component.ward_lantern_core"),
+		_cell(2, 1, "block", "light.torch.basic"),
+	])
+	_set_shapeless("recipe.rune_table.component.mana_coil")
+	_set_pattern("recipe.rune_table.rune.basic", 3, 3, [
+		_cell(1, 0, "item", "item.resource.mana_dust"),
+		_cell(0, 1, "item", "item.resource.mana_dust"),
+		_cell(1, 1, "item", "item.material.blank_rune_stone"),
+		_cell(2, 1, "item", "item.material.copper_wire"),
+	])
+	_set_pattern("recipe.rune_table.core.ward_basic", 3, 3, [
+		_cell(0, 0, "item", "item.resource.mana_shard"),
+		_cell(2, 0, "item", "item.resource.mana_shard"),
+		_cell(0, 1, "item", "item.material.copper_plate"),
+		_cell(1, 1, "item", "item.magic.rune.basic"),
+		_cell(2, 1, "item", "item.material.glass_piece"),
+	])
+	_set_pattern("recipe.rune_table.component.ward_lantern_core", 3, 3, [
+		_cell(0, 0, "item", "item.material.iron_plate"),
+		_cell(2, 0, "item", "item.material.iron_plate"),
+		_cell(1, 1, "item", "item.magic.core.ward_basic"),
+		_cell(1, 2, "item", "item.material.glass_piece"),
+	])
+	_set_pattern("recipe.rune_table.core.mana_battery", 3, 3, [
+		_cell(0, 0, "item", "item.resource.mana_shard"),
+		_cell(1, 0, "item", "item.resource.mana_shard"),
+		_cell(2, 0, "item", "item.resource.mana_shard"),
+		_cell(0, 1, "item", "item.material.copper_plate"),
+		_cell(1, 1, "item", "item.magic.rune.basic"),
+		_cell(2, 1, "item", "item.material.copper_plate"),
+		_cell(1, 2, "item", "item.resource.mana_shard"),
+	])
 
 
 func get_recipe(id: String) -> Dictionary:
@@ -428,10 +578,10 @@ func get_recipes_for_station(station: String) -> Array[Dictionary]:
 	return out
 
 
-func find_furnace_recipe_for(stack: Dictionary) -> Dictionary:
+func find_furnace_recipe_for(stack: Dictionary, station: String = "furnace") -> Dictionary:
 	if stack.is_empty():
 		return {}
-	for recipe in get_recipes_for_station("furnace"):
+	for recipe in get_recipes_for_station(station):
 		var inputs: Array = recipe["inputs"]
 		if inputs.size() != 1:
 			continue
@@ -441,8 +591,8 @@ func find_furnace_recipe_for(stack: Dictionary) -> Dictionary:
 	return {}
 
 
-func match_furnace_recipe(inputs: Array) -> Dictionary:
-	for recipe in get_recipes_for_station("furnace"):
+func match_furnace_recipe(inputs: Array, station: String = "furnace") -> Dictionary:
+	for recipe in get_recipes_for_station(station):
 		var matches := true
 		for content_ref in recipe["inputs"]:
 			var available := 0
@@ -452,9 +602,45 @@ func match_furnace_recipe(inputs: Array) -> Dictionary:
 			if available < int(content_ref["count"]):
 				matches = false
 				break
-		if matches:
+		if matches and _all_furnace_inputs_belong_to_recipe(inputs, recipe):
 			return recipe
 	return {}
+
+
+func _all_furnace_inputs_belong_to_recipe(
+		inputs: Array, recipe: Dictionary) -> bool:
+	for stack_value in inputs:
+		var stack: Dictionary = stack_value
+		if stack.is_empty():
+			continue
+		var belongs := false
+		for content_ref in recipe.get("inputs", []):
+			if Inventory.stack_matches_ref(stack, content_ref):
+				belongs = true
+				break
+		if not belongs:
+			return false
+	return true
+
+
+func furnace_inputs_compatible(
+		inputs: Array, incoming: Dictionary,
+		station: String = "furnace") -> bool:
+	if incoming.is_empty():
+		return true
+	var proposed := inputs.duplicate(true)
+	proposed.append(incoming)
+	for recipe in get_recipes_for_station(station):
+		if not _all_furnace_inputs_belong_to_recipe(proposed, recipe):
+			continue
+		var incoming_matches := false
+		for content_ref in recipe.get("inputs", []):
+			if Inventory.stack_matches_ref(incoming, content_ref):
+				incoming_matches = true
+				break
+		if incoming_matches:
+			return true
+	return false
 
 
 func match_crafting_grid(grid: Array, grid_size: int, station: String) -> Dictionary:
@@ -558,12 +744,18 @@ func _match_shaped(grid: Array, grid_size: int, pattern: Dictionary) -> Dictiona
 	return {}
 
 
-func is_furnace_ingredient(stack: Dictionary) -> bool:
-	for recipe in get_recipes_for_station("furnace"):
+func is_furnace_ingredient(
+		stack: Dictionary, station: String = "furnace") -> bool:
+	for recipe in get_recipes_for_station(station):
 		for content_ref in recipe["inputs"]:
 			if Inventory.stack_matches_ref(stack, content_ref):
 				return true
 	return false
+
+
+func is_any_furnace_ingredient(stack: Dictionary) -> bool:
+	return is_furnace_ingredient(stack, "furnace") \
+		or is_furnace_ingredient(stack, "mana_furnace")
 
 
 func get_all_recipe_ids() -> Array[String]:

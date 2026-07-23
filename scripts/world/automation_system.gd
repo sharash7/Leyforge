@@ -424,14 +424,15 @@ func _find_route(source: Vector3i, stack: Dictionary, amount: int) -> Dictionary
 			if position == source or not world.is_automation_endpoint(position):
 				continue
 			var mode := _delivery_mode_at(position)
-			var reserved := _reserved_for_destination(position, stack)
-			if world.automation_endpoint_capacity(position, stack, mode) \
-					- reserved < amount:
+			var pending := _pending_for_destination(position)
+			if world.automation_endpoint_capacity_with_pending(
+					position, stack, mode, pending) < amount:
 				continue
 			candidates.append({
 				"key": neighbor,
 				"priority": _endpoint_priority(
-					world.automation_endpoint_kind(position), stack, policy),
+					world.automation_endpoint_kind(position), stack, policy,
+					position),
 				"distance": int(distance[neighbor]),
 				"mode": mode,
 			})
@@ -456,13 +457,15 @@ func _find_route(source: Vector3i, stack: Dictionary, amount: int) -> Dictionary
 	}
 
 
-func _endpoint_priority(kind: String, stack: Dictionary, policy: String) -> int:
+func _endpoint_priority(
+		kind: String, stack: Dictionary, policy: String,
+		position: Vector3i = Vector3i.ZERO) -> int:
 	if policy == "processing_first":
 		return {"furnace": 0, "crate": 10, "warehouse_hatch": 20}.get(kind, 50)
 	if policy == "storage_first":
 		return {"crate": 0, "warehouse_hatch": 10, "furnace": 20}.get(kind, 50)
-	var stable_id := Inventory.stack_stable_id(stack)
-	if stable_id == "item.resource.raw_iron_ore":
+	if kind == "furnace" \
+			and world.automation_endpoint_prefers_stack(position, stack):
 		return {"furnace": 0, "warehouse_hatch": 10, "crate": 20}.get(kind, 50)
 	return {"warehouse_hatch": 0, "crate": 10, "furnace": 20}.get(kind, 50)
 
@@ -480,13 +483,12 @@ func _delivery_mode_at(position: Vector3i) -> String:
 	return str(state.get("delivery_mode", "donation"))
 
 
-func _reserved_for_destination(destination: Vector3i, stack: Dictionary) -> int:
-	var reserved := 0
+func _pending_for_destination(destination: Vector3i) -> Array:
+	var pending: Array = []
 	for batch in batches:
-		if Vector3i(batch.get("destination", Vector3i.ZERO)) == destination \
-				and Inventory._can_merge(batch.get("stack", {}), stack):
-			reserved += int(batch.get("stack", {}).get("count", 0))
-	return reserved
+		if Vector3i(batch.get("destination", Vector3i.ZERO)) == destination:
+			pending.append(batch.get("stack", {}).duplicate(true))
+	return pending
 
 
 func _rebuild_topology() -> void:

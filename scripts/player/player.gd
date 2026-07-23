@@ -83,6 +83,43 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("place_block"):
 		if not _try_interact():
 			_try_place()
+	elif event.is_action_pressed("cast_utility"):
+		_cast_stone_sense()
+	elif event.is_action_pressed("cast_combat"):
+		_cast_spark_bolt()
+
+
+func _cast_stone_sense() -> void:
+	if world == null:
+		return
+	var result := MagicState.begin_cast("spell.stone_sense")
+	if not bool(result.get("ok", false)):
+		interaction_message.emit(str(result.get("message", "Stone Sense failed.")))
+		return
+	var targets := world.find_stone_sense_targets(global_position)
+	interaction_message.emit(
+		"Stone Sense reveals %d nearby ore%s." % [
+			targets.size(), "" if targets.size() == 1 else "s"])
+
+
+func _cast_spark_bolt() -> void:
+	if world == null:
+		return
+	ray.force_raycast_update()
+	var target: Object = ray.get_collider() if ray.is_colliding() else null
+	var result := MagicState.cast_spark_bolt(target)
+	if not bool(result.get("ok", false)):
+		interaction_message.emit(str(result.get("message", "Spark Bolt failed.")))
+		return
+	var impact := ray.get_collision_point() \
+		if ray.is_colliding() else camera.global_position \
+			+ -camera.global_basis.z * REACH
+	var hit := bool(result.get("hit", false))
+	world.show_spell_impact(impact, hit)
+	interaction_message.emit(
+		"Spark Bolt hit for %d shock damage." % int(
+			result.get("damage_packet", {}).get("amount", 0.0))
+		if hit else "Spark Bolt discharged harmlessly.")
 
 
 func _physics_process(delta: float) -> void:

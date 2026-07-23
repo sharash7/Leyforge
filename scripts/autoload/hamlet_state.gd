@@ -540,7 +540,11 @@ func get_dialogue(npc_id: String) -> String:
 	if job_id == "job.merchant.basic":
 		return "Trust opens doors here. Help the hamlet first; better trade can follow."
 	if job_id == "job.mage.apprentice":
-		return "There is mana in this valley, but the tower and its people come before deeper study."
+		if reputation_state == REP_STRANGER:
+			return "There is mana in this valley, but trust and the hamlet's safety come before deeper study."
+		if ProgressionState.has_basic_magic_knowledge():
+			return "The Basic Rune links crystal, conduit, furnace, and ward. Keep the source visible and heed every fault."
+		return "You have helped Hearthplain. I can teach the Basic Rune, Stone Sense, and Spark Bolt."
 	if job_id == "job.miner.basic":
 		return "Stone is plentiful near the cave. Good tools turn it into a proper foundation."
 	return "Oak from the forest will make a strong frame. Replace what you take when you can."

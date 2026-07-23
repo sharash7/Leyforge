@@ -37,6 +37,10 @@ var _automation_status_label: Label
 var _automation_details_label: Label
 var _automation_action_button: Button
 var _automation_ledger_label: Label
+var _magic_area: VBoxContainer
+var _magic_status_label: Label
+var _magic_details_label: Label
+var _magic_action_button: Button
 var _request_area: VBoxContainer
 var _request_reputation_label: Label
 var _request_project_label: Label
@@ -59,6 +63,7 @@ var _furnace_fuel_button: InventorySlotButton
 var _furnace_output_button: InventorySlotButton
 var _furnace_progress: Label
 var _status_label: Label
+var _magic_hud_label: Label
 var _context_label: Label
 var _status_accum := 0.0
 var _context_seconds := 0.0
@@ -76,6 +81,7 @@ func _ready() -> void:
 	HamletState.project_changed.connect(_refresh_all)
 	HamletState.delivery_ledger_changed.connect(_refresh_all)
 	HamletState.npc_changed.connect(func(_npc_id: String) -> void: _refresh_all())
+	MagicState.magic_changed.connect(_refresh_all)
 	_refresh_all()
 
 
@@ -93,10 +99,12 @@ func _process(delta: float) -> void:
 		return
 	_status_accum = 0.0
 	_update_status()
-	if craft_open and craft_mode == "furnace":
+	if craft_open and craft_mode in ["furnace", "mana_furnace"]:
 		_refresh_furnace()
 	elif craft_open and craft_mode == "automation":
 		_refresh_automation()
+	elif craft_open and craft_mode == "magic":
+		_refresh_magic()
 
 
 func _update_status() -> void:
@@ -115,6 +123,8 @@ func _update_status() -> void:
 		landmark, HamletState.get_clock_text(), floori(pos.x), floori(pos.y), floori(pos.z),
 		Engine.get_frames_per_second(),
 	]
+	_magic_hud_label.text = "%s  ·  Z Stone Sense  ·  X Spark Bolt" % \
+		MagicState.status_text()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -150,8 +160,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_interaction_requested(kind: String, position: Vector3i, subject_id: String) -> void:
 	interaction_subject_id = subject_id
 	if kind in [
-		"workbench", "furnace", "chest", "warehouse", "request_board",
-		"npc", "automation",
+		"workbench", "furnace", "mana_furnace", "rune_table", "chest",
+		"warehouse", "request_board", "npc", "automation", "magic",
 	]:
 		_open_mode(kind, position)
 
@@ -159,13 +169,22 @@ func _on_interaction_requested(kind: String, position: Vector3i, subject_id: Str
 func _open_mode(mode: String, position: Vector3i) -> void:
 	craft_mode = mode
 	station_position = position
-	if mode == "workbench":
-		Inventory.set_crafting_station("workbench")
-		ProgressionState.discover_station("functional.workbench.basic")
-	elif mode == "furnace":
-		ProgressionState.discover_station("functional.furnace.stone")
+	if mode in ["workbench", "rune_table"]:
+		Inventory.set_crafting_station(mode)
+		ProgressionState.discover_station(
+			"functional.workbench.basic"
+			if mode == "workbench" else "magic.rune_table.basic")
+	elif mode in ["furnace", "mana_furnace"]:
+		ProgressionState.discover_station(
+			"functional.furnace.stone"
+			if mode == "furnace" else "magic.furnace.mana")
 	else:
 		Inventory.set_crafting_station("hand")
+	if mode == "npc":
+		var record := HamletState.get_npc_record(interaction_subject_id)
+		if str(record.get("job_id", "")) == "job.mage.apprentice" \
+				and HamletState.reputation_state != HamletState.REP_STRANGER:
+			MagicState.unlock_poc_magic("npc.village_mage.forest")
 	_set_craft_open(true)
 
 
@@ -175,7 +194,7 @@ func _set_craft_open(open: bool) -> void:
 	if player != null:
 		player.controls_locked = open
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if open else Input.MOUSE_MODE_CAPTURED
-	if not open and craft_mode == "workbench":
+	if not open and craft_mode in ["workbench", "rune_table"]:
 		Inventory.set_crafting_station("hand")
 	if open:
 		_refresh_all()
@@ -212,6 +231,7 @@ func _build_ui() -> void:
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hint.position = Vector2(0, -18)
 	hint.text = "LMB harvest · RMB place/interact · E inventory/craft · C creative · drag slots · Esc mouse"
+	hint.text = "LMB harvest · RMB interact · Z Stone Sense · X Spark Bolt · E craft · C creative · Esc mouse"
 	hint.add_theme_color_override("font_color", Color(1, 1, 1, 0.65))
 	hint.add_theme_font_size_override("font_size", 12)
 	add_child(hint)
@@ -222,6 +242,14 @@ func _build_ui() -> void:
 	_status_label.add_theme_color_override("font_color", Color(1, 1, 1, 0.78))
 	_status_label.add_theme_font_size_override("font_size", 13)
 	add_child(_status_label)
+
+	_magic_hud_label = Label.new()
+	_magic_hud_label.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	_magic_hud_label.position = Vector2(10, 28)
+	_magic_hud_label.add_theme_color_override(
+		"font_color", Color(0.62, 0.82, 1.0, 0.86))
+	_magic_hud_label.add_theme_font_size_override("font_size", 13)
+	add_child(_magic_hud_label)
 
 	_context_label = Label.new()
 	_context_label.set_anchors_preset(Control.PRESET_TOP_WIDE)
@@ -251,6 +279,7 @@ func _build_ui() -> void:
 	_build_chest_ui(left)
 	_build_warehouse_ui(left)
 	_build_automation_ui(left)
+	_build_magic_ui(left)
 	_build_request_ui(left)
 	_build_dialogue_ui(left)
 	_build_creative_ui(left)
@@ -368,6 +397,25 @@ func _build_automation_ui(parent: VBoxContainer) -> void:
 	_automation_ledger_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_automation_area.add_child(_automation_ledger_label)
 	parent.add_child(_automation_area)
+
+
+func _build_magic_ui(parent: VBoxContainer) -> void:
+	_magic_area = VBoxContainer.new()
+	_magic_area.add_theme_constant_override("separation", 10)
+	_magic_status_label = Label.new()
+	_magic_status_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_magic_status_label.add_theme_font_size_override("font_size", 18)
+	_magic_area.add_child(_magic_status_label)
+	_magic_details_label = Label.new()
+	_magic_details_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_magic_details_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_magic_details_label.custom_minimum_size = Vector2(410, 190)
+	_magic_area.add_child(_magic_details_label)
+	_magic_action_button = Button.new()
+	_magic_action_button.custom_minimum_size = Vector2(410, 44)
+	_magic_action_button.pressed.connect(_on_magic_action)
+	_magic_area.add_child(_magic_action_button)
+	parent.add_child(_magic_area)
 
 
 func _build_request_ui(parent: VBoxContainer) -> void:
@@ -728,6 +776,14 @@ func _on_automation_action() -> void:
 	_refresh_automation()
 
 
+func _on_magic_action() -> void:
+	if player == null or player.world == null:
+		return
+	var result := player.world.perform_magic_action(station_position)
+	_show_context(str(result.get("message", "Magic action failed.")))
+	_refresh_magic()
+
+
 func get_drag_stack(group: String, index: int) -> Dictionary:
 	if group == "trash":
 		return {}
@@ -760,7 +816,7 @@ func can_drop_stack(source_group: String, source_index: int,
 		return false
 	if (source_group.begins_with("furnace_")
 			or destination_group.begins_with("furnace_")) \
-			and craft_mode != "furnace":
+			and craft_mode not in ["furnace", "mana_furnace"]:
 		return false
 	if destination_group == "furnace_output":
 		return false
@@ -768,15 +824,17 @@ func can_drop_stack(source_group: String, source_index: int,
 	var destination := get_drag_stack(destination_group, destination_index)
 	if destination_group in ["furnace_input", "furnace_fuel"] \
 			and not player.world.furnace_slot_accepts_stack(
-				_furnace_target_for_group(destination_group), source):
+				_furnace_target_for_group(destination_group), source,
+				player.world.furnace_station_at(station_position)):
 		return false
 	# An incompatible occupied destination causes a swap. Validate the stack
 	# moving back into a furnace source before advertising the drop as legal.
 	if source_group.begins_with("furnace_") and not destination.is_empty() \
 			and not Inventory._can_merge(destination, source):
 		if source_group == "furnace_output" \
-				or not player.world.furnace_slot_accepts_stack(
-					_furnace_target_for_group(source_group), destination):
+			or not player.world.furnace_slot_accepts_stack(
+					_furnace_target_for_group(source_group), destination,
+					player.world.furnace_station_at(station_position)):
 			return false
 	if destination_group == "craft" \
 			and not Inventory.get_active_craft_indices().has(destination_index):
@@ -951,25 +1009,30 @@ func _refresh_all() -> void:
 	_refresh_dialogue()
 	_refresh_furnace()
 	_refresh_automation()
+	_refresh_magic()
 
 
 func _refresh_context_visibility() -> void:
-	_crafting_area.visible = craft_mode in ["hand", "workbench"]
+	_crafting_area.visible = craft_mode in ["hand", "workbench", "rune_table"]
 	_chest_area.visible = craft_mode == "chest"
 	_warehouse_area.visible = craft_mode == "warehouse"
 	_automation_area.visible = craft_mode == "automation"
+	_magic_area.visible = craft_mode == "magic"
 	_request_area.visible = craft_mode == "request_board"
 	_dialogue_area.visible = craft_mode == "npc"
 	_creative_area.visible = craft_mode == "creative"
-	_furnace_row.visible = craft_mode == "furnace"
-	_furnace_progress.visible = craft_mode == "furnace"
+	_furnace_row.visible = craft_mode in ["furnace", "mana_furnace"]
+	_furnace_progress.visible = craft_mode in ["furnace", "mana_furnace"]
 	_craft_title.text = {
 		"hand": "Hand Crafting (2×2)",
 		"workbench": "Workbench Crafting (3×3)",
 		"furnace": "Stone Furnace",
+		"rune_table": "Rune Table (3×3)",
+		"mana_furnace": "Mana Furnace",
 		"chest": "Wooden Chest",
 		"warehouse": "Forest Hamlet Warehouse",
 		"automation": "Automation Inspection",
+		"magic": "Magic Infrastructure",
 		"request_board": "Hamlet Request Board",
 		"npc": "Village Conversation",
 		"creative": "Creative Testing Catalogue",
@@ -1059,7 +1122,8 @@ func _refresh_dialogue() -> void:
 
 
 func _refresh_furnace() -> void:
-	if craft_mode != "furnace" or not craft_open or player == null or player.world == null:
+	if craft_mode not in ["furnace", "mana_furnace"] \
+			or not craft_open or player == null or player.world == null:
 		return
 	var state := player.world.get_furnace_state(station_position)
 	if state.is_empty():
@@ -1067,7 +1131,10 @@ func _refresh_furnace() -> void:
 		return
 	for i in 3:
 		_paint_slot(_furnace_input_buttons[i], state["inputs"][i], false, "Input %d" % (i + 1))
-	_paint_slot(_furnace_fuel_button, state["fuel"], false, "Fuel")
+	_paint_slot(
+		_furnace_fuel_button, state["fuel"], false,
+		"Network Mana" if craft_mode == "mana_furnace" else "Fuel")
+	_furnace_fuel_button.disabled = craft_mode == "mana_furnace"
 	_paint_slot(_furnace_output_button, state["output"], false, "Output")
 	var recipe := RecipeRegistry.get_recipe(str(state.get("recipe_id", "")))
 	var duration := float(recipe.get("seconds", 0.0))
@@ -1080,13 +1147,27 @@ func _refresh_furnace() -> void:
 			and int(output.get("count", 0)) >= Inventory.stack_max_count(output):
 		process_status = "OUTPUT BLOCKED - take or route the finished stack"
 	elif not recipe.is_empty() and float(state.get("burn_remaining", 0.0)) <= 0.0 \
-			and state.get("fuel", {}).is_empty():
+			and state.get("fuel", {}).is_empty() and craft_mode == "furnace":
 		process_status = "NO FUEL - insert coal, logs, or planks"
-	_furnace_progress.text = "%s · %d%% · fuel %.1fs" % [
-		process_status,
-		percent,
-		float(state.get("burn_remaining", 0.0)),
-	]
+	if craft_mode == "mana_furnace":
+		var inspection: Dictionary = player.world.get_magic_inspection(
+			station_position)
+		var fault := str(player.world.get_magic_state(
+			station_position).get("fault", "unavailable"))
+		if fault in ["unlinked", "no_mana"]:
+			process_status = "MAGIC FAULT - %s" % fault.replace("_", " ")
+		_furnace_progress.text = "%s · %d%% · mana %.1f/%.1f · %s" % [
+			process_status, percent,
+			float(state.get("mana_spent", 0.0)),
+			float(recipe.get("mana_cost", 0.0)),
+			str(inspection.get("status", "offline")),
+		]
+	else:
+		_furnace_progress.text = "%s · %d%% · fuel %.1fs" % [
+			process_status,
+			percent,
+			float(state.get("burn_remaining", 0.0)),
+		]
 
 
 func _refresh_automation() -> void:
@@ -1127,6 +1208,25 @@ func _refresh_automation() -> void:
 	_automation_ledger_label.text = "Recent warehouse deliveries\n%s" % (
 		"No automated deliveries yet."
 		if ledger_lines.is_empty() else "\n".join(ledger_lines))
+
+
+func _refresh_magic() -> void:
+	if craft_mode != "magic" or not craft_open \
+			or player == null or player.world == null:
+		return
+	var inspection := player.world.get_magic_inspection(station_position)
+	if inspection.is_empty():
+		_set_craft_open(false)
+		return
+	_craft_title.text = str(inspection.get("title", "Magic Infrastructure"))
+	_magic_status_label.text = "Status: %s" % str(
+		inspection.get("status", "Unknown"))
+	var lines: Array = inspection.get("lines", [])
+	_magic_details_label.text = "\n".join(lines)
+	var action := str(inspection.get("action", ""))
+	_magic_action_button.visible = not action.is_empty()
+	_magic_action_button.text = action
+	_magic_action_button.tooltip_text = action
 
 
 func _show_context(message: String) -> void:

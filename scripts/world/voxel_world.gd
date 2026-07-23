@@ -8,6 +8,7 @@ const ValleyPlanScript = preload("res://scripts/world/valley_plan.gd")
 const ChunkMesherScript = preload("res://scripts/world/chunk_mesher.gd")
 const WorldItemDropScript = preload("res://scripts/world/world_item_drop.gd")
 const AutomationSystemScript = preload("res://scripts/world/automation_system.gd")
+const MagicSystemScript = preload("res://scripts/world/magic_system.gd")
 
 const CHUNK_SIZE := 16
 const WORLD_HEIGHT_CHUNKS := 3
@@ -114,6 +115,7 @@ var id_oak_stair := 34
 var id_oak_slab := 35
 var id_workbench := 23
 var id_furnace := 24
+var id_mana_furnace := 25
 var id_chest := 26
 var id_warehouse := 27
 var id_crate := 80
@@ -124,6 +126,13 @@ var id_warehouse_hatch := 310
 var id_torch := 46
 var id_blueprint_marker := 114
 var id_supply_crate := 116
+var id_rune_table := 30
+var id_ward_lantern := 46
+var id_mana_conduit := 47
+var id_mana_battery := 98
+var id_portal_frame := 108
+var id_corrupted_ground := 109
+var id_broken_portal := 139
 
 # Persistent functional-block state. Keys use the same stable position format
 # as the edit journal, while stack contents use stable identities on save.
@@ -134,12 +143,15 @@ var _furnace_accumulator := 0.0
 var _item_drops: Array[Node] = []
 var _next_drop_serial := 1
 var automation: AutomationSystem
+var magic
 
 
 func _ready() -> void:
 	_resolve_ids()
 	automation = AutomationSystemScript.new()
 	automation.setup(self)
+	magic = MagicSystemScript.new()
+	magic.setup(self)
 	_build_block_color_table()
 	_build_block_shape_table()
 	_build_shared_block_material()
@@ -250,6 +262,7 @@ func _resolve_ids() -> void:
 	id_oak_slab = _id_or("construction.slab.oak", 35)
 	id_workbench = _id_or("functional.workbench.basic", 23)
 	id_furnace = _id_or("functional.furnace.stone", 24)
+	id_mana_furnace = _id_or("magic.furnace.mana", 25)
 	id_chest = _id_or("storage.chest.wood", 26)
 	id_warehouse = _id_or("village.warehouse.basic", 27)
 	id_crate = _id_or("storage.crate.wood", 80)
@@ -261,6 +274,13 @@ func _resolve_ids() -> void:
 	id_torch = _id_or("light.torch.basic", 46)
 	id_blueprint_marker = _id_or("village.blueprint_marker.basic", 114)
 	id_supply_crate = _id_or("village.supply_crate.construction", 116)
+	id_rune_table = _id_or("magic.rune_table.basic", 30)
+	id_ward_lantern = _id_or("magic.ward_lantern.basic", 46)
+	id_mana_conduit = _id_or("magic.conduit.mana_basic", 47)
+	id_mana_battery = _id_or("magic.battery.mana", 98)
+	id_portal_frame = _id_or("magic.portal_frame.ancient", 108)
+	id_corrupted_ground = _id_or("magic.corruption.ground", 109)
+	id_broken_portal = _id_or("magic.portal.broken", 139)
 
 
 func _id_or(stable_id: String, fallback: int) -> int:
@@ -371,6 +391,10 @@ func _process(_delta: float) -> void:
 		return
 	if automation != null:
 		automation.process(
+			_delta,
+			player.global_position if player != null else Vector3.ZERO)
+	if magic != null:
+		magic.process(
 			_delta,
 			player.global_position if player != null else Vector3.ZERO)
 	_furnace_accumulator += _delta
@@ -1121,6 +1145,17 @@ func _stamp_rune_ruin(write: Callable) -> void:
 		for dy in height:
 			write.call(site.x + offset.x, ground + dy, site.y + offset.y, id_stone_brick)
 	write.call(site.x, ground, site.y, id_mana)
+	# Stage 6 teaser objects are deliberately inert: the frame yields the first
+	# rune note, while the broken block and corrupted patch communicate the
+	# documented portal/forbidden-magic boundary without opening a dimension.
+	for dy in range(0, 3):
+		write.call(site.x - 2, ground + dy, site.y, id_portal_frame)
+		write.call(site.x + 2, ground + dy, site.y, id_portal_frame)
+	for dx in range(-2, 3):
+		write.call(site.x + dx, ground + 3, site.y, id_portal_frame)
+	write.call(site.x, ground + 1, site.y, id_broken_portal)
+	write.call(site.x - 1, ground, site.y + 1, id_corrupted_ground)
+	write.call(site.x + 1, ground, site.y + 1, id_corrupted_ground)
 
 
 func _stamp_goblin_camp(write: Callable) -> void:
@@ -1178,14 +1213,16 @@ func set_block_global(gp: Vector3i, id: int) -> bool:
 	if not chunks.has(cc):
 		return false
 	var previous_id := get_block_global(gp)
-	if (previous_id in [id_furnace, id_chest, id_crate] \
-			or (automation != null and automation.is_automation_block(previous_id))) \
+	if (previous_id in [id_furnace, id_mana_furnace, id_chest, id_crate] \
+			or (automation != null and automation.is_automation_block(previous_id))
+			or (magic != null and magic.is_magic_block(previous_id))) \
 			and id != previous_id and not can_remove_block_entity(gp):
 		return false
 	_edits[_edit_key(gp)] = id  # journal first so streaming/save stays lossless
 	var local := gp - cc * CHUNK_SIZE
 	chunks[cc].set_block(local.x, local.y, local.z, id)
-	if previous_id == id_furnace and id != id_furnace:
+	if previous_id in [id_furnace, id_mana_furnace] \
+			and id not in [id_furnace, id_mana_furnace]:
 		_furnaces.erase(_edit_key(gp))
 	if previous_id == id_chest and id != id_chest:
 		_chests.erase(_edit_key(gp))
@@ -1194,7 +1231,9 @@ func set_block_global(gp: Vector3i, id: int) -> bool:
 	if automation != null and automation.is_automation_block(previous_id) \
 			and id != previous_id:
 		automation.unregister_block(gp)
-	if id == id_furnace:
+	if magic != null and magic.is_magic_block(previous_id) and id != previous_id:
+		magic.unregister_block(gp)
+	if id in [id_furnace, id_mana_furnace]:
 		_ensure_furnace(gp)
 	elif id in [id_chest, id_crate]:
 		_ensure_chest(gp)
@@ -1202,6 +1241,10 @@ func set_block_global(gp: Vector3i, id: int) -> bool:
 		if automation.is_automation_block(id):
 			automation.register_block(gp, id)
 		automation.notify_topology_changed()
+	if magic != null:
+		if magic.is_magic_block(id):
+			magic.register_block(gp, id)
+		magic.notify_topology_changed()
 	if id == BlockRegistry.AIR or id != id_planks:
 		_double_slabs.erase(_edit_key(gp))
 	request_chunk_rebuild(cc)
@@ -1314,10 +1357,17 @@ func station_type_at(gp: Vector3i) -> String:
 		return "workbench"
 	if id == id_furnace:
 		return "furnace"
+	if id == id_mana_furnace:
+		return "mana_furnace"
+	if id == id_rune_table:
+		return "rune_table"
 	if id in [id_chest, id_crate]:
 		return "chest"
 	if automation != null and automation.is_automation_block(id):
 		return "automation"
+	if magic != null and magic.is_magic_inspection_block(id):
+		magic.ensure_block(gp, id)
+		return "magic"
 	if id == id_warehouse and gp == get_hamlet_station_position("warehouse"):
 		return "warehouse"
 	if id == id_blueprint_marker and gp == get_hamlet_station_position("request_board"):
@@ -1332,6 +1382,7 @@ func _new_furnace_state() -> Dictionary:
 		"output": {},
 		"progress": 0.0,
 		"burn_remaining": 0.0,
+		"mana_spent": 0.0,
 		"recipe_id": "",
 	}
 
@@ -1344,9 +1395,18 @@ func _ensure_furnace(gp: Vector3i) -> Dictionary:
 
 
 func get_furnace_state(gp: Vector3i) -> Dictionary:
-	if get_block_global(gp) != id_furnace:
+	if not _is_furnace_id(get_block_global(gp)):
 		return {}
 	return _ensure_furnace(gp).duplicate(true)
+
+
+func _is_furnace_id(block_id: int) -> bool:
+	return block_id in [id_furnace, id_mana_furnace]
+
+
+func furnace_station_at(gp: Vector3i) -> String:
+	return "mana_furnace" \
+		if get_persisted_block_id(gp) == id_mana_furnace else "furnace"
 
 
 func get_furnace_slot(gp: Vector3i, target: String, index: int = 0) -> Dictionary:
@@ -1362,16 +1422,18 @@ func get_furnace_slot(gp: Vector3i, target: String, index: int = 0) -> Dictionar
 	return {}
 
 
-func furnace_slot_accepts_stack(target: String, stack: Dictionary) -> bool:
+func furnace_slot_accepts_stack(
+		target: String, stack: Dictionary,
+		station: String = "furnace") -> bool:
 	var normal: Dictionary = Inventory._normalise_stack(stack)
 	if normal.is_empty():
 		return true
 	if int(normal.get("count", 0)) > Inventory.stack_max_count(normal):
 		return false
 	if target == "fuel":
-		return _fuel_seconds(normal) > 0.0
+		return station == "furnace" and _fuel_seconds(normal) > 0.0
 	if target == "input":
-		return RecipeRegistry.is_furnace_ingredient(normal)
+		return RecipeRegistry.is_furnace_ingredient(normal, station)
 	# Output is writable only by the HUD's conserved move/rollback transaction.
 	return target == "output"
 
@@ -1379,7 +1441,10 @@ func furnace_slot_accepts_stack(target: String, stack: Dictionary) -> bool:
 func set_furnace_slot(
 		gp: Vector3i, target: String, index: int, stack: Dictionary) -> bool:
 	if get_block_global(gp) != id_furnace \
-			or not furnace_slot_accepts_stack(target, stack):
+			and get_block_global(gp) != id_mana_furnace:
+		return false
+	var station := furnace_station_at(gp)
+	if not furnace_slot_accepts_stack(target, stack, station):
 		return false
 	var state := _ensure_furnace(gp)
 	var normal: Dictionary = Inventory._normalise_stack(stack)
@@ -1388,10 +1453,16 @@ func set_furnace_slot(
 	elif target == "output":
 		state["output"] = normal
 	elif target == "input" and index >= 0 and index < state["inputs"].size():
+		var other_inputs: Array = state["inputs"].duplicate(true)
+		other_inputs[index] = {}
+		if not normal.is_empty() and not RecipeRegistry.furnace_inputs_compatible(
+				other_inputs, normal, station):
+			return false
 		state["inputs"][index] = normal
 		# Changing an ingredient invalidates partial progress; the next furnace
 		# tick resolves the recipe from the new authoritative slot contents.
 		state["progress"] = 0.0
+		state["mana_spent"] = 0.0
 		state["recipe_id"] = ""
 	else:
 		return false
@@ -1406,6 +1477,8 @@ func can_remove_block_entity(gp: Vector3i) -> bool:
 			if not stack.is_empty():
 				return false
 	if automation != null and not automation.can_remove(gp):
+		return false
+	if magic != null and not magic.can_remove(gp):
 		return false
 	if not _furnaces.has(key):
 		return true
@@ -1471,14 +1544,17 @@ func set_chest_slot(gp: Vector3i, index: int, stack: Dictionary) -> bool:
 
 
 func furnace_insert_selected(gp: Vector3i, target: String) -> bool:
-	if get_block_global(gp) != id_furnace:
+	if not _is_furnace_id(get_block_global(gp)):
 		return false
+	var station := furnace_station_at(gp)
 	var selected := Inventory.get_selected_stack()
 	if selected.is_empty():
 		return false
-	if target == "fuel" and _fuel_seconds(selected) <= 0.0:
+	if target == "fuel" and (
+			station != "furnace" or _fuel_seconds(selected) <= 0.0):
 		return false
-	if target == "input" and not RecipeRegistry.is_furnace_ingredient(selected):
+	if target == "input" \
+			and not RecipeRegistry.is_furnace_ingredient(selected, station):
 		return false
 	var state := _ensure_furnace(gp)
 	var taken := Inventory.take_selected_stack(1)
@@ -1502,6 +1578,10 @@ func furnace_insert_selected(gp: Vector3i, target: String) -> bool:
 			state["fuel"] = fuel
 	else:
 		var inputs: Array = state["inputs"]
+		if not RecipeRegistry.furnace_inputs_compatible(
+				inputs, taken, station):
+			Inventory.add_stack(taken)
+			return false
 		var destination := -1
 		for i in inputs.size():
 			if Inventory.stack_matches_ref(inputs[i], {
@@ -1525,7 +1605,7 @@ func furnace_insert_selected(gp: Vector3i, target: String) -> bool:
 
 
 func furnace_take_slot(gp: Vector3i, target: String, index: int = 0) -> bool:
-	if get_block_global(gp) != id_furnace:
+	if not _is_furnace_id(get_block_global(gp)):
 		return false
 	var state := _ensure_furnace(gp)
 	var stack := {}
@@ -1549,6 +1629,7 @@ func furnace_take_slot(gp: Vector3i, target: String, index: int = 0) -> bool:
 	else:
 		state["inputs"][index] = {}
 	state["progress"] = 0.0
+	state["mana_spent"] = 0.0
 	state["recipe_id"] = ""
 	_furnaces[_edit_key(gp)] = state
 	return true
@@ -1566,34 +1647,73 @@ func _fuel_seconds(stack: Dictionary) -> float:
 func _process_furnaces(delta: float) -> void:
 	for key in _furnaces.keys():
 		var state: Dictionary = _furnaces[key]
-		var recipe := RecipeRegistry.match_furnace_recipe(state["inputs"])
+		var gp := _key_to_pos(str(key))
+		var station := furnace_station_at(gp)
+		var recipe := RecipeRegistry.match_furnace_recipe(
+			state["inputs"], station)
 		if recipe.is_empty():
 			state["progress"] = 0.0
+			state["mana_spent"] = 0.0
 			state["recipe_id"] = ""
+			if station == "mana_furnace" and magic != null:
+				magic.report_consumer_fault(gp, "invalid_input")
 			_furnaces[key] = state
 			continue
+		if str(state.get("recipe_id", "")) not in ["", str(recipe["id"])]:
+			state["progress"] = 0.0
+			state["mana_spent"] = 0.0
 		var output := Inventory.make_stack_from_ref(recipe["output"])
 		if not _station_output_accepts(state["output"], output):
+			if station == "mana_furnace" and magic != null:
+				magic.report_consumer_fault(gp, "output_blocked")
 			continue
-		if float(state["burn_remaining"]) <= 0.0:
-			var fuel: Dictionary = state["fuel"]
-			if fuel.is_empty():
+		if station == "mana_furnace":
+			var mana_cost := float(recipe.get("mana_cost", 0.0))
+			var duration := maxf(0.001, float(recipe.get("seconds", 0.0)))
+			var mana_remaining := maxf(
+				0.0, mana_cost - float(state.get("mana_spent", 0.0)))
+			var mana_step := minf(
+				mana_remaining, mana_cost / duration * delta)
+			if magic == null or not magic.consume_mana(gp, mana_step):
+				if magic != null:
+					magic.report_consumer_fault(gp, "no_mana")
+				state["recipe_id"] = str(recipe["id"])
+				_furnaces[key] = state
 				continue
-			state["burn_remaining"] = _fuel_seconds(fuel)
+			state["mana_spent"] = float(state.get("mana_spent", 0.0)) + mana_step
+			magic.report_consumer_fault(gp, "")
+		else:
 			if float(state["burn_remaining"]) <= 0.0:
-				continue
-			fuel["count"] = int(fuel["count"]) - 1
-			state["fuel"] = {} if int(fuel["count"]) <= 0 else fuel
+				var fuel: Dictionary = state["fuel"]
+				if fuel.is_empty():
+					continue
+				state["burn_remaining"] = _fuel_seconds(fuel)
+				if float(state["burn_remaining"]) <= 0.0:
+					continue
+				fuel["count"] = int(fuel["count"]) - 1
+				state["fuel"] = {} if int(fuel["count"]) <= 0 else fuel
+			state["burn_remaining"] = maxf(
+				0.0, float(state["burn_remaining"]) - delta)
 		state["recipe_id"] = str(recipe["id"])
-		state["burn_remaining"] = maxf(0.0, float(state["burn_remaining"]) - delta)
 		state["progress"] = float(state["progress"]) + delta
 		if float(state["progress"]) >= float(recipe["seconds"]):
+			if station == "mana_furnace":
+				var final_mana := maxf(
+					0.0,
+					float(recipe.get("mana_cost", 0.0))
+						- float(state.get("mana_spent", 0.0)))
+				if magic == null or not magic.consume_mana(gp, final_mana):
+					if magic != null:
+						magic.report_consumer_fault(gp, "no_mana")
+					_furnaces[key] = state
+					continue
 			_consume_furnace_inputs(state["inputs"], recipe["inputs"])
 			if state["output"].is_empty():
 				state["output"] = output
 			else:
 				state["output"]["count"] = int(state["output"]["count"]) + int(output["count"])
 			state["progress"] = 0.0
+			state["mana_spent"] = 0.0
 			ProgressionState.record_refine(
 				str(recipe["id"]), str(recipe["output"]["stable_id"]),
 				int(recipe["output"].get("count", 1)))
@@ -1638,6 +1758,7 @@ func serialize_block_entities() -> Dictionary:
 			"output": Inventory.serialize_stack(state["output"]),
 			"progress": float(state["progress"]),
 			"burn_remaining": float(state["burn_remaining"]),
+			"mana_spent": float(state.get("mana_spent", 0.0)),
 			"recipe_id": str(state["recipe_id"]),
 		}
 	for key in _chests:
@@ -1652,6 +1773,8 @@ func serialize_block_entities() -> Dictionary:
 		out[key] = {"type": "double_slab"}
 	if automation != null:
 		out["__automation__"] = automation.serialize_state()
+	if magic != null:
+		out["__magic__"] = magic.serialize_state()
 	return out
 
 
@@ -1662,11 +1785,14 @@ func apply_block_entities(value: Variant) -> void:
 	if not (value is Dictionary):
 		if automation != null:
 			automation.restore_state({})
+		if magic != null:
+			magic.restore_state({})
 		return
 	var entities: Dictionary = value
 	var automation_value: Variant = entities.get("__automation__", {})
+	var magic_value: Variant = entities.get("__magic__", {})
 	for key in entities:
-		if str(key) == "__automation__":
+		if str(key) in ["__automation__", "__magic__"]:
 			continue
 		var saved: Variant = entities[key]
 		if not (saved is Dictionary):
@@ -1697,10 +1823,13 @@ func apply_block_entities(value: Variant) -> void:
 		state["output"] = Inventory.deserialize_stack(saved.get("output", {}))
 		state["progress"] = maxf(0.0, float(saved.get("progress", 0.0)))
 		state["burn_remaining"] = maxf(0.0, float(saved.get("burn_remaining", 0.0)))
+		state["mana_spent"] = maxf(0.0, float(saved.get("mana_spent", 0.0)))
 		state["recipe_id"] = str(saved.get("recipe_id", ""))
 		_furnaces[str(key)] = state
 	if automation != null:
 		automation.restore_state(automation_value)
+	if magic != null:
+		magic.restore_state(magic_value)
 
 
 # ---------- Stage 5 automation endpoints and conserved transactions ----------
@@ -1724,6 +1853,20 @@ func get_edited_automation_blocks() -> Array[Dictionary]:
 	for key in _edits:
 		var block_id := int(_edits[key])
 		if automation.is_automation_block(block_id):
+			out.append({
+				"position": _key_to_pos(str(key)),
+				"id": block_id,
+			})
+	return out
+
+
+func get_edited_magic_blocks() -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	if magic == null:
+		return out
+	for key in _edits:
+		var block_id := int(_edits[key])
+		if magic.is_magic_block(block_id):
 			out.append({
 				"position": _key_to_pos(str(key)),
 				"id": block_id,
@@ -1801,7 +1944,7 @@ func get_automation_endpoint_positions() -> Array[Vector3i]:
 	var seen := {}
 	for key in _furnaces:
 		var position := _key_to_pos(str(key))
-		if get_persisted_block_id(position) == id_furnace:
+		if _is_furnace_id(get_persisted_block_id(position)):
 			positions.append(position)
 			seen[str(key)] = true
 	for key in _chests:
@@ -1815,12 +1958,14 @@ func get_automation_endpoint_positions() -> Array[Vector3i]:
 
 func is_automation_endpoint(gp: Vector3i) -> bool:
 	var id := get_persisted_block_id(gp)
-	return id in [id_furnace, id_chest, id_crate, id_warehouse_hatch]
+	return id in [
+		id_furnace, id_mana_furnace, id_chest, id_crate, id_warehouse_hatch,
+	]
 
 
 func automation_endpoint_kind(gp: Vector3i) -> String:
 	var id := get_persisted_block_id(gp)
-	if id == id_furnace:
+	if id in [id_furnace, id_mana_furnace]:
 		return "furnace"
 	if id in [id_chest, id_crate]:
 		return "crate"
@@ -1846,6 +1991,47 @@ func automation_endpoint_capacity(
 				return 0
 			return HamletState.warehouse_capacity_for(incoming)
 	return 0
+
+
+func automation_endpoint_capacity_with_pending(
+		gp: Vector3i, value: Dictionary, mode: String,
+		pending: Array) -> int:
+	var incoming := Inventory._normalise_stack(value)
+	if incoming.is_empty():
+		return 0
+	if automation_endpoint_kind(gp) == "furnace":
+		var simulated: Dictionary = _ensure_furnace(gp).duplicate(true)
+		for pending_value in pending:
+			var reserved := Inventory._normalise_stack(pending_value)
+			if reserved.is_empty() \
+					or not _furnace_automation_insert_state(gp, simulated, reserved):
+				return 0
+		return _furnace_automation_capacity_for_state(gp, simulated, incoming)
+	if automation_endpoint_kind(gp) == "crate":
+		var slots := _ensure_chest(gp).duplicate(true)
+		for pending_value in pending:
+			var reserved := Inventory._normalise_stack(pending_value)
+			if not reserved.is_empty() and not _insert_into_slots(slots, reserved):
+				return 0
+		return _slot_storage_capacity(slots, incoming)
+	var capacity := automation_endpoint_capacity(gp, incoming, mode)
+	for pending_value in pending:
+		var reserved := Inventory._normalise_stack(pending_value)
+		if Inventory._can_merge(reserved, incoming):
+			capacity -= int(reserved.get("count", 0))
+	return maxi(0, capacity)
+
+
+func automation_endpoint_prefers_stack(gp: Vector3i, value: Dictionary) -> bool:
+	if automation_endpoint_kind(gp) != "furnace":
+		return false
+	var incoming := Inventory._normalise_stack(value)
+	if incoming.is_empty():
+		return false
+	var station := furnace_station_at(gp)
+	if station == "furnace" and _fuel_seconds(incoming) > 0.0:
+		return true
+	return RecipeRegistry.is_furnace_ingredient(incoming, station)
 
 
 func automation_receive(gp: Vector3i, value: Dictionary, mode: String,
@@ -1878,8 +2064,11 @@ func automation_endpoint_fault(
 			and not HamletState.can_automation_project_accept(value):
 		return "invalid_input"
 	if kind == "furnace" and _furnace_automation_capacity(gp, value) <= 0:
-		return "invalid_input" if not RecipeRegistry.is_furnace_ingredient(value) \
-			and _fuel_seconds(value) <= 0.0 else "full_storage"
+		var station := furnace_station_at(gp)
+		return "invalid_input" \
+			if not RecipeRegistry.is_furnace_ingredient(value, station) \
+				and (station != "furnace" or _fuel_seconds(value) <= 0.0) \
+			else "full_storage"
 	return "full_storage"
 
 
@@ -1907,15 +2096,23 @@ func automation_take_output(gp: Vector3i, count: int) -> Dictionary:
 
 
 func _furnace_automation_capacity(gp: Vector3i, incoming: Dictionary) -> int:
-	var state := _ensure_furnace(gp)
-	if _fuel_seconds(incoming) > 0.0:
+	return _furnace_automation_capacity_for_state(
+		gp, _ensure_furnace(gp), incoming)
+
+
+func _furnace_automation_capacity_for_state(
+		gp: Vector3i, state: Dictionary, incoming: Dictionary) -> int:
+	var station := furnace_station_at(gp)
+	if station == "furnace" and _fuel_seconds(incoming) > 0.0:
 		var fuel: Dictionary = state["fuel"]
 		if fuel.is_empty():
 			return Inventory.stack_max_count(incoming)
 		if Inventory._can_merge(fuel, incoming):
 			return maxi(0, Inventory.stack_max_count(fuel) - int(fuel["count"]))
 		return 0
-	if not RecipeRegistry.is_furnace_ingredient(incoming):
+	if not RecipeRegistry.is_furnace_ingredient(incoming, station) \
+			or not RecipeRegistry.furnace_inputs_compatible(
+				state["inputs"], incoming, station):
 		return 0
 	return _slot_storage_capacity(state["inputs"], incoming)
 
@@ -1923,7 +2120,19 @@ func _furnace_automation_capacity(gp: Vector3i, incoming: Dictionary) -> int:
 func _furnace_automation_insert(gp: Vector3i, incoming: Dictionary) -> bool:
 	var key := _edit_key(gp)
 	var state := _ensure_furnace(gp)
-	if _fuel_seconds(incoming) > 0.0:
+	if not _furnace_automation_insert_state(gp, state, incoming):
+		return false
+	_furnaces[key] = state
+	return true
+
+
+func _furnace_automation_insert_state(
+		gp: Vector3i, state: Dictionary, incoming: Dictionary) -> bool:
+	if _furnace_automation_capacity_for_state(gp, state, incoming) \
+			< int(incoming.get("count", 0)):
+		return false
+	var station := furnace_station_at(gp)
+	if station == "furnace" and _fuel_seconds(incoming) > 0.0:
 		var fuel: Dictionary = state["fuel"]
 		if fuel.is_empty():
 			state["fuel"] = incoming.duplicate(true)
@@ -1937,7 +2146,6 @@ func _furnace_automation_insert(gp: Vector3i, incoming: Dictionary) -> bool:
 		if not _insert_into_slots(slots, incoming):
 			return false
 		state["inputs"] = slots
-	_furnaces[key] = state
 	return true
 
 
@@ -2001,6 +2209,72 @@ func perform_automation_action(gp: Vector3i) -> Dictionary:
 	var selected := Inventory.get_selected_stack()
 	var selected_stable_id := Inventory.stack_stable_id(selected)
 	return automation.perform_action(gp, selected_stable_id)
+
+
+# ---------- Stage 6 magic infrastructure and spell queries ----------
+
+func get_magic_inspection(gp: Vector3i) -> Dictionary:
+	return magic.get_inspection(gp) if magic != null else {}
+
+
+func get_magic_state(gp: Vector3i) -> Dictionary:
+	return magic.get_state(gp) if magic != null else {}
+
+
+func perform_magic_action(gp: Vector3i) -> Dictionary:
+	if magic == null:
+		return {"ok": false, "message": "Magic infrastructure is unavailable."}
+	return magic.perform_action(gp)
+
+
+func find_stone_sense_targets(
+		origin: Vector3, radius: int = 10,
+		max_targets: int = 24) -> Array[Vector3i]:
+	var centre := Vector3i(origin.floor())
+	var candidates: Array[Dictionary] = []
+	var sensed_ids := {
+		id_coal: true,
+		id_copper: true,
+		id_iron: true,
+		id_mana: true,
+	}
+	for dy in range(-radius, radius + 1):
+		for dx in range(-radius, radius + 1):
+			for dz in range(-radius, radius + 1):
+				var distance_squared := dx * dx + dy * dy + dz * dz
+				if distance_squared > radius * radius:
+					continue
+				var target := centre + Vector3i(dx, dy, dz)
+				if not sensed_ids.has(get_persisted_block_id(target)):
+					continue
+				candidates.append({
+					"position": target,
+					"distance_squared": distance_squared,
+				})
+	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return int(a["distance_squared"]) < int(b["distance_squared"]))
+	var targets: Array[Vector3i] = []
+	for candidate in candidates:
+		if targets.size() >= max_targets:
+			break
+		targets.append(Vector3i(candidate["position"]))
+	if magic != null:
+		magic.show_stone_sense(targets)
+	return targets
+
+
+func show_spell_impact(position: Vector3, hit: bool) -> void:
+	if magic != null:
+		magic.show_spell_impact(position, hit)
+
+
+func ward_coverage_at(position: Vector3) -> Dictionary:
+	return magic.ward_coverage_at(position) if magic != null else {
+		"warded": false,
+		"active_wards": 0,
+		"defence_bonus": 0,
+		"nearest_distance": -1.0,
+	}
 
 
 # ---------- Edit journal (save/load) ----------

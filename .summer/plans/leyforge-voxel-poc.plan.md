@@ -1,8 +1,8 @@
 ---
 name: leyforge-voxel-poc
 overview: >-
-  Godot-adapted Forest Hamlet POC: Stage 5 -- Resource-Conserving Automation is
-  complete on the deterministic Controlled POC Valley; Stage 6 is next
+  Godot-adapted Forest Hamlet POC: Stage 6 -- Mana, Runes, and Wards is complete
+  on the deterministic Controlled POC Valley; Stage 7 is next
 createdAt: '2026-07-21T08:48:53.746Z'
 todos:
   - id: voxel-chunk-system
@@ -103,6 +103,13 @@ todos:
       Add the mana resource chain, rune table, mana furnace or upgrade,
       conduits and storage, one utility spell, one combat spell, ward coverage,
       magical feedback, persistence/LOD, and readable magical faults
+    status: completed
+  - id: stage7-combat-goblin-raid
+    content: >-
+      Add combat actions and damage, guards and goblin camp pressure, a
+      deterministic raid planner, tower and ward defense contributions,
+      persistent damage/repair, injury/death settings, and reproducible raid
+      aftermath outcomes
     status: pending
 ---
 ## Scene Structure
@@ -126,12 +133,14 @@ todos:
 - `res://scripts/world/hamlet_npc_actor.gd` -- named nearby villager movement, labels, and RMB targeting
 - `res://scripts/world/world_item_drop.gd` -- persistent physical mined stacks with terrain settling and proximity pickup
 - `res://scripts/world/automation_system.gd` -- persistent machines, typed item topology, conserved batches, faults, and near/far simulation
+- `res://scripts/world/magic_system.gd` -- persistent mana networks, batteries, conduits, ward coverage, magical consumers, faults, and ruin teaser state
 - `res://scripts/autoload/block_registry.gd` -- block-only stable definitions
 - `res://scripts/autoload/item_registry.gd` -- item-only stable definitions
 - `res://scripts/autoload/recipe_registry.gd` -- stable-ID hand, workbench, and furnace recipes
 - `res://scripts/autoload/progression_state.gd` -- discovered content, known recipes, and production counters
 - `res://scripts/autoload/inventory.gd` -- unified block/item stacks, item instances, hotbar, backpack, and transactions
 - `res://scripts/autoload/hamlet_state.gd` -- authoritative NPC, schedule, need, warehouse, request, trust, permission, and project state
+- `res://scripts/autoload/magic_state.gd` -- personal mana, regeneration, spell knowledge, cooldowns, casts, and save state
 - `res://scripts/player/player.gd` -- movement, swimming, timed tool-aware harvesting, and placement
 - `res://scripts/ui/hud.gd` -- contextual recipe/furnace UI, backpack, hotbar, and status feedback
 - `res://scripts/ui/stack_icon_renderer.gd` -- cached static isometric thumbnails for registered blocks and items
@@ -145,6 +154,8 @@ todos:
 - place_block: Right Mouse Button (place or contextually interact)
 - toggle_craft: E (open/close hand crafting)
 - toggle_creative: C (open/close the testing catalogue)
+- cast_utility: Z (cast Stone Sense when known and funded)
+- cast_combat: X (cast Spark Bolt when known, funded, and off cooldown)
 - hotbar_1 through hotbar_9: Number keys
 
 ## Chunk System
@@ -176,17 +187,17 @@ todos:
 ## Physical Item Drops
 - Successful harvesting commits the world edit into a small 3D dropped block/item rather than inserting directly into inventory
 - Drops settle against voxel collision, remain present when inventory is full, and automatically transfer any available amount inside the pickup radius
-- Drop stacks retain stable block/item identities, tool instances, position, motion, and age through atomic version 8 saves
+- Drop stacks retain stable block/item identities, tool instances, position, motion, and age through atomic version 9 saves
 
 ## Crafting
-- E opens the 2x2 hand grid; RMB opens aimed workbench, furnace, chest, village, or NPC interactions
+- E opens the 2x2 hand grid; RMB opens aimed workbench, rune table, furnace, mana furnace, chest, magical device, village, or NPC interactions
 - Hand and workbench crafting use shaped/shapeless 2x2 and 3x3 ingredient grids rather than a recipe list
 - The 3x3 workbench accepts every known 2x2 hand recipe in addition to its own recipes; native workbench recipes take precedence when both layouts match
-- Data-driven stable-ID recipes cover bootstrap planks/sticks, crude and stone tools, wood/stone building pieces, stations, glass/clay, copper, and iron
+- Data-driven stable-ID recipes cover bootstrap planks/sticks, crude and stone tools, wood/stone building pieces, stations, glass/clay, copper, iron, runes, and mana-network components
 - POC manual iron rods, plates, nails, and torches close the watchtower supply chain before specialist hammer/forge stations
 - Copper wire/plate/gears, wooden/copper frames, machine core, chute segments, wrench, miner head, crate, crank, mechanical miner, and warehouse-hatch recipes form the Stage 5 assembly chain
 - Two reduced-yield hand recipes explicitly close the source design's stick/plank bootstrap loops
-- Furnace state has three inputs, fuel, output, burn time, recipe progress, and persistent contents
+- Furnace state has three inputs, fuel, output, burn time, recipe progress, and persistent contents; the mana furnace uses the same conserved processing contract while drawing external network mana
 - All craft/refine outputs commit transactionally only when destination capacity exists
 - Hotbar, backpack, craft grid, furnace input/fuel/output, chest, and permitted warehouse endpoints support click transfers and conserved drag/drop
 
@@ -226,11 +237,26 @@ todos:
 - Blocked batches survive permission changes, full storage, topology persistence, save/load, and bounded offline catch-up without duplicating or losing ownership
 - RMB opens a machine inspection panel showing state, fault, input/output or charge, network, routing, permission, and recent warehouse deliveries
 
+## Mana, Runes, and Wards
+- Raw Mana Crystal refines through Mana Crystal Shards into Mana Dust; the Rune Table combines that chain with copper and stone components into Basic Runes, Mana Coils, Ward Cores, batteries, conduits, and Ward Lanterns
+- Mana Batteries hold 256 external mana and accept crystal, shard, or dust fuel at conserved stable-ID yields
+- Basic Mana Conduits form persistent network IDs with explicit cross-chunk connector records; consumers report unlinked, no-mana, invalid-input, and output-blocked faults
+- The Mana Furnace processes the Stage 6 material set faster without combustible fuel and charges the exact recipe mana cost only when a cycle commits
+- Ward Lanterns cover a 12-block radius, drain network mana while active, expose coverage feedback, and contribute a persistent defense bonus for later raid resolution
+- Personal mana regenerates independently; Stone Sense is the utility spell and Spark Bolt is the non-terrain-damaging combat spell
+- The rune ruin contains a persistent broken-portal teaser and grants one Rune Note without implementing travel
+- Near/far simulation, bounded offline catch-up, save/load, and visual promotion use the same authoritative magic records
+
+## Later-Stage Design Alignment
+- Document 19, `19_Fantasy_Voxel_Civilisation_Sandbox_Settlement_Growth_and_Player_Voxel_Blueprint_System_v0_1.md`, is now a design source for later settlement-growth and player-voxel-blueprint phases
+- Its blueprint definitions/runtime records, stable identity, reservations, repair, and settlement progression requirements should extend the existing conserved resource, project, and persistence foundations
+- Stage 6 does not pull those later systems forward; Stage 7 remains the next documented implementation phase
+
 ## Current Verification
 - Headless Godot 4.6.3 probe: 143 blocks and 167 items load in separate registries
 - Legacy Oak Log item ID 142 migrates to block ID 9
 - Final-batch crafting, full-inventory mining/crafting, stable edit saves, and craft-grid saves pass
-- Version 8 saves preserve unified inventory, tool durability, progression, functional blocks, physical item drops, automation machines/batches/connectors, delivery ledger, hamlet records, warehouse, requests, reputation, permissions, project state, edits, and the world-generation manifest
+- Version 9 saves preserve unified inventory, tool durability, progression, personal magic, mana networks/consumers/connectors, functional blocks, physical item drops, automation machines/batches/connectors, delivery ledger, hamlet records, warehouse, requests, reputation, permissions, project state, edits, and the world-generation manifest
 - Rebuild probe processed 1 of 10 queued chunks under the declared budget
 - Player collision holds at terrain Y=15; saved underground positions repair to a clear surface position
 - Embedded or below-world players recover to the closest loaded flat 2x2 floor with a 2x2x2 air volume; spawn is fallback-only
@@ -245,14 +271,15 @@ todos:
 - Phase 3 core probe passes bootstrap recipes, durable tool instances, iron harvest gates, iron refining, furnace save/restore, recipe knowledge, stable item saves, slab/stair collision, and 32x32 material-array checks
 - Rendered Phase 3 captures pass at 58-60 FPS; the shared material variation is visible and desert sand remains tan/yellow and distinct
 - Minecraft-grid interaction probe passes 15 checks for hand/workbench shapes, output delivery, drag conservation, chest state, and double slabs
-- Exhaustive recipe probe passes 50 checks across all 34 crafting-grid recipes and all 5 furnace recipes, including every hand recipe in the 3x3 workbench, shaped-before-shapeless precedence, block/material ingredient equivalence, and the complete mechanical automation assembly chain
+- Exhaustive recipe probe passes 67 checks across all 45 crafting-grid recipes and all 11 furnace/mana-furnace recipes, including every hand recipe in the 3x3 workbench, shaped-before-shapeless precedence, block/material ingredient equivalence, and the complete automation and magic assembly chains
 - Creative-menu probe passes 11 checks with all 310 usable registered entries, catalogue search, arbitrary multi-stack grants, separate durable tool instances, generated HUD thumbnails, stack deletion, and 3x3 stick crafting
 - Request delivery accepts placeable Oak Plank stacks as the same conserved content as Oak Plank material items
 - Traversal probe crosses a half-slab and a north-facing stair with the real player collision body
 - Stage 4 authority probe passes 41 checks for the eight-NPC roster, stable local waypoints/collision and interaction targeting, sequential supply gates, per-block builder labour, 100-percent completion, save restore, RMB stations, and actor promotion/demotion
 - Physical-item probe passes 9 checks for full-inventory mining, 3D world visuals, preserved leftovers, proximity pickup, and stable-ID restore
-- Full save/UI probe passes 16 checks through the atomic `main.gd` version 8 path, including version-7 and legacy project migration
-- Phase 5 automation probe passes 61 checks for stable content/recipes, nearest-valuable and selected-ore extraction, conserved furnace fuel drag/drop, crank power, wrench configuration, cross-chunk graph connectors, ore-to-ingot transport, trust-gated delivery, blockage, in-flight save/restore, far simulation, save-persistent idempotent retries, audit ledger facts, and exact project reservations
+- Full save/UI probe passes 19 checks through the atomic `main.gd` version 9 path, including version-8 and legacy project migration plus personal and external-mana state
+- Phase 5 automation probe passes 61 checks for stable content/recipes, nearest-valuable and selected-ore extraction, conserved furnace fuel drag/drop, crank power, wrench configuration, cross-chunk graph connectors, ore-to-ingot transport, trust-gated delivery, blockage, in-flight save/restore, far simulation, save-persistent idempotent retries, audit ledger facts, exact project reservations, and simultaneous furnace routing where fuel and one compatible ore enter while an incompatible ore continues to storage
+- Phase 6 magic probe passes 48 checks for the mana resource chain, rune-table and mana-furnace recipes, network storage/topology, cross-chunk connectors, exact mana consumption, faults, ward coverage/drain/defense, both spells, ruin teaser, persistence, visual promotion, and bounded far/offline simulation
 - Manual Stage 1 movement, editing, crafting, swimming, and cursor behaviour passed
 - Manual Phase 2 water, routes, landmarks, tundra, desert, streaming, and traversal checks passed
-- Stage 5 exit gate is complete; Stage 6 Mana, Runes, and Wards is the next documented phase
+- Stage 6 exit gate is complete; Stage 7 Combat and Goblin Raid is the next documented phase
