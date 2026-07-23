@@ -1,83 +1,258 @@
 ---
 name: leyforge-voxel-poc
 overview: >-
-  Godot-adapted Forest Hamlet POC: Stage 1 -- first-person voxel world with
-  block breaking/placement, inventory, and basic crafting
+  Godot-adapted Forest Hamlet POC: Stage 5 -- Resource-Conserving Automation is
+  complete on the deterministic Controlled POC Valley; Stage 6 is next
 createdAt: '2026-07-21T08:48:53.746Z'
 todos:
   - id: voxel-chunk-system
     content: >-
       Build chunk-based voxel terrain system with ArrayMesh generation, flat
       terrain with grass/dirt/stone layers, and chunk management
-    status: in_progress
+    status: completed
   - id: first-person-controller
     content: >-
       Build first-person controller with WASD movement, mouse look, jump, and
       Escape to release cursor
-    status: pending
+    status: completed
   - id: block-interaction
     content: >-
       Add block breaking (left-click) and placement (right-click) via raycast
       with highlight outline on targeted block
-    status: pending
+    status: completed
   - id: inventory-hotbar
     content: >-
       Build simple inventory system with hotbar UI, item switching, and block
       placement from selected slot
-    status: pending
+    status: completed
   - id: basic-crafting
     content: >-
       Add basic crafting recipes (wood -> planks, planks -> crafting table) with
       simple crafting UI
-    status: pending
+    status: completed
   - id: stage1-playtest
     content: >-
       Verify Stage 1 runs: player can move, break/place blocks, switch items,
       and craft basics
+    status: completed
+
+  - id: stage1-foundation-hardening
+    content: >-
+      Separate block/item registries, use stable save identities, make mining
+      and crafting transactional, rotate atomic saves, and budget mesh rebuilds
+    status: completed
+  - id: stage2-valley-plan
+    content: >-
+      Add versioned named sub-seeds, stable valley anchors, relation graph,
+      route records, deterministic plan identity, and validated fallbacks
+    status: completed
+  - id: stage2-terrain-relations
+    content: >-
+      Adapt terrain for buildable sites, a guaranteed river, cave entrance,
+      shallow coal/copper/iron, mana pocket, and connected road/trail grades
+    status: completed
+  - id: stage2-structure-anchors
+    content: >-
+      Stamp visible hamlet warehouse, watchtower project, base site, rune ruin,
+      goblin camp, cave arch, and mana clues without adding later-stage NPC AI
+    status: completed
+  - id: stage2-multiseed-validation
+    content: >-
+      Validate determinism, placement relationships, buildability, cave/water,
+      resources, and route connectivity across multiple seeds
+    status: completed
+  - id: stage2-visual-playtest
+    content: >-
+      Inspect the valley in Summer for route readability, landmark silhouettes,
+      cave access, river banks, streaming seams, and traversal comfort
+    status: completed
+  - id: stage2-traversal-polish
+    content: >-
+      Repair embedded players into the closest safe local 2x2x2 air volume,
+      correct registry colour-space handling, and confirm biome readability
+    status: completed
+  - id: stage3-tools-harvesting
+    content: >-
+      Add POC tool instances, tool-aware harvesting, drops, durability, and
+      progression-safe inventory persistence
+    status: completed
+  - id: stage3-station-crafting
+    content: >-
+      Replace placeholder workbench/furnace blocks with data-driven station
+      interactions, recipes, iron refining, and persistent processing state
+    status: completed
+  - id: stage3-shapes-materials
+    content: >-
+      Add required POC block shapes and the documented shared 32x32 material
+      variation path without creating one material per block
+    status: completed
+  - id: stage4-persistent-hamlet
+    content: >-
+      Add persistent NPC records/actors, jobs and schedules, authoritative
+      warehouse/request state, dialogue, reputation, permissions, and village
+      project persistence without starting Stage 5 automation
+    status: completed
+  - id: stage5-resource-conserving-automation
+    content: >-
+      Add powered miner/logistics machines, item batches, ports and topology,
+      warehouse transactions, project reservations, fault reporting, and
+      near/far simulation without duplication or loss
+    status: completed
+  - id: stage6-mana-runes-wards
+    content: >-
+      Add the mana resource chain, rune table, mana furnace or upgrade,
+      conduits and storage, one utility spell, one combat spell, ward coverage,
+      magical feedback, persistence/LOD, and readable magical faults
     status: pending
 ---
 ## Scene Structure
 - `res://main.tscn` -- World root
   - `WorldEnvironment` with basic sky and directional light
-  - `ChunkManager` (Node3D) -- manages chunk loading/unloading, owns VoxelWorld script
+  - `VoxelWorld` (Node3D) -- generates, streams, edits, and journals chunks
+  - `HamletRuntime` (Node3D) -- promotes/demotes nearby persistent NPC actors
   - `Player` (CharacterBody3D) -- first-person controller
-    - `Camera3D` -- mouse-look camera
-    - `RayCast3D` -- block targeting
-    - `MeshInstance3D` -- highlight outline for targeted block
+    - `Head/Camera3D` -- mouse-look camera
+    - `Head/Camera3D/RayCast3D` -- block targeting
+  - `HighlightBox` (MeshInstance3D) -- targeted-block outline
+  - `HUD` (CanvasLayer) -- hotbar, status, crosshair, and crafting panel
 
 ## Scripts
-- `res://scripts/voxel/chunk.gd` -- Single chunk: stores 3D array of block IDs, generates mesh via SurfaceTool
-- `res://scripts/voxel/chunk_manager.gd` -- Manages active chunks around player, creates/destroys as player moves
-- `res://scripts/voxel/block_registry.gd` -- Autoload: block definitions (name, color, hardness) from VoxelRegistry.json
-- `res://scripts/player/player_controller.gd` -- First-person movement, mouse look, jump, raycast block interaction
-- `res://scripts/ui/hotbar.gd` -- Hotbar UI showing 9 slots, scroll wheel to switch, number keys
-- `res://scripts/inventory/inventory.gd` -- Autoload: player inventory data
-- `res://scripts/crafting/crafting_recipes.gd` -- Recipe definitions and lookup
+- `res://scripts/world/chunk.gd` -- 16-cubed section storage, greedy mesh, and collision
+- `res://scripts/world/chunk_mesher.gd` -- worker-safe greedy geometry builder for streamed sections
+- `res://scripts/world/voxel_world.gd` -- generation, streaming queues, edits, and stable journal
+- `res://scripts/world/valley_plan.gd` -- deterministic Phase 2 anchors, routes, sub-seeds, and relation validation
+- `res://scripts/world/worldgen_validator.gd` -- reusable multi-seed Phase 2 acceptance checks
+- `res://scripts/world/hamlet_runtime.gd` -- local NPC actor streaming and project visualisation
+- `res://scripts/world/hamlet_npc_actor.gd` -- named nearby villager movement, labels, and RMB targeting
+- `res://scripts/world/world_item_drop.gd` -- persistent physical mined stacks with terrain settling and proximity pickup
+- `res://scripts/world/automation_system.gd` -- persistent machines, typed item topology, conserved batches, faults, and near/far simulation
+- `res://scripts/autoload/block_registry.gd` -- block-only stable definitions
+- `res://scripts/autoload/item_registry.gd` -- item-only stable definitions
+- `res://scripts/autoload/recipe_registry.gd` -- stable-ID hand, workbench, and furnace recipes
+- `res://scripts/autoload/progression_state.gd` -- discovered content, known recipes, and production counters
+- `res://scripts/autoload/inventory.gd` -- unified block/item stacks, item instances, hotbar, backpack, and transactions
+- `res://scripts/autoload/hamlet_state.gd` -- authoritative NPC, schedule, need, warehouse, request, trust, permission, and project state
+- `res://scripts/player/player.gd` -- movement, swimming, timed tool-aware harvesting, and placement
+- `res://scripts/ui/hud.gd` -- contextual recipe/furnace UI, backpack, hotbar, and status feedback
+- `res://scripts/ui/stack_icon_renderer.gd` -- cached static isometric thumbnails for registered blocks and items
+- `res://scripts/main.gd` -- startup plus atomic versioned save/recovery
 
 ## Input Map
 - move_forward/back/left/right: WASD
 - jump: Space
 - ui_cancel: Escape (releases mouse)
-- break_block: Left Mouse Button
-- place_block: Right Mouse Button
+- break_block: Hold Left Mouse Button
+- place_block: Right Mouse Button (place or contextually interact)
+- toggle_craft: E (open/close hand crafting)
+- toggle_creative: C (open/close the testing catalogue)
 - hotbar_1 through hotbar_9: Number keys
 
 ## Chunk System
-- 16x16x64 blocks per chunk (X x Z x Y)
-- Each block stored as integer ID (0 = air, 1 = grass, 2 = dirt, 3 = stone, 4 = wood, 5 = planks)
-- Greedy meshing optional for Stage 1; simple face-culled quads for now
-- Chunks within render distance (4 chunks = 64 blocks) are loaded around player
+- 16x16x16 logical sections, with three vertical sections in the current world
+- Compact numeric IDs at runtime; stable `original_id` strings in saves and recipes
+- Greedy face meshing with separate opaque/water surfaces and correctly wound generated collision
+- Three-column render radius, one bounded synchronous section load per eligible frame, and one background geometry build at a time
+- Main-thread mesh/collision commits are isolated from section generation; generation pauses at a 12-section rebuild backlog
 
 ## Terrain Generation
-- Simple height-based: grass on top layer, dirt below (3-5 layers), stone below that
-- Flat world with small Perlin-like variation for Stage 1
+- Deterministic seed-derived height, hills, temperature, moisture, rivers, and biomes
+- Caves, ore fields, sea-floor patches, water, and streaming-safe trees
+- Versioned Controlled POC Valley profile with independent named sub-seeds
+- Guaranteed spawn, hamlet, water, cave, mana, ruin, camp, raid, base, warehouse, and watchtower anchors
+- Ten connected roads/trails with terrain grading and tree clearance
+- Visible Stage 2 placeholder sites; the base site now includes public bootstrap workbench/furnace stations
+- The authored warehouse voxel and request-board marker now open authoritative Stage 4 interfaces
 
 ## Inventory
-- 9 hotbar slots + 27 backpack slots (36 total)
-- Each slot holds (item_id, count)
-- Default hotbar: grass blocks, dirt, stone, wood, planks, empty
+- Nine-slot hotbar plus 27-slot backpack
+- Unified stacks retain separate block/item namespaces; tools are unstackable runtime instances with durability
+- Block and item stacks serialize through their respective stable registry identities
+- Resource items explicitly map to placeable block forms where supported
+- Default hotbar: grass, dirt, stone, and oak logs
+- Hotbar, backpack, crafting, storage, furnace, and catalogue slots show cached static isometric content thumbnails with count or durability overlays
+- The C-key creative testing catalogue exposes every usable registered block and item, with search and an arbitrary 1-9999 grant amount while preserving normal stack and inventory-capacity rules
+- The creative catalogue includes a red trash target that deletes an entire hotbar or backpack stack when it is dragged onto it
+
+## Physical Item Drops
+- Successful harvesting commits the world edit into a small 3D dropped block/item rather than inserting directly into inventory
+- Drops settle against voxel collision, remain present when inventory is full, and automatically transfer any available amount inside the pickup radius
+- Drop stacks retain stable block/item identities, tool instances, position, motion, and age through atomic version 8 saves
 
 ## Crafting
-- 2x2 crafting grid in inventory screen
-- Recipes: wood_log -> 4 planks, 4 planks -> crafting_table
-- Output slot with click-to-craft
+- E opens the 2x2 hand grid; RMB opens aimed workbench, furnace, chest, village, or NPC interactions
+- Hand and workbench crafting use shaped/shapeless 2x2 and 3x3 ingredient grids rather than a recipe list
+- The 3x3 workbench accepts every known 2x2 hand recipe in addition to its own recipes; native workbench recipes take precedence when both layouts match
+- Data-driven stable-ID recipes cover bootstrap planks/sticks, crude and stone tools, wood/stone building pieces, stations, glass/clay, copper, and iron
+- POC manual iron rods, plates, nails, and torches close the watchtower supply chain before specialist hammer/forge stations
+- Copper wire/plate/gears, wooden/copper frames, machine core, chute segments, wrench, miner head, crate, crank, mechanical miner, and warehouse-hatch recipes form the Stage 5 assembly chain
+- Two reduced-yield hand recipes explicitly close the source design's stick/plank bootstrap loops
+- Furnace state has three inputs, fuel, output, burn time, recipe progress, and persistent contents
+- All craft/refine outputs commit transactionally only when destination capacity exists
+- Hotbar, backpack, craft grid, furnace input/fuel/output, chest, and permitted warehouse endpoints support click transfers and conserved drag/drop
+
+## Shapes and Materials
+- Full cubes continue through the worker-safe greedy mesher
+- Oak slabs and fixed north-facing oak stairs use partial rendered and collision geometry
+- Opaque blocks share one procedurally seeded 32x32 Texture2DArray and one shader material
+- UVs tile across greedy faces; UV2 carries the stable runtime material layer
+- Floor snapping plus bounded step-up movement crosses slabs and the low side of stairs
+- A second oak slab placed on the first creates a full-height block that returns two slabs when mined
+- Timber detail is axis-balanced so rotated voxel faces no longer show a conspicuously inverted grain line
+
+## Persistent Forest Hamlet
+- Eight stable named NPC records cover elder, builder, farmer, guard, merchant, mage, miner, and lumberjack jobs
+- Nearby villagers promote into labelled moving actors; distant villagers demote back into saved records
+- Schedule waypoints now include changing local destinations; NPCs collide with terrain but not one another, preventing actor-on-actor vibration
+- Needs-lite food/safety/morale state continues independently of actor streaming
+- The 54-slot warehouse is authoritative and uses the same stable stack transactions as player storage
+- The request board tracks exact masonry, timber, hardware, lighting, and pantry deliveries
+- Elder dialogue unlocks Helpful Outsider request delivery; completed work unlocks Trusted Supplier/Ally permissions
+- Direct warehouse deposits, withdrawals, and future automation import are independently trust-gated
+- Foundation, timber frame, guard platform, and lighting/inspection supplies are requested and reserved independently, so each stage can begin without later-stage components
+- Talia places every stage voxel individually while present at the work site; block-count progress cannot outrun visible construction
+- Completed projects persist and display 100 percent rather than resetting to an ambiguous zero-percent complete state
+
+## Resource-Conserving Automation
+- The Basic Mechanical Miner consumes finite ore voxels within a seven-block radius; automatic mode chooses the closest coal, copper, iron, or mana-crystal ore while excluding stone/common blocks, and a Basic Wrench can lock it to one ore family
+- An adjacent Manual Crank stores visible mechanical charge, and each miner cycle consumes six exact power-seconds
+- Miner output first enters a 64-item internal buffer; full or unreachable output pauses with a readable fault instead of spilling or deleting
+- Basic Item Chutes auto-connect on all six faces and form stable item-network IDs with explicit cross-chunk connector records
+- Transport commits source quantity into persistent item batches; nearby batches have visible item cubes while distant/unloaded chains use the same authoritative batch records without visuals
+- A Basic Wrench cycles automatic, processing-first, and storage-first chute priorities
+- Stone Furnaces accept automated ore/fuel input and expose their output buffer; Wooden Crates provide 27-slot automation storage
+- Village Warehouse Input Hatches support donation or active-project mode and reject imports until Trusted Supplier permission is earned
+- Warehouse imports are idempotent by correlation ID and log contributor, ownership mode, stable content identity, category, exact count, source, time, and reservation destination
+- Project-mode deliveries accept only current-stage missing goods and then use the same exact warehouse reservation transaction as manual deliveries
+- Blocked batches survive permission changes, full storage, topology persistence, save/load, and bounded offline catch-up without duplicating or losing ownership
+- RMB opens a machine inspection panel showing state, fault, input/output or charge, network, routing, permission, and recent warehouse deliveries
+
+## Current Verification
+- Headless Godot 4.6.3 probe: 143 blocks and 167 items load in separate registries
+- Legacy Oak Log item ID 142 migrates to block ID 9
+- Final-batch crafting, full-inventory mining/crafting, stable edit saves, and craft-grid saves pass
+- Version 8 saves preserve unified inventory, tool durability, progression, functional blocks, physical item drops, automation machines/batches/connectors, delivery ledger, hamlet records, warehouse, requests, reputation, permissions, project state, edits, and the world-generation manifest
+- Rebuild probe processed 1 of 10 queued chunks under the declared budget
+- Player collision holds at terrain Y=15; saved underground positions repair to a clear surface position
+- Embedded or below-world players recover to the closest loaded flat 2x2 floor with a 2x2x2 air volume; spawn is fallback-only
+- Planned spawn samples its 9x9 landing area and starts four blocks above the highest terrain column
+- Render and collision triangles share outward-facing Godot winding; a rendered Summer capture confirms solid exterior voxel faces
+- Registry sRGB colours are converted to linear material values; rendered sand is tan and visually distinct from snow and stone
+- Streamed background meshes produced 28 non-spawn collision shapes and a successful terrain ray hit
+- Cached valley calculations keep the measured section generation near 28-30 ms
+- Background meshing and separated commits keep the measured worst streaming physics frame at 32 ms in the current probe
+- Phase 2 validator passed 64 seeds with unique deterministic plan IDs, zero fallbacks, and zero placement failures
+- Runtime checks found water, cave air, gravel route, warehouse crate, watchtower marker, camp marker, rune clue, and mana clue
+- Phase 3 core probe passes bootstrap recipes, durable tool instances, iron harvest gates, iron refining, furnace save/restore, recipe knowledge, stable item saves, slab/stair collision, and 32x32 material-array checks
+- Rendered Phase 3 captures pass at 58-60 FPS; the shared material variation is visible and desert sand remains tan/yellow and distinct
+- Minecraft-grid interaction probe passes 15 checks for hand/workbench shapes, output delivery, drag conservation, chest state, and double slabs
+- Exhaustive recipe probe passes 50 checks across all 34 crafting-grid recipes and all 5 furnace recipes, including every hand recipe in the 3x3 workbench, shaped-before-shapeless precedence, block/material ingredient equivalence, and the complete mechanical automation assembly chain
+- Creative-menu probe passes 11 checks with all 310 usable registered entries, catalogue search, arbitrary multi-stack grants, separate durable tool instances, generated HUD thumbnails, stack deletion, and 3x3 stick crafting
+- Request delivery accepts placeable Oak Plank stacks as the same conserved content as Oak Plank material items
+- Traversal probe crosses a half-slab and a north-facing stair with the real player collision body
+- Stage 4 authority probe passes 41 checks for the eight-NPC roster, stable local waypoints/collision and interaction targeting, sequential supply gates, per-block builder labour, 100-percent completion, save restore, RMB stations, and actor promotion/demotion
+- Physical-item probe passes 9 checks for full-inventory mining, 3D world visuals, preserved leftovers, proximity pickup, and stable-ID restore
+- Full save/UI probe passes 16 checks through the atomic `main.gd` version 8 path, including version-7 and legacy project migration
+- Phase 5 automation probe passes 61 checks for stable content/recipes, nearest-valuable and selected-ore extraction, conserved furnace fuel drag/drop, crank power, wrench configuration, cross-chunk graph connectors, ore-to-ingot transport, trust-gated delivery, blockage, in-flight save/restore, far simulation, save-persistent idempotent retries, audit ledger facts, and exact project reservations
+- Manual Stage 1 movement, editing, crafting, swimming, and cursor behaviour passed
+- Manual Phase 2 water, routes, landmarks, tundra, desert, streaming, and traversal checks passed
+- Stage 5 exit gate is complete; Stage 6 Mana, Runes, and Wards is the next documented phase

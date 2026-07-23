@@ -6466,5 +6466,47 @@
             1.0
         ],
         "color_hex": "#7B36DB"
+    },
+    {
+        "numeric_id": 309,
+        "unique_id": "VXL_MCH_Automation_BasicMechanicalMiner",
+        "original_id": "automation.machine.basic_miner",
+        "display_name": "Basic Mechanical Miner",
+        "category": "Automation / Machine",
+        "type": "block",
+        "asset_path": "/Game/Voxel/Blocks/DA_VXL_MCH_Automation_BasicMechanicalMiner",
+        "schematic_tags": [
+            "automation.machine.basic_miner",
+            "VXL_MCH_Automation_BasicMechanicalMiner"
+        ],
+        "texture_index": 309.0,
+        "color_rgb": [
+            0.57,
+            0.31,
+            0.12,
+            1.0
+        ],
+        "color_hex": "#914F1F"
+    },
+    {
+        "numeric_id": 310,
+        "unique_id": "VXL_BLK_Village_WarehouseInputHatch",
+        "original_id": "automation.village.warehouse_input_hatch",
+        "display_name": "Village Warehouse Input Hatch",
+        "category": "Automation / Village Endpoint",
+        "type": "block",
+        "asset_path": "/Game/Voxel/Blocks/DA_VXL_BLK_Village_WarehouseInputHatch",
+        "schematic_tags": [
+            "automation.village.warehouse_input_hatch",
+            "VXL_BLK_Village_WarehouseInputHatch"
+        ],
+        "texture_index": 310.0,
+        "color_rgb": [
+            0.22,
+            0.48,
+            0.58,
+            1.0
+        ],
+        "color_hex": "#387A94"
     }
 ]

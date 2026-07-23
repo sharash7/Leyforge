@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ds7cb8jxodxjl" path="res://scripts/world/voxel_world.gd" id="2"]
 [ext_resource type="Script" uid="uid://b1w4y3bsl0wcs" path="res://scripts/player/player.gd" id="3"]
 [ext_resource type="Script" uid="uid://dqyj8a2yf67wt" path="res://scripts/ui/hud.gd" id="4"]
+[ext_resource type="Script" uid="uid://c6f4i4c1twjbi" path="res://scripts/world/hamlet_runtime.gd" id="5"]
 
 [sub_resource type="CapsuleShape3D" id="player_shape"]
 radius = 0.35
@@ -39,6 +40,9 @@ script = ExtResource("1")
 
 [node name="VoxelWorld" type="Node3D" parent="." unique_id=1891449896]
 script = ExtResource("2")
+
+[node name="HamletRuntime" type="Node3D" parent="." unique_id=849402025]
+script = ExtResource("5")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1878043598]
 script = ExtResource("3")
