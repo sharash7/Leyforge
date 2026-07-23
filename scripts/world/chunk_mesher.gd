@@ -87,6 +87,12 @@ static func _is_water(snapshot: Dictionary, id: int) -> bool:
 	return id == int(snapshot["water_id"])
 
 
+static func _is_transparent(snapshot: Dictionary, id: int) -> bool:
+	var transparency: PackedByteArray = snapshot.get(
+		"transparency", PackedByteArray())
+	return id >= 0 and id < transparency.size() and transparency[id] != 0
+
+
 static func _shape(snapshot: Dictionary, id: int) -> int:
 	var shapes: PackedByteArray = snapshot.get("shapes", PackedByteArray())
 	return int(shapes[id]) if id >= 0 and id < shapes.size() else 0
@@ -94,8 +100,14 @@ static func _shape(snapshot: Dictionary, id: int) -> int:
 
 static func _face_visible(snapshot: Dictionary, id: int, neighbor_id: int) -> bool:
 	if _is_water(snapshot, id):
-		return neighbor_id == 0
+		return neighbor_id == 0 or (
+			not _is_water(snapshot, neighbor_id)
+			and not _is_transparent(snapshot, neighbor_id))
+	if _is_transparent(snapshot, id):
+		return neighbor_id == 0 or (
+			neighbor_id != id and not _is_transparent(snapshot, neighbor_id))
 	return neighbor_id == 0 or _is_water(snapshot, neighbor_id) \
+		or _is_transparent(snapshot, neighbor_id) \
 		or _shape(snapshot, neighbor_id) != 0
 
 
@@ -177,9 +189,11 @@ static func _emit_quad(snapshot: Dictionary, axis: int, u: int, v: int,
 	normal[axis] = float(sign_value)
 	var colors: PackedColorArray = snapshot["colors"]
 	var color := colors[id] if id >= 0 and id < colors.size() else Color(1, 0, 1)
-	var vertices := water_vertices if _is_water(snapshot, id) else opaque_vertices
-	var normals := water_normals if _is_water(snapshot, id) else opaque_normals
-	var vertex_colors := water_colors if _is_water(snapshot, id) else opaque_colors
+	var uses_transparent_surface := _is_water(snapshot, id) \
+		or _is_transparent(snapshot, id)
+	var vertices := water_vertices if uses_transparent_surface else opaque_vertices
+	var normals := water_normals if uses_transparent_surface else opaque_normals
+	var vertex_colors := water_colors if uses_transparent_surface else opaque_colors
 	var uv_corners := [
 		Vector2.ZERO,
 		Vector2(float(width), 0.0),
@@ -190,14 +204,14 @@ static func _emit_quad(snapshot: Dictionary, axis: int, u: int, v: int,
 	# surface and its one-sided concave collision facing out of the solid voxel.
 	if sign_value > 0:
 		vertices.append_array([c00, c11, c10, c00, c01, c11])
-		if not _is_water(snapshot, id):
+		if not uses_transparent_surface:
 			opaque_uvs.append_array([
 				uv_corners[0], uv_corners[2], uv_corners[1],
 				uv_corners[0], uv_corners[3], uv_corners[2],
 			])
 	else:
 		vertices.append_array([c00, c10, c11, c00, c11, c01])
-		if not _is_water(snapshot, id):
+		if not uses_transparent_surface:
 			opaque_uvs.append_array([
 				uv_corners[0], uv_corners[1], uv_corners[2],
 				uv_corners[0], uv_corners[2], uv_corners[3],
@@ -205,7 +219,7 @@ static func _emit_quad(snapshot: Dictionary, axis: int, u: int, v: int,
 	for i in 6:
 		normals.append(normal)
 		vertex_colors.append(color)
-		if not _is_water(snapshot, id):
+		if not uses_transparent_surface:
 			opaque_uv2s.append(Vector2(_material_layer(snapshot, id), 0.0))
 	if not _is_water(snapshot, id):
 		# Collision uses the same outward winding as the visible surface.
@@ -233,22 +247,125 @@ static func _emit_shaped_blocks(snapshot: Dictionary,
 				if shape == 0:
 					continue
 				var origin := Vector3(x, y, z)
-				_emit_box(
-					snapshot, origin, Vector3.ZERO, Vector3(1.0, 0.5, 1.0), id,
+				_emit_authored_shape(
+					snapshot, origin, id, shape,
 					vertices, normals, colors, uvs, uv2s, collision)
-				if shape == 2:
-					# Fixed north-facing representative stair. Rotation state is
-					# deferred until general per-block state metadata lands.
-					_emit_box(
-						snapshot, origin, Vector3(0.0, 0.5, 0.5), Vector3.ONE, id,
-						vertices, normals, colors, uvs, uv2s, collision)
+
+
+static func _emit_authored_shape(
+		snapshot: Dictionary, origin: Vector3, id: int, shape: int,
+		vertices: PackedVector3Array, normals: PackedVector3Array,
+		colors: PackedColorArray, uvs: PackedVector2Array,
+		uv2s: PackedVector2Array, collision: PackedVector3Array) -> void:
+	var palette: PackedColorArray = snapshot["colors"]
+	var base := palette[id] if id >= 0 and id < palette.size() else Color(1, 0, 1)
+	match shape:
+		1:
+			_emit_box(
+				snapshot, origin, Vector3.ZERO, Vector3(1.0, 0.5, 1.0), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+		2:
+			_emit_box(
+				snapshot, origin, Vector3.ZERO, Vector3(1.0, 0.5, 1.0), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+			# Fixed north-facing representative stair. Rotation state is
+			# deferred until general per-block state metadata lands.
+			_emit_box(
+				snapshot, origin, Vector3(0.0, 0.5, 0.5), Vector3.ONE, id,
+				vertices, normals, colors, uvs, uv2s, collision)
+		3:
+			# Furnace shell, rim, chimney cap, and dark front firebox.
+			_emit_box(
+				snapshot, origin, Vector3(0.05, 0.0, 0.05),
+				Vector3(0.95, 0.82, 0.95), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+			_emit_box(
+				snapshot, origin, Vector3(0.12, 0.82, 0.12),
+				Vector3(0.88, 0.96, 0.88), id,
+				vertices, normals, colors, uvs, uv2s, collision,
+				base.lightened(0.10))
+			_emit_box(
+				snapshot, origin, Vector3(0.28, 0.18, 0.015),
+				Vector3(0.72, 0.52, 0.065), id,
+				vertices, normals, colors, uvs, uv2s, collision,
+				Color(0.035, 0.025, 0.018), false)
+		4:
+			# Storage base, raised lid, and front latch.
+			_emit_box(
+				snapshot, origin, Vector3(0.06, 0.0, 0.08),
+				Vector3(0.94, 0.55, 0.92), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+			_emit_box(
+				snapshot, origin, Vector3(0.03, 0.55, 0.05),
+				Vector3(0.97, 0.76, 0.95), id,
+				vertices, normals, colors, uvs, uv2s, collision,
+				base.lightened(0.12))
+			_emit_box(
+				snapshot, origin, Vector3(0.44, 0.42, 0.015),
+				Vector3(0.56, 0.66, 0.075), id,
+				vertices, normals, colors, uvs, uv2s, collision,
+				Color(0.72, 0.48, 0.10), false)
+		5:
+			# An open, cross-connected trough rather than a solid green cube.
+			_emit_box(
+				snapshot, origin, Vector3(0.08, 0.08, 0.08),
+				Vector3(0.92, 0.20, 0.92), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+			_emit_box(
+				snapshot, origin, Vector3(0.08, 0.20, 0.08),
+				Vector3(0.18, 0.48, 0.92), id,
+				vertices, normals, colors, uvs, uv2s, collision,
+				base.darkened(0.10))
+			_emit_box(
+				snapshot, origin, Vector3(0.82, 0.20, 0.08),
+				Vector3(0.92, 0.48, 0.92), id,
+				vertices, normals, colors, uvs, uv2s, collision,
+				base.darkened(0.10))
+		6:
+			# Fixed north-facing thin door panel with frame and handle.
+			_emit_box(
+				snapshot, origin, Vector3(0.08, 0.0, 0.42),
+				Vector3(0.92, 1.0, 0.58), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+			_emit_box(
+				snapshot, origin, Vector3(0.70, 0.43, 0.37),
+				Vector3(0.80, 0.55, 0.43), id,
+				vertices, normals, colors, uvs, uv2s, collision,
+				Color(0.74, 0.55, 0.16), false)
+		7:
+			# Work surface and four readable legs.
+			_emit_box(
+				snapshot, origin, Vector3(0.04, 0.68, 0.04),
+				Vector3(0.96, 0.92, 0.96), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+			for corner in [
+				Vector2(0.10, 0.10), Vector2(0.70, 0.10),
+				Vector2(0.10, 0.70), Vector2(0.70, 0.70),
+			]:
+				_emit_box(
+					snapshot, origin, Vector3(corner.x, 0.0, corner.y),
+					Vector3(corner.x + 0.20, 0.68, corner.y + 0.20), id,
+					vertices, normals, colors, uvs, uv2s, collision,
+					base.darkened(0.16))
+		8:
+			_emit_box(
+				snapshot, origin, Vector3(0.39, 0.0, 0.39),
+				Vector3(0.61, 0.78, 0.61), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+			_emit_box(
+				snapshot, origin, Vector3(0.24, 0.70, 0.24),
+				Vector3(0.76, 1.0, 0.76), id,
+				vertices, normals, colors, uvs, uv2s, collision,
+				base.lightened(0.24))
 
 
 static func _emit_box(snapshot: Dictionary, origin: Vector3, minimum: Vector3,
 		maximum: Vector3, id: int, vertices: PackedVector3Array,
 		normals: PackedVector3Array, colors: PackedColorArray,
 		uvs: PackedVector2Array, uv2s: PackedVector2Array,
-		collision: PackedVector3Array) -> void:
+		collision: PackedVector3Array,
+		color_override: Color = Color(-1.0, -1.0, -1.0, -1.0),
+		collision_enabled: bool = true) -> void:
 	for axis in 3:
 		var u := (axis + 1) % 3
 		var v := (axis + 2) % 3
@@ -272,21 +389,25 @@ static func _emit_box(snapshot: Dictionary, origin: Vector3, minimum: Vector3,
 			dv[v] = maximum[v] - minimum[v]
 			_emit_box_face(
 				snapshot, base, du, dv, axis, sign_value, id,
-				vertices, normals, colors, uvs, uv2s, collision)
+				vertices, normals, colors, uvs, uv2s, collision,
+				color_override, collision_enabled)
 
 
 static func _emit_box_face(snapshot: Dictionary, c00: Vector3, du: Vector3,
 		dv: Vector3, axis: int, sign_value: int, id: int,
 		vertices: PackedVector3Array, normals: PackedVector3Array,
 		colors: PackedColorArray, uvs: PackedVector2Array,
-		uv2s: PackedVector2Array, collision: PackedVector3Array) -> void:
+		uv2s: PackedVector2Array, collision: PackedVector3Array,
+		color_override: Color = Color(-1.0, -1.0, -1.0, -1.0),
+		collision_enabled: bool = true) -> void:
 	var c10 := c00 + du
 	var c11 := c00 + du + dv
 	var c01 := c00 + dv
 	var normal := Vector3.ZERO
 	normal[axis] = float(sign_value)
 	var palette: PackedColorArray = snapshot["colors"]
-	var color := palette[id] if id >= 0 and id < palette.size() else Color(1, 0, 1)
+	var color := color_override if color_override.r >= 0.0 else (
+		palette[id] if id >= 0 and id < palette.size() else Color(1, 0, 1))
 	var uv00 := Vector2.ZERO
 	var uv10 := Vector2(du.length(), 0.0)
 	var uv11 := Vector2(du.length(), dv.length())
@@ -294,11 +415,13 @@ static func _emit_box_face(snapshot: Dictionary, c00: Vector3, du: Vector3,
 	if sign_value > 0:
 		vertices.append_array([c00, c11, c10, c00, c01, c11])
 		uvs.append_array([uv00, uv11, uv10, uv00, uv01, uv11])
-		collision.append_array([c00, c11, c10, c00, c01, c11])
+		if collision_enabled:
+			collision.append_array([c00, c11, c10, c00, c01, c11])
 	else:
 		vertices.append_array([c00, c10, c11, c00, c11, c01])
 		uvs.append_array([uv00, uv10, uv11, uv00, uv11, uv01])
-		collision.append_array([c00, c10, c11, c00, c11, c01])
+		if collision_enabled:
+			collision.append_array([c00, c10, c11, c00, c11, c01])
 	for i in 6:
 		normals.append(normal)
 		colors.append(color)

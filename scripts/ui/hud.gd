@@ -10,6 +10,7 @@ const EXTERNAL_SLOT_GROUPS: Array[String] = [
 ]
 
 var player: Player
+var raid_runtime: Node
 var craft_open := false
 var craft_mode := "hand"
 var station_position := INVALID_TARGET
@@ -49,6 +50,7 @@ var _dialogue_area: VBoxContainer
 var _dialogue_title: Label
 var _dialogue_text: Label
 var _dialogue_action: Button
+var _raid_action: Button
 var _creative_area: VBoxContainer
 var _creative_search: LineEdit
 var _creative_list: ItemList
@@ -82,6 +84,7 @@ func _ready() -> void:
 	HamletState.delivery_ledger_changed.connect(_refresh_all)
 	HamletState.npc_changed.connect(func(_npc_id: String) -> void: _refresh_all())
 	MagicState.magic_changed.connect(_refresh_all)
+	CombatState.state_changed.connect(_refresh_all)
 	_refresh_all()
 
 
@@ -123,8 +126,8 @@ func _update_status() -> void:
 		landmark, HamletState.get_clock_text(), floori(pos.x), floori(pos.y), floori(pos.z),
 		Engine.get_frames_per_second(),
 	]
-	_magic_hud_label.text = "%s  ·  Z Stone Sense  ·  X Spark Bolt" % \
-		MagicState.status_text()
+	_magic_hud_label.text = "%s  ·  %s  ·  F Attack  ·  Z Stone Sense  ·  X Spark Bolt" % [
+		MagicState.status_text(), CombatState.status_text()]
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -463,6 +466,10 @@ func _build_dialogue_ui(parent: VBoxContainer) -> void:
 	_dialogue_action.text = "Offer to help the hamlet"
 	_dialogue_action.pressed.connect(_on_dialogue_action)
 	_dialogue_area.add_child(_dialogue_action)
+	_raid_action = Button.new()
+	_raid_action.text = "Sound the raid warning"
+	_raid_action.pressed.connect(_on_raid_action)
+	_dialogue_area.add_child(_raid_action)
 	parent.add_child(_dialogue_area)
 
 
@@ -765,6 +772,25 @@ func _on_dialogue_action() -> void:
 		_show_context("The request board is now open for deliveries.")
 	else:
 		_open_mode("request_board", player.world.get_hamlet_station_position("request_board"))
+	_refresh_all()
+
+
+func _on_raid_action() -> void:
+	if raid_runtime == null:
+		_show_context("The raid runtime is not ready.")
+		return
+	var result: Dictionary
+	if CombatState.phase == "resolved":
+		if CombatState.unresolved_damage_count() > 0:
+			result = raid_runtime.repair_next_damage()
+		else:
+			CombatState.reset_raid()
+			result = {"message": "Raid test reset. Speak to Elric when ready."}
+	elif CombatState.phase == "dormant":
+		result = raid_runtime.begin_raid()
+	else:
+		result = {"message": "The raid is already underway."}
+	_show_context(str(result.get("message", "No raid action was taken.")))
 	_refresh_all()
 
 
@@ -1115,10 +1141,19 @@ func _refresh_dialogue() -> void:
 	_dialogue_title.text = "%s · %s" % [record["name"], record["job"]]
 	_dialogue_text.text = HamletState.get_dialogue(interaction_subject_id)
 	var is_elder := str(record.get("job_id", "")) == "job.leader.elder"
+	var is_guard := str(record.get("job_id", "")) == "job.guard.militia"
 	_dialogue_action.visible = is_elder
 	_dialogue_action.text = "Offer to help the hamlet" \
 		if HamletState.reputation_state == HamletState.REP_STRANGER \
 		else "Open the request board"
+	_raid_action.visible = is_guard and CombatState.phase in ["dormant", "resolved"]
+	if _raid_action.visible:
+		if CombatState.phase == "dormant":
+			_raid_action.text = "Sound the Stage 7 raid warning"
+		elif CombatState.unresolved_damage_count() > 0:
+			_raid_action.text = "Repair next damaged voxel (1 Oak Beam)"
+		else:
+			_raid_action.text = "Reset raid test"
 
 
 func _refresh_furnace() -> void:

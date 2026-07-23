@@ -9,12 +9,13 @@ const SAVE_PATH := "user://leyforge_save.json"
 const SAVE_TEMP_PATH := "user://leyforge_save.tmp"
 const SAVE_PREVIOUS_PATH := "user://leyforge_save.previous"
 const SAVE_BACKUP_PATH := "user://leyforge_save.backup.json"
-const SAVE_VERSION := 9
+const SAVE_VERSION := 10
 
 @onready var world: VoxelWorld = $VoxelWorld
 @onready var player: Player = $Player
 @onready var hud: Hud = $HUD
 @onready var hamlet_runtime: HamletRuntime = $HamletRuntime
+@onready var raid_runtime: Node = $RaidRuntime
 
 
 func _ready() -> void:
@@ -28,6 +29,7 @@ func _ready() -> void:
 
 	world.start(seed_value)
 	HamletState.initialize(world.world_seed, world.get_valley_anchors())
+	CombatState.initialize(world.world_seed, world.get_valley_anchors())
 
 	if not data.is_empty() \
 			and int(data.get("seed", seed_value)) == world.world_seed \
@@ -38,6 +40,8 @@ func _ready() -> void:
 			push_warning("MAIN: save seed or world-generation manifest differs, starting fresh")
 		player.global_position = world.find_spawn()
 	hamlet_runtime.configure(world, player)
+	raid_runtime.configure(world, player)
+	hud.raid_runtime = raid_runtime
 	print("MAIN: seed=%d player at %s" % [world.world_seed, player.global_position])
 
 
@@ -72,6 +76,7 @@ func _save_game() -> void:
 		"progression": ProgressionState.serialize_state(),
 		"magic_player": MagicState.serialize_state(),
 		"hamlet": HamletState.serialize_state(),
+		"combat": CombatState.serialize_state(),
 		"worldgen": world.get_worldgen_manifest(),
 	}
 	if not _write_verified_temp(data):
@@ -170,13 +175,14 @@ func _migrate_save(data: Dictionary) -> Dictionary:
 	var version := int(data.get("version", 0))
 	if version == SAVE_VERSION:
 		return data
-	if version in [2, 3, 4, 5, 6, 7, 8]:
+	if version in [2, 3, 4, 5, 6, 7, 8, 9]:
 		# v2 used raw numeric block ids; v3 introduced stable content identities;
 		# v4 added the Controlled POC Valley manifest. All upgrade in place to the
 		# unified item/progression/functional-block/automation state on the next
 		# save. v7 already has physical world drops and needs no structural
 		# rewrite beyond the version marker. v8 adds automation; v9 adds
 		# player magic and magic-network state under existing block entities.
+		# v10 adds authoritative combat, raid, damage, and aftermath state.
 		var legacy_inventory: Dictionary
 		if version == 2:
 			legacy_inventory = {
@@ -200,6 +206,7 @@ func _migrate_save(data: Dictionary) -> Dictionary:
 			"progression": data.get("progression", {}),
 			"magic_player": data.get("magic_player", {}),
 			"hamlet": data.get("hamlet", {}),
+			"combat": data.get("combat", {}),
 			"worldgen": data.get("worldgen", {}) if version >= 4 else {},
 		}
 	push_warning("MAIN: unsupported save version v%d" % version)
@@ -224,6 +231,10 @@ func _apply_save(data: Dictionary) -> void:
 	if hamlet_data is Dictionary and not hamlet_data.is_empty():
 		if not HamletState.restore_state(hamlet_data, world.world_seed):
 			push_warning("MAIN: rejected incompatible hamlet state; using fresh valley state")
+	var combat_data: Variant = data.get("combat", {})
+	if combat_data is Dictionary and not combat_data.is_empty():
+		if not CombatState.restore_state(combat_data, world.world_seed):
+			push_warning("MAIN: rejected incompatible combat state; using a fresh raid state")
 	var p: Array = data.get("player_position", [])
 	if p.size() == 3:
 		var requested_position := Vector3(p[0], p[1], p[2])

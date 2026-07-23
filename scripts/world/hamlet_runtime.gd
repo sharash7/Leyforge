@@ -78,6 +78,7 @@ func _advance_builder_construction(delta: float) -> void:
 	if _build_accumulator < BUILD_INTERVAL:
 		return
 	_build_accumulator = 0.0
+	actor.play_action("build", 0.55)
 	if world.place_watchtower_stage_block(stage_index, placement_index):
 		HamletState.record_project_block_placed(placements.size())
 

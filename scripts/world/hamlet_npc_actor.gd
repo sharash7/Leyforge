@@ -2,11 +2,15 @@ class_name HamletNpcActor
 extends CharacterBody3D
 ## Streamable nearby representation of one authoritative HamletState NPC.
 
+const HumanoidVisualScript = preload("res://scripts/visual/humanoid_visual.gd")
 const WALK_SPEED := 1.65
 const GRAVITY := 22.0
+const GUARD_ATTACK_RANGE := 1.65
+const GUARD_ATTACK_DAMAGE := 5.0
 
 var npc_id := ""
 var world: VoxelWorld
+var humanoid: Node3D
 var _record_accumulator := 0.0
 var _avoid_seconds := 0.0
 var _avoid_sign := 1.0
@@ -15,6 +19,9 @@ var _waypoint_base := Vector2(INF, INF)
 var _waypoint_seconds := 0.0
 var _waypoint_index := 0
 var _stuck_seconds := 0.0
+var _action_seconds := 0.0
+var _guard_attack_cooldown := 0.0
+var _held_stack: Dictionary = {}
 
 
 func setup(p_world: VoxelWorld, p_npc_id: String) -> void:
@@ -27,6 +34,7 @@ func _ready() -> void:
 	# collisions were the main source of the rapid in-place vibration.
 	collision_layer = 2
 	collision_mask = 1
+	add_to_group("hamlet_npcs")
 	floor_snap_length = 0.45
 	_build_visual()
 	var record := HamletState.get_npc_record(npc_id)
@@ -43,9 +51,6 @@ func _build_visual() -> void:
 	var record := HamletState.get_npc_record(npc_id)
 	name = str(record.get("name", "Villager")).validate_node_name()
 	var color := Color.from_string(str(record.get("color", "7a8a72")), Color(0.5, 0.5, 0.5))
-	var material := StandardMaterial3D.new()
-	material.albedo_color = color
-	material.roughness = 0.92
 
 	var collision := CollisionShape3D.new()
 	var shape := CapsuleShape3D.new()
@@ -55,21 +60,12 @@ func _build_visual() -> void:
 	collision.shape = shape
 	add_child(collision)
 
-	var body := MeshInstance3D.new()
-	var body_mesh := BoxMesh.new()
-	body_mesh.size = Vector3(0.62, 1.05, 0.42)
-	body_mesh.material = material
-	body.mesh = body_mesh
-	body.position.y = 0.82
-	add_child(body)
-
-	var head := MeshInstance3D.new()
-	var head_mesh := BoxMesh.new()
-	head_mesh.size = Vector3(0.48, 0.48, 0.48)
-	head_mesh.material = material
-	head.mesh = head_mesh
-	head.position.y = 1.58
-	add_child(head)
+	humanoid = HumanoidVisualScript.new()
+	humanoid.name = "HumanoidVisual"
+	add_child(humanoid)
+	humanoid.configure(color)
+	_held_stack = _job_held_stack(str(record.get("job_id", "")))
+	humanoid.set_held_stack(_held_stack)
 
 	var label := Label3D.new()
 	label.text = "%s\n%s" % [str(record.get("name", "Villager")), str(record.get("job", ""))]
@@ -80,6 +76,24 @@ func _build_visual() -> void:
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	label.no_depth_test = true
 	add_child(label)
+
+
+func _job_held_stack(job_id: String) -> Dictionary:
+	var stable_id: String = {
+		"job.builder.basic": "item.tool.hammer_basic",
+		"job.farmer.basic": "item.tool.hoe_basic",
+		"job.guard.militia": "item.weapon.iron_sword",
+		"job.mage.apprentice": "item.weapon.apprentice_staff",
+		"job.miner.basic": "item.tool.stone_pickaxe",
+		"job.lumberjack.basic": "item.tool.stone_axe",
+	}.get(job_id, "")
+	if stable_id.is_empty():
+		return {}
+	return Inventory.make_stack_from_ref({
+		"kind": "item",
+		"stable_id": stable_id,
+		"count": 1,
+	})
 
 
 func get_npc_id() -> String:
@@ -116,6 +130,13 @@ func _physics_process(delta: float) -> void:
 		_waypoint.x - global_position.x, _waypoint.y - global_position.z)
 	var direction := Vector3.ZERO
 	var distance_to_target := difference.length()
+	var record := HamletState.get_npc_record(npc_id)
+	var is_guard := str(record.get("job_id", "")) == "job.guard.militia"
+	var raid_target := _nearest_raid_target() if is_guard else null
+	if raid_target != null:
+		var raid_delta := raid_target.global_position - global_position
+		difference = Vector2(raid_delta.x, raid_delta.z)
+		distance_to_target = difference.length()
 	if distance_to_target > 0.28:
 		var desired := difference.normalized()
 		if _avoid_seconds > 0.0:
@@ -157,7 +178,68 @@ func _physics_process(delta: float) -> void:
 		global_position.y = expected_ground + 0.05
 		velocity = Vector3.ZERO
 
+	_guard_attack_cooldown = maxf(0.0, _guard_attack_cooldown - delta)
+	_action_seconds = maxf(0.0, _action_seconds - delta)
+	if raid_target != null and distance_to_target <= GUARD_ATTACK_RANGE \
+			and _guard_attack_cooldown <= 0.0:
+		_guard_attack_cooldown = 0.85
+		play_action("attack", 0.55)
+		raid_target.apply_combat_damage({
+			"source": npc_id,
+			"damage_type": "physical.slash",
+			"amount": GUARD_ATTACK_DAMAGE,
+		})
+	var persistent_action := ""
+	if _action_seconds <= 0.0 and direction.length_squared() <= 0.01 \
+			and str(record.get("schedule_state", "")) == "work":
+		persistent_action = _job_action(str(record.get("job_id", "")))
+	if humanoid != null:
+		humanoid.update_pose(
+			delta, Vector2(velocity.x, velocity.z).length(), persistent_action)
+
 	_record_accumulator += delta
 	if _record_accumulator >= 1.0:
 		_record_accumulator = 0.0
 		HamletState.update_npc_position(npc_id, global_position)
+		HamletState.update_npc_activity(
+			npc_id, persistent_action if not persistent_action.is_empty() else (
+				"walking" if direction.length_squared() > 0.01 else "idle"))
+
+
+func _job_action(job_id: String) -> String:
+	return {
+		"job.builder.basic": "build",
+		"job.farmer.basic": "work",
+		"job.guard.militia": "guard",
+		"job.mage.apprentice": "cast",
+		"job.miner.basic": "mine",
+		"job.lumberjack.basic": "chop",
+	}.get(job_id, "")
+
+
+func _nearest_raid_target() -> Node3D:
+	if not CombatState.is_raid_active():
+		return null
+	var nearest: Node3D
+	var nearest_distance := INF
+	for node in get_tree().get_nodes_in_group("raid_enemies"):
+		if not (node is Node3D) or not node.has_method("is_combat_alive") \
+				or not bool(node.call("is_combat_alive")):
+			continue
+		var distance := global_position.distance_squared_to(node.global_position)
+		if distance < nearest_distance:
+			nearest_distance = distance
+			nearest = node
+	return nearest
+
+
+func play_action(action: String, duration: float = 0.55) -> void:
+	_action_seconds = maxf(duration, 0.05)
+	if humanoid != null:
+		humanoid.play_action(action, duration)
+
+
+func has_articulated_humanoid() -> bool:
+	return humanoid != null \
+		and humanoid.left_arm != null and humanoid.right_arm != null \
+		and humanoid.left_leg != null and humanoid.right_leg != null

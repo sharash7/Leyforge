@@ -82,6 +82,8 @@ func create_mesh_snapshot() -> Dictionary:
 		"neighbors": neighbors,
 		"colors": _world.block_colors if _world != null else PackedColorArray(),
 		"shapes": _world.block_shapes if _world != null else PackedByteArray(),
+		"transparency": _world.block_transparency \
+			if _world != null else PackedByteArray(),
 		"layers": _world.material_layers if _world != null else PackedInt32Array(),
 		"water_id": _world.id_water if _world != null else 7,
 	}

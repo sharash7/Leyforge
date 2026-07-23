@@ -256,6 +256,11 @@ func _create_roster() -> void:
 			"work": [work.x, work.y],
 			"schedule_state": "work",
 			"alive": true,
+			"health": 30.0,
+			"max_health": 30.0,
+			"injured": false,
+			"injury": "",
+			"activity": "idle",
 			"need_profile": _need_profile_for(str(definition["job_id"])),
 			"needs": {
 				"food": 0.82,
@@ -444,10 +449,108 @@ func update_npc_position(npc_id: String, position: Vector3) -> void:
 	npc_records[npc_id] = record
 
 
+func update_npc_activity(npc_id: String, activity: String) -> void:
+	if not npc_records.has(npc_id):
+		return
+	var record: Dictionary = npc_records[npc_id]
+	if str(record.get("activity", "")) == activity:
+		return
+	record["activity"] = activity
+	npc_records[npc_id] = record
+	npc_changed.emit(npc_id)
+
+
+func apply_npc_damage(
+		npc_id: String, amount: float, source: String = "",
+		allow_death: bool = false) -> Dictionary:
+	if not npc_records.has(npc_id) or amount <= 0.0:
+		return {"ok": false}
+	var record: Dictionary = npc_records[npc_id]
+	if not bool(record.get("alive", true)):
+		return {"ok": false}
+	var maximum := maxf(1.0, float(record.get("max_health", 30.0)))
+	var health := maxf(0.0, float(record.get("health", maximum)) - amount)
+	if health <= 0.0 and not allow_death:
+		health = 1.0
+		record["injured"] = true
+		record["injury"] = "Severe raid injury"
+	if health <= 0.0 and allow_death:
+		record["alive"] = false
+		record["activity"] = "fallen"
+	else:
+		record["activity"] = "hurt"
+	record["health"] = health
+	record["last_damage_source"] = source
+	npc_records[npc_id] = record
+	npc_changed.emit(npc_id)
+	state_changed.emit()
+	return {
+		"ok": true,
+		"health": health,
+		"alive": bool(record.get("alive", true)),
+		"injured": bool(record.get("injured", false)),
+	}
+
+
+func apply_raid_aftermath(
+		outcome_id: String, injured_ids: Array[String],
+		theft_limit: int, reputation_delta: int) -> Array[Dictionary]:
+	var injuries := {}
+	for injured_id in injured_ids:
+		injuries[injured_id] = true
+	for npc_id in npc_records:
+		var record: Dictionary = npc_records[npc_id]
+		if injuries.has(str(npc_id)):
+			record["injured"] = true
+			record["injury"] = "Recovering after the goblin raid"
+			record["health"] = minf(
+				float(record.get("health", 30.0)),
+				maxf(1.0, float(record.get("max_health", 30.0)) * 0.45))
+		record["last_raid_outcome"] = outcome_id
+		var needs: Dictionary = record.get("needs", {})
+		needs["safety"] = clampf(
+			float(needs.get("safety", 0.7))
+			+ (0.12 if outcome_id == "prepared_victory" else -0.16),
+			0.0, 1.0)
+		record["needs"] = needs
+		npc_records[npc_id] = record
+	var stolen: Array[Dictionary] = []
+	var remaining := maxi(0, theft_limit)
+	for index in warehouse_slots.size():
+		if remaining <= 0:
+			break
+		var stack: Dictionary = warehouse_slots[index]
+		if stack.is_empty():
+			continue
+		var taken := mini(remaining, int(stack.get("count", 0)))
+		var stolen_stack := stack.duplicate(true)
+		stolen_stack["count"] = taken
+		stolen.append(stolen_stack)
+		stack["count"] = int(stack.get("count", 0)) - taken
+		warehouse_slots[index] = {} if int(stack["count"]) <= 0 else stack
+		remaining -= taken
+	reputation_points = maxi(0, reputation_points + reputation_delta)
+	_refresh_reputation_state()
+	warehouse_changed.emit()
+	for injured_id in injured_ids:
+		npc_changed.emit(injured_id)
+	state_changed.emit()
+	return stolen
+
+
 func get_npc_target(npc_id: String) -> Vector2:
 	var record := get_npc_record(npc_id)
 	if record.is_empty():
 		return Vector2(hamlet_anchor)
+	if CombatState.is_raid_active():
+		if str(record.get("job_id", "")) == "job.guard.militia":
+			return Vector2(float(hamlet_anchor.x) + 5.5, float(hamlet_anchor.y) + 0.5)
+		# Non-combatants shelter around the warehouse while the guard intercepts.
+		var shelter_hash := absi(npc_id.hash())
+		return Vector2(
+			float(warehouse_anchor.x) + 0.5 + float(shelter_hash % 3 - 1),
+			float(warehouse_anchor.y) + 0.5
+				+ float(int(shelter_hash / 7) % 3 - 1))
 	var state := str(record.get("schedule_state", "work"))
 	var source: Array = record.get("home", [hamlet_anchor.x, hamlet_anchor.y])
 	if state == "work":
@@ -536,6 +639,16 @@ func get_dialogue(npc_id: String) -> String:
 	if job_id == "job.farmer.basic":
 		return "Work goes easier when the pantry is steady. The board lists what we are short of."
 	if job_id == "job.guard.militia":
+		if CombatState.phase == "warning":
+			return "The horn is sounded. Take position; the goblins are on the raid road."
+		if CombatState.phase == "assault":
+			return "Hearthplain is under attack. Press F to strike with your held item, or use Spark Bolt."
+		if CombatState.phase == "resolved":
+			return "The raid ended as %s. %d damaged voxel%s still need Oak Beams." % [
+				str(CombatState.outcome.get("title", "an uncertain outcome")),
+				CombatState.unresolved_damage_count(),
+				"" if CombatState.unresolved_damage_count() == 1 else "s",
+			]
 		return "A completed watchtower will improve our warning time. Until then, I patrol the road."
 	if job_id == "job.merchant.basic":
 		return "Trust opens doors here. Help the hamlet first; better trade can follow."
@@ -1064,6 +1177,12 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 				# Authored identity/job data remains authoritative across saves.
 				for field in ["id", "name", "job_id", "job", "color", "home", "work", "need_profile"]:
 					restored[field] = npc_records[npc_id][field]
+				for field in [
+					"alive", "health", "max_health", "injured", "injury",
+					"activity",
+				]:
+					if not restored.has(field):
+						restored[field] = npc_records[npc_id][field]
 				npc_records[npc_id] = restored
 	warehouse_slots = _empty_slots(WAREHOUSE_SIZE)
 	var stored_slots: Variant = data.get("warehouse", [])

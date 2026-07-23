@@ -22,7 +22,10 @@ func get_icon(stack: Dictionary) -> Texture2D:
 	# thumbnails readable without changing their world appearance.
 	color = color.lightened(0.12)
 	if Inventory.stack_kind(stack) == "block":
-		_draw_block(image, color, BlockRegistry.get_shape(int(stack.get("id", -1))))
+		var block_id := int(stack.get("id", -1))
+		_draw_block(
+			image, color, BlockRegistry.get_shape(block_id),
+			BlockRegistry.get_stable_id(block_id))
 	else:
 		_draw_item(
 			image, color, ItemRegistry.is_tool(int(stack.get("id", -1))))
@@ -31,12 +34,22 @@ func get_icon(stack: Dictionary) -> Texture2D:
 	return texture
 
 
-func _draw_block(image: Image, color: Color, shape: String) -> void:
+func _draw_block(
+		image: Image, color: Color, shape: String,
+		stable_id: String = "") -> void:
 	var top_offset := 0
 	var depth := 20
 	if shape == "slab":
 		top_offset = 10
 		depth = 11
+	elif shape in ["chest", "chute"]:
+		top_offset = 7
+		depth = 15
+	elif shape == "door":
+		top_offset = 2
+		depth = 25
+	if "glass" in stable_id:
+		color.a = 0.42
 	_draw_iso_prism(image, color, top_offset, depth)
 	if shape == "stair":
 		# A lighter raised rear step distinguishes stairs from full cubes.
@@ -48,6 +61,23 @@ func _draw_block(image: Image, color: Color, shape: String) -> void:
 		_fill_quad(image, top[0], top[1], top[2], top[3], rear.lightened(0.12))
 		_draw_line(image, top[0], top[1], Color(0, 0, 0, 0.65))
 		_draw_line(image, top[1], top[2], Color(0, 0, 0, 0.65))
+	elif shape == "furnace":
+		_fill_quad(
+			image, Vector2(21, 29), Vector2(34, 35),
+			Vector2(34, 45), Vector2(21, 39), Color(0.03, 0.02, 0.015))
+	elif shape == "chest":
+		_draw_line(image, Vector2(7, 28), Vector2(28, 39), Color(0, 0, 0, 0.72))
+		_draw_line(image, Vector2(28, 39), Vector2(49, 28), Color(0, 0, 0, 0.72))
+		_fill_quad(
+			image, Vector2(26, 32), Vector2(31, 35),
+			Vector2(31, 41), Vector2(26, 38), Color(0.75, 0.53, 0.14))
+	elif shape == "chute":
+		_fill_quad(
+			image, Vector2(17, 16), Vector2(39, 16),
+			Vector2(29, 22), Vector2(25, 22), Color(0.04, 0.05, 0.04, 0.9))
+	elif shape == "door":
+		_draw_line(image, Vector2(18, 18), Vector2(38, 28), Color(0, 0, 0, 0.45))
+		_draw_line(image, Vector2(18, 27), Vector2(38, 37), Color(0, 0, 0, 0.45))
 
 
 func _draw_iso_prism(image: Image, color: Color, top_offset: int, depth: int) -> void:

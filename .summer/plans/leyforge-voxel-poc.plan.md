@@ -1,8 +1,8 @@
 ---
 name: leyforge-voxel-poc
 overview: >-
-  Godot-adapted Forest Hamlet POC: Stage 6 -- Mana, Runes, and Wards is complete
-  on the deterministic Controlled POC Valley; Stage 7 is next
+  Godot-adapted Forest Hamlet POC: Stage 7 -- Combat and Goblin Raid is complete
+  on the deterministic Controlled POC Valley; Stage 8 is next
 createdAt: '2026-07-21T08:48:53.746Z'
 todos:
   - id: voxel-chunk-system
@@ -110,6 +110,12 @@ todos:
       deterministic raid planner, tower and ward defense contributions,
       persistent damage/repair, injury/death settings, and reproducible raid
       aftermath outcomes
+    status: completed
+  - id: stage8-end-to-end-ui-learning
+    content: >-
+      Consolidate the HUD, inventory, crafting, dialogue, village, machine,
+      mana, map, raid, combat, aftermath, settings, input, controller, and
+      accessibility learning paths into a first-time-player flow
     status: pending
 ---
 ## Scene Structure
@@ -117,6 +123,7 @@ todos:
   - `WorldEnvironment` with basic sky and directional light
   - `VoxelWorld` (Node3D) -- generates, streams, edits, and journals chunks
   - `HamletRuntime` (Node3D) -- promotes/demotes nearby persistent NPC actors
+  - `RaidRuntime` (Node3D) -- promotes persistent raid enemies and materialises aftermath damage
   - `Player` (CharacterBody3D) -- first-person controller
     - `Head/Camera3D` -- mouse-look camera
     - `Head/Camera3D/RayCast3D` -- block targeting
@@ -134,6 +141,8 @@ todos:
 - `res://scripts/world/world_item_drop.gd` -- persistent physical mined stacks with terrain settling and proximity pickup
 - `res://scripts/world/automation_system.gd` -- persistent machines, typed item topology, conserved batches, faults, and near/far simulation
 - `res://scripts/world/magic_system.gd` -- persistent mana networks, batteries, conduits, ward coverage, magical consumers, faults, and ruin teaser state
+- `res://scripts/world/raid_runtime.gd` -- local goblin promotion, preparation snapshot, and raid damage/repair bridge
+- `res://scripts/world/goblin_actor.gd` -- humanoid raider/brute/captain movement, targeting, attack, and damage presentation
 - `res://scripts/autoload/block_registry.gd` -- block-only stable definitions
 - `res://scripts/autoload/item_registry.gd` -- item-only stable definitions
 - `res://scripts/autoload/recipe_registry.gd` -- stable-ID hand, workbench, and furnace recipes
@@ -141,6 +150,9 @@ todos:
 - `res://scripts/autoload/inventory.gd` -- unified block/item stacks, item instances, hotbar, backpack, and transactions
 - `res://scripts/autoload/hamlet_state.gd` -- authoritative NPC, schedule, need, warehouse, request, trust, permission, and project state
 - `res://scripts/autoload/magic_state.gd` -- personal mana, regeneration, spell knowledge, cooldowns, casts, and save state
+- `res://scripts/autoload/combat_state.gd` -- player health, raid planner, enemy records, outcome, injury, theft, structure damage, repair, history, and save state
+- `res://scripts/visual/humanoid_visual.gd` -- shared articulated player, villager, and goblin body/animation presentation
+- `res://scripts/visual/item_model_factory.gd` -- shared low-poly held/drop model silhouettes selected by stable content identity
 - `res://scripts/player/player.gd` -- movement, swimming, timed tool-aware harvesting, and placement
 - `res://scripts/ui/hud.gd` -- contextual recipe/furnace UI, backpack, hotbar, and status feedback
 - `res://scripts/ui/stack_icon_renderer.gd` -- cached static isometric thumbnails for registered blocks and items
@@ -156,6 +168,7 @@ todos:
 - toggle_creative: C (open/close the testing catalogue)
 - cast_utility: Z (cast Stone Sense when known and funded)
 - cast_combat: X (cast Spark Bolt when known, funded, and off cooldown)
+- attack: F (attack a combat target with the selected item or empty hand)
 - hotbar_1 through hotbar_9: Number keys
 
 ## Chunk System
@@ -187,7 +200,7 @@ todos:
 ## Physical Item Drops
 - Successful harvesting commits the world edit into a small 3D dropped block/item rather than inserting directly into inventory
 - Drops settle against voxel collision, remain present when inventory is full, and automatically transfer any available amount inside the pickup radius
-- Drop stacks retain stable block/item identities, tool instances, position, motion, and age through atomic version 9 saves
+- Drop stacks retain stable block/item identities, tool instances, position, motion, and age through atomic version 10 saves
 
 ## Crafting
 - E opens the 2x2 hand grid; RMB opens aimed workbench, rune table, furnace, mana furnace, chest, magical device, village, or NPC interactions
@@ -209,10 +222,14 @@ todos:
 - Floor snapping plus bounded step-up movement crosses slabs and the low side of stairs
 - A second oak slab placed on the first creates a full-height block that returns two slabs when mined
 - Timber detail is axis-balanced so rotated voxel faces no longer show a conspicuously inverted grain line
+- Furnace, chest/crate, chute, door, workbench/rune-table, and post blocks use compound authored silhouettes instead of full placeholder cubes
+- Glass uses the transparent surface with a reduced alpha while retaining generated collision
+- Familiar stone, wood, metal, magic, and glass presentation colours replace misleading registry placeholder colours for the first priority model set
 
 ## Persistent Forest Hamlet
 - Eight stable named NPC records cover elder, builder, farmer, guard, merchant, mage, miner, and lumberjack jobs
 - Nearby villagers promote into labelled moving actors; distant villagers demote back into saved records
+- Villagers share an articulated humanoid with separate head, torso, arms, and legs; opposite limbs swing while walking, job tools are visible, and work/combat activities drive basic poses
 - Schedule waypoints now include changing local destinations; NPCs collide with terrain but not one another, preventing actor-on-actor vibration
 - Needs-lite food/safety/morale state continues independently of actor streaming
 - The 54-slot warehouse is authoritative and uses the same stable stack transactions as player storage
@@ -247,16 +264,27 @@ todos:
 - The rune ruin contains a persistent broken-portal teaser and grants one Rune Note without implementing travel
 - Near/far simulation, bounded offline catch-up, save/load, and visual promotion use the same authoritative magic records
 
+## Combat and Goblin Raid
+- The player has persistent health and F-key held-item attacks; empty hands, tools, axes, pickaxes, and swords use readable damage types while Spark Bolt shares the enemy damage contract
+- The first-person view always shows an arm and displays the selected stable-ID block, resource, tool, weapon, or component; the complete player body uses the same articulated humanoid as villagers
+- A warning phase promotes persistent Goblin Raider, Brute, and Captain records into local humanoid actors with role health, damage, weapons, morale, targeting, and guard combat
+- The deterministic raid planner scores watchtower stages, powered ward coverage, guard readiness, food, lighting, and player defeats against camp pressure
+- Prepared Victory, Costly Victory, Partial Loss, and Village Defeat outcomes persist with injuries, conserved warehouse theft, reputation change, event history, and captain memory
+- Non-perfect outcomes remove exact warehouse voxels; each repair restores the saved original block and transactionally consumes one Oak Beam
+- NPC death and structure damage are explicit world settings; the POC defaults to recoverable injuries rather than silently deleting named villagers
+- Elric's conversation exposes the manual raid trigger, aftermath status, one-at-a-time repair action, and test reset
+- The living manual acceptance guide is `20_Leyforge_POC_Manual_Testing_Guide_v0_1.md` and must be updated with every future phase
+
 ## Later-Stage Design Alignment
 - Document 19, `19_Fantasy_Voxel_Civilisation_Sandbox_Settlement_Growth_and_Player_Voxel_Blueprint_System_v0_1.md`, is now a design source for later settlement-growth and player-voxel-blueprint phases
 - Its blueprint definitions/runtime records, stable identity, reservations, repair, and settlement progression requirements should extend the existing conserved resource, project, and persistence foundations
-- Stage 6 does not pull those later systems forward; Stage 7 remains the next documented implementation phase
+- Stage 7 does not pull those later settlement/blueprint systems forward; Stage 8 remains the next documented implementation phase
 
 ## Current Verification
 - Headless Godot 4.6.3 probe: 143 blocks and 167 items load in separate registries
 - Legacy Oak Log item ID 142 migrates to block ID 9
 - Final-batch crafting, full-inventory mining/crafting, stable edit saves, and craft-grid saves pass
-- Version 9 saves preserve unified inventory, tool durability, progression, personal magic, mana networks/consumers/connectors, functional blocks, physical item drops, automation machines/batches/connectors, delivery ledger, hamlet records, warehouse, requests, reputation, permissions, project state, edits, and the world-generation manifest
+- Version 10 saves preserve unified inventory, tool durability, progression, personal magic, mana networks/consumers/connectors, player health, raid phases, authoritative enemies, preparation, outcomes, injuries, theft, damage/repair/history, functional blocks, physical item drops, automation machines/batches/connectors, delivery ledger, hamlet records, warehouse, requests, reputation, permissions, project state, edits, and the world-generation manifest
 - Rebuild probe processed 1 of 10 queued chunks under the declared budget
 - Player collision holds at terrain Y=15; saved underground positions repair to a clear surface position
 - Embedded or below-world players recover to the closest loaded flat 2x2 floor with a 2x2x2 air volume; spawn is fallback-only
@@ -277,9 +305,11 @@ todos:
 - Traversal probe crosses a half-slab and a north-facing stair with the real player collision body
 - Stage 4 authority probe passes 41 checks for the eight-NPC roster, stable local waypoints/collision and interaction targeting, sequential supply gates, per-block builder labour, 100-percent completion, save restore, RMB stations, and actor promotion/demotion
 - Physical-item probe passes 9 checks for full-inventory mining, 3D world visuals, preserved leftovers, proximity pickup, and stable-ID restore
-- Full save/UI probe passes 19 checks through the atomic `main.gd` version 9 path, including version-8 and legacy project migration plus personal and external-mana state
+- Full save/UI probe passes 22 checks through the atomic `main.gd` version 10 path, including version-9 and legacy migration plus personal magic, raid phase, and authoritative enemy health
 - Phase 5 automation probe passes 61 checks for stable content/recipes, nearest-valuable and selected-ore extraction, conserved furnace fuel drag/drop, crank power, wrench configuration, cross-chunk graph connectors, ore-to-ingot transport, trust-gated delivery, blockage, in-flight save/restore, far simulation, save-persistent idempotent retries, audit ledger facts, exact project reservations, and simultaneous furnace routing where fuel and one compatible ore enter while an incompatible ore continues to storage
 - Phase 6 magic probe passes 48 checks for the mana resource chain, rune-table and mana-furnace recipes, network storage/topology, cross-chunk connectors, exact mana consumption, faults, ward coverage/drain/defense, both spells, ruin teaser, persistence, visual promotion, and bounded far/offline simulation
+- Phase 7 combat/visual probe passes 33 checks for the articulated player/eight-villager roster, six job-held items, priority held/block silhouettes, translucent collidable glass, four enemy profiles, warning/assault promotion, authoritative player/enemy damage, three forced outcome matrices, visible structure damage, exact repair cost, and combat/aftermath restore
+- Summer rendered captures confirm the humanoid/held-item lineup, recognizable furnace/chest/chute/door silhouettes, see-through glass, and an unobstructed first-person arm/pickaxe view
 - Manual Stage 1 movement, editing, crafting, swimming, and cursor behaviour passed
 - Manual Phase 2 water, routes, landmarks, tundra, desert, streaming, and traversal checks passed
-- Stage 6 exit gate is complete; Stage 7 Combat and Goblin Raid is the next documented phase
+- Stage 7 exit gate is complete; Stage 8 End-to-End UI and Learning is the next documented phase

@@ -76,6 +76,7 @@ func _load_registry() -> void:
 			# 3D materials expect linear values; using sRGB values directly washed
 			# sand toward white and made the full terrain palette overly bright.
 			col = Color(float(rgb[0]), float(rgb[1]), float(rgb[2]), a).srgb_to_linear()
+		col = _presentation_color(stable_id, col)
 		_blocks[nid] = {
 			"name": str(entry.get("display_name", "Block %d" % nid)),
 			"color": col,
@@ -92,6 +93,27 @@ func _load_registry() -> void:
 	if _blocks.is_empty():
 		_load_fallback()
 	print("BlockRegistry: loaded %d blocks" % _blocks.size())
+
+
+func _presentation_color(stable_id: String, authored: Color) -> Color:
+	## The source registry's colours are identity placeholders, not final art.
+	## Give the first recognizable model pass familiar material families while
+	## preserving every stable definition and its authored fallback.
+	var srgb := {
+		"functional.workbench.basic": Color(0.48, 0.28, 0.10),
+		"functional.furnace.stone": Color(0.38, 0.40, 0.42),
+		"magic.furnace.mana": Color(0.34, 0.24, 0.52),
+		"storage.chest.wood": Color(0.50, 0.28, 0.08),
+		"storage.crate.wood": Color(0.46, 0.25, 0.09),
+		"village.supply_crate.construction": Color(0.54, 0.32, 0.12),
+		"automation.transport.chute": Color(0.34, 0.31, 0.24),
+		"construction.door.oak": Color(0.46, 0.27, 0.09),
+		"construction.window.glass": Color(0.52, 0.84, 0.90, 0.34),
+		"magic.rune_table.basic": Color(0.30, 0.22, 0.46),
+	}
+	if not srgb.has(stable_id):
+		return authored
+	return Color(srgb[stable_id]).srgb_to_linear()
 
 
 func _load_fallback() -> void:
@@ -147,7 +169,27 @@ func get_shape(id: int) -> String:
 		return "slab"
 	if ".stair." in stable_id:
 		return "stair"
+	if "furnace" in stable_id:
+		return "furnace"
+	if "chest" in stable_id or "crate" in stable_id:
+		return "chest"
+	if "transport.chute" in stable_id:
+		return "chute"
+	if "door" in stable_id:
+		return "door"
+	if "workbench" in stable_id or "rune_table" in stable_id:
+		return "workbench"
+	if stable_id in [
+		"light.torch.basic", "magic.ward_lantern.basic",
+		"power.crank.basic",
+	]:
+		return "post"
 	return "cube"
+
+
+func is_transparent(id: int) -> bool:
+	var stable_id := get_stable_id(id)
+	return "glass" in stable_id
 
 
 func get_harvest_profile(id: int) -> Dictionary:

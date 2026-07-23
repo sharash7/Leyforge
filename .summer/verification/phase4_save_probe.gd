@@ -1,6 +1,7 @@
 extends Node
 
 var failures: Array[String] = []
+var checks := 0
 @onready var main: Node3D = $Main
 
 
@@ -9,6 +10,7 @@ func _ready() -> void:
 
 
 func _check(condition: bool, message: String) -> void:
+	checks += 1
 	if not condition:
 		failures.append(message)
 
@@ -28,6 +30,19 @@ func _run() -> void:
 	hud._set_craft_open(false)
 	MagicState.unlock_poc_magic("probe.save")
 	MagicState.mana = 42.0
+	CombatState.begin_raid({
+		"tower_stages": 2,
+		"ward_active": false,
+		"guard_ready": true,
+		"food_stocked": false,
+		"lighting_ready": false,
+	})
+	CombatState.advance(CombatState.RAID_WARNING_SECONDS + 0.1)
+	var saved_enemy_id := CombatState.get_enemy_ids()[0]
+	CombatState.damage_enemy(saved_enemy_id, {
+		"source": "save.probe",
+		"amount": 3.0,
+	})
 	HamletState.accept_introduction()
 	var masonry_ref := {
 		"kind": "item",
@@ -52,7 +67,7 @@ func _run() -> void:
 	main._save_game()
 
 	var saved: Dictionary = main._read_save()
-	_check(int(saved.get("version", 0)) == 9, "atomic save did not write save version 9")
+	_check(int(saved.get("version", 0)) == 10, "atomic save did not write save version 10")
 	_check(saved.get("hamlet", {}) is Dictionary and not saved.get("hamlet", {}).is_empty(),
 		"atomic save omitted authoritative hamlet state")
 	_check(saved.get("item_drops", []) is Array and saved.get("item_drops", []).size() == 1,
@@ -60,11 +75,15 @@ func _run() -> void:
 	_check(saved.get("magic_player", {}) is Dictionary
 			and not saved.get("magic_player", {}).is_empty(),
 		"atomic save omitted persistent personal magic")
+	_check(saved.get("combat", {}) is Dictionary
+			and not saved.get("combat", {}).is_empty(),
+		"atomic save omitted persistent combat and raid state")
 
 	HamletState.initialized = false
 	HamletState.initialize(world.world_seed, world.get_valley_anchors())
 	world.restore_item_drops([])
 	MagicState.reset()
+	CombatState.reset_raid()
 	_check(HamletState.reputation_state == HamletState.REP_STRANGER,
 		"probe reset did not create a fresh hamlet")
 	main._apply_save(saved)
@@ -79,6 +98,11 @@ func _run() -> void:
 	_check(MagicState.is_spell_known("spell.stone_sense")
 			and is_equal_approx(MagicState.mana, 42.0),
 		"personal mana and spell knowledge did not survive the main save/apply path")
+	_check(CombatState.phase == "assault"
+			and float(CombatState.get_enemy_record(saved_enemy_id).get("health", 0.0)) \
+				== float(CombatState.get_enemy_record(saved_enemy_id).get(
+					"max_health", 0.0)) - 3.0,
+		"raid phase or authoritative enemy health did not survive save/apply")
 	var rowan_position: Array = HamletState.get_npc_record(rowan_id).get("position", [])
 	_check(rowan_position.size() == 3 and is_equal_approx(float(rowan_position[0]), 12.5),
 		"NPC runtime position did not survive the full main save/apply path")
@@ -93,13 +117,22 @@ func _run() -> void:
 	_check(hud._dialogue_area.visible and not hud._dialogue_text.text.is_empty(),
 		"NPC dialogue UI did not resolve the persistent NPC record")
 	hud._set_craft_open(false)
+	var migrated_v9: Dictionary = main._migrate_save({
+		"version": 9,
+		"seed": world.world_seed,
+		"worldgen": world.get_worldgen_manifest(),
+	})
+	_check(
+		int(migrated_v9.get("version", 0)) == 10
+			and migrated_v9.get("combat", {}) is Dictionary,
+		"version-9 saves did not migrate to the combat save contract")
 	var migrated_v8: Dictionary = main._migrate_save({
 		"version": 8,
 		"seed": world.world_seed,
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v8.get("version", 0)) == 9
+		int(migrated_v8.get("version", 0)) == 10
 			and migrated_v8.get("magic_player", {}) is Dictionary,
 		"version-8 saves did not migrate to the magic save contract")
 	var migrated_v7: Dictionary = main._migrate_save({
@@ -108,7 +141,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v7.get("version", 0)) == 9
+		int(migrated_v7.get("version", 0)) == 10
 			and migrated_v7.get("item_drops", []) is Array
 			and migrated_v7.get("block_entities", {}) is Dictionary,
 		"version-7 saves did not migrate to the automation save contract")
@@ -128,7 +161,7 @@ func _run() -> void:
 
 	var result := {
 		"ok": failures.is_empty(),
-		"checks": 19,
+		"checks": checks,
 		"version": saved.get("version", 0),
 		"failures": failures,
 	}

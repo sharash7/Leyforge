@@ -44,6 +44,7 @@ var chunk_material: Material
 var water_material: StandardMaterial3D
 var block_colors := PackedColorArray()
 var block_shapes := PackedByteArray()
+var block_transparency := PackedByteArray()
 var material_layers := PackedInt32Array()
 var player: Node3D                # assigned by main.gd (drives streaming)
 var started := false
@@ -170,20 +171,38 @@ func _build_block_color_table() -> void:
 		maximum_id = maxi(maximum_id, int(id))
 	block_colors.resize(maximum_id + 1)
 	for id in BlockRegistry.get_all_ids():
-		block_colors[int(id)] = BlockRegistry.get_color(int(id))
+		var color := BlockRegistry.get_color(int(id))
+		if BlockRegistry.is_transparent(int(id)):
+			color.a = 0.34
+		block_colors[int(id)] = color
 
 
 func _build_block_shape_table() -> void:
 	block_shapes.resize(block_colors.size())
+	block_transparency.resize(block_colors.size())
 	material_layers.resize(block_colors.size())
 	for id in BlockRegistry.get_all_ids():
 		var numeric_id := int(id)
 		material_layers[numeric_id] = numeric_id
+		block_transparency[numeric_id] = 1 \
+			if BlockRegistry.is_transparent(numeric_id) else 0
 		match BlockRegistry.get_shape(numeric_id):
 			"slab":
 				block_shapes[numeric_id] = 1
 			"stair":
 				block_shapes[numeric_id] = 2
+			"furnace":
+				block_shapes[numeric_id] = 3
+			"chest":
+				block_shapes[numeric_id] = 4
+			"chute":
+				block_shapes[numeric_id] = 5
+			"door":
+				block_shapes[numeric_id] = 6
+			"workbench":
+				block_shapes[numeric_id] = 7
+			"post":
+				block_shapes[numeric_id] = 8
 			_:
 				block_shapes[numeric_id] = 0
 

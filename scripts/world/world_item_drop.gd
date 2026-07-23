@@ -5,6 +5,7 @@ extends CharacterBody3D
 ## automatically when the player enters the pickup radius.
 
 const GRAVITY := 18.0
+const ItemModelFactoryScript = preload("res://scripts/visual/item_model_factory.gd")
 const PICKUP_RADIUS := 1.65
 const PICKUP_DELAY := 0.35
 
@@ -36,44 +37,9 @@ func _ready() -> void:
 
 
 func _build_visual() -> void:
-	var material := StandardMaterial3D.new()
-	material.albedo_color = Inventory.stack_color(stack).lightened(0.12)
-	material.roughness = 0.82
-	if Inventory.stack_kind(stack) == "block":
-		var block := MeshInstance3D.new()
-		var mesh := BoxMesh.new()
-		mesh.size = Vector3(0.38, 0.38, 0.38)
-		mesh.material = material
-		block.mesh = mesh
-		_visual.add_child(block)
-		return
-	if ItemRegistry.is_tool(int(stack.get("id", -1))):
-		var handle := MeshInstance3D.new()
-		var handle_mesh := BoxMesh.new()
-		handle_mesh.size = Vector3(0.09, 0.45, 0.09)
-		handle_mesh.material = material
-		handle.mesh = handle_mesh
-		handle.rotation.z = -0.55
-		_visual.add_child(handle)
-		var head := MeshInstance3D.new()
-		var head_mesh := BoxMesh.new()
-		head_mesh.size = Vector3(0.38, 0.12, 0.12)
-		head_mesh.material = material
-		head.mesh = head_mesh
-		head.position = Vector3(0.08, 0.16, 0.0)
-		head.rotation.z = -0.25
-		_visual.add_child(head)
-		return
-	var item := MeshInstance3D.new()
-	var item_mesh := SphereMesh.new()
-	item_mesh.radius = 0.22
-	item_mesh.height = 0.36
-	item_mesh.radial_segments = 8
-	item_mesh.rings = 4
-	item_mesh.material = material
-	item.mesh = item_mesh
-	item.scale = Vector3(0.8, 1.0, 0.42)
-	_visual.add_child(item)
+	var model := ItemModelFactoryScript.build(stack, 0.72)
+	model.rotation = Vector3(0.18, 0.0, -0.28)
+	_visual.add_child(model)
 
 
 func _physics_process(delta: float) -> void:
