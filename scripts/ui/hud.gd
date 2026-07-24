@@ -17,6 +17,8 @@ var station_position := INVALID_TARGET
 var interaction_subject_id := ""
 var _icon_renderer := StackIconRendererScript.new()
 
+var _item_hotbar_bar: HBoxContainer
+var _ability_hotbar_bar: HBoxContainer
 var _hotbar_buttons: Array[InventorySlotButton] = []
 var _backpack_buttons: Array[InventorySlotButton] = []
 var _craft_buttons: Array[InventorySlotButton] = []
@@ -42,6 +44,11 @@ var _magic_area: VBoxContainer
 var _magic_status_label: Label
 var _magic_details_label: Label
 var _magic_action_button: Button
+var _abilities_area: VBoxContainer
+var _ability_hud_buttons: Array[Button] = []
+var _ability_slot_buttons: Array[Button] = []
+var _known_ability_buttons: Dictionary = {}
+var _selected_ability_slot := 0
 var _request_area: VBoxContainer
 var _request_reputation_label: Label
 var _request_project_label: Label
@@ -66,6 +73,8 @@ var _furnace_output_button: InventorySlotButton
 var _furnace_progress: Label
 var _status_label: Label
 var _magic_hud_label: Label
+var _health_hearts: Label
+var _mana_pips: Label
 var _context_label: Label
 var _status_accum := 0.0
 var _context_seconds := 0.0
@@ -102,6 +111,7 @@ func _process(delta: float) -> void:
 		return
 	_status_accum = 0.0
 	_update_status()
+	_refresh_vitals_and_abilities()
 	if craft_open and craft_mode in ["furnace", "mana_furnace"]:
 		_refresh_furnace()
 	elif craft_open and craft_mode == "automation":
@@ -126,8 +136,8 @@ func _update_status() -> void:
 		landmark, HamletState.get_clock_text(), floori(pos.x), floori(pos.y), floori(pos.z),
 		Engine.get_frames_per_second(),
 	]
-	_magic_hud_label.text = "%s  ·  %s  ·  F Attack  ·  Z Stone Sense  ·  X Spark Bolt" % [
-		MagicState.status_text(), CombatState.status_text()]
+	_magic_hud_label.text = "%s  ·  Q item/skill bar  ·  K assign skills" % [
+		CombatState.status_text()]
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -143,6 +153,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			_open_mode("creative", INVALID_TARGET)
 		return
+	if event.is_action_pressed("toggle_action_bar") and not craft_open:
+		MagicState.toggle_action_bar()
+		_show_context(
+			"Skill bar active: 1-9 selects, LMB uses the skill."
+			if MagicState.action_bar_active
+			else "Item bar active: LMB attacks or mines.")
+		return
+	if event.is_action_pressed("toggle_abilities"):
+		if craft_open and craft_mode == "abilities":
+			_set_craft_open(false)
+		else:
+			_open_mode("abilities", INVALID_TARGET)
+		return
 	if event.is_action_pressed("toggle_craft"):
 		if craft_open:
 			_set_craft_open(false)
@@ -151,13 +174,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	for i in HOTBAR_SLOTS:
 		if event.is_action_pressed("hotbar_%d" % (i + 1)):
-			Inventory.select_slot(i)
+			if MagicState.action_bar_active:
+				MagicState.select_ability_slot(i)
+			else:
+				Inventory.select_slot(i)
 			return
 	if event is InputEventMouseButton and event.pressed and not craft_open:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			Inventory.cycle_slot(-1)
+			if MagicState.action_bar_active:
+				MagicState.cycle_ability_slot(-1)
+			else:
+				Inventory.cycle_slot(-1)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			Inventory.cycle_slot(1)
+			if MagicState.action_bar_active:
+				MagicState.cycle_ability_slot(1)
+			else:
+				Inventory.cycle_slot(1)
 
 
 func _on_interaction_requested(kind: String, position: Vector3i, subject_id: String) -> void:
@@ -215,26 +247,72 @@ func _build_ui() -> void:
 	crosshair.add_child(dot)
 	add_child(crosshair)
 
-	var bar := HBoxContainer.new()
-	bar.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	bar.position = Vector2(-(HOTBAR_SLOTS * 60) / 2.0, -76)
-	bar.add_theme_constant_override("separation", 4)
+	_item_hotbar_bar = HBoxContainer.new()
+	_item_hotbar_bar.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	_item_hotbar_bar.position = Vector2(-(HOTBAR_SLOTS * 60) / 2.0, -76)
+	_item_hotbar_bar.add_theme_constant_override("separation", 4)
 	for i in HOTBAR_SLOTS:
 		var button := InventorySlotButton.new()
 		button.setup(self, "hotbar", i)
 		button.custom_minimum_size = Vector2(56, 56)
 		button.focus_mode = Control.FOCUS_NONE
 		button.pressed.connect(_on_hotbar_pressed.bind(i))
-		bar.add_child(button)
+		_item_hotbar_bar.add_child(button)
 		_hotbar_buttons.append(button)
-	add_child(bar)
+	add_child(_item_hotbar_bar)
+
+	_ability_hotbar_bar = HBoxContainer.new()
+	_ability_hotbar_bar.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	_ability_hotbar_bar.position = Vector2(
+		-(MagicState.ABILITY_SLOT_COUNT * 60) / 2.0, -76)
+	_ability_hotbar_bar.add_theme_constant_override("separation", 4)
+	for i in MagicState.ABILITY_SLOT_COUNT:
+		var ability_button := Button.new()
+		ability_button.custom_minimum_size = Vector2(56, 56)
+		ability_button.focus_mode = Control.FOCUS_NONE
+		ability_button.toggle_mode = true
+		ability_button.add_theme_font_size_override("font_size", 11)
+		var skill_normal := StyleBoxFlat.new()
+		skill_normal.bg_color = Color(0.035, 0.055, 0.07, 0.82)
+		skill_normal.border_color = Color(0.42, 0.50, 0.54, 0.82)
+		skill_normal.set_border_width_all(2)
+		var skill_selected := StyleBoxFlat.new()
+		skill_selected.bg_color = Color(0.07, 0.10, 0.12, 0.94)
+		skill_selected.border_color = Color(1.0, 0.78, 0.08)
+		skill_selected.set_border_width_all(3)
+		ability_button.add_theme_stylebox_override("normal", skill_normal)
+		ability_button.add_theme_stylebox_override("hover", skill_normal)
+		ability_button.add_theme_stylebox_override("pressed", skill_selected)
+		ability_button.pressed.connect(_on_ability_hud_pressed.bind(i))
+		_ability_hotbar_bar.add_child(ability_button)
+		_ability_hud_buttons.append(ability_button)
+	add_child(_ability_hotbar_bar)
+
+	var vitals := HBoxContainer.new()
+	vitals.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	vitals.position = Vector2(-244, -112)
+	vitals.custom_minimum_size = Vector2(488, 28)
+	vitals.add_theme_constant_override("separation", 12)
+	_health_hearts = Label.new()
+	_health_hearts.custom_minimum_size = Vector2(230, 24)
+	_health_hearts.add_theme_font_size_override("font_size", 20)
+	_health_hearts.add_theme_color_override(
+		"font_color", Color(0.94, 0.16, 0.18))
+	vitals.add_child(_health_hearts)
+	_mana_pips = Label.new()
+	_mana_pips.custom_minimum_size = Vector2(230, 24)
+	_mana_pips.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_mana_pips.add_theme_font_size_override("font_size", 20)
+	_mana_pips.add_theme_color_override(
+		"font_color", Color(0.28, 0.62, 1.0))
+	vitals.add_child(_mana_pips)
+	add_child(vitals)
 
 	var hint := Label.new()
 	hint.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hint.position = Vector2(0, -18)
-	hint.text = "LMB harvest · RMB place/interact · E inventory/craft · C creative · drag slots · Esc mouse"
-	hint.text = "LMB harvest · RMB interact · Z Stone Sense · X Spark Bolt · E craft · C creative · Esc mouse"
+	hint.text = "Q item/skill bar · 1-9 select · LMB use/attack/mine · RMB interact/place · K assign · E craft · C creative"
 	hint.add_theme_color_override("font_color", Color(1, 1, 1, 0.65))
 	hint.add_theme_font_size_override("font_size", 12)
 	add_child(hint)
@@ -283,6 +361,7 @@ func _build_ui() -> void:
 	_build_warehouse_ui(left)
 	_build_automation_ui(left)
 	_build_magic_ui(left)
+	_build_abilities_ui(left)
 	_build_request_ui(left)
 	_build_dialogue_ui(left)
 	_build_creative_ui(left)
@@ -297,6 +376,42 @@ func _build_ui() -> void:
 	root_box.add_child(close_hint)
 	_craft_panel.add_child(root_box)
 	add_child(_craft_panel)
+
+
+func _build_abilities_ui(parent: VBoxContainer) -> void:
+	_abilities_area = VBoxContainer.new()
+	_abilities_area.add_theme_constant_override("separation", 10)
+	var heading := Label.new()
+	heading.text = "Select a 1-9 skill slot, then assign a learned ability or action."
+	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_abilities_area.add_child(heading)
+	var slot_row := HBoxContainer.new()
+	slot_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	for i in MagicState.ABILITY_SLOT_COUNT:
+		var slot_button := Button.new()
+		slot_button.custom_minimum_size = Vector2(58, 58)
+		slot_button.add_theme_font_size_override("font_size", 11)
+		slot_button.pressed.connect(_on_assignment_slot_pressed.bind(i))
+		slot_row.add_child(slot_button)
+		_ability_slot_buttons.append(slot_button)
+	_abilities_area.add_child(slot_row)
+	var known_heading := Label.new()
+	known_heading.text = "Learned magic and special actions"
+	known_heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_abilities_area.add_child(known_heading)
+	for spell_id in MagicState.SPELLS:
+		var ability_button := Button.new()
+		ability_button.custom_minimum_size = Vector2(360, 46)
+		ability_button.pressed.connect(
+			_on_known_ability_pressed.bind(str(spell_id)))
+		_abilities_area.add_child(ability_button)
+		_known_ability_buttons[str(spell_id)] = ability_button
+	var clear_button := Button.new()
+	clear_button.text = "Clear selected slot"
+	clear_button.pressed.connect(_on_known_ability_pressed.bind(""))
+	_abilities_area.add_child(clear_button)
+	parent.add_child(_abilities_area)
 
 
 func _build_crafting_ui(parent: VBoxContainer) -> void:
@@ -708,6 +823,30 @@ func _on_hotbar_pressed(index: int) -> void:
 	Inventory.select_slot(index)
 
 
+func _on_ability_hud_pressed(index: int) -> void:
+	if not craft_open and MagicState.select_ability_slot(index):
+		var ability_id := MagicState.get_ability_slot(index)
+		var ability_name := str(
+			MagicState.spell_definition(ability_id).get("name", "Empty"))
+		_show_context(
+			"Skill %d selected: %s. Use LMB." % [index + 1, ability_name])
+
+
+func _on_assignment_slot_pressed(index: int) -> void:
+	_selected_ability_slot = clampi(
+		index, 0, MagicState.ABILITY_SLOT_COUNT - 1)
+	_refresh_vitals_and_abilities()
+	_refresh_abilities()
+
+
+func _on_known_ability_pressed(ability_id: String) -> void:
+	if MagicState.assign_ability(_selected_ability_slot, ability_id):
+		_show_context(
+			"Ability slot %d updated." % (_selected_ability_slot + 1))
+		_refresh_vitals_and_abilities()
+		_refresh_abilities()
+
+
 func _on_backpack_pressed(index: int) -> void:
 	Inventory.swap_backpack_with_selected(index)
 
@@ -1025,6 +1164,7 @@ func _refresh_all() -> void:
 		_paint_slot(_hotbar_buttons[i], Inventory.hotbar[i], i == Inventory.selected_slot)
 	for i in Inventory.BACKPACK_SIZE:
 		_paint_slot(_backpack_buttons[i], Inventory.backpack[i])
+	_refresh_vitals_and_abilities()
 	if not craft_open:
 		return
 	_refresh_context_visibility()
@@ -1036,6 +1176,7 @@ func _refresh_all() -> void:
 	_refresh_furnace()
 	_refresh_automation()
 	_refresh_magic()
+	_refresh_abilities()
 
 
 func _refresh_context_visibility() -> void:
@@ -1044,6 +1185,7 @@ func _refresh_context_visibility() -> void:
 	_warehouse_area.visible = craft_mode == "warehouse"
 	_automation_area.visible = craft_mode == "automation"
 	_magic_area.visible = craft_mode == "magic"
+	_abilities_area.visible = craft_mode == "abilities"
 	_request_area.visible = craft_mode == "request_board"
 	_dialogue_area.visible = craft_mode == "npc"
 	_creative_area.visible = craft_mode == "creative"
@@ -1059,10 +1201,75 @@ func _refresh_context_visibility() -> void:
 		"warehouse": "Forest Hamlet Warehouse",
 		"automation": "Automation Inspection",
 		"magic": "Magic Infrastructure",
+		"abilities": "Ability and Action Bar",
 		"request_board": "Hamlet Request Board",
 		"npc": "Village Conversation",
 		"creative": "Creative Testing Catalogue",
 	}.get(craft_mode, craft_mode.capitalize())
+
+
+func _refresh_vitals_and_abilities() -> void:
+	if _health_hearts == null or _mana_pips == null:
+		return
+	var maximum := maxf(1.0, CombatState.player_max_health)
+	var filled := clampi(
+		ceili(CombatState.player_health / maximum * 10.0), 0, 10)
+	_health_hearts.text = "♥".repeat(filled) + "♡".repeat(10 - filled)
+	_health_hearts.tooltip_text = "Health %d/%d" % [
+		roundi(CombatState.player_health), roundi(maximum)]
+	var filled_mana := clampi(
+		ceili(MagicState.mana / MagicState.MAX_MANA * 10.0), 0, 10)
+	_mana_pips.text = String.chr(0x25C6).repeat(filled_mana) \
+		+ String.chr(0x25C7).repeat(10 - filled_mana)
+	_mana_pips.tooltip_text = "Mana %d/%d" % [
+		roundi(MagicState.mana), roundi(MagicState.MAX_MANA)]
+	if _item_hotbar_bar != null:
+		_item_hotbar_bar.visible = not MagicState.action_bar_active
+	if _ability_hotbar_bar != null:
+		_ability_hotbar_bar.visible = MagicState.action_bar_active
+	for i in mini(_ability_hud_buttons.size(), MagicState.ABILITY_SLOT_COUNT):
+		var ability_id := MagicState.get_ability_slot(i)
+		var definition := MagicState.spell_definition(ability_id)
+		var name := str(definition.get("name", "Empty"))
+		var cooldown := MagicState.cooldown_remaining(ability_id)
+		_ability_hud_buttons[i].text = "%d\n%s%s" % [
+			i + 1,
+			name.replace(" ", "\n"),
+			"\n%.1fs" % cooldown if cooldown > 0.0 else "",
+		]
+		_ability_hud_buttons[i].button_pressed = \
+			i == MagicState.selected_ability_slot
+		_ability_hud_buttons[i].tooltip_text = (
+			"Press K to assign a learned skill."
+			if ability_id.is_empty()
+			else "%s · %.0f mana · Q switches bars · LMB uses it" % [
+				name, float(definition.get("cost", 0.0))])
+
+
+func _refresh_abilities() -> void:
+	if _abilities_area == null or not _abilities_area.visible:
+		return
+	for i in mini(_ability_slot_buttons.size(), MagicState.ABILITY_SLOT_COUNT):
+		var ability_id := MagicState.get_ability_slot(i)
+		var name := str(
+			MagicState.spell_definition(ability_id).get("name", "Empty"))
+		_ability_slot_buttons[i].text = "%d\n%s" % [i + 1, name]
+		_ability_slot_buttons[i].toggle_mode = true
+		_ability_slot_buttons[i].button_pressed = i == _selected_ability_slot
+	for spell_id in _known_ability_buttons:
+		var button: Button = _known_ability_buttons[spell_id]
+		var definition := MagicState.spell_definition(str(spell_id))
+		var learned := MagicState.is_spell_known(str(spell_id))
+		button.text = "%s%s\n%.0f mana · %.1fs cooldown" % [
+			"✓ " if MagicState.ability_slots.has(str(spell_id)) else "",
+			str(definition.get("name", spell_id)),
+			float(definition.get("cost", 0.0)),
+			float(definition.get("cooldown", 0.0)),
+		]
+		button.disabled = not learned
+		button.tooltip_text = (
+			"Learn this from the rune ruin or village mage."
+			if not learned else "Assign to the selected slot.")
 
 
 func _refresh_crafting() -> void:

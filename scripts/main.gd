@@ -9,7 +9,12 @@ const SAVE_PATH := "user://leyforge_save.json"
 const SAVE_TEMP_PATH := "user://leyforge_save.tmp"
 const SAVE_PREVIOUS_PATH := "user://leyforge_save.previous"
 const SAVE_BACKUP_PATH := "user://leyforge_save.backup.json"
-const SAVE_VERSION := 10
+const SAVE_VERSION := 11
+
+var _save_path := SAVE_PATH
+var _save_temp_path := SAVE_TEMP_PATH
+var _save_previous_path := SAVE_PREVIOUS_PATH
+var _save_backup_path := SAVE_BACKUP_PATH
 
 @onready var world: VoxelWorld = $VoxelWorld
 @onready var player: Player = $Player
@@ -85,11 +90,40 @@ func _save_game() -> void:
 	if not _commit_temp_save():
 		push_warning("MAIN: atomic save commit failed; previous save restored")
 		return
-	print("MAIN: saved %d edits to %s" % [data["edits"].size(), SAVE_PATH])
+	print("MAIN: saved %d edits to %s" % [data["edits"].size(), _save_path])
+
+
+func configure_verification_save_paths(prefix: String) -> bool:
+	## Headless save probes must never rotate a player's manual save. This is
+	## intentionally callable only before a probe's explicit save transaction.
+	var permitted := prefix.begins_with("user://verification_") \
+		or prefix.begins_with("res://.summer/verification/.")
+	if not permitted or ".." in prefix:
+		return false
+	_save_path = "%s.json" % prefix
+	_save_temp_path = "%s.tmp" % prefix
+	_save_previous_path = "%s.previous" % prefix
+	_save_backup_path = "%s.backup.json" % prefix
+	return true
+
+
+func cleanup_verification_save_paths() -> void:
+	if not _save_path.begins_with("res://.summer/verification/."):
+		return
+	for path in [
+		_save_path, _save_temp_path, _save_previous_path, _save_backup_path,
+	]:
+		var absolute := ProjectSettings.globalize_path(path)
+		if FileAccess.file_exists(path):
+			DirAccess.remove_absolute(absolute)
+	_save_path = SAVE_PATH
+	_save_temp_path = SAVE_TEMP_PATH
+	_save_previous_path = SAVE_PREVIOUS_PATH
+	_save_backup_path = SAVE_BACKUP_PATH
 
 
 func _write_verified_temp(data: Dictionary) -> bool:
-	var f := FileAccess.open(SAVE_TEMP_PATH, FileAccess.WRITE)
+	var f := FileAccess.open(_save_temp_path, FileAccess.WRITE)
 	if f == null:
 		push_warning("MAIN: could not open save temp path (%s)" % error_string(
 			FileAccess.get_open_error()))
@@ -106,7 +140,7 @@ func _write_verified_temp(data: Dictionary) -> bool:
 	if write_error != OK:
 		push_warning("MAIN: save temp flush failed (%s)" % error_string(write_error))
 		return false
-	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(SAVE_TEMP_PATH))
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(_save_temp_path))
 	if not (parsed is Dictionary):
 		push_warning("MAIN: save temp did not parse back to a dictionary")
 		return false
@@ -118,15 +152,15 @@ func _write_verified_temp(data: Dictionary) -> bool:
 
 
 func _commit_temp_save() -> bool:
-	var final_path := ProjectSettings.globalize_path(SAVE_PATH)
-	var temp_path := ProjectSettings.globalize_path(SAVE_TEMP_PATH)
-	var previous_path := ProjectSettings.globalize_path(SAVE_PREVIOUS_PATH)
-	var backup_path := ProjectSettings.globalize_path(SAVE_BACKUP_PATH)
+	var final_path := ProjectSettings.globalize_path(_save_path)
+	var temp_path := ProjectSettings.globalize_path(_save_temp_path)
+	var previous_path := ProjectSettings.globalize_path(_save_previous_path)
+	var backup_path := ProjectSettings.globalize_path(_save_backup_path)
 
 	# previous is a transaction scratch file. Preserve it when final is absent:
 	# that state means an earlier commit was interrupted after rotating final.
-	var moved_previous := FileAccess.file_exists(SAVE_PREVIOUS_PATH)
-	if FileAccess.file_exists(SAVE_PATH):
+	var moved_previous := FileAccess.file_exists(_save_previous_path)
+	if FileAccess.file_exists(_save_path):
 		if moved_previous:
 			if DirAccess.remove_absolute(previous_path) != OK:
 				return false
@@ -140,21 +174,23 @@ func _commit_temp_save() -> bool:
 
 	# Only rotate the backup after a verified new final save is in place.
 	if moved_previous:
-		if FileAccess.file_exists(SAVE_BACKUP_PATH):
+		if FileAccess.file_exists(_save_backup_path):
 			DirAccess.remove_absolute(backup_path)
 		if DirAccess.rename_absolute(previous_path, backup_path) != OK:
-			push_warning("MAIN: new save committed, but previous save remains at %s" % SAVE_PREVIOUS_PATH)
+			push_warning("MAIN: new save committed, but previous save remains at %s" % _save_previous_path)
 	return true
 
 
 func _read_save() -> Dictionary:
-	for path in [SAVE_PATH, SAVE_PREVIOUS_PATH, SAVE_BACKUP_PATH, SAVE_TEMP_PATH]:
+	for path in [
+		_save_path, _save_previous_path, _save_backup_path, _save_temp_path,
+	]:
 		var data := _read_save_file(path)
 		if data.is_empty():
 			continue
 		var migrated := _migrate_save(data)
 		if not migrated.is_empty():
-			if path != SAVE_PATH:
+			if path != _save_path:
 				push_warning("MAIN: recovered save state from %s" % path)
 			return migrated
 	return {}
@@ -175,14 +211,15 @@ func _migrate_save(data: Dictionary) -> Dictionary:
 	var version := int(data.get("version", 0))
 	if version == SAVE_VERSION:
 		return data
-	if version in [2, 3, 4, 5, 6, 7, 8, 9]:
+	if version in [2, 3, 4, 5, 6, 7, 8, 9, 10]:
 		# v2 used raw numeric block ids; v3 introduced stable content identities;
 		# v4 added the Controlled POC Valley manifest. All upgrade in place to the
 		# unified item/progression/functional-block/automation state on the next
 		# save. v7 already has physical world drops and needs no structural
 		# rewrite beyond the version marker. v8 adds automation; v9 adds
 		# player magic and magic-network state under existing block entities.
-		# v10 adds authoritative combat, raid, damage, and aftermath state.
+		# v10 adds authoritative combat/raid state. v11 adds saved abilities,
+		# block orientation, assembled two-cell doors, and camp-source state.
 		var legacy_inventory: Dictionary
 		if version == 2:
 			legacy_inventory = {

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://la8gjh3r0s4q"]
+
+[ext_resource type="Script" path="res://.summer/verification/visual_test_room.gd" id="1"]
+
+[node name="VisualTestRoom" type="Node3D" unique_id=405914008]
+script = ExtResource("1")

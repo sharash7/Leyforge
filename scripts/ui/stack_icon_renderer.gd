@@ -5,6 +5,8 @@ extends RefCounted
 ## presenting blocks/items as dimensional objects instead of flat colour tiles.
 
 const ICON_SIZE := 56
+const SOURCE_PIXEL_SIZE := 32
+const ItemModelFactoryScript = preload("res://scripts/visual/item_model_factory.gd")
 
 var _cache: Dictionary = {}
 
@@ -28,7 +30,13 @@ func get_icon(stack: Dictionary) -> Texture2D:
 			BlockRegistry.get_stable_id(block_id))
 	else:
 		_draw_item(
-			image, color, ItemRegistry.is_tool(int(stack.get("id", -1))))
+			image, color, ItemModelFactoryScript.visual_kind_for(stack))
+	# All held/placed content is authored on a 32x32 visual grid. The HUD uses a
+	# nearest-neighbour enlargement so the static icon remains the same crisp
+	# silhouette rather than becoming a separate smooth illustration.
+	image.resize(
+		SOURCE_PIXEL_SIZE, SOURCE_PIXEL_SIZE, Image.INTERPOLATE_NEAREST)
+	image.resize(ICON_SIZE, ICON_SIZE, Image.INTERPOLATE_NEAREST)
 	var texture := ImageTexture.create_from_image(image)
 	_cache[key] = texture
 	return texture
@@ -100,19 +108,39 @@ func _draw_iso_prism(image: Image, color: Color, top_offset: int, depth: int) ->
 		_draw_line(image, edge[0], edge[1], outline)
 
 
-func _draw_item(image: Image, color: Color, is_tool: bool) -> void:
-	if is_tool:
+func _draw_item(image: Image, color: Color, kind: String) -> void:
+	if kind in [
+		"pickaxe", "axe", "hammer", "sword", "spear", "staff", "bow", "tool",
+	]:
 		var outline := Color(0, 0, 0, 0.72)
 		for offset in range(-2, 3):
 			_draw_line(
 				image, Vector2(20 + offset, 44), Vector2(36 + offset, 16),
 				color.darkened(0.30) if absi(offset) == 2 else color)
-		_fill_quad(
-			image, Vector2(17, 13), Vector2(43, 9),
-			Vector2(46, 17), Vector2(22, 22), color.lightened(0.18))
-		_draw_line(image, Vector2(17, 13), Vector2(43, 9), outline)
-		_draw_line(image, Vector2(43, 9), Vector2(46, 17), outline)
-		_draw_line(image, Vector2(46, 17), Vector2(22, 22), outline)
+		if kind == "sword" or kind == "spear":
+			_fill_triangle(
+				image, Vector2(37, 8), Vector2(43, 18),
+				Vector2(31, 19), color.lightened(0.22))
+			_draw_line(image, Vector2(37, 8), Vector2(43, 18), outline)
+		elif kind == "axe":
+			_fill_quad(
+				image, Vector2(25, 12), Vector2(43, 9),
+				Vector2(46, 22), Vector2(31, 24), color.lightened(0.18))
+		elif kind == "hammer":
+			_fill_quad(
+				image, Vector2(18, 11), Vector2(44, 9),
+				Vector2(46, 19), Vector2(20, 21), color.lightened(0.18))
+		elif kind == "staff":
+			_fill_triangle(
+				image, Vector2(36, 6), Vector2(45, 17),
+				Vector2(31, 20), Color(0.28, 0.78, 1.0))
+		elif kind == "bow":
+			_draw_line(image, Vector2(25, 9), Vector2(45, 25), outline)
+			_draw_line(image, Vector2(45, 25), Vector2(20, 43), outline)
+		else:
+			_fill_quad(
+				image, Vector2(17, 13), Vector2(43, 9),
+				Vector2(46, 17), Vector2(22, 22), color.lightened(0.18))
 		return
 	var top := Vector2(27, 6)
 	var right := Vector2(45, 22)

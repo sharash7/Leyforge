@@ -37,9 +37,9 @@ func _build_environment() -> void:
 	add_child(light)
 
 	var camera := Camera3D.new()
-	camera.position = Vector3(0.0, 4.15, 11.5)
+	camera.position = Vector3(0.0, 3.65, 9.0)
 	camera.look_at_from_position(camera.position, Vector3(0.0, 1.0, 0.3))
-	camera.fov = 56.0
+	camera.fov = 52.0
 	add_child(camera)
 	camera.current = true
 
@@ -82,6 +82,7 @@ func _build_humanoids() -> void:
 	for definition in definitions:
 		var humanoid: Node3D = HumanoidVisualScript.new()
 		humanoid.position = definition[0]
+		humanoid.rotation.y = PI
 		add_child(humanoid)
 		var goblin := str(definition[2]) == "item.weapon.stone_spear"
 		humanoid.configure(

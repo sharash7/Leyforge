@@ -7,6 +7,19 @@ extends RefCounted
 const VERSION := 1
 const PROFILE_ID := "world.profile.controlled_poc_valley"
 const VALLEY_RADIUS := 176
+const STRUCTURE_DISTANCE_RULES: Array[Dictionary] = [
+	{"a": "spawn", "b": "hamlet", "min": 35.0, "max": 90.0},
+	{"a": "hamlet", "b": "water", "min": 12.0, "max": 48.0},
+	{"a": "hamlet", "b": "cave_entrance", "min": 50.0, "max": 115.0},
+	{"a": "hamlet", "b": "rune_ruin", "min": 40.0, "max": 105.0},
+	{"a": "hamlet", "b": "goblin_camp", "min": 95.0, "max": 165.0},
+	{"a": "hamlet", "b": "raid_approach", "min": 42.0, "max": 100.0},
+	{"a": "goblin_camp", "b": "raid_approach", "min": 35.0, "max": 90.0},
+	{"a": "goblin_camp", "b": "rune_ruin", "min": 60.0, "max": 230.0},
+	{"a": "goblin_camp", "b": "base_site", "min": 80.0, "max": 230.0},
+	{"a": "cave_entrance", "b": "mana_pocket", "min": 10.0, "max": 42.0},
+	{"a": "spawn", "b": "base_site", "min": 12.0, "max": 58.0},
+]
 
 const REQUIRED_ANCHORS: Array[String] = [
 	"spawn",
@@ -153,14 +166,10 @@ func validate() -> Array[String]:
 	for anchor_id in anchors:
 		if Vector2(anchors[anchor_id]).length() > VALLEY_RADIUS:
 			errors.append("anchor_outside_valley:%s" % anchor_id)
-	_check_distance(errors, "spawn", "hamlet", 35.0, 90.0)
-	_check_distance(errors, "hamlet", "water", 12.0, 48.0)
-	_check_distance(errors, "hamlet", "cave_entrance", 50.0, 115.0)
-	_check_distance(errors, "hamlet", "rune_ruin", 40.0, 105.0)
-	_check_distance(errors, "hamlet", "goblin_camp", 95.0, 165.0)
-	_check_distance(errors, "hamlet", "raid_approach", 42.0, 100.0)
-	_check_distance(errors, "cave_entrance", "mana_pocket", 10.0, 42.0)
-	_check_distance(errors, "spawn", "base_site", 12.0, 58.0)
+	for rule in STRUCTURE_DISTANCE_RULES:
+		_check_distance(
+			errors, str(rule["a"]), str(rule["b"]),
+			float(rule["min"]), float(rule["max"]))
 
 	var route_ids := {}
 	for route in routes:
@@ -197,6 +206,10 @@ func _check_distance(errors: Array[String], a: String, b: String, minimum: float
 
 func get_anchor(id: String) -> Vector2i:
 	return Vector2i(anchors.get(id, Vector2i.ZERO))
+
+
+func structure_distance_rules() -> Array[Dictionary]:
+	return STRUCTURE_DISTANCE_RULES.duplicate(true)
 
 
 func get_route_points(route: Dictionary) -> Array[Vector2i]:

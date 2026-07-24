@@ -42,9 +42,11 @@ signal item_drop_picked_up(stack: Dictionary)
 var chunks: Dictionary = {}       # Vector3i -> Chunk
 var chunk_material: Material
 var water_material: StandardMaterial3D
+var glass_material: StandardMaterial3D
 var block_colors := PackedColorArray()
 var block_shapes := PackedByteArray()
 var block_transparency := PackedByteArray()
+var block_item_connectors := PackedByteArray()
 var material_layers := PackedInt32Array()
 var player: Node3D                # assigned by main.gd (drives streaming)
 var started := false
@@ -114,6 +116,7 @@ var id_cobble := 32
 var id_oak_beam := 33
 var id_oak_stair := 34
 var id_oak_slab := 35
+var id_oak_door := 36
 var id_workbench := 23
 var id_furnace := 24
 var id_mana_furnace := 25
@@ -140,6 +143,9 @@ var id_broken_portal := 139
 var _furnaces: Dictionary = {}
 var _chests: Dictionary = {}
 var _double_slabs: Dictionary = {}
+var _block_orientations: Dictionary = {}
+var _doors: Dictionary = {}
+var _door_parts: Dictionary = {}
 var _furnace_accumulator := 0.0
 var _item_drops: Array[Node] = []
 var _next_drop_serial := 1
@@ -159,10 +165,16 @@ func _ready() -> void:
 
 	water_material = StandardMaterial3D.new()
 	water_material.vertex_color_use_as_albedo = true
-	water_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	water_material.cull_mode = BaseMaterial3D.CULL_DISABLED
-	water_material.albedo_color = Color(1, 1, 1, 0.85)
+	water_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS
+	water_material.cull_mode = BaseMaterial3D.CULL_BACK
+	water_material.albedo_color = Color(0.82, 0.96, 1.0, 0.76)
 	water_material.roughness = 0.15
+	glass_material = StandardMaterial3D.new()
+	glass_material.vertex_color_use_as_albedo = true
+	glass_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS
+	glass_material.cull_mode = BaseMaterial3D.CULL_BACK
+	glass_material.albedo_color = Color(1.0, 1.0, 1.0, 0.72)
+	glass_material.roughness = 0.08
 
 
 func _build_block_color_table() -> void:
@@ -180,12 +192,22 @@ func _build_block_color_table() -> void:
 func _build_block_shape_table() -> void:
 	block_shapes.resize(block_colors.size())
 	block_transparency.resize(block_colors.size())
+	block_item_connectors.resize(block_colors.size())
 	material_layers.resize(block_colors.size())
 	for id in BlockRegistry.get_all_ids():
 		var numeric_id := int(id)
 		material_layers[numeric_id] = numeric_id
 		block_transparency[numeric_id] = 1 \
 			if BlockRegistry.is_transparent(numeric_id) else 0
+		var stable_id := BlockRegistry.get_stable_id(numeric_id)
+		block_item_connectors[numeric_id] = 1 if (
+			"transport.chute" in stable_id
+			or "furnace" in stable_id
+			or "chest" in stable_id
+			or "crate" in stable_id
+			or "warehouse_input_hatch" in stable_id
+			or "basic_miner" in stable_id
+		) else 0
 		match BlockRegistry.get_shape(numeric_id):
 			"slab":
 				block_shapes[numeric_id] = 1
@@ -279,6 +301,7 @@ func _resolve_ids() -> void:
 	id_oak_beam = _id_or("construction.beam.oak", 33)
 	id_oak_stair = _id_or("construction.stair.oak", 34)
 	id_oak_slab = _id_or("construction.slab.oak", 35)
+	id_oak_door = _id_or("construction.door.oak", 36)
 	id_workbench = _id_or("functional.workbench.basic", 23)
 	id_furnace = _id_or("functional.furnace.stone", 24)
 	id_mana_furnace = _id_or("magic.furnace.mana", 25)
@@ -1238,6 +1261,8 @@ func set_block_global(gp: Vector3i, id: int) -> bool:
 			and id != previous_id and not can_remove_block_entity(gp):
 		return false
 	_edits[_edit_key(gp)] = id  # journal first so streaming/save stays lossless
+	if previous_id != id:
+		_block_orientations.erase(_edit_key(gp))
 	var local := gp - cc * CHUNK_SIZE
 	chunks[cc].set_block(local.x, local.y, local.z, id)
 	if previous_id in [id_furnace, id_mana_furnace] \
@@ -1285,6 +1310,122 @@ func set_block_global(gp: Vector3i, id: int) -> bool:
 		request_chunk_rebuild(ncc)
 	block_changed.emit(gp, id)
 	return true
+
+
+func get_block_orientation(gp: Vector3i) -> int:
+	return posmod(int(_block_orientations.get(_edit_key(gp), 0)), 4)
+
+
+func set_block_orientation(gp: Vector3i, facing: int) -> bool:
+	if BlockRegistry.is_air(get_persisted_block_id(gp)):
+		return false
+	_block_orientations[_edit_key(gp)] = posmod(facing, 4)
+	var cc := Vector3i(chunk_coord(gp.x), chunk_coord(gp.y), chunk_coord(gp.z))
+	request_chunk_rebuild(cc)
+	# Chute arms can change in adjacent chunks when an endpoint rotates/appears.
+	for offset in DIRS6:
+		var neighbor := gp + offset
+		request_chunk_rebuild(Vector3i(
+			chunk_coord(neighbor.x), chunk_coord(neighbor.y),
+			chunk_coord(neighbor.z)))
+	return true
+
+
+func create_chunk_orientation_snapshot(cpos: Vector3i) -> PackedByteArray:
+	var values := PackedByteArray()
+	values.resize(CHUNK_SIZE * CHUNK_SIZE * CHUNK_SIZE)
+	var base := cpos * CHUNK_SIZE
+	for y in CHUNK_SIZE:
+		for z in CHUNK_SIZE:
+			for x in CHUNK_SIZE:
+				var gp := base + Vector3i(x, y, z)
+				values[(y * CHUNK_SIZE + z) * CHUNK_SIZE + x] = \
+					get_block_orientation(gp)
+	return values
+
+
+func create_chunk_door_part_snapshot(cpos: Vector3i) -> PackedByteArray:
+	var values := PackedByteArray()
+	values.resize(CHUNK_SIZE * CHUNK_SIZE * CHUNK_SIZE)
+	var base := cpos * CHUNK_SIZE
+	for y in CHUNK_SIZE:
+		for z in CHUNK_SIZE:
+			for x in CHUNK_SIZE:
+				var gp := base + Vector3i(x, y, z)
+				var part: Dictionary = _door_parts.get(_edit_key(gp), {})
+				values[(y * CHUNK_SIZE + z) * CHUNK_SIZE + x] = int(
+					part.get("part", 0))
+	return values
+
+
+func is_door_id(block_id: int) -> bool:
+	return BlockRegistry.get_shape(block_id) == "door"
+
+
+func is_door_at(gp: Vector3i) -> bool:
+	return _door_parts.has(_edit_key(gp))
+
+
+func get_door_record(gp: Vector3i) -> Dictionary:
+	var part: Dictionary = _door_parts.get(_edit_key(gp), {})
+	if part.is_empty():
+		return {}
+	return _doors.get(str(part.get("base_key", "")), {}).duplicate(true)
+
+
+func place_door(base: Vector3i, block_id: int, facing: int) -> bool:
+	if not is_door_id(block_id):
+		return false
+	var upper := base + Vector3i.UP
+	if not is_voxel_loaded_at(base) or not is_voxel_loaded_at(upper) \
+			or not BlockRegistry.is_air(get_block_global(base)) \
+			or not BlockRegistry.is_air(get_block_global(upper)):
+		return false
+	if not set_block_global(base, block_id):
+		return false
+	if not set_block_global(upper, block_id):
+		set_block_global(base, BlockRegistry.AIR)
+		return false
+	var base_key := _edit_key(base)
+	var record := {
+		"base": [base.x, base.y, base.z],
+		"block_id": block_id,
+		"stable_id": BlockRegistry.get_stable_id(block_id),
+		"facing": posmod(facing, 4),
+	}
+	_doors[base_key] = record
+	_door_parts[_edit_key(base)] = {"base_key": base_key, "part": 1}
+	_door_parts[_edit_key(upper)] = {"base_key": base_key, "part": 2}
+	set_block_orientation(base, facing)
+	set_block_orientation(upper, facing)
+	return true
+
+
+func remove_door(gp: Vector3i) -> Dictionary:
+	var record := get_door_record(gp)
+	if record.is_empty():
+		return {}
+	var saved := record.duplicate(true)
+	var values: Array = record.get("base", [])
+	var base := Vector3i(int(values[0]), int(values[1]), int(values[2]))
+	var upper := base + Vector3i.UP
+	var base_key := _edit_key(base)
+	_doors.erase(base_key)
+	_door_parts.erase(_edit_key(base))
+	_door_parts.erase(_edit_key(upper))
+	set_block_global(base, BlockRegistry.AIR)
+	set_block_global(upper, BlockRegistry.AIR)
+	return saved
+
+
+func restore_door(record: Dictionary) -> bool:
+	var values: Array = record.get("base", [])
+	if values.size() != 3:
+		return false
+	var base := Vector3i(int(values[0]), int(values[1]), int(values[2]))
+	var block_id := BlockRegistry.resolve_serialized_id(
+		record.get("stable_id", record.get("block_id", -1)))
+	return place_door(base, block_id, int(record.get("facing", 0)))
 
 
 # ---------- Persistent physical item drops ----------
@@ -1366,6 +1507,27 @@ func restore_item_drops(value: Variant) -> void:
 
 func is_voxel_loaded_at(global_position: Vector3i) -> bool:
 	return _is_voxel_loaded(global_position)
+
+
+func is_chunk_render_ready_at(global_position: Vector3i) -> bool:
+	if not _is_voxel_loaded(global_position):
+		return false
+	var cc := Vector3i(
+		chunk_coord(global_position.x),
+		chunk_coord(global_position.y),
+		chunk_coord(global_position.z))
+	var chunk: Variant = chunks.get(cc)
+	return is_instance_valid(chunk) and chunk.is_geometry_ready()
+
+
+func is_spawn_surface_ready_at(feet: Vector3i) -> bool:
+	## Actors and non-voxel markers must not appear on generated data before its
+	## visible mesh and collision have been committed.
+	return is_voxel_loaded_at(feet) \
+		and is_voxel_loaded_at(feet + Vector3i.UP) \
+		and is_voxel_loaded_at(feet + Vector3i.DOWN) \
+		and is_chunk_render_ready_at(feet) \
+		and is_chunk_render_ready_at(feet + Vector3i.DOWN)
 
 
 # ---------- Stage 3 functional blocks ----------
@@ -1790,6 +1952,15 @@ func serialize_block_entities() -> Dictionary:
 		}
 	for key in _double_slabs:
 		out[key] = {"type": "double_slab"}
+	out["__orientations__"] = _block_orientations.duplicate()
+	var saved_doors: Array[Dictionary] = []
+	for key in _doors:
+		var record: Dictionary = _doors[key].duplicate(true)
+		record["stable_id"] = BlockRegistry.get_stable_id(
+			int(record.get("block_id", id_oak_door)))
+		record.erase("block_id")
+		saved_doors.append(record)
+	out["__doors__"] = saved_doors
 	if automation != null:
 		out["__automation__"] = automation.serialize_state()
 	if magic != null:
@@ -1801,6 +1972,9 @@ func apply_block_entities(value: Variant) -> void:
 	_furnaces.clear()
 	_chests.clear()
 	_double_slabs.clear()
+	_block_orientations.clear()
+	_doors.clear()
+	_door_parts.clear()
 	if not (value is Dictionary):
 		if automation != null:
 			automation.restore_state({})
@@ -1810,8 +1984,33 @@ func apply_block_entities(value: Variant) -> void:
 	var entities: Dictionary = value
 	var automation_value: Variant = entities.get("__automation__", {})
 	var magic_value: Variant = entities.get("__magic__", {})
+	var orientation_value: Variant = entities.get("__orientations__", {})
+	if orientation_value is Dictionary:
+		for key in orientation_value:
+			_block_orientations[str(key)] = posmod(
+				int(orientation_value[key]), 4)
+	var door_value: Variant = entities.get("__doors__", [])
+	if door_value is Array:
+		for raw_door in door_value:
+			if not (raw_door is Dictionary):
+				continue
+			var record: Dictionary = raw_door.duplicate(true)
+			var values: Array = record.get("base", [])
+			var block_id := BlockRegistry.resolve_serialized_id(
+				record.get("stable_id", ""))
+			if values.size() != 3 or not is_door_id(block_id):
+				continue
+			var base := Vector3i(int(values[0]), int(values[1]), int(values[2]))
+			var base_key := _edit_key(base)
+			record["block_id"] = block_id
+			_doors[base_key] = record
+			_door_parts[base_key] = {"base_key": base_key, "part": 1}
+			_door_parts[_edit_key(base + Vector3i.UP)] = {
+				"base_key": base_key, "part": 2}
 	for key in entities:
-		if str(key) in ["__automation__", "__magic__"]:
+		if str(key) in [
+			"__automation__", "__magic__", "__orientations__", "__doors__",
+		]:
 			continue
 		var saved: Variant = entities[key]
 		if not (saved is Dictionary):

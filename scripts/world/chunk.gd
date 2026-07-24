@@ -23,6 +23,7 @@ var _world: Node = null
 var _mesh_instance: MeshInstance3D
 var _body: StaticBody3D
 var _collider: CollisionShape3D
+var _geometry_ready := false
 
 
 func _init() -> void:
@@ -84,6 +85,12 @@ func create_mesh_snapshot() -> Dictionary:
 		"shapes": _world.block_shapes if _world != null else PackedByteArray(),
 		"transparency": _world.block_transparency \
 			if _world != null else PackedByteArray(),
+		"item_connectors": _world.block_item_connectors \
+			if _world != null else PackedByteArray(),
+		"orientations": _world.create_chunk_orientation_snapshot(chunk_pos) \
+			if _world != null else PackedByteArray(),
+		"door_parts": _world.create_chunk_door_part_snapshot(chunk_pos) \
+			if _world != null else PackedByteArray(),
 		"layers": _world.material_layers if _world != null else PackedInt32Array(),
 		"water_id": _world.id_water if _world != null else 7,
 	}
@@ -100,9 +107,19 @@ func apply_geometry(geometry: Dictionary) -> void:
 	var wv: PackedVector3Array = geometry["water_vertices"]
 	var wn: PackedVector3Array = geometry["water_normals"]
 	var wc: PackedColorArray = geometry["water_colors"]
+	var gv: PackedVector3Array = geometry.get(
+		"glass_vertices", PackedVector3Array())
+	var gn: PackedVector3Array = geometry.get(
+		"glass_normals", PackedVector3Array())
+	var gc: PackedColorArray = geometry.get(
+		"glass_colors", PackedColorArray())
 	var ct: PackedVector3Array = geometry["collision_triangles"]
-	# Assemble the mesh: surface 0 opaque, surface 1 transparent water.
+	# Water and glass need distinct materials/surfaces. Combining them caused
+	# the river to inherit glass alpha and double-sided sorting artefacts.
 	var mesh := ArrayMesh.new()
+	var opaque_surface := -1
+	var water_surface := -1
+	var glass_surface := -1
 	if not ov.is_empty():
 		var arrays := []
 		arrays.resize(Mesh.ARRAY_MAX)
@@ -112,6 +129,7 @@ func apply_geometry(geometry: Dictionary) -> void:
 		arrays[Mesh.ARRAY_TEX_UV] = ouv
 		arrays[Mesh.ARRAY_TEX_UV2] = ouv2
 		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+		opaque_surface = mesh.get_surface_count() - 1
 	if not wv.is_empty():
 		var arrays := []
 		arrays.resize(Mesh.ARRAY_MAX)
@@ -119,12 +137,27 @@ func apply_geometry(geometry: Dictionary) -> void:
 		arrays[Mesh.ARRAY_NORMAL] = wn
 		arrays[Mesh.ARRAY_COLOR] = wc
 		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+		water_surface = mesh.get_surface_count() - 1
+	if not gv.is_empty():
+		var arrays := []
+		arrays.resize(Mesh.ARRAY_MAX)
+		arrays[Mesh.ARRAY_VERTEX] = gv
+		arrays[Mesh.ARRAY_NORMAL] = gn
+		arrays[Mesh.ARRAY_COLOR] = gc
+		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+		glass_surface = mesh.get_surface_count() - 1
 	if mesh.get_surface_count() > 0:
 		_mesh_instance.mesh = mesh
 		if _world != null:
-			_mesh_instance.set_surface_override_material(0, _world.chunk_material)
-			if mesh.get_surface_count() > 1:
-				_mesh_instance.set_surface_override_material(1, _world.water_material)
+			if opaque_surface >= 0:
+				_mesh_instance.set_surface_override_material(
+					opaque_surface, _world.chunk_material)
+			if water_surface >= 0:
+				_mesh_instance.set_surface_override_material(
+					water_surface, _world.water_material)
+			if glass_surface >= 0:
+				_mesh_instance.set_surface_override_material(
+					glass_surface, _world.glass_material)
 	else:
 		_mesh_instance.mesh = null
 
@@ -134,3 +167,8 @@ func apply_geometry(geometry: Dictionary) -> void:
 		_collider.shape = shape
 	else:
 		_collider.shape = null
+	_geometry_ready = true
+
+
+func is_geometry_ready() -> bool:
+	return _geometry_ready

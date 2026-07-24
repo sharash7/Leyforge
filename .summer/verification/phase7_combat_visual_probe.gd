@@ -70,6 +70,9 @@ func _run() -> void:
 	var player: Player = main.get_node("Player")
 	var hamlet_runtime: HamletRuntime = main.get_node("HamletRuntime")
 	var raid_runtime: Node = main.get_node("RaidRuntime")
+	# Main may restore a real manual-test save; isolate this probe after the
+	# scene has initialized so held-item assertions remain deterministic.
+	_clear_inventory()
 
 	_check(player.has_articulated_humanoid(),
 		"player did not build the shared articulated humanoid")
@@ -91,6 +94,14 @@ func _run() -> void:
 	_check(held_furnace.get_child_count() >= 2,
 		"held furnace model did not contain its shell and firebox")
 
+	for npc_id in HamletState.get_npc_ids():
+		var npc_record := HamletState.get_npc_record(npc_id)
+		var saved_position: Array = npc_record.get("position", [])
+		if saved_position.size() == 3:
+			world.prepare_player_column(Vector3(
+				float(saved_position[0]), float(saved_position[1]),
+				float(saved_position[2])))
+	hamlet_runtime._refresh_actor_lod()
 	_check(hamlet_runtime.active_actor_count() == HamletState.ROSTER.size(),
 		"nearby Hamlet did not promote the full villager roster")
 	var articulated_npcs := 0
@@ -129,7 +140,8 @@ func _run() -> void:
 		"glass did not register as a translucent block")
 	var glass_geometry := ChunkMesherScript.build(
 		_mesh_snapshot(glass_id, 0, true))
-	_check(glass_geometry["water_vertices"].size() == 36
+	_check(glass_geometry["glass_vertices"].size() == 36
+			and glass_geometry["water_vertices"].is_empty()
 			and glass_geometry["opaque_vertices"].is_empty()
 			and glass_geometry["collision_triangles"].size() == 36,
 		"glass did not render transparently while retaining collision")
@@ -197,6 +209,16 @@ func _run() -> void:
 		"lighting_ready": false,
 	})
 	CombatState.advance(CombatState.RAID_WARNING_SECONDS + 0.1)
+	# Runtime raids no longer force-load a remote camp. The probe explicitly
+	# prepares its authored volume before asserting local actor promotion.
+	var camp_volume: Dictionary = raid_runtime.get_camp_spawn_volume_definition()
+	var camp_center: Array = camp_volume.get("center", [])
+	world.prepare_player_column(Vector3(
+		float(camp_center[0]), float(camp_center[1]), float(camp_center[2])))
+	for point_value in camp_volume.get("spawn_points", []):
+		var point: Array = point_value
+		world.prepare_player_column(Vector3(
+			float(point[0]), float(point[1]), float(point[2])))
 	raid_runtime._process(0.0)
 	_check(raid_runtime.active_actor_count() == 4,
 		"raid runtime did not promote all persistent goblin actors")

@@ -19,6 +19,7 @@ var phase := "dormant"
 var phase_seconds := 0.0
 var assault_seconds := 0.0
 var camp_pressure := DEFAULT_CAMP_PRESSURE
+var camp_state: Dictionary = {}
 var preparation: Dictionary = {}
 var enemy_records: Dictionary = {}
 var outcome: Dictionary = {}
@@ -40,6 +41,7 @@ func initialize(seed_value: int, world_anchors: Dictionary) -> void:
 	world_seed = seed_value
 	anchors = _normalise_anchors(world_anchors)
 	event_history.clear()
+	_initialize_camp_state()
 	initialized = true
 	reset_raid()
 	player_health = player_max_health
@@ -70,10 +72,107 @@ func reset_raid() -> void:
 	raid_phase_changed.emit(phase)
 
 
+func _initialize_camp_state() -> void:
+	var camp := _anchor("goblin_camp")
+	var hamlet := _anchor("hamlet")
+	var distance := Vector2(camp).distance_to(Vector2(hamlet))
+	camp_state = {
+		"id": "enemy_camp.goblin.hearthplain",
+		"enemy_family": "goblin",
+		"anchor": [camp.x, camp.y],
+		"distance_to_hamlet": distance,
+		"strength": 52,
+		"supplies": 28,
+		"losses": 0,
+		"cleared": false,
+		"spawn_volume_id": "",
+		"spawner_active": true,
+	}
+	_refresh_camp_pressure()
+
+
+func register_camp_spawn_volume(definition: Dictionary) -> void:
+	if definition.is_empty():
+		return
+	camp_state["spawn_volume_id"] = str(definition.get("id", ""))
+	camp_state["spawn_volume"] = definition.duplicate(true)
+	if not camp_state.has("spawner_active"):
+		camp_state["spawner_active"] = bool(definition.get("active", true))
+	state_changed.emit()
+
+
+func disable_camp_spawner() -> void:
+	camp_state["spawner_active"] = false
+	camp_state["cleared"] = true
+	camp_state["strength"] = 0
+	var spawn_volume: Dictionary = camp_state.get("spawn_volume", {}).duplicate(true)
+	spawn_volume["active"] = false
+	camp_state["spawn_volume"] = spawn_volume
+	_refresh_camp_pressure()
+	_record_event("camp_spawner_broken", {
+		"camp_id": str(camp_state.get("id", "")),
+	})
+	state_changed.emit()
+
+
+func migrate_active_raid_spawn_volume(definition: Dictionary) -> void:
+	## Active v11 saves may contain approach-site enemy records. Move only
+	## records that predate authored spawn volumes; current/moving raids retain
+	## their persisted positions.
+	if phase not in ["warning", "assault"] or definition.is_empty():
+		return
+	var points: Array = definition.get("spawn_points", [])
+	if points.is_empty():
+		return
+	var ordered_ids := get_enemy_ids()
+	for index in ordered_ids.size():
+		var enemy_id := ordered_ids[index]
+		var record: Dictionary = enemy_records[enemy_id]
+		if not str(record.get("spawn_volume_id", "")).is_empty():
+			continue
+		var point: Array = points[index % points.size()]
+		record["spawn_origin"] = "authored_volume"
+		record["spawn_volume_id"] = str(definition.get("id", ""))
+		record["spawn_volume_center"] = definition.get("center", []).duplicate()
+		record["spawn_volume_size"] = definition.get("size", []).duplicate()
+		record["spawn_position"] = [
+			float(point[0]), 0.0, float(point[2])]
+		record["staging_anchor"] = [
+			roundi(float(definition.get("center", [0.0, 0.0, 0.0])[0])),
+			roundi(float(definition.get("center", [0.0, 0.0, 0.0])[2])),
+		]
+		record["position"] = [float(point[0]), 0.0, float(point[2])]
+		enemy_records[enemy_id] = record
+	preparation["raid_spawn_volume"] = definition.duplicate(true)
+	state_changed.emit()
+
+
+func _refresh_camp_pressure() -> void:
+	camp_pressure = clampi(
+		20 + int(camp_state.get("strength", 0)) / 2
+			+ int(camp_state.get("supplies", 0)) / 3,
+		20, 85)
+
+
 func begin_raid(preparation_snapshot: Dictionary) -> Dictionary:
 	if phase in ["warning", "assault"]:
 		return {"ok": false, "message": "The goblin raid is already underway."}
+	var source_distance := float(camp_state.get("distance_to_hamlet", 0.0))
+	if bool(camp_state.get("cleared", false)) \
+			or not bool(camp_state.get("spawner_active", true)) \
+			or int(camp_state.get("strength", 0)) <= 0:
+		return {
+			"ok": false,
+			"message": "The known goblin camp has been cleared; it cannot launch a raid.",
+		}
+	if source_distance < 95.0 or source_distance > 165.0:
+		return {
+			"ok": false,
+			"message": "No valid goblin camp is within the configured raid distance.",
+		}
+	_refresh_camp_pressure()
 	preparation = preparation_snapshot.duplicate(true)
+	preparation["raid_source"] = camp_state.duplicate(true)
 	phase = "warning"
 	phase_seconds = RAID_WARNING_SECONDS
 	assault_seconds = 0.0
@@ -90,27 +189,48 @@ func begin_raid(preparation_snapshot: Dictionary) -> Dictionary:
 	state_changed.emit()
 	return {
 		"ok": true,
-		"message": "Raid warning sounded. Goblins will reach Hearthplain in %d seconds." \
-			% int(RAID_WARNING_SECONDS),
+		"message": "Raid warning sounded from the goblin camp %dm away. Arrival in %d seconds." \
+			% [roundi(source_distance), int(RAID_WARNING_SECONDS)],
 	}
 
 
 func _create_enemy_force() -> void:
 	enemy_records.clear()
-	var approach := _anchor("raid_approach")
+	var camp := _anchor("goblin_camp")
 	var hamlet := _anchor("hamlet")
-	var approach_direction := Vector2(
-		float(approach.x - hamlet.x),
-		float(approach.y - hamlet.y)).normalized()
-	var spawn_center := Vector2(hamlet) + approach_direction * 24.0
+	var spawn_volume: Dictionary = preparation.get(
+		"raid_spawn_volume", camp_state.get("spawn_volume", {})).duplicate(true)
+	var spawn_points: Array = spawn_volume.get("spawn_points", [])
+	if spawn_points.size() < 4:
+		var fallback_center := Vector3(
+			float(camp.x) + 0.5, 0.0, float(camp.y) + 0.5)
+		spawn_volume = {
+			"id": "spawn_volume.goblin_camp.fallback",
+			"owner_id": str(camp_state.get("id", "")),
+			"mob_family": "goblin",
+			"spawn_mode": "authored_structure",
+			"center": [
+				fallback_center.x, fallback_center.y, fallback_center.z],
+			"size": [10.0, 5.0, 10.0],
+		}
+		spawn_points = [
+			[fallback_center.x - 3.0, 0.0, fallback_center.z - 2.0],
+			[fallback_center.x + 3.0, 0.0, fallback_center.z - 2.0],
+			[fallback_center.x - 2.5, 0.0, fallback_center.z + 2.5],
+			[fallback_center.x + 2.5, 0.0, fallback_center.z + 2.5],
+		]
+		spawn_volume["spawn_points"] = spawn_points
 	var definitions := [
-		["goblin.raider.1", "Goblin Raider", "raider", 20.0, 4.0, Vector2i(0, 0)],
-		["goblin.raider.2", "Goblin Raider", "raider", 20.0, 4.0, Vector2i(2, 1)],
-		["goblin.brute.1", "Goblin Brute", "brute", 36.0, 7.0, Vector2i(-2, 1)],
-		["goblin.captain.1", "Goblin Raid Captain", "captain", 44.0, 6.0, Vector2i(0, 3)],
+		["goblin.raider.1", "Goblin Raider", "raider", 20.0, 4.0],
+		["goblin.raider.2", "Goblin Raider", "raider", 20.0, 4.0],
+		["goblin.brute.1", "Goblin Brute", "brute", 36.0, 7.0],
+		["goblin.captain.1", "Goblin Raid Captain", "captain", 44.0, 6.0],
 	]
-	for definition in definitions:
-		var offset: Vector2i = definition[5]
+	for index in definitions.size():
+		var definition: Array = definitions[index]
+		var point: Array = spawn_points[index]
+		var spawn_position := Vector2(float(point[0]), float(point[2]))
+		var spawn_distance := Vector2(hamlet).distance_to(spawn_position)
 		var id := str(definition[0])
 		enemy_records[id] = {
 			"id": id,
@@ -122,10 +242,27 @@ func _create_enemy_force() -> void:
 			"alive": true,
 			"retreated": false,
 			"morale": 1.0,
+			"spawn_origin": "authored_volume",
+			"spawn_volume_id": str(spawn_volume.get("id", "")),
+			"spawn_volume_center": spawn_volume.get("center", []).duplicate(),
+			"spawn_volume_size": spawn_volume.get("size", []).duplicate(),
+			"spawn_position": [
+				spawn_position.x, 0.0, spawn_position.y],
+			"source_camp_id": str(camp_state.get("id", "")),
+			"source_anchor": [camp.x, camp.y],
+			"staging_anchor": [
+				roundi(float(spawn_volume.get(
+					"center", [camp.x, 0.0, camp.y])[0])),
+				roundi(float(spawn_volume.get(
+					"center", [camp.x, 0.0, camp.y])[2])),
+			],
+			"source_distance": float(
+				camp_state.get("distance_to_hamlet", 0.0)),
+			"spawn_distance": spawn_distance,
 			"position": [
-				spawn_center.x + float(offset.x) + 0.5,
+				spawn_position.x,
 				0.0,
-				spawn_center.y + float(offset.y) + 0.5,
+				spawn_position.y,
 			],
 		}
 
@@ -294,6 +431,14 @@ func resolve_raid() -> Dictionary:
 	phase_seconds = 0.0
 	_build_damage_plan(int(outcome["damage_count"]))
 	_apply_aftermath()
+	var defeated := defeated_enemy_count()
+	camp_state["losses"] = int(camp_state.get("losses", 0)) + defeated
+	camp_state["strength"] = maxi(
+		0, int(camp_state.get("strength", 0)) - defeated * 8)
+	camp_state["supplies"] = maxi(
+		0, int(camp_state.get("supplies", 0)) - 4)
+	camp_state["cleared"] = int(camp_state["strength"]) <= 0
+	_refresh_camp_pressure()
 	_record_event("resolved", outcome)
 	raid_phase_changed.emit(phase)
 	state_changed.emit()
@@ -439,12 +584,11 @@ func status_text() -> String:
 		"warning":
 			return "Raid warning: %ds" % ceili(phase_seconds)
 		"assault":
-			return "Raid: %d goblins · HP %d/%d" % [
-				living_enemy_count(), roundi(player_health), roundi(player_max_health)]
+			return "Raid: %d goblins" % living_enemy_count()
 		"resolved":
 			return "Aftermath: %s · %d repairs" % [
 				str(outcome.get("title", "Resolved")), unresolved_damage_count()]
-	return "Peaceful · HP %d/%d" % [roundi(player_health), roundi(player_max_health)]
+	return "Peaceful"
 
 
 func _record_event(kind: String, facts: Dictionary) -> void:
@@ -470,6 +614,7 @@ func serialize_state() -> Dictionary:
 		"phase_seconds": phase_seconds,
 		"assault_seconds": assault_seconds,
 		"camp_pressure": camp_pressure,
+		"camp_state": camp_state.duplicate(true),
 		"preparation": preparation.duplicate(true),
 		"enemy_records": enemy_records.duplicate(true),
 		"outcome": outcome.duplicate(true),
@@ -496,6 +641,12 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 	phase_seconds = maxf(0.0, float(data.get("phase_seconds", 0.0)))
 	assault_seconds = maxf(0.0, float(data.get("assault_seconds", 0.0)))
 	camp_pressure = clampi(int(data.get("camp_pressure", DEFAULT_CAMP_PRESSURE)), 1, 100)
+	var saved_camp: Variant = data.get("camp_state", {})
+	if saved_camp is Dictionary and not saved_camp.is_empty():
+		camp_state = saved_camp.duplicate(true)
+	else:
+		_initialize_camp_state()
+	_refresh_camp_pressure()
 	preparation = data.get("preparation", {}).duplicate(true)
 	enemy_records = data.get("enemy_records", {}).duplicate(true)
 	outcome = data.get("outcome", {}).duplicate(true)

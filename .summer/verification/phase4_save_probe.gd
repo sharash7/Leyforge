@@ -18,6 +18,9 @@ func _check(condition: bool, message: String) -> void:
 func _run() -> void:
 	var world: VoxelWorld = main.get_node("VoxelWorld")
 	var hud: Hud = main.get_node("HUD")
+	_check(main.configure_verification_save_paths(
+		"res://.summer/verification/.phase4_save_probe_state"),
+		"save probe could not isolate itself from the player's manual save")
 	hud._open_mode("hand", Vector3i.ZERO)
 	hud._refresh_all()
 	_check(hud._crafting_area.visible and hud._craft_grid.columns == 2,
@@ -67,7 +70,7 @@ func _run() -> void:
 	main._save_game()
 
 	var saved: Dictionary = main._read_save()
-	_check(int(saved.get("version", 0)) == 10, "atomic save did not write save version 10")
+	_check(int(saved.get("version", 0)) == 11, "atomic save did not write save version 11")
 	_check(saved.get("hamlet", {}) is Dictionary and not saved.get("hamlet", {}).is_empty(),
 		"atomic save omitted authoritative hamlet state")
 	_check(saved.get("item_drops", []) is Array and saved.get("item_drops", []).size() == 1,
@@ -117,13 +120,22 @@ func _run() -> void:
 	_check(hud._dialogue_area.visible and not hud._dialogue_text.text.is_empty(),
 		"NPC dialogue UI did not resolve the persistent NPC record")
 	hud._set_craft_open(false)
+	var migrated_v10: Dictionary = main._migrate_save({
+		"version": 10,
+		"seed": world.world_seed,
+		"worldgen": world.get_worldgen_manifest(),
+	})
+	_check(
+		int(migrated_v10.get("version", 0)) == 11
+			and migrated_v10.get("combat", {}) is Dictionary,
+		"version-10 saves did not migrate to the orientation and ability save contract")
 	var migrated_v9: Dictionary = main._migrate_save({
 		"version": 9,
 		"seed": world.world_seed,
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v9.get("version", 0)) == 10
+		int(migrated_v9.get("version", 0)) == 11
 			and migrated_v9.get("combat", {}) is Dictionary,
 		"version-9 saves did not migrate to the combat save contract")
 	var migrated_v8: Dictionary = main._migrate_save({
@@ -132,7 +144,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v8.get("version", 0)) == 10
+		int(migrated_v8.get("version", 0)) == 11
 			and migrated_v8.get("magic_player", {}) is Dictionary,
 		"version-8 saves did not migrate to the magic save contract")
 	var migrated_v7: Dictionary = main._migrate_save({
@@ -141,7 +153,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v7.get("version", 0)) == 10
+		int(migrated_v7.get("version", 0)) == 11
 			and migrated_v7.get("item_drops", []) is Array
 			and migrated_v7.get("block_entities", {}) is Dictionary,
 		"version-7 saves did not migrate to the automation save contract")
@@ -165,5 +177,6 @@ func _run() -> void:
 		"version": saved.get("version", 0),
 		"failures": failures,
 	}
+	main.cleanup_verification_save_paths()
 	print("PHASE4_SAVE_PROBE ", JSON.stringify(result))
 	get_tree().quit(0 if failures.is_empty() else 1)

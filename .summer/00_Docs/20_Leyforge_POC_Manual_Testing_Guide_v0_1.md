@@ -1,8 +1,9 @@
 # Leyforge POC Manual Testing Guide
 
 Version: 0.1  
-Last updated: 23 July 2026  
-Current implementation target: Stage 7 - Combat and Goblin Raid
+Last updated: 25 July 2026
+Current implementation target: Stage 7 stabilization - combat, visuals, HUD,
+directional placement, and camp-sourced raids
 
 ## 1. Purpose and Maintenance Rule
 
@@ -77,18 +78,67 @@ this document.
 - Persistent injuries, theft, reputation effect, event history, damaged
   warehouse voxels, and transactional Oak Beam repairs.
 - Player and goblin combat state survives save/load.
+- Raids originate from the actual deterministic Goblin Camp 95-165 metres
+  from Hearthplain. Camp strength, supplies, losses, and cleared state persist.
+- The camp owns a visible cage-style spawner cube and an 11x5x11 authored
+  spawn volume. Raiders, brute, and captain are created at four deterministic
+  points inside that volume rather than in Hearthplain or on its outskirts.
+- The spawner cube, its collision, and every camp goblin remain inactive until
+  the relevant chunk's terrain mesh and collision have both been committed.
+- A loaded active spawner attempts a local spawn at a random 6-12 second
+  interval. It permits at most three of its own ambient goblins and at most
+  six total nearby goblins, including active raid goblins.
+- The spawner is targetable like a voxel: point at the cage, hold LMB for
+  1.6 seconds to break it, or use RMB to inspect its local/nearby counts.
+  Breaking it clears its local ambient goblins, persists the cleared camp,
+  and prevents that camp from starting another raid.
+- Authored structure/camp volumes and future random world ecology are separate
+  spawn channels. Adding a camp spawner does not replace roaming/random mobs.
 
 ### Current Visual Model Pass
 
-- The player uses the same articulated humanoid body proportions as villagers.
-- First person always shows the player's arm. The selected block, tool, weapon,
-  resource, or component appears in that hand.
+- The player uses one persistent instance of the same articulated humanoid rig
+  as villagers for its complete world/future third-person presentation.
+- The head mesh is attached to a real head anchor and the first-person camera
+  sits exactly on that anchor's rotation pivot. Mouse look therefore rotates
+  in place rather than orbiting around an offset behind the torso.
+- First person now renders the same connected player body used for the future
+  third-person view. Only the player's own head is hidden from its camera;
+  looking down reveals the attached torso, shoulder/arm joins, hands, and
+  legs, while a normal forward view keeps the body below the screen edge.
+- Arms pivot from the left and right torso edges instead of floating beside
+  them. Every tool is authored bottom-to-working-end along the same local
+  direction. Held tools/items then share an X +90 degree, Y +180 degree
+  (reversed-Y) rotation, with the canonical bottom placed exactly at the
+  centre of the hand rather than corrected by individual visual offsets.
+- The directly runnable Visual Test Room presents player, villager, and goblin
+  reference rigs in T-pose, a T-pose hand-grip example for every current visual
+  kind, all 143 registered block models, and all 167 registered item models.
 - Pickaxes, axes, hammers, swords, staffs, crystals, runes, ingots, food, and
   blocks have distinct low-poly held/drop silhouettes.
 - Furnace, Mana Furnace, chest/crate, item chute, door, workbench/rune table,
   torch/ward-style posts, and glass have authored voxel silhouettes.
 - Glass is translucent and remains collidable.
+- Water uses its own depth-stable transparent surface rather than sharing
+  glass rendering.
+- Dry riverbed gravel now uses a neutral grey terrain palette instead of the
+  registry's teal placeholder, so it cannot be mistaken for water.
+- Directional blocks retain their facing. Stairs, doors, furnaces, chests,
+  workstations, posts, and chutes use the direction faced during placement.
+- A door is one inventory object assembled from two 32x32 voxel cells into a
+  32x64, two-block-tall placed model.
+- Chutes visually auto-connect to multiple horizontal inputs and relevant
+  automation endpoints. Straight, corner, T, and cross pieces share aligned
+  centres and rails. Corner and T centres add retaining walls on every side
+  without a connection; their simulation accepts inputs from all six faces.
+- Oak Door handles sit high on the lower half and appear on both faces.
+- The item hotbar and nine-slot skill bar share one HUD position. Q swaps
+  between them, 1-9 chooses the active slot, and LMB uses the selected item or
+  skill. K assigns unlocked skills to skill-bar slots.
+- Health uses hearts and mana uses ten blue diamond pips that visibly empty
+  and refill.
 - Inventory thumbnails distinguish priority functional-block shapes.
+- Held, placed, dropped, and HUD visuals share a 32x32 source-grid contract.
 
 These are intentionally low-poly POC models. They establish identity,
 animation hooks, proportions, and readability without locking the project to a
@@ -101,6 +151,21 @@ final art style or external asset pack.
 3. For a completely fresh world, launch the project with the user argument
    `--new-world`. Keep a backup of any save you care about first.
 4. Wait for the world and HUD to appear before moving.
+
+### Opening the Visual Test Room
+
+The Visual Test Room is a directly runnable development scene; it does not
+replace or modify the normal game save.
+
+1. In Summer's **FileSystem** panel, expand `.summer`, then `verification`.
+2. Double-click `visual_test_room.tscn`.
+3. Press **F6** or click **Play Current Scene**.
+4. Stop that scene when finished. Press **F5** to run the normal
+   `main.tscn` game again.
+
+Do not use **Project Settings > Main Scene** for routine inspection. F6 is the
+safe scene-only switch and avoids accidentally making the test room the
+shipped startup scene.
 
 The Windows save is normally under:
 
@@ -117,32 +182,41 @@ world. The game also maintains recovery/backup files beside it.
 | Mouse | Look |
 | Space | Jump or swim upward |
 | Shift | Sprint |
-| Left Mouse (hold) | Mine the targeted voxel |
+| Left Mouse (item bar) | Attack a targeted NPC/enemy with the held item |
+| Left Mouse (hold on voxel, item bar) | Mine the targeted voxel |
+| Left Mouse (hold on camp spawner) | Break the targeted spawner |
+| Left Mouse (skill bar) | Use the selected learned skill/action |
 | Right Mouse | Place selected block or interact |
-| F | Attack with the selected item or empty hand |
-| Z | Cast Stone Sense after learning it |
-| X | Cast Spark Bolt after learning it |
+| F | Secondary keyboard attack |
+| Q | Swap between the item hotbar and skill bar |
+| K | Open/close skill assignment |
 | E | Open/close 2x2 hand crafting |
 | C | Open/close creative testing catalogue |
-| 1-9 | Select hotbar slot |
-| Mouse wheel | Cycle hotbar |
+| 1-9 | Select a slot on the active item/skill bar |
+| Mouse wheel | Cycle the active item/skill bar |
 | Escape | Close UI or release mouse |
 
 ## 5. Fast Smoke Test
 
 Run this after every new build before a longer playtest.
 
-1. Confirm the world loads and the HUD shows seed, biome, landmark, time, mana,
-   health/raid status, position, and FPS.
+1. Confirm the world loads and the HUD shows seed, biome, landmark, time,
+   visual hearts, blue mana diamonds, the item bar, raid status, position,
+   and FPS.
 2. Walk, sprint, jump, look around, and mine one dirt or grass block.
 3. Walk over the physical drop and confirm it enters the inventory.
-4. Select an empty hotbar slot and confirm a first-person arm is visible.
+4. Select an empty hotbar slot and confirm a first-person arm is visible. Look
+   down and confirm the arm joins the torso and the body/legs belong to the
+   same rig; the player's own head must not block the camera.
 5. Select a block and a pickaxe and confirm each appears in the hand.
 6. Find a villager and confirm head, torso, arms, and legs are all present.
 7. Watch a villager walk and confirm opposite arms/legs swing.
 8. Open and close hand crafting with E.
 9. Open the creative catalogue with C and close it with C or Escape.
 10. Confirm there are no magenta missing-content blocks or frozen controls.
+11. Press Q and confirm the item bar changes to a nine-slot skill bar. Use
+    1-9 to change its selected slot, then press K and confirm learned skills
+    can be assigned to any of those slots.
 
 ## 6. Visual Model Acceptance
 
@@ -163,16 +237,40 @@ Test at least the builder, guard, miner, lumberjack, and mage.
 
 ### 6.2 Player and First-Person Hand
 
-- [ ] With an empty selected slot, the player's arm remains visible.
+- [ ] With an empty selected slot, the connected right arm remains visible at
+      the lower screen edge without a duplicate camera-only arm.
+- [ ] Slowly move through the full vertical and horizontal look range. The
+      camera rotates from one fixed eye point and does not arc/orbit around the
+      torso.
+- [ ] Looking down shows the connected torso and legs; the own-player head
+      remains hidden so it cannot surround or clip through the camera.
+- [ ] Both arms meet the left/right torso edges at the shoulders with no gap
+      or overlap in the Visual Test Room T-pose.
 - [ ] A selected block appears as a small block model in the hand.
 - [ ] A pickaxe has a handle and horizontal pick head.
 - [ ] An axe, hammer, sword, staff, rune/crystal, and ingot are visually
       distinguishable.
 - [ ] Mining swings the hand repeatedly.
 - [ ] Placement, spell casting, and F attacks produce a basic swing/action.
+- [ ] Q swaps the shared item/skill bar position without leaving both bars
+      stacked on screen.
+- [ ] With the skill bar active, 1-9 selects a skill and LMB uses it; an empty
+      slot reports that it is empty without mining the targeted block.
+- [ ] LMB attacks a goblin/NPC combat target but mines a voxel when the
+      crosshair is on terrain.
+- [ ] The action is quick and clearly larger than the idle/walk arm motion.
 - [ ] The first-person item does not cover the crosshair or most of the screen.
-- [ ] The full player humanoid exists without the camera rendering the inside
-      of its own head.
+- [ ] The arm comes from the lower-right view, the hand meets the item grip,
+      and the landscape remains unobstructed.
+- [ ] The bottom of every held tool/item meets the centre of the hand without
+      a gap or passing through the palm.
+- [ ] Pickaxe, axe, hammer, sword, spear, staff, bow, and generic tools all
+      use the same X +90/Y +180 hand rotation and point in the direction the
+      character faces instead of lying diagonally along the arm.
+- [ ] An outside observer sees the complete attached head and body; the
+      first-person camera hides only its own head.
+- [ ] Looking around rotates the camera through the player head anchor rather
+      than orbiting around, or moving a detached body in front of, the camera.
 
 ### 6.3 Functional Blocks
 
@@ -183,12 +281,17 @@ all sides.
 - [ ] Mana Furnace uses the same furnace silhouette with its magic colour.
 - [ ] Wooden Chest/Crate has a lower body, raised lid, and front latch.
 - [ ] Basic Item Chute reads as an open transport trough, not a solid cube.
-- [ ] Oak Door is a thin upright panel with a visible handle.
+- [ ] Oak Door places two blocks tall from one item, with a high handle on
+      both front and back faces.
 - [ ] Workbench/Rune Table has a raised work surface and legs.
 - [ ] Torch/Ward-style blocks use a narrow post silhouette.
 - [ ] Glass Window is translucent; terrain and actors can be seen through it.
 - [ ] Glass still blocks movement and can be mined.
 - [ ] Inventory thumbnails distinguish furnace, chest, chute, and door.
+- [ ] Water is readable and translucent without glass-like overlapping faces,
+      dark planes, or flickering patches.
+- [ ] Dry gravel beside/above a river is neutral grey and visually distinct
+      from the transparent blue water surface.
 
 Record any block whose silhouette is ambiguous, clips into neighbours, has
 incorrect collision, or exposes invisible faces.
@@ -199,10 +302,58 @@ Reference render:
 
 ### 6.4 First-Person Reference
 
-The expected held-pickaxe composition keeps the crosshair and most of the
-hotbar unobstructed while leaving the arm and tool readable:
+The expected held-pickaxe composition uses the complete connected owner rig,
+hides only its head, and keeps the crosshair and most of the hotbar
+unobstructed while leaving the arm and tool readable:
 
-![Stage 7 first-person arm and held pickaxe](../verification/phase7_first_person_capture.png)
+![Stage 7 connected-body first-person view, held pickaxe, vitals, and item bar](../verification/phase7_first_person_capture.png)
+
+The matching skill-bar composition hides the held inventory item, retains the
+player's right hand, shows nine assignable slots, and marks the selection:
+
+![Stage 7 switchable nine-slot skill bar and mana diamonds](../verification/phase7_skill_bar_capture.png)
+
+The outside reference proves that this same owner rig contains its attached
+head, torso, arms, legs, hand, and held model:
+
+![Stage 7 complete player rig with attached head](../verification/phase7_player_rig_capture.png)
+
+### 6.5 Visual Test Room
+
+Open and run:
+
+`res://.summer/verification/visual_test_room.tscn`
+
+This scene is a model-review workspace and does not alter the normal game or
+save. It loads:
+
+- player, villager, and goblin reference bodies in a stable T-pose;
+- one T-pose hand-grip example for each distinct held-model kind;
+- every registered block model after the blue floor line; and
+- every registered item model after the orange floor line.
+
+Controls:
+
+| Control | Test Room Action |
+|---|---|
+| W, A, S, D | Fly horizontally |
+| Mouse | Look from the fixed inspection camera |
+| E / C | Rise / descend |
+| Shift | Fast fly |
+| Escape | Release mouse |
+| Left Mouse | Capture mouse again |
+
+For each rig, inspect the shoulder joins, head/torso join, hand position,
+silhouette, forward direction, and item grip from the front, side, and back.
+For each catalogue pedestal, record any generic sphere/cube that needs a
+specific authored model, incorrect scale/orientation, unclear front face,
+missing transparency, or HUD/world mismatch. The room is intentionally the
+ongoing visual punch-list workspace; a model appearing here does not mean its
+art is considered final.
+
+Reference overview:
+
+![Stage 7 visual test room with reference T-poses and model galleries](../verification/visual_test_room_capture.png)
 
 ## 7. Stage-by-Stage Manual Tests
 
@@ -271,8 +422,13 @@ Expected: exact quantities survive every transfer, blockage, and reload.
 5. Charge the battery and inspect network IDs/faults.
 6. Run a Mana Furnace recipe and confirm exact mana is consumed on commit.
 7. Stand near an active Ward Lantern and confirm coverage feedback.
-8. Cast Z Stone Sense and X Spark Bolt.
+8. Press Q to open the skill bar, select Stone Sense or Spark Bolt with 1-9,
+   and use the selected spell with LMB.
 9. Visit the rune ruin and inspect the broken portal teaser.
+
+The first two spells are assigned to skill slots 1 and 2 automatically when
+first learned. Use K to move them to any of the nine slots and verify the
+assignments, selected slot, and active item/skill bar survive save/reload.
 
 ### 7.7 Combat and Goblin Raid
 
@@ -281,7 +437,9 @@ Expected: exact quantities survive every transfer, blockage, and reload.
 3. Confirm the HUD shows an eight-second warning before assault.
 4. Watch non-combatants move toward shelter and Elric intercept goblins.
 5. Confirm raiders, brute, and captain have humanoid silhouettes and weapons.
-6. Fight with F and, if known, X. Confirm health and enemy count change.
+6. Fight with LMB on the item bar. Press Q and select Spark Bolt if it is
+   assigned, then cast it with LMB. Confirm hearts, enemy count, and mana
+   diamonds change.
 7. Let the raid resolve or defeat all enemies.
 8. Read the outcome and remaining repair count in the HUD/guard dialogue.
 9. Inspect the warehouse perimeter for missing/damaged voxels after a
@@ -301,6 +459,93 @@ Expected outcome influences:
 
 The automated Stage 7 acceptance probe separately forces at least three
 preparation matrices to prove deterministic graded outcomes.
+
+### 7.8 Stabilization and Directional Placement
+
+#### Ability and Vital HUD
+
+1. Learn magic from Serin or the rune ruin.
+2. Press Q and confirm the nine item slots are replaced by nine skill slots in
+   the same screen position.
+3. Use 1-9 and the mouse wheel on each bar; confirm they select only that
+   bar's current slot.
+4. Press K, select any of the nine slots, then assign Stone Sense or Spark
+   Bolt.
+5. Close assignment, select the spell on the skill bar, and use LMB.
+6. Cast until mana diamonds visibly empty, then wait and watch them refill.
+7. Press Q to return to items and confirm LMB attacks or mines again.
+8. Let a goblin hit the player and confirm filled hearts become empty hearts.
+9. Save/reload and confirm assignments, selected skill slot, active bar,
+   current mana, and health persist.
+
+#### Door and Facing
+
+1. Face north, east, south, and west and place an Oak Stair at each direction.
+2. Repeat with furnaces, chests, workstations, and chutes.
+3. Confirm front details and stair rises follow the placement direction.
+4. Place one Oak Door with two clear cells above the ground.
+5. Confirm it consumes one item but occupies two cells and is two blocks tall.
+6. Confirm its handle is above the midpoint of the lower block and appears on
+   both sides.
+7. Mine either half. Confirm both halves disappear and exactly one door drops.
+8. Save/reload placed directional blocks and verify no block returns north.
+
+#### Chute Auto-Connection and Multiple Inputs
+
+1. Place and inspect one north-south and one east-west straight chute.
+2. Place an L corner and confirm both trough floors and side rails meet at one
+   aligned centre without gaps or overlapping walls. Confirm both sides
+   without a connection have retaining walls.
+3. Place one centre chute and add chutes from north, east, and south.
+4. Confirm the centre model becomes a clean three-way junction and the one
+   unconnected side has a retaining wall.
+5. Add the west branch and confirm the cross junction retains one square
+   centre with four aligned branches.
+6. Replace one branch with a furnace or crate and confirm the arm still joins.
+7. Feed batches from at least two branches at nearly the same time.
+8. Confirm each batch is conserved and routes according to endpoint capacity.
+
+Reference corner, T, and cross render:
+
+![Stage 7 closed-edge chute corner, T, and four-way junction](../verification/phase7_chute_capture.png)
+
+#### Villager and Raider Chunk-Ready Spawn
+
+1. Start a fresh world and watch toward Hearthplain while terrain streams.
+2. Approach the hamlet quickly.
+3. Confirm villagers appear only after their ground mesh/collision exists.
+4. Approach the Goblin Camp. Confirm its black cage/green-core spawner cube
+   does not appear before the camp terrain mesh/collision, then becomes visible
+   and solid once that chunk is ready.
+5. Sound a raid and return to or observe the camp. Confirm the four goblins
+   originate around that cube inside the camp, not inside Hearthplain.
+6. Confirm raiders are not promoted to actors until their camp spawn columns,
+   ground, feet space, and headroom exist.
+7. Confirm no villager or raider floats, falls through empty sky, or snaps
+   down from a temporarily missing chunk.
+
+#### Goblin Camp Source
+
+1. Find the named Goblin Camp before starting a raid and note its direction.
+2. Return to Elric and sound the warning.
+3. Confirm the message reports that camp as the source and its distance.
+4. Find the visible cage-style spawner at the camp and confirm all four raid
+   records initially appear within its local spawn region.
+5. Confirm none of the goblins initially appear beside villagers, the
+   warehouse, watchtower, or Hearthplain paths.
+6. Without a raid running, remain near the loaded spawner for at least
+   30 seconds. Confirm ambient goblins arrive in small random intervals, stop
+   at three local goblins, and never make the nearby total exceed six.
+7. Point the crosshair at the cage. Confirm the voxel highlight surrounds it,
+   use RMB to read its counts, then hold LMB for about 1.6 seconds.
+8. Confirm the cage disappears, its local ambient goblins clear, and the camp
+   is recorded as cleared. Save/reload and confirm the cage stays broken.
+9. Return to Elric and confirm the destroyed camp spawner cannot launch
+   another raid.
+
+Reference camp-owned spawn render:
+
+![Stage 7 goblin camp spawner cube and four volume-owned raid actors](../verification/phase7_spawn_volume_capture.png)
 
 ## 8. Save/Reload Checkpoints
 
@@ -323,12 +568,49 @@ After reload, inspect both visible state and quantities.
 
 The current Summer headless test runner can report:
 
+- A Windows root certificate-store read failure in the isolated runner.
 - An invalid cached UID for `main.gd`, followed by successful text-path load.
 - ObjectDB/RID leak warnings while the test process exits immediately.
 
 Treat a `SCRIPT ERROR`, parse error, failed resource load, missing registry
 content, crash, or gameplay transaction error as a real failure. Do not dismiss
 it as one of the known shutdown warnings.
+
+The focused automated stabilization scene is:
+
+`res://.summer/verification/phase7_stabilization_probe.tscn`
+
+It currently covers freed raid actors, camp-owned authored spawn volumes, LMB
+target classification and selected skill casting, water/glass separation, the
+exact player head/camera pivot, the one-rig connected first-person body,
+shoulder pivots and held-item transforms, two-cell/two-knob doors, orientation
+restore, closed-edge multi-way chutes, nine assignable skill slots, switchable
+action bars, visual vitals, 32x32 profiles, camp-owned spawn points, committed
+chunk readiness, real spawner physics targeting, random timed population caps,
+persistent spawner destruction, loaded raid spawn columns, and structure
+spacing. It supplements rather than replaces the manual checks above.
+
+### Current Automated Baseline - 24 July 2026
+
+The current code passed 343 checks with no probe failures:
+
+- Stage 7 stabilization: 30/30.
+- Stage 7 combat and visuals: 33/33.
+- Save/version-11 migration: 24/24.
+- Stage 5 automation and furnace/chute conservation: 61/61.
+- Stage 6 magic: 48/48.
+- All crafting and furnace recipes: 67/67.
+- Creative catalogue: 11/11.
+- Physical item drops: 9/9.
+- Stage 3 interaction and traversal: 19/19.
+- Stage 4 hamlet: 41/41.
+
+A fresh headless `main.tscn` startup and the real-renderer humanoid,
+connected-body first-person item/skill-bar, complete external player rig, camp
+spawner, chute, and Visual Test Room reference captures also completed
+successfully. The room
+reported 143 block models, 167 item models, and 23 distinct held visual kinds.
+This is an automated baseline, not final manual acceptance.
 
 ## 10. Bug Report Template
 

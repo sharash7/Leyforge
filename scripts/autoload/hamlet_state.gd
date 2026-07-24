@@ -642,7 +642,7 @@ func get_dialogue(npc_id: String) -> String:
 		if CombatState.phase == "warning":
 			return "The horn is sounded. Take position; the goblins are on the raid road."
 		if CombatState.phase == "assault":
-			return "Hearthplain is under attack. Press F to strike with your held item, or use Spark Bolt."
+			return "Hearthplain is under attack. Use LMB with the item bar, or press Q, select Spark Bolt on the skill bar, and use LMB."
 		if CombatState.phase == "resolved":
 			return "The raid ended as %s. %d damaged voxel%s still need Oak Beams." % [
 				str(CombatState.outcome.get("title", "an uncertain outcome")),

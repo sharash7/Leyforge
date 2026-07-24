@@ -164,5 +164,30 @@ func get_definition(id: int) -> Dictionary:
 	return _items.get(id, {}).duplicate()
 
 
+func get_visual_profile(id: int) -> Dictionary:
+	var stable_id := get_stable_id(id)
+	var kind := "resource"
+	for candidate in [
+		"pickaxe", "hammer", "sword", "spear", "staff", "wand", "bow",
+		"crystal", "mana", "rune", "ingot", "plate",
+	]:
+		if candidate in stable_id:
+			kind = "staff" if candidate == "wand" else (
+				"crystal" if candidate == "mana" else candidate)
+			break
+	if stable_id.ends_with("_axe") or ".axe" in stable_id:
+		kind = "axe"
+	elif kind == "resource" and is_tool(id):
+		kind = "tool"
+	return {
+		"source_pixels": [32, 32],
+		"assembled_pixels": [32, 32],
+		"model_kind": kind,
+		"directional": kind in [
+			"pickaxe", "axe", "hammer", "sword", "spear", "staff", "bow", "tool",
+		],
+	}
+
+
 func get_all_ids() -> Array:
 	return _items.keys()

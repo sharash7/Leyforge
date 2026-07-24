@@ -100,6 +100,16 @@ func _presentation_color(stable_id: String, authored: Color) -> Color:
 	## Give the first recognizable model pass familiar material families while
 	## preserving every stable definition and its authored fallback.
 	var srgb := {
+		"terrain.grass.basic": Color(0.20, 0.56, 0.17),
+		"terrain.dirt.basic": Color(0.40, 0.25, 0.12),
+		"terrain.stone.basic": Color(0.43, 0.45, 0.47),
+		"terrain.sand.basic": Color(0.76, 0.67, 0.43),
+		# The registry placeholder for gravel is teal and was visually
+		# indistinguishable from water when it formed a dry riverbed.
+		"terrain.gravel.basic": Color(0.39, 0.40, 0.39),
+		"terrain.clay.basic": Color(0.54, 0.34, 0.20),
+		"terrain.mud.basic": Color(0.31, 0.22, 0.13),
+		"fluid.water.flowing": Color(0.10, 0.46, 0.66, 0.68),
 		"functional.workbench.basic": Color(0.48, 0.28, 0.10),
 		"functional.furnace.stone": Color(0.38, 0.40, 0.42),
 		"magic.furnace.mana": Color(0.34, 0.24, 0.52),
@@ -190,6 +200,19 @@ func get_shape(id: int) -> String:
 func is_transparent(id: int) -> bool:
 	var stable_id := get_stable_id(id)
 	return "glass" in stable_id
+
+
+func get_visual_profile(id: int) -> Dictionary:
+	var shape := get_shape(id)
+	return {
+		"source_pixels": [32, 32],
+		"assembled_pixels": [32, 64] if shape == "door" else [32, 32],
+		"model_kind": shape,
+		"directional": shape in [
+			"stair", "furnace", "chest", "chute", "door", "workbench", "post",
+		],
+		"auto_connect": shape == "chute",
+	}
 
 
 func get_harvest_profile(id: int) -> Dictionary:

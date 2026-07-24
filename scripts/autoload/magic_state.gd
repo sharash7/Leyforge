@@ -5,9 +5,11 @@ extends Node
 ## the player's learned spells, casting pool, cooldowns, and readable failures.
 
 signal magic_changed
+signal action_bar_changed(active: bool)
 
 const MAX_MANA := 100.0
 const REGEN_PER_SECOND := 2.0
+const ABILITY_SLOT_COUNT := 9
 const SPELLS := {
 	"spell.stone_sense": {
 		"name": "Stone Sense",
@@ -29,6 +31,9 @@ var known_spells: Dictionary = {}
 var cooldowns: Dictionary = {}
 var cast_counts: Dictionary = {}
 var last_fault := ""
+var ability_slots: Array[String] = []
+var selected_ability_slot := 0
+var action_bar_active := false
 
 
 func _ready() -> void:
@@ -59,12 +64,20 @@ func reset() -> void:
 	cooldowns.clear()
 	cast_counts.clear()
 	last_fault = ""
+	ability_slots.clear()
+	ability_slots.resize(ABILITY_SLOT_COUNT)
+	ability_slots.fill("")
+	selected_ability_slot = 0
+	action_bar_active = false
+	action_bar_changed.emit(action_bar_active)
 	magic_changed.emit()
 
 
 func unlock_poc_magic(source_id: String = "") -> void:
 	known_spells["spell.stone_sense"] = true
 	known_spells["spell.spark_bolt"] = true
+	_assign_first_open_slot("spell.stone_sense")
+	_assign_first_open_slot("spell.spark_bolt")
 	last_fault = ""
 	if not source_id.is_empty():
 		ProgressionState.unlock_basic_magic(source_id)
@@ -79,6 +92,69 @@ func is_spell_known(spell_id: String) -> bool:
 
 func spell_definition(spell_id: String) -> Dictionary:
 	return SPELLS.get(spell_id, {}).duplicate(true)
+
+
+func get_known_abilities() -> Array[String]:
+	var abilities: Array[String] = []
+	for spell_id in known_spells:
+		if SPELLS.has(spell_id):
+			abilities.append(str(spell_id))
+	abilities.sort()
+	return abilities
+
+
+func get_ability_slot(index: int) -> String:
+	return ability_slots[index] \
+		if index >= 0 and index < ability_slots.size() else ""
+
+
+func assign_ability(index: int, ability_id: String) -> bool:
+	if index < 0 or index >= ABILITY_SLOT_COUNT:
+		return false
+	if not ability_id.is_empty() and not is_spell_known(ability_id):
+		return false
+	if not ability_id.is_empty():
+		for other_index in ability_slots.size():
+			if other_index != index and ability_slots[other_index] == ability_id:
+				ability_slots[other_index] = ""
+	ability_slots[index] = ability_id
+	magic_changed.emit()
+	return true
+
+
+func select_ability_slot(index: int) -> bool:
+	if index < 0 or index >= ABILITY_SLOT_COUNT:
+		return false
+	selected_ability_slot = index
+	magic_changed.emit()
+	return true
+
+
+func cycle_ability_slot(direction: int) -> void:
+	selected_ability_slot = posmod(
+		selected_ability_slot + direction, ABILITY_SLOT_COUNT)
+	magic_changed.emit()
+
+
+func set_action_bar_active(value: bool) -> void:
+	if action_bar_active == value:
+		return
+	action_bar_active = value
+	action_bar_changed.emit(action_bar_active)
+	magic_changed.emit()
+
+
+func toggle_action_bar() -> void:
+	set_action_bar_active(not action_bar_active)
+
+
+func _assign_first_open_slot(ability_id: String) -> void:
+	if ability_slots.has(ability_id):
+		return
+	for i in ability_slots.size():
+		if ability_slots[i].is_empty():
+			ability_slots[i] = ability_id
+			return
 
 
 func begin_cast(spell_id: String) -> Dictionary:
@@ -156,6 +232,9 @@ func serialize_state() -> Dictionary:
 		"cooldowns": cooldowns.duplicate(),
 		"cast_counts": cast_counts.duplicate(),
 		"last_fault": last_fault,
+		"ability_slots": ability_slots.duplicate(),
+		"selected_ability_slot": selected_ability_slot,
+		"action_bar_active": action_bar_active,
 	}
 
 
@@ -179,4 +258,18 @@ func restore_state(data: Dictionary) -> void:
 			if SPELLS.has(str(spell_id)):
 				cast_counts[str(spell_id)] = maxi(0, int(count_value[spell_id]))
 	last_fault = str(data.get("last_fault", ""))
+	var saved_slots: Variant = data.get("ability_slots", [])
+	if saved_slots is Array:
+		for i in mini(saved_slots.size(), ABILITY_SLOT_COUNT):
+			var ability_id := str(saved_slots[i])
+			if ability_id.is_empty() or is_spell_known(ability_id):
+				ability_slots[i] = ability_id
+	selected_ability_slot = clampi(
+		int(data.get("selected_ability_slot", 0)), 0, ABILITY_SLOT_COUNT - 1)
+	action_bar_active = bool(data.get("action_bar_active", false))
+	if is_spell_known("spell.stone_sense"):
+		_assign_first_open_slot("spell.stone_sense")
+	if is_spell_known("spell.spark_bolt"):
+		_assign_first_open_slot("spell.spark_bolt")
+	action_bar_changed.emit(action_bar_active)
 	magic_changed.emit()

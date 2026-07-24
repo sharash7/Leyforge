@@ -23,6 +23,7 @@ func setup(p_world: VoxelWorld, p_player: Player, p_enemy_id: String) -> void:
 
 func _ready() -> void:
 	add_to_group("raid_enemies")
+	add_to_group("goblin_mobs")
 	collision_layer = 2
 	collision_mask = 1
 	floor_snap_length = 0.42
@@ -87,7 +88,7 @@ func _physics_process(delta: float) -> void:
 	if horizontal.length() > ATTACK_RANGE * 0.72:
 		var desired := horizontal.normalized()
 		direction = Vector3(desired.x, 0.0, desired.y)
-		look_at(global_position + direction, Vector3.UP, true)
+		look_at(global_position + direction, Vector3.UP)
 	var role := str(record.get("role", "raider"))
 	var speed := WALK_SPEED * (0.72 if role == "brute" else 1.0)
 	velocity.x = direction.x * speed
@@ -105,7 +106,7 @@ func _physics_process(delta: float) -> void:
 		humanoid.update_pose(delta, Vector2(velocity.x, velocity.z).length())
 	if horizontal.length() <= ATTACK_RANGE and _attack_cooldown <= 0.0:
 		_attack_cooldown = 1.05 if role == "brute" else 0.82
-		humanoid.play_action("attack", 0.55)
+		humanoid.play_action("attack", 0.34)
 		_perform_attack(record)
 	_record_accumulator += delta
 	if _record_accumulator >= 0.5:

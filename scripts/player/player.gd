@@ -5,7 +5,6 @@ extends CharacterBody3D
 ## Current POC additions: targeted-block highlight box and basic swimming.
 
 const HumanoidVisualScript = preload("res://scripts/visual/humanoid_visual.gd")
-const ItemModelFactoryScript = preload("res://scripts/visual/item_model_factory.gd")
 const SPEED := 6.0
 const SPRINT_MULT := 1.6
 const JUMP_VELOCITY := 8.5
@@ -33,15 +32,13 @@ var _pitch := 0.0
 var _embedded_seconds := 0.0
 var _mining_target := Vector3i(0, -100000, 0)
 var _mining_progress := 0.0
+var _mining_dynamic_id := 0
 var _mining_blocked_message := ""
 var _last_mined_drop: Dictionary = {}
 var _world_humanoid: Node3D
-var _view_arm: Node3D
-var _view_item_anchor: Node3D
-var _view_item_model: Node3D
-var _view_swing_seconds := 0.0
-var _view_bob_phase := 0.0
+var _head_mount: Node3D
 var _held_identity := ""
+var _left_click_combat := false
 
 
 func _ready() -> void:
@@ -50,61 +47,46 @@ func _ready() -> void:
 	# targetable while NPC bodies ignore one another for stable movement.
 	ray.collision_mask = 3
 	ray.enabled = true
+	ray.add_exception(self)
+	camera.near = 0.08
 	floor_snap_length = MAX_STEP_HEIGHT + 0.08
 	_build_player_visuals()
 	Inventory.inventory_changed.connect(_refresh_held_visual)
 	Inventory.selected_slot_changed.connect(
 		func(_index: int) -> void: _refresh_held_visual())
+	MagicState.action_bar_changed.connect(
+		func(_active: bool) -> void: _refresh_held_visual())
 	_refresh_held_visual()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _build_player_visuals() -> void:
-	# The complete player body uses the exact articulated humanoid presentation
-	# as NPCs. Layer 2 is excluded from the owning first-person camera to avoid
-	# looking through the player's own head while preserving the body model.
+	# The player owns one persistent instance of the exact NPC humanoid rig for
+	# both first and future third person. First person culls only its head mesh;
+	# looking down therefore reveals the real shoulders, torso, arms, and legs.
 	_world_humanoid = HumanoidVisualScript.new()
 	_world_humanoid.name = "PlayerHumanoid"
 	add_child(_world_humanoid)
 	_world_humanoid.configure(
 		Color(0.24, 0.42, 0.62), Color(0.72, 0.52, 0.38),
-		Color(0.18, 0.22, 0.28), 2)
-	camera.cull_mask = camera.cull_mask & ~2
-
-	_view_arm = Node3D.new()
-	_view_arm.name = "FirstPersonArm"
-	_view_arm.position = Vector3(0.68, -0.45, -0.78)
-	_view_arm.rotation = Vector3(-0.20, 0.10, -0.10)
-	camera.add_child(_view_arm)
-	var arm := MeshInstance3D.new()
-	var arm_mesh := BoxMesh.new()
-	var skin := StandardMaterial3D.new()
-	skin.albedo_color = Color(0.72, 0.52, 0.38)
-	skin.roughness = 0.9
-	arm_mesh.size = Vector3(0.18, 0.62, 0.20)
-	arm_mesh.material = skin
-	arm.mesh = arm_mesh
-	arm.position = Vector3(0.0, -0.20, 0.0)
-	_view_arm.add_child(arm)
-	_view_item_anchor = Node3D.new()
-	_view_item_anchor.position = Vector3(-0.02, -0.04, -0.28)
-	_view_item_anchor.rotation = Vector3(0.0, 0.0, -0.32)
-	_view_arm.add_child(_view_item_anchor)
+		Color(0.18, 0.22, 0.28), 1)
+	_world_humanoid.configure_first_person_owner_view(1, 2)
+	# Layer 1 is the connected body; layer 2 is only the owner's head geometry.
+	camera.cull_mask = (camera.cull_mask | 1) & ~2 & ~4
+	_head_mount = _world_humanoid.head_anchor
+	head.reparent(_head_mount, false)
+	# The camera sits exactly on the rotation pivot: looking around rotates in
+	# place instead of orbiting around an offset at the back of the torso.
+	head.position = Vector3.ZERO
+	head.rotation = Vector3.ZERO
 
 
 func _refresh_held_visual() -> void:
-	var stack := Inventory.get_selected_stack()
+	var stack := {} if MagicState.action_bar_active \
+		else Inventory.get_selected_stack()
 	_held_identity = Inventory.stack_stable_id(stack) if not stack.is_empty() else ""
-	if _view_item_model != null and is_instance_valid(_view_item_model):
-		_view_item_model.queue_free()
-		_view_item_model = null
 	if _world_humanoid != null:
-		_world_humanoid.set_held_stack(stack, 2)
-	if stack.is_empty() or _view_item_anchor == null:
-		return
-	_view_item_model = ItemModelFactoryScript.build(stack, 0.75)
-	_view_item_model.rotation = Vector3(0.15, 0.0, -0.18)
-	_view_item_anchor.add_child(_view_item_model)
+		_world_humanoid.set_held_stack(stack, 1, "humanoid")
 
 
 # Keep pointer state in sync with the OS window: releasing focus frees the
@@ -129,7 +111,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_yaw -= event.relative.x * MOUSE_SENS
 		_pitch = clampf(_pitch - event.relative.y * MOUSE_SENS, -1.45, 1.45)
 		rotation.y = _yaw
-		head.rotation.x = _pitch
+		if _head_mount != null:
+			_head_mount.rotation.x = _pitch
 		return
 
 	if event is InputEventMouseButton and event.pressed:
@@ -139,18 +122,54 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 
 	if event.is_action_pressed("break_block"):
-		# Continuous harvesting is advanced in _physics_process while held.
-		_mining_target = get_target_block_position()
-		_mining_progress = 0.0
+		if MagicState.action_bar_active:
+			_left_click_combat = false
+			_reset_mining()
+			activate_ability_slot(MagicState.selected_ability_slot)
+			return
+		# LMB is the primary held-item action. A living actor under the crosshair
+		# receives an attack; otherwise holding LMB continuously harvests voxels.
+		ray.force_raycast_update()
+		var collider: Object = ray.get_collider() if ray.is_colliding() else null
+		_left_click_combat = primary_action_is_combat_target(collider)
+		if _left_click_combat:
+			_reset_mining()
+			_try_combat_attack()
+		elif collider != null and collider.has_method("is_mob_spawner"):
+			_mining_target = Vector3i(0, -100000, 0)
+			_mining_dynamic_id = collider.get_instance_id()
+			_mining_progress = 0.0
+		else:
+			_mining_target = get_target_block_position()
+			_mining_dynamic_id = 0
+			_mining_progress = 0.0
+	elif event.is_action_released("break_block"):
+		_left_click_combat = false
 	elif event.is_action_pressed("place_block"):
 		if not _try_interact():
 			_try_place()
-	elif event.is_action_pressed("cast_utility"):
-		_cast_stone_sense()
-	elif event.is_action_pressed("cast_combat"):
-		_cast_spark_bolt()
 	elif event.is_action_pressed("attack"):
 		_try_combat_attack()
+
+
+func activate_ability_slot(index: int) -> void:
+	var ability_id := MagicState.get_ability_slot(index)
+	if ability_id.is_empty():
+		interaction_message.emit(
+			"Skill slot %d is empty. Press K to assign a learned skill." \
+				% (index + 1))
+		return
+	match ability_id:
+		"spell.stone_sense":
+			_cast_stone_sense()
+		"spell.spark_bolt":
+			_cast_spark_bolt()
+		_:
+			interaction_message.emit("That assigned action is not available yet.")
+
+
+func primary_action_is_combat_target(target: Object) -> bool:
+	return target != null and target.has_method("apply_combat_damage")
 
 
 func _cast_stone_sense() -> void:
@@ -228,28 +247,19 @@ func _physics_process(delta: float) -> void:
 
 func _update_player_visuals(delta: float) -> void:
 	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	var continuous_action := "mine" \
+		if Input.is_action_pressed("break_block") and not controls_locked \
+			and not MagicState.action_bar_active and not _left_click_combat \
+		else ""
 	if _world_humanoid != null:
-		_world_humanoid.update_pose(delta, horizontal_speed)
-	if _view_arm == null:
-		return
-	_view_swing_seconds = maxf(0.0, _view_swing_seconds - delta)
-	if horizontal_speed > 0.1:
-		_view_bob_phase += delta * (7.0 + horizontal_speed * 0.35)
-	var bob := sin(_view_bob_phase) * minf(0.028, horizontal_speed * 0.004)
-	var swing_progress := 1.0 - clampf(_view_swing_seconds / 0.48, 0.0, 1.0)
-	var swing := sin(swing_progress * PI) if _view_swing_seconds > 0.0 else 0.0
-	if Input.is_action_pressed("break_block") and not controls_locked:
-		swing = absf(sin(Time.get_ticks_msec() * 0.009))
-	_view_arm.position = Vector3(0.68, -0.45 + bob - swing * 0.12, -0.78)
-	_view_arm.rotation.x = -0.20 - swing * 0.85
-	_view_arm.rotation.z = -0.10 - swing * 0.28
+		_world_humanoid.update_pose(
+			delta, horizontal_speed, continuous_action)
 
 
 func _play_hand_action(action: String = "use") -> void:
-	_view_swing_seconds = 0.48
 	if _world_humanoid != null:
 		_world_humanoid.play_action(
-			"attack" if action in ["attack", "use"] else action, 0.48)
+			"attack" if action in ["attack", "use"] else action, 0.32)
 
 
 func _try_combat_attack() -> void:
@@ -311,7 +321,10 @@ func apply_combat_damage(packet: Dictionary) -> Dictionary:
 func has_articulated_humanoid() -> bool:
 	return _world_humanoid != null \
 		and _world_humanoid.left_arm != null \
-		and _world_humanoid.right_leg != null
+		and _world_humanoid.right_leg != null \
+		and _world_humanoid.head_anchor != null \
+		and _head_mount == _world_humanoid.head_anchor \
+		and head.get_parent() == _head_mount
 
 
 func held_visual_identity() -> String:
@@ -345,9 +358,29 @@ func _try_step_up(was_on_floor: bool, horizontal_velocity: Vector3,
 
 
 func _update_mining(delta: float) -> void:
-	if controls_locked or not Input.is_action_pressed("break_block") \
-			or world == null or not ray.is_colliding():
+	if controls_locked or MagicState.action_bar_active \
+			or not Input.is_action_pressed("break_block") \
+			or _left_click_combat or world == null or not ray.is_colliding():
 		_reset_mining()
+		return
+	var collider: Object = ray.get_collider()
+	if collider != null and collider.has_method("apply_combat_damage"):
+		_reset_mining()
+		return
+	if collider != null and collider.has_method("is_mob_spawner") \
+			and bool(collider.call("is_mob_spawner")):
+		var instance_id := int(collider.get_instance_id())
+		if _mining_dynamic_id != instance_id:
+			_mining_dynamic_id = instance_id
+			_mining_progress = 0.0
+		_mining_progress += delta
+		var hardness := float(collider.call("get_break_hardness"))
+		if _mining_progress >= hardness:
+			if bool(collider.call("break_spawner")):
+				interaction_message.emit(
+					"Destroyed the mob spawner; this camp cannot create more goblins.")
+				_play_hand_action("mine")
+			_reset_mining()
 		return
 	var target := get_target_block_position()
 	if target != _mining_target:
@@ -389,6 +422,7 @@ func _update_mining(delta: float) -> void:
 
 func _reset_mining() -> void:
 	_mining_target = Vector3i(0, -100000, 0)
+	_mining_dynamic_id = 0
 	_mining_progress = 0.0
 	_mining_blocked_message = ""
 
@@ -423,14 +457,46 @@ func _update_highlight() -> void:
 	if highlight == null:
 		return
 	if world != null and ray.is_colliding():
+		var collider: Object = ray.get_collider()
+		if collider != null and collider.has_method("is_mob_spawner") \
+				and bool(collider.call("is_mob_spawner")):
+			highlight.global_position = collider.global_position \
+				+ Vector3(0.0, -0.5, 0.0)
+			highlight.visible = true
+			return
 		var point := ray.get_collision_point()
 		var normal := ray.get_collision_normal()
 		var gp := Vector3i((point - normal * 0.5).floor())
-		if not BlockRegistry.is_air(world.get_block_global(gp)):
+		var block_id := world.get_block_global(gp)
+		var touches_water := _ray_passes_through_water(point)
+		for offset in [
+			Vector3i.LEFT, Vector3i.RIGHT, Vector3i.UP, Vector3i.DOWN,
+			Vector3i.FORWARD, Vector3i.BACK,
+		]:
+			if BlockRegistry.is_water(world.get_block_global(gp + offset)):
+				touches_water = true
+				break
+		if not BlockRegistry.is_air(block_id) \
+				and not BlockRegistry.is_water(block_id) \
+				and not touches_water:
 			highlight.global_position = Vector3(gp) + Vector3(0.5, 0.5, 0.5)
 			highlight.visible = true
 			return
 	highlight.visible = false
+
+
+func _ray_passes_through_water(target_point: Vector3) -> bool:
+	if world == null or ray == null:
+		return false
+	var origin := ray.global_position
+	var distance := origin.distance_to(target_point)
+	var sample_count := maxi(1, ceili(distance * 4.0))
+	for index in sample_count:
+		var weight := (float(index) + 0.5) / float(sample_count)
+		var sample_gp := Vector3i(origin.lerp(target_point, weight).floor())
+		if BlockRegistry.is_water(world.get_block_global(sample_gp)):
+			return true
+	return false
 
 
 func _try_break() -> void:
@@ -453,7 +519,9 @@ func get_target_block_position() -> Vector3i:
 func _break_block_at(gp: Vector3i) -> bool:
 	## Transactional core kept separate from ray targeting for deterministic tests.
 	_last_mined_drop = {}
-	var id: int = world.get_block_global(gp)
+	var door_record := world.get_door_record(gp)
+	var id: int = int(door_record.get(
+		"block_id", world.get_block_global(gp)))
 	if BlockRegistry.is_air(id):
 		return false
 	var profile := BlockRegistry.get_harvest_profile(id)
@@ -470,14 +538,20 @@ func _break_block_at(gp: Vector3i) -> bool:
 		return false
 	if not world.can_remove_block_entity(gp):
 		return false
-	if not world.set_block_global(gp, BlockRegistry.AIR):
+	if not door_record.is_empty():
+		if world.remove_door(gp).is_empty():
+			return false
+	elif not world.set_block_global(gp, BlockRegistry.AIR):
 		return false
 	var hash_value := absi(gp.x * 73856093 ^ gp.y * 19349663 ^ gp.z * 83492791)
 	var angle := float(hash_value % 6283) / 1000.0
 	var impulse := Vector3(cos(angle) * 1.1, 2.2, sin(angle) * 1.1)
 	var drop_position := Vector3(gp) + Vector3(0.5, 0.55, 0.5)
 	if not world.spawn_item_drop(drop, drop_position, impulse):
-		world.set_block_global(gp, id)
+		if not door_record.is_empty():
+			world.restore_door(door_record)
+		else:
+			world.set_block_global(gp, id)
 		push_error("Player: mining drop spawn failed; block transaction rolled back")
 		return false
 	if not tool_profile.is_empty() \
@@ -502,6 +576,10 @@ func _try_interact() -> bool:
 	var collider := ray.get_collider()
 	if collider != null and collider.has_method("get_npc_id"):
 		interaction_requested.emit("npc", Vector3i.ZERO, str(collider.get_npc_id()))
+		return true
+	if collider != null and collider.has_method("is_mob_spawner") \
+			and bool(collider.call("is_mob_spawner")):
+		interaction_message.emit(str(collider.call("interaction_summary")))
 		return true
 	var target := get_target_block_position()
 	var station := world.station_type_at(target)
@@ -553,12 +631,30 @@ func _try_place() -> void:
 	var gp := Vector3i((point + normal * 0.5).floor())
 	if not BlockRegistry.is_air(world.get_block_global(gp)):
 		return
+	var facing := _placement_facing()
 	if _overlaps_player(gp):
+		return
+	if world.is_door_id(block_id):
+		var upper := gp + Vector3i.UP
+		if not BlockRegistry.is_air(world.get_block_global(upper)) \
+				or _overlaps_player(upper) \
+				or not world.place_door(gp, block_id, facing):
+			return
+		var door_taken := Inventory.take_selected_stack(1)
+		if door_taken.is_empty():
+			world.remove_door(gp)
+			push_error("Player: door placement transaction rolled back")
+			return
+		_play_hand_action("use")
 		return
 	# Commit the world edit first, then consume; roll back on an unexpected
 	# inventory failure so placement cannot lose or duplicate resources.
 	if not world.set_block_global(gp, block_id):
 		return
+	if BlockRegistry.get_shape(block_id) in [
+		"stair", "furnace", "chest", "chute", "workbench", "post",
+	]:
+		world.set_block_orientation(gp, facing)
 	var taken := Inventory.take_selected_stack(1)
 	if taken.is_empty():
 		world.set_block_global(gp, BlockRegistry.AIR)
@@ -567,11 +663,17 @@ func _try_place() -> void:
 	_play_hand_action("use")
 
 
+func _placement_facing() -> int:
+	# 0 north (-Z), 1 east (+X), 2 south (+Z), 3 west (-X).
+	return posmod(roundi(-_yaw / (PI * 0.5)), 4)
+
+
 func restore_view(yaw: float, pitch: float = 0.0) -> void:
 	_yaw = yaw
 	_pitch = clampf(pitch, -1.45, 1.45)
 	rotation.y = _yaw
-	head.rotation.x = _pitch
+	if _head_mount != null:
+		_head_mount.rotation.x = _pitch
 
 
 func _overlaps_player(gp: Vector3i) -> bool:

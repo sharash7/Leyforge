@@ -118,6 +118,15 @@ func _run() -> void:
 	dummy_player.world = world
 	dummy_player.global_position = Vector3(
 		HamletState.hamlet_anchor.x, 20.0, HamletState.hamlet_anchor.y)
+	# Runtime actors intentionally wait for streamed terrain collision. Prepare
+	# their saved columns before asserting the full local roster.
+	for npc_id in HamletState.get_npc_ids():
+		var npc_record := HamletState.get_npc_record(npc_id)
+		var saved_position: Array = npc_record.get("position", [])
+		if saved_position.size() == 3:
+			world.prepare_player_column(Vector3(
+				float(saved_position[0]), float(saved_position[1]),
+				float(saved_position[2])))
 	var runtime: HamletRuntime = load("res://scripts/world/hamlet_runtime.gd").new()
 	add_child(runtime)
 	runtime.configure(world, dummy_player)

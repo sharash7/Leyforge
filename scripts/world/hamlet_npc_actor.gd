@@ -144,7 +144,7 @@ func _physics_process(delta: float) -> void:
 			var side := Vector2(-desired.y, desired.x) * _avoid_sign
 			desired = (desired * 0.25 + side * 0.75).normalized()
 		direction = Vector3(desired.x, 0.0, desired.y)
-		look_at(global_position + direction, Vector3.UP, true)
+		look_at(global_position + direction, Vector3.UP)
 	var walk_speed := minf(WALK_SPEED, maxf(0.35, distance_to_target * 1.5))
 	velocity.x = direction.x * walk_speed
 	velocity.z = direction.z * walk_speed
@@ -183,7 +183,7 @@ func _physics_process(delta: float) -> void:
 	if raid_target != null and distance_to_target <= GUARD_ATTACK_RANGE \
 			and _guard_attack_cooldown <= 0.0:
 		_guard_attack_cooldown = 0.85
-		play_action("attack", 0.55)
+		play_action("attack", 0.34)
 		raid_target.apply_combat_damage({
 			"source": npc_id,
 			"damage_type": "physical.slash",

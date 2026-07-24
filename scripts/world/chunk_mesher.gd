@@ -19,6 +19,9 @@ static func build(snapshot: Dictionary) -> Dictionary:
 	var water_vertices := PackedVector3Array()
 	var water_normals := PackedVector3Array()
 	var water_colors := PackedColorArray()
+	var glass_vertices := PackedVector3Array()
+	var glass_normals := PackedVector3Array()
+	var glass_colors := PackedColorArray()
 	var collision_triangles := PackedVector3Array()
 	var mask := PackedInt32Array()
 	mask.resize(SIZE * SIZE)
@@ -31,6 +34,7 @@ static func build(snapshot: Dictionary) -> Dictionary:
 				opaque_vertices, opaque_normals, opaque_colors,
 				opaque_uvs, opaque_uv2s,
 				water_vertices, water_normals, water_colors,
+				glass_vertices, glass_normals, glass_colors,
 				collision_triangles)
 	_emit_shaped_blocks(
 		snapshot, opaque_vertices, opaque_normals, opaque_colors,
@@ -44,6 +48,9 @@ static func build(snapshot: Dictionary) -> Dictionary:
 		"water_vertices": water_vertices,
 		"water_normals": water_normals,
 		"water_colors": water_colors,
+		"glass_vertices": glass_vertices,
+		"glass_normals": glass_normals,
+		"glass_colors": glass_colors,
 		"collision_triangles": collision_triangles,
 	}
 
@@ -98,6 +105,12 @@ static func _shape(snapshot: Dictionary, id: int) -> int:
 	return int(shapes[id]) if id >= 0 and id < shapes.size() else 0
 
 
+static func _is_item_connector(snapshot: Dictionary, id: int) -> bool:
+	var connectors: PackedByteArray = snapshot.get(
+		"item_connectors", PackedByteArray())
+	return id >= 0 and id < connectors.size() and connectors[id] != 0
+
+
 static func _face_visible(snapshot: Dictionary, id: int, neighbor_id: int) -> bool:
 	if _is_water(snapshot, id):
 		return neighbor_id == 0 or (
@@ -117,6 +130,8 @@ static func _sweep_axis(snapshot: Dictionary, axis: int, u: int, v: int, sign_va
 		opaque_colors: PackedColorArray, opaque_uvs: PackedVector2Array,
 		opaque_uv2s: PackedVector2Array, water_vertices: PackedVector3Array,
 		water_normals: PackedVector3Array, water_colors: PackedColorArray,
+		glass_vertices: PackedVector3Array,
+		glass_normals: PackedVector3Array, glass_colors: PackedColorArray,
 		collision_triangles: PackedVector3Array) -> void:
 	var position := Vector3i.ZERO
 	var neighbor_position := Vector3i.ZERO
@@ -162,7 +177,9 @@ static func _sweep_axis(snapshot: Dictionary, axis: int, u: int, v: int, sign_va
 					snapshot, axis, u, v, sign_value, slice, iu, iv, width, height, id0,
 					opaque_vertices, opaque_normals, opaque_colors,
 					opaque_uvs, opaque_uv2s,
-					water_vertices, water_normals, water_colors, collision_triangles)
+					water_vertices, water_normals, water_colors,
+					glass_vertices, glass_normals, glass_colors,
+					collision_triangles)
 				iu += width
 
 
@@ -172,6 +189,8 @@ static func _emit_quad(snapshot: Dictionary, axis: int, u: int, v: int,
 		opaque_colors: PackedColorArray, opaque_uvs: PackedVector2Array,
 		opaque_uv2s: PackedVector2Array, water_vertices: PackedVector3Array,
 		water_normals: PackedVector3Array, water_colors: PackedColorArray,
+		glass_vertices: PackedVector3Array,
+		glass_normals: PackedVector3Array, glass_colors: PackedColorArray,
 		collision_triangles: PackedVector3Array) -> void:
 	var base := Vector3.ZERO
 	base[axis] = float(slice + (1 if sign_value > 0 else 0))
@@ -189,11 +208,14 @@ static func _emit_quad(snapshot: Dictionary, axis: int, u: int, v: int,
 	normal[axis] = float(sign_value)
 	var colors: PackedColorArray = snapshot["colors"]
 	var color := colors[id] if id >= 0 and id < colors.size() else Color(1, 0, 1)
-	var uses_transparent_surface := _is_water(snapshot, id) \
-		or _is_transparent(snapshot, id)
-	var vertices := water_vertices if uses_transparent_surface else opaque_vertices
-	var normals := water_normals if uses_transparent_surface else opaque_normals
-	var vertex_colors := water_colors if uses_transparent_surface else opaque_colors
+	var water_surface := _is_water(snapshot, id)
+	var glass_surface := _is_transparent(snapshot, id) and not water_surface
+	var vertices := glass_vertices if glass_surface else (
+		water_vertices if water_surface else opaque_vertices)
+	var normals := glass_normals if glass_surface else (
+		water_normals if water_surface else opaque_normals)
+	var vertex_colors := glass_colors if glass_surface else (
+		water_colors if water_surface else opaque_colors)
 	var uv_corners := [
 		Vector2.ZERO,
 		Vector2(float(width), 0.0),
@@ -204,14 +226,14 @@ static func _emit_quad(snapshot: Dictionary, axis: int, u: int, v: int,
 	# surface and its one-sided concave collision facing out of the solid voxel.
 	if sign_value > 0:
 		vertices.append_array([c00, c11, c10, c00, c01, c11])
-		if not uses_transparent_surface:
+		if not water_surface and not glass_surface:
 			opaque_uvs.append_array([
 				uv_corners[0], uv_corners[2], uv_corners[1],
 				uv_corners[0], uv_corners[3], uv_corners[2],
 			])
 	else:
 		vertices.append_array([c00, c10, c11, c00, c11, c01])
-		if not uses_transparent_surface:
+		if not water_surface and not glass_surface:
 			opaque_uvs.append_array([
 				uv_corners[0], uv_corners[1], uv_corners[2],
 				uv_corners[0], uv_corners[2], uv_corners[3],
@@ -219,7 +241,7 @@ static func _emit_quad(snapshot: Dictionary, axis: int, u: int, v: int,
 	for i in 6:
 		normals.append(normal)
 		vertex_colors.append(color)
-		if not uses_transparent_surface:
+		if not water_surface and not glass_surface:
 			opaque_uv2s.append(Vector2(_material_layer(snapshot, id), 0.0))
 	if not _is_water(snapshot, id):
 		# Collision uses the same outward winding as the visible surface.
@@ -239,6 +261,10 @@ static func _emit_shaped_blocks(snapshot: Dictionary,
 		colors: PackedColorArray, uvs: PackedVector2Array,
 		uv2s: PackedVector2Array, collision: PackedVector3Array) -> void:
 	var blocks: PackedInt32Array = snapshot["blocks"]
+	var orientations: PackedByteArray = snapshot.get(
+		"orientations", PackedByteArray())
+	var door_parts: PackedByteArray = snapshot.get(
+		"door_parts", PackedByteArray())
 	for y in SIZE:
 		for z in SIZE:
 			for x in SIZE:
@@ -246,14 +272,20 @@ static func _emit_shaped_blocks(snapshot: Dictionary,
 				var shape := _shape(snapshot, id)
 				if shape == 0:
 					continue
+				var block_index := _index(x, y, z)
+				var facing := int(orientations[block_index]) \
+					if block_index < orientations.size() else 0
+				var door_part := int(door_parts[block_index]) \
+					if block_index < door_parts.size() else 0
 				var origin := Vector3(x, y, z)
 				_emit_authored_shape(
-					snapshot, origin, id, shape,
+					snapshot, origin, id, shape, facing, door_part,
 					vertices, normals, colors, uvs, uv2s, collision)
 
 
 static func _emit_authored_shape(
 		snapshot: Dictionary, origin: Vector3, id: int, shape: int,
+		facing: int, door_part: int,
 		vertices: PackedVector3Array, normals: PackedVector3Array,
 		colors: PackedColorArray, uvs: PackedVector2Array,
 		uv2s: PackedVector2Array, collision: PackedVector3Array) -> void:
@@ -265,13 +297,13 @@ static func _emit_authored_shape(
 				snapshot, origin, Vector3.ZERO, Vector3(1.0, 0.5, 1.0), id,
 				vertices, normals, colors, uvs, uv2s, collision)
 		2:
-			_emit_box(
+			_emit_rotated_box(
 				snapshot, origin, Vector3.ZERO, Vector3(1.0, 0.5, 1.0), id,
+				facing,
 				vertices, normals, colors, uvs, uv2s, collision)
-			# Fixed north-facing representative stair. Rotation state is
-			# deferred until general per-block state metadata lands.
-			_emit_box(
+			_emit_rotated_box(
 				snapshot, origin, Vector3(0.0, 0.5, 0.5), Vector3.ONE, id,
+				facing,
 				vertices, normals, colors, uvs, uv2s, collision)
 		3:
 			# Furnace shell, rim, chimney cap, and dark front firebox.
@@ -284,9 +316,10 @@ static func _emit_authored_shape(
 				Vector3(0.88, 0.96, 0.88), id,
 				vertices, normals, colors, uvs, uv2s, collision,
 				base.lightened(0.10))
-			_emit_box(
+			_emit_rotated_box(
 				snapshot, origin, Vector3(0.28, 0.18, 0.015),
 				Vector3(0.72, 0.52, 0.065), id,
+				facing,
 				vertices, normals, colors, uvs, uv2s, collision,
 				Color(0.035, 0.025, 0.018), false)
 		4:
@@ -300,38 +333,48 @@ static func _emit_authored_shape(
 				Vector3(0.97, 0.76, 0.95), id,
 				vertices, normals, colors, uvs, uv2s, collision,
 				base.lightened(0.12))
-			_emit_box(
+			_emit_rotated_box(
 				snapshot, origin, Vector3(0.44, 0.42, 0.015),
 				Vector3(0.56, 0.66, 0.075), id,
+				facing,
 				vertices, normals, colors, uvs, uv2s, collision,
 				Color(0.72, 0.48, 0.10), false)
 		5:
-			# An open, cross-connected trough rather than a solid green cube.
-			_emit_box(
-				snapshot, origin, Vector3(0.08, 0.08, 0.08),
-				Vector3(0.92, 0.20, 0.92), id,
+			_emit_connected_chute(
+				snapshot, origin, id, facing,
 				vertices, normals, colors, uvs, uv2s, collision)
-			_emit_box(
-				snapshot, origin, Vector3(0.08, 0.20, 0.08),
-				Vector3(0.18, 0.48, 0.92), id,
-				vertices, normals, colors, uvs, uv2s, collision,
-				base.darkened(0.10))
-			_emit_box(
-				snapshot, origin, Vector3(0.82, 0.20, 0.08),
-				Vector3(0.92, 0.48, 0.92), id,
-				vertices, normals, colors, uvs, uv2s, collision,
-				base.darkened(0.10))
 		6:
-			# Fixed north-facing thin door panel with frame and handle.
-			_emit_box(
+			# Each inventory door places two saved voxel halves, yielding a
+			# logical 32x64 door assembled from two 32x32 material cells.
+			_emit_rotated_box(
 				snapshot, origin, Vector3(0.08, 0.0, 0.42),
 				Vector3(0.92, 1.0, 0.58), id,
+				facing,
 				vertices, normals, colors, uvs, uv2s, collision)
-			_emit_box(
-				snapshot, origin, Vector3(0.70, 0.43, 0.37),
-				Vector3(0.80, 0.55, 0.43), id,
-				vertices, normals, colors, uvs, uv2s, collision,
-				Color(0.74, 0.55, 0.16), false)
+			if door_part != 2:
+				# The handle sits near the upper edge of the lower 32x32 cell
+				# and protrudes on both faces of the two-cell door.
+				_emit_rotated_box(
+					snapshot, origin, Vector3(0.70, 0.68, 0.35),
+					Vector3(0.80, 0.82, 0.43), id,
+					facing,
+					vertices, normals, colors, uvs, uv2s, collision,
+					Color(0.74, 0.55, 0.16), false)
+				_emit_rotated_box(
+					snapshot, origin, Vector3(0.70, 0.68, 0.57),
+					Vector3(0.80, 0.82, 0.65), id,
+					facing,
+					vertices, normals, colors, uvs, uv2s, collision,
+					Color(0.74, 0.55, 0.16), false)
+			else:
+				for panel_x in [0.22, 0.56]:
+					_emit_rotated_box(
+						snapshot, origin,
+						Vector3(panel_x, 0.28, 0.405),
+						Vector3(panel_x + 0.20, 0.72, 0.595), id,
+						facing,
+						vertices, normals, colors, uvs, uv2s, collision,
+						base.lightened(0.16), false)
 		7:
 			# Work surface and four readable legs.
 			_emit_box(
@@ -357,6 +400,167 @@ static func _emit_authored_shape(
 				Vector3(0.76, 1.0, 0.76), id,
 				vertices, normals, colors, uvs, uv2s, collision,
 				base.lightened(0.24))
+
+
+static func _emit_connected_chute(
+		snapshot: Dictionary, origin: Vector3, id: int, facing: int,
+		vertices: PackedVector3Array, normals: PackedVector3Array,
+		colors: PackedColorArray, uvs: PackedVector2Array,
+		uv2s: PackedVector2Array, collision: PackedVector3Array) -> void:
+	var directions: Array[Vector3i] = [
+		Vector3i(0, 0, -1), Vector3i(1, 0, 0),
+		Vector3i(0, 0, 1), Vector3i(-1, 0, 0),
+	]
+	var connected: Array[bool] = [false, false, false, false]
+	var connection_mask := chute_connection_mask(
+		snapshot, int(origin.x), int(origin.y), int(origin.z), facing)
+	var connection_count := 0
+	for i in directions.size():
+		connected[i] = (connection_mask & (1 << i)) != 0
+		if connected[i]:
+			connection_count += 1
+	var straight_ns := connection_count == 2 and connected[0] and connected[2]
+	var straight_ew := connection_count == 2 and connected[1] and connected[3]
+	if straight_ns:
+		_emit_box(
+			snapshot, origin, Vector3(0.30, 0.08, 0.0),
+			Vector3(0.70, 0.20, 1.0), id,
+			vertices, normals, colors, uvs, uv2s, collision)
+		for rail_x in [0.23, 0.70]:
+			_emit_box(
+				snapshot, origin, Vector3(rail_x, 0.20, 0.0),
+				Vector3(rail_x + 0.07, 0.45, 1.0), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+		return
+	if straight_ew:
+		_emit_box(
+			snapshot, origin, Vector3(0.0, 0.08, 0.30),
+			Vector3(1.0, 0.20, 0.70), id,
+			vertices, normals, colors, uvs, uv2s, collision)
+		for rail_z in [0.23, 0.70]:
+			_emit_box(
+				snapshot, origin, Vector3(0.0, 0.20, rail_z),
+				Vector3(1.0, 0.45, rail_z + 0.07), id,
+				vertices, normals, colors, uvs, uv2s, collision)
+		return
+
+	# Corner/T/cross junctions share one exact central square. Branch floors
+	# meet its edges, while rails stop there instead of overlapping halfway
+	# through neighbouring branches.
+	_emit_box(
+		snapshot, origin, Vector3(0.30, 0.08, 0.30),
+		Vector3(0.70, 0.20, 0.70), id,
+		vertices, normals, colors, uvs, uv2s, collision)
+	for direction_index in directions.size():
+		if not connected[direction_index]:
+			continue
+		var minimum := Vector3.ZERO
+		var maximum := Vector3.ZERO
+		if direction_index == 0:
+			minimum = Vector3(0.30, 0.08, 0.0)
+			maximum = Vector3(0.70, 0.20, 0.30)
+		elif direction_index == 1:
+			minimum = Vector3(0.70, 0.08, 0.30)
+			maximum = Vector3(1.0, 0.20, 0.70)
+		elif direction_index == 2:
+			minimum = Vector3(0.30, 0.08, 0.70)
+			maximum = Vector3(0.70, 0.20, 1.0)
+		else:
+			minimum = Vector3(0.0, 0.08, 0.30)
+			maximum = Vector3(0.30, 0.20, 0.70)
+		_emit_box(
+			snapshot, origin, minimum, maximum, id,
+			vertices, normals, colors, uvs, uv2s, collision)
+		if direction_index in [0, 2]:
+			for rail_x in [0.23, 0.70]:
+				_emit_box(
+					snapshot, origin,
+					Vector3(rail_x, 0.20, minimum.z),
+					Vector3(rail_x + 0.07, 0.45, maximum.z), id,
+					vertices, normals, colors, uvs, uv2s, collision)
+		else:
+			for rail_z in [0.23, 0.70]:
+				_emit_box(
+					snapshot, origin,
+					Vector3(minimum.x, 0.20, rail_z),
+					Vector3(maximum.x, 0.45, rail_z + 0.07), id,
+					vertices, normals, colors, uvs, uv2s, collision)
+
+	# Every side without a connection needs a retaining wall. Without these
+	# centre-edge rails, L and T pieces leave an open notch where loose batches
+	# visually look able to fall out of the trough.
+	for direction_index in directions.size():
+		if connected[direction_index]:
+			continue
+		var wall_minimum := Vector3.ZERO
+		var wall_maximum := Vector3.ZERO
+		if direction_index == 0:
+			wall_minimum = Vector3(0.23, 0.20, 0.23)
+			wall_maximum = Vector3(0.77, 0.45, 0.30)
+		elif direction_index == 1:
+			wall_minimum = Vector3(0.70, 0.20, 0.23)
+			wall_maximum = Vector3(0.77, 0.45, 0.77)
+		elif direction_index == 2:
+			wall_minimum = Vector3(0.23, 0.20, 0.70)
+			wall_maximum = Vector3(0.77, 0.45, 0.77)
+		else:
+			wall_minimum = Vector3(0.23, 0.20, 0.23)
+			wall_maximum = Vector3(0.30, 0.45, 0.77)
+		_emit_box(
+			snapshot, origin, wall_minimum, wall_maximum, id,
+			vertices, normals, colors, uvs, uv2s, collision)
+
+
+static func chute_connection_mask(
+		snapshot: Dictionary, x: int, y: int, z: int, facing: int) -> int:
+	var directions: Array[Vector3i] = [
+		Vector3i(0, 0, -1), Vector3i(1, 0, 0),
+		Vector3i(0, 0, 1), Vector3i(-1, 0, 0),
+	]
+	var mask := 0
+	for i in directions.size():
+		var local := Vector3i(x, y, z) + directions[i]
+		var neighbor_id := _get_block(snapshot, local.x, local.y, local.z)
+		if _is_item_connector(snapshot, neighbor_id):
+			mask |= 1 << i
+	if mask == 0:
+		mask |= 1 << posmod(facing, 4)
+		mask |= 1 << posmod(facing + 2, 4)
+	elif (mask & (mask - 1)) == 0:
+		# One endpoint still forms a complete straight trough through the cell.
+		for i in directions.size():
+			if (mask & (1 << i)) != 0:
+				mask |= 1 << posmod(i + 2, 4)
+				break
+	return mask
+
+
+static func _emit_rotated_box(
+		snapshot: Dictionary, origin: Vector3, minimum: Vector3,
+		maximum: Vector3, id: int, facing: int,
+		vertices: PackedVector3Array, normals: PackedVector3Array,
+		colors: PackedColorArray, uvs: PackedVector2Array,
+		uv2s: PackedVector2Array, collision: PackedVector3Array,
+		color_override: Color = Color(-1.0, -1.0, -1.0, -1.0),
+		collision_enabled: bool = true) -> void:
+	var rotated_min := minimum
+	var rotated_max := maximum
+	match posmod(facing, 4):
+		1:
+			rotated_min = Vector3(1.0 - maximum.z, minimum.y, minimum.x)
+			rotated_max = Vector3(1.0 - minimum.z, maximum.y, maximum.x)
+		2:
+			rotated_min = Vector3(
+				1.0 - maximum.x, minimum.y, 1.0 - maximum.z)
+			rotated_max = Vector3(
+				1.0 - minimum.x, maximum.y, 1.0 - minimum.z)
+		3:
+			rotated_min = Vector3(minimum.z, minimum.y, 1.0 - maximum.x)
+			rotated_max = Vector3(maximum.z, maximum.y, 1.0 - minimum.x)
+	_emit_box(
+		snapshot, origin, rotated_min, rotated_max, id,
+		vertices, normals, colors, uvs, uv2s, collision,
+		color_override, collision_enabled)
 
 
 static func _emit_box(snapshot: Dictionary, origin: Vector3, minimum: Vector3,

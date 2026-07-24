@@ -91,8 +91,22 @@ func _refresh_actor_lod() -> void:
 	var distance := player.global_position.distance_to(hamlet)
 	if distance <= ACTOR_RANGE:
 		for npc_id in HamletState.get_npc_ids():
-			if _actors.has(npc_id) or not bool(
-					HamletState.get_npc_record(npc_id).get("alive", true)):
+			var record := HamletState.get_npc_record(npc_id)
+			if _actors.has(npc_id) or not bool(record.get("alive", true)):
+				continue
+			var saved: Array = record.get("position", [])
+			if saved.size() < 3:
+				continue
+			var spawn_gp := Vector3i(
+				floori(float(saved[0])),
+				clampi(floori(float(saved[1])), 0, VoxelWorld.WORLD_HEIGHT - 1),
+				floori(float(saved[2])))
+			# Wait for normal player-centred streaming to prepare both the
+			# villager's feet and ground. This avoids a visible fall through an
+			# empty, not-yet-generated column.
+			if not world.is_voxel_loaded_at(spawn_gp) \
+					or not world.is_voxel_loaded_at(
+						Vector3i(spawn_gp.x, maxi(0, spawn_gp.y - 1), spawn_gp.z)):
 				continue
 			var actor: HamletNpcActor = NpcActorScript.new()
 			actor.setup(world, npc_id)
