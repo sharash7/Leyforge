@@ -1,8 +1,9 @@
 ---
 name: leyforge-voxel-poc
 overview: >-
-  Godot-adapted Forest Hamlet POC: Stage 7 -- Combat and Goblin Raid is complete
-  on the deterministic Controlled POC Valley; Stage 8 is next
+  Godot-adapted Forest Hamlet POC: Stage 8 -- End-to-End UI and Learning is
+  implemented on the deterministic Controlled POC Valley; the automated gate is
+  complete and the representative-player manual exit test remains
 createdAt: '2026-07-21T08:48:53.746Z'
 todos:
   - id: voxel-chunk-system
@@ -116,7 +117,7 @@ todos:
       Consolidate the HUD, inventory, crafting, dialogue, village, machine,
       mana, map, raid, combat, aftermath, settings, input, controller, and
       accessibility learning paths into a first-time-player flow
-    status: pending
+    status: completed
 ---
 ## Scene Structure
 - `res://main.tscn` -- World root
@@ -151,10 +152,12 @@ todos:
 - `res://scripts/autoload/hamlet_state.gd` -- authoritative NPC, schedule, need, warehouse, request, trust, permission, and project state
 - `res://scripts/autoload/magic_state.gd` -- personal mana, regeneration, spell knowledge, cooldowns, casts, and save state
 - `res://scripts/autoload/combat_state.gd` -- player health, raid planner, enemy records, outcome, injury, theft, structure damage, repair, history, and save state
+- `res://scripts/autoload/ui_state.gd` -- persistent UI settings, tutorial/objective progress, discovered map anchors, input defaults, and rebinding
 - `res://scripts/visual/humanoid_visual.gd` -- shared articulated player, villager, and goblin body/animation presentation
 - `res://scripts/visual/item_model_factory.gd` -- shared low-poly held/drop model silhouettes selected by stable content identity
 - `res://scripts/player/player.gd` -- movement, swimming, timed tool-aware harvesting, and placement
-- `res://scripts/ui/hud.gd` -- contextual recipe/furnace UI, backpack, hotbar, and status feedback
+- `res://scripts/ui/hud.gd` -- contextual objective, inventory, crafting, village, map, raid, aftermath, settings, controls, help, and status presentation
+- `res://scripts/ui/local_map_view.gd` -- discovered-landmark map, routes, objective marker, player orientation, and custom pin
 - `res://scripts/ui/stack_icon_renderer.gd` -- cached static isometric thumbnails for registered blocks and items
 - `res://scripts/main.gd` -- startup plus atomic versioned save/recovery
 
@@ -169,7 +172,10 @@ todos:
 - cast_utility: Z (cast Stone Sense when known and funded)
 - cast_combat: X (cast Spark Bolt when known, funded, and off cooldown)
 - attack: F (attack a combat target with the selected item or empty hand)
+- open_guide/inventory/map/village/raid/pause: controller-aware Stage 8 global routes with keyboard shortcuts
+- look_left/right/up/down: right-stick camera look with a dead zone
 - hotbar_1 through hotbar_9: Number keys
+- Every Stage 8 rebindable action retains separate keyboard/mouse and controller bindings, and duplicate assignments are reported as explicit conflicts
 
 ## Chunk System
 - 16x16x16 logical sections, with three vertical sections in the current world
@@ -200,7 +206,7 @@ todos:
 ## Physical Item Drops
 - Successful harvesting commits the world edit into a small 3D dropped block/item rather than inserting directly into inventory
 - Drops settle against voxel collision, remain present when inventory is full, and automatically transfer any available amount inside the pickup radius
-- Drop stacks retain stable block/item identities, tool instances, position, motion, and age through atomic version 10 saves
+- Drop stacks retain stable block/item identities, tool instances, position, motion, and age through atomic version 12 saves
 
 ## Crafting
 - E opens the 2x2 hand grid; RMB opens aimed workbench, rune table, furnace, mana furnace, chest, magical device, village, or NPC interactions
@@ -275,16 +281,26 @@ todos:
 - Elric's conversation exposes the manual raid trigger, aftermath status, one-at-a-time repair action, and test reset
 - The living manual acceptance guide is `20_Leyforge_POC_Manual_Testing_Guide_v0_1.md` and must be updated with every future phase
 
+## End-to-End UI and Learning
+- The normal HUD is player-facing: debug seed, coordinates, and FPS are absent, while mana stays hidden until the player discovers it
+- One contextual objective card teaches the representative loop through gather, craft, elder request, supply, automation delivery, mana, raid preparation, defense, repair, and completion using authoritative progression state
+- Guide, inventory, crafting, village, local map, raid/aftermath, pause, settings, controls, and help screens share focus-first keyboard/controller navigation and one-step back behaviour
+- Inventory search/details, crafting batch controls, recipe knowledge hints, village permission text, project stock/reserves, machine flow/faults, raid readiness, and aftermath cause/consequence/follow-up make system effects explicit
+- The local map reveals visited landmarks and routes, shows player orientation and the current objective, and supports one persistent custom pin
+- Settings persist HUD/tutorial/notification presets, UI scale, captions, high contrast, reduced motion, reduced flashes, toggle sprint, and aim assist; control rebinding persists separately for keyboard/mouse and controller
+- Atomic save version 12 stores UI learning, discovery, custom pin, settings, and binding overrides alongside the established world state
+- The Stage 8 manual exit gate is the representative-player script in the living testing guide; Stage 9 hardening must not begin until that observed run passes
+
 ## Later-Stage Design Alignment
 - Document 19, `19_Fantasy_Voxel_Civilisation_Sandbox_Settlement_Growth_and_Player_Voxel_Blueprint_System_v0_1.md`, is now a design source for later settlement-growth and player-voxel-blueprint phases
 - Its blueprint definitions/runtime records, stable identity, reservations, repair, and settlement progression requirements should extend the existing conserved resource, project, and persistence foundations
-- Stage 7 does not pull those later settlement/blueprint systems forward; Stage 8 remains the next documented implementation phase
+- Stage 8 does not pull those later settlement/blueprint systems forward; Stage 9 remains gated by the representative-player Stage 8 manual acceptance run
 
 ## Current Verification
 - Headless Godot 4.6.3 probe: 143 blocks and 167 items load in separate registries
 - Legacy Oak Log item ID 142 migrates to block ID 9
 - Final-batch crafting, full-inventory mining/crafting, stable edit saves, and craft-grid saves pass
-- Version 10 saves preserve unified inventory, tool durability, progression, personal magic, mana networks/consumers/connectors, player health, raid phases, authoritative enemies, preparation, outcomes, injuries, theft, damage/repair/history, functional blocks, physical item drops, automation machines/batches/connectors, delivery ledger, hamlet records, warehouse, requests, reputation, permissions, project state, edits, and the world-generation manifest
+- Version 12 saves preserve unified inventory, tool durability, progression, personal magic, mana networks/consumers/connectors, player health, raid phases, authoritative enemies, preparation, outcomes, injuries, theft, damage/repair/history, functional blocks, physical item drops, automation machines/batches/connectors, delivery ledger, hamlet records, warehouse, requests, reputation, permissions, project state, UI learning/settings/bindings/map state, edits, and the world-generation manifest
 - Rebuild probe processed 1 of 10 queued chunks under the declared budget
 - Player collision holds at terrain Y=15; saved underground positions repair to a clear surface position
 - Embedded or below-world players recover to the closest loaded flat 2x2 floor with a 2x2x2 air volume; spawn is fallback-only
@@ -305,11 +321,13 @@ todos:
 - Traversal probe crosses a half-slab and a north-facing stair with the real player collision body
 - Stage 4 authority probe passes 41 checks for the eight-NPC roster, stable local waypoints/collision and interaction targeting, sequential supply gates, per-block builder labour, 100-percent completion, save restore, RMB stations, and actor promotion/demotion
 - Physical-item probe passes 9 checks for full-inventory mining, 3D world visuals, preserved leftovers, proximity pickup, and stable-ID restore
-- Full save/UI probe passes 22 checks through the atomic `main.gd` version 10 path, including version-9 and legacy migration plus personal magic, raid phase, and authoritative enemy health
+- Full save/UI probe passes 26 checks through the atomic `main.gd` version 12 path, including version-11 and legacy migration plus UI settings, discovery, custom pin, personal magic, raid phase, and authoritative enemy health
 - Phase 5 automation probe passes 61 checks for stable content/recipes, nearest-valuable and selected-ore extraction, conserved furnace fuel drag/drop, crank power, wrench configuration, cross-chunk graph connectors, ore-to-ingot transport, trust-gated delivery, blockage, in-flight save/restore, far simulation, save-persistent idempotent retries, audit ledger facts, exact project reservations, and simultaneous furnace routing where fuel and one compatible ore enter while an incompatible ore continues to storage
 - Phase 6 magic probe passes 48 checks for the mana resource chain, rune-table and mana-furnace recipes, network storage/topology, cross-chunk connectors, exact mana consumption, faults, ward coverage/drain/defense, both spells, ruin teaser, persistence, visual promotion, and bounded far/offline simulation
 - Phase 7 combat/visual probe passes 33 checks for the articulated player/eight-villager roster, six job-held items, priority held/block silhouettes, translucent collidable glass, four enemy profiles, warning/assault promotion, authoritative player/enemy damage, three forced outcome matrices, visible structure damage, exact repair cost, and combat/aftermath restore
+- Phase 8 UI/learning probe passes 104 checks for objective sequencing, authoritative automation/mana/raid gates, adaptive disclosure, keyboard/controller defaults, per-device rebinding persistence and conflict reporting, accessibility preview, screen focus/back behaviour, map discovery/pinning, village non-colour permission cues, aftermath cause/effect, help, and version-12 UI state restore
+- Real-renderer Stage 8 captures cover the representative guide, discovered-landmark map, and settings/control presentation
 - Summer rendered captures confirm the humanoid/held-item lineup, recognizable furnace/chest/chute/door silhouettes, see-through glass, and an unobstructed first-person arm/pickaxe view
 - Manual Stage 1 movement, editing, crafting, swimming, and cursor behaviour passed
 - Manual Phase 2 water, routes, landmarks, tundra, desert, streaming, and traversal checks passed
-- Stage 7 exit gate is complete; Stage 8 End-to-End UI and Learning is the next documented phase
+- Stage 8 implementation and automated acceptance are complete; its representative-player manual exit test remains before Stage 9 hardening begins

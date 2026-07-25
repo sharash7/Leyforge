@@ -12,6 +12,7 @@ const GRAVITY := 22.0
 const SWIM_SPEED := 3.5
 const SWIM_UP_SPEED := 4.5
 const MOUSE_SENS := 0.0022
+const CONTROLLER_LOOK_SPEED := 2.6
 const REACH := 6.0
 const EMBEDDED_RESCUE_DELAY := 0.2
 const MAX_STEP_HEIGHT := 0.55
@@ -39,6 +40,7 @@ var _world_humanoid: Node3D
 var _head_mount: Node3D
 var _held_identity := ""
 var _left_click_combat := false
+var _sprint_toggled := false
 
 
 func _ready() -> void:
@@ -106,6 +108,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		return
 	if controls_locked:
+		return
+	if event.is_action_pressed("sprint") and UIState.setting_bool("toggle_sprint"):
+		_sprint_toggled = not _sprint_toggled
 		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		_yaw -= event.relative.x * MOUSE_SENS
@@ -210,6 +215,22 @@ func _cast_spark_bolt() -> void:
 func _physics_process(delta: float) -> void:
 	_update_mining(delta)
 	var swimming := _is_in_water()
+	if not controls_locked:
+		var look := Input.get_vector(
+			"look_left", "look_right", "look_up", "look_down")
+		if look.length_squared() > 0.0001:
+			var aim_speed := CONTROLLER_LOOK_SPEED
+			var aimed_target: Object = (
+				ray.get_collider() if ray != null and ray.is_colliding() else null)
+			if primary_action_is_combat_target(aimed_target):
+				aim_speed *= lerpf(
+					1.0, 0.4, UIState.setting_float("aim_assist", 0.25))
+			_yaw -= look.x * aim_speed * delta
+			_pitch = clampf(
+				_pitch - look.y * aim_speed * delta, -1.45, 1.45)
+			rotation.y = _yaw
+			if _head_mount != null:
+				_head_mount.rotation.x = _pitch
 
 	if swimming:
 		# Buoyant drift instead of full gravity; jump paddles upward.
@@ -228,9 +249,12 @@ func _physics_process(delta: float) -> void:
 				velocity.y = JUMP_VELOCITY
 
 	var speed := SPEED
+	var sprint_active := Input.is_action_pressed("sprint")
+	if UIState.setting_bool("toggle_sprint"):
+		sprint_active = _sprint_toggled
 	if swimming:
 		speed = SWIM_SPEED
-	elif Input.is_action_pressed("sprint"):
+	elif sprint_active:
 		speed *= SPRINT_MULT
 	velocity.x = move.x * speed
 	velocity.z = move.z * speed

@@ -25,6 +25,7 @@ Inventory="*res://scripts/autoload/inventory.gd"
 HamletState="*res://scripts/autoload/hamlet_state.gd"
 MagicState="*res://scripts/autoload/magic_state.gd"
 CombatState="*res://scripts/autoload/combat_state.gd"
+UIState="*res://scripts/autoload/ui_state.gd"
 
 [dotnet]
 

@@ -67,10 +67,14 @@ func _run() -> void:
 	_check(
 		world.spawn_item_drop(drop_stack, main.get_node("Player").global_position + Vector3(4, 1, 0)),
 		"save probe could not create a persistent item drop")
+	UIState.set_setting("high_contrast", true)
+	UIState.set_setting("tutorial_mode", "guided")
+	UIState.discover_anchor("rune_ruin")
+	UIState.set_custom_pin(Vector2(19.0, -27.0))
 	main._save_game()
 
 	var saved: Dictionary = main._read_save()
-	_check(int(saved.get("version", 0)) == 11, "atomic save did not write save version 11")
+	_check(int(saved.get("version", 0)) == 12, "atomic save did not write save version 12")
 	_check(saved.get("hamlet", {}) is Dictionary and not saved.get("hamlet", {}).is_empty(),
 		"atomic save omitted authoritative hamlet state")
 	_check(saved.get("item_drops", []) is Array and saved.get("item_drops", []).size() == 1,
@@ -81,12 +85,15 @@ func _run() -> void:
 	_check(saved.get("combat", {}) is Dictionary
 			and not saved.get("combat", {}).is_empty(),
 		"atomic save omitted persistent combat and raid state")
+	_check(saved.get("ui", {}) is Dictionary and not saved.get("ui", {}).is_empty(),
+		"atomic save omitted persistent UI and learning state")
 
 	HamletState.initialized = false
 	HamletState.initialize(world.world_seed, world.get_valley_anchors())
 	world.restore_item_drops([])
 	MagicState.reset()
 	CombatState.reset_raid()
+	UIState.reset()
 	_check(HamletState.reputation_state == HamletState.REP_STRANGER,
 		"probe reset did not create a fresh hamlet")
 	main._apply_save(saved)
@@ -106,6 +113,12 @@ func _run() -> void:
 				== float(CombatState.get_enemy_record(saved_enemy_id).get(
 					"max_health", 0.0)) - 3.0,
 		"raid phase or authoritative enemy health did not survive save/apply")
+	_check(UIState.setting_bool("high_contrast")
+			and str(UIState.settings.get("tutorial_mode", "")) == "guided"
+			and UIState.discovered_anchors.has("rune_ruin")
+			and UIState.has_custom_pin
+			and UIState.custom_pin.is_equal_approx(Vector2(19.0, -27.0)),
+		"Stage 8 settings, learning, discovery, or custom pin did not survive save/apply")
 	var rowan_position: Array = HamletState.get_npc_record(rowan_id).get("position", [])
 	_check(rowan_position.size() == 3 and is_equal_approx(float(rowan_position[0]), 12.5),
 		"NPC runtime position did not survive the full main save/apply path")
@@ -126,16 +139,16 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v10.get("version", 0)) == 11
+		int(migrated_v10.get("version", 0)) == 12
 			and migrated_v10.get("combat", {}) is Dictionary,
-		"version-10 saves did not migrate to the orientation and ability save contract")
+		"version-10 saves did not migrate to the Stage 8 save contract")
 	var migrated_v9: Dictionary = main._migrate_save({
 		"version": 9,
 		"seed": world.world_seed,
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v9.get("version", 0)) == 11
+		int(migrated_v9.get("version", 0)) == 12
 			and migrated_v9.get("combat", {}) is Dictionary,
 		"version-9 saves did not migrate to the combat save contract")
 	var migrated_v8: Dictionary = main._migrate_save({
@@ -144,7 +157,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v8.get("version", 0)) == 11
+		int(migrated_v8.get("version", 0)) == 12
 			and migrated_v8.get("magic_player", {}) is Dictionary,
 		"version-8 saves did not migrate to the magic save contract")
 	var migrated_v7: Dictionary = main._migrate_save({
@@ -153,7 +166,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v7.get("version", 0)) == 11
+		int(migrated_v7.get("version", 0)) == 12
 			and migrated_v7.get("item_drops", []) is Array
 			and migrated_v7.get("block_entities", {}) is Dictionary,
 		"version-7 saves did not migrate to the automation save contract")

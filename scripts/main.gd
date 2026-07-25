@@ -9,7 +9,9 @@ const SAVE_PATH := "user://leyforge_save.json"
 const SAVE_TEMP_PATH := "user://leyforge_save.tmp"
 const SAVE_PREVIOUS_PATH := "user://leyforge_save.previous"
 const SAVE_BACKUP_PATH := "user://leyforge_save.backup.json"
-const SAVE_VERSION := 11
+signal save_status_changed(status: String, message: String)
+
+const SAVE_VERSION := 12
 
 var _save_path := SAVE_PATH
 var _save_temp_path := SAVE_TEMP_PATH
@@ -27,6 +29,7 @@ func _ready() -> void:
 	player.world = world
 	world.player = player
 	hud.player = player
+	hud.session = self
 
 	var cli := _parse_cli_args()
 	var data: Dictionary = {} if cli.get("fresh", false) else _read_save()
@@ -66,7 +69,12 @@ func _notification(what: int) -> void:
 		_save_game()
 
 
-func _save_game() -> void:
+func request_manual_save() -> bool:
+	return _save_game()
+
+
+func _save_game() -> bool:
+	save_status_changed.emit("saving", "Saving world...")
 	var pos := player.global_position
 	var data := {
 		"version": SAVE_VERSION,
@@ -82,15 +90,24 @@ func _save_game() -> void:
 		"magic_player": MagicState.serialize_state(),
 		"hamlet": HamletState.serialize_state(),
 		"combat": CombatState.serialize_state(),
+		"ui": UIState.serialize_state(),
 		"worldgen": world.get_worldgen_manifest(),
 	}
 	if not _write_verified_temp(data):
 		push_warning("MAIN: save temp write or validation failed; previous save preserved")
-		return
+		save_status_changed.emit(
+			"failed",
+			"Save failed before commit. Your previous save is unchanged; keep this session open and retry.")
+		return false
 	if not _commit_temp_save():
 		push_warning("MAIN: atomic save commit failed; previous save restored")
-		return
+		save_status_changed.emit(
+			"failed",
+			"Save commit failed. The previous save was restored; keep this session open and retry.")
+		return false
 	print("MAIN: saved %d edits to %s" % [data["edits"].size(), _save_path])
+	save_status_changed.emit("saved", "World saved safely.")
+	return true
 
 
 func configure_verification_save_paths(prefix: String) -> bool:
@@ -211,7 +228,7 @@ func _migrate_save(data: Dictionary) -> Dictionary:
 	var version := int(data.get("version", 0))
 	if version == SAVE_VERSION:
 		return data
-	if version in [2, 3, 4, 5, 6, 7, 8, 9, 10]:
+	if version in [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
 		# v2 used raw numeric block ids; v3 introduced stable content identities;
 		# v4 added the Controlled POC Valley manifest. All upgrade in place to the
 		# unified item/progression/functional-block/automation state on the next
@@ -220,6 +237,8 @@ func _migrate_save(data: Dictionary) -> Dictionary:
 		# player magic and magic-network state under existing block entities.
 		# v10 adds authoritative combat/raid state. v11 adds saved abilities,
 		# block orientation, assembled two-cell doors, and camp-source state.
+		# v12 adds persistent Stage 8 UI, learning, map, accessibility, and
+		# remappable-input state.
 		var legacy_inventory: Dictionary
 		if version == 2:
 			legacy_inventory = {
@@ -244,6 +263,7 @@ func _migrate_save(data: Dictionary) -> Dictionary:
 			"magic_player": data.get("magic_player", {}),
 			"hamlet": data.get("hamlet", {}),
 			"combat": data.get("combat", {}),
+			"ui": data.get("ui", {}),
 			"worldgen": data.get("worldgen", {}) if version >= 4 else {},
 		}
 	push_warning("MAIN: unsupported save version v%d" % version)
@@ -272,6 +292,9 @@ func _apply_save(data: Dictionary) -> void:
 	if combat_data is Dictionary and not combat_data.is_empty():
 		if not CombatState.restore_state(combat_data, world.world_seed):
 			push_warning("MAIN: rejected incompatible combat state; using a fresh raid state")
+	var ui_data: Variant = data.get("ui", {})
+	if ui_data is Dictionary and not ui_data.is_empty():
+		UIState.restore_state(ui_data)
 	var p: Array = data.get("player_position", [])
 	if p.size() == 3:
 		var requested_position := Vector3(p[0], p[1], p[2])

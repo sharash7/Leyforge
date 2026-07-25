@@ -2,8 +2,9 @@
 
 Version: 0.1  
 Last updated: 25 July 2026
-Current implementation target: Stage 7 stabilization - combat, visuals, HUD,
-directional placement, and camp-sourced raids
+Current implementation target: Stage 8 end-to-end UI and learning - connected
+guidance, map, village/raid explanations, settings, input, controller, and
+accessibility basics
 
 ## 1. Purpose and Maintenance Rule
 
@@ -94,6 +95,41 @@ this document.
   and prevents that camp from starting another raid.
 - Authored structure/camp volumes and future random world ecology are separate
   spawn channels. Adding a camp spawner does not replace roaming/random mobs.
+
+### Stage 8 - End-to-End UI and Learning
+
+- The open-world HUD now prioritises readable location/time, health, contextual
+  mana, raid state, a tracked objective, and plain-language action feedback
+  without exposing seed, coordinates, FPS, or other debug instructions.
+- The tracked guide derives its next step from authoritative gathering,
+  crafting, village, project, automation, magic, raid, damage, and repair
+  state. Each step includes both an action and a cause-and-effect explanation.
+- Shared Guide, Inventory, Craft, Village, Map, Raid, Pause, Settings,
+  Controls, and Help routes use predictable focus and back behaviour.
+- Inventory includes search/filter-lite, stack quantities, saved item
+  durability, stable identity details, and controller-focusable slots.
+- Crafting shows known versus hinted/undiscovered recipe counts, explains
+  unmatched grids without consuming them, and supports bounded batch crafting.
+- Village and request views connect reputation, permission reasons, physical
+  warehouse stock, project reserves, worker/location, stage effects,
+  shortages, and recent automation contribution.
+- Machine inspection retains its authoritative status/fault/action panel and
+  adds an optional non-colour flow/port/destination overlay.
+- The local map reveals only learned landmarks and routes, distinguishes the
+  player, tracked goal, and custom pin by shape and label, and persists its
+  discovery/pin state.
+- Raid readiness shows tower, guard, food, lighting, ward, approach,
+  confidence, and pressure. Aftermath explicitly separates cause,
+  consequences, and follow-up repair.
+- UI/text scale, captions, high contrast, reduced motion, reduced flashes,
+  toggle sprint, controller aim assist, HUD/tutorial/notification presets, and
+  keyboard/controller rebinding preview immediately and persist in version-12
+  saves.
+- Controller defaults cover analogue movement/look, jump, sprint, primary use,
+  interact, crafting, inventory, guide, map, village, item/skill-bar switching,
+  slot cycling, focus navigation, and back.
+- Help contains replayable system tutorials. Mana HUD elements remain hidden
+  until the player learns basic magic.
 
 ### Current Visual Model Pass
 
@@ -194,15 +230,35 @@ world. The game also maintains recovery/backup files beside it.
 | C | Open/close creative testing catalogue |
 | 1-9 | Select a slot on the active item/skill bar |
 | Mouse wheel | Cycle the active item/skill bar |
-| Escape | Close UI or release mouse |
+| Tab | Open/close the current Guide |
+| I | Open/close Inventory |
+| M | Open/close the discovered local Map |
+| V | Open/close the Village overview |
+| [ and ] | Previous/next item or skill slot |
+| Escape | Close UI; from play, open Pause and Session |
+
+Default controller bindings:
+
+| Control | Action |
+|---|---|
+| Left Stick / Right Stick | Move / look |
+| A / Left Stick Click | Jump / sprint |
+| Right Trigger / Left Trigger | Primary use / interact or place |
+| Y / X | Inventory / crafting |
+| Back | Guide |
+| D-pad Up / Down | Map / Village |
+| D-pad Left / Right | Previous / next item or skill slot |
+| Left Shoulder | Swap item and skill bars |
+| B | Back/close focused UI |
 
 ## 5. Fast Smoke Test
 
 Run this after every new build before a longer playtest.
 
-1. Confirm the world loads and the HUD shows seed, biome, landmark, time,
-   visual hearts, blue mana diamonds, the item bar, raid status, position,
-   and FPS.
+1. Confirm the world loads and the HUD shows biome, landmark, time, visual
+   hearts, the item bar, current guide step, and relevant raid state. Mana
+   diamonds must remain hidden until basic magic is learned. Seed,
+   coordinates, and FPS must not appear in the normal HUD.
 2. Walk, sprint, jump, look around, and mine one dirt or grass block.
 3. Walk over the physical drop and confirm it enters the inventory.
 4. Select an empty hotbar slot and confirm a first-person arm is visible. Look
@@ -217,6 +273,11 @@ Run this after every new build before a longer playtest.
 11. Press Q and confirm the item bar changes to a nine-slot skill bar. Use
     1-9 to change its selected slot, then press K and confirm learned skills
     can be assigned to any of those slots.
+12. Open Guide, Inventory, Village, Map, Raid, Settings, Controls, and Help.
+    Confirm Escape returns through each screen and no panel traps focus.
+13. Repeat menu navigation with a controller or keyboard only. Confirm every
+    screen establishes a visible focus target and can be closed without using
+    the mouse.
 
 ## 6. Visual Model Acceptance
 
@@ -547,6 +608,121 @@ Reference camp-owned spawn render:
 
 ![Stage 7 goblin camp spawner cube and four volume-owned raid actors](../verification/phase7_spawn_volume_capture.png)
 
+### 7.9 End-to-End UI, Learning, Input, and Accessibility
+
+#### Connected First-Time Guide
+
+1. Start a fresh world with **Tutorial guidance: Guided**.
+2. Confirm the first tracked step teaches gathering and explains that physical
+   drops preserve resources when inventory is full.
+3. Gather a resource, craft a real recipe, meet Elder Maelin, and inspect the
+   request board. Confirm the guide advances from gathering to crafting to
+   village supply using completed gameplay state rather than a separate
+   checklist.
+4. Complete or load each later checkpoint: watchtower supply/building,
+   automation warehouse delivery, basic magic, raid warning/assault,
+   aftermath, and repair.
+5. At every checkpoint, open **Guide** and confirm it states what to do and why
+   that action changes the next system. It must not require a debug command,
+   coordinate, stable ID, or developer explanation.
+
+Reference guide:
+
+![Stage 8 authoritative tracked guide and cause-and-effect explanation](../verification/phase8_guide_capture.png)
+
+#### Inventory, Crafting, Village, and Machines
+
+1. Open Inventory and search by a visible item name. Confirm results identify
+   stack quantity, hotbar/backpack location, category, and durability for
+   distinct tools.
+2. In crafting, place a valid multi-craft set of ingredients, choose a batch
+   quantity, and craft. Confirm only craftable batches complete and all
+   remaining ingredients stay in the grid.
+3. Place an unmatched grid. Confirm the UI says it is unmatched and consumes
+   nothing.
+4. Open Village and confirm reputation, population, injuries, shortages,
+   watchtower stage, permissions with `[OPEN]`/`[LOCKED]` text, and recent
+   automation contribution are readable without colour.
+5. Open the request board and warehouse. Confirm the stage reward/effect,
+   worker/location, physical stock, project reserve, permissions, and delivery
+   route agree with authoritative state.
+6. Inspect a miner, chute, furnace, crate, and warehouse hatch. Toggle the flow
+   overlay and confirm status, direction/ports, blockage, and destination agree
+   with the world and machine panel.
+
+#### Map and Knowledge Reveal
+
+1. Open Map near spawn. Confirm only discovered landmarks and routes appear.
+2. Approach the hamlet, cave, rune ruin, and goblin route; reopen Map after
+   each discovery and confirm the new labelled marker appears.
+3. Click the map or activate it with controller focus to create a custom pin.
+   Confirm the player triangle, tracked-goal ring, and custom pin remain
+   distinguishable without colour.
+4. Save/reload and confirm discovered landmarks and the custom pin persist.
+5. Before magic is learned, confirm mana diamonds and advanced magic guidance
+   are absent. Learn basic magic and confirm the mana HUD, spell assignment,
+   rune guidance, and rune/mana landmarks reveal.
+
+Reference local map:
+
+![Stage 8 discovered local map, tracked goal ring, routes, and custom pin](../verification/phase8_map_capture.png)
+
+#### Raid Readiness and Aftermath Explanation
+
+1. Open Raid before sounding the warning. Confirm watchtower stages, guard,
+   food, lighting, ward, route, confidence, readiness score, and camp pressure
+   show explicit `[READY]` or `[MISSING]` cues.
+2. Change one preparation input and reopen Raid. Confirm the score and its
+   labelled input change together.
+3. Sound the warning and confirm the adaptive HUD promotes countdown,
+   direction, enemy count, and civilian/guard danger.
+4. Resolve a raid and open Raid again. Confirm **Cause**, **Consequences**, and
+   **Follow-up** identify preparation versus pressure, enemy defeats, injuries,
+   stolen resources, structure damage, reputation, and exact Oak Beam repair.
+5. Save/reload in warning, assault, and aftermath. Confirm the visible
+   summaries match the restored authoritative state.
+
+#### Settings, Rebinding, Controller, and Recovery
+
+1. Open Settings and change UI/text scale, HUD preset, tutorial guidance,
+   captions, high contrast, reduced motion, reduced flashes, and toggle
+   sprint. Change controller aim assist from its default. Confirm each setting
+   previews immediately without changing gameplay truth.
+2. Open Controls, activate a binding row, and press a new keyboard input.
+   Confirm the controller binding remains. Repeat with a controller input and
+   confirm the keyboard binding remains. Assign the same input to two actions
+   and confirm both rows report the conflict.
+3. Complete the fast smoke path with controller only: move/look, jump, gather,
+   interact, craft, open inventory/guide/map/village, cycle the action bar, and
+   navigate/close every screen.
+4. Save, reload, and confirm settings and bindings persist.
+5. In Pause, select **Save World**. Confirm the status says **Saving** then
+   **World saved safely**. If saving is forced to fail in a verification copy,
+   confirm the message states that the previous save is unchanged and tells
+   the player to keep the session open and retry.
+
+Reference accessibility settings:
+
+![Stage 8 settings and accessibility live-preview screen](../verification/phase8_settings_capture.png)
+
+#### Representative-Player Exit Gate
+
+Give a representative first-time player the fresh POC without live developer
+coaching. Record whether they can gather/craft, discover the village need,
+deliver and understand project reserves, diagnose a production chain, reveal
+mana and support a ward, prepare for and fight the raid, and understand the
+aftermath. Before acceptance, ask them to explain:
+
+- why the watchtower progressed;
+- why a tested machine stopped and how they recovered it;
+- why the warehouse accepted or rejected a supply;
+- how tower, guard, food, lighting, ward, and combat changed the raid result;
+- what was saved and what action remains after the aftermath.
+
+The Stage 8 implementation and automated gate may pass before this session,
+but Stage 8 is not manually accepted until this representative-player evidence
+is recorded.
+
 ## 8. Save/Reload Checkpoints
 
 Test these checkpoints independently:
@@ -561,6 +737,10 @@ Test these checkpoints independently:
 - Goblins have taken damage during assault.
 - Raid aftermath contains injuries, stolen stock, or damaged voxels.
 - Some, but not all, damaged voxels have been repaired.
+- The guide is on a later connected-loop step.
+- Map landmarks and a custom pin have been discovered.
+- UI/accessibility settings and at least one keyboard/controller binding have
+  been changed.
 
 After reload, inspect both visible state and quantities.
 
@@ -576,7 +756,15 @@ Treat a `SCRIPT ERROR`, parse error, failed resource load, missing registry
 content, crash, or gameplay transaction error as a real failure. Do not dismiss
 it as one of the known shutdown warnings.
 
-The focused automated stabilization scene is:
+The focused Stage 8 interface/learning scene is:
+
+`res://.summer/verification/phase8_ui_learning_probe.tscn`
+
+It covers authoritative learning progression, keyboard/controller bindings,
+device-family rebinding, settings live preview, focus/back paths, inventory
+search, local map discovery/pins, permission/readiness non-colour cues,
+aftermath cause/consequence/recovery, adaptive mana reveal, and serialized UI
+state. The focused Stage 7 stabilization scene remains:
 
 `res://.summer/verification/phase7_stabilization_probe.tscn`
 
@@ -590,13 +778,14 @@ chunk readiness, real spawner physics targeting, random timed population caps,
 persistent spawner destruction, loaded raid spawn columns, and structure
 spacing. It supplements rather than replaces the manual checks above.
 
-### Current Automated Baseline - 24 July 2026
+### Current Automated Baseline - 25 July 2026
 
-The current code passed 343 checks with no probe failures:
+The current code passed 449 checks with no probe failures:
 
+- Stage 8 end-to-end UI and learning: 104/104.
 - Stage 7 stabilization: 30/30.
 - Stage 7 combat and visuals: 33/33.
-- Save/version-11 migration: 24/24.
+- Save/version-12 migration and UI state: 26/26.
 - Stage 5 automation and furnace/chute conservation: 61/61.
 - Stage 6 magic: 48/48.
 - All crafting and furnace recipes: 67/67.
@@ -605,10 +794,10 @@ The current code passed 343 checks with no probe failures:
 - Stage 3 interaction and traversal: 19/19.
 - Stage 4 hamlet: 41/41.
 
-A fresh headless `main.tscn` startup and the real-renderer humanoid,
-connected-body first-person item/skill-bar, complete external player rig, camp
-spawner, chute, and Visual Test Room reference captures also completed
-successfully. The room
+A fresh headless `main.tscn` startup and the real-renderer Stage 8 guide, map,
+settings, humanoid, connected-body first-person item/skill-bar, complete
+external player rig, camp spawner, chute, and Visual Test Room reference
+captures also completed successfully. The room
 reported 143 block models, 167 item models, and 23 distinct held visual kinds.
 This is an automated baseline, not final manual acceptance.
 
