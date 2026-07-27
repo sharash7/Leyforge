@@ -3,7 +3,7 @@ extends Node
 ## Items share the source JSON with blocks but are loaded into a distinct
 ## namespace. original_id is authoritative; display names are presentation.
 
-const REGISTRY_PATH := "res://.summer/00_Docs/VoxelRegistry.json"
+const REGISTRY_PATH := "res://data/registry/voxel_registry.json"
 
 var _items: Dictionary = {}  # numeric_id -> resolved immutable definition
 var _stable_to_id: Dictionary = {}

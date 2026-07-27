@@ -11,20 +11,25 @@ config_version=5
 [application]
 
 config/name="Leyforge"
+config/version="0.9.0"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+config/release_channel="rc1"
 
 [autoload]
 
 BlockRegistry="*res://scripts/autoload/block_registry.gd"
 ItemRegistry="*res://scripts/autoload/item_registry.gd"
 RecipeRegistry="*res://scripts/autoload/recipe_registry.gd"
+SettlementContentRegistry="*res://scripts/autoload/settlement_content_registry.gd"
 ProgressionState="*res://scripts/autoload/progression_state.gd"
 Inventory="*res://scripts/autoload/inventory.gd"
 HamletState="*res://scripts/autoload/hamlet_state.gd"
 MagicState="*res://scripts/autoload/magic_state.gd"
 CombatState="*res://scripts/autoload/combat_state.gd"
+UIState="*res://scripts/autoload/ui_state.gd"
+ReleaseQuality="*res://scripts/autoload/release_quality.gd"
 
 [dotnet]
 

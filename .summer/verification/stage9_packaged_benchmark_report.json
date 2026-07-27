@@ -1,0 +1,57 @@
+{
+  "evidence_version": 1,
+  "captured_utc": "2026-07-25T07:00:40",
+  "build": {
+    "build_stage": "stage9_release_candidate",
+    "project_version": "0.9.0-rc1",
+    "godot_version": "4.6.3-stable (official)",
+    "save_version": 13,
+    "worldgen_version": 2,
+    "block_count": 143,
+    "item_count": 167,
+    "content_sha256": "f46d1bf8b7e6c9e3e471bd5032a85c6ee64f82281cd1e8bd6429048245f1034d"
+  },
+  "package": {
+    "preset": "Windows Desktop",
+    "architecture": "x86_64",
+    "release_template": "official Godot 4.6.3 stable",
+    "release_template_sha256": "91724f15024a3a545e28ccd83134403d31ce2323a38e51c95e4dfa282f732ab6",
+    "executable_bytes": 104546304,
+    "executable_sha256": "93731792baca440c4ada89577959f5644e0ad44bffbc52566c3fd1e286df06ac",
+    "pack_bytes": 678300,
+    "pack_sha256": "3f2d837aeed8d1dbbb0fa4a914da09797c0e259b815ceedec10660c06888735f"
+  },
+  "reference_hardware": {
+    "os": "Windows 10 Home 10.0.19045",
+    "processor": "Intel Core i5-9600K 3.70 GHz",
+    "logical_processors": 6,
+    "memory_bytes": 17109233664,
+    "video_adapter": "NVIDIA GeForce RTX 2080 Ti",
+    "video_driver": "32.0.16.1074",
+    "rendering_method": "gl_compatibility",
+    "render_width": 1920,
+    "render_height": 1080
+  },
+  "performance": {
+    "profile": "balanced",
+    "warmup_frames": 180,
+    "captured_frames": 900,
+    "reported_fps": 788.0,
+    "frame_p95_ms": 4.43766666666667,
+    "frame_max_ms": 16.902,
+    "process_ms_at_report": 16.686,
+    "physics_ms_at_report": 0.503,
+    "loaded_chunks_at_report": 14,
+    "rebuild_backlog_at_report": 13,
+    "target_60fps_guard_met": true,
+    "fallback_30fps_guard_met": true
+  },
+  "release_gates": {
+    "official_template_export_succeeded": true,
+    "package_exit_code_zero": true,
+    "authoritative_registry_packaged": true,
+    "fallback_registry_not_used": true,
+    "clean_shutdown_recorded": true,
+    "privacy_bounded_local_report_written": true
+  }
+}

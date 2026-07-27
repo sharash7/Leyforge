@@ -1,12 +1,12 @@
 extends Node
 ## BlockRegistry autoload.
-## Loads block definitions from res://.summer/00_Docs/VoxelRegistry.json.
+## Loads block definitions from the packaged runtime registry mirror.
 ## Numeric ids are compact runtime indexes; original_id is the stable identity
 ## used by recipes, saves, and cross-registry relationships.
 ##
 ## Block id 0 is always AIR (not in the registry JSON; reserved).
 
-const REGISTRY_PATH := "res://.summer/00_Docs/VoxelRegistry.json"
+const REGISTRY_PATH := "res://data/registry/voxel_registry.json"
 const AIR := 0
 const AIR_STABLE_ID := "core.block.air"
 

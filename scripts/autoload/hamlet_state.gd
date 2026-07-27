@@ -13,6 +13,9 @@ signal project_changed
 signal npc_changed(npc_id: String)
 signal delivery_ledger_changed
 
+const PlanEngine = preload(
+	"res://scripts/settlement/settlement_plan_engine.gd")
+
 const VILLAGE_ID := "village.poc.forest_hamlet"
 const WAREHOUSE_SIZE := 54
 const MINUTES_PER_REAL_SECOND := 1.0
@@ -21,64 +24,14 @@ const REP_STRANGER := "rep.village.stranger"
 const REP_HELPFUL := "rep.village.helpful_outsider"
 const REP_SUPPLIER := "rep.village.trusted_supplier"
 const REP_ALLY := "rep.village.trusted_ally"
-const PROJECT_SCHEMA_VERSION := 2
+const PROJECT_SCHEMA_VERSION := 3
+const DEFAULT_PROJECT_ID := "project.build.wooden_watchtower"
+const DEFAULT_PROJECT_INSTANCE_ID := "project_instance.forest_hamlet.watchtower"
 
-# Each watchtower stage is independently deliverable and reservable. These are
-# the exact POC project-recipe quantities from the build documents, split so
-# the foundation can begin before frame/platform/finishing stock exists.
-const PROJECT_STAGES: Array[Dictionary] = [
-	{
-		"index": 1,
-		"id": "foundation",
-		"name": "Foundation",
-		"request_id": "request.watchtower.stage.foundation",
-		"description": "Stage 1/4: stone footings, starter beams, and foundation fasteners.",
-		"reward": 8,
-		"requirements": [
-			{"kind": "item", "stable_id": "item.material.stone_brick", "count": 24},
-			{"kind": "item", "stable_id": "item.material.beam_oak", "count": 8},
-			{"kind": "item", "stable_id": "item.material.iron_nails", "count": 8},
-		],
-	},
-	{
-		"index": 2,
-		"id": "frame",
-		"name": "Timber Frame",
-		"request_id": "request.watchtower.stage.frame",
-		"description": "Stage 2/4: structural beams, planking, and frame fasteners.",
-		"reward": 8,
-		"requirements": [
-			{"kind": "item", "stable_id": "item.material.beam_oak", "count": 20},
-			{"kind": "item", "stable_id": "item.material.plank_oak", "count": 12},
-			{"kind": "item", "stable_id": "item.material.iron_nails", "count": 8},
-		],
-	},
-	{
-		"index": 3,
-		"id": "platform",
-		"name": "Guard Platform",
-		"request_id": "request.watchtower.stage.platform",
-		"description": "Stage 3/4: upper masonry, platform boards, and iron reinforcement.",
-		"reward": 10,
-		"requirements": [
-			{"kind": "item", "stable_id": "item.material.stone_brick", "count": 24},
-			{"kind": "item", "stable_id": "item.material.plank_oak", "count": 12},
-			{"kind": "item", "stable_id": "item.material.iron_plate", "count": 8},
-		],
-	},
-	{
-		"index": 4,
-		"id": "finishing",
-		"name": "Lighting and Inspection",
-		"request_id": "request.watchtower.stage.finishing",
-		"description": "Stage 4/4: platform lights and final inspection fasteners.",
-		"reward": 9,
-		"requirements": [
-			{"kind": "block", "stable_id": "light.torch.basic", "count": 4},
-			{"kind": "item", "stable_id": "item.material.iron_nails", "count": 4},
-		],
-	},
-]
+# Compatibility surface for existing probes and UI. Its contents are loaded
+# from the immutable project registry; HamletState no longer owns project
+# recipes or stage definitions.
+var PROJECT_STAGES: Array[Dictionary] = []
 
 const ROSTER: Array[Dictionary] = [
 	{
@@ -163,12 +116,17 @@ var reputation_points := 0
 var reputation_state := REP_STRANGER
 var permissions: Dictionary = {}
 var project: Dictionary = {}
+var runtime_projects: Dictionary = {}
+var runtime_buildings: Dictionary = {}
+var runtime_plans: Dictionary = {}
+var active_project_instance_id := DEFAULT_PROJECT_INSTANCE_ID
 var delivery_ledger: Array[Dictionary] = []
 var _automation_correlations: Dictionary = {}
 var _needs_accumulator := 0.0
 
 
 func _ready() -> void:
+	_load_project_contract(DEFAULT_PROJECT_ID)
 	_reset_collections()
 
 
@@ -181,12 +139,17 @@ func _empty_slots(size: int) -> Array:
 
 
 func _reset_collections() -> void:
+	_load_project_contract(DEFAULT_PROJECT_ID)
 	warehouse_slots = _empty_slots(WAREHOUSE_SIZE)
 	npc_records.clear()
 	requests.clear()
 	request_order.clear()
 	delivery_ledger.clear()
 	_automation_correlations.clear()
+	runtime_projects.clear()
+	runtime_buildings.clear()
+	runtime_plans.clear()
+	active_project_instance_id = DEFAULT_PROJECT_INSTANCE_ID
 	permissions = {
 		"request_delivery": false,
 		"warehouse_deposit": false,
@@ -194,9 +157,18 @@ func _reset_collections() -> void:
 		"warehouse_withdraw": false,
 		"automation_import": false,
 	}
+	var project_definition := SettlementContentRegistry.get_project(
+		DEFAULT_PROJECT_ID)
 	project = {
-		"id": "project.watchtower.basic",
-		"name": "Forest Watchtower",
+		"id": DEFAULT_PROJECT_ID,
+		"instance_id": DEFAULT_PROJECT_INSTANCE_ID,
+		"definition_id": DEFAULT_PROJECT_ID,
+		"building_definition_id": str(
+			project_definition.get("building_id", "")),
+		"blueprint_id": str(project_definition.get("blueprint_id", "")),
+		"owner_id": VILLAGE_ID,
+		"name": str(project_definition.get(
+			"display_name", "Forest Watchtower")),
 		"schema_version": PROJECT_SCHEMA_VERSION,
 		"stage": "foundation",
 		"stage_index": 1,
@@ -206,7 +178,36 @@ func _reset_collections() -> void:
 		"reserved": {},
 		"placed_blocks": 0,
 		"total_blocks": 0,
+		"position": [watchtower_anchor.x, watchtower_anchor.y],
+		"history": [],
 	}
+	runtime_projects[active_project_instance_id] = project
+
+
+func _load_project_contract(requested_id: String) -> bool:
+	var canonical := SettlementContentRegistry.canonical_id(requested_id)
+	var definition := SettlementContentRegistry.get_project(canonical)
+	if definition.is_empty():
+		push_error("HamletState: unknown settlement project %s" % requested_id)
+		return false
+	PROJECT_STAGES.clear()
+	var stage_count := (definition.get("stages", []) as Array).size()
+	for stage_value in definition.get("stages", []):
+		if not (stage_value is Dictionary):
+			continue
+		var stage: Dictionary = stage_value.duplicate(true)
+		stage["name"] = str(stage.get(
+			"display_name", stage.get("name", stage.get("id", "Stage"))))
+		if str(stage.get("description", "")).is_empty():
+			stage["description"] = "Stage %d/%d: %s." % [
+				int(stage.get("index", PROJECT_STAGES.size() + 1)),
+				stage_count,
+				str(stage["name"]),
+			]
+		PROJECT_STAGES.append(stage)
+	PROJECT_STAGES.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return int(a.get("index", 0)) < int(b.get("index", 0)))
+	return not PROJECT_STAGES.is_empty()
 
 
 func initialize(seed_value: int, anchors: Dictionary) -> void:
@@ -326,13 +327,17 @@ func _ref(kind: String, stable_id: String, count: int) -> Dictionary:
 
 func _create_requests() -> void:
 	for definition in PROJECT_STAGES:
+		var project_request_id := str(definition["request_id"])
 		_request(
-			str(definition["request_id"]),
-			"Stage %d/4 - %s Supplies" % [
-				int(definition["index"]), str(definition["name"])],
+			project_request_id,
+			"Stage %d/%d - %s Supplies" % [
+				int(definition["index"]), PROJECT_STAGES.size(),
+				str(definition["name"])],
 			str(definition["description"]),
 			definition["requirements"].duplicate(true),
 			int(definition["reward"]))
+		requests[project_request_id]["project_definition_id"] = str(
+			project.get("definition_id", DEFAULT_PROJECT_ID))
 	_request(
 		"request.hamlet.food",
 		"Pantry Restock",
@@ -596,23 +601,26 @@ func project_is_building() -> bool:
 
 
 func project_status_text() -> String:
+	var project_name := str(project.get("name", "Settlement Project"))
+	var stage_count := maxi(1, PROJECT_STAGES.size())
 	if bool(project.get("complete", false)):
-		return "Forest Watchtower: Complete (100%)"
+		return "%s: Complete (100%%)" % project_name
 	var definition := get_project_stage_definition()
 	if definition.is_empty():
-		return "Forest Watchtower: Waiting for project data"
+		return "%s: Waiting for project data" % project_name
 	var index := int(definition["index"])
 	var name := str(definition["name"])
 	if bool(project.get("awaiting_supplies", true)):
-		return "Forest Watchtower: Stage %d/4 - %s (awaiting supplies)" % [
-			index, name]
+		return "%s: Stage %d/%d - %s (awaiting supplies)" % [
+			project_name, index, stage_count, name]
 	var stage_percent := clampi(
 		roundi(float(project.get("stage_progress", 0.0)) * 100.0), 0, 100)
 	var overall_percent := clampi(
-		roundi((float(index - 1) + float(project.get("stage_progress", 0.0))) / 4.0 * 100.0),
+		roundi((float(index - 1) + float(project.get("stage_progress", 0.0)))
+			/ float(stage_count) * 100.0),
 		0, 100)
-	return "Forest Watchtower: Stage %d/4 - %s (%d%%; overall %d%%)" % [
-		index, name, stage_percent, overall_percent]
+	return "%s: Stage %d/%d - %s (%d%%; overall %d%%)" % [
+		project_name, index, stage_count, name, stage_percent, overall_percent]
 
 
 func get_dialogue(npc_id: String) -> String:
@@ -828,6 +836,10 @@ func _try_reserve_current_stage() -> bool:
 	project["stage_progress"] = 0.0
 	project["placed_blocks"] = 0
 	project["total_blocks"] = 0
+	_append_project_history("stage_reserved", {
+		"stage_index": int(project.get("stage_index", 1)),
+		"reserved": reserved.duplicate(true),
+	})
 	project_changed.emit()
 	state_changed.emit()
 	return true
@@ -873,6 +885,10 @@ func _complete_current_project_stage() -> void:
 		project["stage_progress"] = 1.0
 		project["placed_blocks"] = int(project.get("total_blocks", 1))
 		project["reserved"] = {}
+		_append_project_history("project_activated", {
+			"definition_id": str(project.get("definition_id", "")),
+		})
+		_activate_project_building()
 		reputation_points += 12
 		_refresh_reputation_state()
 	else:
@@ -884,10 +900,412 @@ func _complete_current_project_stage() -> void:
 		project["reserved"] = {}
 		project["placed_blocks"] = 0
 		project["total_blocks"] = 0
+		_append_project_history("stage_completed", {
+			"stage_index": current_index,
+		})
 		# Migrated saves may already contain later-stage deliveries.
 		_try_reserve_current_stage()
 	project_changed.emit()
 	state_changed.emit()
+
+
+func _append_project_history(event_id: String, details: Dictionary = {}) -> void:
+	var history_value: Variant = project.get("history", [])
+	var history: Array = history_value if history_value is Array else []
+	history.append({
+		"event": event_id,
+		"day": day,
+		"clock_minutes": clock_minutes,
+		"details": details.duplicate(true),
+	})
+	if history.size() > 128:
+		history.pop_front()
+	project["history"] = history
+
+
+func _activate_project_building() -> void:
+	var definition_id := str(project.get("building_definition_id", ""))
+	if definition_id.is_empty():
+		return
+	var instance_id := "building_instance.%s" % str(
+		project.get("instance_id", active_project_instance_id)).trim_prefix(
+			"project_instance.")
+	var existing: Dictionary = runtime_buildings.get(instance_id, {})
+	var record := {
+		"instance_id": instance_id,
+		"definition_id": definition_id,
+		"blueprint_id": str(project.get("blueprint_id", "")),
+		"owner_id": str(project.get("owner_id", VILLAGE_ID)),
+		"condition": clampf(float(existing.get("condition", 1.0)), 0.0, 1.0),
+		"staffing": clampf(float(existing.get("staffing", 1.0)), 0.0, 1.0),
+		"inputs_available": clampf(
+			float(existing.get("inputs_available", 1.0)), 0.0, 1.0),
+		"access": clampf(float(existing.get("access", 1.0)), 0.0, 1.0),
+		"utilities": clampf(float(existing.get("utilities", 1.0)), 0.0, 1.0),
+		"suitability": clampf(float(existing.get("suitability", 1.0)), 0.0, 1.0),
+		"active": true,
+		"position": project.get("position", []).duplicate(true),
+		"buffers": existing.get("buffers", {}).duplicate(true),
+		"history": existing.get("history", []).duplicate(true),
+		"lod_state": str(existing.get("lod_state", "record")),
+	}
+	runtime_buildings[instance_id] = record
+
+
+func create_project_instance(
+		definition_id: String,
+		instance_id: String,
+		position: Array,
+		owner_id: String = VILLAGE_ID) -> Dictionary:
+	var canonical := SettlementContentRegistry.canonical_id(definition_id)
+	var definition := SettlementContentRegistry.get_project(canonical)
+	if definition.is_empty() or instance_id.is_empty():
+		return {"ok": false, "reason": "invalid_project_definition"}
+	if runtime_projects.has(instance_id):
+		return {"ok": false, "reason": "duplicate_project_instance"}
+	var stages: Array = definition.get("stages", [])
+	if stages.is_empty():
+		return {"ok": false, "reason": "project_has_no_stages"}
+	var first: Dictionary = stages[0]
+	var record := {
+		"id": canonical,
+		"instance_id": instance_id,
+		"definition_id": canonical,
+		"building_definition_id": str(definition.get("building_id", "")),
+		"blueprint_id": str(definition.get("blueprint_id", "")),
+		"owner_id": owner_id,
+		"name": str(definition.get("display_name", canonical)),
+		"schema_version": PROJECT_SCHEMA_VERSION,
+		"stage": str(first.get("id", "")),
+		"stage_index": int(first.get("index", 1)),
+		"stage_progress": 0.0,
+		"complete": false,
+		"cancelled": false,
+		"awaiting_supplies": true,
+		"reserved": {},
+		"placed_blocks": 0,
+		"total_blocks": 0,
+		"position": position.duplicate(true),
+		"history": [],
+		"lod_state": "record",
+	}
+	runtime_projects[instance_id] = record
+	state_changed.emit()
+	return {"ok": true, "project": record.duplicate(true)}
+
+
+func activate_project_instance(instance_id: String) -> bool:
+	if not runtime_projects.has(instance_id):
+		return false
+	var next: Dictionary = runtime_projects[instance_id]
+	var next_definition := str(next.get("definition_id", next.get("id", "")))
+	if not _load_project_contract(next_definition):
+		return false
+	var project_request_ids: Array[String] = []
+	for request_id in request_order:
+		if requests.has(request_id) \
+				and str(request_id).begins_with("request.") \
+				and (requests[request_id].get("project_definition_id", "") != ""
+					or str(request_id).begins_with("request.watchtower.stage.")
+					or str(request_id).begins_with("request.cottage.stage.")):
+			project_request_ids.append(request_id)
+	for request_id in project_request_ids:
+		requests.erase(request_id)
+		request_order.erase(request_id)
+	project = next
+	active_project_instance_id = instance_id
+	var project_position: Array = project.get("position", [])
+	var builder_id := "npc.poc.forest_hamlet.builder_talia"
+	if project_position.size() >= 2 and npc_records.has(builder_id):
+		var builder: Dictionary = npc_records[builder_id]
+		builder["work"] = [int(project_position[0]), int(project_position[1])]
+		npc_records[builder_id] = builder
+		npc_changed.emit(builder_id)
+	for definition in PROJECT_STAGES:
+		var request_id := str(definition.get("request_id", ""))
+		_request(
+			request_id,
+			"Stage %d/%d - %s Supplies" % [
+				int(definition.get("index", 1)), PROJECT_STAGES.size(),
+				str(definition.get("name", "Stage"))],
+			str(definition.get("description", "")),
+			(definition.get("requirements", []) as Array).duplicate(true),
+			int(definition.get("reward", 0)))
+		requests[request_id]["project_definition_id"] = next_definition
+	project_changed.emit()
+	requests_changed.emit()
+	state_changed.emit()
+	return true
+
+
+func cancel_project_instance(instance_id: String) -> Dictionary:
+	if not runtime_projects.has(instance_id):
+		return {"ok": false, "reason": "unknown_project"}
+	var record: Dictionary = runtime_projects[instance_id]
+	if bool(record.get("complete", false)) or bool(record.get("cancelled", false)):
+		return {"ok": false, "reason": "project_not_cancellable"}
+	var before := warehouse_slots.duplicate(true)
+	var definition_id := str(record.get("definition_id", record.get("id", "")))
+	for stable_value in (record.get("reserved", {}) as Dictionary):
+		var stable_id := str(stable_value)
+		var count := maxi(0, int(record["reserved"][stable_value]))
+		var content_ref := _project_ref_for_definition(
+			definition_id, stable_id, count)
+		if content_ref.is_empty():
+			warehouse_slots = before
+			return {"ok": false, "reason": "unknown_reserved_content"}
+		var leftover := warehouse_add_stack(
+			Inventory.make_stack_from_ref(content_ref))
+		if not leftover.is_empty():
+			warehouse_slots = before
+			return {"ok": false, "reason": "warehouse_capacity"}
+	record["reserved"] = {}
+	record["cancelled"] = true
+	record["awaiting_supplies"] = false
+	record["stage_progress"] = 0.0
+	runtime_projects[instance_id] = record
+	if instance_id == active_project_instance_id:
+		project = record
+		_append_project_history("project_cancelled")
+	warehouse_changed.emit()
+	project_changed.emit()
+	state_changed.emit()
+	return {"ok": true}
+
+
+func apply_building_damage(
+		instance_id: String,
+		amount: float,
+		source: String = "") -> Dictionary:
+	if not runtime_buildings.has(instance_id) or amount <= 0.0:
+		return {"ok": false}
+	var record: Dictionary = runtime_buildings[instance_id]
+	record["condition"] = clampf(
+		float(record.get("condition", 1.0)) - amount, 0.0, 1.0)
+	record["active"] = float(record["condition"]) > 0.0
+	var history: Array = record.get("history", [])
+	history.append({
+		"event": "damaged",
+		"source": source,
+		"amount": amount,
+		"day": day,
+		"clock_minutes": clock_minutes,
+	})
+	record["history"] = history
+	runtime_buildings[instance_id] = record
+	state_changed.emit()
+	return {"ok": true, "condition": record["condition"]}
+
+
+func repair_building(instance_id: String, amount: float) -> Dictionary:
+	if not runtime_buildings.has(instance_id) or amount <= 0.0:
+		return {"ok": false}
+	var record: Dictionary = runtime_buildings[instance_id]
+	record["condition"] = clampf(
+		float(record.get("condition", 1.0)) + amount, 0.0, 1.0)
+	record["active"] = true
+	var history: Array = record.get("history", [])
+	history.append({
+		"event": "repaired",
+		"amount": amount,
+		"day": day,
+		"clock_minutes": clock_minutes,
+	})
+	record["history"] = history
+	runtime_buildings[instance_id] = record
+	state_changed.emit()
+	return {"ok": true, "condition": record["condition"]}
+
+
+func aggregate_settlement_needs(
+		demand_by_need: Dictionary,
+		previous_ratios: Dictionary = {}) -> Dictionary:
+	var definitions := {}
+	var records: Array = []
+	for instance_id in runtime_buildings:
+		var record: Dictionary = runtime_buildings[instance_id]
+		var definition_id := str(record.get("definition_id", ""))
+		if not definitions.has(definition_id):
+			definitions[definition_id] = SettlementContentRegistry.get_building(
+				definition_id)
+		records.append(record.duplicate(true))
+	return SettlementSimulationRules.aggregate_needs(
+		definitions, records, demand_by_need, previous_ratios)
+
+
+func rank_settlement_projects(
+		settlement_stage: String,
+		context_by_id: Dictionary) -> Array[Dictionary]:
+	var definitions: Array = []
+	for definition in SettlementContentRegistry.all_definitions():
+		if str(definition.get("kind", "")) in ["building", "project", "plan"]:
+			definitions.append(definition)
+	return SettlementSimulationRules.rank_projects(
+		definitions, settlement_stage, context_by_id)
+
+
+func create_plan_instance(
+		definition_id: String,
+		instance_id: String,
+		boundary: Array = [],
+		owner_id: String = VILLAGE_ID) -> Dictionary:
+	if runtime_plans.has(instance_id):
+		return {"ok": false, "reason": "duplicate_plan_instance"}
+	var runtime: Dictionary = PlanEngine.create_runtime(
+		definition_id, instance_id, owner_id, boundary)
+	if runtime.is_empty():
+		return {"ok": false, "reason": "invalid_plan_definition"}
+	runtime_plans[instance_id] = runtime
+	state_changed.emit()
+	return {"ok": true, "plan": runtime.duplicate(true)}
+
+
+func reserve_plan_component(
+		instance_id: String,
+		component_id: String) -> Dictionary:
+	if not runtime_plans.has(instance_id):
+		return {"ok": false, "reason": "unknown_plan"}
+	var runtime: Dictionary = runtime_plans[instance_id]
+	var plan := SettlementContentRegistry.get_plan(str(
+		runtime.get("definition_id", "")))
+	var component := _plan_component(plan, component_id)
+	if component.is_empty():
+		return {"ok": false, "reason": "unknown_component"}
+	var warehouse_before := warehouse_slots.duplicate(true)
+	for requirement_value in component.get("requirements", []):
+		var requirement: Dictionary = requirement_value
+		if warehouse_count_ref(requirement) < int(requirement.get("count", 0)):
+			return {"ok": false, "reason": "insufficient_resources"}
+	for requirement_value in component.get("requirements", []):
+		var requirement: Dictionary = requirement_value
+		if not warehouse_remove_ref(
+				requirement, int(requirement.get("count", 0))):
+			warehouse_slots = warehouse_before
+			return {"ok": false, "reason": "transaction_changed"}
+	var result: Dictionary = PlanEngine.reserve_component(
+		runtime, component_id, _warehouse_resource_ledger(warehouse_before))
+	if not bool(result.get("ok", false)):
+		warehouse_slots = warehouse_before
+		return result
+	runtime_plans[instance_id] = result.get("runtime", runtime)
+	warehouse_changed.emit()
+	state_changed.emit()
+	return {"ok": true}
+
+
+func advance_plan_component(
+		instance_id: String,
+		component_id: String,
+		progress_delta: float) -> bool:
+	if not runtime_plans.has(instance_id):
+		return false
+	runtime_plans[instance_id] = PlanEngine.advance_component(
+		runtime_plans[instance_id], component_id, progress_delta)
+	state_changed.emit()
+	return true
+
+
+func cancel_plan_component(
+		instance_id: String,
+		component_id: String) -> Dictionary:
+	if not runtime_plans.has(instance_id):
+		return {"ok": false, "reason": "unknown_plan"}
+	var runtime: Dictionary = runtime_plans[instance_id]
+	var records: Dictionary = runtime.get("component_records", {})
+	var record: Dictionary = records.get(component_id, {})
+	if str(record.get("status", "")) != "building":
+		return {"ok": false, "reason": "component_not_cancellable"}
+	var plan := SettlementContentRegistry.get_plan(str(
+		runtime.get("definition_id", "")))
+	var component := _plan_component(plan, component_id)
+	var before := warehouse_slots.duplicate(true)
+	for stable_value in (record.get("reserved", {}) as Dictionary):
+		var stable_id := str(stable_value)
+		var requirement_kind := "item"
+		for requirement_value in component.get("requirements", []):
+			if str((requirement_value as Dictionary).get(
+					"stable_id", "")) == stable_id:
+				requirement_kind = str((requirement_value as Dictionary).get(
+					"kind", "item"))
+				break
+		var leftover := warehouse_add_stack(Inventory.make_stack_from_ref({
+			"kind": requirement_kind,
+			"stable_id": stable_id,
+			"count": int(record["reserved"][stable_value]),
+		}))
+		if not leftover.is_empty():
+			warehouse_slots = before
+			return {"ok": false, "reason": "warehouse_capacity"}
+	var result: Dictionary = PlanEngine.cancel_component(
+		runtime, component_id, _warehouse_resource_ledger(before))
+	if not bool(result.get("ok", false)):
+		warehouse_slots = before
+		return result
+	runtime_plans[instance_id] = result.get("runtime", runtime)
+	warehouse_changed.emit()
+	state_changed.emit()
+	return {"ok": true}
+
+
+func damage_plan_component(
+		instance_id: String,
+		component_id: String,
+		amount: float) -> bool:
+	if not runtime_plans.has(instance_id):
+		return false
+	runtime_plans[instance_id] = PlanEngine.damage_component(
+		runtime_plans[instance_id], component_id, amount)
+	state_changed.emit()
+	return true
+
+
+func restore_plan_component(
+		instance_id: String,
+		component_id: String,
+		amount: float) -> bool:
+	if not runtime_plans.has(instance_id):
+		return false
+	runtime_plans[instance_id] = PlanEngine.restore_component(
+		runtime_plans[instance_id], component_id, amount)
+	state_changed.emit()
+	return true
+
+
+func _plan_component(plan: Dictionary, component_id: String) -> Dictionary:
+	for component_value in plan.get("components", []):
+		if str((component_value as Dictionary).get("id", "")) == component_id:
+			return (component_value as Dictionary).duplicate(true)
+	return {}
+
+
+func _warehouse_resource_ledger(
+		slots_value: Array = []) -> Dictionary:
+	var ledger := {}
+	var source := warehouse_slots if slots_value.is_empty() else slots_value
+	for stack_value in source:
+		if not (stack_value is Dictionary) or stack_value.is_empty():
+			continue
+		var stack: Dictionary = stack_value
+		var stable_id := Inventory.stack_stable_id(stack)
+		ledger[stable_id] = int(ledger.get(stable_id, 0)) \
+			+ int(stack.get("count", 0))
+	return ledger
+
+
+func _project_ref_for_definition(
+		definition_id: String,
+		stable_id: String,
+		count: int) -> Dictionary:
+	var definition := SettlementContentRegistry.get_project(definition_id)
+	for stage in definition.get("stages", []):
+		for content_ref in (stage as Dictionary).get("requirements", []):
+			if str((content_ref as Dictionary).get("stable_id", "")) == stable_id:
+				return {
+					"kind": str((content_ref as Dictionary).get("kind", "item")),
+					"stable_id": stable_id,
+					"count": count,
+				}
+	return {}
 
 
 # ---------- Authoritative warehouse transactions ----------
@@ -1128,8 +1546,9 @@ func serialize_state() -> Dictionary:
 	var saved_warehouse: Array = []
 	for stack in warehouse_slots:
 		saved_warehouse.append(Inventory.serialize_stack(stack))
+	runtime_projects[active_project_instance_id] = project
 	return {
-		"version": 2,
+		"version": 3,
 		"village_id": VILLAGE_ID,
 		"world_seed": world_seed,
 		"anchors": {
@@ -1147,6 +1566,10 @@ func serialize_state() -> Dictionary:
 		"reputation_state": reputation_state,
 		"permissions": permissions.duplicate(true),
 		"project": project.duplicate(true),
+		"active_project_instance_id": active_project_instance_id,
+		"runtime_projects": runtime_projects.duplicate(true),
+		"runtime_buildings": runtime_buildings.duplicate(true),
+		"runtime_plans": runtime_plans.duplicate(true),
 		"delivery_ledger": delivery_ledger.duplicate(true),
 		"automation_correlations": _automation_correlations.keys(),
 	}
@@ -1162,8 +1585,7 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 	var saved_project_value: Variant = data.get("project", {})
 	var saved_project: Dictionary = saved_project_value \
 		if saved_project_value is Dictionary else {}
-	var legacy_project := int(saved_project.get("schema_version", 1)) \
-		< PROJECT_SCHEMA_VERSION
+	var legacy_project := int(saved_project.get("schema_version", 1)) < 2
 	var anchors_value: Variant = data.get("anchors", {})
 	var anchors: Dictionary = anchors_value if anchors_value is Dictionary else {}
 	initialize(expected_seed, anchors)
@@ -1218,10 +1640,29 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 			var correlation_id := str(entry.get("correlation_id", ""))
 			if not correlation_id.is_empty():
 				_automation_correlations[correlation_id] = true
+	_restore_runtime_records(data)
 	if legacy_project:
 		_migrate_legacy_watchtower_state(request_value, saved_project)
 	else:
+		var saved_definition_id := SettlementContentRegistry.canonical_id(str(
+			saved_project.get(
+				"definition_id",
+				saved_project.get("id", DEFAULT_PROJECT_ID))))
+		if SettlementContentRegistry.get_project(saved_definition_id).is_empty():
+			saved_definition_id = DEFAULT_PROJECT_ID
+		_load_project_contract(saved_definition_id)
 		project.merge(saved_project, true)
+		project["id"] = saved_definition_id
+		project["definition_id"] = saved_definition_id
+		var project_definition := SettlementContentRegistry.get_project(
+			saved_definition_id)
+		project["building_definition_id"] = str(
+			project_definition.get("building_id", ""))
+		project["blueprint_id"] = str(project_definition.get("blueprint_id", ""))
+		project["instance_id"] = str(project.get(
+			"instance_id", DEFAULT_PROJECT_INSTANCE_ID))
+		project["owner_id"] = str(project.get("owner_id", VILLAGE_ID))
+		project["history"] = project.get("history", []).duplicate(true)
 		project["schema_version"] = PROJECT_SCHEMA_VERSION
 		project["stage_index"] = clampi(
 			int(project.get("stage_index", 1)), 1, PROJECT_STAGES.size())
@@ -1238,6 +1679,11 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 			project["total_blocks"] = maxi(0, int(project.get("total_blocks", 0)))
 			if bool(project.get("awaiting_supplies", true)):
 				_try_reserve_current_stage()
+	active_project_instance_id = str(project.get(
+		"instance_id", DEFAULT_PROJECT_INSTANCE_ID))
+	runtime_projects[active_project_instance_id] = project
+	if bool(project.get("complete", false)):
+		_activate_project_building()
 	_refresh_reputation_state()
 	initialized = true
 	warehouse_changed.emit()
@@ -1246,6 +1692,60 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 	delivery_ledger_changed.emit()
 	state_changed.emit()
 	return true
+
+
+func _restore_runtime_records(data: Dictionary) -> void:
+	runtime_projects.clear()
+	runtime_buildings.clear()
+	runtime_plans.clear()
+	var saved_projects: Variant = data.get("runtime_projects", {})
+	if saved_projects is Dictionary:
+		for instance_value in saved_projects:
+			var instance_id := str(instance_value)
+			var raw: Variant = saved_projects[instance_value]
+			if instance_id.is_empty() or not (raw is Dictionary):
+				continue
+			var record: Dictionary = raw.duplicate(true)
+			var definition_id := SettlementContentRegistry.canonical_id(str(
+				record.get("definition_id", record.get("id", ""))))
+			if SettlementContentRegistry.get_project(definition_id).is_empty():
+				continue
+			record["id"] = definition_id
+			record["definition_id"] = definition_id
+			record["instance_id"] = instance_id
+			runtime_projects[instance_id] = record
+	var saved_buildings: Variant = data.get("runtime_buildings", {})
+	if saved_buildings is Dictionary:
+		for instance_value in saved_buildings:
+			var instance_id := str(instance_value)
+			var raw: Variant = saved_buildings[instance_value]
+			if instance_id.is_empty() or not (raw is Dictionary):
+				continue
+			var record: Dictionary = raw.duplicate(true)
+			var definition_id := SettlementContentRegistry.canonical_id(str(
+				record.get("definition_id", "")))
+			if SettlementContentRegistry.get_building(definition_id).is_empty():
+				continue
+			record["definition_id"] = definition_id
+			record["instance_id"] = instance_id
+			record["condition"] = clampf(
+				float(record.get("condition", 1.0)), 0.0, 1.0)
+			runtime_buildings[instance_id] = record
+	var saved_plans: Variant = data.get("runtime_plans", {})
+	if saved_plans is Dictionary:
+		for instance_value in saved_plans:
+			var instance_id := str(instance_value)
+			var raw: Variant = saved_plans[instance_value]
+			if instance_id.is_empty() or not (raw is Dictionary):
+				continue
+			var record: Dictionary = raw.duplicate(true)
+			var definition_id := SettlementContentRegistry.canonical_id(str(
+				record.get("definition_id", "")))
+			if SettlementContentRegistry.get_plan(definition_id).is_empty():
+				continue
+			record["definition_id"] = definition_id
+			record["instance_id"] = instance_id
+			runtime_plans[instance_id] = record
 
 
 func _migrate_legacy_watchtower_state(

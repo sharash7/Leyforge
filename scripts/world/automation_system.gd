@@ -54,6 +54,7 @@ var world: Node
 var states: Dictionary = {} # stable position key -> runtime machine/node state
 var batches: Array[Dictionary] = []
 var boundary_connectors: Array[Dictionary] = []
+var visual_distance := VISUAL_DISTANCE
 
 var _graph: Dictionary = {}
 var _topology_dirty := true
@@ -66,6 +67,23 @@ var _visuals: Dictionary = {}
 
 func setup(world_ref: Node) -> void:
 	world = world_ref
+
+
+func apply_scalability_profile(profile: Dictionary) -> void:
+	visual_distance = clampf(
+		float(profile.get("automation_visual_distance", VISUAL_DISTANCE)),
+		24.0, 80.0)
+
+
+func runtime_counters() -> Dictionary:
+	return {
+		"machines": states.size(),
+		"batches": batches.size(),
+		"boundary_connectors": boundary_connectors.size(),
+		"visible_batches": _visuals.size(),
+		"pending_catchup_seconds": _pending_catchup,
+		"visual_distance": visual_distance,
+	}
 
 
 func notify_topology_changed() -> void:
@@ -824,7 +842,7 @@ func _sync_visuals(player_position: Vector3) -> void:
 	for batch in batches:
 		var id := str(batch["id"])
 		var position := _batch_visual_position(batch)
-		if position.distance_to(player_position) > VISUAL_DISTANCE:
+		if position.distance_to(player_position) > visual_distance:
 			_free_visual(id)
 			continue
 		active[id] = true

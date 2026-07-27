@@ -1,0 +1,880 @@
+﻿{
+    "schema":  "leyforge.settlement.packs",
+    "schema_version":  1,
+    "resolution_order":  [
+                             "universal",
+                             "blueprint_archetype",
+                             "culture",
+                             "regional_subculture",
+                             "biome",
+                             "faction_government_faith",
+                             "realm",
+                             "history_state",
+                             "player_style"
+                         ],
+    "packs":  [
+                  {
+                      "id":  "pack.foundation.forest_neutral_poc",
+                      "namespace":  "pack.foundation.forest_neutral_poc",
+                      "version":  1,
+                      "type":  "universal",
+                      "priority":  0,
+                      "dependencies":  [
+
+                                       ],
+                      "optional":  false,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "wall_primary":  "construction.planks.oak",
+                                      "structural_beam":  "construction.beam.oak",
+                                      "foundation_primary":  "construction.brick.stone",
+                                      "roof_primary":  "construction.roof.thatch",
+                                      "door_basic":  "construction.door.oak",
+                                      "path_primary":  "road.path.dirt",
+                                      "functional":  "light.torch.basic"
+                                  },
+                      "blueprint_ids":  [
+                                            "bp.catalogue.001",
+                                            "bp.catalogue.002",
+                                            "bp.catalogue.003",
+                                            "bp.catalogue.005",
+                                            "bp.building.cottage_forest_small",
+                                            "bp.catalogue.007",
+                                            "bp.catalogue.011",
+                                            "bp.catalogue.013",
+                                            "bp.catalogue.014",
+                                            "bp.catalogue.015",
+                                            "bp.catalogue.021",
+                                            "bp.catalogue.025",
+                                            "bp.catalogue.031",
+                                            "bp.catalogue.035",
+                                            "bp.catalogue.041",
+                                            "bp.catalogue.042",
+                                            "bp.catalogue.043",
+                                            "bp.catalogue.051",
+                                            "bp.catalogue.052",
+                                            "bp.catalogue.056",
+                                            "bp.catalogue.061",
+                                            "bp.catalogue.071",
+                                            "bp.building.watchtower_wood",
+                                            "bp.catalogue.073",
+                                            "bp.catalogue.074",
+                                            "bp.catalogue.081",
+                                            "bp.catalogue.082",
+                                            "bp.catalogue.085",
+                                            "bp.catalogue.088",
+                                            "bp.catalogue.091"
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.culture.riverward_frontier",
+                      "namespace":  "pack.culture.riverward_frontier",
+                      "version":  1,
+                      "type":  "regional_subculture",
+                      "priority":  100,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "construction.cobble.stone",
+                                      "roof_primary":  "construction.roof.thatch"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.biome.temperate_forest_river",
+                      "namespace":  "pack.biome.temperate_forest_river",
+                      "version":  1,
+                      "type":  "biome",
+                      "priority":  200,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "terrain.mossy_stone.cave",
+                                      "path_primary":  "road.path.dirt"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.faction.briarhook_raiders",
+                      "namespace":  "pack.faction.briarhook_raiders",
+                      "version":  1,
+                      "type":  "faction_government_faith",
+                      "priority":  300,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "wall_primary":  "defence.barricade.wood",
+                                      "structural_beam":  "defence.palisade.wood"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.faction.regional_march_authority",
+                      "namespace":  "pack.faction.regional_march_authority",
+                      "version":  1,
+                      "type":  "faction_government_faith",
+                      "priority":  310,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "construction.brick.stone",
+                                      "wall_primary":  "construction.wall.stone"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.culture.emberhold",
+                      "namespace":  "pack.culture.emberhold",
+                      "version":  1,
+                      "type":  "culture",
+                      "priority":  110,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "terrain.basalt.basic",
+                                      "roof_primary":  "construction.roof.tile_clay",
+                                      "wall_primary":  "construction.brick.clay"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.culture.goblin_tinker",
+                      "namespace":  "pack.culture.goblin_tinker",
+                      "version":  1,
+                      "type":  "culture",
+                      "priority":  120,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "functional":  "magic.engine.rune",
+                                      "roof_primary":  "construction.planks.oak",
+                                      "wall_primary":  "construction.cobble.stone"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.culture.pastoral_mobile",
+                      "namespace":  "pack.culture.pastoral_mobile",
+                      "version":  1,
+                      "type":  "culture",
+                      "priority":  130,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "terrain.dirt.basic",
+                                      "roof_primary":  "construction.roof.thatch",
+                                      "wall_primary":  "construction.roof.thatch"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.culture.aquatic_wetland",
+                      "namespace":  "pack.culture.aquatic_wetland",
+                      "version":  1,
+                      "type":  "culture",
+                      "priority":  140,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "construction.pillar.stone",
+                                      "wall_primary":  "construction.planks.oak",
+                                      "path_primary":  "construction.planks.oak"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.biome.dryland",
+                      "namespace":  "pack.biome.dryland",
+                      "version":  1,
+                      "type":  "biome",
+                      "priority":  210,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "terrain.sand.basic",
+                                      "roof_primary":  "construction.roof.tile_clay",
+                                      "wall_primary":  "construction.brick.clay"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.biome.frost",
+                      "namespace":  "pack.biome.frost",
+                      "version":  1,
+                      "type":  "biome",
+                      "priority":  220,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "terrain.ice.basic",
+                                      "roof_primary":  "terrain.snow.basic",
+                                      "wall_primary":  "construction.wall.stone"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.biome.swamp",
+                      "namespace":  "pack.biome.swamp",
+                      "version":  1,
+                      "type":  "biome",
+                      "priority":  230,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "terrain.mossy_stone.cave",
+                                      "wall_primary":  "construction.planks.oak",
+                                      "path_primary":  "terrain.mud.basic"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.biome.mountain",
+                      "namespace":  "pack.biome.mountain",
+                      "version":  1,
+                      "type":  "biome",
+                      "priority":  240,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "terrain.granite.basic",
+                                      "roof_primary":  "construction.roof.tile_clay",
+                                      "wall_primary":  "construction.wall.stone"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.government.village_council",
+                      "namespace":  "pack.government.village_council",
+                      "version":  1,
+                      "type":  "faction_government_faith",
+                      "priority":  320,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.government.merchant_league",
+                      "namespace":  "pack.government.merchant_league",
+                      "version":  1,
+                      "type":  "faction_government_faith",
+                      "priority":  321,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "functional":  "village.market_stall.basic"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.faith.hearth_spirits",
+                      "namespace":  "pack.faith.hearth_spirits",
+                      "version":  1,
+                      "type":  "faction_government_faith",
+                      "priority":  330,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "functional":  "magic.ritual_anchor.basic"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.faith.verdant_path",
+                      "namespace":  "pack.faith.verdant_path",
+                      "version":  1,
+                      "type":  "faction_government_faith",
+                      "priority":  331,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "realm.fae_grass.basic"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.occupation.frontier_builders",
+                      "namespace":  "pack.occupation.frontier_builders",
+                      "version":  1,
+                      "type":  "history_state",
+                      "priority":  500,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "functional":  "village.supply_crate.construction"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.occupation.arcane_artisans",
+                      "namespace":  "pack.occupation.arcane_artisans",
+                      "version":  1,
+                      "type":  "history_state",
+                      "priority":  510,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "functional":  "magic.rune_table.basic"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.diaspora.riverward_exiles",
+                      "namespace":  "pack.diaspora.riverward_exiles",
+                      "version":  1,
+                      "type":  "history_state",
+                      "priority":  520,
+                      "dependencies":  [
+                                           "pack.culture.riverward_frontier"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.hybrid.ember_river",
+                      "namespace":  "pack.hybrid.ember_river",
+                      "version":  1,
+                      "type":  "history_state",
+                      "priority":  530,
+                      "dependencies":  [
+                                           "pack.culture.emberhold",
+                                           "pack.culture.riverward_frontier"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "wall_primary":  "construction.brick.clay",
+                                      "roof_primary":  "construction.roof.thatch"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.realm_access.portal_network",
+                      "namespace":  "pack.realm_access.portal_network",
+                      "version":  1,
+                      "type":  "history_state",
+                      "priority":  540,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+                                                   "building.magic.portal_station_sanctum"
+                                               ],
+                      "palette":  {
+
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.realm.verdant_covenant",
+                      "namespace":  "pack.realm.verdant_covenant",
+                      "version":  1,
+                      "type":  "realm",
+                      "priority":  400,
+                      "dependencies":  [
+                                           "pack.realm_access.portal_network",
+                                           "pack.faith.verdant_path"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+                                                   "building.magic.portal_station_sanctum",
+                                                   "project.megaproject.city_ward_portal_nexus"
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "realm.fae_grass.basic",
+                                      "wall_primary":  "realm.celestial_stone.basic",
+                                      "functional":  "magic.portal_frame.ancient"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.history.rebuilt_after_raid",
+                      "namespace":  "pack.history.rebuilt_after_raid",
+                      "version":  1,
+                      "type":  "history_state",
+                      "priority":  550,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "wall_primary":  "construction.cobble.stone"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  },
+                  {
+                      "id":  "pack.player_style.approved_stonewood",
+                      "namespace":  "pack.player_style.approved_stonewood",
+                      "version":  1,
+                      "type":  "player_style",
+                      "priority":  600,
+                      "dependencies":  [
+                                           "pack.foundation.forest_neutral_poc"
+                                       ],
+                      "optional":  true,
+                      "compatibility":  {
+                                            "registry_schema":  1,
+                                            "catalogue_version":  "20H-v0.1"
+                                        },
+                      "runtime_requirements":  [
+
+                                               ],
+                      "palette":  {
+                                      "foundation_primary":  "construction.brick.stone",
+                                      "roof_primary":  "construction.roof.tile_clay",
+                                      "wall_primary":  "construction.planks.oak"
+                                  },
+                      "blueprint_ids":  [
+
+                                        ],
+                      "allowed_overrides":  [
+                                                "palette",
+                                                "blueprint_pool",
+                                                "layout_preference",
+                                                "ownership",
+                                                "faith_symbols",
+                                                "history_state"
+                                            ]
+                  }
+              ]
+}

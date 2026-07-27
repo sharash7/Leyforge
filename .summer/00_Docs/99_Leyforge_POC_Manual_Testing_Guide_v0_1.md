@@ -2,9 +2,9 @@
 
 Version: 0.1  
 Last updated: 25 July 2026
-Current implementation target: Stage 8 end-to-end UI and learning - connected
-guidance, map, village/raid explanations, settings, input, controller, and
-accessibility basics
+Current implementation target: Stage 9 hardening and POC release candidate -
+save integrity/recovery, scalability, diagnostics, release gates, and an
+official-template Windows package
 
 ## 1. Purpose and Maintenance Rule
 
@@ -123,13 +123,36 @@ this document.
   consequences, and follow-up repair.
 - UI/text scale, captions, high contrast, reduced motion, reduced flashes,
   toggle sprint, controller aim assist, HUD/tutorial/notification presets, and
-  keyboard/controller rebinding preview immediately and persist in version-12
+  keyboard/controller rebinding preview immediately and persist in version-13
   saves.
 - Controller defaults cover analogue movement/look, jump, sprint, primary use,
   interact, crafting, inventory, guide, map, village, item/skill-bar switching,
   slot cycling, focus navigation, and back.
 - Help contains replayable system tutorials. Mana HUD elements remain hidden
   until the player learns basic magic.
+
+### Stage 9 - Hardening and POC Release Candidate
+
+- Version-13 saves add SHA-256 payload integrity, a build/save manifest,
+  bounded save validation, atomic rotation, and final/previous/backup/temp
+  recovery with a readable health report.
+- Performance, Balanced, and Quality profiles adjust chunk, NPC,
+  automation-visual, and magic-visual budgets without changing authoritative
+  transactions or simulation state.
+- Local release diagnostics include build/content identity, hardware class,
+  bounded frame data, and system counters. They omit names, free-form text,
+  file-system paths, remote upload, and unnecessary personal data.
+- An interrupted process leaves a clean-session marker. The next launch writes
+  a local unclean-session report; a normal exit removes the marker.
+- The Pause menu can write a release report on demand. The Settings screen
+  exposes the persisted performance profile and remains scrollable at 150
+  percent UI scale.
+- The Windows x86_64 export preset includes the verification-locked runtime
+  registry mirror and supports the deterministic packaged traversal benchmark.
+- Automated Stage 9 coverage includes recovery/migration fixtures,
+  automation conservation regression, NPC promotion/demotion soak,
+  controller/accessibility/localisation readiness, and official package
+  execution.
 
 ### Current Visual Model Pass
 
@@ -719,9 +742,48 @@ aftermath. Before acceptance, ask them to explain:
 - how tower, guard, food, lighting, ward, and combat changed the raid result;
 - what was saved and what action remains after the aftermath.
 
-The Stage 8 implementation and automated gate may pass before this session,
-but Stage 8 is not manually accepted until this representative-player evidence
-is recorded.
+The project owner confirmed the representative Stage 8 build working on
+25 July 2026, satisfying the continuation gate for Stage 9. Keep this script as
+the Stage 8 regression check for every later candidate.
+
+### 7.10 Stage 9 Release-Candidate Sign-Off
+
+Perform this final check against the exported Windows package, not the editor:
+
+1. Start with a copy of a representative version-12 save. Confirm the package
+   loads it, rewrites it as version 13 after saving, and retains inventory,
+   village, project, automation, magic, raid, UI, map, and input state.
+2. In a disposable verification profile only, corrupt a copied current save.
+   Confirm the package rejects it, recovers the valid backup, and reports
+   **Recovered** rather than silently loading the changed payload. Never
+   corrupt the live player save.
+3. Open Settings at 150 percent UI scale. Cycle Performance, Balanced, and
+   Quality, scroll the complete settings page, and confirm keyboard and
+   controller focus remain visible. Return to Balanced for the remaining test.
+4. Play the connected loop long enough to visit the hamlet, an automation
+   chain, the mana area, the raid approach, and the goblin camp. Confirm
+   streaming or visual-distance changes do not pause, duplicate, or delete
+   authoritative resources and do not change NPC identities.
+5. Use controller only to move/look, interact, use the action bar, and
+   navigate/close Guide, Inventory, Craft, Map, Village, Raid, Pause, Settings,
+   Controls, and Help.
+6. In Pause, select **Write Release Diagnostics**. Confirm the status reports
+   success and that `leyforge_release_report.json` exists below the Leyforge
+   Godot user-data directory. Inspect it for build, hardware, save-health, and
+   performance sections; confirm it contains no player name, chat/free-form
+   content, save path, or remote-upload identifier.
+7. Close normally and relaunch. Confirm no false unclean-session report is
+   produced. In a disposable profile, force-close once, relaunch, and confirm
+   the local unclean-session report is produced without blocking play.
+8. Run the packaged benchmark at 1920x1080 Balanced. Confirm it exits zero,
+   loads 143 blocks and 167 items, records at least 900 samples, passes the
+   16.67 ms p95 target or records an explicit target-hardware exception, and
+   always stays within the 33.34 ms fallback release floor.
+
+Record the package hashes, hardware, renderer, resolution, p95/max frame time,
+save-health result, controller result, accessibility result, and any exception.
+Stage 9 is manually accepted only when every blocker is cleared or an exception
+is explicitly approved in the release-candidate record.
 
 ## 8. Save/Reload Checkpoints
 
@@ -741,6 +803,10 @@ Test these checkpoints independently:
 - Map landmarks and a custom pin have been discovered.
 - UI/accessibility settings and at least one keyboard/controller binding have
   been changed.
+- A version-12 representative save has migrated to integrity-protected
+  version 13.
+- A disposable corrupted final save has recovered from its valid backup.
+- The selected Stage 9 performance profile has persisted.
 
 After reload, inspect both visible state and quantities.
 
@@ -756,7 +822,15 @@ Treat a `SCRIPT ERROR`, parse error, failed resource load, missing registry
 content, crash, or gameplay transaction error as a real failure. Do not dismiss
 it as one of the known shutdown warnings.
 
-The focused Stage 8 interface/learning scene is:
+The focused Stage 9 release-candidate scene is:
+
+`res://.summer/verification/stage9_release_candidate_probe.tscn`
+
+It covers save integrity/recovery/migration, runtime/design registry parity,
+scalability budgets and counters, repeated NPC promotion/demotion,
+accessibility/localisation reflow and focus, bounded performance evidence,
+local diagnostics, and clean/unclean session reporting. The focused Stage 8
+interface/learning scene remains:
 
 `res://.summer/verification/phase8_ui_learning_probe.tscn`
 
@@ -780,12 +854,13 @@ spacing. It supplements rather than replaces the manual checks above.
 
 ### Current Automated Baseline - 25 July 2026
 
-The current code passed 449 checks with no probe failures:
+The current code passed 489 checks with no probe failures:
 
+- Stage 9 hardening and release candidate: 39/39.
 - Stage 8 end-to-end UI and learning: 104/104.
 - Stage 7 stabilization: 30/30.
 - Stage 7 combat and visuals: 33/33.
-- Save/version-12 migration and UI state: 26/26.
+- Save/version-13 integrity, migration, and UI state: 27/27.
 - Stage 5 automation and furnace/chute conservation: 61/61.
 - Stage 6 magic: 48/48.
 - All crafting and furnace recipes: 67/67.
@@ -797,9 +872,14 @@ The current code passed 449 checks with no probe failures:
 A fresh headless `main.tscn` startup and the real-renderer Stage 8 guide, map,
 settings, humanoid, connected-body first-person item/skill-bar, complete
 external player rig, camp spawner, chute, and Visual Test Room reference
-captures also completed successfully. The room
-reported 143 block models, 167 item models, and 23 distinct held visual kinds.
-This is an automated baseline, not final manual acceptance.
+captures also completed successfully. The room reported 143 block models, 167
+item models, and 23 distinct held visual kinds.
+
+The official Godot 4.6.3 Windows x86_64 release-template package also loaded all
+143 blocks and 167 items and completed 900 measured frames at 1920x1080 on the
+reference i5-9600K/RTX 2080 Ti system: 4.438 ms p95, 16.902 ms maximum, and
+both the 60 fps target and 30 fps fallback guards passed. This remains an
+automated baseline until section 7.10 receives owner sign-off.
 
 ## 10. Bug Report Template
 

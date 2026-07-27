@@ -13,6 +13,8 @@ const BUILDER_WORK_RADIUS := 7.5
 var world: VoxelWorld
 var player: Player
 var configured := false
+var actor_range := ACTOR_RANGE
+var demote_range := DEMOTE_RANGE
 var _actors: Dictionary = {}
 var _visual_stage := -1
 var _build_accumulator := 0.0
@@ -22,6 +24,16 @@ func configure(p_world: VoxelWorld, p_player: Player) -> void:
 	world = p_world
 	player = p_player
 	configured = world != null and player != null
+	if configured:
+		_refresh_actor_lod()
+
+
+func apply_scalability_profile(profile: Dictionary) -> void:
+	actor_range = clampf(
+		float(profile.get("npc_actor_range", ACTOR_RANGE)), 64.0, 160.0)
+	demote_range = maxf(
+		actor_range + 12.0,
+		float(profile.get("npc_demote_range", DEMOTE_RANGE)))
 	if configured:
 		_refresh_actor_lod()
 
@@ -43,7 +55,11 @@ func _sync_completed_project_stages() -> void:
 		else maxi(0, int(HamletState.project.get("stage_index", 1)) - 1)
 	if completed_stages == _visual_stage:
 		return
-	if world.apply_watchtower_project_stage(completed_stages):
+	if world.apply_project_blueprint_stages(
+			str(HamletState.project.get(
+				"definition_id", HamletState.DEFAULT_PROJECT_ID)),
+			completed_stages,
+			_project_world_anchor()):
 		_visual_stage = completed_stages
 
 
@@ -67,7 +83,11 @@ func _advance_builder_construction(delta: float) -> void:
 		_build_accumulator = 0.0
 		return
 	var stage_index := int(HamletState.project.get("stage_index", 1))
-	var placements := world.get_watchtower_stage_placements(stage_index)
+	var project_id := str(HamletState.project.get(
+		"definition_id", HamletState.DEFAULT_PROJECT_ID))
+	var anchor := _project_world_anchor()
+	var placements := world.get_project_stage_placements(
+		project_id, stage_index, anchor)
 	if placements.is_empty():
 		return
 	HamletState.set_project_stage_total(placements.size())
@@ -79,8 +99,24 @@ func _advance_builder_construction(delta: float) -> void:
 		return
 	_build_accumulator = 0.0
 	actor.play_action("build", 0.55)
-	if world.place_watchtower_stage_block(stage_index, placement_index):
+	var project_definition := SettlementContentRegistry.get_project(project_id)
+	var stage_definition := HamletState.get_project_stage_definition(stage_index)
+	if world.place_blueprint_stage_cell(
+			str(project_definition.get("blueprint_id", "")),
+			str(stage_definition.get("id", "")),
+			anchor,
+			placement_index):
 		HamletState.record_project_block_placed(placements.size())
+
+
+func _project_world_anchor() -> Vector3i:
+	var position: Array = HamletState.project.get("position", [])
+	var x := HamletState.watchtower_anchor.x
+	var z := HamletState.watchtower_anchor.y
+	if position.size() >= 2:
+		x = int(position[0])
+		z = int(position[1])
+	return Vector3i(x, world.surface_height_at(x, z), z)
 
 
 func _refresh_actor_lod() -> void:
@@ -89,7 +125,7 @@ func _refresh_actor_lod() -> void:
 		player.global_position.y,
 		float(HamletState.hamlet_anchor.y) + 0.5)
 	var distance := player.global_position.distance_to(hamlet)
-	if distance <= ACTOR_RANGE:
+	if distance <= actor_range:
 		for npc_id in HamletState.get_npc_ids():
 			var record := HamletState.get_npc_record(npc_id)
 			if _actors.has(npc_id) or not bool(record.get("alive", true)):
@@ -112,7 +148,7 @@ func _refresh_actor_lod() -> void:
 			actor.setup(world, npc_id)
 			add_child(actor)
 			_actors[npc_id] = actor
-	elif distance >= DEMOTE_RANGE:
+	elif distance >= demote_range:
 		for npc_id in _actors.keys():
 			var actor: HamletNpcActor = _actors[npc_id]
 			if is_instance_valid(actor):

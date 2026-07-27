@@ -1,9 +1,10 @@
 ---
 name: leyforge-voxel-poc
 overview: >-
-  Godot-adapted Forest Hamlet POC: Stage 8 -- End-to-End UI and Learning is
-  implemented on the deterministic Controlled POC Valley; the automated gate is
-  complete and the representative-player manual exit test remains
+  Godot-adapted Forest Hamlet POC: Stage 9 -- Hardening and POC Release
+  Candidate is implemented on the deterministic Controlled POC Valley; the
+  489-check automated gate and official 1920x1080 packaged benchmark pass, and
+  the short owner packaged-build sign-off remains
 createdAt: '2026-07-21T08:48:53.746Z'
 todos:
   - id: voxel-chunk-system
@@ -118,6 +119,17 @@ todos:
       mana, map, raid, combat, aftermath, settings, input, controller, and
       accessibility learning paths into a first-time-player flow
     status: completed
+  - id: stage9-hardening-release-candidate
+    content: >-
+      Add save integrity/recovery and migrations, privacy-bounded diagnostics,
+      scalability profiles, LOD/accessibility/controller soak gates, official
+      Windows packaging, and a real-renderer release benchmark
+    status: completed
+  - id: stage9-packaged-manual-signoff
+    content: >-
+      Complete the living guide's short owner smoke test against the official
+      Windows 0.9.0-rc1 package before final POC release-candidate acceptance
+    status: pending
 ---
 ## Scene Structure
 - `res://main.tscn` -- World root
@@ -153,6 +165,7 @@ todos:
 - `res://scripts/autoload/magic_state.gd` -- personal mana, regeneration, spell knowledge, cooldowns, casts, and save state
 - `res://scripts/autoload/combat_state.gd` -- player health, raid planner, enemy records, outcome, injury, theft, structure damage, repair, history, and save state
 - `res://scripts/autoload/ui_state.gd` -- persistent UI settings, tutorial/objective progress, discovered map anchors, input defaults, and rebinding
+- `res://scripts/autoload/release_quality.gd` -- release identity, scalability profiles, bounded performance/system diagnostics, and clean-session reporting
 - `res://scripts/visual/humanoid_visual.gd` -- shared articulated player, villager, and goblin body/animation presentation
 - `res://scripts/visual/item_model_factory.gd` -- shared low-poly held/drop model silhouettes selected by stable content identity
 - `res://scripts/player/player.gd` -- movement, swimming, timed tool-aware harvesting, and placement
@@ -160,6 +173,7 @@ todos:
 - `res://scripts/ui/local_map_view.gd` -- discovered-landmark map, routes, objective marker, player orientation, and custom pin
 - `res://scripts/ui/stack_icon_renderer.gd` -- cached static isometric thumbnails for registered blocks and items
 - `res://scripts/main.gd` -- startup plus atomic versioned save/recovery
+- `res://scripts/release/stage9_packaged_benchmark.gd` -- deterministic packaged 1920x1080 traversal/performance capture
 
 ## Input Map
 - move_forward/back/left/right: WASD
@@ -206,7 +220,7 @@ todos:
 ## Physical Item Drops
 - Successful harvesting commits the world edit into a small 3D dropped block/item rather than inserting directly into inventory
 - Drops settle against voxel collision, remain present when inventory is full, and automatically transfer any available amount inside the pickup radius
-- Drop stacks retain stable block/item identities, tool instances, position, motion, and age through atomic version 12 saves
+- Drop stacks retain stable block/item identities, tool instances, position, motion, and age through atomic version 13 saves
 
 ## Crafting
 - E opens the 2x2 hand grid; RMB opens aimed workbench, rune table, furnace, mana furnace, chest, magical device, village, or NPC interactions
@@ -288,19 +302,28 @@ todos:
 - Inventory search/details, crafting batch controls, recipe knowledge hints, village permission text, project stock/reserves, machine flow/faults, raid readiness, and aftermath cause/consequence/follow-up make system effects explicit
 - The local map reveals visited landmarks and routes, shows player orientation and the current objective, and supports one persistent custom pin
 - Settings persist HUD/tutorial/notification presets, UI scale, captions, high contrast, reduced motion, reduced flashes, toggle sprint, and aim assist; control rebinding persists separately for keyboard/mouse and controller
-- Atomic save version 12 stores UI learning, discovery, custom pin, settings, and binding overrides alongside the established world state
-- The Stage 8 manual exit gate is the representative-player script in the living testing guide; Stage 9 hardening must not begin until that observed run passes
+- Atomic save version 13 stores UI learning, discovery, custom pin, settings, and binding overrides alongside the established world state
+- The project owner confirmed the representative Stage 8 build working on 25 July 2026, satisfying the continuation gate for Stage 9 hardening
+
+## Hardening and POC Release Candidate
+- Version 13 saves add SHA-256 integrity, a build/save manifest, bounded size and collection validation, and ordered final/previous/backup/temp recovery with readable health evidence
+- Performance, balanced, and quality profiles adjust chunk, actor, automation-visual, and magic-visual budgets without changing authoritative simulation or transaction state
+- Release diagnostics record build/content identity, hardware class, bounded frame samples, and system counters locally without free-form or personal data
+- Clean-session markers identify an interrupted previous process on next launch and write a privacy-bounded local report; clean exits remove the marker
+- Stage 9 probes cover representative version-12 migration, corrupted-save recovery, registry mirroring, AI actor/record soak, automation conservation regressions, controller parity, 150-percent UI scale, text reflow, focus, and localisation readiness
+- The Windows export preset packages the visible runtime registry mirror, and the official Godot 4.6.3 x86_64 release-template package passes the 1920x1080 balanced-profile benchmark
+- `res://.summer/release/STAGE9_RELEASE_CANDIDATE.md` and the living manual guide define the reproducible release gates and remaining owner sign-off
 
 ## Later-Stage Design Alignment
 - Document 19, `19_Fantasy_Voxel_Civilisation_Sandbox_Settlement_Growth_and_Player_Voxel_Blueprint_System_v0_1.md`, is now a design source for later settlement-growth and player-voxel-blueprint phases
 - Its blueprint definitions/runtime records, stable identity, reservations, repair, and settlement progression requirements should extend the existing conserved resource, project, and persistence foundations
-- Stage 8 does not pull those later settlement/blueprint systems forward; Stage 9 remains gated by the representative-player Stage 8 manual acceptance run
+- Stage 9 hardening does not pull those later settlement/blueprint systems forward; after the POC release-candidate sign-off, later feature work requires a newly approved stage boundary
 
 ## Current Verification
 - Headless Godot 4.6.3 probe: 143 blocks and 167 items load in separate registries
 - Legacy Oak Log item ID 142 migrates to block ID 9
 - Final-batch crafting, full-inventory mining/crafting, stable edit saves, and craft-grid saves pass
-- Version 12 saves preserve unified inventory, tool durability, progression, personal magic, mana networks/consumers/connectors, player health, raid phases, authoritative enemies, preparation, outcomes, injuries, theft, damage/repair/history, functional blocks, physical item drops, automation machines/batches/connectors, delivery ledger, hamlet records, warehouse, requests, reputation, permissions, project state, UI learning/settings/bindings/map state, edits, and the world-generation manifest
+- Version 13 integrity-protected saves preserve unified inventory, tool durability, progression, personal magic, mana networks/consumers/connectors, player health, raid phases, authoritative enemies, preparation, outcomes, injuries, theft, damage/repair/history, functional blocks, physical item drops, automation machines/batches/connectors, delivery ledger, hamlet records, warehouse, requests, reputation, permissions, project state, UI learning/settings/bindings/map state, edits, and the world-generation manifest
 - Rebuild probe processed 1 of 10 queued chunks under the declared budget
 - Player collision holds at terrain Y=15; saved underground positions repair to a clear surface position
 - Embedded or below-world players recover to the closest loaded flat 2x2 floor with a 2x2x2 air volume; spawn is fallback-only
@@ -321,13 +344,16 @@ todos:
 - Traversal probe crosses a half-slab and a north-facing stair with the real player collision body
 - Stage 4 authority probe passes 41 checks for the eight-NPC roster, stable local waypoints/collision and interaction targeting, sequential supply gates, per-block builder labour, 100-percent completion, save restore, RMB stations, and actor promotion/demotion
 - Physical-item probe passes 9 checks for full-inventory mining, 3D world visuals, preserved leftovers, proximity pickup, and stable-ID restore
-- Full save/UI probe passes 26 checks through the atomic `main.gd` version 12 path, including version-11 and legacy migration plus UI settings, discovery, custom pin, personal magic, raid phase, and authoritative enemy health
+- Full save/UI probe passes 27 checks through the atomic `main.gd` version 13 path, including integrity plus version-12, version-11, and legacy migration, UI settings, discovery, custom pin, personal magic, raid phase, and authoritative enemy health
 - Phase 5 automation probe passes 61 checks for stable content/recipes, nearest-valuable and selected-ore extraction, conserved furnace fuel drag/drop, crank power, wrench configuration, cross-chunk graph connectors, ore-to-ingot transport, trust-gated delivery, blockage, in-flight save/restore, far simulation, save-persistent idempotent retries, audit ledger facts, exact project reservations, and simultaneous furnace routing where fuel and one compatible ore enter while an incompatible ore continues to storage
 - Phase 6 magic probe passes 48 checks for the mana resource chain, rune-table and mana-furnace recipes, network storage/topology, cross-chunk connectors, exact mana consumption, faults, ward coverage/drain/defense, both spells, ruin teaser, persistence, visual promotion, and bounded far/offline simulation
 - Phase 7 combat/visual probe passes 33 checks for the articulated player/eight-villager roster, six job-held items, priority held/block silhouettes, translucent collidable glass, four enemy profiles, warning/assault promotion, authoritative player/enemy damage, three forced outcome matrices, visible structure damage, exact repair cost, and combat/aftermath restore
-- Phase 8 UI/learning probe passes 104 checks for objective sequencing, authoritative automation/mana/raid gates, adaptive disclosure, keyboard/controller defaults, per-device rebinding persistence and conflict reporting, accessibility preview, screen focus/back behaviour, map discovery/pinning, village non-colour permission cues, aftermath cause/effect, help, and version-12 UI state restore
+- Phase 8 UI/learning probe passes 104 checks for objective sequencing, authoritative automation/mana/raid gates, adaptive disclosure, keyboard/controller defaults, per-device rebinding persistence and conflict reporting, accessibility preview, screen focus/back behaviour, map discovery/pinning, village non-colour permission cues, aftermath cause/effect, help, and version-13 UI state restore
+- Stage 9 release-candidate probe passes 39 checks for save integrity/recovery/migration, runtime/design registry parity, scalability profiles/counters, NPC promotion/demotion soak, 150-percent UI scale, text reflow/focus, bounded profiling, diagnostics, and clean/unclean session reporting
+- The complete regression matrix passes 489/489 checks with no script, parse, content-fallback, or gameplay failures
+- The official Godot 4.6.3 Windows x86_64 release-template package loads all 143 blocks and 167 items and passes a 900-frame real-renderer traversal at 1920x1080: 4.438 ms p95, 16.902 ms maximum, and both release guards green
 - Real-renderer Stage 8 captures cover the representative guide, discovered-landmark map, and settings/control presentation
 - Summer rendered captures confirm the humanoid/held-item lineup, recognizable furnace/chest/chute/door silhouettes, see-through glass, and an unobstructed first-person arm/pickaxe view
 - Manual Stage 1 movement, editing, crafting, swimming, and cursor behaviour passed
 - Manual Phase 2 water, routes, landmarks, tundra, desert, streaming, and traversal checks passed
-- Stage 8 implementation and automated acceptance are complete; its representative-player manual exit test remains before Stage 9 hardening begins
+- Stage 9 implementation and automated release-candidate acceptance are complete; the living guide's short owner packaged-build sign-off remains

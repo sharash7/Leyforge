@@ -117,6 +117,7 @@ var _raid_details: Label
 var _raid_repair_button: Button
 var _pause_area: VBoxContainer
 var _pause_status: Label
+var _settings_scroll: ScrollContainer
 var _settings_area: VBoxContainer
 var _settings_summary: Label
 var _controls_scroll: ScrollContainer
@@ -694,6 +695,7 @@ func _build_pause_ui(parent: VBoxContainer) -> void:
 	_pause_area.add_child(_pause_status)
 	for entry in [
 		["Resume", "_resume"], ["Save World", "_save"],
+		["Write Release Diagnostics", "_diagnostics"],
 		["Settings and Accessibility", "settings"],
 		["Controls and Rebinding", "controls"], ["Help and Tutorials", "help"],
 	]:
@@ -705,6 +707,8 @@ func _build_pause_ui(parent: VBoxContainer) -> void:
 			button.pressed.connect(_set_craft_open.bind(false))
 		elif destination == "_save":
 			button.pressed.connect(_request_manual_save)
+		elif destination == "_diagnostics":
+			button.pressed.connect(_write_release_diagnostics)
 		else:
 			button.pressed.connect(_open_mode.bind(destination, INVALID_TARGET))
 		_pause_area.add_child(button)
@@ -712,7 +716,10 @@ func _build_pause_ui(parent: VBoxContainer) -> void:
 
 
 func _build_settings_ui(parent: VBoxContainer) -> void:
+	_settings_scroll = ScrollContainer.new()
+	_settings_scroll.custom_minimum_size = Vector2(660, 390)
 	_settings_area = VBoxContainer.new()
+	_settings_area.custom_minimum_size = Vector2(640, 0)
 	_settings_area.add_theme_constant_override("separation", 4)
 	_settings_summary = Label.new()
 	_settings_summary.text = "Changes preview immediately and persist with the world."
@@ -724,6 +731,8 @@ func _build_settings_ui(parent: VBoxContainer) -> void:
 		["minimal", "contextual", "guided", "full"])
 	_add_option_setting(_settings_area, "Notifications", "notification_preset",
 		["quiet", "standard", "detailed"])
+	_add_option_setting(_settings_area, "Performance profile", "quality_profile",
+		["performance", "balanced", "quality"])
 	var scale_row := HBoxContainer.new()
 	var scale_label := Label.new()
 	scale_label.text = "UI and text scale"
@@ -759,7 +768,8 @@ func _build_settings_ui(parent: VBoxContainer) -> void:
 		UIState.set_setting("aim_assist", value))
 	aim_row.add_child(aim_assist)
 	_settings_area.add_child(aim_row)
-	parent.add_child(_settings_area)
+	_settings_scroll.add_child(_settings_area)
+	parent.add_child(_settings_scroll)
 
 
 func _add_option_setting(parent: VBoxContainer, label_text: String,
@@ -1509,6 +1519,14 @@ func _request_manual_save() -> void:
 	session.call("request_manual_save")
 
 
+func _write_release_diagnostics() -> void:
+	var written := ReleaseQuality.write_release_report()
+	_on_save_status_changed(
+		"saved" if written else "failed",
+		"Release diagnostics written to the Leyforge user-data folder."
+		if written else "Release diagnostics could not be written; keep this session open and retry.")
+
+
 func _on_save_status_changed(status: String, message: String) -> void:
 	_save_status_label.text = message
 	_pause_status.text = message
@@ -1809,7 +1827,7 @@ func _refresh_context_visibility() -> void:
 	_map_area.visible = craft_mode == "map"
 	_raid_area.visible = craft_mode == "raid"
 	_pause_area.visible = craft_mode == "pause"
-	_settings_area.visible = craft_mode == "settings"
+	_settings_scroll.visible = craft_mode == "settings"
 	_controls_scroll.visible = craft_mode == "controls"
 	_help_area.visible = craft_mode == "help"
 	_furnace_row.visible = craft_mode in ["furnace", "mana_furnace"]

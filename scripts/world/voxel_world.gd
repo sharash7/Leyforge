@@ -51,6 +51,8 @@ var material_layers := PackedInt32Array()
 var player: Node3D                # assigned by main.gd (drives streaming)
 var started := false
 var valley_plan: RefCounted
+var render_radius := RENDER_RADIUS
+var unload_margin := UNLOAD_MARGIN
 
 # Terrain noise fields (all seeded from world_seed in _seed_noises()).
 var _noise := FastNoiseLite.new()        # continents
@@ -458,7 +460,7 @@ func _process(_delta: float) -> void:
 		_queued.erase(cc)
 		if chunks.has(cc):
 			continue
-		if _column_distance(cc, _last_player_chunk) > RENDER_RADIUS:
+		if _column_distance(cc, _last_player_chunk) > render_radius:
 			continue  # player moved on before we got here
 		_generate_chunk(cc)
 		budget -= 1
@@ -525,8 +527,8 @@ func _exit_tree() -> void:
 func _update_streaming(pc: Vector3i) -> void:
 	# Queue missing chunks, nearest first.
 	var wanted: Array[Vector3i] = []
-	for dx in range(-RENDER_RADIUS, RENDER_RADIUS + 1):
-		for dz in range(-RENDER_RADIUS, RENDER_RADIUS + 1):
+	for dx in range(-render_radius, render_radius + 1):
+		for dz in range(-render_radius, render_radius + 1):
 			for cy in WORLD_HEIGHT_CHUNKS:
 				var cc := Vector3i(pc.x + dx, cy, pc.z + dz)
 				if not chunks.has(cc) and not _queued.has(cc):
@@ -539,7 +541,7 @@ func _update_streaming(pc: Vector3i) -> void:
 	# Unload chunks beyond radius + margin.
 	var to_remove: Array[Vector3i] = []
 	for key in chunks:
-		if _column_distance(key, pc) > RENDER_RADIUS + UNLOAD_MARGIN:
+		if _column_distance(key, pc) > render_radius + unload_margin:
 			to_remove.append(key)
 	for key in to_remove:
 		chunks[key].queue_free()
@@ -577,6 +579,39 @@ func request_chunk_rebuild(cc: Vector3i) -> void:
 		return
 	_rebuild_queue.append(cc)
 	_rebuild_queued[cc] = true
+
+
+func apply_scalability_profile(profile: Dictionary) -> void:
+	var requested_radius := clampi(
+		int(profile.get("chunk_radius", RENDER_RADIUS)), 2, 4)
+	if requested_radius == render_radius:
+		if automation != null:
+			automation.apply_scalability_profile(profile)
+		if magic != null:
+			magic.apply_scalability_profile(profile)
+		return
+	render_radius = requested_radius
+	if started:
+		_update_streaming(_last_player_chunk)
+	if automation != null:
+		automation.apply_scalability_profile(profile)
+	if magic != null:
+		magic.apply_scalability_profile(profile)
+
+
+func runtime_counters() -> Dictionary:
+	return {
+		"loaded_chunks": chunks.size(),
+		"queued_chunks": _load_queue.size(),
+		"rebuild_backlog": _rebuild_queue.size(),
+		"mesh_job_active": _mesh_job_active,
+		"render_radius": render_radius,
+		"edited_voxels": _edits.size(),
+		"item_drops": active_item_drop_count(),
+		"automation": automation.runtime_counters() \
+			if automation != null else {},
+		"magic": magic.runtime_counters() if magic != null else {},
+	}
 
 
 # ---------- Terrain generation (pure functions of seed + coordinates) ----------
@@ -2655,59 +2690,68 @@ func get_hamlet_station_position(kind: String) -> Vector3i:
 	return Vector3i(0, -100000, 0)
 
 
-func get_watchtower_stage_placements(stage_index: int) -> Array[Dictionary]:
-	## Returns one exact blueprint stage in a stable bottom-to-top order. The
-	## runtime commits these entries individually so a nearby player sees Talia
-	## place every block rather than receiving an instant completed shell.
+func get_blueprint_stage_placements(
+		blueprint_id: String,
+		stage_id: String,
+		anchor: Vector3i,
+		palette_override: Dictionary = {}) -> Array[Dictionary]:
+	## Resolves an immutable blueprint stage into stable world-space writes.
+	## The registry guarantees deterministic local ordering; converting stable
+	## block IDs here keeps numeric runtime IDs out of settlement content data.
 	var placements: Array[Dictionary] = []
-	if valley_plan == null or stage_index <= 0:
-		return placements
-	var site: Vector2i = valley_plan.get_anchor("watchtower_site")
-	var ground := _height_at(site.x, site.y)
-	var writes: Dictionary = {}
-	if stage_index == 1:
-		for dx in range(-2, 3):
-			for dz in range(-2, 3):
-				writes[Vector3i(site.x + dx, ground, site.y + dz)] = id_stone_brick
-	elif stage_index == 2:
-		for dx in [-2, 2]:
-			for dz in [-2, 2]:
-				for dy in range(1, 5):
-					writes[Vector3i(site.x + dx, ground + dy, site.y + dz)] = id_oak_beam
-		for dx in range(-2, 3):
-			writes[Vector3i(site.x + dx, ground + 4, site.y - 2)] = id_oak_beam
-			writes[Vector3i(site.x + dx, ground + 4, site.y + 2)] = id_oak_beam
-		for dz in range(-1, 2):
-			writes[Vector3i(site.x - 2, ground + 4, site.y + dz)] = id_oak_beam
-			writes[Vector3i(site.x + 2, ground + 4, site.y + dz)] = id_oak_beam
-	elif stage_index == 3:
-		for dx in range(-2, 3):
-			for dz in range(-2, 3):
-				writes[Vector3i(site.x + dx, ground + 5, site.y + dz)] = id_planks
-	elif stage_index == 4:
-		for offset in [
-			Vector2i(-2, -2), Vector2i(2, -2),
-			Vector2i(-2, 2), Vector2i(2, 2),
-		]:
-			writes[Vector3i(site.x + offset.x, ground + 6, site.y + offset.y)] = id_torch
-	for position in writes:
+	var cells := SettlementContentRegistry.expand_blueprint_stage(
+		blueprint_id, stage_id, palette_override)
+	for cell in cells:
+		var local_value: Array = cell.get("local_position", [])
+		if local_value.size() != 3:
+			continue
+		var stable_id := str(cell.get("stable_id", ""))
+		var block_id := BlockRegistry.get_id_by_stable_id(stable_id)
+		if block_id <= 0:
+			push_error(
+				"VoxelWorld: blueprint %s references unknown block %s"
+				% [blueprint_id, stable_id])
+			return []
 		placements.append({
-			"position": position,
-			"block_id": int(writes[position]),
+			"position": anchor + Vector3i(
+				int(local_value[0]), int(local_value[1]), int(local_value[2])),
+			"block_id": block_id,
+			"stable_id": stable_id,
+			"token": str(cell.get("token", "")),
 		})
-	placements.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		var pa: Vector3i = a["position"]
-		var pb: Vector3i = b["position"]
-		if pa.y != pb.y:
-			return pa.y < pb.y
-		if pa.z != pb.z:
-			return pa.z < pb.z
-		return pa.x < pb.x)
 	return placements
 
 
-func place_watchtower_stage_block(stage_index: int, placement_index: int) -> bool:
-	var placements := get_watchtower_stage_placements(stage_index)
+func get_project_stage_placements(
+		project_id: String,
+		stage_index: int,
+		anchor: Vector3i,
+		palette_override: Dictionary = {}) -> Array[Dictionary]:
+	var project_definition := SettlementContentRegistry.get_project(project_id)
+	if project_definition.is_empty() or stage_index <= 0:
+		return []
+	var stage: Dictionary = {}
+	for stage_value in project_definition.get("stages", []):
+		if int((stage_value as Dictionary).get("index", 0)) == stage_index:
+			stage = stage_value
+			break
+	if stage.is_empty():
+		return []
+	return get_blueprint_stage_placements(
+		str(project_definition.get("blueprint_id", "")),
+		str(stage.get("id", "")),
+		anchor,
+		palette_override)
+
+
+func place_blueprint_stage_cell(
+		blueprint_id: String,
+		stage_id: String,
+		anchor: Vector3i,
+		placement_index: int,
+		palette_override: Dictionary = {}) -> bool:
+	var placements := get_blueprint_stage_placements(
+		blueprint_id, stage_id, anchor, palette_override)
 	if placement_index < 0 or placement_index >= placements.size():
 		return false
 	var placement: Dictionary = placements[placement_index]
@@ -2718,14 +2762,22 @@ func place_watchtower_stage_block(stage_index: int, placement_index: int) -> boo
 	return set_block_global(position, target_id)
 
 
-func apply_watchtower_project_stage(stage_index: int) -> bool:
-	## Cumulative idempotent catch-up used after loading a completed earlier
-	## stage. Active stages are placed one block at a time by HamletRuntime.
-	if valley_plan == null or stage_index <= 0:
+func apply_project_blueprint_stages(
+		project_id: String,
+		completed_stages: int,
+		anchor: Vector3i,
+		palette_override: Dictionary = {}) -> bool:
+	## Cumulative, idempotent catch-up for near/far simulation and save loads.
+	if completed_stages <= 0:
 		return true
+	var project_definition := SettlementContentRegistry.get_project(project_id)
+	if project_definition.is_empty():
+		return false
 	var all_loaded := true
-	for index in range(1, mini(stage_index, 4) + 1):
-		for placement in get_watchtower_stage_placements(index):
+	var stages: Array = project_definition.get("stages", [])
+	for index in range(1, mini(completed_stages, stages.size()) + 1):
+		for placement in get_project_stage_placements(
+				project_id, index, anchor, palette_override):
 			var position: Vector3i = placement["position"]
 			var target_id := int(placement["block_id"])
 			if get_block_global(position) == target_id:
@@ -2733,6 +2785,48 @@ func apply_watchtower_project_stage(stage_index: int) -> bool:
 			if not set_block_global(position, target_id):
 				all_loaded = false
 	return all_loaded
+
+
+func _watchtower_blueprint_anchor() -> Vector3i:
+	if valley_plan == null:
+		return Vector3i(0, -100000, 0)
+	var site: Vector2i = valley_plan.get_anchor("watchtower_site")
+	return Vector3i(site.x, _height_at(site.x, site.y), site.y)
+
+
+func get_watchtower_stage_placements(stage_index: int) -> Array[Dictionary]:
+	## Version-13 compatibility wrapper. New callers use generic project IDs.
+	if valley_plan == null or stage_index <= 0:
+		return []
+	return get_project_stage_placements(
+		"project.build.wooden_watchtower",
+		stage_index,
+		_watchtower_blueprint_anchor())
+
+
+func place_watchtower_stage_block(stage_index: int, placement_index: int) -> bool:
+	## Version-13 compatibility wrapper.
+	var project_definition := SettlementContentRegistry.get_project(
+		"project.build.wooden_watchtower")
+	var stages: Array = project_definition.get("stages", [])
+	if stage_index <= 0 or stage_index > stages.size():
+		return false
+	var stage: Dictionary = stages[stage_index - 1]
+	return place_blueprint_stage_cell(
+		str(project_definition.get("blueprint_id", "")),
+		str(stage.get("id", "")),
+		_watchtower_blueprint_anchor(),
+		placement_index)
+
+
+func apply_watchtower_project_stage(stage_index: int) -> bool:
+	## Version-13 compatibility wrapper used by the existing runtime scene.
+	if valley_plan == null:
+		return stage_index <= 0
+	return apply_project_blueprint_stages(
+		"project.build.wooden_watchtower",
+		stage_index,
+		_watchtower_blueprint_anchor())
 
 
 func resolve_safe_player_position(requested: Vector3) -> Vector3:

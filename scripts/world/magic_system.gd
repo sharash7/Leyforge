@@ -46,6 +46,7 @@ const DIRS6: Array[Vector3i] = [
 var world: Node
 var states: Dictionary = {}
 var boundary_connectors: Array[Dictionary] = []
+var visual_distance := VISUAL_DISTANCE
 
 var _graph: Dictionary = {}
 var _topology_dirty := true
@@ -58,6 +59,23 @@ var _sense_visuals: Dictionary = {}
 
 func setup(world_ref: Node) -> void:
 	world = world_ref
+
+
+func apply_scalability_profile(profile: Dictionary) -> void:
+	visual_distance = clampf(
+		float(profile.get("magic_visual_distance", VISUAL_DISTANCE)),
+		28.0, 96.0)
+
+
+func runtime_counters() -> Dictionary:
+	return {
+		"nodes": states.size(),
+		"boundary_connectors": boundary_connectors.size(),
+		"visible_wards": _ward_visuals.size(),
+		"visible_sense_targets": _sense_visuals.size(),
+		"pending_catchup_seconds": _pending_catchup,
+		"visual_distance": visual_distance,
+	}
 
 
 func is_magic_block(block_id: int) -> bool:
@@ -553,7 +571,7 @@ func _sync_visuals(player_position: Vector3) -> void:
 				or str(state.get("status", "")) != "active":
 			continue
 		var centre := Vector3(Vector3i(state["position"])) + Vector3.ONE * 0.5
-		if centre.distance_to(player_position) > VISUAL_DISTANCE:
+		if centre.distance_to(player_position) > visual_distance:
 			continue
 		active_wards[key] = true
 		if not _ward_visuals.has(key):
@@ -565,7 +583,7 @@ func _sync_visuals(player_position: Vector3) -> void:
 	for key in _sense_targets:
 		var target := Vector3i(_sense_targets[key]["position"])
 		var centre := Vector3(target) + Vector3.ONE * 0.5
-		if centre.distance_to(player_position) > VISUAL_DISTANCE:
+		if centre.distance_to(player_position) > visual_distance:
 			_remove_visual(_sense_visuals, str(key))
 		elif not _sense_visuals.has(key):
 			_sense_visuals[key] = _create_sense_visual(centre)

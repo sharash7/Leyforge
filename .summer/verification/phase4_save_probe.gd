@@ -2,6 +2,7 @@ extends Node
 
 var failures: Array[String] = []
 var checks := 0
+var migration_checks := 0
 @onready var main: Node3D = $Main
 
 
@@ -11,6 +12,12 @@ func _ready() -> void:
 
 func _check(condition: bool, message: String) -> void:
 	checks += 1
+	if not condition:
+		failures.append(message)
+
+
+func _migration_check(condition: bool, message: String) -> void:
+	migration_checks += 1
 	if not condition:
 		failures.append(message)
 
@@ -74,7 +81,9 @@ func _run() -> void:
 	main._save_game()
 
 	var saved: Dictionary = main._read_save()
-	_check(int(saved.get("version", 0)) == 12, "atomic save did not write save version 12")
+	_check(int(saved.get("version", 0)) == 14, "atomic save did not write save version 14")
+	_check(main.validate_save_integrity(saved),
+		"atomic save omitted or failed its Stage 9 payload integrity record")
 	_check(saved.get("hamlet", {}) is Dictionary and not saved.get("hamlet", {}).is_empty(),
 		"atomic save omitted authoritative hamlet state")
 	_check(saved.get("item_drops", []) is Array and saved.get("item_drops", []).size() == 1,
@@ -122,6 +131,43 @@ func _run() -> void:
 	var rowan_position: Array = HamletState.get_npc_record(rowan_id).get("position", [])
 	_check(rowan_position.size() == 3 and is_equal_approx(float(rowan_position[0]), 12.5),
 		"NPC runtime position did not survive the full main save/apply path")
+	var v13_fixture: Dictionary = saved.duplicate(true)
+	v13_fixture["version"] = 13
+	v13_fixture.erase("integrity")
+	v13_fixture.erase("save_manifest")
+	var v13_hamlet: Dictionary = v13_fixture.get("hamlet", {}).duplicate(true)
+	v13_hamlet["version"] = 2
+	v13_hamlet.erase("runtime_projects")
+	v13_hamlet.erase("runtime_buildings")
+	v13_hamlet.erase("runtime_plans")
+	v13_hamlet.erase("active_project_instance_id")
+	var v13_project: Dictionary = v13_hamlet.get("project", {}).duplicate(true)
+	v13_project["id"] = "project.watchtower.basic"
+	v13_project["schema_version"] = 2
+	for generic_key in [
+		"instance_id", "definition_id", "building_definition_id",
+		"blueprint_id", "owner_id", "history",
+	]:
+		v13_project.erase(generic_key)
+	v13_hamlet["project"] = v13_project
+	v13_fixture["hamlet"] = v13_hamlet
+	var migrated_v13: Dictionary = main._migrate_save(v13_fixture)
+	_migration_check(int(migrated_v13.get("version", 0)) == 14
+			and int(migrated_v13.get("save_manifest", {}).get(
+				"migrated_from", 0)) == 13,
+		"version-13 save did not migrate to version 14")
+	main._apply_save(migrated_v13)
+	_migration_check(str(HamletState.project.get("definition_id", ""))
+			== "project.build.wooden_watchtower"
+			and str(HamletState.project.get("stage", "")) == "frame"
+			and HamletState.warehouse_count_ref(masonry_ref) == 7,
+		"version-13 migration changed watchtower progress or warehouse stock")
+	var migrated_rowan: Array = HamletState.get_npc_record(
+		rowan_id).get("position", [])
+	_migration_check(migrated_rowan.size() == 3
+			and is_equal_approx(float(migrated_rowan[0]), 12.5)
+			and CombatState.phase == "assault",
+		"version-13 migration changed NPC or raid state")
 	hud._open_mode("request_board", world.get_hamlet_station_position("request_board"))
 	hud._refresh_all()
 	_check(hud._request_buttons.size() == HamletState.request_order.size()
@@ -139,7 +185,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v10.get("version", 0)) == 12
+		int(migrated_v10.get("version", 0)) == 14
 			and migrated_v10.get("combat", {}) is Dictionary,
 		"version-10 saves did not migrate to the Stage 8 save contract")
 	var migrated_v9: Dictionary = main._migrate_save({
@@ -148,7 +194,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v9.get("version", 0)) == 12
+		int(migrated_v9.get("version", 0)) == 14
 			and migrated_v9.get("combat", {}) is Dictionary,
 		"version-9 saves did not migrate to the combat save contract")
 	var migrated_v8: Dictionary = main._migrate_save({
@@ -157,7 +203,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v8.get("version", 0)) == 12
+		int(migrated_v8.get("version", 0)) == 14
 			and migrated_v8.get("magic_player", {}) is Dictionary,
 		"version-8 saves did not migrate to the magic save contract")
 	var migrated_v7: Dictionary = main._migrate_save({
@@ -166,7 +212,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v7.get("version", 0)) == 12
+		int(migrated_v7.get("version", 0)) == 14
 			and migrated_v7.get("item_drops", []) is Array
 			and migrated_v7.get("block_entities", {}) is Dictionary,
 		"version-7 saves did not migrate to the automation save contract")
@@ -187,6 +233,7 @@ func _run() -> void:
 	var result := {
 		"ok": failures.is_empty(),
 		"checks": checks,
+		"migration_checks": migration_checks,
 		"version": saved.get("version", 0),
 		"failures": failures,
 	}

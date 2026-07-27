@@ -70,6 +70,7 @@ func reset() -> void:
 		"toggle_sprint": false,
 		"aim_assist": 0.25,
 		"notification_preset": "standard",
+		"quality_profile": "balanced",
 	}
 	completed_hints.clear()
 	discovered_anchors = {"spawn": true}
@@ -96,6 +97,9 @@ func set_setting(key: String, value: Variant) -> bool:
 				return false
 		"notification_preset":
 			if str(value) not in ["quiet", "standard", "detailed"]:
+				return false
+		"quality_profile":
+			if str(value) not in ["performance", "balanced", "quality"]:
 				return false
 	settings[key] = value
 	settings_changed.emit()
