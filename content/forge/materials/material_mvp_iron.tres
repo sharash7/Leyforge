@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ForgeMaterialDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_material_definition.gd" id="1_qledh"]
+
+[resource]
+script = ExtResource("1_qledh")
+material_id = "material.mvp.iron"
+display_name = "MVP Iron"
+family = "metal"
+roughness_default = 0.48
+metallic_default = 0.72
+overlay_compatibility = PackedStringArray("damage", "wet", "corruption", "warning")
+animation_parameters = PackedStringArray("emission_strength", "flow_strength")

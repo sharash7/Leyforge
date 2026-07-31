@@ -1,10 +1,9 @@
 # Leyforge POC Manual Testing Guide
 
-Version: 0.1  
-Last updated: 25 July 2026
-Current implementation target: Stage 9 hardening and POC release candidate -
-save integrity/recovery, scalability, diagnostics, release gates, and an
-official-template Windows package
+Version: 0.3
+Last updated: 28 July 2026
+Current implementation target: Post-POC Feature Stage B - living Camp-to-City
+settlements, safe construction, worldgen v5 / regional plan v4, and save v17.
 
 ## 1. Purpose and Maintenance Rule
 
@@ -123,8 +122,8 @@ this document.
   consequences, and follow-up repair.
 - UI/text scale, captions, high contrast, reduced motion, reduced flashes,
   toggle sprint, controller aim assist, HUD/tutorial/notification presets, and
-  keyboard/controller rebinding preview immediately and persist in version-13
-  saves.
+  keyboard/controller rebinding preview immediately and persist in the global
+  player profile.
 - Controller defaults cover analogue movement/look, jump, sprint, primary use,
   interact, crafting, inventory, guide, map, village, item/skill-bar switching,
   slot cycling, focus navigation, and back.
@@ -153,6 +152,84 @@ this document.
   automation conservation regression, NPC promotion/demotion soak,
   controller/accessibility/localisation readiness, and official package
   execution.
+
+### Post-POC Feature Stage A - Regional Multi-World Generation
+
+- The project starts at a keyboard, mouse, and controller-focusable main menu.
+  Continue opens the latest playable world; Worlds keeps incompatible or
+  unrecoverable cards visible without allowing them to be overwritten.
+- Each world has an isolated directory under `user://worlds/<world_id>/` with
+  metadata plus final, previous, backup, and temporary save candidates.
+- On first launch, the old single save and its recovery candidates are copied,
+  never moved or deleted, into a card named **Legacy World**. That world stays
+  on worldgen v2 / ValleyPlan v1.
+- New worlds use save v16, worldgen v4, and regional plan v3. A blank seed creates
+  a new unused positive 31-bit seed; signed numbers are accepted directly;
+  case-sensitive UTF-8 text is deterministically hashed after trimming.
+- New-world sites are derived from the seed, structure type, and signed
+  structure-region coordinates. Hamlets, camps, ruins, cave entrances, mana
+  pockets, and major resource fields continue across positive and negative
+  chunks with type-specific spacing and hard minimum separation.
+- The testing default is `nearby_discovery`: wilderness spawn plus independently
+  sampled base, water, cave, hamlet, ruin, mana, resource, camp, raid, ecology,
+  biome, and road relationships. The manifest preserves this starter mode so a
+  later default can use `pure_wilderness` without changing existing worlds.
+- Each discovered or streamed hamlet becomes an ID-scoped settlement with its
+  own NPC namespace, warehouse, requests, projects, reputation, combat, linked
+  camps, simulation time, and persistence. Unvisited sites remain derivable.
+- A seed that fails its starter contract is blocked with the exact resolved seed
+  and structured validation reasons. Worldgen v4 has no historical-layout
+  fallback.
+- Settings, accessibility, performance profile, notifications, and bindings
+  live in an atomic backed-up `user://profile.json`. Tutorials, discoveries,
+  map pins, inventory, settlement, combat, magic, and progression stay inside
+  their world.
+- Pause now offers **Save and Return to Main Menu**. Gameplay only closes after
+  both the atomic world save and world-card metadata update succeed.
+
+### Post-POC Feature Stage B - Living Settlements and Safe Construction
+
+- Only newly created worlds use worldgen v5 / regional plan v4. Generated
+  settlement sites retain the compatible `hamlet` site type but materialise as
+  three-adult Camps with two connected tents, four reachable beds, a campfire,
+  supply yard, request point, and route graph. Worldgen v2-v4 saves keep their
+  original algorithms, coordinates, plan identities, and structures.
+- Save v17 persists residents, households, ages, beds, jobs, personal
+  inventories, carried stacks, equipment, tasks, transaction histories,
+  surveys, routes, work packages, parcel claims, edit provenance, and logical
+  door state. Existing save versions continue through the migration chain
+  without retroactive excavation or terrain regeneration.
+- Residents use the settlement route graph for long travel and a bounded local
+  voxel path for final approach. They step or visibly jump one-block rises,
+  avoid water, pits, two-block walls, unloaded terrain, and unsafe falls, and
+  return to their last safe route node after persistent path failure.
+- Directional player placement applies a 180-degree yaw around world Y so the
+  front of a placed object faces the player. Blueprint door tokens compile to
+  two-block doors with facing, hinge, collision, open state, actor access, and
+  save/reload behaviour shared by both halves.
+- Every new project begins with a deterministic terrain survey. The survey
+  exposes clearance, rotation, base elevation, cut/fill, vegetation, water or
+  support mode, collisions, protected player edits, route, tool tiers,
+  expected drops, validation reasons, and stable hashes before construction.
+- Construction is compiled into route, clearing, excavation/foundation,
+  authored blueprint, and validation work packages. Workers reserve stock,
+  travel to storage, carry tools and materials, work at a loaded reachable
+  parcel, collect excavation drops, and deposit outputs. No progress or
+  resources are consumed while a route, door, tool, stock, inventory, terrain,
+  or loaded-chunk requirement is invalid.
+- Crude, stone, and the existing canonical iron shovel form a shared excavation
+  ladder. Shovels work soil-like blocks, pickaxes work stone and ore, and axes
+  remove logs and leaves with shared level, durability, speed, and drop rules.
+- Population is evaluated deterministically from functional reachable beds,
+  adult job markers, provisions, safety, and needs. Migration, household
+  formation, 14-day gestation, child age bands, three-day settlement migration
+  cooldown, and 60-day adulthood are visible and persisted. Every resident has
+  a stable residence and bed; damaged housing displaces residents and blocks
+  growth.
+- The project interface exposes every one of the 120 catalogue projects and 13
+  plans with exact blockers. Required next-stage projects appear before
+  promotion, and completion of the watchtower immediately recalculates
+  housing, jobs, routes, safety, capability, and player-priority proposals.
 
 ### Current Visual Model Pass
 
@@ -206,10 +283,17 @@ final art style or external asset pack.
 ## 3. Starting a Test
 
 1. Open `D:\AI\Projects\leyforge` in Summer.
-2. Run the project or open and run `res://main.tscn`.
-3. For a completely fresh world, launch the project with the user argument
-   `--new-world`. Keep a backup of any save you care about first.
-4. Wait for the world and HUD to appear before moving.
+2. Select the scene required for the current test in Summer. Use
+   `res://main_menu.tscn` for menu/world lifecycle testing,
+   `res://main.tscn` for the gameplay-owned POC scene, or a directly runnable
+   development scene such as the Village Progression Lab. The development
+   startup selection is intentionally swappable and is not pinned by a gate.
+3. Use **Continue** for the latest playable world, **Worlds** to inspect every
+   card, or **New World** to create a regional world.
+4. Enter a world name. Leave Seed blank for a random seed, press **Reroll** to
+   preview another one, or enter a signed number or case-sensitive text.
+5. Confirm the resolved seed, regional plan ID, and validation result, then choose
+   **Create and Load World**. Wait for the world and HUD before moving.
 
 ### Opening the Visual Test Room
 
@@ -222,16 +306,108 @@ replace or modify the normal game save.
 4. Stop that scene when finished. Press **F5** to run the normal
    `main.tscn` game again.
 
-Do not use **Project Settings > Main Scene** for routine inspection. F6 is the
-safe scene-only switch and avoids accidentally making the test room the
-shipped startup scene.
+F6 remains the quickest scene-only test. Summer's startup-scene switch may also
+be used when its integrated runner needs a scene selected as the project
+target; remember to choose the desired menu or gameplay scene for that test.
 
-The Windows save is normally under:
+### Opening the Village Progression Lab
 
-`%APPDATA%\Godot\app_userdata\Leyforge\leyforge_save.json`
+The progression lab is a separate editor/F6 scene. It never selects a normal
+world and stores optional snapshots only below
+`user://development/village_progression_lab/`.
 
-Do not delete that file unless you intentionally want to discard the current
-world. The game also maintains recovery/backup files beside it.
+1. Open `res://development/village_progression_lab.tscn`.
+2. Press **F6**. The lab starts beside the selected settlement in first-person
+   exploration mode. Confirm **WASD**, mouse look, jump, and sprint work, then
+   walk far enough to see voxel chunks stream around the production player.
+   Confirm the normal HUD, hotbar, inventory, full humanoid, raid runtime, and
+   three labelled, equipped, moving founding resident actors are present.
+3. Press **F1** to open the diagnostic panel. Movement locks and the mouse is
+   released while the panel is open. Press **F1** or **Escape** to return to
+   exploration. With the diagnostic panel closed, **Escape** retains its
+   normal pause-screen behaviour.
+4. Follow the persistent **TEST QUEST** overlay. In diagnostics, use
+   **Verify Objective** after completing its automatic requirements and
+   **Mark Visual Check** after completing the requested inspection. Previous
+   and Next browse the guide without falsely marking an objective complete.
+5. Use **Travel To Selected** or **Return To Lab Center** when moving quickly
+   between the two plots. These controls also move the chunk-streaming focus.
+6. Switch Settlement between the two stable IDs and confirm warehouse,
+   residents, projects, reputation, buildings, plans, and history remain
+   isolated. Each plot must promote its own namespaced residents; no
+   actor from the other settlement may remain.
+7. Select each deliberate **Flat**, **Wooded**, **Steep**, **Water Edge**, and
+   **Player Obstructed** parcel. Rotate through four yaws, inspect the real
+   survey, route, clearance, cut/fill, vegetation, tool/drop, and collision
+   records, and verify that player overlap requires a separate confirmation.
+8. Test every capability preset from Camp through Magical Metropolis. Projects
+   must use the real survey, route, excavation, inventory, population, door,
+   project, and serializer interfaces. Also run watchtower compatibility,
+   cottage/growth, full capability ladder, and damaged megaproject presets.
+9. Select projects and use exact or chosen-resource grants, reserve, advance one
+   block or stage, finish, cancel, damage, repair, and activation controls.
+   Watch the worker travel to storage and the parcel, carry stock and tools,
+   deposit excavation drops, and place real blueprint voxels. Press **C** while
+   exploring to use the complete creative catalogue.
+10. Select a district, complex, or megaproject. Reserve and advance components,
+   then inspect prerequisite, reservation, activation, damage, repair, and
+   history records.
+11. Force migration, household formation, birth, age advancement, job
+   assignment, eviction, and re-housing. Confirm every resident retains a
+   reachable residence/bed, personal inventory, equipment, and transaction
+   history, and that children never occupy adult jobs.
+12. Switch near/far simulation, advance 60 minutes, and inspect the transaction
+   result, services, needs, jobs, storage, residents, and capability gates.
+13. Save the lab snapshot, change both plots, reload, and confirm the saved
+   records and voxel edits return without creating or changing a world card.
+   The active quest and completed milestones must also return.
+14. Use Reset Lab and confirm both isolated plots and the quest guide return to
+   their initial state.
+
+The built-in Camp-to-Magical-Metropolis certification quest covers these 31
+objectives in order:
+
+1. Meet and interact with the three founding residents.
+2. Inspect the camp foundation, jobs, needs, supplies, and capability gate.
+3. Equip the real player through the complete creative catalogue.
+4. Survey the five construction parcels and confirm protected overlap.
+5. Build a traversable access route and complete cut/fill or excavation.
+6. Verify tool tiers, personal inventories, hauling, durability, and deposits.
+7. Admit the first migrant through spare-bed and suitable-job gates.
+8. Build permanent housing, test displacement/re-housing, and promote.
+9. Open, close, traverse, obstruct, and reload a logical two-block door.
+10. Form a household, begin a birth, and advance every child age band.
+11. Complete the watchtower and confirm new proposals immediately continue.
+12. Stock and inspect settlement storage, requests, and reservations.
+13. Grow and visually inspect the Hamlet.
+14. Create, supply, survey, place, and reserve a construction project.
+15. Perform route, terrain, and authored voxel work through real tasks.
+16. Cancel a project and inspect resource, claim, and history recovery.
+17. Grow and inspect the Village service set.
+18. Damage, repair, deactivate, and reactivate a building.
+19. Grow and inspect the Fortified Village defence set.
+20. Operate a Town in near simulation and inspect conserved transactions.
+21. Run the same settlement in deterministic far simulation.
+22. Run the automation production and delivery loop.
+23. Run the mana production, network, and ward loop.
+24. Build and walk the full City service and district set.
+25. Grow and inspect Capital governance and high-tier services.
+26. Create, reserve, and advance a district, complex, or megaproject plan.
+27. Damage and restore a plan component and inspect partial activation.
+28. Launch, fight, resolve, and inspect a real settlement raid.
+29. Visit the second settlement and prove all runtime state is isolated.
+30. Save, mutate, and reload the isolated lab snapshot.
+31. Load the Magical Metropolis and damaged-megaproject presets, inspect the
+    complete capability ladder, and record remaining defects.
+
+The Windows world root is normally under:
+
+`%APPDATA%\Godot\app_userdata\Leyforge\worlds\`
+
+The legacy single save remains at
+`%APPDATA%\Godot\app_userdata\Leyforge\leyforge_save.json`; first-launch import
+copies it and its recovery files without deleting them. Global settings are in
+`profile.json`. Do not manually alter these files during a normal playtest.
 
 ## 4. Controls
 
@@ -253,6 +429,7 @@ world. The game also maintains recovery/backup files beside it.
 | C | Open/close creative testing catalogue |
 | 1-9 | Select a slot on the active item/skill bar |
 | Mouse wheel | Cycle the active item/skill bar |
+| F1 (Village Progression Lab) | Toggle diagnostic controls/exploration |
 | Tab | Open/close the current Guide |
 | I | Open/close Inventory |
 | M | Open/close the discovered local Map |
@@ -807,8 +984,65 @@ Test these checkpoints independently:
   version 13.
 - A disposable corrupted final save has recovered from its valid backup.
 - The selected Stage 9 performance profile has persisted.
+- Two same-seed worlds retain different inventory, settlement, combat, map,
+  and progression state while sharing the same accessibility and controls.
+- Save v16 reload reproduces the resolved seed, regional plan/config hashes,
+  generated/discovered sites, independent settlement records, voxel edits,
+  system state, and per-world knowledge exactly.
 
 After reload, inspect both visible state and quantities.
+
+### 8.1 Regional Multi-World Smoke Test
+
+1. On the main menu, change High Contrast, UI Scale, Performance Profile, and
+   one disposable keyboard/controller binding. Return to the menu pages and
+   confirm each change remains.
+2. Create **Random A** with a blank seed. Record its starter mode, resolved seed,
+   plan ID, site-plan hash, placement-rule hash, and regional config ID. Visit
+   spawn, hamlet, warehouse/watchtower, base, water, cave, resource area, rune
+   ruin, mana pocket, camp/spawner, and raid approach.
+3. Confirm the spawn is safe and dry; critical sites are buildable; the cave
+   is open; roads connect the required loop; resources are reachable; and no
+   structures overlap.
+4. Gather and craft, change inventory, discover a map landmark, advance one
+   village request, interact with automation and magic, and begin or complete
+   a raid. Save and return to the menu.
+5. Travel far enough in Random A to discover a second generated hamlet and at
+   least one non-starter camp, ruin, cave, mana pocket, and resource field.
+   Confirm their positions and rotations do not repeat the starter constellation.
+   Change the distant hamlet's warehouse, project, reputation, and raid state,
+   then return to the first hamlet and confirm it is unchanged.
+6. Cross both positive and negative chunk coordinates. Confirm sites continue
+   to appear with valid spacing, terrain, IDs, variants, and no duplicated
+   structure where a footprint crosses a chunk border.
+7. Create **Random B** with a different blank seed. Confirm the layout visibly
+   differs and none of Random A's inventory, map, settlement, combat, magic, or
+   progression state appears. Confirm the global settings and binding do.
+8. Create **Custom Numeric** with `-42` and **Custom Text** with
+   `Leyforge Test`. Recreate each entry in a disposable profile and confirm its
+   resolved seed and plan ID are identical.
+9. Load Random A again. Confirm every edit and both settlement records return
+   exactly. Repeat Save and Return to Main Menu.
+10. Inspect **Worlds**. Confirm every card shows name, original/resolved seed,
+   last played, playtime, save/worldgen/plan versions, profile, plan ID, and
+   save health. An intentionally damaged disposable world must remain visible
+   and disabled rather than starting fresh.
+11. If a seed is blocked, record the exact seed and every validation reason.
+   Never treat a fallback layout as an acceptable randomized-world result.
+
+Automated development runs use
+`current_worldgen_fast_probe.tscn` for 256 plans. Pass
+`--worldgen-seeds=10000` after `--` for the extended suite.
+`current_worldgen_runtime_probe.tscn` also proves chunk-border generation-order
+identity. `regional_settlement_isolation_probe.tscn`,
+`world_lifecycle_probe.tscn`, `main_menu_probe.tscn`, and
+`village_progression_lab_probe.tscn` cover settlement isolation, save replay,
+startup/profile behavior, and the lab controls, three-founder actor promotion,
+31-objective guide, settlement switching, and snapshot path.
+`stageb_living_settlement_probe.tscn` additionally checks v5/v17 compatibility,
+the Camp contract, shovel tiers, all 120 projects at four rotations, terrain
+surveys, routes, work packages, population, facing, doors, provenance, and
+worldgen-v2/v3/v4 fixture identities.
 
 ## 9. Known Non-Blocking Development Warnings
 
@@ -852,7 +1086,7 @@ chunk readiness, real spawner physics targeting, random timed population caps,
 persistent spawner destruction, loaded raid spawn columns, and structure
 spacing. It supplements rather than replaces the manual checks above.
 
-### Current Automated Baseline - 25 July 2026
+### Historical Automated Baseline - 25 July 2026
 
 The current code passed 489 checks with no probe failures:
 
@@ -881,13 +1115,46 @@ reference i5-9600K/RTX 2080 Ti system: 4.438 ms p95, 16.902 ms maximum, and
 both the 60 fps target and 30 fps fallback guards passed. This remains an
 automated baseline until section 7.10 receives owner sign-off.
 
+### Current Source Gate - 28 July 2026
+
+Run `.summer/verification/run_current_regression_gate.ps1` with the official
+Godot 4.6.3 console executable. It pins the historical 489 checks, all 442
+Document 20 settlement checks, the 256-seed planner suite, historical
+worldgen-v2/v3 compatibility, regional worldgen-v4 runtime worlds,
+multi-settlement and multi-world isolation, the progression lab, and main-menu
+startup and legacy-copy behavior. Record the final check count and extended
+10,000-seed result from the current implementation handoff. The official
+4.6.3 pre-Stage-B source gate passed 4,488 checks across the default 256-seed
+suite. The additive Stage B gate pins 5,018 checks across that same suite.
+The extended regional planner suite passes 130,007 checks across
+10,000 seeds with 9,998 unique starter-layout signatures (99.98%) and 97
+distinct spawn-distance samples. The earlier 2,327-check and 50,005-check
+results describe the superseded v3 Stage A build.
+
 ## 10. Bug Report Template
 
 Copy this block when reporting a manual test failure:
 
 ```text
 Build/commit:
-Save seed:
+World ID:
+World name:
+Seed text/original entry:
+Resolved seed:
+Worldgen version / regional plan version:
+Starter mode:
+Regional config ID:
+Placement-rule hash:
+Site-plan hash / Plan ID:
+Site ID:
+Settlement ID:
+Project / plan ID:
+Survey / route / work-package hash:
+Parcel mode and rotation:
+Edit provenance / claim source:
+Door position / facing / hinge / state:
+Nearby generated-site summary:
+Validation result and reasons:
 Fresh world or existing save:
 Guide section/test:
 Expected:

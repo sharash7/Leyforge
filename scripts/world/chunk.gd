@@ -91,7 +91,13 @@ func create_mesh_snapshot() -> Dictionary:
 			if _world != null else PackedByteArray(),
 		"door_parts": _world.create_chunk_door_part_snapshot(chunk_pos) \
 			if _world != null else PackedByteArray(),
+		"door_states": _world.create_chunk_door_state_snapshot(chunk_pos) \
+			if _world != null else PackedByteArray(),
 		"layers": _world.material_layers if _world != null else PackedInt32Array(),
+		"forge_face_layers": _world.forge_face_layers \
+			if _world != null else PackedInt32Array(),
+		"forge_meshes": _world.forge_mesh_arrays \
+			if _world != null else {},
 		"water_id": _world.id_water if _world != null else 7,
 	}
 

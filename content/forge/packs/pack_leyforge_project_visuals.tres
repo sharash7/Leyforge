@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ForgeContentPackManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_content_pack_manifest.gd" id="1_5iphr"]
+
+[resource]
+script = ExtResource("1_5iphr")
+pack_id = "pack.leyforge.project_visuals"
+display_name = "Leyforge Project Visuals"
+priority = 100
+dependencies = PackedStringArray()
+asset_ids = PackedStringArray("forge_asset.terrain.grass.basic", "forge_asset.construction.brick.stone", "forge_asset.automation.transport.chute", "forge_asset.functional.furnace.stone", "forge_asset.item.tool.crude_pickaxe", "forge_asset.magic.conduit.mana_basic", "forge_asset.automation.crusher.basic")
+override_ids = PackedStringArray()
+provenance_note = "Project-owned 21A-21F MVP golden sources; broader migration is deferred."

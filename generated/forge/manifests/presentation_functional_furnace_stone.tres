@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_f802x"]
+
+[resource]
+script = ExtResource("1_f802x")
+asset_id = "forge_asset.functional.furnace.stone"
+presentation_id = "presentation.functional.furnace.stone"
+source_revision = 1
+source_hash = "6c2c132b245dad8b3adc7b3e59a7420919db607adc60ae3a3f9537294afb9ad4"
+engine_version = "4.6.3-stable (official)"
+baker_version = "forge-pipeline-v7"
+products = Array[Dictionary]([{
+"hash": "9d3f4f3d0d18bb922c796ac12619d3afdcb4557e078e7a7929a129ff00d34483",
+"path": "res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation_mesh.res",
+"type": "mesh"
+}, {
+"hash": "10c29c1239fe51badbcb013764d94e72da7127a14acb030f78711cee8da06b96",
+"path": "res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/icon.png",
+"type": "icon"
+}, {
+"hash": "57d48d095ede17cf0ef9ed46cb681626a593fb9bedf83b79f52df1063d1cc8db",
+"path": "res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/collision.tres",
+"type": "collision"
+}, {
+"hash": "e9351a23491e270f9c62abf4b7e7e0074eee3056764088c470ba600515b0f787",
+"path": "res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/state_binding.tres",
+"type": "state_binding"
+}, {
+"hash": "44b6acba6e6571a89c1153c1052457d6d9dd59c7ac5031e68b347a228374d71d",
+"path": "res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_000.res",
+"type": "voxel_frame_mesh"
+}, {
+"hash": "cb3667eef6c6c73779f4e8d672c23f62cc241702e07287ad9aae74e5e064fec6",
+"path": "res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res",
+"type": "voxel_frame_mesh"
+}, {
+"hash": "79b7027e174fb071a333d270ddd1ddf2d1b6dcb053d4b88204e9107d6121f47a",
+"path": "res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res",
+"type": "voxel_frame_mesh"
+}, {
+"hash": "104ac6e6f4b54bffc230c0aea629cdcca94f83f2f49d8ea7ed773a1e27564825",
+"path": "res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/animations.tres",
+"type": "animation_library"
+}, {
+"hash": "8f2047bf3292077d4dda98b41e1226834dd71ef64987d6217434ec1d212457bb",
+"path": "res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn",
+"type": "scene"
+}, {
+"hash": "432ce0593470765d38cbfa293dfd02f0588236dbf1e3ae397294e82248990f81",
+"path": "res://generated/forge/packages/presentation_functional_furnace_stone.tres",
+"type": "runtime_package"
+}])
+diagnostics_summary = {
+"critical": 0,
+"error": 0,
+"info": 0,
+"warning": 0
+}
+approved_status = "approved"

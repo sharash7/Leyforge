@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ForgeStateBindingDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="1_bmqjj"]
+
+[resource]
+script = ExtResource("1_bmqjj")
+state_binding_id = "statebinding.automation.transport.chute"
+state_contract_id = "automation.chute"
+bindings = Array[Dictionary]([{
+"actions": [{
+"parameter": "flow_strength",
+"target": "StaticGeometry",
+"type": "material_parameter",
+"value": 1.0
+}],
+"field": "flowing",
+"operator": "equals",
+"value": true
+}, {
+"actions": [{
+"target": "BlockedMarker",
+"type": "visibility",
+"value": true
+}, {
+"cue_id": "automation.blocked",
+"socket": "output",
+"type": "audio_cue"
+}],
+"field": "blocked",
+"operator": "equals",
+"value": true
+}])
+layer_order = PackedStringArray("base", "variant", "environment", "activity", "condition", "critical")

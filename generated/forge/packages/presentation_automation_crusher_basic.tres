@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_i17d7"]
+
+[resource]
+script = ExtResource("1_i17d7")
+presentation_id = "presentation.automation.crusher.basic"
+root_scene_path = "res://generated/forge/products/presentation_automation_crusher_basic/a8d2a7919c77bae1/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_automation_crusher_basic/a8d2a7919c77bae1/presentation_mesh.res"
+material_paths = PackedStringArray()
+collision_path = "res://generated/forge/products/presentation_automation_crusher_basic/a8d2a7919c77bae1/collision.tres"
+animation_library_path = "res://generated/forge/products/presentation_automation_crusher_basic/a8d2a7919c77bae1/animations.tres"
+state_binding_path = "res://generated/forge/products/presentation_automation_crusher_basic/a8d2a7919c77bae1/state_binding.tres"
+icon_path = "res://generated/forge/products/presentation_automation_crusher_basic/a8d2a7919c77bae1/icon.png"
+bounds = AABB(0.09375, 0.0625, 0.01125, 0.8125, 0.875, 0.895)
+socket_map = {
+"item_input": {
+"contract_required": true,
+"direction": [-1.0, 0.0, 0.0],
+"local_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.5, 0.5)]",
+"parent_part_key": "",
+"schema_version": 1,
+"socket_key": "item_input",
+"socket_type": "item_input",
+"tags": []
+},
+"item_output": {
+"contract_required": true,
+"direction": [1.0, 0.0, 0.0],
+"local_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.0, 0.5, 0.5)]",
+"parent_part_key": "",
+"schema_version": 1,
+"socket_key": "item_output",
+"socket_type": "item_output",
+"tags": []
+},
+"work_audio": {
+"contract_required": true,
+"direction": [0.0, 0.0, -1.0],
+"local_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.5, 0.5, 0.5)]",
+"parent_part_key": "",
+"schema_version": 1,
+"socket_key": "work_audio",
+"socket_type": "audio",
+"tags": []
+}
+}
+lod_profile = {
+"far": "iconic",
+"mid": "static",
+"near": "full"
+}
+variant_compatibility = PackedStringArray()
+runtime_metadata = {
+"asset_kind": "compound_machine",
+"authoring_profile": "voxel.standard.machine_2x1",
+"connection_rules": {},
+"face_colors": {},
+"footprint": {
+"allowed_placement_faces": ["floor"],
+"allowed_rotations": [0, 1, 2, 3],
+"anchor_cell": [0, 0, 0],
+"clearance_cells": [],
+"footprint_profile_id": "footprint.presentation.automation.crusher.basic",
+"occupied_cells": [[0, 0, 0]],
+"schema_version": 1,
+"support_required": true
+},
+"gameplay_links": ["automation.crusher.basic"],
+"metrics": {
+"baker_version": "forge-mesh-v2",
+"exposed_faces": 5650,
+"hidden_face_removal": true,
+"occupied_cells": 13216,
+"part_count": 2,
+"triangles": 11300,
+"vertices": 22600
+},
+"representation_profiles": {},
+"runtime_remeshing": false,
+"source_revision": 1,
+"voxel_frame_clips": {}
+}
+product_hash = "be4ed4e5041e3af7b6311533da83ad9cdf1238b4da9fb36d33474da784710b5a"

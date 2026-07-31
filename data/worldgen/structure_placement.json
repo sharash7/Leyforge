@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "algorithm_id": "worldgen.regional_random_spread.v1",
+  "chunk_size": 16,
+  "rules": [
+    {
+      "type_id": "hamlet",
+      "salt": "settlements.hamlet",
+      "spacing_chunks": 32,
+      "separation_chunks": 12,
+      "footprint_blocks": [64, 64],
+      "allowed_biomes": ["plains", "forest"],
+      "terrain": {"dry": true, "maximum_slope": 4},
+      "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
+      "variants": ["crossroads", "fork", "ring", "spine"],
+      "content_template": "world.structure.hamlet.poc_start",
+      "priority": 100
+    },
+    {
+      "type_id": "goblin_camp",
+      "salt": "structures.goblin_camp",
+      "spacing_chunks": 14,
+      "separation_chunks": 6,
+      "footprint_blocks": [24, 22],
+      "allowed_biomes": ["plains", "forest", "desert", "cold"],
+      "terrain": {"dry": true, "maximum_slope": 6},
+      "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
+      "variants": ["palisade", "tents", "supply_ring"],
+      "content_template": "world.structure.goblin_camp.poc",
+      "priority": 80
+    },
+    {
+      "type_id": "rune_ruin",
+      "salt": "structures.rune_ruin",
+      "spacing_chunks": 18,
+      "separation_chunks": 8,
+      "footprint_blocks": [18, 18],
+      "allowed_biomes": ["plains", "forest", "desert", "cold"],
+      "terrain": {"dry": true, "maximum_slope": 7},
+      "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
+      "variants": ["broken_gate", "four_pillars", "sunken_frame"],
+      "content_template": "world.structure.rune_ruin.poc",
+      "priority": 70
+    },
+    {
+      "type_id": "cave_entrance",
+      "salt": "structures.cave_entrance",
+      "spacing_chunks": 8,
+      "separation_chunks": 3,
+      "footprint_blocks": [16, 18],
+      "allowed_biomes": ["plains", "forest", "desert", "cold"],
+      "terrain": {"dry": true, "maximum_slope": 10},
+      "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
+      "variants": ["arch", "cut", "sink"],
+      "content_template": "world.structure.cave_entrance.poc",
+      "priority": 60
+    },
+    {
+      "type_id": "mana_pocket",
+      "salt": "structures.mana_pocket",
+      "spacing_chunks": 20,
+      "separation_chunks": 8,
+      "footprint_blocks": [12, 12],
+      "allowed_biomes": ["plains", "forest", "desert", "cold"],
+      "terrain": {"dry": true, "maximum_slope": 8},
+      "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
+      "variants": ["surface_crystals", "shallow_seam", "stone_circle"],
+      "content_template": "world.structure.mana_pocket.poc",
+      "priority": 50
+    },
+    {
+      "type_id": "resource_field",
+      "salt": "resources.major_field",
+      "spacing_chunks": 8,
+      "separation_chunks": 3,
+      "footprint_blocks": [14, 14],
+      "allowed_biomes": ["plains", "forest", "desert", "cold"],
+      "terrain": {"dry": false, "maximum_slope": 12},
+      "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
+      "variants": ["coal", "copper", "iron", "mixed"],
+      "content_template": "world.structure.resource_field.poc",
+      "priority": 40
+    }
+  ]
+}

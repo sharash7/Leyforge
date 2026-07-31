@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeMaterialDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_material_definition.gd" id="1_3kqj5"]
+
+[resource]
+script = ExtResource("1_3kqj5")
+material_id = "material.mvp.mana"
+display_name = "MVP Mana"
+family = "magic"
+rendering_class = "emissive"
+roughness_default = 0.3
+emission_default = 1.0
+overlay_compatibility = PackedStringArray("damage", "wet", "corruption", "warning")
+animation_parameters = PackedStringArray("emission_strength", "flow_strength")

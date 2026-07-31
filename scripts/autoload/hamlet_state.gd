@@ -27,6 +27,9 @@ const REP_ALLY := "rep.village.trusted_ally"
 const PROJECT_SCHEMA_VERSION := 3
 const DEFAULT_PROJECT_ID := "project.build.wooden_watchtower"
 const DEFAULT_PROJECT_INSTANCE_ID := "project_instance.forest_hamlet.watchtower"
+const ROSTER_MODE_LEGACY := "legacy_hamlet"
+const ROSTER_MODE_CAMP := "stage_b_camp"
+const CAMP_ROSTER_SIZE := 3
 
 # Compatibility surface for existing probes and UI. Its contents are loaded
 # from the immutable project registry; HamletState no longer owns project
@@ -102,6 +105,8 @@ const ROSTER: Array[Dictionary] = [
 
 var world_seed := 0
 var initialized := false
+var active_village_id := VILLAGE_ID
+var roster_mode := ROSTER_MODE_LEGACY
 var hamlet_anchor := Vector2i.ZERO
 var warehouse_anchor := Vector2i.ZERO
 var watchtower_anchor := Vector2i.ZERO
@@ -149,7 +154,7 @@ func _reset_collections() -> void:
 	runtime_projects.clear()
 	runtime_buildings.clear()
 	runtime_plans.clear()
-	active_project_instance_id = DEFAULT_PROJECT_INSTANCE_ID
+	active_project_instance_id = _default_project_instance_id()
 	permissions = {
 		"request_delivery": false,
 		"warehouse_deposit": false,
@@ -161,12 +166,12 @@ func _reset_collections() -> void:
 		DEFAULT_PROJECT_ID)
 	project = {
 		"id": DEFAULT_PROJECT_ID,
-		"instance_id": DEFAULT_PROJECT_INSTANCE_ID,
+		"instance_id": active_project_instance_id,
 		"definition_id": DEFAULT_PROJECT_ID,
 		"building_definition_id": str(
 			project_definition.get("building_id", "")),
 		"blueprint_id": str(project_definition.get("blueprint_id", "")),
-		"owner_id": VILLAGE_ID,
+		"owner_id": active_village_id,
 		"name": str(project_definition.get(
 			"display_name", "Forest Watchtower")),
 		"schema_version": PROJECT_SCHEMA_VERSION,
@@ -182,6 +187,12 @@ func _reset_collections() -> void:
 		"history": [],
 	}
 	runtime_projects[active_project_instance_id] = project
+
+
+func _default_project_instance_id() -> String:
+	if active_village_id == VILLAGE_ID:
+		return DEFAULT_PROJECT_INSTANCE_ID
+	return "%s.project.watchtower" % active_village_id
 
 
 func _load_project_contract(requested_id: String) -> bool:
@@ -210,13 +221,29 @@ func _load_project_contract(requested_id: String) -> bool:
 	return not PROJECT_STAGES.is_empty()
 
 
-func initialize(seed_value: int, anchors: Dictionary) -> void:
+func initialize(
+		seed_value: int,
+		anchors: Dictionary,
+		settlement_id: String = VILLAGE_ID,
+		requested_roster_mode: String = ROSTER_MODE_LEGACY) -> void:
+	var expected_roster_size := (
+		CAMP_ROSTER_SIZE
+		if requested_roster_mode == ROSTER_MODE_CAMP
+		else ROSTER.size())
 	if initialized and world_seed == seed_value \
-			and npc_records.size() == ROSTER.size() \
+			and active_village_id == settlement_id \
+			and roster_mode == requested_roster_mode \
+			and npc_records.size() == expected_roster_size \
 			and warehouse_slots.size() == WAREHOUSE_SIZE \
 			and not requests.is_empty():
 		return
 	world_seed = seed_value
+	active_village_id = settlement_id if not settlement_id.is_empty() \
+		else VILLAGE_ID
+	roster_mode = (
+		requested_roster_mode
+		if requested_roster_mode in [ROSTER_MODE_LEGACY, ROSTER_MODE_CAMP]
+		else ROSTER_MODE_LEGACY)
 	initialized = true
 	hamlet_anchor = _anchor_from(anchors, "hamlet")
 	warehouse_anchor = _anchor_from(anchors, "warehouse")
@@ -242,13 +269,29 @@ func _anchor_from(anchors: Dictionary, key: String) -> Vector2i:
 
 
 func _create_roster() -> void:
-	for definition in ROSTER:
+	var definitions: Array[Dictionary] = ROSTER
+	if roster_mode == ROSTER_MODE_CAMP:
+		definitions = []
+		for index in CAMP_ROSTER_SIZE:
+			definitions.append(ROSTER[index])
+	for definition in definitions:
 		var offset: Vector2i = definition["offset"]
 		var home := hamlet_anchor + offset
 		var work := _work_anchor_for(str(definition["job_id"]), home)
-		npc_records[str(definition["id"])] = {
-			"id": str(definition["id"]),
-			"name": str(definition["name"]),
+		var npc_id := _npc_id_for_definition(definition)
+		var resident_index := definitions.find(definition)
+		var residence_index := mini(1, floori(float(resident_index) / 2.0))
+		var residence_id := "%s.residence.%s.%d" % [
+			active_village_id,
+			"tent" if roster_mode == ROSTER_MODE_CAMP else "legacy",
+			residence_index,
+		]
+		npc_records[npc_id] = {
+			"record_type": "Resident",
+			"version": 1,
+			"id": npc_id,
+			"resident_id": npc_id,
+			"name": _npc_name_for_definition(definition),
 			"job_id": str(definition["job_id"]),
 			"job": str(definition["job"]),
 			"color": definition["color"].to_html(),
@@ -271,7 +314,152 @@ func _create_roster() -> void:
 				"work_access": 1.0,
 			},
 			"last_dialogue": "",
+			"age_days": 7200 + int(
+				ValleyPlan.derive_seed(world_seed, npc_id) % 9000),
+			"age_band": "adult",
+			"household_id": "%s.household.%d" % [
+				active_village_id, residence_index],
+			"residence_id": residence_id,
+			"bed_id": "%s.bed.%d" % [residence_id, resident_index % 2],
+			"displaced": false,
+			"personal_inventory": [],
+			"equipment": {},
+			"current_task": {},
+			"carried_stack": {},
+			"source_storage_id": "",
+			"destination": [],
+			"transaction_history": [],
+			"secondary_roles": (
+				["leadership", "food", "hauling"]
+				if resident_index == 0 else
+				["building", "hauling"]
+				if resident_index == 1 else
+				["food", "hauling", "building"]),
 		}
+		npc_records[npc_id]["personal_inventory"] = _empty_slots(8)
+		var equipment := _starting_equipment_for(
+			str(definition["job_id"]), resident_index)
+		npc_records[npc_id]["equipment"] = equipment
+
+
+func _starting_equipment_for(job_id: String, resident_index: int) -> Dictionary:
+	var stable_id: String = str({
+		"job.builder.basic": "item.tool.hammer_basic",
+		"job.farmer.basic": "item.tool.hoe_basic",
+		"job.guard.militia": "item.weapon.iron_sword",
+		"job.mage.apprentice": "item.weapon.apprentice_staff",
+		"job.miner.basic": "item.tool.stone_pickaxe",
+		"job.lumberjack.basic": "item.tool.stone_axe",
+	}.get(job_id, ""))
+	if roster_mode == ROSTER_MODE_CAMP and resident_index == 2:
+		stable_id = "item.tool.shovel_crude"
+	if stable_id.is_empty():
+		return {}
+	return {
+		"primary": Inventory.serialize_stack(Inventory.make_stack_from_ref({
+			"kind": "item",
+			"stable_id": stable_id,
+			"count": 1,
+		})),
+	}
+
+
+func add_resident(record_value: Dictionary) -> bool:
+	var resident_id := str(record_value.get(
+		"resident_id", record_value.get("id", "")))
+	if resident_id.is_empty() or npc_records.has(resident_id):
+		return false
+	var record := record_value.duplicate(true)
+	record["record_type"] = "Resident"
+	record["version"] = 1
+	record["id"] = resident_id
+	record["resident_id"] = resident_id
+	record["personal_inventory"] = record.get(
+		"personal_inventory", _empty_slots(8)).duplicate(true)
+	record["equipment"] = record.get("equipment", {}).duplicate(true)
+	record["current_task"] = record.get("current_task", {}).duplicate(true)
+	record["carried_stack"] = record.get("carried_stack", {}).duplicate(true)
+	record["transaction_history"] = record.get(
+		"transaction_history", []).duplicate(true)
+	npc_records[resident_id] = record
+	npc_changed.emit(resident_id)
+	state_changed.emit()
+	return true
+
+
+func update_resident_runtime(resident_id: String, changes: Dictionary) -> bool:
+	if not npc_records.has(resident_id):
+		return false
+	var record: Dictionary = npc_records[resident_id]
+	for field in [
+		"personal_inventory", "equipment", "current_task", "carried_stack",
+		"source_storage_id", "destination", "transaction_history",
+		"residence_id", "bed_id", "household_id", "displaced",
+		"age_days", "age_band", "job_id", "job", "job_assignment_id",
+		"work", "home",
+	]:
+		if changes.has(field):
+			record[field] = changes[field]
+	npc_records[resident_id] = record
+	npc_changed.emit(resident_id)
+	state_changed.emit()
+	return true
+
+
+func _ensure_resident_fields(resident_id: String, record: Dictionary) -> Dictionary:
+	var result := record.duplicate(true)
+	var stable_index := maxi(0, get_npc_ids().find(resident_id))
+	var residence_index := mini(3, floori(float(stable_index) / 2.0))
+	var residence_id := str(result.get(
+		"residence_id", "%s.residence.legacy.%d" % [
+			active_village_id, residence_index]))
+	result["record_type"] = "Resident"
+	result["version"] = 1
+	result["id"] = resident_id
+	result["resident_id"] = resident_id
+	result["age_days"] = maxi(0, int(result.get("age_days", 7200)))
+	result["age_band"] = str(result.get("age_band", "adult"))
+	result["household_id"] = str(result.get(
+		"household_id", "%s.household.%d" % [
+			active_village_id, residence_index]))
+	result["residence_id"] = residence_id
+	result["bed_id"] = str(result.get(
+		"bed_id", "%s.bed.%d" % [residence_id, stable_index % 2]))
+	result["displaced"] = bool(result.get("displaced", false))
+	result["personal_inventory"] = result.get(
+		"personal_inventory", _empty_slots(8)).duplicate(true)
+	result["equipment"] = result.get("equipment", {}).duplicate(true)
+	result["current_task"] = result.get("current_task", {}).duplicate(true)
+	result["carried_stack"] = result.get("carried_stack", {}).duplicate(true)
+	result["source_storage_id"] = str(result.get("source_storage_id", ""))
+	result["destination"] = result.get("destination", []).duplicate(true)
+	result["transaction_history"] = result.get(
+		"transaction_history", []).duplicate(true)
+	return result
+
+
+func _npc_id_for_definition(definition: Dictionary) -> String:
+	if active_village_id == VILLAGE_ID:
+		return str(definition["id"])
+	var role := str(definition.get("job_id", "resident")) \
+		.replace("job.", "").replace(".", "_")
+	return "%s.npc.%s" % [active_village_id, role]
+
+
+func _npc_name_for_definition(definition: Dictionary) -> String:
+	if active_village_id == VILLAGE_ID:
+		return str(definition["name"])
+	var suffix := ValleyPlan.derive_seed(
+		world_seed, "%s:%s" % [
+			active_village_id, definition.get("job_id", "")]) % 997
+	return "%s %03d" % [str(definition["name"]), suffix]
+
+
+func get_npc_id_for_job(job_id: String) -> String:
+	for npc_id in npc_records:
+		if str(npc_records[npc_id].get("job_id", "")) == job_id:
+			return str(npc_id)
+	return ""
 
 
 func _work_anchor_for(job_id: String, fallback: Vector2i) -> Vector2i:
@@ -438,7 +626,17 @@ func get_clock_text() -> String:
 func get_npc_ids() -> Array[String]:
 	var ids: Array[String] = []
 	for definition in ROSTER:
-		ids.append(str(definition["id"]))
+		var npc_id := _npc_id_for_definition(definition)
+		if npc_records.has(npc_id):
+			ids.append(npc_id)
+	# Preserve any future or migrated residents that are not part of the
+	# founding roster without changing the historical roster ordering.
+	var additional_ids: Array[String] = []
+	for npc_id in npc_records:
+		if str(npc_id) not in ids:
+			additional_ids.append(str(npc_id))
+	additional_ids.sort()
+	ids.append_array(additional_ids)
 	return ids
 
 
@@ -556,6 +754,18 @@ func get_npc_target(npc_id: String) -> Vector2:
 			float(warehouse_anchor.x) + 0.5 + float(shelter_hash % 3 - 1),
 			float(warehouse_anchor.y) + 0.5
 				+ float(int(shelter_hash / 7) % 3 - 1))
+	var current_task: Dictionary = record.get("current_task", {})
+	var task_status := str(current_task.get("status", ""))
+	var destination: Array = current_task.get("destination", [])
+	if task_status in ["reserved", "traveling", "active"] \
+			and destination.size() >= 2:
+		if destination.size() >= 3:
+			return Vector2(
+				float(destination[0]) + 0.5,
+				float(destination[2]) + 0.5)
+		return Vector2(
+			float(destination[0]) + 0.5,
+			float(destination[1]) + 0.5)
 	var state := str(record.get("schedule_state", "work"))
 	var source: Array = record.get("home", [hamlet_anchor.x, hamlet_anchor.y])
 	if state == "work":
@@ -935,7 +1145,7 @@ func _activate_project_building() -> void:
 		"instance_id": instance_id,
 		"definition_id": definition_id,
 		"blueprint_id": str(project.get("blueprint_id", "")),
-		"owner_id": str(project.get("owner_id", VILLAGE_ID)),
+		"owner_id": str(project.get("owner_id", active_village_id)),
 		"condition": clampf(float(existing.get("condition", 1.0)), 0.0, 1.0),
 		"staffing": clampf(float(existing.get("staffing", 1.0)), 0.0, 1.0),
 		"inputs_available": clampf(
@@ -956,7 +1166,9 @@ func create_project_instance(
 		definition_id: String,
 		instance_id: String,
 		position: Array,
-		owner_id: String = VILLAGE_ID) -> Dictionary:
+		owner_id: String = "") -> Dictionary:
+	if owner_id.is_empty():
+		owner_id = active_village_id
 	var canonical := SettlementContentRegistry.canonical_id(definition_id)
 	var definition := SettlementContentRegistry.get_project(canonical)
 	if definition.is_empty() or instance_id.is_empty():
@@ -1015,7 +1227,7 @@ func activate_project_instance(instance_id: String) -> bool:
 	project = next
 	active_project_instance_id = instance_id
 	var project_position: Array = project.get("position", [])
-	var builder_id := "npc.poc.forest_hamlet.builder_talia"
+	var builder_id := get_npc_id_for_job("job.builder.basic")
 	if project_position.size() >= 2 and npc_records.has(builder_id):
 		var builder: Dictionary = npc_records[builder_id]
 		builder["work"] = [int(project_position[0]), int(project_position[1])]
@@ -1148,7 +1360,9 @@ func create_plan_instance(
 		definition_id: String,
 		instance_id: String,
 		boundary: Array = [],
-		owner_id: String = VILLAGE_ID) -> Dictionary:
+		owner_id: String = "") -> Dictionary:
+	if owner_id.is_empty():
+		owner_id = active_village_id
 	if runtime_plans.has(instance_id):
 		return {"ok": false, "reason": "duplicate_plan_instance"}
 	var runtime: Dictionary = PlanEngine.create_runtime(
@@ -1506,7 +1720,7 @@ func automation_import_stack(value: Dictionary, mode: String, source: String,
 	var entry := {
 		"correlation_id": correlation_id,
 		"contributor": "player.local",
-		"owner": VILLAGE_ID,
+		"owner": active_village_id,
 		"mode": delivery_mode,
 		"category": category,
 		"kind": Inventory.stack_kind(incoming),
@@ -1548,9 +1762,10 @@ func serialize_state() -> Dictionary:
 		saved_warehouse.append(Inventory.serialize_stack(stack))
 	runtime_projects[active_project_instance_id] = project
 	return {
-		"version": 3,
-		"village_id": VILLAGE_ID,
+		"version": 4,
+		"village_id": active_village_id,
 		"world_seed": world_seed,
+		"roster_mode": roster_mode,
 		"anchors": {
 			"hamlet": [hamlet_anchor.x, hamlet_anchor.y],
 			"warehouse": [warehouse_anchor.x, warehouse_anchor.y],
@@ -1575,11 +1790,18 @@ func serialize_state() -> Dictionary:
 	}
 
 
-func restore_state(value: Variant, expected_seed: int) -> bool:
+func restore_state(
+		value: Variant,
+		expected_seed: int,
+		expected_settlement_id: String = "") -> bool:
 	if not (value is Dictionary):
 		return false
 	var data: Dictionary = value
-	if str(data.get("village_id", "")) != VILLAGE_ID \
+	var saved_village_id := str(data.get("village_id", ""))
+	if not expected_settlement_id.is_empty() \
+			and saved_village_id != expected_settlement_id:
+		return false
+	if saved_village_id.is_empty() \
 			or int(data.get("world_seed", -1)) != expected_seed:
 		return false
 	var saved_project_value: Variant = data.get("project", {})
@@ -1588,7 +1810,10 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 	var legacy_project := int(saved_project.get("schema_version", 1)) < 2
 	var anchors_value: Variant = data.get("anchors", {})
 	var anchors: Dictionary = anchors_value if anchors_value is Dictionary else {}
-	initialize(expected_seed, anchors)
+	var saved_roster_mode := str(data.get(
+		"roster_mode", ROSTER_MODE_LEGACY))
+	initialize(
+		expected_seed, anchors, saved_village_id, saved_roster_mode)
 	clock_minutes = clampf(float(data.get("clock_minutes", 480.0)), 0.0, 1439.999)
 	day = maxi(1, int(data.get("day", 1)))
 	var npc_value: Variant = data.get("npc_records", {})
@@ -1606,6 +1831,35 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 					if not restored.has(field):
 						restored[field] = npc_records[npc_id][field]
 				npc_records[npc_id] = restored
+		# Stage B residents are generated over time and are therefore not part
+		# of the immutable legacy roster. Restore only records namespaced to the
+		# owning settlement; foreign IDs cannot be injected through save data.
+		for npc_value_id in npc_value:
+			var npc_id := str(npc_value_id)
+			if npc_records.has(npc_id) or not (npc_value[npc_value_id] is Dictionary):
+				continue
+			if active_village_id != VILLAGE_ID \
+					and not npc_id.begins_with("%s.npc." % active_village_id):
+				continue
+			var restored: Dictionary = npc_value[npc_value_id].duplicate(true)
+			restored["id"] = npc_id
+			restored["resident_id"] = npc_id
+			restored["record_type"] = "Resident"
+			restored["version"] = 1
+			restored["personal_inventory"] = restored.get(
+				"personal_inventory", _empty_slots(8)).duplicate(true)
+			restored["equipment"] = restored.get(
+				"equipment", {}).duplicate(true)
+			restored["current_task"] = restored.get(
+				"current_task", {}).duplicate(true)
+			restored["carried_stack"] = restored.get(
+				"carried_stack", {}).duplicate(true)
+			restored["transaction_history"] = restored.get(
+				"transaction_history", []).duplicate(true)
+			npc_records[npc_id] = restored
+	for npc_id in npc_records.keys():
+		npc_records[npc_id] = _ensure_resident_fields(
+			str(npc_id), npc_records[npc_id])
 	warehouse_slots = _empty_slots(WAREHOUSE_SIZE)
 	var stored_slots: Variant = data.get("warehouse", [])
 	if stored_slots is Array:
@@ -1660,8 +1914,9 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 			project_definition.get("building_id", ""))
 		project["blueprint_id"] = str(project_definition.get("blueprint_id", ""))
 		project["instance_id"] = str(project.get(
-			"instance_id", DEFAULT_PROJECT_INSTANCE_ID))
-		project["owner_id"] = str(project.get("owner_id", VILLAGE_ID))
+			"instance_id", _default_project_instance_id()))
+		project["owner_id"] = str(project.get(
+			"owner_id", active_village_id))
 		project["history"] = project.get("history", []).duplicate(true)
 		project["schema_version"] = PROJECT_SCHEMA_VERSION
 		project["stage_index"] = clampi(
@@ -1680,7 +1935,7 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 			if bool(project.get("awaiting_supplies", true)):
 				_try_reserve_current_stage()
 	active_project_instance_id = str(project.get(
-		"instance_id", DEFAULT_PROJECT_INSTANCE_ID))
+		"instance_id", _default_project_instance_id()))
 	runtime_projects[active_project_instance_id] = project
 	if bool(project.get("complete", false)):
 		_activate_project_building()

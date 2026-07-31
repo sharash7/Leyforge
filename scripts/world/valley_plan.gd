@@ -5,6 +5,7 @@ extends RefCounted
 ## VoxelWorld turns that metadata into terrain and visible placeholder sites.
 
 const VERSION := 1
+const CURRENT_VERSION := 2
 const PROFILE_ID := "world.profile.controlled_poc_valley"
 const VALLEY_RADIUS := 176
 const STRUCTURE_DISTANCE_RULES: Array[Dictionary] = [
@@ -36,6 +37,7 @@ const REQUIRED_ANCHORS: Array[String] = [
 ]
 
 var master_seed := 0
+var plan_version := VERSION
 var sub_seeds: Dictionary = {}
 var anchors: Dictionary = {}      # stable anchor id -> Vector2i
 var routes: Array[Dictionary] = []
@@ -44,10 +46,15 @@ var fallback_used := false
 var validation_errors: Array[String] = []
 
 
-func generate(seed_value: int) -> void:
+func generate(seed_value: int, requested_version: int = VERSION) -> void:
 	master_seed = seed_value
+	plan_version = requested_version
 	_derive_sub_seeds()
-	_generate_candidate()
+	if plan_version == CURRENT_VERSION:
+		_generate_v2_candidate()
+	else:
+		plan_version = VERSION
+		_generate_candidate()
 	validation_errors = validate()
 	if not validation_errors.is_empty():
 		fallback_used = true
@@ -106,6 +113,73 @@ func _generate_candidate() -> void:
 		_round_vec2i(water + right * 190.0 + forward * river_rng.randf_range(-18.0, 18.0)),
 	]
 	_build_routes()
+
+
+func _generate_v2_candidate() -> void:
+	## ValleyPlan v2 varies both bearing and distance while retaining the POC's
+	## authored progression relationships. A bounded deterministic retry loop
+	## makes invalid plans reportable instead of changing the seed stream.
+	fallback_used = false
+	var rng := RandomNumberGenerator.new()
+	rng.seed = int(sub_seeds["structures"]) ^ 0x29A35F1
+	for _attempt in 128:
+		anchors.clear()
+		routes.clear()
+		river_points.clear()
+		var center := Vector2(
+			rng.randf_range(-10.0, 10.0),
+			rng.randf_range(-10.0, 10.0))
+		var valley_angle := rng.randf_range(-PI, PI)
+		var forward := Vector2.from_angle(valley_angle)
+		var right := Vector2(-forward.y, forward.x)
+		_set_anchor("hamlet", center)
+		_set_anchor("spawn", center + _polar(
+			valley_angle + PI + rng.randf_range(-0.55, 0.55),
+			rng.randf_range(42.0, 82.0)))
+		_set_anchor("water", center + _polar(
+			valley_angle + rng.randf_range(0.75, 1.35),
+			rng.randf_range(17.0, 43.0)))
+		_set_anchor("cave_entrance", center + _polar(
+			valley_angle + rng.randf_range(-0.48, 0.58),
+			rng.randf_range(58.0, 108.0)))
+		var cave := Vector2(anchors["cave_entrance"])
+		_set_anchor("mana_pocket", cave + _polar(
+			valley_angle + rng.randf_range(0.65, 1.45),
+			rng.randf_range(13.0, 36.0)))
+		_set_anchor("rune_ruin", center + _polar(
+			valley_angle + rng.randf_range(1.15, 2.45),
+			rng.randf_range(48.0, 98.0)))
+		_set_anchor("goblin_camp", center + _polar(
+			valley_angle + rng.randf_range(-0.65, 0.30),
+			rng.randf_range(112.0, 158.0)))
+		var camp := Vector2(anchors["goblin_camp"])
+		var raid_t := rng.randf_range(0.42, 0.68)
+		_set_anchor("raid_approach", center.lerp(camp, raid_t) + right * rng.randf_range(-12.0, 12.0))
+		var spawn := Vector2(anchors["spawn"])
+		_set_anchor("base_site", spawn + _polar(
+			valley_angle + rng.randf_range(-1.25, 1.25),
+			rng.randf_range(16.0, 50.0)))
+		_set_anchor("warehouse", center + right * rng.randf_range(5.0, 8.0))
+		_set_anchor("watchtower_site", center + forward * rng.randf_range(16.0, 22.0) - right * rng.randf_range(2.0, 7.0))
+
+		var water := Vector2(anchors["water"])
+		var river_angle := valley_angle + rng.randf_range(1.15, 1.95)
+		var river_axis := Vector2.from_angle(river_angle)
+		var river_normal := Vector2(-river_axis.y, river_axis.x)
+		river_points = [
+			_round_vec2i(water - river_axis * 195.0 + river_normal * rng.randf_range(-18.0, 18.0)),
+			_round_vec2i(water - river_axis * 76.0 + river_normal * rng.randf_range(-14.0, 14.0)),
+			Vector2i(anchors["water"]),
+			_round_vec2i(water + river_axis * 76.0 + river_normal * rng.randf_range(-14.0, 14.0)),
+			_round_vec2i(water + river_axis * 195.0 + river_normal * rng.randf_range(-18.0, 18.0)),
+		]
+		_build_routes()
+		if validate().is_empty() and _v2_separation_errors().is_empty():
+			return
+
+
+func _polar(angle: float, distance: float) -> Vector2:
+	return Vector2.from_angle(angle) * distance
 
 
 func _generate_fallback() -> void:
@@ -195,6 +269,46 @@ func validate() -> Array[String]:
 	for anchor_id in REQUIRED_ANCHORS:
 		if not visited.has(anchor_id):
 			errors.append("anchor_not_connected:%s" % anchor_id)
+	if plan_version == CURRENT_VERSION:
+		errors.append_array(_v2_separation_errors())
+	return errors
+
+
+func _v2_separation_errors() -> Array[String]:
+	var errors: Array[String] = []
+	# Only independent structure footprints are compared. Hamlet services are
+	# intentionally close to the hamlet anchor and validated by their authored
+	# offsets instead.
+	var footprints := {
+		"spawn": 7.0,
+		"base_site": 8.0,
+		"water": 5.0,
+		"cave_entrance": 7.0,
+		"mana_pocket": 5.0,
+		"rune_ruin": 8.0,
+		"goblin_camp": 11.0,
+		"raid_approach": 7.0,
+		"watchtower_site": 6.0,
+	}
+	var ids: Array = footprints.keys()
+	for i in ids.size():
+		for j in range(i + 1, ids.size()):
+			var a := str(ids[i])
+			var b := str(ids[j])
+			if not anchors.has(a) or not anchors.has(b):
+				continue
+			var minimum := float(footprints[a]) + float(footprints[b]) + 2.0
+			var distance := Vector2(anchors[a]).distance_to(Vector2(anchors[b]))
+			if distance < minimum:
+				errors.append("structure_overlap:%s:%s:%.1f" % [a, b, distance])
+	for anchor_id in ["spawn", "hamlet", "base_site", "goblin_camp", "rune_ruin"]:
+		if not anchors.has(anchor_id) or river_points.size() < 2:
+			continue
+		var river_distance := _distance_to_polyline(
+			Vector2(anchors[anchor_id]), river_points)
+		if river_distance < 15.0:
+			errors.append("critical_site_near_river:%s:%.1f" % [
+				anchor_id, river_distance])
 	return errors
 
 
@@ -231,7 +345,7 @@ func relation_graph() -> Dictionary:
 
 
 func identity() -> String:
-	var parts: Array[String] = [PROFILE_ID, "v%d" % VERSION, str(master_seed)]
+	var parts: Array[String] = [PROFILE_ID, "v%d" % plan_version, str(master_seed)]
 	var anchor_ids: Array = anchors.keys()
 	anchor_ids.sort()
 	for anchor_id in anchor_ids:
@@ -240,13 +354,13 @@ func identity() -> String:
 	for route in routes:
 		parts.append("%s:%s:%s" % [route["id"], route["from"], route["to"]])
 	var digest := derive_seed(master_seed, "|".join(parts))
-	return "%s:v%d:%08x" % [PROFILE_ID, VERSION, digest]
+	return "%s:v%d:%08x" % [PROFILE_ID, plan_version, digest]
 
 
 func save_manifest() -> Dictionary:
 	return {
 		"profile_id": PROFILE_ID,
-		"version": VERSION,
+		"version": plan_version,
 		"plan_id": identity(),
 		"sub_seeds": sub_seeds.duplicate(),
 		"fallback_used": fallback_used,

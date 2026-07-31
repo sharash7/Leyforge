@@ -70,6 +70,10 @@ func _build_current_stage(
 
 func _run() -> void:
 	var world: VoxelWorld = load("res://scripts/world/voxel_world.gd").new()
+	# This probe performs all required column preparation synchronously. Keep
+	# the background mesher idle so immediate headless shutdown cannot wait on
+	# an unrelated streaming job.
+	world.set_process(false)
 	add_child(world)
 	world.start(1337)
 	HamletState.initialize(1337, world.get_valley_anchors())

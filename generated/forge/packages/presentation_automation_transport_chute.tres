@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_8h44s"]
+
+[resource]
+script = ExtResource("1_8h44s")
+presentation_id = "presentation.automation.transport.chute"
+root_scene_path = "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/presentation_mesh.res"
+material_paths = PackedStringArray()
+collision_path = "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/collision.tres"
+state_binding_path = "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/state_binding.tres"
+icon_path = "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/icon.png"
+bounds = AABB(0.0625, 0.15625, 0.1875, 0.875, 0.34375, 0.625)
+socket_map = {
+"input": {
+"contract_required": true,
+"direction": [-1.0, 0.0, 0.0],
+"local_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.3, 0.5)]",
+"parent_part_key": "",
+"schema_version": 1,
+"socket_key": "input",
+"socket_type": "item_input",
+"tags": []
+},
+"output": {
+"contract_required": true,
+"direction": [1.0, 0.0, 0.0],
+"local_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.0, 0.3, 0.5)]",
+"parent_part_key": "",
+"schema_version": 1,
+"socket_key": "output",
+"socket_type": "item_output",
+"tags": []
+}
+}
+lod_profile = {
+"far": "iconic",
+"mid": "static",
+"near": "full"
+}
+variant_compatibility = PackedStringArray("variantset.presentation.automation.transport.chute.material")
+runtime_metadata = {
+"asset_kind": "unique_voxel_block",
+"authoring_profile": "voxel.standard.block",
+"connection_rules": {},
+"face_colors": {},
+"footprint": {
+"allowed_placement_faces": ["floor"],
+"allowed_rotations": [0, 1, 2, 3],
+"anchor_cell": [0, 0, 0],
+"clearance_cells": [],
+"footprint_profile_id": "footprint.presentation.automation.transport.chute",
+"occupied_cells": [[0, 0, 0]],
+"schema_version": 1,
+"support_required": true
+},
+"gameplay_links": ["automation.transport.chute"],
+"metrics": {
+"baker_version": "forge-mesh-v2",
+"exposed_faces": 2592,
+"hidden_face_removal": true,
+"occupied_cells": 3420,
+"triangles": 5184,
+"vertices": 10368
+},
+"representation_profiles": {
+"connection": {
+"auto_one_step_slopes": true,
+"directions": 6,
+"resolver": "ForgeConnectionResolver"
+}
+},
+"runtime_remeshing": false,
+"source_revision": 1,
+"voxel_frame_clips": {}
+}
+product_hash = "53f10750051eef1ef569d4f110289d22f909efef99ba72a1295e171acd78ea7e"

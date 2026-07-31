@@ -1,0 +1,8 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2570)
+BlockRegistry: loaded 143 blocks
+ItemRegistry: loaded 169 items
+SETTLEMENT REGISTRY: 120 definitions, 120 blueprints, 120 projects, 25 packs
+FORGE_STALE_REBAKE {"already_current":[],"approved_sources":7,"failures":[],"ok":true,"refreshed":["forge_asset.item.tool.crude_pickaxe","forge_asset.magic.conduit.mana_basic","forge_asset.terrain.grass.basic","forge_asset.functional.furnace.stone","forge_asset.construction.brick.stone","forge_asset.automation.crusher.basic","forge_asset.automation.transport.chute"]}

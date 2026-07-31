@@ -216,33 +216,30 @@ static func _emit_quad(snapshot: Dictionary, axis: int, u: int, v: int,
 		water_normals if water_surface else opaque_normals)
 	var vertex_colors := glass_colors if glass_surface else (
 		water_colors if water_surface else opaque_colors)
-	var uv_corners := [
-		Vector2.ZERO,
-		Vector2(float(width), 0.0),
-		Vector2(float(width), float(height)),
-		Vector2(0.0, float(height)),
-	]
+	var uv00 := _face_uv(c00, axis, sign_value)
+	var uv10 := _face_uv(c10, axis, sign_value)
+	var uv11 := _face_uv(c11, axis, sign_value)
+	var uv01 := _face_uv(c01, axis, sign_value)
 	# Godot treats clockwise triangles as front-facing. Keep both the rendered
 	# surface and its one-sided concave collision facing out of the solid voxel.
 	if sign_value > 0:
 		vertices.append_array([c00, c11, c10, c00, c01, c11])
 		if not water_surface and not glass_surface:
 			opaque_uvs.append_array([
-				uv_corners[0], uv_corners[2], uv_corners[1],
-				uv_corners[0], uv_corners[3], uv_corners[2],
+				uv00, uv11, uv10, uv00, uv01, uv11,
 			])
 	else:
 		vertices.append_array([c00, c10, c11, c00, c11, c01])
 		if not water_surface and not glass_surface:
 			opaque_uvs.append_array([
-				uv_corners[0], uv_corners[1], uv_corners[2],
-				uv_corners[0], uv_corners[2], uv_corners[3],
+				uv00, uv10, uv11, uv00, uv11, uv01,
 			])
 	for i in 6:
 		normals.append(normal)
 		vertex_colors.append(color)
 		if not water_surface and not glass_surface:
-			opaque_uv2s.append(Vector2(_material_layer(snapshot, id), 0.0))
+			opaque_uv2s.append(Vector2(
+				_material_layer(snapshot, id, axis, sign_value), 0.0))
 	if not _is_water(snapshot, id):
 		# Collision uses the same outward winding as the visible surface.
 		if sign_value > 0:
@@ -251,7 +248,40 @@ static func _emit_quad(snapshot: Dictionary, axis: int, u: int, v: int,
 			collision_triangles.append_array([c00, c10, c11, c00, c11, c01])
 
 
-static func _material_layer(snapshot: Dictionary, id: int) -> float:
+static func _face_uv(point: Vector3, axis: int, sign_value: int) -> Vector2:
+	## Match the Forge surface-cube convention exactly on every world face.
+	## Integer world coordinates preserve tile repetition across greedy quads.
+	match axis:
+		0:
+			return Vector2(
+				point.z if sign_value > 0 else -point.z,
+				-point.y)
+		1:
+			return Vector2(
+				-point.z if sign_value > 0 else point.z,
+				-point.x)
+		_:
+			return Vector2(
+				-point.x if sign_value > 0 else point.x,
+				-point.y)
+
+
+static func _material_layer(
+		snapshot: Dictionary, id: int,
+		axis := -1, sign_value := 1) -> float:
+	var face_layers: PackedInt32Array = snapshot.get(
+		"forge_face_layers", PackedInt32Array())
+	if axis >= 0:
+		var face_index := 0
+		if axis == 1:
+			face_index = 0 if sign_value > 0 else 1
+		elif axis == 2:
+			face_index = 3 if sign_value > 0 else 2
+		else:
+			face_index = 4 if sign_value > 0 else 5
+		var lookup := id * 6 + face_index
+		if lookup >= 0 and lookup < face_layers.size():
+			return float(face_layers[lookup])
 	var layers: PackedInt32Array = snapshot.get("layers", PackedInt32Array())
 	return float(layers[id]) if id >= 0 and id < layers.size() else 0.0
 
@@ -265,6 +295,8 @@ static func _emit_shaped_blocks(snapshot: Dictionary,
 		"orientations", PackedByteArray())
 	var door_parts: PackedByteArray = snapshot.get(
 		"door_parts", PackedByteArray())
+	var door_states: PackedByteArray = snapshot.get(
+		"door_states", PackedByteArray())
 	for y in SIZE:
 		for z in SIZE:
 			for x in SIZE:
@@ -277,20 +309,43 @@ static func _emit_shaped_blocks(snapshot: Dictionary,
 					if block_index < orientations.size() else 0
 				var door_part := int(door_parts[block_index]) \
 					if block_index < door_parts.size() else 0
+				var door_state := int(door_states[block_index]) \
+					if block_index < door_states.size() else 0
+				var door_open := (door_state & 1) != 0
+				var door_hinge := (door_state >> 1) & 1
 				var origin := Vector3(x, y, z)
 				_emit_authored_shape(
-					snapshot, origin, id, shape, facing, door_part,
+					snapshot, origin, id, shape, facing, door_part, door_open,
+					door_hinge,
 					vertices, normals, colors, uvs, uv2s, collision)
 
 
 static func _emit_authored_shape(
 		snapshot: Dictionary, origin: Vector3, id: int, shape: int,
-		facing: int, door_part: int,
+		facing: int, door_part: int, door_open: bool, door_hinge: int,
 		vertices: PackedVector3Array, normals: PackedVector3Array,
 		colors: PackedColorArray, uvs: PackedVector2Array,
 		uv2s: PackedVector2Array, collision: PackedVector3Array) -> void:
 	var palette: PackedColorArray = snapshot["colors"]
 	var base := palette[id] if id >= 0 and id < palette.size() else Color(1, 0, 1)
+	if shape == 9:
+		_emit_forge_mesh(
+			snapshot, origin, id, facing,
+			vertices, normals, colors, uvs, uv2s, collision)
+		return
+	if shape == 10:
+		# Compound Forge machines render as scene presentations managed by the
+		# world. Keep only their solid voxel collision in the chunk mesh.
+		var discard_vertices := PackedVector3Array()
+		var discard_normals := PackedVector3Array()
+		var discard_colors := PackedColorArray()
+		var discard_uvs := PackedVector2Array()
+		var discard_uv2s := PackedVector2Array()
+		_emit_box(
+			snapshot, origin, Vector3.ZERO, Vector3.ONE, id,
+			discard_vertices, discard_normals, discard_colors,
+			discard_uvs, discard_uv2s, collision)
+		return
 	match shape:
 		1:
 			_emit_box(
@@ -349,21 +404,33 @@ static func _emit_authored_shape(
 			_emit_rotated_box(
 				snapshot, origin, Vector3(0.08, 0.0, 0.42),
 				Vector3(0.92, 1.0, 0.58), id,
-				facing,
-				vertices, normals, colors, uvs, uv2s, collision)
+				posmod(
+					facing + (
+						1 if door_hinge == 0 else -1) if door_open else 0,
+					4),
+				vertices, normals, colors, uvs, uv2s, collision,
+				Color(-1.0, -1.0, -1.0, -1.0), not door_open)
 			if door_part != 2:
 				# The handle sits near the upper edge of the lower 32x32 cell
 				# and protrudes on both faces of the two-cell door.
 				_emit_rotated_box(
 					snapshot, origin, Vector3(0.70, 0.68, 0.35),
 					Vector3(0.80, 0.82, 0.43), id,
-					facing,
+					posmod(
+						facing + (
+							1 if door_hinge == 0 else -1)
+							if door_open else 0,
+						4),
 					vertices, normals, colors, uvs, uv2s, collision,
 					Color(0.74, 0.55, 0.16), false)
 				_emit_rotated_box(
 					snapshot, origin, Vector3(0.70, 0.68, 0.57),
 					Vector3(0.80, 0.82, 0.65), id,
-					facing,
+					posmod(
+						facing + (
+							1 if door_hinge == 0 else -1)
+							if door_open else 0,
+						4),
 					vertices, normals, colors, uvs, uv2s, collision,
 					Color(0.74, 0.55, 0.16), false)
 			else:
@@ -412,8 +479,10 @@ static func _emit_connected_chute(
 		Vector3i(0, 0, 1), Vector3i(-1, 0, 0),
 	]
 	var connected: Array[bool] = [false, false, false, false]
-	var connection_mask := chute_connection_mask(
+	var connection_profile := chute_connection_profile(
 		snapshot, int(origin.x), int(origin.y), int(origin.z), facing)
+	var connection_mask := int(connection_profile["mask"]) & 15
+	var slopes: Dictionary = connection_profile.get("slopes", {})
 	var connection_count := 0
 	for i in directions.size():
 		connected[i] = (connection_mask & (1 << i)) != 0
@@ -421,6 +490,11 @@ static func _emit_connected_chute(
 			connection_count += 1
 	var straight_ns := connection_count == 2 and connected[0] and connected[2]
 	var straight_ew := connection_count == 2 and connected[1] and connected[3]
+	if (straight_ns or straight_ew) and _has_slope(slopes):
+		_emit_stepped_chute(
+			snapshot, origin, id, straight_ew, slopes,
+			vertices, normals, colors, uvs, uv2s, collision)
+		return
 	if straight_ns:
 		_emit_box(
 			snapshot, origin, Vector3(0.30, 0.08, 0.0),
@@ -513,26 +587,67 @@ static func _emit_connected_chute(
 
 static func chute_connection_mask(
 		snapshot: Dictionary, x: int, y: int, z: int, facing: int) -> int:
-	var directions: Array[Vector3i] = [
-		Vector3i(0, 0, -1), Vector3i(1, 0, 0),
-		Vector3i(0, 0, 1), Vector3i(-1, 0, 0),
-	]
-	var mask := 0
-	for i in directions.size():
-		var local := Vector3i(x, y, z) + directions[i]
-		var neighbor_id := _get_block(snapshot, local.x, local.y, local.z)
-		if _is_item_connector(snapshot, neighbor_id):
-			mask |= 1 << i
-	if mask == 0:
-		mask |= 1 << posmod(facing, 4)
-		mask |= 1 << posmod(facing + 2, 4)
-	elif (mask & (mask - 1)) == 0:
-		# One endpoint still forms a complete straight trough through the cell.
-		for i in directions.size():
-			if (mask & (1 << i)) != 0:
-				mask |= 1 << posmod(i + 2, 4)
-				break
-	return mask
+	return int(chute_connection_profile(snapshot, x, y, z, facing)["mask"]) & 15
+
+
+static func chute_connection_profile(
+		snapshot: Dictionary, x: int, y: int, z: int, facing: int) -> Dictionary:
+	var origin := Vector3i(x, y, z)
+	return ForgeConnectionResolver.resolve(
+		origin, facing,
+		func(position: Vector3i) -> bool:
+			var neighbor_id := _get_block(
+				snapshot, position.x, position.y, position.z)
+			return _is_item_connector(snapshot, neighbor_id))
+
+
+static func _has_slope(slopes: Dictionary) -> bool:
+	for value in slopes.values():
+		if int(value) != 0:
+			return true
+	return false
+
+
+static func _emit_stepped_chute(
+		snapshot: Dictionary, origin: Vector3, id: int,
+		east_west: bool, slopes: Dictionary,
+		vertices: PackedVector3Array, normals: PackedVector3Array,
+		colors: PackedColorArray, uvs: PackedVector2Array,
+		uv2s: PackedVector2Array, collision: PackedVector3Array) -> void:
+	var negative_index := 3 if east_west else 0
+	var positive_index := 1 if east_west else 2
+	var negative_height := float(slopes.get(negative_index, 0)) * 0.5
+	var positive_height := float(slopes.get(positive_index, 0)) * 0.5
+	var steps := 4
+	for step in steps:
+		var start := float(step) / steps
+		var finish := float(step + 1) / steps
+		var height := lerpf(negative_height, positive_height, (start + finish) * 0.5)
+		var minimum := Vector3.ZERO
+		var maximum := Vector3.ZERO
+		if east_west:
+			minimum = Vector3(start, 0.08 + height, 0.30)
+			maximum = Vector3(finish, 0.20 + height, 0.70)
+		else:
+			minimum = Vector3(0.30, 0.08 + height, start)
+			maximum = Vector3(0.70, 0.20 + height, finish)
+		_emit_box(
+			snapshot, origin, minimum, maximum, id,
+			vertices, normals, colors, uvs, uv2s, collision)
+		if east_west:
+			for rail_z in [0.23, 0.70]:
+				_emit_box(
+					snapshot, origin,
+					Vector3(start, 0.20 + height, rail_z),
+					Vector3(finish, 0.45 + height, rail_z + 0.07), id,
+					vertices, normals, colors, uvs, uv2s, collision)
+		else:
+			for rail_x in [0.23, 0.70]:
+				_emit_box(
+					snapshot, origin,
+					Vector3(rail_x, 0.20 + height, start),
+					Vector3(rail_x + 0.07, 0.45 + height, finish), id,
+					vertices, normals, colors, uvs, uv2s, collision)
 
 
 static func _emit_rotated_box(
@@ -612,10 +727,10 @@ static func _emit_box_face(snapshot: Dictionary, c00: Vector3, du: Vector3,
 	var palette: PackedColorArray = snapshot["colors"]
 	var color := color_override if color_override.r >= 0.0 else (
 		palette[id] if id >= 0 and id < palette.size() else Color(1, 0, 1))
-	var uv00 := Vector2.ZERO
-	var uv10 := Vector2(du.length(), 0.0)
-	var uv11 := Vector2(du.length(), dv.length())
-	var uv01 := Vector2(0.0, dv.length())
+	var uv00 := _face_uv(c00, axis, sign_value)
+	var uv10 := _face_uv(c10, axis, sign_value)
+	var uv11 := _face_uv(c11, axis, sign_value)
+	var uv01 := _face_uv(c01, axis, sign_value)
 	if sign_value > 0:
 		vertices.append_array([c00, c11, c10, c00, c01, c11])
 		uvs.append_array([uv00, uv11, uv10, uv00, uv01, uv11])
@@ -629,4 +744,75 @@ static func _emit_box_face(snapshot: Dictionary, c00: Vector3, du: Vector3,
 	for i in 6:
 		normals.append(normal)
 		colors.append(color)
+		uv2s.append(Vector2(
+			_material_layer(snapshot, id, axis, sign_value), 0.0))
+
+
+static func _emit_forge_mesh(
+		snapshot: Dictionary, origin: Vector3, id: int, facing: int,
+		vertices: PackedVector3Array, normals: PackedVector3Array,
+		colors: PackedColorArray, uvs: PackedVector2Array,
+		uv2s: PackedVector2Array, collision: PackedVector3Array) -> void:
+	var meshes: Dictionary = snapshot.get("forge_meshes", {})
+	var source: Dictionary = meshes.get(id, {})
+	if source.is_empty():
+		_emit_box(
+			snapshot, origin, Vector3.ZERO, Vector3.ONE, id,
+			vertices, normals, colors, uvs, uv2s, collision)
+		return
+	var source_vertices: PackedVector3Array = source.get(
+		"vertices", PackedVector3Array())
+	var source_normals: PackedVector3Array = source.get(
+		"normals", PackedVector3Array())
+	var source_colors: PackedColorArray = source.get(
+		"colors", PackedColorArray())
+	var source_uvs: PackedVector2Array = source.get(
+		"uvs", PackedVector2Array())
+	var source_indices: PackedInt32Array = source.get(
+		"indices", PackedInt32Array())
+	var palette: PackedColorArray = snapshot["colors"]
+	var fallback := palette[id] \
+		if id >= 0 and id < palette.size() else Color(1, 0, 1)
+	var element_count := source_indices.size() \
+		if not source_indices.is_empty() else source_vertices.size()
+	for element_index in element_count:
+		var source_index := int(source_indices[element_index]) \
+			if not source_indices.is_empty() else element_index
+		if source_index < 0 or source_index >= source_vertices.size():
+			continue
+		var vertex := _rotate_forge_point(
+			source_vertices[source_index], facing) + origin
+		vertices.append(vertex)
+		collision.append(vertex)
+		var normal := source_normals[source_index] \
+			if source_index < source_normals.size() else Vector3.UP
+		normals.append(_rotate_forge_normal(normal, facing))
+		colors.append(
+			source_colors[source_index]
+			if source_index < source_colors.size() else fallback)
+		uvs.append(
+			source_uvs[source_index]
+			if source_index < source_uvs.size() else Vector2.ZERO)
 		uv2s.append(Vector2(_material_layer(snapshot, id), 0.0))
+
+
+static func _rotate_forge_point(point: Vector3, facing: int) -> Vector3:
+	match posmod(facing, 4):
+		1:
+			return Vector3(1.0 - point.z, point.y, point.x)
+		2:
+			return Vector3(1.0 - point.x, point.y, 1.0 - point.z)
+		3:
+			return Vector3(point.z, point.y, 1.0 - point.x)
+	return point
+
+
+static func _rotate_forge_normal(normal: Vector3, facing: int) -> Vector3:
+	match posmod(facing, 4):
+		1:
+			return Vector3(-normal.z, normal.y, normal.x)
+		2:
+			return Vector3(-normal.x, normal.y, -normal.z)
+		3:
+			return Vector3(normal.z, normal.y, -normal.x)
+	return normal

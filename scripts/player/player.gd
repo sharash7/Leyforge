@@ -88,7 +88,7 @@ func _refresh_held_visual() -> void:
 		else Inventory.get_selected_stack()
 	_held_identity = Inventory.stack_stable_id(stack) if not stack.is_empty() else ""
 	if _world_humanoid != null:
-		_world_humanoid.set_held_stack(stack, 1, "humanoid")
+		_world_humanoid.set_held_stack(stack, 1, "first_person")
 
 
 # Keep pointer state in sync with the OS window: releasing focus frees the
@@ -565,7 +565,8 @@ func _break_block_at(gp: Vector3i) -> bool:
 	if not door_record.is_empty():
 		if world.remove_door(gp).is_empty():
 			return false
-	elif not world.set_block_global(gp, BlockRegistry.AIR):
+	elif not world.set_block_with_provenance(
+			gp, BlockRegistry.AIR, "player.excavate", "player"):
 		return false
 	var hash_value := absi(gp.x * 73856093 ^ gp.y * 19349663 ^ gp.z * 83492791)
 	var angle := float(hash_value % 6283) / 1000.0
@@ -606,6 +607,16 @@ func _try_interact() -> bool:
 		interaction_message.emit(str(collider.call("interaction_summary")))
 		return true
 	var target := get_target_block_position()
+	if world.is_door_at(target):
+		if world.toggle_door(target, "player"):
+			var door := world.get_door_record(target)
+			interaction_message.emit(
+				"Door opened." if bool(door.get("open", false))
+				else "Door closed.")
+			_play_hand_action("use")
+		else:
+			interaction_message.emit(world.door_last_error)
+		return true
 	var station := world.station_type_at(target)
 	if station.is_empty():
 		return false
@@ -673,7 +684,8 @@ func _try_place() -> void:
 		return
 	# Commit the world edit first, then consume; roll back on an unexpected
 	# inventory failure so placement cannot lose or duplicate resources.
-	if not world.set_block_global(gp, block_id):
+	if not world.set_block_with_provenance(
+			gp, block_id, "player.place", "player"):
 		return
 	if BlockRegistry.get_shape(block_id) in [
 		"stair", "furnace", "chest", "chute", "workbench", "post",
@@ -689,7 +701,10 @@ func _try_place() -> void:
 
 func _placement_facing() -> int:
 	# 0 north (-Z), 1 east (+X), 2 south (+Z), 3 west (-X).
-	return posmod(roundi(-_yaw / (PI * 0.5)), 4)
+	# Authored fronts point out of their local facing. Turn that facing around
+	# world Y so a placed workstation/door/stair presents its front to the
+	# player who placed it.
+	return posmod(roundi(-_yaw / (PI * 0.5)) + 2, 4)
 
 
 func restore_view(yaw: float, pitch: float = 0.0) -> void:

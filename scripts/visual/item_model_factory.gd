@@ -15,6 +15,21 @@ static func build(stack: Dictionary, model_scale: float = 1.0) -> Node3D:
 	if stack.is_empty():
 		return root
 	var stable_id := Inventory.stack_stable_id(stack)
+	var forge_runtime := _forge_runtime()
+	if forge_runtime != null and forge_runtime.has_package_for(stable_id):
+		var package: ForgeRuntimePackage = forge_runtime.package_for(stable_id)
+		var profiles: Dictionary = package.runtime_metadata.get(
+			"representation_profiles", {})
+		var stack_kind := Inventory.stack_kind(stack)
+		var supports_item_model := (
+			(stack_kind == "item"
+				and (profiles.has("held") or profiles.has("dropped")))
+			or (stack_kind == "block" and profiles.has("held")))
+		if not supports_item_model:
+			package = null
+		if package != null:
+			return _build_forge_item(
+				root, stack, stable_id, package, forge_runtime)
 	var color := Inventory.stack_color(stack).lightened(0.08)
 	if Inventory.stack_kind(stack) == "block":
 		_build_block(root, stable_id, color)
@@ -28,6 +43,42 @@ static func build(stack: Dictionary, model_scale: float = 1.0) -> Node3D:
 			Vector3(0.0, _canonical_item_bottom_y(stable_id), 0.0))
 		root.set_meta("canonical_up_axis", Vector3.UP)
 		root.set_meta("canonical_forward_axis", Vector3.FORWARD)
+	return root
+
+
+static func _build_forge_item(
+		root: Node3D, stack: Dictionary, stable_id: String,
+		package: ForgeRuntimePackage, forge_runtime: Node) -> Node3D:
+	var representation := "world" \
+		if Inventory.stack_kind(stack) == "block" else "dropped"
+	var presentation: Node3D = forge_runtime.instantiate_presentation(
+		stable_id, representation)
+	if presentation != null:
+		var canonical_tool := stable_id.begins_with("item.tool.") \
+			or stable_id.begins_with("item.weapon.")
+		var source_scale := 1.0
+		if canonical_tool and package.bounds.size.y > 0.0001:
+			source_scale = 0.8 / package.bounds.size.y
+			presentation.scale = Vector3.ONE * source_scale
+		presentation.position = -package.bounds.get_center() * source_scale
+		root.add_child(presentation)
+		root.set_meta("forge_presentation", true)
+		root.set_meta(
+			"forge_representation_profiles",
+			package.runtime_metadata.get(
+				"representation_profiles", {}).duplicate(true))
+		if Inventory.stack_kind(stack) == "item":
+			root.set_meta(
+				"canonical_hold_bottom",
+				Vector3(0.0, CANONICAL_TOOL_BOTTOM_Y, 0.0)
+				if canonical_tool else Vector3(
+					0.0,
+					(package.bounds.position.y
+						- package.bounds.get_center().y) * source_scale,
+					0.0))
+			root.set_meta("canonical_up_axis", Vector3.UP)
+			root.set_meta("canonical_forward_axis", Vector3.FORWARD)
+		return root
 	return root
 
 
@@ -64,6 +115,24 @@ static func apply_hold_transform(
 	var kind := visual_kind_for(stack)
 	var is_block := Inventory.stack_kind(stack) == "block"
 	if not is_block:
+		if bool(model.get_meta("forge_presentation", false)):
+			var profiles: Dictionary = model.get_meta(
+				"forge_representation_profiles", {})
+			var held: Dictionary = profiles.get("held", {})
+			var scale_value := float(held.get("scale", 0.82))
+			if context == "first_person":
+				scale_value *= 0.72
+			elif context == "humanoid":
+				scale_value *= 0.92
+			model.scale = Vector3.ONE * scale_value
+			# Forge may author the model and its scale, but the humanoid grip is
+			# an engine contract shared by every tool/weapon. Presentation data
+			# cannot silently replace that owner-rig orientation.
+			model.rotation = HELD_ITEM_ROTATION
+			_align_canonical_bottom_to_hand(model)
+			if context == "first_person":
+				model.position += Vector3(0.04, -0.03, -0.10)
+			return
 		if context == "first_person":
 			model.scale = Vector3.ONE * (
 				0.62 if kind in ["sword", "spear", "staff", "bow"] else (
@@ -95,6 +164,13 @@ static func apply_hold_transform(
 	model.position = Vector3(0.06, -0.02, -0.14)
 	model.scale = Vector3.ONE * 0.46
 	model.rotation = Vector3(0.0, 0.0, -0.04)
+
+
+static func _forge_runtime() -> Node:
+	var main_loop := Engine.get_main_loop()
+	if not main_loop is SceneTree:
+		return null
+	return main_loop.root.get_node_or_null("ForgeRuntime")
 
 
 static func _align_canonical_bottom_to_hand(model: Node3D) -> void:

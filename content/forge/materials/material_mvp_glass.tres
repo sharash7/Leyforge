@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeMaterialDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_material_definition.gd" id="1_q3hxk"]
+
+[resource]
+script = ExtResource("1_q3hxk")
+material_id = "material.mvp.glass"
+display_name = "MVP Glass"
+family = "glass"
+rendering_class = "transparent"
+roughness_default = 0.12
+opacity_mode = "alpha"
+overlay_compatibility = PackedStringArray("damage", "wet", "corruption", "warning")
+animation_parameters = PackedStringArray("emission_strength", "flow_strength")

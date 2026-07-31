@@ -6,9 +6,11 @@ extends Node3D
 const NpcActorScript = preload("res://scripts/world/hamlet_npc_actor.gd")
 const ACTOR_RANGE := 92.0
 const DEMOTE_RANGE := 108.0
-const BUILDER_ID := "npc.poc.forest_hamlet.builder_talia"
 const BUILD_INTERVAL := 0.32
 const BUILDER_WORK_RADIUS := 7.5
+# Historical probes and legacy-world integrations use this stable POC ID.
+# Regional settlements resolve their namespaced builder through HamletState.
+const BUILDER_ID := "npc.poc.forest_hamlet.builder_talia"
 
 var world: VoxelWorld
 var player: Player
@@ -18,6 +20,7 @@ var demote_range := DEMOTE_RANGE
 var _actors: Dictionary = {}
 var _visual_stage := -1
 var _build_accumulator := 0.0
+var _settlement_scan_accumulator := 0.0
 
 
 func configure(p_world: VoxelWorld, p_player: Player) -> void:
@@ -41,7 +44,13 @@ func apply_scalability_profile(profile: Dictionary) -> void:
 func _process(delta: float) -> void:
 	if not configured or not HamletState.initialized:
 		return
+	_settlement_scan_accumulator += delta
+	if _settlement_scan_accumulator >= 1.0:
+		_settlement_scan_accumulator = 0.0
+		_refresh_settlement_focus()
 	HamletState.advance_time(delta)
+	SettlementManager.advance_far_simulation(
+		delta * HamletState.MINUTES_PER_REAL_SECOND)
 	_refresh_actor_lod()
 	_sync_completed_project_stages()
 	_advance_builder_construction(delta)
@@ -64,13 +73,16 @@ func _sync_completed_project_stages() -> void:
 
 
 func _advance_builder_construction(delta: float) -> void:
-	if not HamletState.project_is_building() or not _actors.has(BUILDER_ID):
+	var builder_id := HamletState.get_npc_id_for_job("job.builder.basic")
+	if builder_id.is_empty() \
+			or not HamletState.project_is_building() \
+			or not _actors.has(builder_id):
 		_build_accumulator = 0.0
 		return
-	var actor: HamletNpcActor = _actors[BUILDER_ID]
+	var actor: HamletNpcActor = _actors[builder_id]
 	if not is_instance_valid(actor):
 		return
-	var builder_record := HamletState.get_npc_record(BUILDER_ID)
+	var builder_record := HamletState.get_npc_record(builder_id)
 	if str(builder_record.get("schedule_state", "")) != "work":
 		_build_accumulator = 0.0
 		return
@@ -133,6 +145,13 @@ func _refresh_actor_lod() -> void:
 			var saved: Array = record.get("position", [])
 			if saved.size() < 3:
 				continue
+			if float(saved[1]) <= 0.0:
+				var surface_y := world.surface_height_at(
+					floori(float(saved[0])), floori(float(saved[2])))
+				saved[1] = float(surface_y) + 1.05
+				HamletState.update_npc_position(
+					npc_id,
+					Vector3(float(saved[0]), float(saved[1]), float(saved[2])))
 			var spawn_gp := Vector3i(
 				floori(float(saved[0])),
 				clampi(floori(float(saved[1])), 0, VoxelWorld.WORLD_HEIGHT - 1),
@@ -155,6 +174,62 @@ func _refresh_actor_lod() -> void:
 				HamletState.update_npc_position(str(npc_id), actor.global_position)
 				actor.queue_free()
 		_actors.clear()
+
+
+func _refresh_settlement_focus() -> void:
+	if world == null or player == null \
+			or not world.is_regional_worldgen():
+		return
+	var nearby := SettlementManager.materialize_nearby(
+		world,
+		Vector2(player.global_position.x, player.global_position.z),
+		actor_range)
+	if nearby.is_empty():
+		return
+	var nearest_id := str(nearby[0].get("settlement_id", ""))
+	if nearest_id.is_empty() \
+			or nearest_id == SettlementManager.focused_settlement_id:
+		return
+	focus_settlement(nearest_id)
+
+
+func focus_settlement(settlement_id: String) -> bool:
+	## Switches the compatibility facade and its promoted actors as one
+	## transaction. Development scenes and explicit travel controls use this
+	## instead of leaving actors from the previous settlement attached.
+	if settlement_id.is_empty():
+		return false
+	if settlement_id == SettlementManager.focused_settlement_id:
+		if configured:
+			_refresh_actor_lod()
+		return true
+	_clear_actors(true)
+	if not SettlementManager.focus_settlement(settlement_id):
+		return false
+	_visual_stage = -1
+	_build_accumulator = 0.0
+	if configured:
+		_refresh_actor_lod()
+	return true
+
+
+func refresh_focused_settlement() -> void:
+	_clear_actors(false)
+	_visual_stage = -1
+	_build_accumulator = 0.0
+	if configured:
+		_refresh_actor_lod()
+
+
+func _clear_actors(save_positions: bool) -> void:
+	for npc_id in _actors.keys():
+		var actor: HamletNpcActor = _actors[npc_id]
+		if not is_instance_valid(actor):
+			continue
+		if save_positions and HamletState.npc_records.has(str(npc_id)):
+			HamletState.update_npc_position(str(npc_id), actor.global_position)
+		actor.queue_free()
+	_actors.clear()
 
 
 func active_actor_count() -> int:

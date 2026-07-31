@@ -2,6 +2,12 @@
 .godot/
 /android/
 /build/
+/.local/
+/.verification/
 
 # Summer Engine local-only state
 .summer/local/
+
+# Forge atomic-save rotation backups are local recovery artifacts.
+content/forge/**/*.previous.bak
+generated/forge/**/*.previous.bak

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgePresentationContract" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_contract.gd" id="1_etcns"]
+
+[resource]
+script = ExtResource("1_etcns")
+contract_id = "contract.item.resource.v1"
+gameplay_categories = PackedStringArray("item")
+required_representations = PackedStringArray("dropped", "icon", "preview")
+required_parts = PackedStringArray()
+required_pivots = PackedStringArray()
+required_sockets = PackedStringArray()
+required_states = PackedStringArray()
+critical_responses = PackedStringArray()
+allowed_collision_profiles = PackedStringArray()
+supported_variant_dimensions = PackedStringArray()
+accessibility_requirements = PackedStringArray()

@@ -11,11 +11,11 @@ config_version=5
 [application]
 
 config/name="Leyforge"
-config/version="0.9.0"
-run/main_scene="res://main.tscn"
+config/version="0.10.0"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
-config/release_channel="rc1"
+config/release_channel="dev"
 
 [autoload]
 
@@ -26,14 +26,21 @@ SettlementContentRegistry="*res://scripts/autoload/settlement_content_registry.g
 ProgressionState="*res://scripts/autoload/progression_state.gd"
 Inventory="*res://scripts/autoload/inventory.gd"
 HamletState="*res://scripts/autoload/hamlet_state.gd"
+SettlementManager="*res://scripts/autoload/settlement_manager.gd"
 MagicState="*res://scripts/autoload/magic_state.gd"
 CombatState="*res://scripts/autoload/combat_state.gd"
 UIState="*res://scripts/autoload/ui_state.gd"
+WorldManager="*res://scripts/autoload/world_manager.gd"
 ReleaseQuality="*res://scripts/autoload/release_quality.gd"
+ForgeRuntime="*res://scripts/forge/runtime/forge_runtime.gd"
 
 [dotnet]
 
 project/assembly_name="Leyforge"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/leyforge_forge/plugin.cfg")
 
 [input]
 

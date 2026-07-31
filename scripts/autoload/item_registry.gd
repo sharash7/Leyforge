@@ -96,6 +96,8 @@ func get_tool_profile(id: int) -> Dictionary:
 	var tool_class := ""
 	if "pickaxe" in stable_id:
 		tool_class = "pickaxe"
+	elif "shovel" in stable_id:
+		tool_class = "shovel"
 	elif stable_id.ends_with("_axe") or ".axe" in stable_id:
 		tool_class = "axe"
 	if tool_class.is_empty():
@@ -103,11 +105,11 @@ func get_tool_profile(id: int) -> Dictionary:
 	var level := 0
 	var durability := 32
 	var speed := 1.8
-	if ".stone_" in stable_id:
+	if ".stone_" in stable_id or stable_id.ends_with("_stone"):
 		level = 1
 		durability = 96
 		speed = 2.8
-	elif ".iron_" in stable_id:
+	elif ".iron_" in stable_id or stable_id.ends_with("_iron"):
 		level = 2
 		durability = 256
 		speed = 4.2
@@ -168,7 +170,7 @@ func get_visual_profile(id: int) -> Dictionary:
 	var stable_id := get_stable_id(id)
 	var kind := "resource"
 	for candidate in [
-		"pickaxe", "hammer", "sword", "spear", "staff", "wand", "bow",
+		"pickaxe", "shovel", "hammer", "sword", "spear", "staff", "wand", "bow",
 		"crystal", "mana", "rune", "ingot", "plate",
 	]:
 		if candidate in stable_id:
@@ -184,7 +186,7 @@ func get_visual_profile(id: int) -> Dictionary:
 		"assembled_pixels": [32, 32],
 		"model_kind": kind,
 		"directional": kind in [
-			"pickaxe", "axe", "hammer", "sword", "spear", "staff", "bow", "tool",
+			"pickaxe", "shovel", "axe", "hammer", "sword", "spear", "staff", "bow", "tool",
 		],
 	}
 

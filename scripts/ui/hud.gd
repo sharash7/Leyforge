@@ -695,6 +695,7 @@ func _build_pause_ui(parent: VBoxContainer) -> void:
 	_pause_area.add_child(_pause_status)
 	for entry in [
 		["Resume", "_resume"], ["Save World", "_save"],
+		["Save and Return to Main Menu", "_save_return"],
 		["Write Release Diagnostics", "_diagnostics"],
 		["Settings and Accessibility", "settings"],
 		["Controls and Rebinding", "controls"], ["Help and Tutorials", "help"],
@@ -707,6 +708,8 @@ func _build_pause_ui(parent: VBoxContainer) -> void:
 			button.pressed.connect(_set_craft_open.bind(false))
 		elif destination == "_save":
 			button.pressed.connect(_request_manual_save)
+		elif destination == "_save_return":
+			button.pressed.connect(_request_save_and_return)
 		elif destination == "_diagnostics":
 			button.pressed.connect(_write_release_diagnostics)
 		else:
@@ -722,7 +725,7 @@ func _build_settings_ui(parent: VBoxContainer) -> void:
 	_settings_area.custom_minimum_size = Vector2(640, 0)
 	_settings_area.add_theme_constant_override("separation", 4)
 	_settings_summary = Label.new()
-	_settings_summary.text = "Changes preview immediately and persist with the world."
+	_settings_summary.text = "Changes preview immediately and persist in your global player profile."
 	_settings_summary.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_settings_area.add_child(_settings_summary)
 	_add_option_setting(_settings_area, "HUD preset", "hud_preset",
@@ -1519,6 +1522,19 @@ func _request_manual_save() -> void:
 	session.call("request_manual_save")
 
 
+func _request_save_and_return() -> void:
+	if session == null or not session.has_method("request_save_and_return_to_menu"):
+		_on_save_status_changed(
+			"failed", "Return is unavailable because the session controller is not ready.")
+		return
+	if session.has_signal("save_status_changed") \
+			and not session.is_connected(
+				"save_status_changed", Callable(self, "_on_save_status_changed")):
+		session.connect(
+			"save_status_changed", Callable(self, "_on_save_status_changed"))
+	session.call("request_save_and_return_to_menu")
+
+
 func _write_release_diagnostics() -> void:
 	var written := ReleaseQuality.write_release_report()
 	_on_save_status_changed(
@@ -2304,14 +2320,22 @@ func _refresh_map() -> void:
 	var player_position := player.position
 	if player.is_inside_tree():
 		player_position = player.global_position
+	var map_anchors := player.world.get_valley_anchors()
+	var map_discovered := UIState.discovered_anchors.duplicate(true)
+	for site_id in UIState.discovered_sites:
+		var site: Dictionary = UIState.discovered_sites[site_id]
+		var point: Array = site.get("position", [])
+		if point.size() >= 2:
+			map_anchors[site_id] = Vector2i(int(point[0]), int(point[1]))
+			map_discovered[site_id] = true
 	_map_view.set_map_data(
-		player.world.get_valley_anchors(), route_values,
-		UIState.discovered_anchors,
+		map_anchors, route_values,
+		map_discovered,
 		Vector2(player_position.x, player_position.z),
 		str(objective.get("anchor_id", "")), UIState.custom_pin,
 		UIState.has_custom_pin)
 	_map_summary.text = "%d landmarks discovered  ·  Tracked: %s\nWorld reports reveal knowledge; undiscovered sites remain hidden." % [
-		UIState.discovered_anchors.size(),
+		UIState.discovered_anchors.size() + UIState.discovered_sites.size(),
 		str(objective.get("title", "Explore")),
 	]
 

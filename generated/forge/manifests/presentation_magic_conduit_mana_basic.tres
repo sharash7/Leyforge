@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_35q5y"]
+
+[resource]
+script = ExtResource("1_35q5y")
+asset_id = "forge_asset.magic.conduit.mana_basic"
+presentation_id = "presentation.magic.conduit.mana_basic"
+source_revision = 1
+source_hash = "6a64ca19ea064968bc648a71a16fc8b827765a15ea0821bdd0ea653065fdf161"
+engine_version = "4.6.3-stable (official)"
+baker_version = "forge-pipeline-v7"
+products = Array[Dictionary]([{
+"hash": "4cdfd97d5905a3e9d5dd588e6e7c359fd94e8f5a615438f5516a5db63b970348",
+"path": "res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation_mesh.res",
+"type": "mesh"
+}, {
+"hash": "34e8ae90502a89350e9fbc982c7ae6af025947e01a164cf159752e4f613de2cf",
+"path": "res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/icon.png",
+"type": "icon"
+}, {
+"hash": "340c723f71e3f3a80841e67616b301d0b9ff7d8d09bf1bf630b09e4786ec161e",
+"path": "res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/collision.tres",
+"type": "collision"
+}, {
+"hash": "4ab6e834a0f85c951d425a9b8a2269f4d399952374a4de1c21ed2917b1a55b92",
+"path": "res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/state_binding.tres",
+"type": "state_binding"
+}, {
+"hash": "a24a2274c54f8edbabe1dcad6be7a34d86f2b8f6d6267cf4f9721971eb52f427",
+"path": "res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation.tscn",
+"type": "scene"
+}, {
+"hash": "a36b8597898a1f792844da1a314888aba22c12db9815129e0dfa9b6ecfd04b29",
+"path": "res://generated/forge/packages/presentation_magic_conduit_mana_basic.tres",
+"type": "runtime_package"
+}])
+diagnostics_summary = {
+"critical": 0,
+"error": 0,
+"info": 0,
+"warning": 0
+}
+approved_status = "approved"

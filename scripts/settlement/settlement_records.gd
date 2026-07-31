@@ -514,3 +514,178 @@ class PlanRuntimeRecord:
 			"boundary": boundary.duplicate(true),
 			"history": history.duplicate(true),
 		}
+
+
+# Stage B mutable records intentionally use a compact common wrapper. Their
+# dictionaries are the save contract; these classes provide validation and
+# typed construction without forcing every runtime system to hold Resources.
+class StageBRuntimeRecord:
+	extends RefCounted
+
+	var record_type := ""
+	var version := 1
+	var id := ""
+	var owner_id := ""
+	var state: Dictionary = {}
+
+	static func _from_dictionary(
+			value: Dictionary,
+			expected_type: String) -> StageBRuntimeRecord:
+		var record := StageBRuntimeRecord.new()
+		record.record_type = str(value.get("record_type", expected_type))
+		record.version = maxi(1, int(value.get("version", 1)))
+		for key in [
+			"id", "resident_id", "household_id", "package_id", "plan_hash",
+		]:
+			if value.has(key):
+				record.id = str(value[key])
+				break
+		record.owner_id = str(value.get(
+			"owner_id", value.get("settlement_id", "")))
+		record.state = value.duplicate(true)
+		record.state["record_type"] = expected_type
+		record.state["version"] = record.version
+		return record
+
+	func to_dictionary() -> Dictionary:
+		return state.duplicate(true)
+
+
+class SiteSurvey:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> SiteSurvey:
+		var base := StageBRuntimeRecord._from_dictionary(value, "SiteSurvey")
+		var record := SiteSurvey.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record
+
+
+class RoutePlan:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> RoutePlan:
+		var base := StageBRuntimeRecord._from_dictionary(value, "RoutePlan")
+		var record := RoutePlan.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record
+
+
+class WorkPackage:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> WorkPackage:
+		var base := StageBRuntimeRecord._from_dictionary(value, "WorkPackage")
+		var record := WorkPackage.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record
+
+
+class Resident:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> Resident:
+		var base := StageBRuntimeRecord._from_dictionary(value, "Resident")
+		var record := Resident.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record
+
+
+class Household:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> Household:
+		var base := StageBRuntimeRecord._from_dictionary(value, "Household")
+		var record := Household.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record
+
+
+class JobAssignment:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> JobAssignment:
+		var base := StageBRuntimeRecord._from_dictionary(value, "JobAssignment")
+		var record := JobAssignment.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record
+
+
+class NpcTask:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> NpcTask:
+		var base := StageBRuntimeRecord._from_dictionary(value, "NpcTask")
+		var record := NpcTask.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record
+
+
+class NpcInventory:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> NpcInventory:
+		var base := StageBRuntimeRecord._from_dictionary(value, "NpcInventory")
+		var record := NpcInventory.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record
+
+
+class EditProvenance:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> EditProvenance:
+		var base := StageBRuntimeRecord._from_dictionary(value, "EditProvenance")
+		var record := EditProvenance.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record
+
+
+class DoorState:
+	extends StageBRuntimeRecord
+
+	static func from_dictionary(value: Dictionary) -> DoorState:
+		var base := StageBRuntimeRecord._from_dictionary(value, "DoorState")
+		var record := DoorState.new()
+		record.record_type = base.record_type
+		record.version = base.version
+		record.id = base.id
+		record.owner_id = base.owner_id
+		record.state = base.state
+		return record

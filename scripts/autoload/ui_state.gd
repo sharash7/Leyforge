@@ -49,6 +49,7 @@ const ACTION_LABELS := {
 var settings: Dictionary = {}
 var completed_hints: Dictionary = {}
 var discovered_anchors: Dictionary = {}
+var discovered_sites: Dictionary = {}
 var custom_pin := Vector2.ZERO
 var has_custom_pin := false
 
@@ -59,6 +60,11 @@ func _ready() -> void:
 
 
 func reset() -> void:
+	reset_profile()
+	reset_world_state()
+
+
+func reset_profile() -> void:
 	settings = {
 		"hud_preset": "standard",
 		"tutorial_mode": "contextual",
@@ -72,11 +78,15 @@ func reset() -> void:
 		"notification_preset": "standard",
 		"quality_profile": "balanced",
 	}
+	settings_changed.emit()
+
+
+func reset_world_state() -> void:
 	completed_hints.clear()
 	discovered_anchors = {"spawn": true}
+	discovered_sites.clear()
 	custom_pin = Vector2.ZERO
 	has_custom_pin = false
-	settings_changed.emit()
 	learning_changed.emit()
 	map_changed.emit()
 
@@ -130,6 +140,24 @@ func discover_anchor(anchor_id: String) -> bool:
 	if anchor_id not in MAP_ANCHORS or discovered_anchors.has(anchor_id):
 		return false
 	discovered_anchors[anchor_id] = true
+	map_changed.emit()
+	return true
+
+
+func discover_site(site: Dictionary) -> bool:
+	var site_id := str(site.get("site_id", ""))
+	var position: Variant = site.get("position", Vector2i.ZERO)
+	if site_id.is_empty() or discovered_sites.has(site_id):
+		return false
+	var point := Vector2i.ZERO
+	if position is Vector2i:
+		point = position
+	elif position is Array and position.size() >= 2:
+		point = Vector2i(int(position[0]), int(position[1]))
+	discovered_sites[site_id] = {
+		"type_id": str(site.get("type_id", "site")),
+		"position": [point.x, point.y],
+	}
 	map_changed.emit()
 	return true
 
@@ -419,25 +447,72 @@ func action_label(action: String) -> String:
 
 
 func serialize_state() -> Dictionary:
+	## Combined v12-v14 compatibility payload. Save v15+ stores only
+	## serialize_world_state() inside a world and keeps this profile global.
 	return {
 		"version": SETTINGS_VERSION,
 		"settings": settings.duplicate(true),
 		"completed_hints": completed_hints.keys(),
 		"discovered_anchors": discovered_anchors.keys(),
+		"discovered_sites": discovered_sites.duplicate(true),
 		"custom_pin": [custom_pin.x, custom_pin.y] if has_custom_pin else [],
 		"bindings": _serialize_bindings(),
 	}
 
 
+func serialize_profile_state() -> Dictionary:
+	return {
+		"version": SETTINGS_VERSION,
+		"settings": settings.duplicate(true),
+		"bindings": _serialize_bindings(),
+	}
+
+
+func serialize_world_state() -> Dictionary:
+	return {
+		"version": SETTINGS_VERSION,
+		"completed_hints": completed_hints.keys(),
+		"discovered_anchors": discovered_anchors.keys(),
+		"discovered_sites": discovered_sites.duplicate(true),
+		"custom_pin": [custom_pin.x, custom_pin.y] if has_custom_pin else [],
+	}
+
+
 func restore_state(value: Variant) -> void:
+	## Legacy combined restore used by old saves and historical verification.
 	reset()
 	if not (value is Dictionary):
 		return
 	var data: Dictionary = value
+	_restore_profile_fields(data)
+	_restore_world_fields(data)
+
+
+func restore_profile_state(value: Variant) -> void:
+	reset_profile()
+	_ensure_stage8_actions()
+	if not (value is Dictionary):
+		return
+	_restore_profile_fields(value)
+
+
+func restore_world_state(value: Variant) -> void:
+	reset_world_state()
+	if not (value is Dictionary):
+		return
+	_restore_world_fields(value)
+
+
+func _restore_profile_fields(data: Dictionary) -> void:
 	var saved_settings: Variant = data.get("settings", {})
 	if saved_settings is Dictionary:
 		for key in saved_settings:
 			set_setting(str(key), saved_settings[key])
+	_restore_bindings(data.get("bindings", {}))
+	settings_changed.emit()
+
+
+func _restore_world_fields(data: Dictionary) -> void:
 	for hint_id in data.get("completed_hints", []):
 		completed_hints[str(hint_id)] = true
 	discovered_anchors.clear()
@@ -445,12 +520,17 @@ func restore_state(value: Variant) -> void:
 		if str(anchor_id) in MAP_ANCHORS:
 			discovered_anchors[str(anchor_id)] = true
 	discovered_anchors["spawn"] = true
+	discovered_sites.clear()
+	var saved_sites: Variant = data.get("discovered_sites", {})
+	if saved_sites is Dictionary:
+		for site_id in saved_sites:
+			var site: Variant = saved_sites[site_id]
+			if site is Dictionary:
+				discovered_sites[str(site_id)] = site.duplicate(true)
 	var pin: Variant = data.get("custom_pin", [])
 	if pin is Array and pin.size() == 2:
 		custom_pin = Vector2(float(pin[0]), float(pin[1]))
 		has_custom_pin = true
-	_restore_bindings(data.get("bindings", {}))
-	settings_changed.emit()
 	learning_changed.emit()
 	map_changed.emit()
 

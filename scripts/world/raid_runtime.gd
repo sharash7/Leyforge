@@ -20,6 +20,10 @@ func configure(p_world: VoxelWorld, p_player: Player) -> void:
 	player = p_player
 	configured = world != null and player != null
 	if configured:
+		if not SettlementManager.focused_settlement_changed.is_connected(
+				_on_focused_settlement_changed):
+			SettlementManager.focused_settlement_changed.connect(
+				_on_focused_settlement_changed)
 		_build_spawn_volumes()
 		_refresh_phase()
 
@@ -29,20 +33,35 @@ func _build_spawn_volumes() -> void:
 		return
 	if _camp_spawn_volume != null and is_instance_valid(_camp_spawn_volume):
 		_camp_spawn_volume.queue_free()
-	var camp: Vector2i = world.valley_plan.get_anchor("goblin_camp")
-	var hamlet: Vector2i = world.valley_plan.get_anchor("hamlet")
+	var camp := _combat_anchor("goblin_camp")
+	var hamlet := _combat_anchor("hamlet")
 	# Place the visible cube at the rear of the camp, not on its supply crate.
 	var rear_direction := Vector2(camp - hamlet).normalized()
 	var center_2d := Vector2(camp) + rear_direction * 2.5
 	var center_x := roundi(center_2d.x)
 	var center_z := roundi(center_2d.y)
 	var feet_y := float(world.surface_height_at(center_x, center_z)) + 1.05
+	var camp_owner_id := str(CombatState.camp_state.get(
+		"id", "enemy_camp.goblin.hearthplain"))
+	if world.is_regional_worldgen():
+		var settlement: Dictionary = SettlementManager.get_focused_settlement()
+		var linked_camps: Array = settlement.get("linked_camp_ids", [])
+		if not linked_camps.is_empty():
+			camp_owner_id = str(linked_camps[0])
+	var ecology_seed := (
+		int(world.valley_plan.sub_seeds.get("ecology", world.world_seed))
+		if world.valley_plan != null else world.world_seed)
+	var spawn_seed := ValleyPlan.derive_seed(
+		ecology_seed, "camp_spawner:%s" % camp_owner_id)
 	_camp_spawn_volume = MobSpawnVolumeScript.new()
 	add_child(_camp_spawn_volume)
 	_camp_spawn_volume.call("configure", {
-		"id": "spawn_volume.goblin_camp.hearthplain",
-		"owner_id": str(CombatState.camp_state.get(
-			"id", "enemy_camp.goblin.hearthplain")),
+		"id": "spawn_volume.%s.goblin_camp" % (
+			SettlementManager.focused_settlement_id
+			if not SettlementManager.focused_settlement_id.is_empty()
+			else "hearthplain"),
+		"owner_id": camp_owner_id,
+		"spawn_seed": spawn_seed,
 		"mob_family": "goblin",
 		"spawn_mode": "authored_structure",
 		"active": not bool(CombatState.camp_state.get("cleared", false)) \
@@ -76,6 +95,22 @@ func _process(delta: float) -> void:
 		_clear_inactive_actors()
 	if CombatState.phase == "resolved":
 		CombatState.materialize_damage(world)
+
+
+func _on_focused_settlement_changed(_settlement_id: String) -> void:
+	_clear_inactive_actors()
+	_last_phase = ""
+	_spawn_columns_prepared = false
+	_build_spawn_volumes()
+	_refresh_phase()
+
+
+func _combat_anchor(anchor_id: String) -> Vector2i:
+	var source: Variant = CombatState.anchors.get(anchor_id, [0, 0])
+	if source is Array and source.size() >= 2:
+		return Vector2i(int(source[0]), int(source[1]))
+	return world.valley_plan.get_anchor(anchor_id) \
+		if world != null and world.valley_plan != null else Vector2i.ZERO
 
 
 func _refresh_phase() -> void:
@@ -197,7 +232,7 @@ func preparation_snapshot() -> Dictionary:
 	var tower_stages := HamletState.PROJECT_STAGES.size() \
 		if bool(HamletState.project.get("complete", false)) \
 		else maxi(0, int(HamletState.project.get("stage_index", 1)) - 1)
-	var hamlet: Vector2i = world.valley_plan.get_anchor("hamlet")
+	var hamlet := _combat_anchor("hamlet")
 	var ward := world.ward_coverage_at(Vector3(
 		float(hamlet.x) + 0.5,
 		float(world.surface_height_at(hamlet.x, hamlet.y)) + 1.0,
@@ -211,8 +246,8 @@ func preparation_snapshot() -> Dictionary:
 	for content_ref in food_refs:
 		food_count += HamletState.warehouse_count_ref(content_ref)
 	var guard := HamletState.get_npc_record(
-		"npc.poc.forest_hamlet.guard_elric")
-	var camp: Vector2i = world.valley_plan.get_anchor("goblin_camp")
+		HamletState.get_npc_id_for_job("job.guard.militia"))
+	var camp := _combat_anchor("goblin_camp")
 	var camp_distance := Vector2(camp).distance_to(Vector2(hamlet))
 	return {
 		"tower_stages": tower_stages,

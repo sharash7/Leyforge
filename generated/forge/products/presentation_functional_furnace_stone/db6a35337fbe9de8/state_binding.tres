@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="ForgeStateBindingDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="1_ug1kt"]
+
+[resource]
+script = ExtResource("1_ug1kt")
+state_binding_id = "statebinding.functional.furnace.stone"
+state_contract_id = "machine.furnace"
+bindings = Array[Dictionary]([{
+"actions": [{
+"clip": "work_cycle",
+"player": "AnimationPlayer",
+"type": "animation"
+}, {
+"clip": "magical_flame",
+"player": "VoxelFramePlayer",
+"type": "animation"
+}, {
+"target": "Flame",
+"type": "visibility",
+"value": true
+}, {
+"target": "FrameGeometry",
+"type": "visibility",
+"value": true
+}, {
+"parameter": "emission_energy_multiplier",
+"target": "Flame/Geometry",
+"type": "material_parameter",
+"value": 2.2
+}, {
+"effect_id": "furnace.smoke",
+"socket": "smoke",
+"type": "effect_cue"
+}, {
+"cue_id": "furnace.work_loop",
+"socket": "work_audio",
+"type": "audio_cue"
+}],
+"field": "processing",
+"layer": "activity",
+"operator": "equals",
+"priority": 10,
+"value": true
+}, {
+"actions": [{
+"target": "BlockedMarker",
+"type": "visibility",
+"value": true
+}, {
+"cue_id": "machine.blocked",
+"socket": "work_audio",
+"type": "audio_cue"
+}],
+"field": "blocked",
+"layer": "critical",
+"operator": "equals",
+"priority": 20,
+"value": true
+}, {
+"actions": [{
+"target": "DamageOverlay",
+"type": "visibility",
+"value": true
+}],
+"field": "damaged",
+"layer": "condition",
+"operator": "greater_equal",
+"priority": 10,
+"value": 0.5
+}])
+layer_order = PackedStringArray("base", "variant", "environment", "activity", "condition", "critical")

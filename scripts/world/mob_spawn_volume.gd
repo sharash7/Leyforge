@@ -21,6 +21,7 @@ var max_local_mobs := 3
 var max_nearby_mobs := 6
 var min_spawn_seconds := 6.0
 var max_spawn_seconds := 12.0
+var spawn_seed := 0
 
 var _world: VoxelWorld
 var _player: Player
@@ -37,6 +38,7 @@ func configure(definition: Dictionary) -> void:
 	owner_id = str(definition.get("owner_id", ""))
 	mob_family = str(definition.get("mob_family", ""))
 	spawn_mode = str(definition.get("spawn_mode", "authored_structure"))
+	spawn_seed = int(definition.get("spawn_seed", absi(volume_id.hash())))
 	active = bool(definition.get("active", true))
 	max_local_mobs = maxi(0, int(definition.get("max_local_mobs", 3)))
 	max_nearby_mobs = maxi(
@@ -58,7 +60,7 @@ func configure(definition: Dictionary) -> void:
 	name = volume_id
 	collision_layer = 0
 	collision_mask = 0
-	_rng.seed = absi(volume_id.hash())
+	_rng.seed = spawn_seed
 	_schedule_next_spawn()
 	_build_spawner_cube()
 	visible = false
@@ -117,6 +119,7 @@ func serialize_definition(spawn_count := 0) -> Dictionary:
 		"owner_id": owner_id,
 		"mob_family": mob_family,
 		"spawn_mode": spawn_mode,
+		"spawn_seed": spawn_seed,
 		"center": [global_position.x, global_position.y, global_position.z],
 		"size": [volume_size.x, volume_size.y, volume_size.z],
 		"active": active,

@@ -17,6 +17,10 @@ func get_icon(stack: Dictionary) -> Texture2D:
 	var key := "%s:%d" % [Inventory.stack_kind(stack), int(stack.get("id", -1))]
 	if _cache.has(key):
 		return _cache[key]
+	var forge_icon := _forge_icon(stack)
+	if forge_icon != null:
+		_cache[key] = forge_icon
+		return forge_icon
 	var image := Image.create(ICON_SIZE, ICON_SIZE, false, Image.FORMAT_RGBA8)
 	image.fill(Color(0, 0, 0, 0))
 	var color := Inventory.stack_color(stack)
@@ -40,6 +44,26 @@ func get_icon(stack: Dictionary) -> Texture2D:
 	var texture := ImageTexture.create_from_image(image)
 	_cache[key] = texture
 	return texture
+
+
+func _forge_icon(stack: Dictionary) -> Texture2D:
+	var main_loop := Engine.get_main_loop()
+	if not main_loop is SceneTree:
+		return null
+	var runtime: Node = main_loop.root.get_node_or_null("ForgeRuntime")
+	if runtime == null:
+		return null
+	var package: ForgeRuntimePackage = runtime.package_for(
+		Inventory.stack_stable_id(stack))
+	if package == null or package.icon_path.is_empty() \
+			or not FileAccess.file_exists(package.icon_path):
+		return null
+	var image := Image.load_from_file(
+		ProjectSettings.globalize_path(package.icon_path))
+	if image == null or image.is_empty():
+		return null
+	image.resize(ICON_SIZE, ICON_SIZE, Image.INTERPOLATE_NEAREST)
+	return ImageTexture.create_from_image(image)
 
 
 func _draw_block(

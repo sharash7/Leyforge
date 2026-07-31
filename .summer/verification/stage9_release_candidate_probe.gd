@@ -29,12 +29,12 @@ func _run() -> void:
 		"Stage 9 save fixtures were not isolated from player data")
 
 	var build := ReleaseQuality.build_metadata()
-	_check(str(build.get("build_stage", "")) == "stage9_release_candidate"
-			and str(build.get("project_version", "")) == "0.9.0-rc1",
-		"release-candidate build metadata is missing or stale")
-	_check(int(build.get("save_version", 0)) == 14
+	_check(str(build.get("build_stage", "")) == "post_poc_development"
+			and str(build.get("project_version", "")) == "0.10.0-dev",
+		"active development build metadata is missing or stale")
+	_check(int(build.get("save_version", 0)) == 17
 			and int(build.get("block_count", 0)) == 143
-			and int(build.get("item_count", 0)) == 167,
+			and int(build.get("item_count", 0)) == 169,
 		"build metadata omitted the locked save or registry baseline")
 	_check(str(build.get("content_sha256", "")).length() == 64,
 		"release metadata omitted its content hash")
@@ -49,7 +49,7 @@ func _run() -> void:
 	_check(main._save_game(), "first integrity fixture save failed")
 	var first: Dictionary = main._read_save()
 	_check(main.validate_save_integrity(first),
-		"fresh version-14 save failed its own integrity check")
+		"fresh version-17 save failed its own integrity check")
 	MagicState.mana = 22.0
 	_check(main._save_game(), "second integrity fixture save failed")
 	var second: Dictionary = main._read_save()
@@ -82,13 +82,13 @@ func _run() -> void:
 	v12_fixture.erase("integrity")
 	v12_fixture.erase("save_manifest")
 	var migrated: Dictionary = main._migrate_save(v12_fixture)
-	_check(int(migrated.get("version", 0)) == 14
+	_check(int(migrated.get("version", 0)) == 17
 			and int(migrated.get("save_manifest", {}).get(
 				"migrated_from", 0)) == 12,
-		"representative Stage 8 save did not migrate to version 14")
+		"representative Stage 8 save did not migrate to version 17")
 	_check(main.validate_save_integrity(migrated),
 		"migrated representative save did not receive a valid integrity record")
-	var oversized := {"version": 14, "item_drops": []}
+	var oversized := {"version": 17, "item_drops": []}
 	oversized["item_drops"].resize(10001)
 	_check(not main._validate_save_shape(oversized),
 		"bounded save validation accepted an excessive item-drop list")
@@ -234,7 +234,7 @@ func _run() -> void:
 		"ok": failures.is_empty(),
 		"checks": checks,
 		"failures": failures,
-		"save_version": 14,
+		"save_version": 17,
 		"content_sha256": str(build.get("content_sha256", "")).left(16),
 		"frame_p95_ms": snapshot.get("frame_p95_ms", 0.0),
 	}

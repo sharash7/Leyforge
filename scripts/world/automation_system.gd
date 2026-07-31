@@ -523,7 +523,7 @@ func _rebuild_topology() -> void:
 		_graph[key] = []
 	for key in nodes:
 		var position: Vector3i = nodes[key]
-		for direction in DIRS6:
+		for direction in ForgeConnectionResolver.item_connection_offsets():
 			var other_key := _key(position + direction)
 			if not nodes.has(other_key) or other_key <= str(key):
 				continue

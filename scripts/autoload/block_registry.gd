@@ -168,6 +168,12 @@ func get_block_name(id: int) -> String:
 
 
 func get_color(id: int) -> Color:
+	var stable_id := get_stable_id(id)
+	var forge_runtime := get_node_or_null("/root/ForgeRuntime")
+	if forge_runtime != null:
+		var forge_color: Variant = forge_runtime.average_surface_color(stable_id)
+		if forge_color is Color:
+			return forge_color
 	if _blocks.has(id):
 		return _blocks[id]["color"]
 	return Color(1, 0, 1)  # magenta = missing definition
@@ -194,6 +200,10 @@ func get_shape(id: int) -> String:
 		"power.crank.basic",
 	]:
 		return "post"
+	var forge_runtime := get_node_or_null("/root/ForgeRuntime")
+	if forge_runtime != null \
+			and forge_runtime.uses_custom_chunk_geometry(stable_id):
+		return "forge"
 	return "cube"
 
 
@@ -210,8 +220,12 @@ func get_visual_profile(id: int) -> Dictionary:
 		"model_kind": shape,
 		"directional": shape in [
 			"stair", "furnace", "chest", "chute", "door", "workbench", "post",
+			"forge",
 		],
 		"auto_connect": shape == "chute",
+		"forge_runtime": shape == "forge" or (
+			get_node_or_null("/root/ForgeRuntime") != null
+			and get_node("/root/ForgeRuntime").has_package_for(get_stable_id(id))),
 	}
 
 
@@ -229,10 +243,14 @@ func get_harvest_profile(id: int) -> Dictionary:
 	}
 	var mappings := {
 		"natural.log.oak": ["axe", 0, "item.resource.log_oak", 1, 1.2],
-		"natural.leaves.oak": ["", 0, "item.resource.plant_fibre", 1, 0.2],
+		"natural.leaves.oak": ["axe", 0, "item.resource.plant_fibre", 1, 0.2],
+		"terrain.grass.basic": ["shovel", 0, "terrain.grass.basic", 1, 0.35, "block"],
+		"terrain.dirt.basic": ["shovel", 0, "terrain.dirt.basic", 1, 0.45, "block"],
 		"terrain.stone.basic": ["pickaxe", 0, "item.resource.stone_chunk", 1, 1.8],
-		"terrain.clay.basic": ["", 0, "item.resource.clay_lump", 1, 0.8],
-		"terrain.sand.basic": ["", 0, "item.resource.sand", 1, 0.5],
+		"terrain.clay.basic": ["shovel", 1, "item.resource.clay_lump", 1, 0.8],
+		"terrain.sand.basic": ["shovel", 0, "item.resource.sand", 1, 0.5],
+		"terrain.gravel.basic": ["shovel", 0, "terrain.gravel.basic", 1, 0.65, "block"],
+		"terrain.snow.basic": ["shovel", 0, "terrain.snow.basic", 1, 0.25, "block"],
 		"ore.coal.basic": ["pickaxe", 0, "item.resource.coal_chunk", 1, 2.0],
 		"ore.copper.basic": ["pickaxe", 1, "item.resource.raw_copper_ore", 1, 2.5],
 		"ore.iron.basic": ["pickaxe", 1, "item.resource.raw_iron_ore", 1, 3.0],
@@ -246,7 +264,7 @@ func get_harvest_profile(id: int) -> Dictionary:
 		var values: Array = mappings[stable_id]
 		profile["tool"] = str(values[0])
 		profile["level"] = int(values[1])
-		profile["drop_kind"] = "item"
+		profile["drop_kind"] = str(values[5]) if values.size() > 5 else "item"
 		profile["drop_id"] = str(values[2])
 		profile["drop_count"] = int(values[3])
 		profile["hardness"] = float(values[4])

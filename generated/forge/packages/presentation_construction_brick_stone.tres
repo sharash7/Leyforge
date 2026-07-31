@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_5n7lg"]
+
+[resource]
+script = ExtResource("1_5n7lg")
+presentation_id = "presentation.construction.brick.stone"
+root_scene_path = "res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/presentation_mesh.res"
+material_paths = PackedStringArray("res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/top.png", "res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/bottom.png", "res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/north.png", "res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/south.png", "res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/east.png", "res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/west.png")
+collision_path = "res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/collision.tres"
+icon_path = "res://generated/forge/products/presentation_construction_brick_stone/424c1b25c198ba01/icon.png"
+bounds = AABB(0, 0, 0, 1, 1, 1)
+lod_profile = {
+"far": "iconic",
+"mid": "static",
+"near": "full"
+}
+variant_compatibility = PackedStringArray()
+runtime_metadata = {
+"asset_kind": "standard_block_surface",
+"authoring_profile": "surface.block.standard",
+"connection_rules": {
+"family": "stone_construction",
+"generated_shapes": ["cube", "slab", "stair", "wall", "beam"],
+"orientation_safe": true
+},
+"face_colors": {
+"bottom": [0.4339785, 0.4502156, 0.46252608, 1.0],
+"east": [0.4339785, 0.4502156, 0.46252608, 1.0],
+"north": [0.4339785, 0.4502156, 0.46252608, 1.0],
+"south": [0.4339785, 0.4502156, 0.46252608, 1.0],
+"top": [0.4339785, 0.4502156, 0.46252608, 1.0],
+"west": [0.4339785, 0.4502156, 0.46252608, 1.0]
+},
+"footprint": {
+"allowed_placement_faces": ["floor"],
+"allowed_rotations": [0, 1, 2, 3],
+"anchor_cell": [0, 0, 0],
+"clearance_cells": [],
+"footprint_profile_id": "footprint.presentation.construction.brick.stone",
+"occupied_cells": [[0, 0, 0]],
+"schema_version": 1,
+"support_required": true
+},
+"gameplay_links": ["construction.brick.stone"],
+"metrics": {
+"baker_version": "forge-mesh-v2",
+"exposed_faces": 6,
+"hidden_face_removal": true,
+"occupied_cells": 1,
+"surface_source": true,
+"triangles": 12,
+"vertices": 24
+},
+"representation_profiles": {},
+"runtime_remeshing": false,
+"source_revision": 1,
+"voxel_frame_clips": {}
+}
+product_hash = "5bb47f3b6012d644861cf3e0f831a9f30964db331bb7186b929f343caf138e61"

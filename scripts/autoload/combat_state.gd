@@ -14,6 +14,7 @@ const DEFAULT_CAMP_PRESSURE := 55
 
 var initialized := false
 var world_seed := 0
+var target_settlement_id := ""
 var anchors: Dictionary = {}
 var phase := "dormant"
 var phase_seconds := 0.0
@@ -35,10 +36,15 @@ var settings := {
 var _aftermath_applied := false
 
 
-func initialize(seed_value: int, world_anchors: Dictionary) -> void:
-	if initialized and world_seed == seed_value:
+func initialize(
+		seed_value: int,
+		world_anchors: Dictionary,
+		settlement_id: String = "") -> void:
+	if initialized and world_seed == seed_value \
+			and target_settlement_id == settlement_id:
 		return
 	world_seed = seed_value
+	target_settlement_id = settlement_id
 	anchors = _normalise_anchors(world_anchors)
 	event_history.clear()
 	_initialize_camp_state()
@@ -77,7 +83,11 @@ func _initialize_camp_state() -> void:
 	var hamlet := _anchor("hamlet")
 	var distance := Vector2(camp).distance_to(Vector2(hamlet))
 	camp_state = {
-		"id": "enemy_camp.goblin.hearthplain",
+		"id": (
+			"%s.camp.goblin" % target_settlement_id
+			if not target_settlement_id.is_empty()
+			else "enemy_camp.goblin.hearthplain"),
+		"target_settlement_id": target_settlement_id,
 		"enemy_family": "goblin",
 		"anchor": [camp.x, camp.y],
 		"distance_to_hamlet": distance,
@@ -165,7 +175,11 @@ func begin_raid(preparation_snapshot: Dictionary) -> Dictionary:
 			"ok": false,
 			"message": "The known goblin camp has been cleared; it cannot launch a raid.",
 		}
-	if source_distance < 95.0 or source_distance > 165.0:
+	var minimum_distance := 6.0 * VoxelWorld.CHUNK_SIZE \
+		if not target_settlement_id.is_empty() else 95.0
+	var maximum_distance := 24.0 * VoxelWorld.CHUNK_SIZE \
+		if not target_settlement_id.is_empty() else 165.0
+	if source_distance < minimum_distance or source_distance > maximum_distance:
 		return {
 			"ok": false,
 			"message": "No valid goblin camp is within the configured raid distance.",
@@ -450,10 +464,12 @@ func _apply_aftermath() -> void:
 		return
 	var injury_count := int(outcome.get("injuries", 0))
 	var injury_candidates: Array[String] = [
-		"npc.poc.forest_hamlet.guard_elric",
-		"npc.poc.forest_hamlet.builder_talia",
-		"npc.poc.forest_hamlet.farmer_bram",
+		HamletState.get_npc_id_for_job("job.guard.militia"),
+		HamletState.get_npc_id_for_job("job.builder.basic"),
+		HamletState.get_npc_id_for_job("job.farmer.basic"),
 	]
+	injury_candidates = injury_candidates.filter(func(id: String) -> bool:
+		return not id.is_empty())
 	var injured: Array[String] = []
 	for index in mini(injury_count, injury_candidates.size()):
 		injured.append(injury_candidates[index])
@@ -609,6 +625,7 @@ func serialize_state() -> Dictionary:
 	return {
 		"version": 1,
 		"world_seed": world_seed,
+		"target_settlement_id": target_settlement_id,
 		"anchors": anchors.duplicate(true),
 		"phase": phase,
 		"phase_seconds": phase_seconds,
@@ -628,13 +645,21 @@ func serialize_state() -> Dictionary:
 	}
 
 
-func restore_state(value: Variant, expected_seed: int) -> bool:
+func restore_state(
+		value: Variant,
+		expected_seed: int,
+		expected_settlement_id: String = "") -> bool:
 	if not (value is Dictionary):
 		return false
 	var data: Dictionary = value
 	if int(data.get("world_seed", -1)) != expected_seed:
 		return false
-	initialize(expected_seed, data.get("anchors", {}))
+	var saved_settlement_id := str(data.get("target_settlement_id", ""))
+	if not expected_settlement_id.is_empty() \
+			and saved_settlement_id != expected_settlement_id:
+		return false
+	initialized = false
+	initialize(expected_seed, data.get("anchors", {}), saved_settlement_id)
 	phase = str(data.get("phase", "dormant"))
 	if phase not in ["dormant", "warning", "assault", "resolved"]:
 		phase = "dormant"

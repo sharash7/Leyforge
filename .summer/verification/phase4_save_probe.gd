@@ -81,7 +81,7 @@ func _run() -> void:
 	main._save_game()
 
 	var saved: Dictionary = main._read_save()
-	_check(int(saved.get("version", 0)) == 14, "atomic save did not write save version 14")
+	_check(int(saved.get("version", 0)) == 17, "atomic save did not write save version 17")
 	_check(main.validate_save_integrity(saved),
 		"atomic save omitted or failed its Stage 9 payload integrity record")
 	_check(saved.get("hamlet", {}) is Dictionary and not saved.get("hamlet", {}).is_empty(),
@@ -94,15 +94,17 @@ func _run() -> void:
 	_check(saved.get("combat", {}) is Dictionary
 			and not saved.get("combat", {}).is_empty(),
 		"atomic save omitted persistent combat and raid state")
-	_check(saved.get("ui", {}) is Dictionary and not saved.get("ui", {}).is_empty(),
-		"atomic save omitted persistent UI and learning state")
+	_check(saved.get("ui", {}) is Dictionary
+			and not saved.get("ui", {}).is_empty()
+			and not (saved.get("ui", {}) as Dictionary).has("settings"),
+		"save v17 omitted world UI state or copied global profile settings into it")
 
 	HamletState.initialized = false
 	HamletState.initialize(world.world_seed, world.get_valley_anchors())
 	world.restore_item_drops([])
 	MagicState.reset()
 	CombatState.reset_raid()
-	UIState.reset()
+	UIState.reset_world_state()
 	_check(HamletState.reputation_state == HamletState.REP_STRANGER,
 		"probe reset did not create a fresh hamlet")
 	main._apply_save(saved)
@@ -127,7 +129,7 @@ func _run() -> void:
 			and UIState.discovered_anchors.has("rune_ruin")
 			and UIState.has_custom_pin
 			and UIState.custom_pin.is_equal_approx(Vector2(19.0, -27.0)),
-		"Stage 8 settings, learning, discovery, or custom pin did not survive save/apply")
+		"global profile or world learning/map state changed during save/apply")
 	var rowan_position: Array = HamletState.get_npc_record(rowan_id).get("position", [])
 	_check(rowan_position.size() == 3 and is_equal_approx(float(rowan_position[0]), 12.5),
 		"NPC runtime position did not survive the full main save/apply path")
@@ -151,11 +153,12 @@ func _run() -> void:
 		v13_project.erase(generic_key)
 	v13_hamlet["project"] = v13_project
 	v13_fixture["hamlet"] = v13_hamlet
+	v13_fixture = main._attach_integrity(v13_fixture)
 	var migrated_v13: Dictionary = main._migrate_save(v13_fixture)
-	_migration_check(int(migrated_v13.get("version", 0)) == 14
+	_migration_check(int(migrated_v13.get("version", 0)) == 17
 			and int(migrated_v13.get("save_manifest", {}).get(
 				"migrated_from", 0)) == 13,
-		"version-13 save did not migrate to version 14")
+		"version-13 save did not migrate to version 17")
 	main._apply_save(migrated_v13)
 	_migration_check(str(HamletState.project.get("definition_id", ""))
 			== "project.build.wooden_watchtower"
@@ -185,7 +188,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v10.get("version", 0)) == 14
+		int(migrated_v10.get("version", 0)) == 17
 			and migrated_v10.get("combat", {}) is Dictionary,
 		"version-10 saves did not migrate to the Stage 8 save contract")
 	var migrated_v9: Dictionary = main._migrate_save({
@@ -194,7 +197,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v9.get("version", 0)) == 14
+		int(migrated_v9.get("version", 0)) == 17
 			and migrated_v9.get("combat", {}) is Dictionary,
 		"version-9 saves did not migrate to the combat save contract")
 	var migrated_v8: Dictionary = main._migrate_save({
@@ -203,7 +206,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v8.get("version", 0)) == 14
+		int(migrated_v8.get("version", 0)) == 17
 			and migrated_v8.get("magic_player", {}) is Dictionary,
 		"version-8 saves did not migrate to the magic save contract")
 	var migrated_v7: Dictionary = main._migrate_save({
@@ -212,7 +215,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v7.get("version", 0)) == 14
+		int(migrated_v7.get("version", 0)) == 17
 			and migrated_v7.get("item_drops", []) is Array
 			and migrated_v7.get("block_entities", {}) is Dictionary,
 		"version-7 saves did not migrate to the automation save contract")

@@ -6508,5 +6508,47 @@
             1.0
         ],
         "color_hex": "#387A94"
+    },
+    {
+        "numeric_id": 311,
+        "unique_id": "VXL_ITM_Tool_CrudeShovel",
+        "original_id": "item.tool.shovel_crude",
+        "display_name": "Crude Shovel",
+        "category": "Tool / Shovel",
+        "type": "item",
+        "asset_path": "/Game/Voxel/Items/DA_VXL_ITM_Tool_CrudeShovel",
+        "schematic_tags": [
+            "item.tool.shovel_crude",
+            "VXL_ITM_Tool_CrudeShovel"
+        ],
+        "texture_index": 311.0,
+        "color_rgb": [
+            0.45,
+            0.29,
+            0.14,
+            1.0
+        ],
+        "color_hex": "#734A24"
+    },
+    {
+        "numeric_id": 312,
+        "unique_id": "VXL_ITM_Tool_StoneShovel",
+        "original_id": "item.tool.shovel_stone",
+        "display_name": "Stone Shovel",
+        "category": "Tool / Shovel",
+        "type": "item",
+        "asset_path": "/Game/Voxel/Items/DA_VXL_ITM_Tool_StoneShovel",
+        "schematic_tags": [
+            "item.tool.shovel_stone",
+            "VXL_ITM_Tool_StoneShovel"
+        ],
+        "texture_index": 312.0,
+        "color_rgb": [
+            0.43,
+            0.46,
+            0.49,
+            1.0
+        ],
+        "color_hex": "#6E757D"
     }
 ]

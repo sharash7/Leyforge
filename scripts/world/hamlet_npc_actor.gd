@@ -5,6 +5,9 @@ extends CharacterBody3D
 const HumanoidVisualScript = preload("res://scripts/visual/humanoid_visual.gd")
 const WALK_SPEED := 1.65
 const GRAVITY := 22.0
+const JUMP_VELOCITY := 7.1
+const REPLAN_SECONDS := 0.8
+const RECOVERY_SECONDS := 3.2
 const GUARD_ATTACK_RANGE := 1.65
 const GUARD_ATTACK_DAMAGE := 5.0
 
@@ -19,9 +22,16 @@ var _waypoint_base := Vector2(INF, INF)
 var _waypoint_seconds := 0.0
 var _waypoint_index := 0
 var _stuck_seconds := 0.0
+var _blocked_seconds := 0.0
 var _action_seconds := 0.0
 var _guard_attack_cooldown := 0.0
 var _held_stack: Dictionary = {}
+var _navigation_path: Array[Vector3] = []
+var _navigation_index := 0
+var _last_safe_route_node := Vector3.ZERO
+var _last_route_failure := ""
+var _opened_door_base := Vector3i.ZERO
+var _has_opened_door := false
 
 
 func setup(p_world: VoxelWorld, p_npc_id: String) -> void:
@@ -44,6 +54,7 @@ func _ready() -> void:
 	if global_position.y <= 0.0:
 		global_position.y = float(world.surface_height_at(
 			floori(global_position.x), floori(global_position.z))) + 1.05
+	_last_safe_route_node = global_position
 	_choose_waypoint()
 
 
@@ -64,7 +75,11 @@ func _build_visual() -> void:
 	humanoid.name = "HumanoidVisual"
 	add_child(humanoid)
 	humanoid.configure(color)
-	_held_stack = _job_held_stack(str(record.get("job_id", "")))
+	_held_stack = record.get("carried_stack", {}).duplicate(true)
+	if _held_stack.is_empty():
+		_held_stack = record.get("equipment", {}).duplicate(true)
+	if _held_stack.is_empty():
+		_held_stack = _job_held_stack(str(record.get("job_id", "")))
 	humanoid.set_held_stack(_held_stack)
 
 	var label := Label3D.new()
@@ -117,6 +132,141 @@ func _choose_waypoint() -> void:
 	_waypoint_seconds = 6.0 + float(seconds_roll) / 100.0
 	_waypoint_index += 1
 	_avoid_sign = -1.0 if hash_value % 2 == 0 else 1.0
+	_rebuild_navigation()
+
+
+func _rebuild_navigation() -> void:
+	_navigation_path.clear()
+	_navigation_index = 0
+	_last_route_failure = ""
+	var destination := Vector3(
+		_waypoint.x,
+		float(world.surface_height_at(
+			floori(_waypoint.x), floori(_waypoint.y))) + 1.05,
+		_waypoint.y)
+	if SettlementManager != null:
+		_navigation_path = SettlementManager.navigation_waypoints(
+			HamletState.active_village_id, global_position, destination)
+	if _navigation_path.is_empty():
+		_last_route_failure = "no_safe_route"
+		return
+	while _navigation_index < _navigation_path.size() \
+			and global_position.distance_to(
+				_navigation_path[_navigation_index]) < 0.45:
+		_navigation_index += 1
+
+
+func _navigation_target() -> Vector3:
+	if _navigation_index >= _navigation_path.size():
+		return Vector3(
+			_waypoint.x, global_position.y, _waypoint.y)
+	return _navigation_path[_navigation_index]
+
+
+func _advance_navigation_if_reached() -> void:
+	while _navigation_index < _navigation_path.size():
+		var target := _navigation_path[_navigation_index]
+		if Vector2(global_position.x, global_position.z).distance_to(
+				Vector2(target.x, target.z)) > 0.38:
+			break
+		_last_safe_route_node = target
+		_navigation_index += 1
+
+
+func _next_cell_is_safe(target: Vector3) -> bool:
+	var cell := Vector2i(floori(target.x), floori(target.z))
+	var ground_y := world.surface_height_at(cell.x, cell.y)
+	var ground := Vector3i(cell.x, ground_y, cell.y)
+	if not world.is_voxel_loaded_at(ground) \
+			or not world.is_voxel_loaded_at(ground + Vector3i.UP) \
+			or not world.is_voxel_loaded_at(ground + Vector3i.UP * 2):
+		_last_route_failure = "terrain_unloaded"
+		return false
+	var ground_id := world.get_persisted_block_id(ground)
+	if BlockRegistry.is_air(ground_id) or BlockRegistry.is_water(ground_id):
+		_last_route_failure = "unsafe_ground"
+		return false
+	var current_ground := world.surface_height_at(
+		floori(global_position.x), floori(global_position.z))
+	if absi(ground_y - current_ground) > 1:
+		_last_route_failure = "unsafe_step"
+		return false
+	return true
+
+
+func _try_open_door_ahead(direction: Vector3) -> bool:
+	if direction.length_squared() <= 0.001:
+		return false
+	var ahead := global_position + direction.normalized() * 0.65
+	var feet_y := floori(global_position.y)
+	for y in [feet_y - 1, feet_y, feet_y + 1]:
+		var cell := Vector3i(floori(ahead.x), y, floori(ahead.z))
+		if not world.is_door_at(cell):
+			continue
+		var entity: Dictionary = world.get_door_record(cell)
+		if bool(entity.get("open", false)):
+			return true
+		if world.toggle_door(cell, npc_id):
+			entity = world.get_door_record(cell)
+			var base_values: Array = entity.get("base", [])
+			if base_values.size() == 3:
+				_opened_door_base = Vector3i(
+					int(base_values[0]), int(base_values[1]),
+					int(base_values[2]))
+				_has_opened_door = true
+			return true
+		_last_route_failure = (
+			world.door_last_error if not world.door_last_error.is_empty()
+			else "door_blocked")
+		return false
+	return true
+
+
+func _close_opened_door_after_passing() -> void:
+	if not _has_opened_door:
+		return
+	if not world.is_door_at(_opened_door_base):
+		_has_opened_door = false
+		return
+	var record := world.get_door_record(_opened_door_base)
+	if not bool(record.get("open", false)):
+		_has_opened_door = false
+		return
+	if str(record.get("last_actor_id", "")) != npc_id:
+		# Another actor took ownership of the interaction after this NPC.
+		_has_opened_door = false
+		return
+	var door_center := Vector2(
+		float(_opened_door_base.x) + 0.5,
+		float(_opened_door_base.z) + 0.5)
+	if Vector2(global_position.x, global_position.z).distance_to(
+			door_center) <= 1.75:
+		return
+	if world.toggle_door(_opened_door_base, npc_id):
+		_has_opened_door = false
+
+
+func _pause_current_task(reason: String) -> void:
+	var record := HamletState.get_npc_record(npc_id)
+	var task: Dictionary = record.get("current_task", {}).duplicate(true)
+	if task.is_empty():
+		return
+	task["status"] = "paused"
+	task["pause_reason"] = reason
+	task["progress_consumed"] = false
+	HamletState.update_resident_runtime(npc_id, {"current_task": task})
+
+
+func _recover_to_last_safe_node() -> void:
+	if _last_safe_route_node == Vector3.ZERO:
+		return
+	global_position = _last_safe_route_node
+	velocity = Vector3.ZERO
+	_pause_current_task(
+		_last_route_failure if not _last_route_failure.is_empty()
+		else "navigation_failed")
+	HamletState.update_npc_activity(npc_id, "blocked")
+	_rebuild_navigation()
 
 
 func _physics_process(delta: float) -> void:
@@ -126,8 +276,11 @@ func _physics_process(delta: float) -> void:
 	_waypoint_seconds -= delta
 	if schedule_target.distance_to(_waypoint_base) > 0.25 or _waypoint_seconds <= 0.0:
 		_choose_waypoint()
+	_advance_navigation_if_reached()
+	var navigation_target := _navigation_target()
 	var difference := Vector2(
-		_waypoint.x - global_position.x, _waypoint.y - global_position.z)
+		navigation_target.x - global_position.x,
+		navigation_target.z - global_position.z)
 	var direction := Vector3.ZERO
 	var distance_to_target := difference.length()
 	var record := HamletState.get_npc_record(npc_id)
@@ -145,12 +298,28 @@ func _physics_process(delta: float) -> void:
 			desired = (desired * 0.25 + side * 0.75).normalized()
 		direction = Vector3(desired.x, 0.0, desired.y)
 		look_at(global_position + direction, Vector3.UP)
+	if direction.length_squared() > 0.01:
+		if not _next_cell_is_safe(navigation_target) \
+				or not _try_open_door_ahead(direction):
+			direction = Vector3.ZERO
+			_blocked_seconds += delta
+		else:
+			var target_ground := world.surface_height_at(
+				floori(navigation_target.x), floori(navigation_target.z))
+			var current_ground := world.surface_height_at(
+				floori(global_position.x), floori(global_position.z))
+			if target_ground == current_ground + 1 and is_on_floor():
+				velocity.y = JUMP_VELOCITY
 	var walk_speed := minf(WALK_SPEED, maxf(0.35, distance_to_target * 1.5))
 	velocity.x = direction.x * walk_speed
 	velocity.z = direction.z * walk_speed
-	velocity.y -= GRAVITY * delta
+	if not is_on_floor():
+		velocity.y -= GRAVITY * delta
+	elif velocity.y < 0.0:
+		velocity.y = -0.5
 	var before_move := Vector2(global_position.x, global_position.z)
 	move_and_slide()
+	_close_opened_door_after_passing()
 	var hit_wall := false
 	for collision_index in get_slide_collision_count():
 		var collision := get_slide_collision(collision_index)
@@ -159,24 +328,34 @@ func _physics_process(delta: float) -> void:
 			break
 	if hit_wall and distance_to_target > 0.8 and _avoid_seconds <= 0.0:
 		_avoid_seconds = 0.75
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
 	if is_on_floor():
 		apply_floor_snap()
 	var moved := before_move.distance_to(Vector2(global_position.x, global_position.z))
 	if direction.length_squared() > 0.01 and moved < 0.004:
 		_stuck_seconds += delta
-		if _stuck_seconds >= 0.8:
+		_blocked_seconds += delta
+		if _stuck_seconds >= REPLAN_SECONDS:
 			_stuck_seconds = 0.0
-			_choose_waypoint()
+			_rebuild_navigation()
 			_avoid_seconds = 0.85
 	else:
 		_stuck_seconds = 0.0
+		if direction.length_squared() > 0.01:
+			_blocked_seconds = maxf(0.0, _blocked_seconds - delta * 2.0)
+	if _blocked_seconds >= RECOVERY_SECONDS:
+		_blocked_seconds = 0.0
+		_recover_to_last_safe_node()
 
 	# Recover actors whose direct local waypoint movement met an unloaded seam.
 	var expected_ground := float(world.surface_height_at(
 		floori(global_position.x), floori(global_position.z))) + 1.0
 	if global_position.y < expected_ground - 3.0:
-		global_position.y = expected_ground + 0.05
-		velocity = Vector3.ZERO
+		_last_route_failure = "unsafe_fall"
+		_recover_to_last_safe_node()
+	elif is_on_floor() and _next_cell_is_safe(global_position):
+		_last_safe_route_node = global_position
 
 	_guard_attack_cooldown = maxf(0.0, _guard_attack_cooldown - delta)
 	_action_seconds = maxf(0.0, _action_seconds - delta)

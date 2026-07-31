@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ForgeCollisionProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_collision_profile.gd" id="1_nxpjo"]
+
+[resource]
+script = ExtResource("1_nxpjo")
+collision_profile_id = "collision.presentation.magic.conduit.mana_basic"
+boxes = Array[Dictionary]([{
+"maximum": [1.0, 1.0, 1.0],
+"minimum": [0.0, 0.0, 0.0]
+}])

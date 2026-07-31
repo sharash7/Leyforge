@@ -61,15 +61,25 @@ var _recipes: Array = []
 
 
 func _ready() -> void:
+	reset()
+	_register_legacy_recipes()
+
+
+func reset() -> void:
 	hotbar = _empty_slots(HOTBAR_SIZE)
 	backpack = _empty_slots(BACKPACK_SIZE)
 	craft_grid = _empty_slots(CRAFT_SIZE)
-	_register_legacy_recipes()
+	craft_output.clear()
+	crafting_station = "hand"
+	selected_slot = 0
 	# Starter building palette; gathered resources and tools use item stacks.
 	add_item(1, 32)
 	add_item(2, 32)
 	add_item(3, 32)
 	add_item(9, 16)
+	_update_craft_output()
+	_emit_inventory_changed()
+	craft_grid_changed.emit()
 
 
 func _empty_slots(size: int) -> Array:

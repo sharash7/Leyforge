@@ -1,10 +1,10 @@
 ---
 name: leyforge-voxel-poc
 overview: >-
-  Godot-adapted Forest Hamlet POC: Stage 9 -- Hardening and POC Release
-  Candidate is implemented on the deterministic Controlled POC Valley; the
-  489-check automated gate and official 1920x1080 packaged benchmark pass, and
-  the short owner packaged-build sign-off remains
+  Godot-adapted Forest Hamlet POC plus approved Post-POC Feature Stage A:
+  multi-world startup, global profile settings, save v16, deterministic
+  regional worldgen v4, independent settlements, and the Village Progression
+  Lab while preserving legacy worldgen v2/v1 and v3/v2
 createdAt: '2026-07-21T08:48:53.746Z'
 todos:
   - id: voxel-chunk-system
@@ -36,6 +36,38 @@ todos:
     content: >-
       Verify Stage 1 runs: player can move, break/place blocks, switch items,
       and craft basics
+    status: completed
+  - id: feature-stage-a-world-lifecycle
+    content: >-
+      Add startup menu, isolated per-world atomic saves, first-launch legacy
+      copy import, world cards, Continue, and safe save-and-return
+    status: completed
+  - id: feature-stage-a-profile-split
+    content: >-
+      Move player-wide settings and bindings to atomic profile.json while
+      retaining tutorials, map knowledge, progression, and systems per world
+    status: completed
+  - id: feature-stage-a-random-worlds
+    content: >-
+      Add numeric, text, and random seed creation plus worldgen v4 regional
+      random-spread placement with zero-fallback starter-contract gates
+    status: completed
+  - id: feature-stage-a-regional-settlements
+    content: >-
+      Materialize generated hamlets as independent ID-scoped settlements,
+      persist their runtime collections in save v16, and retain HamletState as
+      the focused compatibility facade
+    status: completed
+  - id: feature-stage-a-village-lab
+    content: >-
+      Add an editor-only two-plot voxel progression lab using real Document 20
+      registries, eight-NPC settlement actors, projects, plans, simulation,
+      controls, a 21-objective camp-to-city test quest, and isolated snapshots
+    status: completed
+  - id: feature-stage-a-verification
+    content: >-
+      Pin historical, settlement, menu, multi-world, 256-seed, representative
+      runtime, and configurable 10000-seed verification
     status: completed
 
   - id: stage1-foundation-hardening
@@ -293,7 +325,7 @@ todos:
 - Non-perfect outcomes remove exact warehouse voxels; each repair restores the saved original block and transactionally consumes one Oak Beam
 - NPC death and structure damage are explicit world settings; the POC defaults to recoverable injuries rather than silently deleting named villagers
 - Elric's conversation exposes the manual raid trigger, aftermath status, one-at-a-time repair action, and test reset
-- The living manual acceptance guide is `20_Leyforge_POC_Manual_Testing_Guide_v0_1.md` and must be updated with every future phase
+- The living manual acceptance guide is `99_Leyforge_POC_Manual_Testing_Guide_v0_1.md` and must be updated with every future phase
 
 ## End-to-End UI and Learning
 - The normal HUD is player-facing: debug seed, coordinates, and FPS are absent, while mana stays hidden until the player discovers it
@@ -318,6 +350,33 @@ todos:
 - Document 19, `19_Fantasy_Voxel_Civilisation_Sandbox_Settlement_Growth_and_Player_Voxel_Blueprint_System_v0_1.md`, is now a design source for later settlement-growth and player-voxel-blueprint phases
 - Its blueprint definitions/runtime records, stable identity, reservations, repair, and settlement progression requirements should extend the existing conserved resource, project, and persistence foundations
 - Stage 9 hardening does not pull those later settlement/blueprint systems forward; after the POC release-candidate sign-off, later feature work requires a newly approved stage boundary
+
+## Post-POC Feature Stage A
+- The full-game continuation is governed by
+  `.summer/plans/full-game-implementation-roadmap.md`; its Phase 0 coverage
+  baseline and generated ledger live under `.summer/requirements/`
+- `main_menu.tscn` is the intended production startup scene; Summer's development target remains freely swappable, while gameplay ownership and child structure remain in `main.tscn`
+- `WorldManager` owns active selection, world cards, legacy copy import, isolated `user://worlds/<world_id>/` transactions, and the atomic backed-up global profile
+- Save v16 embeds world identity, regional config/site hashes, and reconstructable
+  card fields; migrations from v2-v15 remain supported
+- Legacy worldgen v2 / ValleyPlan v1 is selected from the saved manifest and cannot regenerate through the new algorithm
+- Existing worldgen v3 / ValleyPlan v2 saves retain their constrained layout
+  algorithm and never regenerate through v4
+- New worlds use worldgen v4 / regional plan v3 with signed-region
+  random-spread placement, independently sampled starter relationships, stable
+  site IDs, and no fallback
+- Generated hamlets materialize through SettlementManager with isolated NPC,
+  warehouse, project, reputation, raid, simulation, and persistence state;
+  HamletState remains the focused compatibility facade
+- The current generated scope guarantees the existing POC content without
+  stamping the future Document 20 catalogue
+- `development/village_progression_lab.tscn` provides two isolated real voxel
+  plots, eight promoted residents per focused settlement, a persistent
+  21-objective camp-to-city certification quest, and Document 20 progression
+  diagnostics without changing `main.tscn` or the production menu
+- The normal planner gate covers 256 seeds, the extended gate accepts 10,000,
+  and runtime, settlement, lab, lifecycle, and migration probes verify exact
+  replay and domain isolation
 
 ## Current Verification
 - Headless Godot 4.6.3 probe: 143 blocks and 167 items load in separate registries

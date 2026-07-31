@@ -5,6 +5,8 @@ extends Node3D
 ## journal (save/load), and the shared chunk materials.
 
 const ValleyPlanScript = preload("res://scripts/world/valley_plan.gd")
+const WorldStructurePlannerScript = preload(
+	"res://scripts/world/world_structure_planner.gd")
 const ChunkMesherScript = preload("res://scripts/world/chunk_mesher.gd")
 const WorldItemDropScript = preload("res://scripts/world/world_item_drop.gd")
 const AutomationSystemScript = preload("res://scripts/world/automation_system.gd")
@@ -19,7 +21,10 @@ const SEA_LEVEL := 10
 const LOADS_PER_FRAME := 1        # generation is synchronous and tightly bounded
 const REBUILDS_PER_FRAME := 1     # one background mesh job at a time
 const MAX_REBUILD_BACKLOG := 12   # generation pauses while meshing catches up
-const WORLDGEN_VERSION := 2       # Stage 2 controlled-valley generation contract
+const WORLDGEN_VERSION := 5       # Living-settlement regional generation
+const REGIONAL_WORLDGEN_VERSION := 4 # Regional plan-v3 compatibility
+const PRIOR_WORLDGEN_VERSION := 3 # Randomized controlled-valley compatibility
+const LEGACY_WORLDGEN_VERSION := 2
 const SPAWN_SAMPLE_RADIUS := 4    # include the full immediate landing area
 const SPAWN_HEIGHT_CLEARANCE := 4 # air gap above its highest terrain column
 const LOCAL_RECOVERY_RADIUS := 8  # search around the player before using spawn
@@ -48,9 +53,12 @@ var block_shapes := PackedByteArray()
 var block_transparency := PackedByteArray()
 var block_item_connectors := PackedByteArray()
 var material_layers := PackedInt32Array()
+var forge_face_layers := PackedInt32Array()
+var forge_mesh_arrays: Dictionary = {}
 var player: Node3D                # assigned by main.gd (drives streaming)
 var started := false
 var valley_plan: RefCounted
+var active_worldgen_version := LEGACY_WORLDGEN_VERSION
 var render_radius := RENDER_RADIUS
 var unload_margin := UNLOAD_MARGIN
 
@@ -69,6 +77,7 @@ var _ore_mana := FastNoiseLite.new()
 
 # Player edit journal: "x,y,z" -> block id. Reapplied on chunk (re)generation.
 var _edits: Dictionary = {}
+var _edit_provenance: Dictionary = {}
 
 # Streaming state.
 var _last_player_chunk := Vector3i(0, 0, 0)
@@ -81,6 +90,8 @@ var _height_cache: Dictionary = {}
 var _biome_cache: Dictionary = {}
 var _tree_height_cache: Dictionary = {}
 var _surface_bounds_cache: Dictionary = {}
+var _regional_site_cache: Dictionary = {}
+var _settlement_layout_cache: Dictionary = {}
 var _site_runtime: Array[Dictionary] = []
 var _route_runtime: Array[Dictionary] = []
 var _river_runtime: Array[Dictionary] = []
@@ -132,6 +143,8 @@ var id_warehouse_hatch := 310
 var id_torch := 46
 var id_blueprint_marker := 114
 var id_supply_crate := 116
+var id_bed := 68
+var id_dirt_path := 72
 var id_rune_table := 30
 var id_ward_lantern := 46
 var id_mana_conduit := 47
@@ -148,9 +161,12 @@ var _double_slabs: Dictionary = {}
 var _block_orientations: Dictionary = {}
 var _doors: Dictionary = {}
 var _door_parts: Dictionary = {}
+var door_last_error := ""
 var _furnace_accumulator := 0.0
 var _item_drops: Array[Node] = []
 var _next_drop_serial := 1
+var _forge_presentation_root: Node3D
+var _forge_world_presentations: Dictionary = {}
 var automation: AutomationSystem
 var magic
 
@@ -164,6 +180,9 @@ func _ready() -> void:
 	_build_block_color_table()
 	_build_block_shape_table()
 	_build_shared_block_material()
+	_forge_presentation_root = Node3D.new()
+	_forge_presentation_root.name = "ForgeWorldPresentations"
+	add_child(_forge_presentation_root)
 
 	water_material = StandardMaterial3D.new()
 	water_material.vertex_color_use_as_albedo = true
@@ -196,9 +215,13 @@ func _build_block_shape_table() -> void:
 	block_transparency.resize(block_colors.size())
 	block_item_connectors.resize(block_colors.size())
 	material_layers.resize(block_colors.size())
+	forge_face_layers.resize(block_colors.size() * 6)
+	forge_mesh_arrays.clear()
 	for id in BlockRegistry.get_all_ids():
 		var numeric_id := int(id)
 		material_layers[numeric_id] = numeric_id
+		for face_index in 6:
+			forge_face_layers[numeric_id * 6 + face_index] = numeric_id
 		block_transparency[numeric_id] = 1 \
 			if BlockRegistry.is_transparent(numeric_id) else 0
 		var stable_id := BlockRegistry.get_stable_id(numeric_id)
@@ -227,8 +250,23 @@ func _build_block_shape_table() -> void:
 				block_shapes[numeric_id] = 7
 			"post":
 				block_shapes[numeric_id] = 8
+			"forge":
+				block_shapes[numeric_id] = 9
+				if has_node("/root/ForgeRuntime"):
+					var arrays := ForgeRuntime.mesh_arrays(stable_id)
+					if not arrays.is_empty():
+						forge_mesh_arrays[numeric_id] = {
+							"vertices": arrays[Mesh.ARRAY_VERTEX],
+							"normals": arrays[Mesh.ARRAY_NORMAL],
+							"colors": arrays[Mesh.ARRAY_COLOR],
+							"uvs": arrays[Mesh.ARRAY_TEX_UV],
+							"indices": arrays[Mesh.ARRAY_INDEX],
+						}
 			_:
 				block_shapes[numeric_id] = 0
+		if has_node("/root/ForgeRuntime") \
+				and ForgeRuntime.uses_scene_presentation(stable_id):
+			block_shapes[numeric_id] = 10
 
 
 func _build_shared_block_material() -> void:
@@ -256,6 +294,24 @@ func _build_shared_block_material() -> void:
 					value *= 0.78
 				image.set_pixel(x, y, Color(value, value, value, 1.0))
 		images.append(image)
+	if has_node("/root/ForgeRuntime"):
+		for id in BlockRegistry.get_all_ids():
+			var numeric_id := int(id)
+			var paths := ForgeRuntime.surface_paths(
+				BlockRegistry.get_stable_id(numeric_id))
+			for face_index in ForgeSurfaceSet.FACE_KEYS.size():
+				var face := ForgeSurfaceSet.FACE_KEYS[face_index]
+				var path := str(paths.get(face, ""))
+				if path.is_empty() or not FileAccess.file_exists(path):
+					continue
+				var image := Image.load_from_file(
+					ProjectSettings.globalize_path(path))
+				if image == null or image.is_empty():
+					continue
+				if image.get_width() != 32 or image.get_height() != 32:
+					image.resize(32, 32, Image.INTERPOLATE_NEAREST)
+				forge_face_layers[numeric_id * 6 + face_index] = images.size()
+				images.append(image)
 	var texture_array := Texture2DArray.new()
 	var create_error := texture_array.create_from_images(images)
 	if create_error != OK:
@@ -318,6 +374,8 @@ func _resolve_ids() -> void:
 	id_torch = _id_or("light.torch.basic", 46)
 	id_blueprint_marker = _id_or("village.blueprint_marker.basic", 114)
 	id_supply_crate = _id_or("village.supply_crate.construction", 116)
+	id_bed = _id_or("furniture.bed.simple", 68)
+	id_dirt_path = _id_or("road.path.dirt", 72)
 	id_rune_table = _id_or("magic.rune_table.basic", 30)
 	id_ward_lantern = _id_or("magic.ward_lantern.basic", 46)
 	id_mana_conduit = _id_or("magic.conduit.mana_basic", 47)
@@ -334,7 +392,7 @@ func _id_or(stable_id: String, fallback: int) -> int:
 
 # ---------- Startup ----------
 
-func start(p_seed: int) -> void:
+func start(p_seed: int, generation_request: Dictionary = {}) -> void:
 	## Called once by main.gd after the seed is known (save or default).
 	if started:
 		return
@@ -344,8 +402,32 @@ func start(p_seed: int) -> void:
 	_biome_cache.clear()
 	_tree_height_cache.clear()
 	_surface_bounds_cache.clear()
-	valley_plan = ValleyPlanScript.new()
-	valley_plan.generate(world_seed)
+	_regional_site_cache.clear()
+	_settlement_layout_cache.clear()
+	active_worldgen_version = int(generation_request.get(
+		"worldgen_version", LEGACY_WORLDGEN_VERSION))
+	valley_plan = (
+		WorldStructurePlannerScript.new()
+		if active_worldgen_version in [
+			REGIONAL_WORLDGEN_VERSION, WORLDGEN_VERSION]
+		else ValleyPlanScript.new())
+	var plan_version := int(generation_request.get(
+		"plan_version",
+		WorldStructurePlannerScript.VERSION
+			if active_worldgen_version == WORLDGEN_VERSION
+			else WorldStructurePlannerScript.LEGACY_VERSION
+				if active_worldgen_version == REGIONAL_WORLDGEN_VERSION
+			else ValleyPlanScript.CURRENT_VERSION
+				if active_worldgen_version == PRIOR_WORLDGEN_VERSION
+				else ValleyPlanScript.VERSION))
+	if active_worldgen_version not in [
+			LEGACY_WORLDGEN_VERSION, PRIOR_WORLDGEN_VERSION,
+			REGIONAL_WORLDGEN_VERSION, WORLDGEN_VERSION,
+	]:
+		push_error("VoxelWorld: unsupported worldgen version %d" % active_worldgen_version)
+		started = false
+		return
+	valley_plan.generate(world_seed, plan_version)
 	if not valley_plan.validation_errors.is_empty():
 		push_error("VoxelWorld: controlled valley plan is invalid: %s" % valley_plan.validation_errors)
 		started = false
@@ -365,8 +447,13 @@ func start(p_seed: int) -> void:
 		_rebuild_queue.erase(cc)
 		_rebuild_queued.erase(cc)
 	_update_streaming(_last_player_chunk)
-	print("VoxelWorld: seed %d, valley %s, prepared spawn column" % [
+	print("VoxelWorld: seed %d, plan %s, prepared spawn column" % [
 		world_seed, valley_plan.identity()])
+
+
+func is_regional_worldgen() -> bool:
+	return active_worldgen_version in [
+		REGIONAL_WORLDGEN_VERSION, WORLDGEN_VERSION]
 
 
 func prepare_player_column(world_position: Vector3) -> void:
@@ -544,6 +631,7 @@ func _update_streaming(pc: Vector3i) -> void:
 		if _column_distance(key, pc) > render_radius + unload_margin:
 			to_remove.append(key)
 	for key in to_remove:
+		_remove_forge_presentations_in_chunk(key)
 		chunks[key].queue_free()
 		chunks.erase(key)
 		_rebuild_queue.erase(key)
@@ -568,6 +656,7 @@ func _generate_chunk(cc: Vector3i) -> void:
 	chunks[cc] = chunk
 	add_child(chunk)
 	_fill_chunk(chunk)
+	_sync_chunk_forge_presentations(chunk)
 	request_chunk_rebuild(cc)
 	# Shared borders change when either side appears.
 	for off in DIRS6:
@@ -621,7 +710,7 @@ func _biome_at(gx: int, gz: int) -> int:
 	if _biome_cache.has(key):
 		return int(_biome_cache[key])
 	var result := Biome.PLAINS
-	if valley_plan != null:
+	if valley_plan != null and not is_regional_worldgen():
 		var point := Vector2(gx, gz)
 		if point.distance_to(Vector2(valley_plan.get_anchor("spawn"))) <= 34.0:
 			_biome_cache[key] = Biome.PLAINS
@@ -649,7 +738,7 @@ func _biome_at(gx: int, gz: int) -> int:
 
 
 func biome_name_at(x: float, z: float) -> String:
-	if valley_plan != null:
+	if valley_plan != null and not is_regional_worldgen():
 		var point := Vector2(x, z)
 		if point.distance_to(Vector2(valley_plan.get_anchor("cave_entrance"))) <= 20.0:
 			return "Shallow Stone Cave Approach"
@@ -760,6 +849,12 @@ func _height_at(gx: int, gz: int) -> int:
 		_height_cache[cache_key] = legacy_height
 		return legacy_height
 	var point := Vector2(gx, gz)
+	if is_regional_worldgen():
+		var regional_height := _regional_height_at(point, h)
+		var resolved_regional := clampi(
+			roundi(regional_height), 3, WORLD_HEIGHT - 4)
+		_height_cache[cache_key] = resolved_regional
+		return resolved_regional
 
 	# A soft highland rim makes the required sites read as one navigable valley.
 	var valley_center := Vector2(valley_plan.get_anchor("hamlet"))
@@ -816,6 +911,102 @@ func _height_at(gx: int, gz: int) -> int:
 	return resolved_height
 
 
+func _regional_height_at(point: Vector2, raw_height: float) -> float:
+	var h := raw_height
+	var water := Vector2(valley_plan.get_anchor("water"))
+	var water_distance := point.distance_to(water)
+	if water_distance <= 10.0:
+		var water_influence := 1.0 - smoothstep(6.0, 10.0, water_distance)
+		h = lerpf(h, float(SEA_LEVEL - 3), water_influence)
+
+	for site in _regional_sites_near_point(point):
+		var type_id := str(site.get("type_id", ""))
+		if type_id == "water":
+			continue
+		var site_point := Vector2(site["position"])
+		var radius := _site_radius(type_id)
+		var distance := point.distance_to(site_point)
+		if distance > radius + 5.0:
+			continue
+		var target := clampf(
+			_raw_height_at(roundi(site_point.x), roundi(site_point.y)),
+			float(SEA_LEVEL + 3), 26.0)
+		var influence := 1.0 - smoothstep(radius, radius + 5.0, distance)
+		h = lerpf(h, target, influence)
+		if type_id == "hamlet":
+			var layout := _regional_settlement_layout(site)
+			for child_id in ["warehouse", "watchtower_site"]:
+				var child_point := Vector2(layout[child_id])
+				var child_radius := _site_radius(child_id)
+				var child_distance := point.distance_to(child_point)
+				if child_distance > child_radius + 4.0:
+					continue
+				var child_target := clampf(
+					_raw_height_at(
+						roundi(child_point.x), roundi(child_point.y)),
+					float(SEA_LEVEL + 3), 26.0)
+				var child_influence := 1.0 - smoothstep(
+					child_radius, child_radius + 4.0, child_distance)
+				h = lerpf(h, child_target, child_influence)
+
+	for runtime_route in _route_runtime:
+		var a: Vector2 = runtime_route["a"]
+		var ab: Vector2 = runtime_route["ab"]
+		var length_squared := float(runtime_route["length_squared"])
+		if length_squared <= 0.0001:
+			continue
+		var route_t := clampf(
+			(point - a).dot(ab) / length_squared, 0.0, 1.0)
+		var distance := point.distance_to(a + ab * route_t)
+		var width := float(runtime_route["width"])
+		if distance <= width + 3.0:
+			var desired := lerpf(
+				float(runtime_route["from_height"]),
+				float(runtime_route["to_height"]),
+				route_t)
+			var influence := 1.0 - smoothstep(
+				width, width + 3.0, distance)
+			h = lerpf(h, desired, influence * 0.9)
+
+	# The starter cave receives a guaranteed open approach. All regional cave
+	# entrances still sit above the world-wide 3D cave field.
+	var cave_relative := point - _cave_entrance
+	var cave_along := cave_relative.dot(_cave_direction)
+	var cave_lateral := absf(cave_relative.dot(_cave_lateral_axis))
+	if cave_along >= -16.0 and cave_along < 0.0 and cave_lateral <= 7.0:
+		var approach_t := (cave_along + 16.0) / 16.0
+		var lateral_t := 1.0 - smoothstep(3.0, 7.0, cave_lateral)
+		h = lerpf(h, _cave_floor + 1.0, approach_t * lateral_t)
+	elif cave_along >= 0.0 and cave_along <= 30.0 and cave_lateral <= 11.0:
+		var shoulder := _anchor_height("cave_entrance") + 5.0 \
+			- cave_lateral * 0.18
+		h = maxf(h, shoulder)
+	return h
+
+
+func _regional_sites_near_point(point: Vector2) -> Array[Dictionary]:
+	if not is_regional_worldgen() \
+			or not valley_plan.has_method("query_sites"):
+		return []
+	var chunk := Vector2i(
+		chunk_coord(floori(point.x)), chunk_coord(floori(point.y)))
+	if _regional_site_cache.has(chunk):
+		return _regional_site_cache[chunk]
+	var sites: Array[Dictionary] = valley_plan.query_sites(
+		Rect2i(chunk - Vector2i(2, 2), Vector2i(5, 5)))
+	_regional_site_cache[chunk] = sites
+	return sites
+
+
+func _regional_settlement_layout(site: Dictionary) -> Dictionary:
+	var site_id := str(site.get("site_id", ""))
+	if _settlement_layout_cache.has(site_id):
+		return _settlement_layout_cache[site_id]
+	var layout: Dictionary = valley_plan.settlement_layout(site)
+	_settlement_layout_cache[site_id] = layout
+	return layout
+
+
 func _site_radius(anchor_id: String) -> float:
 	return float({
 		"spawn": 12.0,
@@ -824,6 +1015,10 @@ func _site_radius(anchor_id: String) -> float:
 		"rune_ruin": 9.0,
 		"goblin_camp": 12.0,
 		"mana_pocket": 5.0,
+		"cave_entrance": 8.0,
+		"resource_field": 7.0,
+		"warehouse": 7.0,
+		"watchtower_site": 7.0,
 	}.get(anchor_id, 6.0))
 
 
@@ -978,6 +1173,8 @@ func _route_at(point: Vector2, extra_width: float = 0.0) -> Dictionary:
 func _planned_cave_override(gx: int, gy: int, gz: int) -> int:
 	if valley_plan == null:
 		return -1
+	if is_regional_worldgen():
+		return _regional_cave_override(gx, gy, gz)
 	var point_2d := Vector2(gx, gz)
 	if not _cave_bounds.has_point(point_2d):
 		return -1
@@ -998,6 +1195,42 @@ func _planned_cave_override(gx: int, gy: int, gz: int) -> int:
 	if dx * dx / 42.0 + dz * dz / 42.0 + dy * dy / 15.0 <= 1.0:
 		return BlockRegistry.AIR
 	return -1
+
+
+func _regional_cave_override(gx: int, gy: int, gz: int) -> int:
+	var point := Vector2(gx, gz)
+	for site in _regional_sites_near_point(point):
+		if str(site.get("type_id", "")) != "cave_entrance":
+			continue
+		var entrance := Vector2(site["position"])
+		var direction := Vector2.RIGHT.rotated(
+			deg_to_rad(float(site.get("rotation", 0))))
+		var lateral_axis := Vector2(-direction.y, direction.x)
+		var relative := point - entrance
+		var along := relative.dot(direction)
+		var lateral := absf(relative.dot(lateral_axis))
+		var floor_y := _regional_cave_floor(site) - floori(
+			maxf(0.0, along) * 0.05)
+		if along >= 0.0 and along <= 22.0 and lateral <= 3.2:
+			var arch_height := 4 - floori(lateral * 0.45)
+			if gy >= floor_y and gy <= floor_y + arch_height:
+				return BlockRegistry.AIR
+			if gy == floor_y - 1:
+				return id_stone
+		var chamber := entrance + direction * 22.0
+		var dx := float(gx) - chamber.x
+		var dz := float(gz) - chamber.y
+		var dy := float(gy) - (float(floor_y) + 1.0)
+		if dx * dx / 36.0 + dz * dz / 36.0 + dy * dy / 14.0 <= 1.0:
+			return BlockRegistry.AIR
+	return -1
+
+
+func _regional_cave_floor(site: Dictionary) -> int:
+	var point := Vector2i(site.get("position", Vector2i.ZERO))
+	return floori(maxf(
+		float(SEA_LEVEL + 1),
+		_raw_height_at(point.x, point.y) - 3.0))
 
 
 func _guaranteed_resource_at(gx: int, gy: int, gz: int) -> int:
@@ -1136,6 +1369,21 @@ func _plan_clears_tree(point: Vector2) -> bool:
 		return false
 	if not _route_at(point, 2.0).is_empty():
 		return true
+	if is_regional_worldgen():
+		for site in _regional_sites_near_point(point):
+			var type_id := str(site.get("type_id", ""))
+			if type_id == "resource_field":
+				continue
+			if point.distance_to(Vector2(site["position"])) \
+					<= _site_radius(type_id) + 3.0:
+				return true
+			if type_id == "hamlet":
+				var layout := _regional_settlement_layout(site)
+				for child_id in ["warehouse", "watchtower_site"]:
+					if point.distance_to(Vector2(layout[child_id])) \
+							<= _site_radius(child_id) + 3.0:
+						return true
+		return false
 	if _river_distance(point) <= 11.0:
 		return true
 	for anchor_id in ["spawn", "hamlet", "base_site", "rune_ruin", "goblin_camp", "mana_pocket", "cave_entrance"]:
@@ -1146,6 +1394,9 @@ func _plan_clears_tree(point: Vector2) -> bool:
 
 func _stamp_valley_sites(chunk: Chunk) -> void:
 	if valley_plan == null:
+		return
+	if is_regional_worldgen():
+		_stamp_regional_sites(chunk)
 		return
 	var base: Vector3i = chunk.chunk_pos * CHUNK_SIZE
 	var write := func(gx: int, gy: int, gz: int, id: int) -> void:
@@ -1164,32 +1415,307 @@ func _stamp_valley_sites(chunk: Chunk) -> void:
 	_stamp_mana_clue(write)
 
 
-func _stamp_hamlet(write: Callable) -> void:
-	var hamlet: Vector2i = valley_plan.get_anchor("hamlet")
-	var ground := _height_at(hamlet.x, hamlet.y)
-	for dx in range(-4, 5):
-		for dz in range(-4, 5):
-			if absi(dx) <= 1 or absi(dz) <= 1:
-				write.call(hamlet.x + dx, ground - 1, hamlet.y + dz, id_cobble)
-	var warehouse: Vector2i = valley_plan.get_anchor("warehouse")
+func _stamp_regional_sites(chunk: Chunk) -> void:
+	var base: Vector3i = chunk.chunk_pos * CHUNK_SIZE
+	var write := func(gx: int, gy: int, gz: int, id: int) -> void:
+		var lx := gx - base.x
+		var ly := gy - base.y
+		var lz := gz - base.z
+		if lx < 0 or ly < 0 or lz < 0 \
+				or lx >= CHUNK_SIZE or ly >= CHUNK_SIZE or lz >= CHUNK_SIZE:
+			return
+		chunk.blocks[chunk.index(lx, ly, lz)] = id
+	var sites: Array[Dictionary] = valley_plan.query_sites(Rect2i(
+		Vector2i(chunk.chunk_pos.x, chunk.chunk_pos.z), Vector2i.ONE))
+	for site in sites:
+		var type_id := str(site.get("type_id", ""))
+		var position := Vector2i(site.get("position", Vector2i.ZERO))
+		match type_id:
+			"hamlet":
+				var layout := _regional_settlement_layout(site)
+				if active_worldgen_version == WORLDGEN_VERSION \
+						and str(layout.get("initial_stage", "")) == "camp":
+					_stamp_stage_b_camp(write, layout)
+				else:
+					_stamp_hamlet(write, layout)
+					_stamp_watchtower_site(
+						write, Vector2i(layout["watchtower_site"]))
+			"base_site":
+				_stamp_base_site(write, position)
+			"rune_ruin":
+				_stamp_rune_ruin(write, position, str(site["site_id"]))
+			"goblin_camp":
+				_stamp_goblin_camp(write, position)
+			"cave_entrance":
+				_stamp_cave_entrance(write, position, site)
+			"mana_pocket":
+				_stamp_mana_clue(write, position)
+			"resource_field":
+				_stamp_resource_field(write, site)
+
+
+func _stamp_stage_b_camp(write: Callable, layout: Dictionary) -> void:
+	var center := Vector2i(layout.get("campfire", layout["hamlet"]))
+	# Every authored camp road is stamped at the current surface. The regional
+	# terrain pass has already blended these corridors, so consecutive cells
+	# remain traversable without a hard rectangular cut.
+	for road in layout.get("roads", []):
+		_stamp_settlement_road(write, road)
+	var center_ground := _height_at(center.x, center.y)
+	for offset in [
+		Vector2i.ZERO, Vector2i.RIGHT, Vector2i.LEFT,
+		Vector2i.UP, Vector2i.DOWN,
+	]:
+		write.call(
+			center.x + offset.x, center_ground,
+			center.y + offset.y, id_cobble)
+	write.call(center.x, center_ground + 1, center.y, id_torch)
+
+	var tents: Array = layout.get("tents", [])
+	for tent_index in tents.size():
+		var tent := Vector2i(tents[tent_index])
+		var ground := _safe_structure_base(tent, 2)
+		_stamp_blended_structure_pad(write, tent, Vector2i(2, 2), ground)
+		for dx in range(-2, 3):
+			for dz in range(-2, 3):
+				write.call(tent.x + dx, ground, tent.y + dz, id_planks)
+				for dy in range(1, 5):
+					write.call(
+						tent.x + dx, ground + dy,
+						tent.y + dz, BlockRegistry.AIR)
+		for corner in [
+			Vector2i(-2, -2), Vector2i(2, -2),
+			Vector2i(-2, 2), Vector2i(2, 2),
+		]:
+			for dy in range(1, 3):
+				write.call(
+					tent.x + corner.x, ground + dy,
+					tent.y + corner.y, id_log)
+		for roof_y in range(3, 5):
+			var radius := 2 if roof_y == 3 else 1
+			for dx in range(-radius, radius + 1):
+				for dz in range(-radius, radius + 1):
+					if absi(dx) == radius or absi(dz) == radius:
+						write.call(
+							tent.x + dx, ground + roof_y,
+							tent.y + dz, id_leaves)
+		write.call(
+			tent.x - 1, ground + 1, tent.y,
+			id_bed)
+		write.call(
+			tent.x + 1, ground + 1, tent.y,
+			id_bed)
+
+	var yard := Vector2i(layout.get("supply_yard", layout["warehouse"]))
+	var yard_ground := _safe_structure_base(yard, 3)
+	_stamp_blended_structure_pad(
+		write, yard, Vector2i(3, 2), yard_ground, 2)
 	for dx in range(-3, 4):
 		for dz in range(-2, 3):
-			write.call(warehouse.x + dx, ground, warehouse.y + dz, id_planks)
+			write.call(yard.x + dx, yard_ground, yard.y + dz, id_dirt_path)
+	write.call(yard.x - 1, yard_ground + 1, yard.y, id_crate)
+	write.call(yard.x + 1, yard_ground + 1, yard.y, id_supply_crate)
+	var board := Vector2i(layout["request_board"])
+	write.call(
+		board.x, _height_at(board.x, board.y), board.y,
+		id_blueprint_marker)
+
+
+func _safe_structure_base(center: Vector2i, radius: int) -> int:
+	var dry_heights: Array[int] = []
+	var water_height := -100000
+	for dx in range(-radius, radius + 1):
+		for dz in range(-radius, radius + 1):
+			var gx := center.x + dx
+			var gz := center.y + dz
+			var height := _height_at(gx, gz)
+			var block_id := get_persisted_block_id(Vector3i(gx, height, gz))
+			if BlockRegistry.is_water(block_id):
+				water_height = maxi(water_height, height)
+			else:
+				dry_heights.append(height)
+	dry_heights.sort()
+	var base := (
+		_height_at(center.x, center.y)
+		if dry_heights.is_empty()
+		else dry_heights[dry_heights.size() / 2])
+	if water_height > -100000:
+		base = maxi(base, water_height + 1)
+	return base
+
+
+func _stamp_blended_structure_pad(
+		write: Callable,
+		center: Vector2i,
+		half_size: Vector2i,
+		base_elevation: int,
+		apron: int = 3) -> void:
+	for dx in range(-half_size.x - apron, half_size.x + apron + 1):
+		for dz in range(-half_size.y - apron, half_size.y + apron + 1):
+			var outside_x := maxi(0, absi(dx) - half_size.x)
+			var outside_z := maxi(0, absi(dz) - half_size.y)
+			var distance := maxi(outside_x, outside_z)
+			if distance > apron:
+				continue
+			var gx := center.x + dx
+			var gz := center.y + dz
+			var surface := _height_at(gx, gz)
+			var influence := apron - distance + 1
+			var target := clampi(
+				base_elevation,
+				surface - influence,
+				surface + influence)
+			if distance == 0:
+				target = base_elevation
+			if surface < target:
+				for y in range(surface + 1, target + 1):
+					write.call(gx, y, gz, id_dirt)
+			elif surface > target:
+				for y in range(target + 1, surface + 1):
+					write.call(gx, y, gz, BlockRegistry.AIR)
+			if distance == 0:
+				# Reserve a dry logical volume around walls and over the roof.
+				for y in range(target + 1, target + 7):
+					write.call(gx, y, gz, BlockRegistry.AIR)
+
+
+func _stamp_hamlet(write: Callable, layout: Dictionary = {}) -> void:
+	var hamlet: Vector2i = (
+		Vector2i(layout["hamlet"])
+		if not layout.is_empty()
+		else valley_plan.get_anchor("hamlet"))
+	var ground := _height_at(hamlet.x, hamlet.y)
+	var rotation := int(layout.get("rotation", 0))
+	var forward := Vector2i(roundi(cos(deg_to_rad(float(rotation)))),
+		roundi(sin(deg_to_rad(float(rotation)))))
+	var right := Vector2i(-forward.y, forward.x)
+	var variant := str(layout.get("variant_id", "crossroads"))
+	for step in range(-8, 9):
+		var main_point := hamlet + forward * step
+		write.call(main_point.x, ground - 1, main_point.y, id_cobble)
+		write.call(
+			main_point.x + right.x, ground - 1,
+			main_point.y + right.y, id_cobble)
+		if variant in ["crossroads", "fork", "ring"] and absi(step) <= 5:
+			var cross_point := hamlet + right * step
+			write.call(cross_point.x, ground - 1, cross_point.y, id_cobble)
+			write.call(
+				cross_point.x + forward.x, ground - 1,
+				cross_point.y + forward.y, id_cobble)
+	if variant == "ring":
+		for dx in range(-6, 7):
+			for dz in range(-6, 7):
+				if maxi(absi(dx), absi(dz)) == 6:
+					write.call(
+						hamlet.x + dx, ground - 1, hamlet.y + dz, id_gravel)
+	if not layout.is_empty():
+		for road in layout.get("roads", []):
+			_stamp_settlement_road(write, road)
+	var warehouse: Vector2i = (
+		Vector2i(layout["warehouse"])
+		if not layout.is_empty()
+		else valley_plan.get_anchor("warehouse"))
+	var warehouse_ground := (
+		_height_at(warehouse.x, warehouse.y)
+		if not layout.is_empty() else ground)
+	for dx in range(-3, 4):
+		for dz in range(-2, 3):
+			write.call(
+				warehouse.x + dx, warehouse_ground,
+				warehouse.y + dz, id_planks)
 			if absi(dx) == 3 or absi(dz) == 2:
-				write.call(warehouse.x + dx, ground + 1, warehouse.y + dz, id_oak_beam)
+				write.call(
+					warehouse.x + dx, warehouse_ground + 1,
+					warehouse.y + dz, id_oak_beam)
 	for dx in [-3, 3]:
 		for dz in [-2, 2]:
 			for dy in range(1, 4):
-				write.call(warehouse.x + dx, ground + dy, warehouse.y + dz, id_log)
-	write.call(warehouse.x, ground + 1, warehouse.y, id_warehouse)
+				write.call(
+					warehouse.x + dx, warehouse_ground + dy,
+					warehouse.y + dz, id_log)
+	write.call(
+		warehouse.x, warehouse_ground + 1, warehouse.y, id_warehouse)
 	# The registry has a general blueprint marker but no dedicated board voxel.
 	# This exact authored marker is interpreted as the hamlet request board;
 	# watchtower/base blueprint markers remain ordinary project markers.
-	write.call(hamlet.x + 3, ground, hamlet.y, id_blueprint_marker)
+	var board: Vector2i = (
+		Vector2i(layout["request_board"])
+		if not layout.is_empty()
+		else hamlet + Vector2i(3, 0))
+	write.call(
+		board.x,
+		_height_at(board.x, board.y) if not layout.is_empty() else ground,
+		board.y,
+		id_blueprint_marker)
+
+	# Four compact residence/work plots make the settlement readable without
+	# spawning the future Document 20 catalogue.
+	var plot_positions: Array[Vector2i] = []
+	if not layout.is_empty():
+		for plot_record in layout.get("plots", []):
+			plot_positions.append(Vector2i(plot_record["position"]))
+	else:
+		for plot_offset: Vector2i in [
+			forward * 7 + right * 6,
+			forward * 7 - right * 6,
+			-forward * 6 + right * 6,
+			-forward * 6 - right * 6,
+		]:
+			plot_positions.append(hamlet + plot_offset)
+	for plot in plot_positions:
+		var plot_ground := _height_at(plot.x, plot.y)
+		for dx in range(-2, 3):
+			for dz in range(-2, 3):
+				write.call(plot.x + dx, plot_ground, plot.y + dz, id_planks)
+		for corner in [
+			Vector2i(-2, -2), Vector2i(2, -2),
+			Vector2i(-2, 2), Vector2i(2, 2),
+		]:
+			write.call(
+				plot.x + corner.x, plot_ground + 1,
+				plot.y + corner.y, id_log)
 
 
-func _stamp_watchtower_site(write: Callable) -> void:
-	var site: Vector2i = valley_plan.get_anchor("watchtower_site")
+func _stamp_settlement_road(write: Callable, road: Dictionary) -> void:
+	var from_point := Vector2(road.get("from", Vector2i.ZERO))
+	var to_point := Vector2(road.get("to", Vector2i.ZERO))
+	var delta := to_point - from_point
+	var steps := maxi(1, ceili(maxf(absf(delta.x), absf(delta.y))))
+	var width := clampi(int(road.get("width", 1)), 1, 2)
+	var previous_ground := -100000
+	for step in range(steps + 1):
+		var point := from_point.lerp(to_point, float(step) / float(steps))
+		var center := Vector2i(roundi(point.x), roundi(point.y))
+		var surface := _height_at(center.x, center.y)
+		var ground := surface
+		if previous_ground > -100000:
+			ground = clampi(surface, previous_ground - 1, previous_ground + 1)
+		previous_ground = ground
+		for lateral in range(-width + 1, width):
+			var offset := (
+				Vector2i(0, lateral)
+				if absf(delta.x) >= absf(delta.y)
+				else Vector2i(lateral, 0))
+			var gx := center.x + offset.x
+			var gz := center.y + offset.y
+			var column_surface := _height_at(gx, gz)
+			if column_surface < ground:
+				for y in range(column_surface + 1, ground + 1):
+					write.call(gx, y, gz, id_dirt)
+			elif column_surface > ground:
+				for y in range(ground + 1, column_surface + 1):
+					write.call(gx, y, gz, BlockRegistry.AIR)
+			write.call(gx, ground, gz, id_gravel)
+			write.call(gx, ground + 1, gz, BlockRegistry.AIR)
+			write.call(gx, ground + 2, gz, BlockRegistry.AIR)
+
+
+func _stamp_watchtower_site(
+		write: Callable, site_override: Vector2i = Vector2i.ZERO) -> void:
+	var site: Vector2i = (
+		site_override
+		if site_override != Vector2i.ZERO
+		else valley_plan.get_anchor("watchtower_site"))
 	var ground := _height_at(site.x, site.y)
 	for dx in range(-2, 3):
 		for dz in range(-2, 3):
@@ -1200,8 +1726,12 @@ func _stamp_watchtower_site(write: Callable) -> void:
 			write.call(site.x + dx, ground + 1, site.y + dz, id_blueprint_marker)
 
 
-func _stamp_base_site(write: Callable) -> void:
-	var site: Vector2i = valley_plan.get_anchor("base_site")
+func _stamp_base_site(
+		write: Callable, site_override: Vector2i = Vector2i.ZERO) -> void:
+	var site: Vector2i = (
+		site_override
+		if site_override != Vector2i.ZERO
+		else valley_plan.get_anchor("base_site"))
 	var ground := _height_at(site.x, site.y)
 	for dx in range(-5, 6):
 		for dz in range(-5, 6):
@@ -1214,11 +1744,20 @@ func _stamp_base_site(write: Callable) -> void:
 	write.call(site.x + 2, ground, site.y, id_furnace)
 
 
-func _stamp_rune_ruin(write: Callable) -> void:
-	var site: Vector2i = valley_plan.get_anchor("rune_ruin")
+func _stamp_rune_ruin(
+		write: Callable,
+		site_override: Vector2i = Vector2i.ZERO,
+		variant_seed: String = "") -> void:
+	var site: Vector2i = (
+		site_override
+		if site_override != Vector2i.ZERO
+		else valley_plan.get_anchor("rune_ruin"))
 	var ground := _height_at(site.x, site.y)
+	var ruin_seed: int = int(valley_plan.master_seed)
+	if not variant_seed.is_empty():
+		ruin_seed = ValleyPlanScript.derive_seed(world_seed, variant_seed)
 	for offset in [Vector2i(-3, -3), Vector2i(3, -3), Vector2i(-3, 3), Vector2i(3, 3)]:
-		var height: int = 2 + ((absi(offset.x + offset.y) + int(valley_plan.master_seed)) & 1)
+		var height: int = 2 + ((absi(offset.x + offset.y) + ruin_seed) & 1)
 		for dy in height:
 			write.call(site.x + offset.x, ground + dy, site.y + offset.y, id_stone_brick)
 	write.call(site.x, ground, site.y, id_mana)
@@ -1235,8 +1774,12 @@ func _stamp_rune_ruin(write: Callable) -> void:
 	write.call(site.x + 1, ground, site.y + 1, id_corrupted_ground)
 
 
-func _stamp_goblin_camp(write: Callable) -> void:
-	var site: Vector2i = valley_plan.get_anchor("goblin_camp")
+func _stamp_goblin_camp(
+		write: Callable, site_override: Vector2i = Vector2i.ZERO) -> void:
+	var site: Vector2i = (
+		site_override
+		if site_override != Vector2i.ZERO
+		else valley_plan.get_anchor("goblin_camp"))
 	var ground := _height_at(site.x, site.y)
 	for offset in [Vector2i(-5, -4), Vector2i(5, -4), Vector2i(-5, 4), Vector2i(5, 4)]:
 		for dy in range(0, 4):
@@ -1246,11 +1789,23 @@ func _stamp_goblin_camp(write: Callable) -> void:
 	write.call(site.x, ground, site.y, id_supply_crate)
 
 
-func _stamp_cave_entrance(write: Callable) -> void:
-	var site: Vector2i = valley_plan.get_anchor("cave_entrance")
-	var floor_y := floori(_cave_floor_height())
-	var frame := _cave_frame(Vector2(site))
-	var lateral: Vector2 = frame["lateral_axis"]
+func _stamp_cave_entrance(
+		write: Callable,
+		site_override: Vector2i = Vector2i.ZERO,
+		site_record: Dictionary = {}) -> void:
+	var site: Vector2i = (
+		site_override
+		if site_override != Vector2i.ZERO
+		else valley_plan.get_anchor("cave_entrance"))
+	var floor_y := (
+		_regional_cave_floor(site_record)
+		if not site_record.is_empty()
+		else floori(_cave_floor_height()))
+	var lateral := _cave_lateral_axis
+	if not site_record.is_empty():
+		var direction := Vector2.RIGHT.rotated(
+			deg_to_rad(float(site_record.get("rotation", 0))))
+		lateral = Vector2(-direction.y, direction.x)
 	for side in [-1.0, 1.0]:
 		var post: Vector2 = Vector2(site) + lateral * 4.0 * side
 		for dy in range(0, 5):
@@ -1260,12 +1815,37 @@ func _stamp_cave_entrance(write: Callable) -> void:
 		write.call(roundi(lintel.x), floor_y + 5, roundi(lintel.y), id_stone_brick)
 
 
-func _stamp_mana_clue(write: Callable) -> void:
-	var site: Vector2i = valley_plan.get_anchor("mana_pocket")
+func _stamp_mana_clue(
+		write: Callable, site_override: Vector2i = Vector2i.ZERO) -> void:
+	var site: Vector2i = (
+		site_override
+		if site_override != Vector2i.ZERO
+		else valley_plan.get_anchor("mana_pocket"))
 	var ground := _height_at(site.x, site.y)
 	write.call(site.x, ground, site.y, id_mana)
 	write.call(site.x + 1, ground, site.y, id_mana)
 	write.call(site.x, ground + 1, site.y, id_mana)
+
+
+func _stamp_resource_field(write: Callable, site: Dictionary) -> void:
+	var center := Vector2i(site.get("position", Vector2i.ZERO))
+	var ground := _height_at(center.x, center.y)
+	var variant := str(site.get("variant_id", "mixed"))
+	var ore_ids: Array = {
+		"coal": [id_coal],
+		"copper": [id_copper],
+		"iron": [id_iron],
+		"mixed": [id_coal, id_copper, id_iron],
+	}.get(variant, [id_coal])
+	var rng := RandomNumberGenerator.new()
+	rng.seed = ValleyPlanScript.derive_seed(
+		world_seed, str(site.get("site_id", "")))
+	for _index in 18:
+		var dx := rng.randi_range(-6, 6)
+		var dz := rng.randi_range(-6, 6)
+		var depth := rng.randi_range(4, 10)
+		var ore_id: int = ore_ids[rng.randi_range(0, ore_ids.size() - 1)]
+		write.call(center.x + dx, ground - depth, center.y + dz, ore_id)
 
 
 # ---------- Global block access ----------
@@ -1295,11 +1875,22 @@ func set_block_global(gp: Vector3i, id: int) -> bool:
 			or (magic != null and magic.is_magic_block(previous_id))) \
 			and id != previous_id and not can_remove_block_entity(gp):
 		return false
-	_edits[_edit_key(gp)] = id  # journal first so streaming/save stays lossless
+	var edit_key := _edit_key(gp)
+	_edits[edit_key] = id  # journal first so streaming/save stays lossless
+	if not _edit_provenance.has(edit_key):
+		_edit_provenance[edit_key] = {
+			"record_type": "EditProvenance",
+			"version": 1,
+			"source_type": "legacy_edit",
+			"source_id": "legacy.runtime",
+			"settlement_id": "",
+			"claim_id": "",
+		}
 	if previous_id != id:
 		_block_orientations.erase(_edit_key(gp))
 	var local := gp - cc * CHUNK_SIZE
 	chunks[cc].set_block(local.x, local.y, local.z, id)
+	_sync_forge_presentation_at(gp, id)
 	if previous_id in [id_furnace, id_mana_furnace] \
 			and id not in [id_furnace, id_mana_furnace]:
 		_furnaces.erase(_edit_key(gp))
@@ -1347,6 +1938,147 @@ func set_block_global(gp: Vector3i, id: int) -> bool:
 	return true
 
 
+func set_block_with_provenance(
+		gp: Vector3i,
+		id: int,
+		source_id: String,
+		source_type: String = "project",
+		settlement_id: String = "",
+		claim_id: String = "") -> bool:
+	if source_type not in [
+		"generated_terrain", "generated_structure", "player", "project",
+		"repair", "lab", "legacy_edit",
+	]:
+		push_warning(
+			"VoxelWorld: rejected unknown edit provenance %s" % source_type)
+		return false
+	if source_id.is_empty():
+		return false
+	var previous_id := get_persisted_block_id(gp)
+	var previous_provenance := get_edit_provenance(gp)
+	var existing: Dictionary = _edit_provenance.get(_edit_key(gp), {})
+	if not set_block_global(gp, id):
+		return false
+	if str(existing.get("claim_id", "")) == claim_id \
+			and not claim_id.is_empty() \
+			and existing.has("previous_stable_id"):
+		previous_id = BlockRegistry.resolve_serialized_id(
+			existing.get("previous_stable_id", ""))
+		previous_provenance = existing.get(
+			"previous_provenance", previous_provenance).duplicate(true)
+	_edit_provenance[_edit_key(gp)] = {
+		"record_type": "EditProvenance",
+		"version": 1,
+		"source_type": source_type,
+		"source_id": source_id,
+		"settlement_id": settlement_id,
+		"claim_id": claim_id,
+		"previous_stable_id": BlockRegistry.get_stable_id(previous_id),
+		"previous_provenance": previous_provenance.duplicate(true),
+	}
+	return true
+
+
+func revert_provenance_claim(claim_id: String) -> Dictionary:
+	if claim_id.is_empty():
+		return {"ok": false, "reason": "empty_claim_id"}
+	var keys: Array[String] = []
+	for key_value in _edit_provenance:
+		var key := str(key_value)
+		if str((_edit_provenance[key] as Dictionary).get(
+				"claim_id", "")) == claim_id:
+			keys.append(key)
+	keys.sort()
+	var restored := 0
+	for key in keys:
+		var position := _key_to_pos(key)
+		var provenance: Dictionary = _edit_provenance[key]
+		if is_door_at(position):
+			remove_door(position)
+		var previous_id := BlockRegistry.resolve_serialized_id(
+			provenance.get("previous_stable_id", ""))
+		if previous_id < BlockRegistry.AIR:
+			previous_id = BlockRegistry.AIR
+		if not set_block_global(position, previous_id):
+			continue
+		var previous: Dictionary = provenance.get(
+			"previous_provenance", {}).duplicate(true)
+		if previous.is_empty():
+			previous = {
+				"record_type": "EditProvenance",
+				"version": 1,
+				"source_type": "generated_terrain",
+				"source_id": "worldgen.v%d" % active_worldgen_version,
+				"settlement_id": "",
+				"claim_id": "",
+			}
+		_edit_provenance[key] = previous
+		restored += 1
+	return {"ok": true, "restored": restored, "claim_id": claim_id}
+
+
+func get_edit_provenance(gp: Vector3i) -> Dictionary:
+	var key := _edit_key(gp)
+	if _edit_provenance.has(key):
+		return (_edit_provenance[key] as Dictionary).duplicate(true)
+	if is_regional_worldgen() and valley_plan != null:
+		var chunk := Vector2i(chunk_coord(gp.x), chunk_coord(gp.z))
+		for site in valley_plan.query_sites(
+				Rect2i(chunk - Vector2i.ONE, Vector2i(3, 3))):
+			var position := Vector2i(site.get("position", Vector2i.ZERO))
+			var footprint := Vector2i(site.get("footprint", Vector2i(1, 1)))
+			var bounds := Rect2i(
+				position - footprint / 2, footprint)
+			if bounds.has_point(Vector2i(gp.x, gp.z)):
+				var height := _height_at(gp.x, gp.z)
+				var generated_terrain_id := _block_at(
+					gp.x, gp.y, gp.z, height, _biome_at(gp.x, gp.z))
+				var current_id := (
+					get_block_global(gp)
+					if _is_voxel_loaded(gp) else generated_terrain_id)
+				if current_id == generated_terrain_id:
+					continue
+				return {
+					"record_type": "EditProvenance",
+					"version": 1,
+					"source_type": "generated_structure",
+					"source_id": str(site.get("site_id", "")),
+					"settlement_id": str(site.get(
+						"parent_site_id", "")),
+					"claim_id": str(site.get("site_id", "")),
+				}
+	return {
+		"record_type": "EditProvenance",
+		"version": 1,
+		"source_type": "generated_terrain",
+		"source_id": "worldgen.v%d" % active_worldgen_version,
+		"settlement_id": "",
+		"claim_id": "",
+	}
+
+
+func serialize_edit_provenance() -> Dictionary:
+	return _edit_provenance.duplicate(true)
+
+
+func apply_edit_provenance(value: Variant) -> void:
+	_edit_provenance.clear()
+	if not (value is Dictionary):
+		return
+	for key_value in value:
+		var key := str(key_value)
+		var record: Variant = value[key_value]
+		if not (record is Dictionary):
+			continue
+		var source_type := str(record.get("source_type", ""))
+		if source_type not in [
+			"generated_terrain", "generated_structure", "player", "project",
+			"repair", "lab", "legacy_edit",
+		]:
+			continue
+		_edit_provenance[key] = record.duplicate(true)
+
+
 func get_block_orientation(gp: Vector3i) -> int:
 	return posmod(int(_block_orientations.get(_edit_key(gp), 0)), 4)
 
@@ -1355,6 +2087,7 @@ func set_block_orientation(gp: Vector3i, facing: int) -> bool:
 	if BlockRegistry.is_air(get_persisted_block_id(gp)):
 		return false
 	_block_orientations[_edit_key(gp)] = posmod(facing, 4)
+	_update_forge_presentation_orientation(gp)
 	var cc := Vector3i(chunk_coord(gp.x), chunk_coord(gp.y), chunk_coord(gp.z))
 	request_chunk_rebuild(cc)
 	# Chute arms can change in adjacent chunks when an endpoint rotates/appears.
@@ -1364,6 +2097,154 @@ func set_block_orientation(gp: Vector3i, facing: int) -> bool:
 			chunk_coord(neighbor.x), chunk_coord(neighbor.y),
 			chunk_coord(neighbor.z)))
 	return true
+
+
+func _sync_chunk_forge_presentations(chunk: Chunk) -> void:
+	if chunk == null:
+		return
+	var base := chunk.chunk_pos * CHUNK_SIZE
+	for y in CHUNK_SIZE:
+		for z in CHUNK_SIZE:
+			for x in CHUNK_SIZE:
+				var id := chunk.blocks[chunk.index(x, y, z)]
+				if _uses_forge_scene_presentation(id):
+					_sync_forge_presentation_at(
+						base + Vector3i(x, y, z), id)
+
+
+func _sync_forge_presentation_at(gp: Vector3i, id: int) -> void:
+	var key := _edit_key(gp)
+	var existing: Dictionary = _forge_world_presentations.get(key, {})
+	if not _uses_forge_scene_presentation(id):
+		_remove_forge_presentation(key)
+		return
+	var stable_id := BlockRegistry.get_stable_id(id)
+	if not existing.is_empty() \
+			and str(existing.get("stable_id", "")) == stable_id:
+		_update_forge_presentation_orientation(gp)
+		return
+	_remove_forge_presentation(key)
+	if _forge_presentation_root == null \
+			or not is_instance_valid(_forge_presentation_root):
+		return
+	var package: ForgeRuntimePackage = ForgeRuntime.package_for(stable_id)
+	var presentation := ForgeRuntime.instantiate_presentation(
+		stable_id, "world", {"position": gp})
+	if package == null or presentation == null:
+		return
+	var anchor := Node3D.new()
+	anchor.name = "Forge_%s_%s" % [
+		ForgeId.safe_filename(stable_id),
+		key.replace(",", "_"),
+	]
+	anchor.position = Vector3(gp) + Vector3(0.5, 0.0, 0.5)
+	anchor.rotation.y = -float(get_block_orientation(gp)) * PI * 0.5
+	_forge_presentation_root.add_child(anchor)
+	anchor.add_child(presentation)
+	var centre := package.bounds.get_center()
+	presentation.position = Vector3(
+		-centre.x, -package.bounds.position.y, -centre.z)
+	var adapter := presentation.get_node_or_null("StateAdapter")
+	var entry := {
+		"anchor": anchor,
+		"presentation": presentation,
+		"adapter": adapter,
+		"stable_id": stable_id,
+		"chunk": Vector3i(
+			chunk_coord(gp.x), chunk_coord(gp.y), chunk_coord(gp.z)),
+		"last_snapshot": {},
+	}
+	_forge_world_presentations[key] = entry
+	_apply_forge_presentation_snapshot(key, {
+		"processing": false,
+		"blocked": false,
+		"damaged": 0.0,
+	})
+
+
+func _uses_forge_scene_presentation(id: int) -> bool:
+	return id >= 0 and id < block_shapes.size() \
+		and int(block_shapes[id]) == 10
+
+
+func _remove_forge_presentation(key: String) -> void:
+	var entry: Dictionary = _forge_world_presentations.get(key, {})
+	if entry.is_empty():
+		return
+	var anchor: Node3D = entry.get("anchor")
+	if anchor != null and is_instance_valid(anchor):
+		anchor.queue_free()
+	_forge_world_presentations.erase(key)
+
+
+func _remove_forge_presentations_in_chunk(cc: Vector3i) -> void:
+	var remove_keys: Array[String] = []
+	for key_value in _forge_world_presentations:
+		var key := str(key_value)
+		var entry: Dictionary = _forge_world_presentations[key]
+		if entry.get("chunk", Vector3i.ZERO) == cc:
+			remove_keys.append(key)
+	for key in remove_keys:
+		_remove_forge_presentation(key)
+
+
+func _update_forge_presentation_orientation(gp: Vector3i) -> void:
+	var entry: Dictionary = _forge_world_presentations.get(
+		_edit_key(gp), {})
+	var anchor: Node3D = entry.get("anchor")
+	if anchor != null and is_instance_valid(anchor):
+		anchor.rotation.y = -float(get_block_orientation(gp)) * PI * 0.5
+
+
+func _apply_forge_presentation_snapshot(
+		key: String, snapshot: Dictionary) -> void:
+	var entry: Dictionary = _forge_world_presentations.get(key, {})
+	if entry.is_empty() or entry.get("last_snapshot", {}) == snapshot:
+		return
+	var adapter: ForgeStateAdapter = entry.get("adapter")
+	if adapter != null and is_instance_valid(adapter):
+		adapter.apply_snapshot(snapshot)
+	entry["last_snapshot"] = snapshot.duplicate(true)
+	_forge_world_presentations[key] = entry
+
+
+func _refresh_forge_furnace_presentations() -> void:
+	for key_value in _forge_world_presentations.keys():
+		var key := str(key_value)
+		var entry: Dictionary = _forge_world_presentations[key]
+		if str(entry.get("stable_id", "")) != "functional.furnace.stone":
+			continue
+		var state: Dictionary = _furnaces.get(key, {})
+		if state.is_empty():
+			_apply_forge_presentation_snapshot(key, {
+				"processing": false,
+				"blocked": false,
+				"damaged": 0.0,
+			})
+			continue
+		var gp := _key_to_pos(key)
+		var recipe := RecipeRegistry.match_furnace_recipe(
+			state.get("inputs", []), furnace_station_at(gp))
+		var blocked := false
+		if not recipe.is_empty():
+			var output := Inventory.make_stack_from_ref(recipe["output"])
+			blocked = not _station_output_accepts(
+				state.get("output", {}), output)
+		var processing := (
+			not recipe.is_empty()
+			and not blocked
+			and not str(state.get("recipe_id", "")).is_empty()
+			and (
+				float(state.get("burn_remaining", 0.0)) > 0.0
+				or float(state.get("mana_spent", 0.0)) > 0.0
+				or float(state.get("progress", 0.0)) > 0.0
+			)
+		)
+		_apply_forge_presentation_snapshot(key, {
+			"processing": processing,
+			"blocked": blocked,
+			"damaged": float(state.get("damaged", 0.0)),
+		})
 
 
 func create_chunk_orientation_snapshot(cpos: Vector3i) -> PackedByteArray:
@@ -1393,6 +2274,21 @@ func create_chunk_door_part_snapshot(cpos: Vector3i) -> PackedByteArray:
 	return values
 
 
+func create_chunk_door_state_snapshot(cpos: Vector3i) -> PackedByteArray:
+	var values := PackedByteArray()
+	values.resize(CHUNK_SIZE * CHUNK_SIZE * CHUNK_SIZE)
+	var base := cpos * CHUNK_SIZE
+	for y in CHUNK_SIZE:
+		for z in CHUNK_SIZE:
+			for x in CHUNK_SIZE:
+				var gp := base + Vector3i(x, y, z)
+				var record := get_door_record(gp)
+				values[(y * CHUNK_SIZE + z) * CHUNK_SIZE + x] = (
+					(1 if bool(record.get("open", false)) else 0)
+					| (posmod(int(record.get("hinge", 0)), 2) << 1))
+	return values
+
+
 func is_door_id(block_id: int) -> bool:
 	return BlockRegistry.get_shape(block_id) == "door"
 
@@ -1408,7 +2304,15 @@ func get_door_record(gp: Vector3i) -> Dictionary:
 	return _doors.get(str(part.get("base_key", "")), {}).duplicate(true)
 
 
-func place_door(base: Vector3i, block_id: int, facing: int) -> bool:
+func place_door(
+		base: Vector3i,
+		block_id: int,
+		facing: int,
+		hinge: int = -1,
+		source_id: String = "player.door",
+		source_type: String = "player",
+		settlement_id: String = "",
+		claim_id: String = "") -> bool:
 	if not is_door_id(block_id):
 		return false
 	var upper := base + Vector3i.UP
@@ -1416,23 +2320,77 @@ func place_door(base: Vector3i, block_id: int, facing: int) -> bool:
 			or not BlockRegistry.is_air(get_block_global(base)) \
 			or not BlockRegistry.is_air(get_block_global(upper)):
 		return false
-	if not set_block_global(base, block_id):
+	if not set_block_with_provenance(
+			base, block_id, source_id, source_type, settlement_id, claim_id):
 		return false
-	if not set_block_global(upper, block_id):
+	if not set_block_with_provenance(
+			upper, block_id, source_id, source_type, settlement_id, claim_id):
 		set_block_global(base, BlockRegistry.AIR)
 		return false
+	if hinge < 0:
+		hinge = absi(
+			base.x * 73856093 ^ base.y * 19349663 ^ base.z * 83492791) % 2
 	var base_key := _edit_key(base)
 	var record := {
+		"record_type": "DoorState",
+		"version": 1,
 		"base": [base.x, base.y, base.z],
 		"block_id": block_id,
 		"stable_id": BlockRegistry.get_stable_id(block_id),
 		"facing": posmod(facing, 4),
+		"hinge": posmod(hinge, 2),
+		"open": false,
+		"last_actor_id": "",
 	}
 	_doors[base_key] = record
 	_door_parts[_edit_key(base)] = {"base_key": base_key, "part": 1}
 	_door_parts[_edit_key(upper)] = {"base_key": base_key, "part": 2}
 	set_block_orientation(base, facing)
 	set_block_orientation(upper, facing)
+	return true
+
+
+func toggle_door(position: Vector3i, actor_id: String = "") -> bool:
+	door_last_error = ""
+	var part: Dictionary = _door_parts.get(_edit_key(position), {})
+	if part.is_empty():
+		door_last_error = "No door is present."
+		return false
+	var base_key := str(part.get("base_key", ""))
+	var record: Dictionary = _doors.get(base_key, {})
+	if record.is_empty():
+		door_last_error = "The door state is missing."
+		return false
+	var opening := not bool(record.get("open", false))
+	if opening:
+		var base_values: Array = record.get("base", [])
+		var base := Vector3i(
+			int(base_values[0]), int(base_values[1]), int(base_values[2]))
+		var facing := int(record.get("facing", 0))
+		var forward: Array[Vector3i] = [
+			Vector3i(0, 0, -1), Vector3i(1, 0, 0),
+			Vector3i(0, 0, 1), Vector3i(-1, 0, 0),
+		]
+		var side := forward[posmod(
+			facing + (1 if int(record.get("hinge", 0)) == 0 else -1), 4)]
+		for swing_cell in [base + side, base + side + Vector3i.UP]:
+			var swing_id := get_persisted_block_id(swing_cell)
+			if not BlockRegistry.is_air(swing_id) \
+					and not BlockRegistry.is_water(swing_id) \
+					and not is_door_at(swing_cell):
+				door_last_error = "The door cannot open; its swing is blocked."
+				return false
+	record["open"] = opening
+	record["last_actor_id"] = actor_id
+	_doors[base_key] = record
+	var base_values: Array = record.get("base", [])
+	var base := Vector3i(
+		int(base_values[0]), int(base_values[1]), int(base_values[2]))
+	request_chunk_rebuild(Vector3i(
+		chunk_coord(base.x), chunk_coord(base.y), chunk_coord(base.z)))
+	var upper := base + Vector3i.UP
+	request_chunk_rebuild(Vector3i(
+		chunk_coord(upper.x), chunk_coord(upper.y), chunk_coord(upper.z)))
 	return true
 
 
@@ -1460,7 +2418,17 @@ func restore_door(record: Dictionary) -> bool:
 	var base := Vector3i(int(values[0]), int(values[1]), int(values[2]))
 	var block_id := BlockRegistry.resolve_serialized_id(
 		record.get("stable_id", record.get("block_id", -1)))
-	return place_door(base, block_id, int(record.get("facing", 0)))
+	if not place_door(
+			base, block_id, int(record.get("facing", 0)),
+			int(record.get("hinge", -1)),
+			"save.restore.door", "legacy_edit"):
+		return false
+	var base_key := _edit_key(base)
+	var restored: Dictionary = _doors[base_key]
+	restored["open"] = bool(record.get("open", false))
+	restored["last_actor_id"] = str(record.get("last_actor_id", ""))
+	_doors[base_key] = restored
+	return true
 
 
 # ---------- Persistent physical item drops ----------
@@ -1934,6 +2902,7 @@ func _process_furnaces(delta: float) -> void:
 				str(recipe["id"]), str(recipe["output"]["stable_id"]),
 				int(recipe["output"].get("count", 1)))
 		_furnaces[key] = state
+	_refresh_forge_furnace_presentations()
 
 
 func _station_output_accepts(current: Dictionary, incoming: Dictionary) -> bool:
@@ -2038,6 +3007,15 @@ func apply_block_entities(value: Variant) -> void:
 			var base := Vector3i(int(values[0]), int(values[1]), int(values[2]))
 			var base_key := _edit_key(base)
 			record["block_id"] = block_id
+			record["record_type"] = "DoorState"
+			record["version"] = 1
+			record["facing"] = posmod(int(record.get("facing", 0)), 4)
+			record["hinge"] = posmod(int(record.get(
+				"hinge",
+				absi(base.x * 73856093 ^ base.y * 19349663 \
+					^ base.z * 83492791) % 2)), 2)
+			record["open"] = bool(record.get("open", false))
+			record["last_actor_id"] = str(record.get("last_actor_id", ""))
 			_doors[base_key] = record
 			_door_parts[base_key] = {"base_key": base_key, "part": 1}
 			_door_parts[_edit_key(base + Vector3i.UP)] = {
@@ -2574,6 +3552,15 @@ func apply_edits(edits: Dictionary) -> void:
 			push_warning("VoxelWorld: ignored unknown saved block id %s" % str(edits[key]))
 			continue
 		_edits[key] = id
+		if not _edit_provenance.has(str(key)):
+			_edit_provenance[str(key)] = {
+				"record_type": "EditProvenance",
+				"version": 1,
+				"source_type": "legacy_edit",
+				"source_id": "save.migrated_edit",
+				"settlement_id": "",
+				"claim_id": "",
+			}
 	if automation != null:
 		automation.notify_topology_changed()
 	if edits.is_empty():
@@ -2585,6 +3572,7 @@ func apply_edits(edits: Dictionary) -> void:
 		if chunks.has(cc):
 			var local := gp - cc * CHUNK_SIZE
 			chunks[cc].blocks[chunks[cc].index(local.x, local.y, local.z)] = int(_edits[key])
+			_sync_forge_presentation_at(gp, int(_edits[key]))
 			request_chunk_rebuild(cc)
 			for off in DIRS6:
 				request_chunk_rebuild(cc + off)
@@ -2596,7 +3584,7 @@ func get_worldgen_manifest() -> Dictionary:
 	if valley_plan == null:
 		return {}
 	var manifest: Dictionary = valley_plan.save_manifest()
-	manifest["worldgen_version"] = WORLDGEN_VERSION
+	manifest["worldgen_version"] = active_worldgen_version
 	return manifest
 
 
@@ -2607,9 +3595,10 @@ func is_worldgen_manifest_compatible(value: Variant) -> bool:
 		return true
 	var saved: Dictionary = value
 	var current := get_worldgen_manifest()
-	return int(saved.get("worldgen_version", -1)) == WORLDGEN_VERSION \
-		and str(saved.get("profile_id", "")) == ValleyPlanScript.PROFILE_ID \
-		and int(saved.get("version", -1)) == ValleyPlanScript.VERSION \
+	return int(saved.get("worldgen_version", -1)) == active_worldgen_version \
+		and str(saved.get("profile_id", "")) == str(
+			current.get("profile_id", "")) \
+		and int(saved.get("version", -1)) == int(current.get("version", -2)) \
 		and str(saved.get("plan_id", "")) == str(current.get("plan_id", ""))
 
 
@@ -2618,6 +3607,8 @@ func validate_worldgen() -> Array[String]:
 	if valley_plan == null:
 		return ["valley_plan_not_built"]
 	errors.append_array(valley_plan.validate())
+	if is_regional_worldgen() and valley_plan.fallback_used:
+		errors.append("fallback_layout_used")
 	var spawn: Vector2i = valley_plan.get_anchor("spawn")
 	if _height_at(spawn.x, spawn.y) <= SEA_LEVEL + 1:
 		errors.append("spawn_is_not_dry")
@@ -2638,7 +3629,15 @@ func validate_worldgen() -> Array[String]:
 		if maximum - minimum > 2:
 			errors.append("site_not_buildable:%s:%d" % [anchor_id, maximum - minimum])
 	var cave: Vector2i = valley_plan.get_anchor("cave_entrance")
-	if _planned_cave_override(cave.x, floori(_cave_floor_height()) + 2, cave.y) != BlockRegistry.AIR:
+	var cave_floor := (
+		_regional_cave_floor({
+			"position": cave,
+			"rotation": _starter_site_rotation("cave_entrance"),
+		})
+		if is_regional_worldgen()
+		else floori(_cave_floor_height()))
+	if _planned_cave_override(
+			cave.x, cave_floor + 2, cave.y) != BlockRegistry.AIR:
 		errors.append("cave_entrance_not_open")
 	for entry in _guaranteed_resource_entries():
 		if not _resource_entry_generates(entry):
@@ -2673,6 +3672,33 @@ func get_valley_anchors() -> Dictionary:
 	return valley_plan.anchors.duplicate(true) if valley_plan != null else {}
 
 
+func query_world_sites(
+		chunk_rect: Rect2i,
+		type_filter: Array[String] = []) -> Array[Dictionary]:
+	if not is_regional_worldgen() \
+			or valley_plan == null \
+			or not valley_plan.has_method("query_sites"):
+		return []
+	return valley_plan.query_sites(chunk_rect, type_filter)
+
+
+func get_world_site(site_id: String) -> Dictionary:
+	if not is_regional_worldgen() \
+			or valley_plan == null \
+			or not valley_plan.has_method("get_site"):
+		return {}
+	return valley_plan.get_site(site_id)
+
+
+func _starter_site_rotation(type_id: String) -> int:
+	if not is_regional_worldgen():
+		return 0
+	for site in valley_plan.starter_sites:
+		if str(site.get("type_id", "")) == type_id:
+			return int(site.get("rotation", 0))
+	return 0
+
+
 func surface_height_at(gx: int, gz: int) -> int:
 	return _height_at(gx, gz)
 
@@ -2680,13 +3706,26 @@ func surface_height_at(gx: int, gz: int) -> int:
 func get_hamlet_station_position(kind: String) -> Vector3i:
 	if valley_plan == null:
 		return Vector3i(0, -100000, 0)
-	var hamlet: Vector2i = valley_plan.get_anchor("hamlet")
+	var hamlet: Vector2i = (
+		HamletState.hamlet_anchor
+		if HamletState.initialized and HamletState.world_seed == world_seed
+		else valley_plan.get_anchor("hamlet"))
 	var ground := _height_at(hamlet.x, hamlet.y)
 	if kind == "warehouse":
-		var warehouse: Vector2i = valley_plan.get_anchor("warehouse")
-		return Vector3i(warehouse.x, ground + 1, warehouse.y)
+		var warehouse: Vector2i = (
+			HamletState.warehouse_anchor
+			if HamletState.initialized and HamletState.world_seed == world_seed
+			else valley_plan.get_anchor("warehouse"))
+		return Vector3i(
+			warehouse.x, _height_at(warehouse.x, warehouse.y) + 1,
+			warehouse.y)
 	if kind == "request_board":
-		return Vector3i(hamlet.x + 3, ground, hamlet.y)
+		var board := (
+			SettlementManager.focused_station("request_board")
+			if is_regional_worldgen()
+			else hamlet + Vector2i(3, 0))
+		return Vector3i(
+			board.x, _height_at(board.x, board.y), board.y)
 	return Vector3i(0, -100000, 0)
 
 
@@ -2694,7 +3733,8 @@ func get_blueprint_stage_placements(
 		blueprint_id: String,
 		stage_id: String,
 		anchor: Vector3i,
-		palette_override: Dictionary = {}) -> Array[Dictionary]:
+		palette_override: Dictionary = {},
+		rotation: int = 0) -> Array[Dictionary]:
 	## Resolves an immutable blueprint stage into stable world-space writes.
 	## The registry guarantees deterministic local ordering; converting stable
 	## block IDs here keeps numeric runtime IDs out of settlement content data.
@@ -2712,12 +3752,16 @@ func get_blueprint_stage_placements(
 				"VoxelWorld: blueprint %s references unknown block %s"
 				% [blueprint_id, stable_id])
 			return []
+		var rotated := _rotate_blueprint_local(
+			Vector2i(int(local_value[0]), int(local_value[2])), rotation)
 		placements.append({
 			"position": anchor + Vector3i(
-				int(local_value[0]), int(local_value[1]), int(local_value[2])),
+				rotated.x, int(local_value[1]), rotated.y),
 			"block_id": block_id,
 			"stable_id": stable_id,
 			"token": str(cell.get("token", "")),
+			"rotation": posmod(rotation, 360),
+			"facing": posmod(roundi(float(rotation) / 90.0), 4),
 		})
 	return placements
 
@@ -2726,7 +3770,8 @@ func get_project_stage_placements(
 		project_id: String,
 		stage_index: int,
 		anchor: Vector3i,
-		palette_override: Dictionary = {}) -> Array[Dictionary]:
+		palette_override: Dictionary = {},
+		rotation: int = 0) -> Array[Dictionary]:
 	var project_definition := SettlementContentRegistry.get_project(project_id)
 	if project_definition.is_empty() or stage_index <= 0:
 		return []
@@ -2741,7 +3786,8 @@ func get_project_stage_placements(
 		str(project_definition.get("blueprint_id", "")),
 		str(stage.get("id", "")),
 		anchor,
-		palette_override)
+		palette_override,
+		rotation)
 
 
 func place_blueprint_stage_cell(
@@ -2749,24 +3795,45 @@ func place_blueprint_stage_cell(
 		stage_id: String,
 		anchor: Vector3i,
 		placement_index: int,
-		palette_override: Dictionary = {}) -> bool:
+		palette_override: Dictionary = {},
+		rotation: int = 0,
+		settlement_id: String = "",
+		claim_id: String = "") -> bool:
 	var placements := get_blueprint_stage_placements(
-		blueprint_id, stage_id, anchor, palette_override)
+		blueprint_id, stage_id, anchor, palette_override, rotation)
 	if placement_index < 0 or placement_index >= placements.size():
 		return false
 	var placement: Dictionary = placements[placement_index]
 	var position: Vector3i = placement["position"]
 	var target_id := int(placement["block_id"])
+	if is_door_id(target_id):
+		var upper := position + Vector3i.UP
+		for other in placements:
+			if Vector3i(other["position"]) == upper:
+				push_warning(
+					"VoxelWorld: blueprint door upper cell conflicts with authored placement")
+				return false
+		if is_door_at(position):
+			return true
+		return place_door(
+			position, target_id, int(placement.get("facing", 0)), -1,
+			"project.blueprint.%s" % blueprint_id, "project",
+			settlement_id, claim_id)
 	if get_block_global(position) == target_id:
 		return true
-	return set_block_global(position, target_id)
+	return set_block_with_provenance(
+		position, target_id, "project.blueprint.%s" % blueprint_id,
+		"project", settlement_id, claim_id)
 
 
 func apply_project_blueprint_stages(
 		project_id: String,
 		completed_stages: int,
 		anchor: Vector3i,
-		palette_override: Dictionary = {}) -> bool:
+		palette_override: Dictionary = {},
+		rotation: int = 0,
+		settlement_id: String = "",
+		claim_id: String = "") -> bool:
 	## Cumulative, idempotent catch-up for near/far simulation and save loads.
 	if completed_stages <= 0:
 		return true
@@ -2777,20 +3844,46 @@ func apply_project_blueprint_stages(
 	var stages: Array = project_definition.get("stages", [])
 	for index in range(1, mini(completed_stages, stages.size()) + 1):
 		for placement in get_project_stage_placements(
-				project_id, index, anchor, palette_override):
+				project_id, index, anchor, palette_override, rotation):
 			var position: Vector3i = placement["position"]
 			var target_id := int(placement["block_id"])
+			if is_door_id(target_id):
+				if is_door_at(position):
+					continue
+				if not place_door(
+					position, target_id, int(placement.get("facing", 0)), -1,
+					"project.blueprint.%s" % project_id, "project",
+					settlement_id, claim_id):
+					all_loaded = false
+				continue
 			if get_block_global(position) == target_id:
 				continue
-			if not set_block_global(position, target_id):
+			if not set_block_with_provenance(
+					position, target_id,
+					"project.blueprint.%s" % project_id, "project",
+					settlement_id, claim_id):
 				all_loaded = false
 	return all_loaded
+
+
+func _rotate_blueprint_local(point: Vector2i, rotation: int) -> Vector2i:
+	match posmod(roundi(float(rotation) / 90.0), 4):
+		1:
+			return Vector2i(-point.y, point.x)
+		2:
+			return Vector2i(-point.x, -point.y)
+		3:
+			return Vector2i(point.y, -point.x)
+	return point
 
 
 func _watchtower_blueprint_anchor() -> Vector3i:
 	if valley_plan == null:
 		return Vector3i(0, -100000, 0)
-	var site: Vector2i = valley_plan.get_anchor("watchtower_site")
+	var site: Vector2i = (
+		HamletState.watchtower_anchor
+		if HamletState.initialized and HamletState.world_seed == world_seed
+		else valley_plan.get_anchor("watchtower_site"))
 	return Vector3i(site.x, _height_at(site.x, site.y), site.y)
 
 

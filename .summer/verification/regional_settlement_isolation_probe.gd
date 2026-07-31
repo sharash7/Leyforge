@@ -1,0 +1,211 @@
+extends Node
+## Proves that two generated v4 hamlets retain independent runtime identities,
+## settlement state, raid state, far simulation, and save-v17 collection data.
+
+var failures: Array[String] = []
+var checks := 0
+
+
+func _ready() -> void:
+	call_deferred("_run")
+
+
+func _check(condition: bool, message: String) -> void:
+	checks += 1
+	if not condition:
+		failures.append(message)
+
+
+func _run() -> void:
+	var seed_value := 0x416D23
+	var planner := WorldStructurePlanner.new()
+	planner.generate(seed_value, WorldStructurePlanner.VERSION)
+	_check(
+		planner.validation_errors.is_empty(),
+		"regional planner did not produce a valid starter contract")
+	var hamlet_filter: Array[String] = ["hamlet"]
+	var candidates := planner.query_sites(
+		Rect2i(Vector2i(-128, -128), Vector2i(256, 256)),
+		hamlet_filter)
+	var selected: Array[Dictionary] = []
+	for site in candidates:
+		if bool(site.get("is_starter", false)):
+			continue
+		if selected.is_empty() or Vector2(site["position"]).distance_to(
+				Vector2(selected[0]["position"])) >= 32.0 * 16.0:
+			selected.append(site)
+		if selected.size() == 2:
+			break
+	_check(selected.size() == 2, "could not find two widely separated hamlets")
+	if selected.size() != 2:
+		_finish()
+		return
+	_check(
+		SettlementManager.initialize_sites(seed_value, planner, selected),
+		"settlement manager could not materialize generated hamlets")
+	var settlement_ids: Array = SettlementManager.settlements.keys()
+	settlement_ids.sort()
+	_check(settlement_ids.size() == 2, "materialization did not create two records")
+	if settlement_ids.size() != 2:
+		_finish()
+		return
+	var first_id := str(settlement_ids[0])
+	var second_id := str(settlement_ids[1])
+	var first_record := SettlementManager.get_settlement(first_id)
+	var second_record := SettlementManager.get_settlement(second_id)
+	_check(first_id != second_id, "generated settlement IDs collided")
+	_check(
+		str(first_record.get("site_id", ""))
+			!= str(second_record.get("site_id", "")),
+		"generated settlements share a site ID")
+	_check(
+		_records_are_separated(first_record, second_record),
+		"generated settlement anchors are not regionally separated")
+	_check(
+		not (first_record.get("linked_camp_ids", []) as Array).is_empty()
+			and not (second_record.get("linked_camp_ids", []) as Array).is_empty(),
+		"a generated settlement is missing its independent camp link")
+
+	var first_state: Dictionary = first_record.get("hamlet_state", {})
+	var second_state: Dictionary = second_record.get("hamlet_state", {})
+	var first_npcs: Dictionary = first_state.get("npc_records", {})
+	var second_npcs: Dictionary = second_state.get("npc_records", {})
+	_check(
+		not first_npcs.is_empty() and not second_npcs.is_empty(),
+		"generated settlement NPC records are missing")
+	_check(
+		_keys_are_disjoint(first_npcs, second_npcs),
+		"generated settlement NPC identities leaked across namespaces")
+	_check(
+		str(first_state.get("active_project_instance_id", ""))
+			!= str(second_state.get("active_project_instance_id", "")),
+		"generated settlement projects share an instance ID")
+	_check(
+		str((first_record.get("combat_state", {}) as Dictionary).get(
+			"target_settlement_id", "")) == first_id
+			and str((second_record.get("combat_state", {}) as Dictionary).get(
+				"target_settlement_id", "")) == second_id,
+		"raid state is not scoped to its owning settlement")
+
+	_check(
+		SettlementManager.focus_settlement(first_id),
+		"first settlement could not receive focus")
+	HamletState.reputation_points = 73
+	HamletState.project["stage_progress"] = 0.37
+	HamletState.warehouse_add_stack(Inventory.make_stack_from_ref({
+		"kind": "block",
+		"stable_id": "construction.planks.oak",
+		"count": 9,
+	}))
+	CombatState.phase = "resolved"
+	CombatState.outcome = {"id": "first_only"}
+	SettlementManager.get_settlement(first_id)
+	_check(
+		SettlementManager.focus_settlement(second_id),
+		"second settlement could not receive focus")
+	_check(HamletState.reputation_points == 0, "reputation leaked between settlements")
+	_check(
+		HamletState.warehouse_count_ref({
+			"kind": "block",
+			"stable_id": "construction.planks.oak",
+			"count": 1,
+		}) == 0,
+		"warehouse inventory leaked between settlements")
+	_check(CombatState.phase == "dormant", "raid phase leaked between settlements")
+	_check(
+		is_zero_approx(float(HamletState.project.get("stage_progress", 0.0))),
+		"project progress leaked between settlements")
+	HamletState.reputation_points = 11
+	var second_clock_before := HamletState.clock_minutes
+	SettlementManager.get_settlement(second_id)
+	_check(
+		SettlementManager.focus_settlement(first_id),
+		"first settlement could not be restored after mutation")
+	_check(
+		HamletState.reputation_points == 73
+			and HamletState.warehouse_count_ref({
+				"kind": "block",
+				"stable_id": "construction.planks.oak",
+				"count": 1,
+			}) == 9,
+		"first settlement mutation did not survive focus switching")
+	_check(
+		CombatState.phase == "resolved"
+			and str(CombatState.outcome.get("id", "")) == "first_only",
+		"first settlement raid state did not survive focus switching")
+	_check(
+		is_equal_approx(
+			float(HamletState.project.get("stage_progress", 0.0)), 0.37),
+		"first settlement project state did not survive focus switching")
+
+	SettlementManager.advance_far_simulation(90.0)
+	var second_after_sim := SettlementManager.get_settlement(second_id)
+	var simulated_state: Dictionary = second_after_sim.get("hamlet_state", {})
+	_check(
+		str(second_after_sim.get("simulation_mode", "")) == "far"
+			and not is_equal_approx(
+				float(simulated_state.get("clock_minutes", second_clock_before)),
+				second_clock_before),
+		"distant settlement did not advance through record simulation")
+
+	var serialized := SettlementManager.serialize_state()
+	_check(
+		(serialized.get("settlements", {}) as Dictionary).size() == 2,
+		"settlement collection serialization omitted a materialized settlement")
+	SettlementManager.reset()
+	HamletState.initialized = false
+	CombatState.initialized = false
+	_check(
+		SettlementManager.initialize_world(seed_value, planner),
+		"fresh regional settlement collection could not be prepared for reload")
+	_check(
+		SettlementManager.restore_state(serialized, seed_value),
+		"settlement collection did not restore")
+	_check(
+		SettlementManager.settlements.size() == 2,
+		"settlement collection reload changed its record count")
+	_check(
+		SettlementManager.focus_settlement(first_id)
+			and HamletState.reputation_points == 73
+			and CombatState.phase == "resolved",
+		"first settlement state changed across collection reload")
+	_check(
+		SettlementManager.focus_settlement(second_id)
+			and HamletState.reputation_points == 11
+			and is_equal_approx(
+				float(HamletState.clock_minutes),
+				float(simulated_state.get("clock_minutes", -1.0))),
+		"second settlement state changed across collection reload")
+	_check(
+		SettlementManager.get_settlement(first_id).get("site", {})
+			== first_record.get("site", {}),
+		"stable generated site identity changed across reload")
+	_finish()
+
+
+func _records_are_separated(first: Dictionary, second: Dictionary) -> bool:
+	var first_anchor: Array = first.get("anchor", [0, 0])
+	var second_anchor: Array = second.get("anchor", [0, 0])
+	return Vector2(
+		float(first_anchor[0]), float(first_anchor[1])).distance_to(Vector2(
+			float(second_anchor[0]), float(second_anchor[1]))) >= 32.0 * 16.0
+
+
+func _keys_are_disjoint(first: Dictionary, second: Dictionary) -> bool:
+	for key in first:
+		if second.has(key):
+			return false
+	return true
+
+
+func _finish() -> void:
+	var report := {
+		"ok": failures.is_empty(),
+		"checks": checks,
+		"failures": failures,
+	}
+	print("REGIONAL_SETTLEMENT_ISOLATION_PROBE %s" % JSON.stringify(report))
+	SettlementManager.reset()
+	HamletState.initialized = false
+	CombatState.initialized = false
+	get_tree().quit(0 if failures.is_empty() else 1)
