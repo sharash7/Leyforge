@@ -1,0 +1,488 @@
+{
+  "contract_version": "22-foundation-v1",
+  "record_count": 14,
+  "records": [
+    {
+      "aliases": [],
+      "classification": "new_work",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": []
+      },
+      "display_name": "Pig",
+      "fallback": "",
+      "fallback_active": false,
+      "forge_baked": false,
+      "lifecycle": "new_work",
+      "priority": "p1",
+      "removal_gate": "not_applicable_new_work",
+      "replacement_strategy": "author_new_source_keep_fallback",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "new_work"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "not_started",
+      "subject_type": "entity",
+      "target_id": "entity.definition.creature.pig",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "new_work",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": []
+      },
+      "display_name": "Spider",
+      "fallback": "",
+      "fallback_active": false,
+      "forge_baked": false,
+      "lifecycle": "new_work",
+      "priority": "p1",
+      "removal_gate": "not_applicable_new_work",
+      "replacement_strategy": "author_new_source_keep_fallback",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "new_work"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "not_started",
+      "subject_type": "entity",
+      "target_id": "entity.definition.creature.spider",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "new_work",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": []
+      },
+      "display_name": "Wisp",
+      "fallback": "",
+      "fallback_active": false,
+      "forge_baked": false,
+      "lifecycle": "new_work",
+      "priority": "p1",
+      "removal_gate": "not_applicable_new_work",
+      "replacement_strategy": "author_new_source_keep_fallback",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "new_work"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "not_started",
+      "subject_type": "entity",
+      "target_id": "entity.definition.creature.wisp",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": [
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/ambient_goblin_actor.gd",
+          "res://scripts/world/goblin_actor.gd"
+        ]
+      },
+      "display_name": "Goblin Raider Family",
+      "fallback": "legacy.runtime.goblin_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p0",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.family.goblin",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": [
+          "res://scripts/autoload/hamlet_state.gd",
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/hamlet_npc_actor.gd"
+        ]
+      },
+      "display_name": "NPC Humanoid",
+      "fallback": "legacy.runtime.npc_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p0",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.npc.humanoid",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": [
+          "res://scripts/player/player.gd",
+          "res://scripts/visual/humanoid_visual.gd"
+        ]
+      },
+      "display_name": "Player Humanoid",
+      "fallback": "legacy.runtime.player_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p0",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.player.humanoid",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "entity.definition.npc.humanoid"
+        ],
+        "source_paths": [
+          "res://scripts/autoload/hamlet_state.gd",
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/hamlet_npc_actor.gd"
+        ]
+      },
+      "display_name": "Builder Villager",
+      "fallback": "legacy.runtime.npc_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.profession.builder",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "entity.definition.npc.humanoid"
+        ],
+        "source_paths": [
+          "res://scripts/autoload/hamlet_state.gd",
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/hamlet_npc_actor.gd"
+        ]
+      },
+      "display_name": "Elder Villager",
+      "fallback": "legacy.runtime.npc_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.profession.elder",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "entity.definition.npc.humanoid"
+        ],
+        "source_paths": [
+          "res://scripts/autoload/hamlet_state.gd",
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/hamlet_npc_actor.gd"
+        ]
+      },
+      "display_name": "Farmer Villager",
+      "fallback": "legacy.runtime.npc_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.profession.farmer",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "entity.definition.npc.humanoid"
+        ],
+        "source_paths": [
+          "res://scripts/autoload/hamlet_state.gd",
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/hamlet_npc_actor.gd"
+        ]
+      },
+      "display_name": "Guard Villager",
+      "fallback": "legacy.runtime.npc_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.profession.guard",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "entity.definition.npc.humanoid"
+        ],
+        "source_paths": [
+          "res://scripts/autoload/hamlet_state.gd",
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/hamlet_npc_actor.gd"
+        ]
+      },
+      "display_name": "Lumberjack Villager",
+      "fallback": "legacy.runtime.npc_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.profession.lumberjack",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "entity.definition.npc.humanoid"
+        ],
+        "source_paths": [
+          "res://scripts/autoload/hamlet_state.gd",
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/hamlet_npc_actor.gd"
+        ]
+      },
+      "display_name": "Mage Villager",
+      "fallback": "legacy.runtime.npc_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.profession.mage",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "entity.definition.npc.humanoid"
+        ],
+        "source_paths": [
+          "res://scripts/autoload/hamlet_state.gd",
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/hamlet_npc_actor.gd"
+        ]
+      },
+      "display_name": "Merchant Villager",
+      "fallback": "legacy.runtime.npc_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.profession.merchant",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "entity.definition.npc.humanoid"
+        ],
+        "source_paths": [
+          "res://scripts/autoload/hamlet_state.gd",
+          "res://scripts/visual/humanoid_visual.gd",
+          "res://scripts/world/hamlet_npc_actor.gd"
+        ]
+      },
+      "display_name": "Miner Villager",
+      "fallback": "legacy.runtime.npc_humanoid",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "entity",
+      "target_id": "entity.definition.profession.miner",
+      "visually_complete": false
+    }
+  ],
+  "schema": "leyforge.forge.migration-inventory",
+  "schema_version": 2,
+  "subject_type": "entity"
+}

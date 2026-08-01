@@ -1,0 +1,4706 @@
+{
+  "contract_version": "22-foundation-v1",
+  "legacy_settlement_blueprint_count": 120,
+  "record_count": 124,
+  "records": [
+    {
+      "aliases": [
+        "bp.catalogue.107"
+      ],
+      "catalogue_no": 107,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.automation.automated_farm_greenhouse"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Automated Farm or Greenhouse - Forest Neutral",
+      "fallback": "bp.catalogue.107",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.automation.automated_farm_greenhouse_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.109"
+      ],
+      "catalogue_no": 109,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.automation.golem_workshop_labour_centre"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Golem Workshop or Labour Centre - Forest Neutral",
+      "fallback": "bp.catalogue.109",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.automation.golem_workshop_labour_centre_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.101"
+      ],
+      "catalogue_no": 101,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.automation.hand_crank_workshop"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Hand-Crank or Mechanical Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.101",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.automation.hand_crank_workshop_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.104"
+      ],
+      "catalogue_no": 104,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.automation.mechanical_processing_mill"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Mechanical Processing Mill - Forest Neutral",
+      "fallback": "bp.catalogue.104",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.automation.mechanical_processing_mill_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.116"
+      ],
+      "catalogue_no": 116,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "plan.campus.hospital_university"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Hospital or University Campus - Forest Neutral",
+      "fallback": "bp.catalogue.116",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.campus.hospital_university_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.111"
+      ],
+      "catalogue_no": 111,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "plan.cluster.farmstead"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Farmstead Cluster - Forest Neutral",
+      "fallback": "bp.catalogue.111",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.cluster.farmstead_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.112"
+      ],
+      "catalogue_no": 112,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "plan.cluster.market_civic_centre"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Market Square and Civic Centre - Forest Neutral",
+      "fallback": "bp.catalogue.112",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.cluster.market_civic_centre_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.027"
+      ],
+      "catalogue_no": 27,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.community.bathhouse_laundry"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Bathhouse and Laundry - Forest Neutral",
+      "fallback": "bp.catalogue.027",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.community.bathhouse_laundry_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.030"
+      ],
+      "catalogue_no": 30,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.community.cultural_hall_theatre"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Cultural Hall or Theatre - Forest Neutral",
+      "fallback": "bp.catalogue.030",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.community.cultural_hall_theatre_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.028"
+      ],
+      "catalogue_no": 28,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.community.festival_grounds"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Festival or Community Grounds - Forest Neutral",
+      "fallback": "bp.catalogue.028",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.community.festival_grounds_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.029"
+      ],
+      "catalogue_no": 29,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.community.memorial_cemetery"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Memorial and Cemetery - Forest Neutral",
+      "fallback": "bp.catalogue.029",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.community.memorial_cemetery_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.025"
+      ],
+      "catalogue_no": 25,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.community.small_shrine_hall"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Small Shrine or Community Hall - Forest Neutral",
+      "fallback": "bp.catalogue.025",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.community.small_shrine_hall_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.115"
+      ],
+      "catalogue_no": 115,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "plan.complex.citadel_fortified_perimeter"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Citadel and Fortified Perimeter Complex - Forest Neutral",
+      "fallback": "bp.catalogue.115",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.complex.citadel_fortified_perimeter_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.003"
+      ],
+      "catalogue_no": 3,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.construction.builder_supply_yard"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Builder Supply Yard - Forest Neutral",
+      "fallback": "bp.catalogue.003",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.construction.builder_supply_yard_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.041"
+      ],
+      "catalogue_no": 41,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.crafting.carpenter_workshop"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Carpenter Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.041",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "workshop",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.crafting.carpenter_workshop_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.047"
+      ],
+      "catalogue_no": 47,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.crafting.glass_brick_works"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Glassworks or Brickworks - Forest Neutral",
+      "fallback": "bp.catalogue.047",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.crafting.glass_brick_works_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.042"
+      ],
+      "catalogue_no": 42,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.crafting.mason_yard"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Mason Yard - Forest Neutral",
+      "fallback": "bp.catalogue.042",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.crafting.mason_yard_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.044"
+      ],
+      "catalogue_no": 44,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.crafting.pottery_kiln"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Pottery and Kiln - Forest Neutral",
+      "fallback": "bp.catalogue.044",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.crafting.pottery_kiln_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.046"
+      ],
+      "catalogue_no": 46,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.crafting.tannery_leatherworker"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Tannery and Leatherworker - Forest Neutral",
+      "fallback": "bp.catalogue.046",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.crafting.tannery_leatherworker_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.043"
+      ],
+      "catalogue_no": 43,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.crafting.village_blacksmith"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Village Blacksmith - Forest Neutral",
+      "fallback": "bp.catalogue.043",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.crafting.village_blacksmith_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.045"
+      ],
+      "catalogue_no": 45,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.crafting.weaver_tailor"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Weaver and Tailor Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.045",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.crafting.weaver_tailor_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.073"
+      ],
+      "catalogue_no": 73,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.defence.palisade_segment"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Palisade Segment - Forest Neutral",
+      "fallback": "bp.catalogue.073",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.defence.palisade_segment_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.076"
+      ],
+      "catalogue_no": 76,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.defence.stone_wall_gatehouse"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Stone Wall and Gatehouse System - Forest Neutral",
+      "fallback": "bp.catalogue.076",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.defence.stone_wall_gatehouse_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.113"
+      ],
+      "catalogue_no": 113,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "plan.district.artisan_industrial"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Artisan or Industrial District Template - Forest Neutral",
+      "fallback": "bp.catalogue.113",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.district.artisan_industrial_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.114"
+      ],
+      "catalogue_no": 114,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "plan.district.residential"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Residential District Template - Forest Neutral",
+      "fallback": "bp.catalogue.114",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.district.residential_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.059"
+      ],
+      "catalogue_no": 59,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.education.academy_university"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Academy or University - Forest Neutral",
+      "fallback": "bp.catalogue.059",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.education.academy_university_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.058"
+      ],
+      "catalogue_no": 58,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.education.library_archive"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Library or Archive - Forest Neutral",
+      "fallback": "bp.catalogue.058",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.education.library_archive_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.056"
+      ],
+      "catalogue_no": 56,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.education.small_school"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Small School - Forest Neutral",
+      "fallback": "bp.catalogue.056",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.education.small_school_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.057"
+      ],
+      "catalogue_no": 57,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.education.trade_school"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Apprentice or Trade School - Forest Neutral",
+      "fallback": "bp.catalogue.057",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.education.trade_school_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.079"
+      ],
+      "catalogue_no": 79,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.emergency.fire_rescue_station"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Fire and Rescue Station - Forest Neutral",
+      "fallback": "bp.catalogue.079",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.emergency.fire_rescue_station_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.080"
+      ],
+      "catalogue_no": 80,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.emergency.refuge_bunker"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Emergency Shelter or Refuge Bunker - Forest Neutral",
+      "fallback": "bp.catalogue.080",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.emergency.refuge_bunker_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.040"
+      ],
+      "catalogue_no": 40,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.automated_mine_quarry"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Automated Mine or Quarry Site - Forest Neutral",
+      "fallback": "bp.catalogue.040",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.automated_mine_quarry_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.038"
+      ],
+      "catalogue_no": 38,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.charcoal_fuel_yard"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Charcoal Burner and Fuel Yard - Forest Neutral",
+      "fallback": "bp.catalogue.038",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.charcoal_fuel_yard_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.034"
+      ],
+      "catalogue_no": 34,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.clay_sand_works"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Clay or Sand Works - Forest Neutral",
+      "fallback": "bp.catalogue.034",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.clay_sand_works_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.036"
+      ],
+      "catalogue_no": 36,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.deep_mine_complex"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Mine Shaft or Deep Mine Complex - Forest Neutral",
+      "fallback": "bp.catalogue.036",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.deep_mine_complex_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.031"
+      ],
+      "catalogue_no": 31,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.lumber_camp"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Lumber Camp - Forest Neutral",
+      "fallback": "bp.catalogue.031",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.lumber_camp_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.039"
+      ],
+      "catalogue_no": 39,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.mana_crystal_site"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Mana Crystal Mine or Extractor - Forest Neutral",
+      "fallback": "bp.catalogue.039",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.mana_crystal_site_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.035"
+      ],
+      "catalogue_no": 35,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.mine_entrance"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Mine Entrance - Forest Neutral",
+      "fallback": "bp.catalogue.035",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.mine_entrance_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.037"
+      ],
+      "catalogue_no": 37,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.ore_sorting_yard"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Ore Sorting Yard - Forest Neutral",
+      "fallback": "bp.catalogue.037",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.ore_sorting_yard_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.033"
+      ],
+      "catalogue_no": 33,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.quarry_stone_yard"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Quarry and Stone Yard - Forest Neutral",
+      "fallback": "bp.catalogue.033",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.quarry_stone_yard_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.032"
+      ],
+      "catalogue_no": 32,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.extraction.sawmill"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Sawmill - Forest Neutral",
+      "fallback": "bp.catalogue.032",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.extraction.sawmill_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.017"
+      ],
+      "catalogue_no": 17,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.food.bakery_food_workshop"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Bakery or Food Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.017",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.food.bakery_food_workshop_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.013"
+      ],
+      "catalogue_no": 13,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.food.barn"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Barn - Forest Neutral",
+      "fallback": "bp.catalogue.013",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.food.barn_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.011"
+      ],
+      "catalogue_no": 11,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.food.basic_farm_plot"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Basic Farm Plot - Forest Neutral",
+      "fallback": "bp.catalogue.011",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.food.basic_farm_plot_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.015"
+      ],
+      "catalogue_no": 15,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.food.communal_kitchen"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Communal Kitchen - Forest Neutral",
+      "fallback": "bp.catalogue.015",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.food.communal_kitchen_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.020"
+      ],
+      "catalogue_no": 20,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.food.fishery_fishing_dock"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Fishery or Fishing Dock - Forest Neutral",
+      "fallback": "bp.catalogue.020",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.food.fishery_fishing_dock_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.016"
+      ],
+      "catalogue_no": 16,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.food.grain_millhouse"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Grain Millhouse - Forest Neutral",
+      "fallback": "bp.catalogue.016",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.food.grain_millhouse_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.014"
+      ],
+      "catalogue_no": 14,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.food.granary"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Granary - Forest Neutral",
+      "fallback": "bp.catalogue.014",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.food.granary_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.012"
+      ],
+      "catalogue_no": 12,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.food.irrigated_terraced_farm"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Irrigated or Terraced Farm - Forest Neutral",
+      "fallback": "bp.catalogue.012",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.food.irrigated_terraced_farm_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.018"
+      ],
+      "catalogue_no": 18,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.food.preserving_house"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Preserving House - Forest Neutral",
+      "fallback": "bp.catalogue.018",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.food.preserving_house_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.070"
+      ],
+      "catalogue_no": 70,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.governance.blueprint_construction_office"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Blueprint and Construction Office - Forest Neutral",
+      "fallback": "bp.catalogue.070",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.governance.blueprint_construction_office_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.063"
+      ],
+      "catalogue_no": 63,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.governance.city_hall"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "City Hall or Civic Complex - Forest Neutral",
+      "fallback": "bp.catalogue.063",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.governance.city_hall_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.067"
+      ],
+      "catalogue_no": 67,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.governance.embassy_diplomatic_hall"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Embassy or Diplomatic Hall - Forest Neutral",
+      "fallback": "bp.catalogue.067",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.governance.embassy_diplomatic_hall_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.068"
+      ],
+      "catalogue_no": 68,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.governance.leader_residence"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Governor or Leader Residence - Forest Neutral",
+      "fallback": "bp.catalogue.068",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.governance.leader_residence_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.069"
+      ],
+      "catalogue_no": 69,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.governance.palace_high_council"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Palace or High Council Complex - Forest Neutral",
+      "fallback": "bp.catalogue.069",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.governance.palace_high_council_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.064"
+      ],
+      "catalogue_no": 64,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.governance.records_planning_office"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Records and Planning Office - Forest Neutral",
+      "fallback": "bp.catalogue.064",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.governance.records_planning_office_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.066"
+      ],
+      "catalogue_no": 66,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.governance.tax_customs_office"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Tax or Customs Office - Forest Neutral",
+      "fallback": "bp.catalogue.066",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.governance.tax_customs_office_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.062"
+      ],
+      "catalogue_no": 62,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.governance.town_hall"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Town Hall or Council House - Forest Neutral",
+      "fallback": "bp.catalogue.062",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.governance.town_hall_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.061"
+      ],
+      "catalogue_no": 61,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.governance.village_hall"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Village Hall - Forest Neutral",
+      "fallback": "bp.catalogue.061",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.governance.village_hall_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.022"
+      ],
+      "catalogue_no": 22,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.health.clinic_infirmary"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Clinic or Infirmary - Forest Neutral",
+      "fallback": "bp.catalogue.022",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.health.clinic_infirmary_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.021"
+      ],
+      "catalogue_no": 21,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.health.healer_hut"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Healer Hut - Forest Neutral",
+      "fallback": "bp.catalogue.021",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.health.healer_hut_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.023"
+      ],
+      "catalogue_no": 23,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.health.hospital_complex"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Hospital Complex - Forest Neutral",
+      "fallback": "bp.catalogue.023",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.health.hospital_complex_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.026"
+      ],
+      "catalogue_no": 26,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.hospitality.tavern_inn"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Tavern or Inn - Forest Neutral",
+      "fallback": "bp.catalogue.026",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.hospitality.tavern_inn_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.108"
+      ],
+      "catalogue_no": 108,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.industry.automated_factory_assembly"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Automated Factory or Assembly Hall - Forest Neutral",
+      "fallback": "bp.catalogue.108",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.industry.automated_factory_assembly_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.048"
+      ],
+      "catalogue_no": 48,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.industry.foundry_steelworks"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Foundry or Steelworks - Forest Neutral",
+      "fallback": "bp.catalogue.048",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.industry.foundry_steelworks_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.103"
+      ],
+      "catalogue_no": 103,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.industry.furnace_mana_furnace"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Furnace or Mana Furnace Facility - Forest Neutral",
+      "fallback": "bp.catalogue.103",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.industry.furnace_mana_furnace_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.049"
+      ],
+      "catalogue_no": 49,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.industry.machine_workshop"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Machine Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.049",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.industry.machine_workshop_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.065"
+      ],
+      "catalogue_no": 65,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.justice.courthouse_magistrate"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Courthouse or Magistrate House - Forest Neutral",
+      "fallback": "bp.catalogue.065",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.justice.courthouse_magistrate_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.019"
+      ],
+      "catalogue_no": 19,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.livestock.stable_paddock"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Stable and Paddock - Forest Neutral",
+      "fallback": "bp.catalogue.019",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.livestock.stable_paddock_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.105"
+      ],
+      "catalogue_no": 105,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.logistics.conveyor_cart_hub"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Conveyor or Cart Logistics Hub - Forest Neutral",
+      "fallback": "bp.catalogue.105",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.logistics.conveyor_cart_hub_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.092"
+      ],
+      "catalogue_no": 92,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.alchemy_laboratory"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Alchemy Laboratory - Forest Neutral",
+      "fallback": "bp.catalogue.092",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.alchemy_laboratory_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.100"
+      ],
+      "catalogue_no": 100,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.dimensional_research_containment"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Dimensional Research and Containment Facility - Forest Neutral",
+      "fallback": "bp.catalogue.100",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.dimensional_research_containment_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.097"
+      ],
+      "catalogue_no": 97,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.healing_cleansing_shrine"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Healing or Cleansing Shrine - Forest Neutral",
+      "fallback": "bp.catalogue.097",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.healing_cleansing_shrine_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.098"
+      ],
+      "catalogue_no": 98,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.leyline_observatory_relay"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Leyline Observatory or Relay - Forest Neutral",
+      "fallback": "bp.catalogue.098",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.leyline_observatory_relay_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.091"
+      ],
+      "catalogue_no": 91,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.mage_hut_rune_workshop"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Mage Hut or Rune Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.091",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.mage_hut_rune_workshop_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.096"
+      ],
+      "catalogue_no": 96,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.magic_academy_tower"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Magic Academy or Research Tower - Forest Neutral",
+      "fallback": "bp.catalogue.096",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.magic_academy_tower_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.094"
+      ],
+      "catalogue_no": 94,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.mana_store_battery"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Mana Store or Battery House - Forest Neutral",
+      "fallback": "bp.catalogue.094",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.mana_store_battery_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.099"
+      ],
+      "catalogue_no": 99,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.portal_station_sanctum"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Portal Station or Sanctum - Forest Neutral",
+      "fallback": "bp.catalogue.099",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.portal_station_sanctum_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.095"
+      ],
+      "catalogue_no": 95,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.ritual_circle_hall"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Ritual Circle or Hall - Forest Neutral",
+      "fallback": "bp.catalogue.095",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.ritual_circle_hall_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.050"
+      ],
+      "catalogue_no": 50,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.magic.rune_forge"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Rune Forge or Enchanted Smithy - Forest Neutral",
+      "fallback": "bp.catalogue.050",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.rune_forge_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.093"
+      ],
+      "catalogue_no": 93,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.magic.ward_stone_relay"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Ward Stone or Defence Relay - Forest Neutral",
+      "fallback": "bp.catalogue.093",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.magic.ward_stone_relay_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.118"
+      ],
+      "catalogue_no": 118,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.megaproject.city_ward_portal_nexus"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "City-Wide Ward Core or Portal Nexus - Forest Neutral",
+      "fallback": "bp.catalogue.118",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.megaproject.city_ward_portal_nexus_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.119"
+      ],
+      "catalogue_no": 119,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.megaproject.floating_district_anchor_skyport"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Floating District Anchor or Skyport - Forest Neutral",
+      "fallback": "bp.catalogue.119",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.117"
+      ],
+      "catalogue_no": 117,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "plan.nexus.regional_logistics_transit"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Regional Logistics and Transit Nexus - Forest Neutral",
+      "fallback": "bp.catalogue.117",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.nexus.regional_logistics_transit_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.110"
+      ],
+      "catalogue_no": 110,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.power.regional_grid_control"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Regional Power or Mana Grid Control - Forest Neutral",
+      "fallback": "bp.catalogue.110",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.power.regional_grid_control_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.106"
+      ],
+      "catalogue_no": 106,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.power.steam_generator_plant"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Steam or Generator Plant - Forest Neutral",
+      "fallback": "bp.catalogue.106",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.power.steam_generator_plant_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.102"
+      ],
+      "catalogue_no": 102,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.power.waterwind_power_house"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Waterwheel or Wind Power House - Forest Neutral",
+      "fallback": "bp.catalogue.102",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.power.waterwind_power_house_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.060"
+      ],
+      "catalogue_no": 60,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.professional.guild_hall"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Guild Hall or Professional Lodge - Forest Neutral",
+      "fallback": "bp.catalogue.060",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.professional.guild_hall_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.010"
+      ],
+      "catalogue_no": 10,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.residential.apartment_house"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Apartment House - Forest Neutral",
+      "fallback": "bp.catalogue.010",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.residential.apartment_house_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.008"
+      ],
+      "catalogue_no": 8,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.residential.communal_longhouse"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Communal Longhouse - Forest Neutral",
+      "fallback": "bp.catalogue.008",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.residential.communal_longhouse_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.007"
+      ],
+      "catalogue_no": 7,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.residential.farmhouse"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Farmhouse - Forest Neutral",
+      "fallback": "bp.catalogue.007",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.residential.farmhouse_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.005"
+      ],
+      "catalogue_no": 5,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.residential.primitive_hut"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Primitive Hut - Forest Neutral",
+      "fallback": "bp.catalogue.005",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.residential.primitive_hut_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.building.cottage_forest_small"
+      ],
+      "catalogue_no": 6,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.residential.small_cottage"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Small Forest Cottage",
+      "fallback": "bp.building.cottage_forest_small",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p0",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "cottage",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.residential.small_cottage_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.002"
+      ],
+      "catalogue_no": 2,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.residential.small_tent"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Small Tent - Forest Neutral",
+      "fallback": "bp.catalogue.002",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.residential.small_tent_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.009"
+      ],
+      "catalogue_no": 9,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.residential.townhouse_shop_house"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Townhouse or Shop-House - Forest Neutral",
+      "fallback": "bp.catalogue.009",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.residential.townhouse_shop_house_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.004"
+      ],
+      "catalogue_no": 4,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.residential.worker_refugee_shelter"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Worker or Refugee Shelter - Forest Neutral",
+      "fallback": "bp.catalogue.004",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.residential.worker_refugee_shelter_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.077"
+      ],
+      "catalogue_no": 77,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.safety.armoury"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Armoury - Forest Neutral",
+      "fallback": "bp.catalogue.077",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.safety.armoury_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.075"
+      ],
+      "catalogue_no": 75,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.safety.barracks_training_yard"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Barracks and Training Yard - Forest Neutral",
+      "fallback": "bp.catalogue.075",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.safety.barracks_training_yard_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.078"
+      ],
+      "catalogue_no": 78,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.safety.fort_keep"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Fort or Keep - Forest Neutral",
+      "fallback": "bp.catalogue.078",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.safety.fort_keep_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.071"
+      ],
+      "catalogue_no": 71,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.safety.guard_post"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Guard Post - Forest Neutral",
+      "fallback": "bp.catalogue.071",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.safety.guard_post_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.074"
+      ],
+      "catalogue_no": 74,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.safety.village_gate"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Village Gate - Forest Neutral",
+      "fallback": "bp.catalogue.074",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.safety.village_gate_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.building.watchtower_wood"
+      ],
+      "catalogue_no": 72,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.safety.wooden_watchtower"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Wooden Watchtower",
+      "fallback": "bp.building.watchtower_wood",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p0",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "watchtower",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.safety.wooden_watchtower_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.084"
+      ],
+      "catalogue_no": 84,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.storage.automated_distribution_centre"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Automated Distribution Centre - Forest Neutral",
+      "fallback": "bp.catalogue.084",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.storage.automated_distribution_centre_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.081"
+      ],
+      "catalogue_no": 81,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.storage.small_storehouse"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Small Storehouse - Forest Neutral",
+      "fallback": "bp.catalogue.081",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.storage.small_storehouse_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.083"
+      ],
+      "catalogue_no": 83,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.storage.specialised_depot"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Specialised Depot or Silo - Forest Neutral",
+      "fallback": "bp.catalogue.083",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.storage.specialised_depot_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.082"
+      ],
+      "catalogue_no": 82,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.storage.village_warehouse"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Village Warehouse - Forest Neutral",
+      "fallback": "bp.catalogue.082",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p0",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "warehouse",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.storage.village_warehouse_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.001"
+      ],
+      "catalogue_no": 1,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.temporary.campfire_site"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Campfire Site - Forest Neutral",
+      "fallback": "bp.catalogue.001",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.temporary.campfire_site_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.054"
+      ],
+      "catalogue_no": 54,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.trade.caravanserai_coach_inn"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Caravanserai or Coach Inn - Forest Neutral",
+      "fallback": "bp.catalogue.054",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.trade.caravanserai_coach_inn_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.053"
+      ],
+      "catalogue_no": 53,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.trade.covered_market_hall"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Covered Market or Market Hall - Forest Neutral",
+      "fallback": "bp.catalogue.053",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.trade.covered_market_hall_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.051"
+      ],
+      "catalogue_no": 51,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.trade.market_stalls"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Market Stalls - Forest Neutral",
+      "fallback": "bp.catalogue.051",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.trade.market_stalls_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.055"
+      ],
+      "catalogue_no": 55,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.trade.merchant_exchange"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Merchant Guild or Trade Exchange - Forest Neutral",
+      "fallback": "bp.catalogue.055",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.trade.merchant_exchange_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.052"
+      ],
+      "catalogue_no": 52,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.trade.trading_post"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Trading Post - Forest Neutral",
+      "fallback": "bp.catalogue.052",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.trade.trading_post_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.085"
+      ],
+      "catalogue_no": 85,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.transport.dirt_path_junction_set"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Dirt Path and Road Junction Set - Forest Neutral",
+      "fallback": "bp.catalogue.085",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.transport.dirt_path_junction_set_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.087"
+      ],
+      "catalogue_no": 87,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.transport.dock_harbour"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Dock or Harbour - Forest Neutral",
+      "fallback": "bp.catalogue.087",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.transport.dock_harbour_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.086"
+      ],
+      "catalogue_no": 86,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.transport.stone_road_bridge_set"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Stone Road and Bridge Set - Forest Neutral",
+      "fallback": "bp.catalogue.086",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "bridge",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.transport.stone_road_bridge_set_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.089"
+      ],
+      "catalogue_no": 89,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.utility.cistern_aqueduct_pump"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Cistern, Aqueduct or Pump System - Forest Neutral",
+      "fallback": "bp.catalogue.089",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.utility.cistern_aqueduct_pump_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.090"
+      ],
+      "catalogue_no": 90,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.utility.sanitation_waste_system"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Sanitation and Waste Utility - Forest Neutral",
+      "fallback": "bp.catalogue.090",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.utility.sanitation_waste_system_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.088"
+      ],
+      "catalogue_no": 88,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.utility.village_well"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Village Well or Water Point - Forest Neutral",
+      "fallback": "bp.catalogue.088",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.utility.village_well_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.024"
+      ],
+      "catalogue_no": 24,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "building.welfare.quarantine_emergency_shelter"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Quarantine or Emergency Shelter - Forest Neutral",
+      "fallback": "bp.catalogue.024",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.welfare.quarantine_emergency_shelter_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [
+        "bp.catalogue.120"
+      ],
+      "catalogue_no": 120,
+      "classification": "legacy_fallback_inventory",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [
+          "project.wonder.culture_wonder_leyline_crown"
+        ],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Culture Wonder or Leyline Crown - Forest Neutral",
+      "fallback": "bp.catalogue.120",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "active_fallback",
+      "priority": "deferred",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "replace_only_after_approved_equivalence",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "legacy_fallback_retained"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "",
+      "shippable": false,
+      "status": "inventoried",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.wonder.culture_wonder_leyline_crown_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "catalogue_no": 0,
+      "classification": "new_work",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": [
+          "res://scripts/world/voxel_world.gd"
+        ]
+      },
+      "display_name": "Goblin Camp",
+      "fallback": "legacy.runtime.world_stamp.goblin_camp",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "new_work",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "author_new_source_keep_fallback",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "new_work"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "goblin_camp",
+      "shippable": false,
+      "status": "not_started",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.worldgen.goblin_camp_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "catalogue_no": 0,
+      "classification": "new_work",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": [
+          "res://scripts/world/voxel_world.gd"
+        ]
+      },
+      "display_name": "Rune Ruin",
+      "fallback": "legacy.runtime.world_stamp.rune_ruin",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "new_work",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "author_new_source_keep_fallback",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "new_work"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "rune_ruin",
+      "shippable": false,
+      "status": "not_started",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.leyforge.worldgen.rune_ruin_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "catalogue_no": 0,
+      "classification": "new_work",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Farm and Pen Module",
+      "fallback": "blueprint.leyforge.food.basic_farm_plot_a",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "new_work",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "author_new_source_keep_fallback",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "new_work"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "farm_pen_module",
+      "shippable": false,
+      "status": "not_started",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.module.farm.pen_basic_a",
+      "visually_complete": false
+    },
+    {
+      "aliases": [],
+      "catalogue_no": 0,
+      "classification": "new_work",
+      "contract_version": "22-foundation-v1",
+      "dependency_information": {
+        "related_ids": [],
+        "source_paths": [
+          "res://data/settlement/settlement_blueprints.json"
+        ]
+      },
+      "display_name": "Forest Road Module",
+      "fallback": "blueprint.leyforge.transport.dirt_path_junction_set_a",
+      "fallback_active": true,
+      "forge_baked": false,
+      "lifecycle": "new_work",
+      "priority": "p1",
+      "removal_gate": "approved_replacement_contract_tests_visual_review_and_save_compatibility",
+      "replacement_strategy": "author_new_source_keep_fallback",
+      "review_history": [
+        {
+          "event": "stage0_inventory",
+          "evidence": "Set 22L Stage 0 current-state audit",
+          "result": "new_work"
+        }
+      ],
+      "schema_version": 2,
+      "set22_target": "road_module",
+      "shippable": false,
+      "status": "not_started",
+      "subject_type": "blueprint",
+      "target_id": "blueprint.module.road.forest_path_a",
+      "visually_complete": false
+    }
+  ],
+  "schema": "leyforge.forge.migration-inventory",
+  "schema_version": 2,
+  "subject_type": "blueprint"
+}

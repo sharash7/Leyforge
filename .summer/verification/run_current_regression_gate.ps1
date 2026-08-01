@@ -89,9 +89,11 @@ $sceneExpectations = [ordered]@{
     'res://.summer/verification/world_lifecycle_probe.tscn' = 41
     'res://.summer/verification/legacy_import_probe.tscn' = 14
     'res://.summer/verification/main_menu_probe.tscn' = 23
-    'res://.summer/verification/forge_mvp_probe.tscn' = 912
+    'res://.summer/verification/forge_mvp_probe.tscn' = 934
     'res://.summer/verification/village_progression_lab_probe.tscn' = 63
     'res://.summer/verification/stageb_living_settlement_probe.tscn' = 534
+    'res://.summer/verification/set20_v02_set22_foundation_probe.tscn' = 1168
+    'res://.summer/verification/set22_stage1_golden_templates_probe.tscn' = 481
 }
 
 if ($ExtendedWorldgenSeeds -gt 0) {

@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="ForgePaintPatternDefinition" format=3 uid="uid://d2jvm1662u7yo"]
+
+[ext_resource type="Script" uid="uid://c53vu73yohllf" path="res://scripts/forge/domain/forge_paint_pattern_definition.gd" id="1_ax4kt"]
+
+[resource]
+script = ExtResource("1_ax4kt")
+pattern_id = "pattern.stone_01"
+display_name = "Stone_01"
+width = 32
+height = 32
+role_keys = PackedStringArray("role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_4", "role_5", "role_6", "role_6", "role_7", "base", "shadow", "shadow", "role_2", "role_3", "role_2", "role_3", "role_4", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "base", "base", "shadow", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_5", "role_6", "role_7", "role_7", "base", "shadow", "role_2", "role_2", "role_3", "role_4", "role_3", "role_4", "role_5", "role_5", "role_6", "role_6", "role_7", "base", "shadow", "shadow", "shadow", "role_2", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_6", "role_6", "role_7", "base", "base", "shadow", "role_2", "role_3", "role_3", "role_4", "role_5", "role_4", "role_5", "role_6", "role_6", "role_7", "role_7", "base", "shadow", "role_2", "role_2", "role_2", "role_3", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "role_7", "role_7", "base", "shadow", "shadow", "role_2", "role_3", "role_4", "role_4", "role_5", "role_6", "role_5", "role_6", "role_7", "role_7", "base", "base", "shadow", "role_2", "role_3", "role_3", "role_3", "role_4", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "base", "base", "shadow", "role_2", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "role_7", "role_6", "role_7", "base", "base", "shadow", "shadow", "role_2", "role_3", "role_4", "role_4", "role_4", "role_5", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "shadow", "shadow", "role_2", "role_3", "role_3", "role_4", "role_5", "role_6", "role_6", "role_7", "base", "role_7", "base", "shadow", "shadow", "role_2", "role_2", "role_3", "role_4", "role_5", "role_5", "role_5", "role_6", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_2", "role_2", "role_3", "role_4", "role_4", "role_5", "role_6", "role_7", "role_7", "base", "shadow", "base", "shadow", "role_2", "role_2", "role_3", "role_3", "role_4", "role_5", "role_6", "role_6", "role_6", "role_7", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_3", "role_3", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "base", "shadow", "role_2", "shadow", "role_2", "role_3", "role_3", "role_4", "role_4", "role_5", "role_6", "role_7", "role_7", "role_7", "base", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_4", "role_5", "role_6", "role_6", "role_7", "base", "shadow", "shadow", "role_2", "role_3", "role_2", "role_3", "role_4", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "base", "base", "shadow", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_5", "role_6", "role_7", "role_7", "base", "shadow", "role_2", "role_2", "role_3", "role_4", "role_3", "role_4", "role_5", "role_5", "role_6", "role_6", "role_7", "base", "shadow", "shadow", "shadow", "role_2", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_5", "role_6", "role_7", "role_7", "base", "shadow", "role_2", "role_2", "role_3", "role_4", "role_3", "role_4", "role_5", "role_5", "role_6", "role_6", "role_7", "base", "shadow", "shadow", "shadow", "role_2", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_6", "role_6", "role_7", "base", "base", "shadow", "role_2", "role_3", "role_3", "role_4", "role_5", "role_4", "role_5", "role_6", "role_6", "role_7", "role_7", "base", "shadow", "role_2", "role_2", "role_2", "role_3", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "role_7", "role_7", "base", "shadow", "shadow", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_5", "role_6", "role_7", "base", "base", "shadow", "role_2", "role_3", "role_3", "role_3", "role_4", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "base", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_4", "role_5", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "base", "base", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_5", "role_6", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_5", "role_4", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_6", "role_7", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "role_7", "base", "role_5", "role_6", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "role_7", "base", "shadow", "role_2", "role_3", "role_6", "role_7", "base", "shadow", "role_2", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_3", "role_4", "role_6", "role_7", "shadow", "role_2", "role_3", "role_4", "role_5", "role_7", "base", "shadow", "shadow", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_5", "role_7", "base", "role_2", "role_3", "role_4", "role_5", "role_6", "base", "shadow", "role_2", "role_2", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "role_2", "role_3", "role_4", "role_5", "role_6", "base", "shadow", "role_2", "role_2", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "base", "shadow", "role_3", "role_4", "role_5", "role_6", "role_7", "shadow", "role_2", "role_3", "role_3", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_6", "role_7", "shadow", "role_2", "role_4", "role_5", "role_6", "role_7", "base", "role_2", "role_3", "role_4", "role_4", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "role_7", "base", "role_2", "role_3", "role_5", "role_6", "role_7", "base", "shadow", "role_3", "role_4", "role_5", "role_5", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "base", "shadow", "role_3", "role_4", "role_6", "role_7", "base", "shadow", "role_2", "role_4", "role_5", "role_6", "role_6", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "shadow", "role_2", "role_4", "role_5", "role_7", "base", "shadow", "role_2", "role_3", "role_5", "role_6", "role_7", "role_7", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_2", "role_3", "role_5", "role_6", "base", "shadow", "role_2", "role_3", "role_4", "role_6", "role_7", "base", "base", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_3", "role_4", "role_6", "role_7", "shadow", "role_2", "role_3", "role_4", "role_5", "role_7", "base", "shadow", "shadow", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_3", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_5", "role_7", "base", "role_2", "role_3", "role_4", "role_5", "role_6", "base", "shadow", "role_2", "role_2", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_4", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "base", "shadow", "role_3", "role_4", "role_5", "role_6", "role_7", "shadow", "role_2", "role_3", "role_3", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_6", "role_7", "base", "shadow", "role_3", "role_4", "role_5", "role_6", "role_7", "shadow", "role_2", "role_3", "role_3", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_5", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_6", "role_7", "shadow", "role_2", "role_4", "role_5", "role_6", "role_7", "base", "role_2", "role_3", "role_4", "role_4", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_6", "role_7", "base", "shadow", "role_2", "role_3", "role_4", "role_5", "role_6", "role_7", "role_7", "base")
+palette_entries = Array[Dictionary]([{
+"albedo": Color(0.546875, 0.52337646, 0.52337646, 1),
+"emission": Color(0, 0, 0, 1),
+"entry_key": "role_4",
+"material_dna_id": "material.mvp.fire",
+"metallic": 0.0,
+"opacity": 1.0,
+"roughness": 0.8
+}, {
+"albedo": Color(0.58984375, 0.57141113, 0.57141113, 1),
+"emission": Color(0, 0, 0, 1),
+"entry_key": "role_5",
+"material_dna_id": "material.mvp.fire",
+"metallic": 0.0,
+"opacity": 1.0,
+"roughness": 0.8
+}, {
+"albedo": Color(0.515625, 0.50756836, 0.50756836, 1),
+"emission": Color(0, 0, 0, 1),
+"entry_key": "role_6",
+"material_dna_id": "material.mvp.fire",
+"metallic": 0.0,
+"opacity": 1.0,
+"roughness": 0.8
+}, {
+"albedo": Color(0.515625, 0.5055542, 0.5055542, 1),
+"emission": Color(0, 0, 0, 1),
+"entry_key": "role_7",
+"material_dna_id": "material.mvp.fire",
+"metallic": 0.0,
+"opacity": 1.0,
+"roughness": 0.8
+}, {
+"albedo": Color(0.5411765, 0.5411765, 0.5411765, 1),
+"emission": Color(0, 0, 0, 1),
+"entry_key": "base",
+"material_dna_id": "material.mvp.stone",
+"metallic": 0.0,
+"opacity": 1.0,
+"roughness": 0.8
+}, {
+"albedo": Color(0.4296875, 0.4296875, 0.4296875, 1),
+"emission": Color(0, 0, 0, 1),
+"entry_key": "shadow",
+"material_dna_id": "material.mvp.stone",
+"metallic": 0.0,
+"opacity": 1.0,
+"roughness": 0.9
+}, {
+"albedo": Color(0.58984375, 0.58984375, 0.58984375, 1),
+"emission": Color(0, 0, 0, 1),
+"entry_key": "role_2",
+"material_dna_id": "material.mvp.fire",
+"metallic": 0.0,
+"opacity": 1.0,
+"roughness": 0.8
+}, {
+"albedo": Color(0.40234375, 0.40234375, 0.40234375, 1),
+"emission": Color(0, 0, 0, 1),
+"entry_key": "role_3",
+"material_dna_id": "material.mvp.fire",
+"metallic": 0.0,
+"opacity": 1.0,
+"roughness": 0.8
+}])

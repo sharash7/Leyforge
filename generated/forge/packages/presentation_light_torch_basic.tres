@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3 uid="uid://ch765v0lcgcpx"]
+
+[ext_resource type="Script" uid="uid://c7yeo1mi5snq6" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_xfgq3"]
+
+[resource]
+script = ExtResource("1_xfgq3")
+presentation_id = "presentation.light.torch.basic"
+root_scene_path = "res://generated/forge/products/presentation_light_torch_basic/6a91c483c99d47c4/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_light_torch_basic/6a91c483c99d47c4/presentation_mesh.res"
+material_paths = PackedStringArray()
+collision_path = "res://generated/forge/products/presentation_light_torch_basic/6a91c483c99d47c4/collision.tres"
+state_binding_path = "res://generated/forge/products/presentation_light_torch_basic/6a91c483c99d47c4/state_binding.tres"
+icon_path = "res://generated/forge/products/presentation_light_torch_basic/6a91c483c99d47c4/icon.png"
+bounds = AABB(0.4375, 0.46875, 0.4375, 0.125, 0.53125, 0.125)
+socket_map = {
+"light": {
+"contract_required": false,
+"direction": [0.0, 0.0, -1.0],
+"local_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+"parent_part_key": "",
+"schema_version": 1,
+"socket_key": "light",
+"socket_type": "effect",
+"tags": []
+},
+"smoke": {
+"contract_required": false,
+"direction": [0.0, 0.0, -1.0],
+"local_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+"parent_part_key": "",
+"schema_version": 1,
+"socket_key": "smoke",
+"socket_type": "effect",
+"tags": []
+}
+}
+lod_profile = {
+"far": "iconic",
+"mid": "static",
+"near": "full"
+}
+variant_compatibility = PackedStringArray()
+runtime_metadata = {
+"asset_kind": "unique_voxel_block",
+"authoring_profile": "voxel.standard.block",
+"connection_rules": {},
+"face_colors": {},
+"footprint": {
+"allowed_placement_faces": ["floor"],
+"allowed_rotations": [0, 1, 2, 3],
+"anchor_cell": [0, 0, 0],
+"clearance_cells": [],
+"footprint_profile_id": "footprint.presentation.light.torch.basic",
+"occupied_cells": [[0, 0, 0]],
+"schema_version": 1,
+"support_required": true
+},
+"gameplay_links": ["light.torch.basic"],
+"metrics": {
+"baker_version": "forge-mesh-v2",
+"exposed_faces": 304,
+"hidden_face_removal": true,
+"occupied_cells": 268,
+"triangles": 608,
+"vertices": 1216
+},
+"representation_profiles": {},
+"runtime_remeshing": false,
+"source_revision": 1,
+"voxel_frame_clips": {}
+}
+product_hash = "9656d4f33da050bea6c3ead912b0ad11ddd5094267542a27eece91b873d90a0d"

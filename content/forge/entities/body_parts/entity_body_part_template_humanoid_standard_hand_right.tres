@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ForgeBodyPartDefinition" format=4]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_p7rvc"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_t44k4"]
+
+[sub_resource type="Resource" id="Resource_ly0fh"]
+script = ExtResource("2_t44k4")
+dimensions = Vector3i(5, 5, 5)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AAAAAAAAAQEBAAABAQEAAAEBAQAAAAAAAAABAQEAAQEBAQEBAQEBAQEBAQEBAAEBAQAAAQEBAAEBAQEBAQEBAQEBAQEBAQABAQEAAAEBAQABAQEBAQEBAQEBAQEBAQEAAQEBAAAAAAAAAAEBAQAAAQEBAAABAQEAAAAAAAA=")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=")
+
+[resource]
+script = ExtResource("1_p7rvc")
+body_part_id = "entity.body_part.template.humanoid_standard.hand_right"
+display_name = "Right Hand"
+parent_part_id = "entity.body_part.template.humanoid_standard.arm_right"
+anatomy_role_id = "anatomy.role.humanoid.hand.right"
+voxel_source = SubResource("Resource_ly0fh")
+material_dna_id = "material.dna.entity.skin_tones"
+local_position_meters = Vector3(0, -0.125, 0)
+side_token = "right"
+region_ids = PackedStringArray("region.hand")
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray()
+visibility_rules = PackedStringArray()
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")

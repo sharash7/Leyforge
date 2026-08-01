@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3 uid="uid://btlo1oh3l66a1"]
+
+[ext_resource type="Script" uid="uid://c7yeo1mi5snq6" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_bwnow"]
+
+[resource]
+script = ExtResource("1_bwnow")
+presentation_id = "presentation.terrain.dirt.basic"
+root_scene_path = "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/presentation_mesh.res"
+material_paths = PackedStringArray("res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/top.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/bottom.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/north.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/south.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/east.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/west.png")
+collision_path = "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/collision.tres"
+icon_path = "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/icon.png"
+bounds = AABB(0, 0, 0, 1, 1, 1)
+lod_profile = {
+"far": "iconic",
+"mid": "static",
+"near": "full"
+}
+variant_compatibility = PackedStringArray()
+runtime_metadata = {
+"asset_kind": "standard_block_surface",
+"authoring_profile": "surface.block.standard",
+"connection_rules": {},
+"face_colors": {
+"bottom": [0.3440857, 0.16686799, 0.0054608136, 1.0],
+"east": [0.3440857, 0.16686799, 0.0054608136, 1.0],
+"north": [0.3440857, 0.16686799, 0.0054608136, 1.0],
+"south": [0.3440857, 0.16686799, 0.0054608136, 1.0],
+"top": [0.3440857, 0.16686799, 0.0054608136, 1.0],
+"west": [0.3440857, 0.16686799, 0.0054608136, 1.0]
+},
+"footprint": {
+"allowed_placement_faces": ["floor"],
+"allowed_rotations": [0, 1, 2, 3],
+"anchor_cell": [0, 0, 0],
+"clearance_cells": [],
+"footprint_profile_id": "footprint.presentation.terrain.dirt.basic",
+"occupied_cells": [[0, 0, 0]],
+"schema_version": 1,
+"support_required": true
+},
+"gameplay_links": ["terrain.dirt.basic"],
+"metrics": {
+"baker_version": "forge-mesh-v2",
+"exposed_faces": 6,
+"hidden_face_removal": true,
+"occupied_cells": 1,
+"surface_source": true,
+"triangles": 12,
+"vertices": 24
+},
+"representation_profiles": {},
+"runtime_remeshing": false,
+"source_revision": 1,
+"voxel_frame_clips": {}
+}
+product_hash = "fd9a4640e6c8b8e77a3f9e864f6680ffa42d3f30fe2380b07c406922724367c1"

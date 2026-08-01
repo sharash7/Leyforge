@@ -3,6 +3,7 @@ extends Control
 
 signal voxel_edit_requested(position: Vector3i, value: int)
 signal voxel_batch_edit_requested(positions: Array, value: int)
+signal voxel_values_edit_requested(values: Dictionary)
 
 const TOOL_PENCIL := "pencil"
 const TOOL_SQUARE := "square"
@@ -18,9 +19,12 @@ var active_palette_index := 0
 var mirror_x := false
 var tool_mode := TOOL_PENCIL
 var brush_size := 1
+var randomizer_enabled := false
+var random_palette_indices := PackedInt32Array()
 
 var _stroke_button := 0
 var _last_stroke_cell := Vector2i(-1, -1)
+var _stroke_sequence := 0
 
 
 func _ready() -> void:
@@ -147,6 +151,21 @@ func _apply_tool_between(from_cell: Vector2i, to_cell: Vector2i) -> void:
 	for position in unique_positions:
 		positions.append(position)
 	if positions.is_empty():
+		return
+	if _stroke_button == MOUSE_BUTTON_LEFT \
+			and randomizer_enabled and not random_palette_indices.is_empty():
+		_stroke_sequence += 1
+		var values := {}
+		for position in positions:
+			var key := "%d|%d|%d|%d" % [
+				position.x, position.y, position.z, _stroke_sequence]
+			var random_index := posmod(
+				hash(key), random_palette_indices.size())
+			var random_value := int(random_palette_indices[random_index])
+			values[position] = random_value
+			voxel_edit_requested.emit(position, random_value)
+		voxel_values_edit_requested.emit(values)
+		accept_event()
 		return
 	var value := active_palette_index \
 		if _stroke_button == MOUSE_BUTTON_LEFT else -1

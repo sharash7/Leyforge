@@ -89,7 +89,7 @@ func _run() -> void:
 	_check(HamletState.PROJECT_STAGES.size() == 5,
 		"cottage did not load its five data-defined stages")
 	_check(str(HamletState.project.get("blueprint_id", ""))
-			== "bp.building.cottage_forest_small",
+			== "blueprint.leyforge.residential.small_cottage_a",
 		"cottage runtime did not retain its blueprint identity")
 
 	var anchor := Vector3i(site.x, world.surface_height_at(site.x, site.y), site.y)

@@ -67,7 +67,7 @@ func bake(
 	products.append(_product_record(mesh_path, "mesh"))
 
 	var material_paths := PackedStringArray()
-	if asset.surface_set is ForgeSurfaceSet:
+	if asset.uses_surface_authoring():
 		var surface_result := ForgeSurfaceBaker.bake_images(
 			asset.surface_set, palette)
 		if not bool(surface_result.get("ok", false)):
@@ -206,9 +206,9 @@ func bake(
 func _bake_geometry(
 		asset: ForgeAssetDefinition,
 		palette: ForgePaletteDefinition) -> Dictionary:
-	if asset.surface_set is ForgeSurfaceSet:
+	if asset.uses_surface_authoring():
 		return ForgeMeshBaker.bake_surface_cube(asset.surface_set, palette)
-	if asset.voxel_volume is ForgeVoxelVolume:
+	if asset.uses_voxel_authoring():
 		return ForgeMeshBaker.bake(asset.voxel_volume, palette)
 	var baked_parts: Array[Dictionary] = []
 	var combined_bounds := AABB()
@@ -282,10 +282,10 @@ func _build_package(
 		"face_colors": (
 			ForgeSurfaceBaker.runtime_face_colors(
 				asset.surface_set, palette)
-			if asset.surface_set is ForgeSurfaceSet else {}),
+			if asset.uses_surface_authoring() else {}),
 		"connection_rules": (
 			asset.surface_set.connected_texture_rules.duplicate(true)
-			if asset.surface_set is ForgeSurfaceSet else {}),
+			if asset.uses_surface_authoring() else {}),
 		"representation_profiles":
 			asset.representation_profiles.duplicate(true),
 		"footprint": (

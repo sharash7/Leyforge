@@ -26,8 +26,9 @@ func _run() -> void:
 	var scopes: Dictionary = summary.get("scopes", {})
 	_check(int(summary.get("definitions", 0)) == 120,
 		"catalogue did not contain exactly 120 definitions")
-	_check(int(scopes.get("poc_required", 0)) == 30,
-		"POC scope did not contain exactly 30 definitions")
+	_check(int(scopes.get("technical_poc", 0)) == 16
+			and int(scopes.get("extended_slice", 0)) == 14,
+		"v0.2 protected scopes did not split into exactly 16 and 14 definitions")
 	_check(int(scopes.get("alpha", 0)) == 35,
 		"Alpha scope did not contain exactly 35 definitions")
 	_check(int(scopes.get("beta", 0)) == 49,
@@ -37,8 +38,8 @@ func _run() -> void:
 
 	_check(
 		SettlementContentRegistry.canonical_id(
-			"building.construction.builder_supply_yard")
-			== "building.infrastructure.builder_supply_yard",
+			"building.infrastructure.builder_supply_yard")
+			== "building.construction.builder_supply_yard",
 		"builder supply yard migration alias did not resolve")
 	_check(
 		SettlementContentRegistry.has_definition(
@@ -55,10 +56,10 @@ func _run() -> void:
 		"legacy watchtower project did not resolve to the generic building")
 
 	_verify_blueprint(
-		"bp.building.watchtower_wood",
+		"blueprint.leyforge.safety.wooden_watchtower_a",
 		{"foundation": 25, "frame": 28, "platform": 25, "finishing": 4})
 	_verify_blueprint(
-		"bp.building.cottage_forest_small",
+		"blueprint.leyforge.residential.small_cottage_a",
 		{"foundation": 25, "frame": 12, "shell": 31, "roof": 28,
 			"furnishing": 1})
 	_verify_project_costs()

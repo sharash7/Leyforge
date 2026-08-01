@@ -8,6 +8,9 @@ signal asset_baked(presentation_id: String)
 
 @export_enum("runtime", "editor") var host_mode := "runtime"
 
+const MATERIAL_ROOT := "res://content/forge/materials"
+const PATTERN_ROOT := "res://content/forge/patterns"
+
 var asset_index := ForgeAssetIndex.new()
 var document_service := ForgeDocumentService.new()
 var command_service := ForgeCommandService.new()
@@ -42,6 +45,9 @@ var _selected_palette_index := 0
 var _surface_face_clipboard := PackedByteArray()
 var _surface_face_clipboard_size := Vector2i.ZERO
 var _surface_face_clipboard_source := ""
+var _voxel_layer_clipboard := PackedByteArray()
+var _voxel_layer_clipboard_size := Vector2i.ZERO
+var _voxel_layer_clipboard_source := ""
 var _pending_autosave := false
 
 
@@ -332,8 +338,33 @@ func _add_inline_guide(page_title: String) -> void:
 func _show_guide() -> void:
 	_clear_page("Forge Guide")
 	_add_body(
-		"This guide is the single maintained workflow reference used by every "
-		+ "Forge page. Each page also exposes its own collapsible steps.")
+		"Start here if you have never used the Forge. This guide explains what "
+		+ "each page is for, exactly what to click, and when to save, validate or "
+		+ "bake. Every page repeats its own section in a collapsible help panel.")
+	_add_section("Five terms to learn first")
+	_add_body(
+		"Gameplay ID — the permanent block or item identity used by recipes and "
+		+ "saved worlds. Forge never creates a duplicate when you select an "
+		+ "existing ID.")
+	_add_body(
+		"Presentation — the model, textures, materials, effects and animations "
+		+ "shown for that gameplay ID.")
+	_add_body(
+		"Block Surface — six painted square faces wrapped around a full cube. "
+		+ "Voxel Model — a sculpted 3D grid used for non-cube shapes.")
+	_add_body(
+		"Palette role — a named paint colour. Material DNA — the reusable "
+		+ "rendering behaviour assigned to that colour, such as wood or metal.")
+	_add_body(
+		"Save Draft stores editable work. Bake Preview builds a temporary runtime "
+		+ "result. Approve & Bake promotes a validated result for game use.")
+	_add_section("Common controls")
+	_add_body(
+		"Left-drag paints, right-drag removes or restores, Ctrl+Z/Ctrl+Y undo and "
+		+ "redo, Ctrl+S saves, and Ctrl+Enter validates. In Live Preview, drag to "
+		+ "orbit, Shift/right/middle-drag to pan, scroll to zoom and Reset to frame "
+		+ "the model again.")
+	_add_section("Page-by-page lessons")
 	for title in ForgeSectionGuides.page_titles():
 		_add_section(str(title))
 		var steps := ForgeSectionGuides.steps_for_page(str(title))
@@ -427,7 +458,9 @@ func _show_new_asset() -> void:
 	_clear_page("New Asset Wizard")
 	_add_body(
 		"Select a canonical registry presentation. The wizard creates one "
-		+ "editable project source linked to that stable ID.")
+		+ "editable project source linked to that stable ID. You can accept the "
+		+ "recommended editor or explicitly start with a blank Block Surface or "
+		+ "Voxel Model source.")
 	var option := OptionButton.new()
 	option.name = "RegistryPresentation"
 	var records := asset_index.all_records()
@@ -438,6 +471,18 @@ func _show_new_asset() -> void:
 		])
 		option.set_item_metadata(option.item_count - 1, record)
 	_page.add_child(_labeled("Canonical gameplay presentation", option))
+	var mode_option := OptionButton.new()
+	for entry in [
+		["Recommended from the registry", ""],
+		["Block Surface — six painted cube faces", "surface"],
+		["Voxel Model — blank 3D microvoxel volume", "voxel"],
+	]:
+		mode_option.add_item(str(entry[0]))
+		mode_option.set_item_metadata(mode_option.item_count - 1, entry[1])
+	_page.add_child(_labeled("Starting authoring mode", mode_option))
+	_add_body(
+		"This choice changes only the editable presentation. The gameplay ID, "
+		+ "recipes, placement identity and saved-world identity stay unchanged.")
 	var create := Button.new()
 	create.text = "Create or Open Project Source"
 	create.custom_minimum_size = Vector2(0, 48)
@@ -445,22 +490,33 @@ func _show_new_asset() -> void:
 		if option.item_count == 0:
 			return
 		var record: Dictionary = option.get_item_metadata(option.selected)
+		var requested_mode := str(mode_option.get_item_metadata(
+			mode_option.selected))
 		var path := asset_index.path_for_source_id(
 			str(record.get("forge_asset_id", "")))
 		if not path.is_empty():
 			current_asset = document_service.open_path(path)
 			current_record = record
 			_after_open_asset()
-			_show_relevant_editor()
+			if requested_mode.is_empty() \
+					or current_asset.active_authoring_mode() == requested_mode:
+				_show_relevant_editor()
+			else:
+				_switch_authoring_mode(requested_mode)
 		else:
-			_create_source_for_record(record))
+			_create_source_for_record(record, requested_mode))
 	_page.add_child(create)
 
 
-func _create_source_for_record(record: Dictionary) -> void:
+func _create_source_for_record(
+		record: Dictionary, authoring_mode_override := "") -> void:
 	current_record = record.duplicate(true)
-	current_asset = document_service.create_from_registry(record)
-	_seed_new_source(current_asset, record)
+	current_asset = document_service.create_from_registry(
+		record, authoring_mode_override)
+	# Recommended legacy replacements keep their useful starter geometry.
+	# Explicit modes are intentionally blank so creators can begin from scratch.
+	if authoring_mode_override.is_empty():
+		_seed_new_source(current_asset, record)
 	_after_open_asset()
 	_save_current()
 	asset_index.rebuild()
@@ -502,9 +558,11 @@ func _seed_new_source(
 func _show_relevant_editor() -> void:
 	if current_asset == null:
 		_show_asset_browser()
-	elif current_asset.surface_set is ForgeSurfaceSet:
+	elif current_asset.active_authoring_mode() == \
+			ForgeAssetDefinition.AUTHORING_SURFACE:
 		_show_surface_editor()
-	elif current_asset.asset_kind == "compound_machine":
+	elif current_asset.active_authoring_mode() == \
+			ForgeAssetDefinition.AUTHORING_COMPOUND:
 		_show_compound_editor()
 	else:
 		_show_voxel_editor()
@@ -514,8 +572,12 @@ func _show_surface_editor() -> void:
 	_clear_page("Block Surface Editor")
 	if not _require_asset():
 		return
-	if not current_asset.surface_set is ForgeSurfaceSet:
-		_add_body("This asset uses voxel or compound authoring, not six-face surfaces.")
+	_add_authoring_mode_switcher()
+	if not current_asset.uses_surface_authoring():
+		_add_body(
+			"This asset is currently using Voxel Model or Compound authoring. "
+			+ "Choose Block Surface above and press Switch authoring mode to "
+			+ "create or reopen its six-face source.")
 		return
 	var surface: ForgeSurfaceSet = current_asset.surface_set
 	var palette := _primary_palette()
@@ -568,6 +630,9 @@ func _show_surface_editor() -> void:
 	brush_size.value_changed.connect(func(value: float) -> void:
 		_surface_canvas.brush_size = int(value))
 	_surface_canvas.pixel_batch_edit_requested.connect(_paint_surface_pixels)
+	_surface_canvas.pixel_values_edit_requested.connect(_paint_surface_values)
+	_page.add_child(_randomizer_controls(palette, false))
+	_add_surface_pattern_controls(surface, palette)
 	_add_section("Face clipboard and orientation")
 	_add_body(
 		"Copy one face, select any number of destination faces, then paste it "
@@ -653,6 +718,36 @@ func _paint_surface_pixels(face: String, cells: Array, value: int) -> void:
 		func() -> void:
 			for cell in changed:
 				surface.set_pixel(face, cell.x, cell.y, value)
+			_after_edit(),
+		func() -> void:
+			for cell in changed:
+				surface.set_pixel(
+					face, cell.x, cell.y, int(previous[cell]))
+			_after_edit())
+
+
+func _paint_surface_values(face: String, values: Dictionary) -> void:
+	if current_asset == null or not current_asset.surface_set is ForgeSurfaceSet:
+		return
+	var surface: ForgeSurfaceSet = current_asset.surface_set
+	var previous := {}
+	var changed: Array[Vector2i] = []
+	for cell_value in values:
+		var cell := Vector2i(cell_value)
+		var new_value := int(values[cell_value])
+		var old_value := surface.get_pixel(face, cell.x, cell.y)
+		if old_value == new_value:
+			continue
+		previous[cell] = old_value
+		changed.append(cell)
+	if changed.is_empty():
+		return
+	command_service.execute(
+		"Randomize %d surface pixel(s)" % changed.size(),
+		func() -> void:
+			for cell in changed:
+				surface.set_pixel(
+					face, cell.x, cell.y, int(values[cell]))
 			_after_edit(),
 		func() -> void:
 			for cell in changed:
@@ -767,6 +862,14 @@ func _show_voxel_editor() -> void:
 	_clear_page("Voxel Model Editor")
 	if not _require_asset():
 		return
+	_add_authoring_mode_switcher()
+	if current_asset.active_authoring_mode() == \
+			ForgeAssetDefinition.AUTHORING_SURFACE:
+		_add_body(
+			"This asset is currently using Block Surface authoring. Choose Voxel "
+			+ "Model above and press Switch authoring mode to create or reopen its "
+			+ "3D microvoxel source.")
+		return
 	var volume := _editable_volume()
 	if volume == null:
 		_add_body("This asset has no editable voxel volume.")
@@ -843,11 +946,326 @@ func _show_voxel_editor() -> void:
 	brush_size.value_changed.connect(func(value: float) -> void:
 		_voxel_canvas.brush_size = int(value))
 	_voxel_canvas.voxel_batch_edit_requested.connect(_paint_voxels)
+	_voxel_canvas.voxel_values_edit_requested.connect(_paint_voxel_values)
+	_page.add_child(_randomizer_controls(palette, true))
+	_add_section("Layer clipboard")
+	_add_body(
+		"Copy the complete visible layer, move to another layer or axis with the "
+		+ "same width and height, then paste. Empty cells and palette colours are "
+		+ "included, and the paste can be undone in one step.")
+	var layer_actions := HFlowContainer.new()
+	layer_actions.add_child(_toolbar_button(
+		"Copy current layer", func() -> void:
+			_copy_voxel_layer(axis.selected, int(slice.value))))
+	layer_actions.add_child(_toolbar_button(
+		"Paste onto current layer", func() -> void:
+			_paste_voxel_layer(axis.selected, int(slice.value))))
+	_page.add_child(layer_actions)
+	_add_voxel_pattern_controls(volume, palette, axis, slice)
 	_page.add_child(_voxel_canvas)
 	_add_body(
 		"Hold and drag left-click to add or paint microvoxels; right-drag "
 		+ "removes them. Shape size is a slice-cell radius. Mirror X applies "
 		+ "the same batched command across the live symmetry plane.")
+
+
+func _add_authoring_mode_switcher() -> void:
+	if current_asset == null or current_asset.active_authoring_mode() == \
+			ForgeAssetDefinition.AUTHORING_COMPOUND:
+		return
+	_add_section("Authoring mode")
+	var row := HFlowContainer.new()
+	var option := OptionButton.new()
+	for entry in [
+		["Block Surface", ForgeAssetDefinition.AUTHORING_SURFACE],
+		["Voxel Model", ForgeAssetDefinition.AUTHORING_VOXEL],
+	]:
+		option.add_item(str(entry[0]))
+		option.set_item_metadata(option.item_count - 1, entry[1])
+		if current_asset.active_authoring_mode() == str(entry[1]):
+			option.select(option.item_count - 1)
+	row.add_child(_labeled("Active presentation source", option))
+	var switch_button := _toolbar_button(
+		"Switch authoring mode", func() -> void:
+			_switch_authoring_mode(str(option.get_item_metadata(
+				option.selected))))
+	switch_button.custom_minimum_size = Vector2(190, 42)
+	row.add_child(switch_button)
+	_page.add_child(row)
+	_add_body(
+		"Switching preserves the inactive source, so you can return to it later. "
+		+ "The live preview, validation and bake use only the active mode.")
+
+
+func _switch_authoring_mode(mode: String) -> void:
+	if current_asset == null or mode not in [
+			ForgeAssetDefinition.AUTHORING_SURFACE,
+			ForgeAssetDefinition.AUTHORING_VOXEL,
+		]:
+		return
+	if current_asset.active_authoring_mode() == mode:
+		_set_status("That authoring mode is already active.", false)
+		_show_relevant_editor()
+		return
+	var previous_profile := current_asset.authoring_profile
+	var previous_kind := current_asset.asset_kind
+	var previous_surface := current_asset.surface_set
+	var previous_volume := current_asset.voxel_volume
+	command_service.execute(
+		"Switch to %s authoring" % mode,
+		func() -> void:
+			document_service.ensure_authoring_mode(
+				current_asset, mode, current_record)
+			_after_edit()
+			_show_relevant_editor(),
+		func() -> void:
+			current_asset.authoring_profile = previous_profile
+			current_asset.asset_kind = previous_kind
+			current_asset.surface_set = previous_surface
+			current_asset.voxel_volume = previous_volume
+			_after_edit()
+			_show_relevant_editor())
+
+
+func _copy_voxel_layer(axis: int, slice_index: int) -> void:
+	var volume := _editable_volume()
+	if volume == null:
+		_set_status("Open a voxel-authored asset first.", true)
+		return
+	_voxel_layer_clipboard = volume.slice_cells_copy(axis, slice_index)
+	_voxel_layer_clipboard_size = volume.slice_dimensions(axis)
+	_voxel_layer_clipboard_source = "%s %s layer %d" % [
+		current_asset.display_name, ["X", "Y", "Z"][axis], slice_index]
+	_set_status("Copied %s." % _voxel_layer_clipboard_source, false)
+
+
+func _paste_voxel_layer(axis: int, slice_index: int) -> void:
+	var volume := _editable_volume()
+	if volume == null:
+		_set_status("Open a voxel-authored asset first.", true)
+		return
+	if _voxel_layer_clipboard.is_empty():
+		_set_status("Copy a voxel layer before pasting.", true)
+		return
+	if volume.slice_dimensions(axis) != _voxel_layer_clipboard_size:
+		_set_status(
+			"The copied layer dimensions do not match this layer.", true)
+		return
+	var previous := volume.slice_cells_copy(axis, slice_index)
+	if previous == _voxel_layer_clipboard:
+		_set_status("The current layer already matches the clipboard.", false)
+		return
+	var pasted := _voxel_layer_clipboard.duplicate()
+	command_service.execute(
+		"Paste voxel layer",
+		func() -> void:
+			volume.set_slice_cells(axis, slice_index, pasted)
+			_after_edit(),
+		func() -> void:
+			volume.set_slice_cells(axis, slice_index, previous)
+			_after_edit())
+
+
+func _add_surface_pattern_controls(
+		surface: ForgeSurfaceSet, palette: ForgePaletteDefinition) -> void:
+	_add_section("Reusable colour patterns")
+	_add_body(
+		"Save the current face as a named colour-and-material pattern. Applying "
+		+ "it tiles the saved pattern across the current face and imports its "
+		+ "palette role colours and Material DNA bindings.")
+	var name_input := LineEdit.new()
+	name_input.placeholder_text = "Oak plank"
+	_page.add_child(_labeled("Pattern name", name_input))
+	var pattern_option := _pattern_selector()
+	_page.add_child(_labeled("Saved pattern", pattern_option))
+	var actions := HFlowContainer.new()
+	actions.add_child(_toolbar_button(
+		"Save current face pattern", func() -> void:
+			_save_surface_pattern(name_input.text, surface, palette)))
+	var apply_button := _toolbar_button(
+		"Apply pattern to current face", func() -> void:
+			var pattern := _selected_pattern(pattern_option)
+			if pattern != null:
+				_apply_pattern_to_surface(pattern, surface, palette))
+	apply_button.disabled = pattern_option.item_count == 0
+	actions.add_child(apply_button)
+	_page.add_child(actions)
+
+
+func _add_voxel_pattern_controls(
+		volume: ForgeVoxelVolume, palette: ForgePaletteDefinition,
+		axis_option: OptionButton, slice_slider: HSlider) -> void:
+	_add_section("Reusable colour patterns")
+	_add_body(
+		"Save the visible layer's colour layout as a reusable pattern. Applying "
+		+ "a pattern recolours only occupied voxels, so an oak fence, stair and "
+		+ "plank can share one material pattern without replacing their shapes.")
+	var name_input := LineEdit.new()
+	name_input.placeholder_text = "Oak plank"
+	_page.add_child(_labeled("Pattern name", name_input))
+	var pattern_option := _pattern_selector()
+	_page.add_child(_labeled("Saved pattern", pattern_option))
+	var actions := HFlowContainer.new()
+	actions.add_child(_toolbar_button(
+		"Save current layer pattern", func() -> void:
+			_save_voxel_pattern(
+				name_input.text, volume, palette,
+				axis_option.selected, int(slice_slider.value))))
+	var apply_button := _toolbar_button(
+		"Recolour occupied voxels", func() -> void:
+			var pattern := _selected_pattern(pattern_option)
+			if pattern != null:
+				_apply_pattern_to_voxel_layer(
+					pattern, volume, palette,
+					axis_option.selected, int(slice_slider.value)))
+	apply_button.disabled = pattern_option.item_count == 0
+	actions.add_child(apply_button)
+	_page.add_child(actions)
+
+
+func _pattern_selector() -> OptionButton:
+	var option := OptionButton.new()
+	for pattern in _pattern_library():
+		option.add_item("%s — %d × %d" % [
+			pattern.display_name, pattern.width, pattern.height])
+		option.set_item_metadata(
+			option.item_count - 1, pattern.resource_path)
+	return option
+
+
+func _selected_pattern(option: OptionButton) -> ForgePaintPatternDefinition:
+	if option.item_count == 0 or option.selected < 0:
+		_set_status("Save a colour pattern first.", true)
+		return null
+	var path := str(option.get_item_metadata(option.selected))
+	var resource := ResourceLoader.load(
+		path, "", ResourceLoader.CACHE_MODE_IGNORE)
+	if not resource is ForgePaintPatternDefinition:
+		_set_status("The selected colour pattern could not be loaded.", true)
+		return null
+	return resource
+
+
+func _save_surface_pattern(
+		display_name: String, surface: ForgeSurfaceSet,
+		palette: ForgePaletteDefinition) -> void:
+	var pattern := _new_pattern(display_name)
+	if pattern == null:
+		return
+	if not pattern.capture_surface(surface, palette, _selected_face):
+		_set_status("The current face could not be captured.", true)
+		return
+	_save_pattern(pattern, _show_surface_editor)
+
+
+func _save_voxel_pattern(
+		display_name: String, volume: ForgeVoxelVolume,
+		palette: ForgePaletteDefinition, axis: int, slice_index: int) -> void:
+	var pattern := _new_pattern(display_name)
+	if pattern == null:
+		return
+	if not pattern.capture_voxel_slice(
+			volume, palette, axis, slice_index):
+		_set_status("The current voxel layer could not be captured.", true)
+		return
+	_save_pattern(pattern, _show_voxel_editor)
+
+
+func _new_pattern(display_name_value: String) -> ForgePaintPatternDefinition:
+	var display_name := display_name_value.strip_edges()
+	var key := display_name.to_snake_case()
+	if key.is_empty():
+		_set_status("Enter a pattern name before saving.", true)
+		return null
+	var pattern := ForgePaintPatternDefinition.new()
+	pattern.pattern_id = "pattern.%s" % key
+	pattern.display_name = display_name
+	return pattern
+
+
+func _save_pattern(
+		pattern: ForgePaintPatternDefinition, refresh_action: Callable) -> void:
+	var make_error := DirAccess.make_dir_recursive_absolute(
+		ProjectSettings.globalize_path(PATTERN_ROOT))
+	if make_error not in [OK, ERR_ALREADY_EXISTS]:
+		_set_status("Could not create the pattern library folder.", true)
+		return
+	var path := PATTERN_ROOT.path_join(
+		"%s.tres" % ForgeId.safe_filename(pattern.pattern_id))
+	var save_error := ResourceSaver.save(pattern, path)
+	if save_error != OK:
+		_set_status(
+			"Pattern could not be saved: %s" % error_string(save_error), true)
+		return
+	_set_status("Saved %s." % pattern.display_name, false)
+	refresh_action.call()
+
+
+func _apply_pattern_to_surface(
+		pattern: ForgePaintPatternDefinition, surface: ForgeSurfaceSet,
+		palette: ForgePaletteDefinition) -> void:
+	if not pattern.is_valid_pattern():
+		_set_status("The selected pattern is invalid.", true)
+		return
+	var previous_pixels := surface.face_pixels_copy(_selected_face)
+	var previous_entries: Array[Dictionary] = []
+	for entry in palette.entries:
+		previous_entries.append(entry.duplicate(true))
+	var target_face := _selected_face
+	command_service.execute(
+		"Apply %s pattern" % pattern.display_name,
+		func() -> void:
+			var role_indices := palette.merge_entry_snapshots(
+				pattern.palette_entries, true)
+			var pixels := previous_pixels.duplicate()
+			for y in surface.height:
+				for x in surface.width:
+					var role_key := pattern.role_at(x, y)
+					if role_indices.has(role_key):
+						pixels[y * surface.width + x] = int(
+							role_indices[role_key])
+			surface.set_face_pixels(target_face, pixels)
+			_after_edit(),
+		func() -> void:
+			palette.entries = previous_entries
+			surface.set_face_pixels(target_face, previous_pixels)
+			_after_edit())
+
+
+func _apply_pattern_to_voxel_layer(
+		pattern: ForgePaintPatternDefinition, volume: ForgeVoxelVolume,
+		palette: ForgePaletteDefinition, axis: int, slice_index: int) -> void:
+	if not pattern.is_valid_pattern():
+		_set_status("The selected pattern is invalid.", true)
+		return
+	var previous_cells := volume.slice_cells_copy(axis, slice_index)
+	if previous_cells.is_empty():
+		_set_status("The current voxel layer could not be read.", true)
+		return
+	var previous_entries: Array[Dictionary] = []
+	for entry in palette.entries:
+		previous_entries.append(entry.duplicate(true))
+	var plane := volume.slice_dimensions(axis)
+	command_service.execute(
+		"Apply %s pattern to voxel layer" % pattern.display_name,
+		func() -> void:
+			var role_indices := palette.merge_entry_snapshots(
+				pattern.palette_entries, true)
+			var cells := previous_cells.duplicate()
+			for y in plane.y:
+				for x in plane.x:
+					var offset := y * plane.x + x
+					if cells[offset] == 0:
+						continue
+					var role_key := pattern.role_at(x, y)
+					if role_indices.has(role_key):
+						cells[offset] = int(role_indices[role_key]) + 1
+			volume.set_slice_cells(axis, slice_index, cells)
+			_after_edit(),
+		func() -> void:
+			palette.entries = previous_entries
+			volume.set_slice_cells(axis, slice_index, previous_cells)
+			_after_edit())
 
 
 func _paint_voxel(position: Vector3i, value: int) -> void:
@@ -888,6 +1306,38 @@ func _paint_voxels(positions: Array, value: int) -> void:
 			_after_edit())
 
 
+func _paint_voxel_values(values: Dictionary) -> void:
+	var volume := _editable_volume()
+	if volume == null:
+		return
+	var previous := {}
+	var changed: Array[Vector3i] = []
+	for position_value in values:
+		var position := Vector3i(position_value)
+		var new_value := int(values[position_value])
+		var old_value := volume.get_cell(position)
+		if old_value == new_value:
+			continue
+		previous[position] = old_value
+		changed.append(position)
+	if changed.is_empty():
+		return
+	command_service.execute(
+		"Randomize %d voxel(s)" % changed.size(),
+		func() -> void:
+			for position in changed:
+				volume.set_cell(position, int(values[position]))
+			_after_edit(),
+		func() -> void:
+			for position in changed:
+				var old_value := int(previous[position])
+				if old_value < 0:
+					volume.clear_cell(position)
+				else:
+					volume.set_cell(position, old_value)
+			_after_edit())
+
+
 func _show_palette_material_editor() -> void:
 	_clear_page("Palette Roles & Material DNA")
 	if not _require_asset():
@@ -898,30 +1348,60 @@ func _show_palette_material_editor() -> void:
 		"Palette roles keep colour and material intent reusable. Material DNA "
 		+ "bindings reference shared definitions instead of copying shader data "
 		+ "into every asset.")
+	var materials := _material_library()
 	for index in palette.entries.size():
 		var entry: Dictionary = palette.entries[index]
+		var entry_index := index
 		var row := HBoxContainer.new()
+		var swatch := TextureRect.new()
+		swatch.texture = _color_swatch(entry.get("albedo", Color.WHITE), 28)
+		swatch.custom_minimum_size = Vector2(30, 30)
+		swatch.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		row.add_child(swatch)
 		var name := LineEdit.new()
 		name.text = str(entry.get("entry_key", "role_%d" % index))
 		name.custom_minimum_size = Vector2(180, 0)
 		name.text_submitted.connect(func(value: String) -> void:
-			palette.entries[index]["entry_key"] = value.strip_edges().to_snake_case()
+			palette.entries[entry_index]["entry_key"] = (
+				value.strip_edges().to_snake_case())
 			_after_edit())
 		row.add_child(name)
 		var color := ColorPickerButton.new()
 		color.color = entry.get("albedo", Color.WHITE)
 		color.custom_minimum_size = Vector2(90, 36)
 		color.color_changed.connect(func(value: Color) -> void:
-			palette.entries[index]["albedo"] = value
+			palette.entries[entry_index]["albedo"] = value
+			swatch.texture = _color_swatch(value, 28)
 			_after_edit())
 		row.add_child(color)
-		var material_id := str(entry.get("material_dna_id", "unbound"))
-		var material_label := Label.new()
-		material_label.text = material_id
-		material_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		row.add_child(material_label)
+		var current_material_id := str(entry.get(
+			"material_dna_id", "unbound"))
+		var material_option := OptionButton.new()
+		material_option.custom_minimum_size = Vector2(230, 0)
+		var current_found := false
+		for material in materials:
+			material_option.add_item("%s — %s" % [
+				material.display_name, material.material_id])
+			material_option.set_item_metadata(
+				material_option.item_count - 1, material.material_id)
+			if material.material_id == current_material_id:
+				material_option.select(material_option.item_count - 1)
+				current_found = true
+		if not current_found:
+			material_option.add_item("Missing or custom — %s" % current_material_id)
+			material_option.set_item_metadata(
+				material_option.item_count - 1, current_material_id)
+			material_option.select(material_option.item_count - 1)
+		material_option.item_selected.connect(func(selected: int) -> void:
+			palette.entries[entry_index]["material_dna_id"] = str(
+				material_option.get_item_metadata(selected))
+			_after_edit())
+		row.add_child(material_option)
 		_page.add_child(row)
 	_add_action("Add palette role", func() -> void:
+		var default_material_id := "material.mvp.stone"
+		if not materials.is_empty():
+			default_material_id = materials[0].material_id
 		palette.entries.append({
 			"entry_key": "role_%d" % palette.entries.size(),
 			"albedo": Color("#8a8a8a"),
@@ -929,22 +1409,67 @@ func _show_palette_material_editor() -> void:
 			"metallic": 0.0,
 			"emission": Color.BLACK,
 			"opacity": 1.0,
-			"material_dna_id": "material.generic.stone",
+			"material_dna_id": default_material_id,
 		})
 		_after_edit()
 		_show_palette_material_editor())
 	_add_section("Shared Material DNA library")
-	var material_paths := _resource_paths_in("res://content/forge/materials")
-	for path in material_paths:
-		var material := ResourceLoader.load(path)
-		if material is ForgeMaterialDefinition:
-			_add_body("%s  | %s  | rough %.2f  | metal %.2f  | emission %.2f" % [
-				material.material_id,
-				material.rendering_class,
-				material.roughness_default,
-				material.metallic_default,
-				material.emission_default,
-			])
+	for material in materials:
+		_add_body("%s — %s  | %s  | rough %.2f  | metal %.2f  | emission %.2f" % [
+			material.display_name,
+			material.material_id,
+			material.rendering_class,
+			material.roughness_default,
+			material.metallic_default,
+			material.emission_default,
+		])
+	_add_section("Create Material DNA")
+	_add_body(
+		"Create a reusable material definition once, then assign it to any "
+		+ "palette role above. Use a stable lowercase ID such as "
+		+ "material.project.oak.")
+	var material_id_input := LineEdit.new()
+	material_id_input.placeholder_text = "material.project.oak"
+	var material_name_input := LineEdit.new()
+	material_name_input.placeholder_text = "Oak Wood"
+	var family_input := LineEdit.new()
+	family_input.placeholder_text = "wood"
+	var rendering_option := OptionButton.new()
+	for rendering_class in ["opaque", "cutout", "transparent", "emissive"]:
+		rendering_option.add_item(rendering_class.capitalize())
+		rendering_option.set_item_metadata(
+			rendering_option.item_count - 1, rendering_class)
+	var roughness := SpinBox.new()
+	roughness.min_value = 0.0
+	roughness.max_value = 1.0
+	roughness.step = 0.01
+	roughness.value = 0.8
+	var metallic := SpinBox.new()
+	metallic.min_value = 0.0
+	metallic.max_value = 1.0
+	metallic.step = 0.01
+	var emission := SpinBox.new()
+	emission.min_value = 0.0
+	emission.max_value = 8.0
+	emission.step = 0.05
+	_page.add_child(_labeled("Material ID", material_id_input))
+	_page.add_child(_labeled("Display name", material_name_input))
+	_page.add_child(_labeled("Family", family_input))
+	var material_settings := HFlowContainer.new()
+	material_settings.add_child(_labeled("Rendering class", rendering_option))
+	material_settings.add_child(_labeled("Roughness", roughness))
+	material_settings.add_child(_labeled("Metallic", metallic))
+	material_settings.add_child(_labeled("Emission strength", emission))
+	_page.add_child(material_settings)
+	_add_action("Create Material DNA", func() -> void:
+		_create_material_dna(
+			material_id_input.text,
+			material_name_input.text,
+			family_input.text,
+			str(rendering_option.get_item_metadata(
+				rendering_option.selected)),
+			float(roughness.value), float(metallic.value),
+			float(emission.value)))
 
 
 func _show_compound_editor() -> void:
@@ -1754,6 +2279,8 @@ func _after_open_asset() -> void:
 func _after_edit() -> void:
 	if current_asset == null:
 		return
+	if current_asset.source_status == "approved":
+		current_asset.source_status = "draft"
 	document_service.mark_dirty(current_asset.forge_asset_id)
 	_preview.show_asset(current_asset)
 	_set_status("Unsaved changes.", false)
@@ -1801,12 +2328,72 @@ func _palette_selector(
 	palette.ensure_default_entries()
 	for index in palette.entries.size():
 		var entry: Dictionary = palette.entries[index]
-		option.add_item(str(entry.get("entry_key", "role_%d" % index)))
+		option.add_icon_item(
+			_color_swatch(entry.get("albedo", Color.MAGENTA)),
+			str(entry.get("entry_key", "role_%d" % index)))
 		option.set_item_metadata(option.item_count - 1, index)
 	option.select(clampi(_selected_palette_index, 0, option.item_count - 1))
 	option.item_selected.connect(func(index: int) -> void:
 		action.call(int(option.get_item_metadata(index))))
 	return _labeled("Palette role", option)
+
+
+func _randomizer_controls(
+		palette: ForgePaletteDefinition, voxel_mode: bool) -> Control:
+	var panel := PanelContainer.new()
+	var stack := VBoxContainer.new()
+	stack.add_theme_constant_override("separation", 6)
+	panel.add_child(stack)
+	var title := Label.new()
+	title.text = "Colour randomizer"
+	title.add_theme_font_size_override("font_size", 18)
+	title.add_theme_color_override("font_color", Color("#e8d6a4"))
+	stack.add_child(title)
+	var enabled := CheckButton.new()
+	enabled.text = "Randomize left-click painting between selected roles"
+	stack.add_child(enabled)
+	var toggles: Array[CheckButton] = []
+	var roles := HFlowContainer.new()
+	palette.ensure_default_entries()
+	for index in palette.entries.size():
+		var entry: Dictionary = palette.entries[index]
+		var role := CheckButton.new()
+		role.text = str(entry.get("entry_key", "role_%d" % index))
+		role.icon = _color_swatch(entry.get("albedo", Color.MAGENTA))
+		role.set_meta("palette_index", index)
+		role.button_pressed = true
+		toggles.append(role)
+		roles.add_child(role)
+	stack.add_child(roles)
+	var update := func(_pressed: bool) -> void:
+		_configure_randomizer(enabled.button_pressed, toggles, voxel_mode)
+	enabled.toggled.connect(update)
+	for role in toggles:
+		role.toggled.connect(update)
+	var hint := Label.new()
+	hint.text = (
+		"Select two or more colours for natural grain, stone speckle, wear, "
+		+ "foliage or other detailed textures. Right-click still removes or "
+		+ "restores normally.")
+	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	hint.add_theme_color_override("font_color", Color("#94aab3"))
+	stack.add_child(hint)
+	_configure_randomizer(false, toggles, voxel_mode)
+	return panel
+
+
+func _configure_randomizer(
+		enabled: bool, toggles: Array[CheckButton], voxel_mode: bool) -> void:
+	var indices := PackedInt32Array()
+	for toggle in toggles:
+		if toggle.button_pressed:
+			indices.append(int(toggle.get_meta("palette_index", 0)))
+	if voxel_mode and is_instance_valid(_voxel_canvas):
+		_voxel_canvas.randomizer_enabled = enabled
+		_voxel_canvas.random_palette_indices = indices
+	elif not voxel_mode and is_instance_valid(_surface_canvas):
+		_surface_canvas.randomizer_enabled = enabled
+		_surface_canvas.random_palette_indices = indices
 
 
 func _require_asset() -> bool:
@@ -1921,6 +2508,83 @@ func _resource_paths_in(root_path: String) -> PackedStringArray:
 	directory.list_dir_end()
 	result.sort()
 	return result
+
+
+func _material_library() -> Array[ForgeMaterialDefinition]:
+	var materials: Array[ForgeMaterialDefinition] = []
+	for path in _resource_paths_in(MATERIAL_ROOT):
+		var resource := ResourceLoader.load(
+			path, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if resource is ForgeMaterialDefinition:
+			materials.append(resource)
+	materials.sort_custom(func(a: ForgeMaterialDefinition,
+			b: ForgeMaterialDefinition) -> bool:
+		return a.material_id < b.material_id)
+	return materials
+
+
+func _pattern_library() -> Array[ForgePaintPatternDefinition]:
+	var patterns: Array[ForgePaintPatternDefinition] = []
+	for path in _resource_paths_in(PATTERN_ROOT):
+		var resource := ResourceLoader.load(
+			path, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if resource is ForgePaintPatternDefinition \
+				and resource.is_valid_pattern():
+			patterns.append(resource)
+	patterns.sort_custom(func(a: ForgePaintPatternDefinition,
+			b: ForgePaintPatternDefinition) -> bool:
+		return a.display_name.naturalnocasecmp_to(b.display_name) < 0)
+	return patterns
+
+
+func _create_material_dna(
+		material_id_value: String, display_name_value: String,
+		family_value: String, rendering_class: String,
+		roughness: float, metallic: float, emission: float) -> void:
+	var material_id := material_id_value.strip_edges().to_lower()
+	if not ForgeId.is_valid(material_id, "material."):
+		_set_status(
+			"Material ID must be lowercase and begin with material.", true)
+		return
+	var path := MATERIAL_ROOT.path_join(
+		"%s.tres" % ForgeId.safe_filename(material_id))
+	if ResourceLoader.exists(path) or FileAccess.file_exists(path):
+		_set_status("That Material DNA ID already exists.", true)
+		return
+	var make_error := DirAccess.make_dir_recursive_absolute(
+		ProjectSettings.globalize_path(MATERIAL_ROOT))
+	if make_error not in [OK, ERR_ALREADY_EXISTS]:
+		_set_status("Could not create the material library folder.", true)
+		return
+	var material := ForgeMaterialDefinition.new()
+	material.material_id = material_id
+	material.display_name = display_name_value.strip_edges()
+	if material.display_name.is_empty():
+		material.display_name = material_id.trim_prefix(
+			"material.").replace(".", " ").capitalize()
+	material.family = family_value.strip_edges().to_snake_case()
+	material.rendering_class = rendering_class
+	material.roughness_default = clampf(roughness, 0.0, 1.0)
+	material.metallic_default = clampf(metallic, 0.0, 1.0)
+	material.emission_default = maxf(0.0, emission)
+	material.opacity_mode = (
+		"alpha" if rendering_class == "transparent" else "opaque")
+	var save_error := ResourceSaver.save(material, path)
+	if save_error != OK:
+		_set_status(
+			"Material DNA could not be saved: %s" % error_string(save_error),
+			true)
+		return
+	_set_status("Created %s." % material_id, false)
+	_show_palette_material_editor()
+
+
+func _color_swatch(color: Color, swatch_size := 18) -> Texture2D:
+	var image := Image.create(
+		maxi(2, swatch_size), maxi(2, swatch_size), false,
+		Image.FORMAT_RGBA8)
+	image.fill(color)
+	return ImageTexture.create_from_image(image)
 
 
 func _labeled(label_text: String, control: Control) -> Control:

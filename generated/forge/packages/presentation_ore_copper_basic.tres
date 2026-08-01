@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3 uid="uid://bah2l186arrmr"]
+
+[ext_resource type="Script" uid="uid://c7yeo1mi5snq6" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_ojmqm"]
+
+[resource]
+script = ExtResource("1_ojmqm")
+presentation_id = "presentation.ore.copper.basic"
+root_scene_path = "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/presentation_mesh.res"
+material_paths = PackedStringArray("res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/top.png", "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/bottom.png", "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/north.png", "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/south.png", "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/east.png", "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/west.png")
+collision_path = "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/collision.tres"
+icon_path = "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/icon.png"
+bounds = AABB(0, 0, 0, 1, 1, 1)
+lod_profile = {
+"far": "iconic",
+"mid": "static",
+"near": "full"
+}
+variant_compatibility = PackedStringArray()
+runtime_metadata = {
+"asset_kind": "standard_block_surface",
+"authoring_profile": "surface.block.standard",
+"connection_rules": {},
+"face_colors": {
+"bottom": [0.5567818, 0.49236166, 0.46094933, 1.0],
+"east": [0.5567818, 0.49236166, 0.46094933, 1.0],
+"north": [0.5567818, 0.49236166, 0.46094933, 1.0],
+"south": [0.5567818, 0.49236166, 0.46094933, 1.0],
+"top": [0.5567818, 0.49236166, 0.46094933, 1.0],
+"west": [0.5567818, 0.49236166, 0.46094933, 1.0]
+},
+"footprint": {
+"allowed_placement_faces": ["floor"],
+"allowed_rotations": [0, 1, 2, 3],
+"anchor_cell": [0, 0, 0],
+"clearance_cells": [],
+"footprint_profile_id": "footprint.presentation.ore.copper.basic",
+"occupied_cells": [[0, 0, 0]],
+"schema_version": 1,
+"support_required": true
+},
+"gameplay_links": ["ore.copper.basic"],
+"metrics": {
+"baker_version": "forge-mesh-v2",
+"exposed_faces": 6,
+"hidden_face_removal": true,
+"occupied_cells": 1,
+"surface_source": true,
+"triangles": 12,
+"vertices": 24
+},
+"representation_profiles": {},
+"runtime_remeshing": false,
+"source_revision": 1,
+"voxel_frame_clips": {}
+}
+product_hash = "f54032dadc13c89827792f0ccd83d0991845e981a3c404d5f5a3c1b524d144a7"

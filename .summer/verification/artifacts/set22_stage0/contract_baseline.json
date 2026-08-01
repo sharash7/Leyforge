@@ -1,0 +1,17 @@
+{
+  "blueprint_inventory_hash": "db38b8d0329e55e5070a798864f67d60b26322fa73fe54080cc0bcfb10043431",
+  "contract_version": "22-foundation-v1",
+  "entity_inventory_hash": "061af8d5a60298853db302067a2acb273060d659ba9391fbf9854f6bb7a8cae6",
+  "manual_visual_approval": "open",
+  "save_version": 17,
+  "schema": "leyforge.forge.contract-baseline",
+  "schema_version": 1,
+  "semantic_registry_hash": "5c68b049b963e09957fbce601ea7a4b24e23c0907b3532446cf4fdc8c5c683ec",
+  "settlement_catalogue_version": "20H-v0.2",
+  "settlement_schema_version": 2,
+  "supported_domains": [
+    "entity",
+    "blueprint",
+    "shared"
+  ]
+}

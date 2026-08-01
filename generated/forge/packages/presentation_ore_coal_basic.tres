@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3 uid="uid://ds6722wi4ig0c"]
+
+[ext_resource type="Script" uid="uid://c7yeo1mi5snq6" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_227nw"]
+
+[resource]
+script = ExtResource("1_227nw")
+presentation_id = "presentation.ore.coal.basic"
+root_scene_path = "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/presentation_mesh.res"
+material_paths = PackedStringArray("res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/top.png", "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/bottom.png", "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/north.png", "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/south.png", "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/east.png", "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/west.png")
+collision_path = "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/collision.tres"
+icon_path = "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/icon.png"
+bounds = AABB(0, 0, 0, 1, 1, 1)
+lod_profile = {
+"far": "iconic",
+"mid": "static",
+"near": "full"
+}
+variant_compatibility = PackedStringArray()
+runtime_metadata = {
+"asset_kind": "standard_block_surface",
+"authoring_profile": "surface.block.standard",
+"connection_rules": {},
+"face_colors": {
+"bottom": [0.4599456, 0.45139363, 0.45094317, 1.0],
+"east": [0.4599456, 0.45139363, 0.45094317, 1.0],
+"north": [0.4599456, 0.45139363, 0.45094317, 1.0],
+"south": [0.4599456, 0.45139363, 0.45094317, 1.0],
+"top": [0.4599456, 0.45139363, 0.45094317, 1.0],
+"west": [0.4599456, 0.45139363, 0.45094317, 1.0]
+},
+"footprint": {
+"allowed_placement_faces": ["floor"],
+"allowed_rotations": [0, 1, 2, 3],
+"anchor_cell": [0, 0, 0],
+"clearance_cells": [],
+"footprint_profile_id": "footprint.presentation.ore.coal.basic",
+"occupied_cells": [[0, 0, 0]],
+"schema_version": 1,
+"support_required": true
+},
+"gameplay_links": ["ore.coal.basic"],
+"metrics": {
+"baker_version": "forge-mesh-v2",
+"exposed_faces": 6,
+"hidden_face_removal": true,
+"occupied_cells": 1,
+"surface_source": true,
+"triangles": 12,
+"vertices": 24
+},
+"representation_profiles": {},
+"runtime_remeshing": false,
+"source_revision": 1,
+"voxel_frame_clips": {}
+}
+product_hash = "6ff6c9f9dbe0a8e93f9eda99c3e09b48a2d50f7d2e9ef608d66d8744190a992f"

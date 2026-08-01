@@ -2,6 +2,68 @@ class_name ForgeValidationService
 extends RefCounted
 
 
+func validate_entity_definition_source(
+		entity: ForgeEntityDefinition,
+		semantic_registry: ForgeSemanticRegistry = null,
+		density_registry: ForgeDensityProfileRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeFoundationValidationService.new().validate_entity_definition(
+		entity, semantic_registry, density_registry)
+
+
+func validate_entity_source(
+		entity: ForgeEntityPresentation,
+		semantic_registry: ForgeSemanticRegistry = null) -> Array[ForgeDiagnostic]:
+	return ForgeFoundationValidationService.new().validate_entity(
+		entity, semantic_registry)
+
+
+func validate_blueprint_source(
+		blueprint: ForgeBlueprintDefinition,
+		semantic_registry: ForgeSemanticRegistry = null) -> Array[ForgeDiagnostic]:
+	return ForgeFoundationValidationService.new().validate_blueprint(
+		blueprint, semantic_registry)
+
+
+func validate_body_plan_source(
+		body_plan: ForgeBodyPlanDefinition,
+		semantic_registry: ForgeSemanticRegistry = null,
+		density_registry: ForgeDensityProfileRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeFoundationValidationService.new().validate_body_plan(
+		body_plan, semantic_registry, density_registry)
+
+
+func validate_body_part_source(
+		part: ForgeBodyPartDefinition,
+		body_plan: ForgeBodyPlanDefinition = null,
+		semantic_registry: ForgeSemanticRegistry = null,
+		density_registry: ForgeDensityProfileRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeFoundationValidationService.new().validate_body_part(
+		part, body_plan, semantic_registry, density_registry)
+
+
+func validate_density_profile_source(
+		profile: ForgeDensityProfile) -> Array[ForgeDiagnostic]:
+	return ForgeFoundationValidationService.new().validate_density_profile(profile)
+
+
+func validate_blueprint_material_role_set_source(
+		role_set: ForgeBlueprintMaterialRoleSet,
+		semantic_registry: ForgeSemanticRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeFoundationValidationService.new().validate_material_role_set(
+		role_set, semantic_registry)
+
+
+func validate_placement_profile_source(
+		profile: ForgePlacementProfile,
+		semantic_registry: ForgeSemanticRegistry = null) -> Array[ForgeDiagnostic]:
+	return ForgeFoundationValidationService.new().validate_placement_profile(
+		profile, semantic_registry)
+
+
 func validate_asset(
 		asset: ForgeAssetDefinition,
 		contract: ForgePresentationContract = null) -> Array[ForgeDiagnostic]:
@@ -42,7 +104,7 @@ func validate_asset(
 			"Asset has no visible authoring source.",
 			"No mesh or surface product can be baked.",
 			"Add a surface set, voxel volume or compound part."))
-	if asset.surface_set is ForgeSurfaceSet:
+	if asset.uses_surface_authoring():
 		var surface: ForgeSurfaceSet = asset.surface_set
 		if surface.width != 32 or surface.height != 32:
 			diagnostics.append(ForgeDiagnostic.create(
@@ -50,7 +112,7 @@ func validate_asset(
 				"Standard block surfaces are not 32 x 32.",
 				"The asset needs an approved non-standard profile.",
 				"Return to 32 x 32 or document the exception."))
-	if asset.voxel_volume is ForgeVoxelVolume:
+	if asset.uses_voxel_authoring():
 		var volume: ForgeVoxelVolume = asset.voxel_volume
 		var dimensions := volume.dimensions
 		if dimensions.x > 64 or dimensions.y > 64 or dimensions.z > 64:

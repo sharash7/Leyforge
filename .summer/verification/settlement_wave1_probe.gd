@@ -40,7 +40,9 @@ func _runtime(
 
 func _run() -> void:
 	var definitions := SettlementContentRegistry.definitions_for_scope(
-		"poc_required")
+		"technical_poc")
+	definitions.append_array(SettlementContentRegistry.definitions_for_scope(
+		"extended_slice"))
 	_check(definitions.size() == 30,
 		"protected Forest Hamlet roster was not exactly 30 definitions")
 	var catalogue_ids := {}
@@ -63,7 +65,7 @@ func _run() -> void:
 		_check(bool(SettlementContentRegistry.validate_blueprint(
 			blueprint_id).get("ok", false)),
 			"%s did not own a validated forest-neutral blueprint" % definition_id)
-	_check(catalogue_ids.has("building.infrastructure.builder_supply_yard")
+	_check(catalogue_ids.has("building.construction.builder_supply_yard")
 			and catalogue_ids.has("building.storage.village_warehouse"),
 		"canonical protected infrastructure IDs were absent")
 

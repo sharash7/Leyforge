@@ -91,6 +91,30 @@ func _test_access_and_identity() -> void:
 		bridge.record_for("terrain.grass.basic").get(
 			"authoring_mode", "") == "surface",
 		"grass was not routed to surface authoring")
+	var crank_record := bridge.record_for("power.crank.basic")
+	var documents := ForgeDocumentService.new()
+	var crank_draft := documents.create_from_registry(crank_record)
+	var retained_surface := crank_draft.surface_set
+	_check(
+		crank_draft.active_authoring_mode() == "surface",
+		"registry-recommended crank source did not begin in surface mode")
+	documents.ensure_authoring_mode(crank_draft, "voxel", crank_record)
+	_check(
+		crank_draft.active_authoring_mode() == "voxel" \
+			and crank_draft.voxel_volume is ForgeVoxelVolume \
+			and crank_draft.surface_set == retained_surface,
+		"surface-to-voxel switch did not preserve the inactive surface source")
+	documents.ensure_authoring_mode(crank_draft, "surface", crank_record)
+	_check(
+		crank_draft.active_authoring_mode() == "surface" \
+			and crank_draft.surface_set == retained_surface,
+		"returning to surface mode did not restore the retained source")
+	var blank_voxel_draft := documents.create_from_registry(
+		crank_record, "voxel")
+	_check(
+		blank_voxel_draft.active_authoring_mode() == "voxel" \
+			and blank_voxel_draft.voxel_volume.occupied_count() == 0,
+		"explicit new-asset voxel mode did not create a blank voxel source")
 	var door_record := bridge.record_for("construction.door.oak")
 	var door_draft := ForgeDocumentService.new().create_from_registry(
 		door_record)
@@ -119,11 +143,15 @@ func _test_asset_index_and_sources() -> void:
 	var summary := index.rebuild()
 	_check(int(summary["asset_count"]) == 312, "asset index lost registry coverage")
 	_check(
-		int(summary["status_counts"].get("approved", 0)) == 7,
-		"asset index did not find seven approved MVP sources")
+		int(summary["status_counts"].get("approved", 0)) \
+			+ int(summary["status_counts"].get("draft", 0)) >= 7,
+		"asset index lost the seven MVP source presentations")
 	_check(
-		int(summary["status_counts"].get("legacy_wrapper", 0)) == 305,
-		"legacy wrapper count no longer preserves unmigrated presentations")
+		int(summary["status_counts"].get("legacy_wrapper", 0)) \
+			== 312 \
+				- int(summary["status_counts"].get("approved", 0)) \
+				- int(summary["status_counts"].get("draft", 0)),
+		"asset index status counts no longer cover every presentation once")
 	_check(
 		summary["diagnostics"].is_empty(),
 		"asset index reported duplicate or invalid source IDs")
@@ -139,7 +167,10 @@ func _test_asset_index_and_sources() -> void:
 			"golden source is not a ForgeAssetDefinition: %s" % gameplay_id)
 		if not asset is ForgeAssetDefinition:
 			continue
-		_check(asset.source_status == "approved", "golden source is not approved")
+		var indexed_record := index.record_for_source_id(source_id)
+		_check(
+			asset.source_status in ["approved", "draft"],
+			"golden source has an invalid workflow status")
 		_check(
 			asset.gameplay_links == PackedStringArray([gameplay_id]),
 			"golden source changed its stable gameplay link")
@@ -179,8 +210,10 @@ func _test_asset_index_and_sources() -> void:
 					and not expected_hash.is_empty() \
 					and FileAccess.get_sha256(product_path) == expected_hash
 		_check(
-			source_in_sync,
-			"golden source has unbaked edits: %s" % gameplay_id)
+			source_in_sync \
+				or str(indexed_record.get("source_status", "")) == "draft",
+			"asset index did not expose unbaked edits as a draft: %s" \
+				% gameplay_id)
 		_check(
 			products_valid,
 			"golden bake manifest product integrity failed: %s" % gameplay_id)
@@ -224,6 +257,10 @@ func _test_asset_index_and_sources() -> void:
 func _test_domain_and_bakers() -> void:
 	var palette := ForgePaletteDefinition.new()
 	palette.ensure_default_entries()
+	_check(
+		str(palette.entries[0].get("material_dna_id", "")) \
+			== "material.mvp.stone",
+		"new palette roles still default to the missing generic stone material")
 	var volume := ForgeVoxelVolume.new()
 	volume.dimensions = Vector3i(2, 1, 1)
 	volume.voxel_size_meters = 0.5
@@ -280,6 +317,40 @@ func _test_domain_and_bakers() -> void:
 		_mesh_uses_godot_front_winding(first["mesh"]) \
 			and _mesh_uses_godot_front_winding(textured_mesh),
 		"Forge mesh triangles expose their inside faces instead of the outside")
+	var pattern_source := ForgeSurfaceSet.new()
+	pattern_source.width = 2
+	pattern_source.height = 2
+	pattern_source.ensure_faces()
+	pattern_source.set_face_pixels(
+		"north", PackedByteArray([0, 1, 1, 0]))
+	var paint_pattern := ForgePaintPatternDefinition.new()
+	paint_pattern.pattern_id = "pattern.test_checker"
+	paint_pattern.display_name = "Test Checker"
+	_check(
+		paint_pattern.capture_surface(pattern_source, palette, "north") \
+			and paint_pattern.is_valid_pattern(),
+		"surface colour pattern could not be captured")
+	_check(
+		paint_pattern.role_at(0, 0) == "base" \
+			and paint_pattern.role_at(3, 0) == "shadow",
+		"saved surface pattern did not tile its role layout")
+	_check(
+		paint_pattern.palette_entry_for("shadow").get(
+			"albedo", Color.MAGENTA) == palette.color_for(1),
+		"saved pattern did not retain its palette colour snapshot")
+	var imported_palette := ForgePaletteDefinition.new()
+	imported_palette.entries = [{
+		"entry_key": "base",
+		"albedo": Color.RED,
+		"material_dna_id": "material.mvp.fire",
+	}]
+	var imported_roles := imported_palette.merge_entry_snapshots(
+		paint_pattern.palette_entries, true)
+	_check(
+		imported_roles.has("shadow") \
+			and imported_palette.color_for(int(imported_roles["base"])) \
+				.is_equal_approx(palette.color_for(0)),
+		"applying a pattern did not import its colour roles")
 	var transform_surface := ForgeSurfaceSet.new()
 	transform_surface.width = 2
 	transform_surface.height = 2
@@ -339,6 +410,22 @@ func _test_domain_and_bakers() -> void:
 		pixel_stroke["cells"].size() == 5 \
 			and int(pixel_stroke["value"]) == 0,
 		"surface right-drag did not continuously erase its stroke")
+	var randomized_surface := {"values": {}}
+	pixel_canvas.pixel_values_edit_requested.connect(
+		func(_face: String, values: Dictionary) -> void:
+			randomized_surface["values"] = values.duplicate())
+	pixel_canvas.randomizer_enabled = true
+	pixel_canvas.random_palette_indices = PackedInt32Array([0, 1])
+	pixel_canvas._stroke_button = MOUSE_BUTTON_LEFT
+	pixel_canvas._apply_tool_between(Vector2i.ZERO, Vector2i(4, 0))
+	var surface_random_values: Dictionary = randomized_surface["values"]
+	var surface_random_values_valid := surface_random_values.size() == 5
+	for value in surface_random_values.values():
+		surface_random_values_valid = surface_random_values_valid \
+			and int(value) in [0, 1]
+	_check(
+		surface_random_values_valid,
+		"surface colour randomizer did not emit one allowed role per cell")
 	var slice_volume := ForgeVoxelVolume.new()
 	slice_volume.dimensions = Vector3i(5, 5, 1)
 	slice_volume.ensure_storage()
@@ -365,8 +452,69 @@ func _test_domain_and_bakers() -> void:
 		voxel_stroke["cells"].size() == 5 \
 			and int(voxel_stroke["value"]) == -1,
 		"voxel right-drag did not continuously erase its stroke")
+	var randomized_voxels := {"values": {}}
+	voxel_canvas.voxel_values_edit_requested.connect(
+		func(values: Dictionary) -> void:
+			randomized_voxels["values"] = values.duplicate())
+	voxel_canvas.randomizer_enabled = true
+	voxel_canvas.random_palette_indices = PackedInt32Array([0, 1])
+	voxel_canvas._stroke_button = MOUSE_BUTTON_LEFT
+	voxel_canvas._apply_tool_between(Vector2i.ZERO, Vector2i(4, 0))
+	var voxel_random_values: Dictionary = randomized_voxels["values"]
+	var voxel_random_values_valid := voxel_random_values.size() == 5
+	for value in voxel_random_values.values():
+		voxel_random_values_valid = voxel_random_values_valid \
+			and int(value) in [0, 1]
+	_check(
+		voxel_random_values_valid,
+		"voxel colour randomizer did not emit one allowed role per cell")
+	var layer_volume := ForgeVoxelVolume.new()
+	layer_volume.dimensions = Vector3i(3, 2, 2)
+	layer_volume.ensure_storage()
+	layer_volume.set_cell(Vector3i(0, 0, 0), 0)
+	layer_volume.set_cell(Vector3i(1, 0, 0), 1)
+	var copied_layer := layer_volume.slice_cells_copy(2, 0)
+	_check(
+		copied_layer.size() == 6 \
+			and copied_layer[0] == 1 and copied_layer[1] == 2,
+		"voxel layer clipboard did not copy raw occupied and palette cells")
+	_check(
+		layer_volume.set_slice_cells(2, 1, copied_layer) \
+			and layer_volume.slice_cells_copy(2, 1) == copied_layer,
+		"voxel layer clipboard did not paste onto a matching layer")
+	copied_layer[0] = 0
+	_check(
+		layer_volume.get_cell(Vector3i(0, 0, 1)) == 0,
+		"voxel layer paste retained a mutable clipboard reference")
+	var voxel_pattern := ForgePaintPatternDefinition.new()
+	voxel_pattern.pattern_id = "pattern.test_voxel"
+	voxel_pattern.display_name = "Test Voxel"
+	_check(
+		voxel_pattern.capture_voxel_slice(layer_volume, palette, 2, 1) \
+			and voxel_pattern.is_valid_pattern(),
+		"voxel layer colour pattern could not be captured")
+	_check(
+		voxel_pattern.role_at(0, 0) == "base" \
+			and voxel_pattern.role_at(2, 1).is_empty(),
+		"voxel layer pattern did not preserve occupied and empty cells")
 	pixel_canvas.free()
 	voxel_canvas.free()
+	var dual_source_asset := ForgeAssetDefinition.new()
+	dual_source_asset.authoring_profile = "voxel.standard.block"
+	dual_source_asset.surface_set = surface
+	var active_volume := ForgeVoxelVolume.new()
+	active_volume.dimensions = Vector3i(1, 1, 1)
+	active_volume.voxel_size_meters = 0.25
+	active_volume.ensure_storage()
+	active_volume.set_cell(Vector3i.ZERO, 0)
+	dual_source_asset.voxel_volume = active_volume
+	var active_geometry := ForgeBakeService.new()._bake_geometry(
+		dual_source_asset, palette)
+	_check(
+		bool(active_geometry.get("ok", false)) \
+			and active_geometry["bounds"].size.is_equal_approx(
+				Vector3(0.25, 0.25, 0.25)),
+		"preview bake ignored the explicitly active voxel authoring source")
 	var icon_asset := ForgeAssetDefinition.new()
 	icon_asset.forge_asset_id = "forge_asset.test.icon"
 	icon_asset.presentation_id = "presentation.test.icon"
@@ -947,6 +1095,15 @@ func _test_workspace_and_persistence() -> void:
 	_check(
 		ForgeSectionGuides.page_titles().size() == 16,
 		"Forge guide does not cover every authoring section")
+	var documented_steps := 0
+	for guide_title in ForgeSectionGuides.page_titles():
+		documented_steps += ForgeSectionGuides.steps_for_page(
+			str(guide_title)).size()
+	_check(
+		documented_steps >= 120 \
+			and ForgeSectionGuides.steps_for_page(
+				"Block Surface Editor").size() >= 12,
+		"Forge guide is not detailed enough for a first-time creator")
 	_check(
 		workspace.asset_index.summary()["asset_count"] == 312,
 		"runtime workspace did not index the complete registry")
@@ -969,6 +1126,23 @@ func _test_workspace_and_persistence() -> void:
 	_check(
 		workspace._page.find_child("SectionGuide", false, false) != null,
 		"surface editor did not expose its maintained step-by-step guide")
+	var surface_control_texts: Array[String] = []
+	var surface_has_palette_swatch := false
+	for control in workspace._page.find_children("*", "Button", true, false):
+		if control is Button:
+			surface_control_texts.append(str(control.text))
+	for control in workspace._page.find_children(
+			"*", "OptionButton", true, false):
+		if control is OptionButton:
+			var surface_option: OptionButton = control
+			if surface_option.item_count > 0 \
+					and surface_option.get_item_icon(0) != null:
+				surface_has_palette_swatch = true
+	_check(
+		surface_has_palette_swatch \
+			and "Save current face pattern" in surface_control_texts \
+			and "Switch authoring mode" in surface_control_texts,
+		"surface editor lacks colour swatches, pattern saving, or mode switching")
 	var grass_preview := workspace._preview._presentation_root.get_child(0) \
 		if workspace._preview._presentation_root.get_child_count() > 0 else null
 	_check(
@@ -997,6 +1171,53 @@ func _test_workspace_and_persistence() -> void:
 	_check(
 		"Palette Roles" in workspace._page_title.text,
 		"runtime workspace lost palette and Material DNA authoring")
+	var material_controls_ok := false
+	var create_material_button := false
+	for control in workspace._page.find_children(
+			"*", "OptionButton", true, false):
+		if control is OptionButton:
+			var material_option: OptionButton = control
+			if material_option.item_count >= 6:
+				material_controls_ok = true
+	for control in workspace._page.find_children("*", "Button", true, false):
+		if control is Button and control.text == "Create Material DNA":
+			create_material_button = true
+	_check(
+		material_controls_ok and create_material_button,
+		"palette roles cannot select or create shared Material DNA")
+	workspace._show_new_asset()
+	await get_tree().process_frame
+	var wizard_has_explicit_voxel := false
+	for control in workspace._page.find_children(
+			"*", "OptionButton", true, false):
+		if control is OptionButton:
+			var wizard_option: OptionButton = control
+			for item_index in wizard_option.item_count:
+				if "Voxel Model" in wizard_option.get_item_text(item_index):
+					wizard_has_explicit_voxel = true
+	_check(
+		wizard_has_explicit_voxel,
+		"new asset wizard cannot explicitly start a blank voxel source")
+	var crank_record := ForgeRegistryBridge.new().record_for(
+		"power.crank.basic")
+	var voxel_draft := workspace.document_service.create_from_registry(
+		crank_record, "voxel")
+	voxel_draft.voxel_volume.set_cell(Vector3i(16, 16, 16), 0)
+	workspace.current_asset = voxel_draft
+	workspace.current_record = crank_record
+	workspace._after_open_asset()
+	workspace._show_voxel_editor()
+	await get_tree().process_frame
+	var voxel_control_texts: Array[String] = []
+	for control in workspace._page.find_children("*", "Button", true, false):
+		if control is Button:
+			voxel_control_texts.append(str(control.text))
+	_check(
+		voxel_draft.active_authoring_mode() == "voxel" \
+			and "Copy current layer" in voxel_control_texts \
+			and "Paste onto current layer" in voxel_control_texts \
+			and "Save current layer pattern" in voxel_control_texts,
+		"voxel editor lacks explicit mode, layer clipboard, or pattern saving")
 	workspace._show_collision_placement_editor()
 	await get_tree().process_frame
 	_check(

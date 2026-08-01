@@ -37,6 +37,20 @@ func migrate_asset(asset: ForgeAssetDefinition) -> Dictionary:
 func build_migration_record(
 		record: Dictionary, status := "unreviewed") -> ForgeMigrationRecord:
 	var migration := ForgeMigrationRecord.new()
+	migration.subject_type = str(record.get("subject_type", "gameplay_presentation"))
+	migration.target_id = str(record.get(
+		"target_id", record.get("presentation_id", record.get("gameplay_id", ""))))
+	migration.lifecycle = str(record.get("lifecycle", "active_fallback"))
+	migration.contract_version = str(record.get(
+		"contract_version", "22-foundation-v1"))
+	migration.dependency_information = record.get(
+		"dependency_information", {}).duplicate(true)
+	migration.replacement_strategy = str(record.get(
+		"replacement_strategy", "preserve_fallback"))
+	migration.fallback_id = str(record.get("fallback_id", "legacy_runtime"))
+	migration.removal_gate = str(record.get(
+		"removal_gate", "approved_replacement_and_regression_evidence"))
+	migration.review_history = record.get("review_history", []).duplicate(true)
 	migration.gameplay_id = str(record.get("gameplay_id", ""))
 	migration.presentation_id = str(record.get("presentation_id", ""))
 	migration.display_name = str(record.get("display_name", ""))

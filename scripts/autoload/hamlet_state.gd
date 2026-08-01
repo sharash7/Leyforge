@@ -1761,7 +1761,7 @@ func serialize_state() -> Dictionary:
 	for stack in warehouse_slots:
 		saved_warehouse.append(Inventory.serialize_stack(stack))
 	runtime_projects[active_project_instance_id] = project
-	return {
+	var serialized := {
 		"version": 4,
 		"village_id": active_village_id,
 		"world_seed": world_seed,
@@ -1788,6 +1788,8 @@ func serialize_state() -> Dictionary:
 		"delivery_ledger": delivery_ledger.duplicate(true),
 		"automation_correlations": _automation_correlations.keys(),
 	}
+	var canonical := SettlementContentRegistry.migrate_v1_payload(serialized)
+	return (canonical.get("data", serialized) as Dictionary)
 
 
 func restore_state(
@@ -1797,6 +1799,10 @@ func restore_state(
 	if not (value is Dictionary):
 		return false
 	var data: Dictionary = value
+	var migration := SettlementContentRegistry.migrate_v1_payload(data)
+	if not bool(migration.get("ok", false)):
+		return false
+	data = migration.get("data", data)
 	var saved_village_id := str(data.get("village_id", ""))
 	if not expected_settlement_id.is_empty() \
 			and saved_village_id != expected_settlement_id:
@@ -1967,6 +1973,10 @@ func _restore_runtime_records(data: Dictionary) -> void:
 				continue
 			record["id"] = definition_id
 			record["definition_id"] = definition_id
+			record["building_definition_id"] = SettlementContentRegistry.canonical_id(
+				str(record.get("building_definition_id", "")))
+			record["blueprint_id"] = SettlementContentRegistry.canonical_id(
+				str(record.get("blueprint_id", "")))
 			record["instance_id"] = instance_id
 			runtime_projects[instance_id] = record
 	var saved_buildings: Variant = data.get("runtime_buildings", {})
@@ -1982,6 +1992,8 @@ func _restore_runtime_records(data: Dictionary) -> void:
 			if SettlementContentRegistry.get_building(definition_id).is_empty():
 				continue
 			record["definition_id"] = definition_id
+			record["blueprint_id"] = SettlementContentRegistry.canonical_id(
+				str(record.get("blueprint_id", "")))
 			record["instance_id"] = instance_id
 			record["condition"] = clampf(
 				float(record.get("condition", 1.0)), 0.0, 1.0)

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ForgeStateBindingDefinition" format=3 uid="uid://ctgdkwp1j2vry"]
+
+[ext_resource type="Script" uid="uid://bo46nynsvn1r6" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="1_4ylww"]
+
+[resource]
+script = ExtResource("1_4ylww")
+state_binding_id = "statebinding.presentation.light.torch.basic"
+layer_order = PackedStringArray("base", "variant", "environment", "activity", "condition", "critical")

@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3 uid="uid://bqqt3csr71pwa"]
+
+[ext_resource type="Script" uid="uid://cfvrxyd74eqwx" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_gf4a3"]
+
+[resource]
+script = ExtResource("1_gf4a3")
+asset_id = "forge_asset.ore.iron.basic"
+presentation_id = "presentation.ore.iron.basic"
+source_revision = 1
+source_hash = "02666686d9a6d8627b019d228b2606a85225150609571688b261ee105fd28729"
+engine_version = "4.6.1-stable (custom_build)"
+baker_version = "forge-pipeline-v7"
+products = Array[Dictionary]([{
+"hash": "2882dfdeeb78967ea0508deb56e33d3b58cd9715968deeeb74e4a316f0f3a345",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/presentation_mesh.res",
+"type": "mesh"
+}, {
+"hash": "ead47f4614b8269e0d29cd9032e2dbb44316e2d0e1b546cff438263da5a98de3",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/top.png",
+"type": "surface"
+}, {
+"hash": "ead47f4614b8269e0d29cd9032e2dbb44316e2d0e1b546cff438263da5a98de3",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/bottom.png",
+"type": "surface"
+}, {
+"hash": "ead47f4614b8269e0d29cd9032e2dbb44316e2d0e1b546cff438263da5a98de3",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/north.png",
+"type": "surface"
+}, {
+"hash": "ead47f4614b8269e0d29cd9032e2dbb44316e2d0e1b546cff438263da5a98de3",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/south.png",
+"type": "surface"
+}, {
+"hash": "ead47f4614b8269e0d29cd9032e2dbb44316e2d0e1b546cff438263da5a98de3",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/east.png",
+"type": "surface"
+}, {
+"hash": "ead47f4614b8269e0d29cd9032e2dbb44316e2d0e1b546cff438263da5a98de3",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/west.png",
+"type": "surface"
+}, {
+"hash": "1c6aecf1c689c53db0d1d0e0bafb4271c957706e15291165fab13c7186663cac",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/icon.png",
+"type": "icon"
+}, {
+"hash": "7de0b927fddc2ba44503a43dedca0927bd49ff0ad2473e7f53bb3e9dbb8cc895",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/collision.tres",
+"type": "collision"
+}, {
+"hash": "858433152103d24070be0b94a47eea5abcdfe210cd707ffa4a02cb14d3ed93a1",
+"path": "res://generated/forge/products/presentation_ore_iron_basic/6b2291f336954e21/presentation.tscn",
+"type": "scene"
+}, {
+"hash": "e4a2b319fc084f57c0e71d189e9a618c83999e1383ed5103b28d984e34059017",
+"path": "res://generated/forge/packages/presentation_ore_iron_basic.tres",
+"type": "runtime_package"
+}])
+diagnostics_summary = {
+"critical": 0,
+"error": 0,
+"info": 0,
+"warning": 0
+}
+approved_status = "approved"

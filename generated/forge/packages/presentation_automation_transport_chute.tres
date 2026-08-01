@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3]
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3 uid="uid://2cp5mddmrxe8"]
 
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_8h44s"]
+[ext_resource type="Script" uid="uid://c7yeo1mi5snq6" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_8h44s"]
 
 [resource]
 script = ExtResource("1_8h44s")

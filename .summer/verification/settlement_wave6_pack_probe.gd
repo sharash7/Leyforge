@@ -22,14 +22,18 @@ func _run() -> void:
 	_check(int(summary.get("packs", 0)) == 25,
 		"culture/faction/biome pack set was incomplete")
 	_check(SettlementContentRegistry.resolution_order == [
-		"universal",
+		"foundation",
 		"blueprint_archetype",
 		"culture",
-		"regional_subculture",
+		"region",
 		"biome",
-		"faction_government_faith",
+		"faction",
+		"government",
+		"faith",
+		"economy",
 		"realm",
-		"history_state",
+		"overlay",
+		"hybrid",
 		"player_style",
 	], "pack layer order drifted from Document 20G")
 
@@ -82,11 +86,11 @@ func _run() -> void:
 		],
 	})
 	_check("pack.realm.verdant_covenant" in realm.get("pack_ids", [])
-			and "pack.realm_access.portal_network" in realm.get("pack_ids", [])
+			and "pack.realm.portal_network_access" in realm.get("pack_ids", [])
 			and (realm.get("errors", []) as Array).is_empty(),
 		"Verdant Covenant did not load after both realm gates passed")
 	var realm_cells := SettlementContentRegistry.expand_blueprint_stage(
-		"bp.building.cottage_forest_small",
+		"blueprint.leyforge.residential.small_cottage_a",
 		"foundation",
 		realm.get("palette", {}))
 	_check(not realm_cells.is_empty()

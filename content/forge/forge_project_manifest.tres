@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeProjectManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_project_manifest.gd" id="1_manifest"]
+
+[resource]
+script = ExtResource("1_manifest")
+supported_schema_ids = PackedStringArray("leyforge.forge.project-manifest", "leyforge.forge.semantic-registry", "leyforge.forge.entity-presentation", "leyforge.forge.entity-definition", "leyforge.forge.body-plan", "leyforge.forge.body-part", "leyforge.forge.density-profile", "leyforge.forge.blueprint-definition", "leyforge.forge.blueprint-element", "leyforge.forge.construction-delta", "leyforge.forge.placement-profile", "leyforge.forge.blueprint-material-role-set", "leyforge.forge.migration-record", "leyforge.forge.content-pack")
+semantic_registry_paths = PackedStringArray("res://data/forge/semantic_registry.json")
+source_roots = PackedStringArray("res://content/forge/assets", "res://content/forge/entities", "res://content/forge/blueprints")
+migration_inventory_paths = PackedStringArray("res://content/forge/migration/entity_migration_inventory.json", "res://content/forge/migration/blueprint_migration_inventory.json")
+capture_profile_ids = PackedStringArray("capture.profile.entity.current_state", "capture.profile.blueprint.current_state", "capture.profile.contract.baseline")
+dependency_ids = PackedStringArray("pack.leyforge.project_visuals")

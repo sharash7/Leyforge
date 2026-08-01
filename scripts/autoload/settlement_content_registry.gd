@@ -4,6 +4,8 @@ extends Node
 signal registry_reloaded(report: Dictionary)
 
 const Records = preload("res://scripts/settlement/settlement_records.gd")
+const SchemaMigration = preload(
+	"res://scripts/settlement/settlement_schema_migration.gd")
 const CataloguePath := "res://data/settlement/settlement_catalogue.json"
 const BlueprintsPath := "res://data/settlement/settlement_blueprints.json"
 const ProjectsPath := "res://data/settlement/settlement_projects.json"
@@ -11,10 +13,16 @@ const PacksPath := "res://data/settlement/settlement_packs.json"
 const BehaviorsPath := "res://data/settlement/settlement_behaviors.json"
 const PlansPath := "res://data/settlement/settlement_plans.json"
 const EXPECTED_SCOPE_COUNTS := {
-	"poc_required": 30,
+	"technical_poc": 16,
+	"extended_slice": 14,
 	"alpha": 35,
 	"beta": 49,
 	"final": 6,
+}
+const EXPECTED_DELIVERY_GROUP_COUNTS := {
+	"core_infrastructure": 12,
+	"raid_extension": 4,
+	"extended_forest_hamlet": 14,
 }
 const VALID_NEEDS := [
 	"housing",
@@ -63,6 +71,8 @@ var aliases: Dictionary = {}
 var resolution_order: Array[String] = []
 var validation_errors: Array[String] = []
 var validation_warnings: Array[String] = []
+var schema_migration_reports: Array[Dictionary] = []
+var migration_service: SettlementSchemaMigration = SchemaMigration.new()
 
 
 func _ready() -> void:
@@ -102,6 +112,10 @@ func canonical_id(requested_id: String) -> String:
 		visited[current] = true
 		current = str(aliases[current])
 	return current
+
+
+func migrate_v1_payload(payload: Dictionary) -> Dictionary:
+	return migration_service.migrate_payload(payload)
 
 
 func has_definition(requested_id: String) -> bool:
@@ -364,6 +378,7 @@ func resolve_pack_stack_with_context(
 
 func catalogue_summary() -> Dictionary:
 	var scope_counts := {}
+	var delivery_group_counts := {}
 	var kind_counts := {}
 	var owner_counts := {}
 	for definition in all_definitions():
@@ -371,11 +386,16 @@ func catalogue_summary() -> Dictionary:
 		var kind := str(definition.get("kind", ""))
 		var owner := str(definition.get("owner_document", ""))
 		scope_counts[scope] = int(scope_counts.get(scope, 0)) + 1
+		var delivery_group := str(definition.get("delivery_group", ""))
+		if not delivery_group.is_empty():
+			delivery_group_counts[delivery_group] = int(
+				delivery_group_counts.get(delivery_group, 0)) + 1
 		kind_counts[kind] = int(kind_counts.get(kind, 0)) + 1
 		owner_counts[owner] = int(owner_counts.get(owner, 0)) + 1
 	return {
 		"definitions": catalogue_definitions.size(),
 		"scopes": scope_counts,
+		"delivery_groups": delivery_group_counts,
 		"kinds": kind_counts,
 		"owners": owner_counts,
 		"blueprints": blueprints.size(),
@@ -393,6 +413,7 @@ func validation_report() -> Dictionary:
 		"errors": validation_errors.duplicate(),
 		"warnings": validation_warnings.duplicate(),
 		"summary": catalogue_summary(),
+		"schema_migrations": schema_migration_reports.duplicate(true),
 	}
 
 
@@ -416,6 +437,8 @@ func _clear() -> void:
 	resolution_order.clear()
 	validation_errors.clear()
 	validation_warnings.clear()
+	schema_migration_reports.clear()
+	migration_service = SchemaMigration.new()
 
 
 func _load_catalogue() -> void:
@@ -423,6 +446,8 @@ func _load_catalogue() -> void:
 	if root.is_empty():
 		return
 	catalogue_version = str(root.get("catalogue_version", ""))
+	if catalogue_version != "20H-v0.2":
+		validation_errors.append("catalogue_version_must_be_20H_v0_2")
 	if int(root.get("definition_count", 0)) != 120:
 		validation_errors.append("catalogue_definition_count_must_be_120")
 	for value in root.get("definitions", []):
@@ -463,6 +488,14 @@ func _load_catalogue() -> void:
 			validation_errors.append(
 				"scope_count_%s_%d_expected_%d" % [
 					scope, actual, int(EXPECTED_SCOPE_COUNTS[scope])])
+	for delivery_group in EXPECTED_DELIVERY_GROUP_COUNTS:
+		var actual := int((summary.get(
+			"delivery_groups", {}) as Dictionary).get(delivery_group, 0))
+		if actual != int(EXPECTED_DELIVERY_GROUP_COUNTS[delivery_group]):
+			validation_errors.append(
+				"delivery_group_count_%s_%d_expected_%d" % [
+					delivery_group, actual,
+					int(EXPECTED_DELIVERY_GROUP_COUNTS[delivery_group])])
 
 
 func _load_blueprints() -> void:
@@ -540,6 +573,7 @@ func _load_packs() -> void:
 			validation_errors.append("duplicate_or_empty_pack:%s" % id)
 			continue
 		packs[id] = Records.PackManifest.from_dictionary(definition)
+		_register_aliases(id, definition.get("aliases", []))
 
 
 func _load_behaviors() -> void:
@@ -624,7 +658,7 @@ func _validate_cross_references() -> void:
 		if str(pack.get("type", "")) not in resolution_order:
 			validation_errors.append("pack_invalid_layer:%s" % id)
 		var compatibility: Dictionary = pack.get("compatibility", {})
-		if int(compatibility.get("registry_schema", 0)) != 1 \
+		if int(compatibility.get("registry_schema", 0)) != 2 \
 				or str(compatibility.get("catalogue_version", "")) \
 				!= catalogue_version:
 			validation_errors.append("pack_incompatible_version:%s" % id)
@@ -718,9 +752,9 @@ func _validate_cross_references() -> void:
 				validation_errors.append(
 					"behavior_gate_missing_definition:%s:%s" % [
 						str(stage), str(definition_id)])
-	if not aliases.has("building.construction.builder_supply_yard") \
-			or str(aliases["building.construction.builder_supply_yard"]) \
-			!= "building.infrastructure.builder_supply_yard":
+	if not aliases.has("building.infrastructure.builder_supply_yard") \
+			or str(aliases["building.infrastructure.builder_supply_yard"]) \
+			!= "building.construction.builder_supply_yard":
 		validation_errors.append("builder_supply_yard_alias_missing")
 	if not aliases.has("project.watchtower.basic") \
 			or str(aliases["project.watchtower.basic"]) \
@@ -801,10 +835,12 @@ func _register_aliases(canonical: String, values: Array) -> void:
 			validation_errors.append("alias_collision:%s" % alias)
 			continue
 		if catalogue_definitions.has(alias) or blueprints.has(alias) \
-				or construction_projects.has(alias):
+				or construction_projects.has(alias) or packs.has(alias) \
+				or behaviors.has(alias) or plan_specs.has(alias):
 			validation_errors.append("alias_overwrites_canonical:%s" % alias)
 			continue
 		aliases[alias] = canonical
+		migration_service.register_alias(alias, canonical)
 
 
 func _load_json(path: String, expected_schema: String) -> Dictionary:
@@ -816,11 +852,16 @@ func _load_json(path: String, expected_schema: String) -> Dictionary:
 		validation_errors.append("invalid_json:%s" % path)
 		return {}
 	var root: Dictionary = parsed
-	if str(root.get("schema", "")) != expected_schema:
-		validation_errors.append("invalid_schema:%s" % path)
-	if int(root.get("schema_version", 0)) != 1:
-		validation_errors.append("unsupported_schema_version:%s" % path)
-	return root
+	var migration := migration_service.migrate_document(root, expected_schema)
+	var report: Dictionary = migration.duplicate(true)
+	report.erase("data")
+	report["path"] = path
+	schema_migration_reports.append(report)
+	if not bool(migration.get("ok", false)):
+		for error in migration.get("errors", []):
+			validation_errors.append("%s:%s" % [str(error), path])
+		return {}
+	return (migration.get("data", {}) as Dictionary)
 
 
 func _collect_pack(

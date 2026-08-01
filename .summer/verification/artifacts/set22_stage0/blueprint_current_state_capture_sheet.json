@@ -1,0 +1,1375 @@
+{
+  "capture_mode": "deterministic_inventory_contact_sheet",
+  "capture_profile_id": "capture.profile.blueprint.current_state",
+  "row_count": 124,
+  "rows": [
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Automated Farm or Greenhouse - Forest Neutral",
+      "fallback": "bp.catalogue.107",
+      "priority": "deferred",
+      "record_hash": "be09d71785f1464c4e1566e20984d168e59ef81f7a338eb0982f318f1fd5c9a1",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.automation.automated_farm_greenhouse_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Golem Workshop or Labour Centre - Forest Neutral",
+      "fallback": "bp.catalogue.109",
+      "priority": "deferred",
+      "record_hash": "327a349eea36569a50cc03c2245258996f4a9e82aca5f1e7e44402e97fc294b4",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.automation.golem_workshop_labour_centre_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Hand-Crank or Mechanical Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.101",
+      "priority": "deferred",
+      "record_hash": "00d3e014f57379150115683840a179503668bf3d1ff8690f781563a6eed2ea01",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.automation.hand_crank_workshop_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Mechanical Processing Mill - Forest Neutral",
+      "fallback": "bp.catalogue.104",
+      "priority": "deferred",
+      "record_hash": "f28a59a4d7cb587a261f707d70411fbb68523d8a1e8e4262eeec13ca95564b45",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.automation.mechanical_processing_mill_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Hospital or University Campus - Forest Neutral",
+      "fallback": "bp.catalogue.116",
+      "priority": "deferred",
+      "record_hash": "d5fbd8311883bbd3a9438daefc8a00bfe272242cbf8e3313791727fce86459e0",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.campus.hospital_university_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Farmstead Cluster - Forest Neutral",
+      "fallback": "bp.catalogue.111",
+      "priority": "deferred",
+      "record_hash": "fee2b721d3a82024fd7e0fd86f4866b28fba6569d327b86f6c7156d84808b52c",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.cluster.farmstead_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Market Square and Civic Centre - Forest Neutral",
+      "fallback": "bp.catalogue.112",
+      "priority": "deferred",
+      "record_hash": "e33a6a858c1817738eaf46d875e1b7d58a8b1a6397bca7687cc9d84f79f26f6a",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.cluster.market_civic_centre_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Bathhouse and Laundry - Forest Neutral",
+      "fallback": "bp.catalogue.027",
+      "priority": "deferred",
+      "record_hash": "ca89cef26e0ccf9776d06eb455f950a3d0c0f4b298f60d0a0b9c4efc95128d02",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.community.bathhouse_laundry_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Cultural Hall or Theatre - Forest Neutral",
+      "fallback": "bp.catalogue.030",
+      "priority": "deferred",
+      "record_hash": "75282e12dd3e3ca06b9c5065694c61ab3884f6164f35b7b97564fad507883b16",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.community.cultural_hall_theatre_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Festival or Community Grounds - Forest Neutral",
+      "fallback": "bp.catalogue.028",
+      "priority": "deferred",
+      "record_hash": "c0ee4f888965d9892d65cedd52b5f4e76f4c87b4085ca4f71dd2e4653686661c",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.community.festival_grounds_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Memorial and Cemetery - Forest Neutral",
+      "fallback": "bp.catalogue.029",
+      "priority": "deferred",
+      "record_hash": "85c47e65d54e5f6071da6ebd171c39b52d0a2db950b8e215397bf5cda975fc5d",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.community.memorial_cemetery_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Small Shrine or Community Hall - Forest Neutral",
+      "fallback": "bp.catalogue.025",
+      "priority": "deferred",
+      "record_hash": "df2315300aa212a6075e3a7a50d350e91916b6ab764e51d5a0706a6a553d6f22",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.community.small_shrine_hall_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Citadel and Fortified Perimeter Complex - Forest Neutral",
+      "fallback": "bp.catalogue.115",
+      "priority": "deferred",
+      "record_hash": "016defb4d7ab0577dadbec0bb3270431dea65e6556f686406eb647d349887c46",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.complex.citadel_fortified_perimeter_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Builder Supply Yard - Forest Neutral",
+      "fallback": "bp.catalogue.003",
+      "priority": "deferred",
+      "record_hash": "cc8b50fc9a7ac257894ed9b8c6522b792f005f77fd9fd641b6e01e71f54796f0",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.construction.builder_supply_yard_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Carpenter Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.041",
+      "priority": "p1",
+      "record_hash": "a48c01b6e266a0aaf0126abbe393d836093e843bc351d21ff6d53f8931e9fb4f",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.crafting.carpenter_workshop_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Glassworks or Brickworks - Forest Neutral",
+      "fallback": "bp.catalogue.047",
+      "priority": "deferred",
+      "record_hash": "b50689ca6995973e8817da724e152d5945912e511a00a33b1836bbfcfab63a88",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.crafting.glass_brick_works_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Mason Yard - Forest Neutral",
+      "fallback": "bp.catalogue.042",
+      "priority": "deferred",
+      "record_hash": "185489c0f8acfcb0788f0ec033aa984928141d8ae7d98a87d679f39318be6f23",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.crafting.mason_yard_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Pottery and Kiln - Forest Neutral",
+      "fallback": "bp.catalogue.044",
+      "priority": "deferred",
+      "record_hash": "f705e3f744d45e9f32873bd721cda28520d95fcccbe0cbfee378465e863ea226",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.crafting.pottery_kiln_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Tannery and Leatherworker - Forest Neutral",
+      "fallback": "bp.catalogue.046",
+      "priority": "deferred",
+      "record_hash": "a374732ad816d064389a1908df73a849f141ebcb9da741006a662bbc4f8d1ec5",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.crafting.tannery_leatherworker_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Village Blacksmith - Forest Neutral",
+      "fallback": "bp.catalogue.043",
+      "priority": "deferred",
+      "record_hash": "bf3002e2804f9f06c1d8e740ce7a0a70328a50a1d42098c67dc48e536427c16d",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.crafting.village_blacksmith_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Weaver and Tailor Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.045",
+      "priority": "deferred",
+      "record_hash": "76d64d5fdef750aa817a9452a6b9efae9be7b052cf8e4a2ef74e7004a428e59e",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.crafting.weaver_tailor_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Palisade Segment - Forest Neutral",
+      "fallback": "bp.catalogue.073",
+      "priority": "deferred",
+      "record_hash": "b9040b91cc6c9e845ef6ac107481c75348e8cb36c230544967857c95458b46a5",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.defence.palisade_segment_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Stone Wall and Gatehouse System - Forest Neutral",
+      "fallback": "bp.catalogue.076",
+      "priority": "deferred",
+      "record_hash": "8e888f7bf08f7b4bf3db576dbac93b9e72b8bb75d764b0bb24f4ca4836169e94",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.defence.stone_wall_gatehouse_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Artisan or Industrial District Template - Forest Neutral",
+      "fallback": "bp.catalogue.113",
+      "priority": "deferred",
+      "record_hash": "66a45866e49e66f5e1277820cceb2677e7503dd8969ef63b127cd888d783630d",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.district.artisan_industrial_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Residential District Template - Forest Neutral",
+      "fallback": "bp.catalogue.114",
+      "priority": "deferred",
+      "record_hash": "0f72eb0d2a1b0acea7868d918f733da7118157f2b070bd8dd8bc57eb89fb00db",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.district.residential_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Academy or University - Forest Neutral",
+      "fallback": "bp.catalogue.059",
+      "priority": "deferred",
+      "record_hash": "6c5de5dbb7bc766497a88eed0cd74fbe399e3be980ee710e525f1ebdf8c0db4d",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.education.academy_university_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Library or Archive - Forest Neutral",
+      "fallback": "bp.catalogue.058",
+      "priority": "deferred",
+      "record_hash": "4294dfed96a319aefd1a04070443eb5510a83b63c8d84831f329c26af96c6a63",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.education.library_archive_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Small School - Forest Neutral",
+      "fallback": "bp.catalogue.056",
+      "priority": "deferred",
+      "record_hash": "8833198f6cf8ea0e12a86acc20bcf7a551c850de5c178a3519e782f0275b41de",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.education.small_school_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Apprentice or Trade School - Forest Neutral",
+      "fallback": "bp.catalogue.057",
+      "priority": "deferred",
+      "record_hash": "3ab5c54c2d62815393c964952b03c4e0eb313a15c08352d4b62d7f1d58f05ae7",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.education.trade_school_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Fire and Rescue Station - Forest Neutral",
+      "fallback": "bp.catalogue.079",
+      "priority": "deferred",
+      "record_hash": "4146b3037b63e0df65c51ad86e1380dcfc21e35d753a1d68d7f6aa27d7f3c534",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.emergency.fire_rescue_station_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Emergency Shelter or Refuge Bunker - Forest Neutral",
+      "fallback": "bp.catalogue.080",
+      "priority": "deferred",
+      "record_hash": "b2c59d626648cbe6709e9cf26f72454687eb98605206a04eae3023c65c1e75cc",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.emergency.refuge_bunker_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Automated Mine or Quarry Site - Forest Neutral",
+      "fallback": "bp.catalogue.040",
+      "priority": "deferred",
+      "record_hash": "c0e2fadb9b7ea83d8963d578909ba884d77a2d7505e79c77b9c54d747f55dd45",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.automated_mine_quarry_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Charcoal Burner and Fuel Yard - Forest Neutral",
+      "fallback": "bp.catalogue.038",
+      "priority": "deferred",
+      "record_hash": "3c7148a7f8742f576dafe319435bb905081a92ebf2d662b52997e5c14ebfa4f9",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.charcoal_fuel_yard_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Clay or Sand Works - Forest Neutral",
+      "fallback": "bp.catalogue.034",
+      "priority": "deferred",
+      "record_hash": "f2ab347524850000b00d0d92476bbb42bd4b6a55cd608175421e81af30ba3a03",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.clay_sand_works_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Mine Shaft or Deep Mine Complex - Forest Neutral",
+      "fallback": "bp.catalogue.036",
+      "priority": "deferred",
+      "record_hash": "77806989ffedb3ab61925b4138c7cbb9b89c2f84703096b088263025f22b5971",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.deep_mine_complex_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Lumber Camp - Forest Neutral",
+      "fallback": "bp.catalogue.031",
+      "priority": "deferred",
+      "record_hash": "896c37178df08e4e38ea2e570122c2d03b52e1bbd467dad509e6e85481e88706",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.lumber_camp_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Mana Crystal Mine or Extractor - Forest Neutral",
+      "fallback": "bp.catalogue.039",
+      "priority": "deferred",
+      "record_hash": "af5e0cc0ea8b48d380c87bfe6622524fd7d507b28bf3c7110d750107b77b3d0e",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.mana_crystal_site_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Mine Entrance - Forest Neutral",
+      "fallback": "bp.catalogue.035",
+      "priority": "deferred",
+      "record_hash": "ec07e90a944a68e839a5d70b80afe4f2482d9e97002579df3d80b8994eed38a9",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.mine_entrance_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Ore Sorting Yard - Forest Neutral",
+      "fallback": "bp.catalogue.037",
+      "priority": "deferred",
+      "record_hash": "d562f623fb6953943b4c2e5d3e6a4c33ed8b4ea8fa60bcb8da70ee053151223b",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.ore_sorting_yard_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Quarry and Stone Yard - Forest Neutral",
+      "fallback": "bp.catalogue.033",
+      "priority": "deferred",
+      "record_hash": "033f1bb9d007129a86f2b104dd8b04214ee6a91ac8805f46a4ee5a7c70772a6c",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.quarry_stone_yard_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Sawmill - Forest Neutral",
+      "fallback": "bp.catalogue.032",
+      "priority": "deferred",
+      "record_hash": "629570bd5ce38b7765b98e098385140bc7938f0025873bb6e0978249b590458a",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.extraction.sawmill_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Bakery or Food Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.017",
+      "priority": "deferred",
+      "record_hash": "e7b476197ed18961337044c97761af7f69ca89f037687a10a1c74ee557293ae2",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.food.bakery_food_workshop_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Barn - Forest Neutral",
+      "fallback": "bp.catalogue.013",
+      "priority": "deferred",
+      "record_hash": "446e1cd27971f3d1485f3dcdb874d1d17dde7ad520c97b752185c3bfaa5d804c",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.food.barn_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Basic Farm Plot - Forest Neutral",
+      "fallback": "bp.catalogue.011",
+      "priority": "deferred",
+      "record_hash": "1b8dcc2bc6e73b5dc885e730dc905dae75fb25e3c93c1ed3822d1b0f0b770c7e",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.food.basic_farm_plot_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Communal Kitchen - Forest Neutral",
+      "fallback": "bp.catalogue.015",
+      "priority": "deferred",
+      "record_hash": "0410f09b37f20bca8b12a989da604aa64fa34aca7c12ee444e52b1607aeba8d5",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.food.communal_kitchen_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Fishery or Fishing Dock - Forest Neutral",
+      "fallback": "bp.catalogue.020",
+      "priority": "deferred",
+      "record_hash": "48d11fdcc9a94471e2bc10ff48fd516b7e2290fc241c240688109ad8438cedbb",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.food.fishery_fishing_dock_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Grain Millhouse - Forest Neutral",
+      "fallback": "bp.catalogue.016",
+      "priority": "deferred",
+      "record_hash": "ca4b586199481ba9943b953eb46a6650795eb5a503d137ec0e4866f375d1007c",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.food.grain_millhouse_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Granary - Forest Neutral",
+      "fallback": "bp.catalogue.014",
+      "priority": "deferred",
+      "record_hash": "2959760f922171f83d3f20ead43f0c30ac92f52b6be1f2eeb694e77a8f0f4c67",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.food.granary_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Irrigated or Terraced Farm - Forest Neutral",
+      "fallback": "bp.catalogue.012",
+      "priority": "deferred",
+      "record_hash": "89260038003e60f560f1e569530d819cb5c32485fb4c52170095ea8153b62ad9",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.food.irrigated_terraced_farm_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Preserving House - Forest Neutral",
+      "fallback": "bp.catalogue.018",
+      "priority": "deferred",
+      "record_hash": "4910e70bef2cb1f1154bc7be8f0e760cbb68e7f63fe1672ae1bf2559bdf5a721",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.food.preserving_house_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Blueprint and Construction Office - Forest Neutral",
+      "fallback": "bp.catalogue.070",
+      "priority": "deferred",
+      "record_hash": "26e264b80a0db0e98c2c78d7c9d3f39ee27647107fdae77365078a1fa9d1fc79",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.governance.blueprint_construction_office_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "City Hall or Civic Complex - Forest Neutral",
+      "fallback": "bp.catalogue.063",
+      "priority": "deferred",
+      "record_hash": "2d525e923b3aa736b4e35e2d878d3e94b4bd50b920bb38d3909f053b1c2fee7e",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.governance.city_hall_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Embassy or Diplomatic Hall - Forest Neutral",
+      "fallback": "bp.catalogue.067",
+      "priority": "deferred",
+      "record_hash": "727febb3742c5b83556f727be35a373dbed7f2263b6f2fb738b69be17ad9d315",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.governance.embassy_diplomatic_hall_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Governor or Leader Residence - Forest Neutral",
+      "fallback": "bp.catalogue.068",
+      "priority": "deferred",
+      "record_hash": "8e1f1cc457b5988eb051e568e3a84936e34264f4f49af495f8905a89b091ff6b",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.governance.leader_residence_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Palace or High Council Complex - Forest Neutral",
+      "fallback": "bp.catalogue.069",
+      "priority": "deferred",
+      "record_hash": "4b322bca1b5935b031c3b5d1e6adbf774e93fbde3b70d4c1e9acb704e8d3cf68",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.governance.palace_high_council_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Records and Planning Office - Forest Neutral",
+      "fallback": "bp.catalogue.064",
+      "priority": "deferred",
+      "record_hash": "d05e4e6472d265a13bc370a15d0a09dcae1f8062dadbb909bd94ed02097b93c4",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.governance.records_planning_office_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Tax or Customs Office - Forest Neutral",
+      "fallback": "bp.catalogue.066",
+      "priority": "deferred",
+      "record_hash": "70f7ff7ad1a3d0845377a22826620888182253fc97acdabd0da523090d3bf736",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.governance.tax_customs_office_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Town Hall or Council House - Forest Neutral",
+      "fallback": "bp.catalogue.062",
+      "priority": "deferred",
+      "record_hash": "012102823648cc5731f557f8669e216fa254166fdacb0a3ed38ace4c8777d71d",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.governance.town_hall_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Village Hall - Forest Neutral",
+      "fallback": "bp.catalogue.061",
+      "priority": "deferred",
+      "record_hash": "acd2b125e5af0a1d1491a946282d43fcbc4778c7fdd9f3f6f8250bfd71431d5c",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.governance.village_hall_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Clinic or Infirmary - Forest Neutral",
+      "fallback": "bp.catalogue.022",
+      "priority": "deferred",
+      "record_hash": "05fcf39fc8a74126303a65da76ad10ecd6a29c92b19b51e38b0b6e7f053dc67e",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.health.clinic_infirmary_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Healer Hut - Forest Neutral",
+      "fallback": "bp.catalogue.021",
+      "priority": "deferred",
+      "record_hash": "6f167c4279870b56d5829a8649d505f14b6d902f84c585b6bc73381cbc1b93ce",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.health.healer_hut_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Hospital Complex - Forest Neutral",
+      "fallback": "bp.catalogue.023",
+      "priority": "deferred",
+      "record_hash": "8a78021b2d1e77de22fa246bce72031dc52d3c7e2791e5e5901016fd17ad4bb8",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.health.hospital_complex_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Tavern or Inn - Forest Neutral",
+      "fallback": "bp.catalogue.026",
+      "priority": "deferred",
+      "record_hash": "b96f849f87d4d9df422391e4b7058d0bb4f2ca8b4f270440ba22b208585664b5",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.hospitality.tavern_inn_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Automated Factory or Assembly Hall - Forest Neutral",
+      "fallback": "bp.catalogue.108",
+      "priority": "deferred",
+      "record_hash": "386be1d94313e0eec5edfe66c37cd36d65cd4cf5abfc5866a27a4968e0b3273a",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.industry.automated_factory_assembly_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Foundry or Steelworks - Forest Neutral",
+      "fallback": "bp.catalogue.048",
+      "priority": "deferred",
+      "record_hash": "4fcc88fcd422afac257958d86116aaa12f01921833f26a923ef6dea38d5b5ad1",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.industry.foundry_steelworks_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Furnace or Mana Furnace Facility - Forest Neutral",
+      "fallback": "bp.catalogue.103",
+      "priority": "deferred",
+      "record_hash": "12f758e9b7ab0b93229d4930e3891ee111b5b11c0d98d6f986234fd6b9106ee6",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.industry.furnace_mana_furnace_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Machine Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.049",
+      "priority": "deferred",
+      "record_hash": "54a4c758764fe9b85e8c4ffe668a086548013944fdf1616496c2d91d21a65c70",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.industry.machine_workshop_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Courthouse or Magistrate House - Forest Neutral",
+      "fallback": "bp.catalogue.065",
+      "priority": "deferred",
+      "record_hash": "bce0127027cb7cdb4714b8942988c73b7b30a586bda53ca2325e2e64712aaa23",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.justice.courthouse_magistrate_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Stable and Paddock - Forest Neutral",
+      "fallback": "bp.catalogue.019",
+      "priority": "deferred",
+      "record_hash": "559e4d02d769f98435792ae24efb98c2e2549c7e2affe537c623811e30fb1a1d",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.livestock.stable_paddock_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Conveyor or Cart Logistics Hub - Forest Neutral",
+      "fallback": "bp.catalogue.105",
+      "priority": "deferred",
+      "record_hash": "5a4e7a6e65e5eaa2ad6ef62240922b2169316a009c71b86cd54534886fbfe6ec",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.logistics.conveyor_cart_hub_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Alchemy Laboratory - Forest Neutral",
+      "fallback": "bp.catalogue.092",
+      "priority": "deferred",
+      "record_hash": "488c470c39331f792c9c361056ac7b37f4c525969dcbcac7ad886461c7c75002",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.alchemy_laboratory_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Dimensional Research and Containment Facility - Forest Neutral",
+      "fallback": "bp.catalogue.100",
+      "priority": "deferred",
+      "record_hash": "f697658f8ea4192f306365b750d54c4adbd4ae6021df8eb485acfbd3ba4331f5",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.dimensional_research_containment_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Healing or Cleansing Shrine - Forest Neutral",
+      "fallback": "bp.catalogue.097",
+      "priority": "deferred",
+      "record_hash": "ece7bcc5ed36e78cd8e1519431947506b06bce46b1017d6dde1c4d8438f87662",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.healing_cleansing_shrine_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Leyline Observatory or Relay - Forest Neutral",
+      "fallback": "bp.catalogue.098",
+      "priority": "deferred",
+      "record_hash": "8afd8f436f21fae1c4185392ed8e0c715fc395defbce11ec1733c2595f8c6e23",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.leyline_observatory_relay_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Mage Hut or Rune Workshop - Forest Neutral",
+      "fallback": "bp.catalogue.091",
+      "priority": "deferred",
+      "record_hash": "ae524dc2fd3d855d74a895a5df46dd139cfc2412bd32f56c429f3b3ced805413",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.mage_hut_rune_workshop_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Magic Academy or Research Tower - Forest Neutral",
+      "fallback": "bp.catalogue.096",
+      "priority": "deferred",
+      "record_hash": "7311478f5bd7d05f16828c8ab2852ceec88968f02725b5b1a01ae8d6eefde123",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.magic_academy_tower_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Mana Store or Battery House - Forest Neutral",
+      "fallback": "bp.catalogue.094",
+      "priority": "deferred",
+      "record_hash": "ace6812f1ee256fd32fdc3965abe8a22835f5bfe62307c58413a401868081292",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.mana_store_battery_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Portal Station or Sanctum - Forest Neutral",
+      "fallback": "bp.catalogue.099",
+      "priority": "deferred",
+      "record_hash": "ba949431fc6ca8d8b73911ebee7cbb42e4a461d02b597be524534d2fc738a164",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.portal_station_sanctum_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Ritual Circle or Hall - Forest Neutral",
+      "fallback": "bp.catalogue.095",
+      "priority": "deferred",
+      "record_hash": "473833a3f5554c24ad126a098565a5366358b0db9b67f8e1706c21e6d1d0ac9f",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.ritual_circle_hall_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Rune Forge or Enchanted Smithy - Forest Neutral",
+      "fallback": "bp.catalogue.050",
+      "priority": "deferred",
+      "record_hash": "1ddd382a0d54c9c79189e9457ca59e1aa59c162beeb10d6cea196e418883c186",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.rune_forge_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Ward Stone or Defence Relay - Forest Neutral",
+      "fallback": "bp.catalogue.093",
+      "priority": "deferred",
+      "record_hash": "6dcf05f64e50392bbc412fefb2375181e20ec0595a490181b2ed72d90271080f",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.magic.ward_stone_relay_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "City-Wide Ward Core or Portal Nexus - Forest Neutral",
+      "fallback": "bp.catalogue.118",
+      "priority": "deferred",
+      "record_hash": "b8c0ee2a397c04c855eecbe646b45576baeda9c83a2952910a871c5ea766fadd",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.megaproject.city_ward_portal_nexus_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Floating District Anchor or Skyport - Forest Neutral",
+      "fallback": "bp.catalogue.119",
+      "priority": "deferred",
+      "record_hash": "fec343b78ca978bab2a9fa3f9b8692715cbc77d7747b286f7038c33ff51d80a9",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Regional Logistics and Transit Nexus - Forest Neutral",
+      "fallback": "bp.catalogue.117",
+      "priority": "deferred",
+      "record_hash": "84c05a0ed259d6347ed8a744b742e44bb064e26bf67a3f631390efab62432c89",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.nexus.regional_logistics_transit_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Regional Power or Mana Grid Control - Forest Neutral",
+      "fallback": "bp.catalogue.110",
+      "priority": "deferred",
+      "record_hash": "05076814b5bd185d4712c5dd8883282842aacf6313de3081d888a777a92484af",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.power.regional_grid_control_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Steam or Generator Plant - Forest Neutral",
+      "fallback": "bp.catalogue.106",
+      "priority": "deferred",
+      "record_hash": "fa2427f5f0799509bf8013777ec4248fcb157aa7d0ab0f5e8ece1eb174290f00",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.power.steam_generator_plant_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Waterwheel or Wind Power House - Forest Neutral",
+      "fallback": "bp.catalogue.102",
+      "priority": "deferred",
+      "record_hash": "c2697d875ba76bc6d35f345826e9ecb756d266a9615be347de8891042cc63c66",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.power.waterwind_power_house_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Guild Hall or Professional Lodge - Forest Neutral",
+      "fallback": "bp.catalogue.060",
+      "priority": "deferred",
+      "record_hash": "e39300e0d018bee854937a78c57c7248f057ec52f5e0cc93b479ca2455c9eb93",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.professional.guild_hall_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Apartment House - Forest Neutral",
+      "fallback": "bp.catalogue.010",
+      "priority": "deferred",
+      "record_hash": "48959401d139cd7853f81df3b2b0304ab89a4fde7f10304ff8870aa0308b5290",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.residential.apartment_house_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Communal Longhouse - Forest Neutral",
+      "fallback": "bp.catalogue.008",
+      "priority": "deferred",
+      "record_hash": "2c3eaf243904dbdd8d854b9d4bff0c4d74337f7ad7ff7522d82a3232f0f6626d",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.residential.communal_longhouse_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Farmhouse - Forest Neutral",
+      "fallback": "bp.catalogue.007",
+      "priority": "deferred",
+      "record_hash": "443948e01a4ea94035de540b2c313ac816876a6d44b87e63bb9f9b6af564d8ba",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.residential.farmhouse_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Primitive Hut - Forest Neutral",
+      "fallback": "bp.catalogue.005",
+      "priority": "deferred",
+      "record_hash": "927e3986897bd54ca4659c7b55aa01fdd151211bcdf5e0462e2e968a23f517ab",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.residential.primitive_hut_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Small Forest Cottage",
+      "fallback": "bp.building.cottage_forest_small",
+      "priority": "p0",
+      "record_hash": "bf7d5e9190eed756e122207c338a94a7006f9c9aca24ec889a84ba4743db8f15",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.residential.small_cottage_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Small Tent - Forest Neutral",
+      "fallback": "bp.catalogue.002",
+      "priority": "deferred",
+      "record_hash": "7c54485831121bb157d8844d718577647ee24b0f04ef3b858d466baafbc3768f",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.residential.small_tent_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Townhouse or Shop-House - Forest Neutral",
+      "fallback": "bp.catalogue.009",
+      "priority": "deferred",
+      "record_hash": "2c4104b313ec34d4bf08f1fd39b7f7d0f65a6656a02d508d7b2861d2773da213",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.residential.townhouse_shop_house_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Worker or Refugee Shelter - Forest Neutral",
+      "fallback": "bp.catalogue.004",
+      "priority": "deferred",
+      "record_hash": "5f8ebccd1c5bc1aaa07d8b09dd33d9634d1da5abf5fab59c07af1cce0b18056d",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.residential.worker_refugee_shelter_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Armoury - Forest Neutral",
+      "fallback": "bp.catalogue.077",
+      "priority": "deferred",
+      "record_hash": "cb9d526cfec6a2bd9522b88a2d1fc4800dded3411526ad1bd99ba8aed02c4c2f",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.safety.armoury_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Barracks and Training Yard - Forest Neutral",
+      "fallback": "bp.catalogue.075",
+      "priority": "deferred",
+      "record_hash": "368a9cc308046628abe0d60251d46d6bfa82f461592a9a6c3bea1917c2c50092",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.safety.barracks_training_yard_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Fort or Keep - Forest Neutral",
+      "fallback": "bp.catalogue.078",
+      "priority": "deferred",
+      "record_hash": "93b29fff4010ae77b6c77787b8785cfe06332a8eecd9099d781163cd5bfe3a6e",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.safety.fort_keep_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Guard Post - Forest Neutral",
+      "fallback": "bp.catalogue.071",
+      "priority": "deferred",
+      "record_hash": "5230bdd66da58985b188987072beeb0b45b1a22a3420a9dde92cde038987fbde",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.safety.guard_post_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Village Gate - Forest Neutral",
+      "fallback": "bp.catalogue.074",
+      "priority": "deferred",
+      "record_hash": "910a44a1df4d0f0a65a12a7e3eef35ad555ea540593a26bf681c2fc273c1f060",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.safety.village_gate_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Wooden Watchtower",
+      "fallback": "bp.building.watchtower_wood",
+      "priority": "p0",
+      "record_hash": "9ab8dd2aab1f11c872cee85811432940a29de04ce12fe1087a6b6b9f0c9be85a",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.safety.wooden_watchtower_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Automated Distribution Centre - Forest Neutral",
+      "fallback": "bp.catalogue.084",
+      "priority": "deferred",
+      "record_hash": "ef0622efa252e31553c90bb74d80c8e08db9cc37de301e5b538d5b58fce50e48",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.storage.automated_distribution_centre_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Small Storehouse - Forest Neutral",
+      "fallback": "bp.catalogue.081",
+      "priority": "deferred",
+      "record_hash": "0a62bc60c48376ea5014c297263c65fd16e3866814d2ec39dcb744147a361da2",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.storage.small_storehouse_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Specialised Depot or Silo - Forest Neutral",
+      "fallback": "bp.catalogue.083",
+      "priority": "deferred",
+      "record_hash": "cdf6881d679f5565bc9d7c08978b2298a698056002fc8f9748772ef7282d62cf",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.storage.specialised_depot_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Village Warehouse - Forest Neutral",
+      "fallback": "bp.catalogue.082",
+      "priority": "p0",
+      "record_hash": "523b2ad3920e8586b9a8841c63145f30cb79afd165ce9f7d87df0aed270795c3",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.storage.village_warehouse_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Campfire Site - Forest Neutral",
+      "fallback": "bp.catalogue.001",
+      "priority": "deferred",
+      "record_hash": "a1a56e8d341c4795fa350ce3186678fea85de3cb152f63474bbc48bd7fe0d43b",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.temporary.campfire_site_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Caravanserai or Coach Inn - Forest Neutral",
+      "fallback": "bp.catalogue.054",
+      "priority": "deferred",
+      "record_hash": "c314dd2eec8c6f1d8c17ded4c1578b0f8d3d9543bc55ceecc88106d42e9ce47b",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.trade.caravanserai_coach_inn_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Covered Market or Market Hall - Forest Neutral",
+      "fallback": "bp.catalogue.053",
+      "priority": "deferred",
+      "record_hash": "515e52d9fd721f0ba307fd7e093734c8b877fd5dbde88bfd4aeea89de9c4cdb6",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.trade.covered_market_hall_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Market Stalls - Forest Neutral",
+      "fallback": "bp.catalogue.051",
+      "priority": "deferred",
+      "record_hash": "98137be7026f9937a98f3fbeaba8a2afc61d68f5449e901395bcafd6f8c68e5d",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.trade.market_stalls_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Merchant Guild or Trade Exchange - Forest Neutral",
+      "fallback": "bp.catalogue.055",
+      "priority": "deferred",
+      "record_hash": "8a5f9a94c1d9b93222bcd059813bcc5af9393fe4833adc2e700e4bc60771c3d9",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.trade.merchant_exchange_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Trading Post - Forest Neutral",
+      "fallback": "bp.catalogue.052",
+      "priority": "deferred",
+      "record_hash": "b458c3840a4374008bf61a8dae77e8c26a083d410db2470fa3e8f65f8b1981a2",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.trade.trading_post_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Dirt Path and Road Junction Set - Forest Neutral",
+      "fallback": "bp.catalogue.085",
+      "priority": "deferred",
+      "record_hash": "aff503b76fd650993a369acdfeca6f83123baea0af8cb6d7f5018d2c7c0502d4",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.transport.dirt_path_junction_set_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Dock or Harbour - Forest Neutral",
+      "fallback": "bp.catalogue.087",
+      "priority": "deferred",
+      "record_hash": "02a157b5c7017badfa20ea6bd269f4dbe8fd951ac1e3fbfdda6ee9e40b89804e",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.transport.dock_harbour_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Stone Road and Bridge Set - Forest Neutral",
+      "fallback": "bp.catalogue.086",
+      "priority": "p1",
+      "record_hash": "eba440fca582ae508c96a9cb185fa6f210d514c07bac6748f048acbbdd20a784",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.transport.stone_road_bridge_set_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Cistern, Aqueduct or Pump System - Forest Neutral",
+      "fallback": "bp.catalogue.089",
+      "priority": "deferred",
+      "record_hash": "54213a906d148b52110c3ed6e8c9c8d4aee25a72a0cb6e050cc7683668801bd6",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.utility.cistern_aqueduct_pump_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Sanitation and Waste Utility - Forest Neutral",
+      "fallback": "bp.catalogue.090",
+      "priority": "deferred",
+      "record_hash": "dabb168f110dc0877450149f34d2b3a285f3b6ff7664b80af79c0607da4833bb",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.utility.sanitation_waste_system_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Village Well or Water Point - Forest Neutral",
+      "fallback": "bp.catalogue.088",
+      "priority": "deferred",
+      "record_hash": "2926aa07ff86cdca75d816fd53e5980b151ce0eb5a9c5d018d806f09818138c7",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.utility.village_well_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Quarantine or Emergency Shelter - Forest Neutral",
+      "fallback": "bp.catalogue.024",
+      "priority": "deferred",
+      "record_hash": "064f557a6f5d456f31f630b24048c7ba4d7aba774d3ad670f3ff451801374bf3",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.welfare.quarantine_emergency_shelter_a"
+    },
+    {
+      "classification": "legacy_fallback_inventory",
+      "display_name": "Culture Wonder or Leyline Crown - Forest Neutral",
+      "fallback": "bp.catalogue.120",
+      "priority": "deferred",
+      "record_hash": "a94973c3c8b85798832cd695931d4eb1f71fb21c219d76c940231aae09fa952b",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.leyforge.wonder.culture_wonder_leyline_crown_a"
+    },
+    {
+      "classification": "new_work",
+      "display_name": "Goblin Camp",
+      "fallback": "legacy.runtime.world_stamp.goblin_camp",
+      "priority": "p1",
+      "record_hash": "9801f9feae059534a80c5516f576b1894d121a923a67343a7d304407f1dabc8f",
+      "source_paths": [
+        "res://scripts/world/voxel_world.gd"
+      ],
+      "target_id": "blueprint.leyforge.worldgen.goblin_camp_a"
+    },
+    {
+      "classification": "new_work",
+      "display_name": "Rune Ruin",
+      "fallback": "legacy.runtime.world_stamp.rune_ruin",
+      "priority": "p1",
+      "record_hash": "6505ffd016e99557ef53c6d477a6a66180a7d5907a0beca71262af559e3fbcb6",
+      "source_paths": [
+        "res://scripts/world/voxel_world.gd"
+      ],
+      "target_id": "blueprint.leyforge.worldgen.rune_ruin_a"
+    },
+    {
+      "classification": "new_work",
+      "display_name": "Farm and Pen Module",
+      "fallback": "blueprint.leyforge.food.basic_farm_plot_a",
+      "priority": "p1",
+      "record_hash": "b5ee14ef4dd2d1dad5e261bb3ae6ddce1c5450ef69981cb0ab60421df639c2a3",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.module.farm.pen_basic_a"
+    },
+    {
+      "classification": "new_work",
+      "display_name": "Forest Road Module",
+      "fallback": "blueprint.leyforge.transport.dirt_path_junction_set_a",
+      "priority": "p1",
+      "record_hash": "bfbec7b39808f97f85849c0f820b5d1cb03ac0a057eea8b59514b8262841e67a",
+      "source_paths": [
+        "res://data/settlement/settlement_blueprints.json"
+      ],
+      "target_id": "blueprint.module.road.forest_path_a"
+    }
+  ],
+  "schema": "leyforge.forge.current-state-capture-sheet",
+  "schema_version": 1,
+  "subject_type": "blueprint",
+  "visual_approval": "open"
+}

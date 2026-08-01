@@ -85,10 +85,10 @@ func show_asset(asset: ForgeAssetDefinition) -> void:
 			palette = value
 			break
 	var result := {}
-	if asset.surface_set is ForgeSurfaceSet:
+	if asset.uses_surface_authoring():
 		result = ForgeMeshBaker.bake_textured_surface_cube(
 			asset.surface_set, palette)
-	elif asset.voxel_volume is ForgeVoxelVolume:
+	elif asset.uses_voxel_authoring():
 		result = ForgeMeshBaker.bake(asset.voxel_volume, palette)
 	elif not asset.parts.is_empty():
 		var combined_bounds := AABB()

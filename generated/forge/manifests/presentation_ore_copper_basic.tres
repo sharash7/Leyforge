@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3 uid="uid://ch5a6smjgk7up"]
+
+[ext_resource type="Script" uid="uid://cfvrxyd74eqwx" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_rspv1"]
+
+[resource]
+script = ExtResource("1_rspv1")
+asset_id = "forge_asset.ore.copper.basic"
+presentation_id = "presentation.ore.copper.basic"
+source_revision = 1
+source_hash = "4e5e7cafa03285187ec7d9b082f6b7e789df982b5d5b5f6a9719dc562db6b68b"
+engine_version = "4.6.1-stable (custom_build)"
+baker_version = "forge-pipeline-v7"
+products = Array[Dictionary]([{
+"hash": "56ee862a9dcd8fbb80963ff65606833ba450b74160ab0816b184cc43edf35561",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/presentation_mesh.res",
+"type": "mesh"
+}, {
+"hash": "51a49e97afa394a87067567e80fd92e36ba53180e25fa211f932e322079cd9dd",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/top.png",
+"type": "surface"
+}, {
+"hash": "51a49e97afa394a87067567e80fd92e36ba53180e25fa211f932e322079cd9dd",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/bottom.png",
+"type": "surface"
+}, {
+"hash": "51a49e97afa394a87067567e80fd92e36ba53180e25fa211f932e322079cd9dd",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/north.png",
+"type": "surface"
+}, {
+"hash": "51a49e97afa394a87067567e80fd92e36ba53180e25fa211f932e322079cd9dd",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/south.png",
+"type": "surface"
+}, {
+"hash": "51a49e97afa394a87067567e80fd92e36ba53180e25fa211f932e322079cd9dd",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/east.png",
+"type": "surface"
+}, {
+"hash": "51a49e97afa394a87067567e80fd92e36ba53180e25fa211f932e322079cd9dd",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/west.png",
+"type": "surface"
+}, {
+"hash": "a04441f1d47fc8d9046d6198c5322ee7c9e4be60702ac527a37c71a515f325e3",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/icon.png",
+"type": "icon"
+}, {
+"hash": "6e031db45dd0579beafbe19ea80602582809dee0b00cd910ca2118a5fefd1da2",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/collision.tres",
+"type": "collision"
+}, {
+"hash": "b80d803faf2fcca2d1863ae01f61c5f6f89cd4cd155c0096d74be9935e2e3326",
+"path": "res://generated/forge/products/presentation_ore_copper_basic/ac808eee56cb41fb/presentation.tscn",
+"type": "scene"
+}, {
+"hash": "44de6ec62985ecfd75b36af3c9661904b184b0e09159c98e8fae69e374d3d256",
+"path": "res://generated/forge/packages/presentation_ore_copper_basic.tres",
+"type": "runtime_package"
+}])
+diagnostics_summary = {
+"critical": 0,
+"error": 0,
+"info": 0,
+"warning": 0
+}
+approved_status = "approved"

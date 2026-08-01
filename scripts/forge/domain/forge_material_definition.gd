@@ -17,6 +17,12 @@ extends Resource
 @export var overlay_compatibility: PackedStringArray = []
 @export var animation_parameters: PackedStringArray = []
 @export var settings: Dictionary = {}
+@export var applicable_domains: PackedStringArray = []
+@export var semantic_role_ids: PackedStringArray = []
+@export var swatch_hexes: PackedStringArray = []
+@export var source_status := "draft"
+@export var lifecycle := "draft"
+@export var contract_version := ""
 
 
 func to_record() -> Dictionary:
@@ -35,4 +41,14 @@ func to_record() -> Dictionary:
 		"overlay_compatibility": Array(overlay_compatibility),
 		"animation_parameters": Array(animation_parameters),
 		"settings": settings.duplicate(true),
+		"applicable_domains": Array(applicable_domains),
+		"semantic_role_ids": Array(semantic_role_ids),
+		"swatch_hexes": Array(swatch_hexes),
+		"source_status": source_status,
+		"lifecycle": lifecycle,
+		"contract_version": contract_version,
 	}
+
+
+func canonical_hash() -> String:
+	return ForgeStableRecord.hash_record(to_record())

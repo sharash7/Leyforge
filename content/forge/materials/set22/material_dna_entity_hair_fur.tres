@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ForgeMaterialDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_material_definition.gd" id="1_y7ett"]
+
+[resource]
+script = ExtResource("1_y7ett")
+material_id = "material.dna.entity.hair_fur"
+display_name = "Hair and Fur"
+family = "organic"
+roughness_default = 0.78
+overlay_compatibility = PackedStringArray("damage", "wet", "corruption", "warning")
+animation_parameters = PackedStringArray()
+applicable_domains = PackedStringArray("entity")
+semantic_role_ids = PackedStringArray()
+swatch_hexes = PackedStringArray("#2c211b", "#765039", "#d8c29f")
+source_status = "validated_runtime_data"
+lifecycle = "foundation_validated"
+contract_version = "22-stage1-v1"

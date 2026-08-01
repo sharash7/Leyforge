@@ -102,6 +102,55 @@ func resize_volume(new_dimensions: Vector3i) -> bool:
 	return true
 
 
+func slice_dimensions(axis: int) -> Vector2i:
+	match axis:
+		0:
+			return Vector2i(dimensions.z, dimensions.y)
+		1:
+			return Vector2i(dimensions.x, dimensions.z)
+	return Vector2i(dimensions.x, dimensions.y)
+
+
+func slice_cells_copy(axis: int, slice_index: int) -> PackedByteArray:
+	if axis < 0 or axis > 2 or slice_index < 0 \
+			or slice_index >= [dimensions.x, dimensions.y, dimensions.z][axis]:
+		return PackedByteArray()
+	ensure_storage()
+	var plane := slice_dimensions(axis)
+	var result := PackedByteArray()
+	result.resize(plane.x * plane.y)
+	for y in plane.y:
+		for x in plane.x:
+			var position := position_for_slice(axis, slice_index, x, y)
+			result[y * plane.x + x] = cells[index_of(position)]
+	return result
+
+
+func set_slice_cells(
+		axis: int, slice_index: int, values: PackedByteArray) -> bool:
+	var plane := slice_dimensions(axis)
+	if axis < 0 or axis > 2 or slice_index < 0 \
+			or slice_index >= [dimensions.x, dimensions.y, dimensions.z][axis] \
+			or values.size() != plane.x * plane.y:
+		return false
+	ensure_storage()
+	for y in plane.y:
+		for x in plane.x:
+			var position := position_for_slice(axis, slice_index, x, y)
+			cells[index_of(position)] = values[y * plane.x + x]
+	return true
+
+
+func position_for_slice(
+		axis: int, slice_index: int, x: int, y: int) -> Vector3i:
+	match axis:
+		0:
+			return Vector3i(slice_index, y, x)
+		1:
+			return Vector3i(x, slice_index, y)
+	return Vector3i(x, y, slice_index)
+
+
 func to_record() -> Dictionary:
 	ensure_storage()
 	return {

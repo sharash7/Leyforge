@@ -3,6 +3,7 @@ extends Control
 
 signal pixel_edit_requested(face: String, x: int, y: int, value: int)
 signal pixel_batch_edit_requested(face: String, cells: Array, value: int)
+signal pixel_values_edit_requested(face: String, values: Dictionary)
 
 const TOOL_PENCIL := "pencil"
 const TOOL_SQUARE := "square"
@@ -17,9 +18,12 @@ var active_palette_index := 0
 var show_tiling := false
 var tool_mode := TOOL_PENCIL
 var brush_size := 1
+var randomizer_enabled := false
+var random_palette_indices := PackedInt32Array()
 
 var _stroke_button := 0
 var _last_stroke_cell := Vector2i(-1, -1)
+var _stroke_sequence := 0
 
 
 func _ready() -> void:
@@ -150,6 +154,22 @@ func _apply_tool_between(from_cell: Vector2i, to_cell: Vector2i) -> void:
 	for cell in unique:
 		cells.append(cell)
 	if cells.is_empty():
+		return
+	if _stroke_button == MOUSE_BUTTON_LEFT \
+			and randomizer_enabled and not random_palette_indices.is_empty():
+		_stroke_sequence += 1
+		var values := {}
+		for cell in cells:
+			var key := "%s|%d|%d|%d" % [
+				active_face, cell.x, cell.y, _stroke_sequence]
+			var random_index := posmod(
+				hash(key), random_palette_indices.size())
+			var random_value := int(random_palette_indices[random_index])
+			values[cell] = random_value
+			pixel_edit_requested.emit(
+				active_face, cell.x, cell.y, random_value)
+		pixel_values_edit_requested.emit(active_face, values)
+		accept_event()
 		return
 	var value := active_palette_index \
 		if _stroke_button == MOUSE_BUTTON_LEFT else 0

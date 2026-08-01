@@ -1,7 +1,7 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://dvcvnh50k20yk"]
 
-[ext_resource type="Script" path="res://scripts/forge/runtime/forge_state_adapter.gd" id="1_u23pt"]
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="2_0apja"]
+[ext_resource type="Script" uid="uid://bn7vkq7ll0om3" path="res://scripts/forge/runtime/forge_state_adapter.gd" id="1_u23pt"]
+[ext_resource type="Script" uid="uid://bo46nynsvn1r6" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="2_0apja"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbymf"]
 resource_name = "ForgePaletteVertexMaterial"
@@ -52,22 +52,22 @@ bindings = Array[Dictionary]([{
 }])
 layer_order = PackedStringArray("base", "variant", "environment", "activity", "condition", "critical")
 
-[node name="ForgePresentation" type="Node3D" unique_id=24365092]
+[node name="ForgePresentation" type="Node3D" unique_id=1549494023]
 
-[node name="StaticGeometry" type="MeshInstance3D" parent="." unique_id=1358331448]
+[node name="StaticGeometry" type="MeshInstance3D" parent="." unique_id=344514197]
 mesh = SubResource("ArrayMesh_mnm7p")
 
-[node name="Input" type="Marker3D" parent="." unique_id=2024340124]
+[node name="Input" type="Marker3D" parent="." unique_id=636714720]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.5)
 metadata/forge_socket_key = "input"
 metadata/forge_socket_type = "item_input"
 
-[node name="Output" type="Marker3D" parent="." unique_id=316865858]
+[node name="Output" type="Marker3D" parent="." unique_id=442946113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.3, 0.5)
 metadata/forge_socket_key = "output"
 metadata/forge_socket_type = "item_output"
 
-[node name="BlockedMarker" type="Label3D" parent="." unique_id=837304232]
+[node name="BlockedMarker" type="Label3D" parent="." unique_id=464840155]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.08, 0)
 visible = false
 billboard = 1
@@ -77,6 +77,6 @@ text = "BLOCKED"
 font_size = 42
 outline_size = 8
 
-[node name="StateAdapter" type="Node" parent="." unique_id=146304809]
+[node name="StateAdapter" type="Node" parent="." unique_id=1205208724]
 script = ExtResource("1_u23pt")
 state_binding = SubResource("Resource_kfury")

@@ -47,7 +47,7 @@ static func bake(
 static func _base_color(
 		asset: ForgeAssetDefinition,
 		palette: ForgePaletteDefinition) -> Color:
-	if asset.surface_set is ForgeSurfaceSet:
+	if asset.uses_surface_authoring():
 		return ForgeSurfaceBaker.average_face_color(
 			asset.surface_set, "north", palette)
 	if palette != null:

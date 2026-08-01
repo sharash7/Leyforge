@@ -20,7 +20,7 @@ func ensure_default_entries() -> void:
 			"metallic": 0.0,
 			"emission": Color.BLACK,
 			"opacity": 1.0,
-			"material_dna_id": "material.generic.stone",
+			"material_dna_id": "material.mvp.stone",
 		},
 		{
 			"entry_key": "shadow",
@@ -29,7 +29,7 @@ func ensure_default_entries() -> void:
 			"metallic": 0.0,
 			"emission": Color.BLACK,
 			"opacity": 1.0,
-			"material_dna_id": "material.generic.stone",
+			"material_dna_id": "material.mvp.stone",
 		},
 	]
 
@@ -45,6 +45,32 @@ func material_entry(index: int) -> Dictionary:
 	ensure_default_entries()
 	return entries[index].duplicate(true) \
 		if index >= 0 and index < entries.size() else {}
+
+
+func index_for_role(role_key: String) -> int:
+	ensure_default_entries()
+	for index in entries.size():
+		if str(entries[index].get("entry_key", "")) == role_key:
+			return index
+	return -1
+
+
+func merge_entry_snapshots(
+		snapshots: Array[Dictionary], replace_existing := true) -> Dictionary:
+	ensure_default_entries()
+	var indices := {}
+	for snapshot in snapshots:
+		var role_key := str(snapshot.get("entry_key", "")).strip_edges()
+		if role_key.is_empty():
+			continue
+		var index := index_for_role(role_key)
+		if index < 0:
+			entries.append(snapshot.duplicate(true))
+			index = entries.size() - 1
+		elif replace_existing:
+			entries[index] = snapshot.duplicate(true)
+		indices[role_key] = index
+	return indices
 
 
 func to_record() -> Dictionary:

@@ -4,6 +4,9 @@ extends Resource
 ## Canonical editable source for one Forge presentation.
 
 const CURRENT_SCHEMA_VERSION := 1
+const AUTHORING_SURFACE := "surface"
+const AUTHORING_VOXEL := "voxel"
+const AUTHORING_COMPOUND := "compound"
 
 @export var schema_version := CURRENT_SCHEMA_VERSION
 @export var source_revision := 1
@@ -70,6 +73,33 @@ func canonical_hash() -> String:
 
 func bump_revision() -> void:
 	source_revision += 1
+
+
+func active_authoring_mode() -> String:
+	if asset_kind == "compound_machine" or authoring_profile.begins_with(
+			"compound."):
+		return AUTHORING_COMPOUND
+	if authoring_profile.begins_with("voxel."):
+		return AUTHORING_VOXEL
+	if authoring_profile.begins_with("surface."):
+		return AUTHORING_SURFACE
+	if voxel_volume is ForgeVoxelVolume:
+		return AUTHORING_VOXEL
+	if surface_set is ForgeSurfaceSet:
+		return AUTHORING_SURFACE
+	if not parts.is_empty():
+		return AUTHORING_COMPOUND
+	return AUTHORING_SURFACE
+
+
+func uses_surface_authoring() -> bool:
+	return active_authoring_mode() == AUTHORING_SURFACE \
+		and surface_set is ForgeSurfaceSet
+
+
+func uses_voxel_authoring() -> bool:
+	return active_authoring_mode() == AUTHORING_VOXEL \
+		and voxel_volume is ForgeVoxelVolume
 
 
 static func _resource_record(value: Resource) -> Variant:

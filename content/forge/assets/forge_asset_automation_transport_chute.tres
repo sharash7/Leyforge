@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="ForgeAssetDefinition" format=4]
+[gd_resource type="Resource" script_class="ForgeAssetDefinition" format=4 uid="uid://u51qyy54jp2u"]
 
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_collision_profile.gd" id="1_i67oa"]
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_footprint_profile.gd" id="2_4gnb8"]
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_palette_definition.gd" id="3_sjqpc"]
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_asset_definition.gd" id="4_mtvr1"]
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_socket_definition.gd" id="5_r0btj"]
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="6_eekxa"]
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_variant_set.gd" id="7_korwv"]
-[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="8_etrs0"]
+[ext_resource type="Script" uid="uid://lloxt7shrpq1" path="res://scripts/forge/domain/forge_collision_profile.gd" id="1_i67oa"]
+[ext_resource type="Script" uid="uid://fegdpovfkf25" path="res://scripts/forge/domain/forge_footprint_profile.gd" id="2_4gnb8"]
+[ext_resource type="Script" uid="uid://eyod054mrvgy" path="res://scripts/forge/domain/forge_palette_definition.gd" id="3_sjqpc"]
+[ext_resource type="Script" uid="uid://b6gdf7dvv2k0t" path="res://scripts/forge/domain/forge_asset_definition.gd" id="4_mtvr1"]
+[ext_resource type="Script" uid="uid://dtnjwheoxcoub" path="res://scripts/forge/domain/forge_socket_definition.gd" id="5_r0btj"]
+[ext_resource type="Script" uid="uid://bo46nynsvn1r6" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="6_eekxa"]
+[ext_resource type="Script" uid="uid://c6qcrpbuv0c7w" path="res://scripts/forge/domain/forge_variant_set.gd" id="7_korwv"]
+[ext_resource type="Script" uid="uid://cct4box72qbr0" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="8_etrs0"]
 
 [sub_resource type="Resource" id="Resource_qg17g"]
 script = ExtResource("1_i67oa")

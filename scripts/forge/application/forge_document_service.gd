@@ -11,7 +11,9 @@ var source_paths: Dictionary = {}
 var dirty_documents: Dictionary = {}
 
 
-func create_from_registry(record: Dictionary) -> ForgeAssetDefinition:
+func create_from_registry(
+		record: Dictionary, authoring_mode_override := "") \
+		-> ForgeAssetDefinition:
 	var gameplay_id := str(record.get("gameplay_id", ""))
 	var asset := ForgeAssetDefinition.new()
 	asset.forge_asset_id = ForgeId.source_id_for(gameplay_id)
@@ -31,12 +33,16 @@ func create_from_registry(record: Dictionary) -> ForgeAssetDefinition:
 	palette.display_name = "%s Palette" % asset.display_name
 	palette.ensure_default_entries()
 	asset.palettes = [palette]
-	var authoring_mode := str(record.get("authoring_mode", "surface"))
+	var authoring_mode := authoring_mode_override \
+		if authoring_mode_override in ["surface", "voxel", "compound"] \
+		else str(record.get("authoring_mode", "surface"))
 	if authoring_mode == "surface":
 		var surface := ForgeSurfaceSet.new()
 		surface.material_dna_id = "material.%s" % gameplay_id
 		surface.ensure_faces()
 		asset.surface_set = surface
+		asset.authoring_profile = "surface.block.standard"
+		asset.asset_kind = "standard_block_surface"
 	elif authoring_mode == "compound":
 		var body_volume := ForgeVoxelVolume.new()
 		body_volume.dimensions = Vector3i(32, 32, 32)
@@ -45,17 +51,54 @@ func create_from_registry(record: Dictionary) -> ForgeAssetDefinition:
 		body_part.part_key = "body"
 		body_part.source_volume = body_volume
 		asset.parts = [body_part]
+		asset.authoring_profile = "voxel.standard.machine_2x1"
+		asset.asset_kind = "compound_machine"
 	else:
 		var volume := ForgeVoxelVolume.new()
 		volume.dimensions = Vector3i(32, 32, 32)
 		volume.ensure_storage()
 		asset.voxel_volume = volume
+		var item_like := _is_item_asset(asset, record)
+		asset.authoring_profile = (
+			_authoring_profile(record) if authoring_mode_override.is_empty()
+			else (
+				"voxel.standard.item_long" if item_like
+				else "voxel.standard.block"))
+		asset.asset_kind = "item_model" if item_like else "unique_voxel_block"
 	asset.collision_profile = _default_collision(asset)
 	asset.footprint_profile = _default_footprint(asset)
 	open_documents[asset.forge_asset_id] = asset
 	source_paths[asset.forge_asset_id] = default_path(asset)
 	dirty_documents[asset.forge_asset_id] = true
 	return asset
+
+
+func ensure_authoring_mode(
+		asset: ForgeAssetDefinition, mode: String,
+		record: Dictionary = {}) -> bool:
+	if asset == null or mode not in ["surface", "voxel"]:
+		return false
+	var item_like := _is_item_asset(asset, record)
+	if mode == "surface":
+		if not asset.surface_set is ForgeSurfaceSet:
+			var surface := ForgeSurfaceSet.new()
+			surface.material_dna_id = "material.%s" % _gameplay_id(asset, record)
+			surface.ensure_faces()
+			asset.surface_set = surface
+		asset.authoring_profile = "surface.block.standard"
+		asset.asset_kind = "standard_block_surface"
+	else:
+		if not asset.voxel_volume is ForgeVoxelVolume:
+			var volume := ForgeVoxelVolume.new()
+			volume.dimensions = Vector3i(32, 32, 32)
+			volume.ensure_storage()
+			asset.voxel_volume = volume
+		asset.authoring_profile = (
+			"voxel.standard.item_long" if item_like
+			else "voxel.standard.block")
+		asset.asset_kind = "item_model" if item_like else "unique_voxel_block"
+	mark_dirty(asset.forge_asset_id)
+	return true
 
 
 func open_path(path: String) -> ForgeAssetDefinition:
@@ -182,6 +225,27 @@ func _is_tall_door(asset: ForgeAssetDefinition) -> bool:
 		if ".door." in gameplay_id and "trapdoor" not in gameplay_id:
 			return true
 	return false
+
+
+func _is_item_asset(
+		asset: ForgeAssetDefinition, record: Dictionary) -> bool:
+	if str(record.get("kind", "")) == "item" \
+			or asset.asset_kind == "item_model":
+		return true
+	for gameplay_id in asset.gameplay_links:
+		if str(gameplay_id).begins_with("item."):
+			return true
+	return false
+
+
+func _gameplay_id(
+		asset: ForgeAssetDefinition, record: Dictionary) -> String:
+	var from_record := str(record.get("gameplay_id", ""))
+	if not from_record.is_empty():
+		return from_record
+	if not asset.gameplay_links.is_empty():
+		return str(asset.gameplay_links[0])
+	return asset.forge_asset_id.trim_prefix("forge_asset.")
 
 
 func _remove_if_present(path: String) -> void:
