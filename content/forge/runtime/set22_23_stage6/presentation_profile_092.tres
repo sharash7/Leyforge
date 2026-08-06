@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ForgePresentationProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_profile.gd" id="1_e6t1r"]
+
+[resource]
+script = ExtResource("1_e6t1r")
+allowed_contract_ids = PackedStringArray("event.block.mining_impact")
+required_context_fields = PackedStringArray("position", "target_material", "intensity")
+component_ids = {
+"audio": "sound.event.forest_hamlet.catalogue_092.stage6",
+"vfx": "vfx.effect.forest_hamlet.catalogue_092.stage6"
+}
+spatial_role_ids = PackedStringArray("runtime_anchor.block.mining_impact")
+channels = PackedStringArray("temporary_event")
+budget_profile_id = "budget.profile.presentation.foundation"
+accessibility_profile_id = "access.profile.presentation.foundation"
+priority = 142
+schema_id = "leyforge.forge.presentation-profile"
+stable_id = "presentation.profile.forest_hamlet.catalogue_092.stage6"
+display_name = "Forest Hamlet Planned Presentation Profile 092"
+asset_class = "presentation_profile"
+source_status = "planned_new_work"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("vfx.effect.forest_hamlet.catalogue_092.stage6", "sound.event.forest_hamlet.catalogue_092.stage6", "budget.profile.presentation.foundation", "access.profile.presentation.foundation")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray("legacy.runtime.profile.forest_hamlet_092")
+provenance = {
+"document_set": "23",
+"phase": "production_library",
+"status": "planned_new_work"
+}
+review_history = Array[Dictionary]([{
+"review": "human_evidence",
+"status": "open"
+}])
+extension_fields = {
+"accessible_approved": false,
+"forge_baked": false,
+"legacy_active": true,
+"legally_cleared": false,
+"migration_classification": "new_work",
+"production_ready": false,
+"replacement_strategy": "defer",
+"shippable": false,
+"visually_complete": false
+}

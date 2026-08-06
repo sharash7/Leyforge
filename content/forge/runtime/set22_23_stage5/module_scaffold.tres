@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="1_20yvt"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="2_3l1kn"]
+
+[sub_resource type="Resource" id="Resource_cboax"]
+script = ExtResource("1_20yvt")
+element_id = "scaffold.primary"
+element_kind = "block_group"
+material_role_id = "material_role.frame_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+size = Vector3i(2, 3, 1)
+
+[resource]
+script = ExtResource("2_3l1kn")
+module_id = "blueprint.module.shared.scaffold.stage5"
+display_name = "Construction Scaffold"
+module_kind = "scaffold"
+elements = Array[ExtResource("1_20yvt")]([SubResource("Resource_cboax")])
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()

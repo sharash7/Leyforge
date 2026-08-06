@@ -7,7 +7,7 @@ var _main_screen: Control
 
 func _enter_tree() -> void:
 	_workspace = ForgeWorkspace.new()
-	_workspace.name = "VoxelAssetForge"
+	_workspace.name = "LeyforgeForge"
 	_workspace.host_mode = "editor"
 	_workspace.hide()
 	_main_screen = get_editor_interface().get_editor_main_screen()
@@ -34,7 +34,7 @@ func _make_visible(visible: bool) -> void:
 		_workspace.visible = visible
 		if visible:
 			_sync_workspace_rect()
-			call_deferred("_sync_workspace_rect")
+			call_deferred("_refresh_visible_workspace")
 
 
 func _sync_workspace_rect() -> void:
@@ -45,10 +45,17 @@ func _sync_workspace_rect() -> void:
 	# full-rect anchors and zero offsets keep the shared workspace filling the
 	# editor when play mode or dock changes resize the available centre panel.
 	ForgeEditorHostLayout.fill(_workspace)
+	_workspace.refresh_host_layout()
+
+
+func _refresh_visible_workspace() -> void:
+	if not is_instance_valid(_workspace) or not _workspace.visible:
+		return
+	_sync_workspace_rect()
 
 
 func _get_plugin_name() -> String:
-	return "Voxel Asset Forge"
+	return "Leyforge Forge"
 
 
 func _get_plugin_icon() -> Texture2D:

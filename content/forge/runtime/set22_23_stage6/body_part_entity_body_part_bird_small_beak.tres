@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ForgeBodyPartDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_w54gs"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_t58px"]
+
+[sub_resource type="Resource" id="Resource_mjnh0"]
+script = ExtResource("2_t58px")
+dimensions = Vector3i(3, 2, 4)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+helper_flags = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[resource]
+script = ExtResource("1_w54gs")
+body_part_id = "entity.body_part.bird_small.beak"
+display_name = "Beak"
+parent_part_id = "entity.body_part.bird_small.head"
+anatomy_role_id = "anatomy.role.avian.beak"
+voxel_source = SubResource("Resource_mjnh0")
+material_dna_id = "material.dna.entity.hide_leather"
+local_position_meters = Vector3(0, 0, -0.15)
+rig_role = "anatomy.role.avian.beak"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray()
+visibility_rules = PackedStringArray()
+planning_status = "golden_source_candidate"
+lifecycle = "runtime_candidate"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.hide_leather")

@@ -1,0 +1,18 @@
+{
+  "baseline_hash": "823f65cf311acc23badefd49c102e4e2002fb6f36bbfbd52628b8d5acd160d52",
+  "contract_version": "23-foundation-v1",
+  "engine_upgrade_status": "not_requested",
+  "export_package_status": "not_started",
+  "main_scene_change": "forbidden_for_milestone",
+  "project_godot_feature": "4.6",
+  "project_renderer": "Forward Plus",
+  "schema": "leyforge.verification.set23.toolchain-baseline",
+  "source_runtime_split": {
+    "canonical_source": "res://content/forge/presentation/set23",
+    "generated_product_policy": "replaceable_output",
+    "generated_products": "res://generated/forge"
+  },
+  "verification_renderer": "gl_compatibility",
+  "verification_runner": "res://.local/Godot_v4.8-dev-a9c94-shutdown-fixed/godot.windows.editor.x86_64.console.exe",
+  "verification_runner_reason": "repository-approved shutdown-fixed runner"
+}

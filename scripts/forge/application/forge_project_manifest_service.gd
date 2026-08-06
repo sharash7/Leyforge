@@ -5,6 +5,7 @@ const DEFAULT_MANIFEST := "res://content/forge/forge_project_manifest.tres"
 
 var manifest: ForgeProjectManifest
 var schema_registry := ForgeSchemaRegistry.new()
+var migration_service := ForgeMigrationService.new()
 var diagnostics: Array[Dictionary] = []
 
 
@@ -20,12 +21,14 @@ func load_and_validate(path := DEFAULT_MANIFEST) -> Dictionary:
 		})
 		return {"ok": false, "diagnostics": diagnostics.duplicate(true)}
 	manifest = loaded
-	if manifest.schema_version != 1:
+	var migration_report := migration_service.migrate_project_manifest(manifest)
+	if not bool(migration_report.get("ok", false)):
 		diagnostics.append({
 			"code": "EFB-SCHEMA-001",
 			"severity": "error",
 			"target_id": manifest.project_id,
-			"message": "Forge project manifest schema is unsupported.",
+			"message": str(migration_report.get(
+				"error", "Forge project manifest schema is unsupported.")),
 		})
 	var schema_report := schema_registry.load_and_validate(manifest)
 	diagnostics.append_array(schema_report.get("diagnostics", []))
@@ -45,10 +48,19 @@ func load_and_validate(path := DEFAULT_MANIFEST) -> Dictionary:
 				"target_id": inventory_path,
 				"message": "Manifest migration inventory dependency is missing.",
 			})
+	for source_root in manifest.source_roots:
+		if DirAccess.open(source_root) == null:
+			diagnostics.append({
+				"code": "EFB-DEP-001",
+				"severity": "error",
+				"target_id": source_root,
+				"message": "Manifest source root dependency is missing.",
+			})
 	return {
 		"ok": diagnostics.is_empty(),
 		"manifest_id": manifest.project_id,
 		"manifest_hash": manifest.canonical_hash(),
+		"migration_steps": migration_report.get("steps", []),
 		"diagnostics": diagnostics.duplicate(true),
 	}
 

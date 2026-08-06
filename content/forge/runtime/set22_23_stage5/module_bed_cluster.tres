@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="1_bi2rp"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="2_e7f68"]
+
+[sub_resource type="Resource" id="Resource_fpwap"]
+script = ExtResource("1_bi2rp")
+element_id = "bed_cluster.primary"
+element_kind = "asset"
+material_role_id = "material_role.functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+size = Vector3i(2, 1, 1)
+
+[resource]
+script = ExtResource("2_e7f68")
+module_id = "blueprint.module.shared.bed_cluster.stage5"
+display_name = "Bed Household Cluster"
+module_kind = "bed_cluster"
+elements = Array[ExtResource("1_bi2rp")]([SubResource("Resource_fpwap")])
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()

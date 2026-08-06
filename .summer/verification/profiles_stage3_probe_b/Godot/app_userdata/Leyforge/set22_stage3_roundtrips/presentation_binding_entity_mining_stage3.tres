@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ForgePresentationBinding" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_binding.gd" id="1_1ulan"]
+
+[resource]
+script = ExtResource("1_1ulan")
+owner_id = "entity.definition.template.humanoid_standard"
+event_contract_id = "event.block.mining_impact"
+profile_id = "presentation.profile.contact.mining.stone.foundation"
+spatial_role_id = "runtime_anchor.block.mining_impact"
+conditions = {
+"target_material": "stone"
+}
+parameter_mappings = Array[Dictionary]([{
+"input_max": 1.0,
+"input_min": 0.0,
+"output_max": 1.0,
+"output_min": 0.0,
+"policy": "clamp",
+"quantisation_steps": 256,
+"source": "intensity",
+"target": "intensity"
+}])
+priority = 100
+schema_id = "leyforge.forge.presentation-binding"
+stable_id = "presentation.binding.entity.mining.stage3"
+display_name = "Entity Mining Binding"
+asset_class = "presentation_binding"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_source"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("event.block.mining_impact", "presentation.profile.contact.mining.stone.foundation", "runtime_anchor.block.mining_impact")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"

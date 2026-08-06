@@ -1,0 +1,270 @@
+[gd_resource type="Resource" script_class="ForgeRigProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_joint_definition.gd" id="1_dyimt"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_role_binding.gd" id="2_kijd6"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_profile.gd" id="3_sh803"]
+
+[sub_resource type="Resource" id="Resource_0g1af"]
+script = ExtResource("1_dyimt")
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_head"
+parent_role_id = "anatomy.role.quadruped.torso"
+child_role_id = "anatomy.role.quadruped.head"
+joint_type = "ball"
+rest_position_meters = Vector3(0.046875, 0.015625, -0.25)
+minimum_angles_degrees = Vector3(-25, -45, -20)
+maximum_angles_degrees = Vector3(25, 45, 20)
+procedural_hook = "look_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_t4543"]
+script = ExtResource("1_dyimt")
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_snout"
+parent_role_id = "anatomy.role.quadruped.head"
+child_role_id = "anatomy.role.quadruped.snout"
+rest_position_meters = Vector3(0.046875, -0.015625, -0.15625)
+minimum_angles_degrees = Vector3(-12, -12, -12)
+maximum_angles_degrees = Vector3(12, 12, 12)
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_143rf"]
+script = ExtResource("1_dyimt")
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_ear_left"
+parent_role_id = "anatomy.role.quadruped.head"
+child_role_id = "anatomy.role.quadruped.ear.left"
+joint_type = "ball"
+rest_position_meters = Vector3(-0.03125, 0.25, 0.09375)
+minimum_angles_degrees = Vector3(-12, -12, -12)
+maximum_angles_degrees = Vector3(12, 12, 12)
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_3ngat"]
+script = ExtResource("1_dyimt")
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_ear_right"
+parent_role_id = "anatomy.role.quadruped.head"
+child_role_id = "anatomy.role.quadruped.ear.right"
+joint_type = "ball"
+rest_position_meters = Vector3(0.21875, 0.25, 0.09375)
+minimum_angles_degrees = Vector3(-12, -12, -12)
+maximum_angles_degrees = Vector3(12, 12, 12)
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_340tr"]
+script = ExtResource("1_dyimt")
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_leg_front_left"
+parent_role_id = "anatomy.role.quadruped.torso"
+child_role_id = "anatomy.role.quadruped.leg.front_left"
+joint_type = "hinge"
+rest_position_meters = Vector3(-0.015625, -0.28125, -0.1875)
+minimum_angles_degrees = Vector3(-45, -15, -20)
+maximum_angles_degrees = Vector3(45, 15, 20)
+procedural_hook = "contact_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_e8fvu"]
+script = ExtResource("1_dyimt")
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_leg_front_right"
+parent_role_id = "anatomy.role.quadruped.torso"
+child_role_id = "anatomy.role.quadruped.leg.front_right"
+joint_type = "hinge"
+rest_position_meters = Vector3(0.296875, -0.28125, -0.1875)
+minimum_angles_degrees = Vector3(-45, -15, -20)
+maximum_angles_degrees = Vector3(45, 15, 20)
+procedural_hook = "contact_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_v1wv2"]
+script = ExtResource("1_dyimt")
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_leg_rear_left"
+parent_role_id = "anatomy.role.quadruped.torso"
+child_role_id = "anatomy.role.quadruped.leg.rear_left"
+joint_type = "hinge"
+rest_position_meters = Vector3(-0.015625, -0.28125, 0.5)
+minimum_angles_degrees = Vector3(-45, -15, -20)
+maximum_angles_degrees = Vector3(45, 15, 20)
+procedural_hook = "contact_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_dmvlf"]
+script = ExtResource("1_dyimt")
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_leg_rear_right"
+parent_role_id = "anatomy.role.quadruped.torso"
+child_role_id = "anatomy.role.quadruped.leg.rear_right"
+joint_type = "hinge"
+rest_position_meters = Vector3(0.296875, -0.28125, 0.5)
+minimum_angles_degrees = Vector3(-45, -15, -20)
+maximum_angles_degrees = Vector3(45, 15, 20)
+procedural_hook = "contact_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_p1gg8"]
+script = ExtResource("1_dyimt")
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_tail"
+parent_role_id = "anatomy.role.quadruped.torso"
+child_role_id = "anatomy.role.quadruped.tail"
+joint_type = "ball"
+rest_position_meters = Vector3(0.140625, 0.1875, 0.6875)
+minimum_angles_degrees = Vector3(-30, -35, -35)
+maximum_angles_degrees = Vector3(30, 35, 35)
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_nqre3"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.torso"
+body_part_id = "entity.body_part.template.pig_quadruped.torso"
+
+[sub_resource type="Resource" id="Resource_vcyjl"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.head"
+body_part_id = "entity.body_part.template.pig_quadruped.head"
+parent_role_id = "anatomy.role.quadruped.torso"
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_head"
+lod_group = "head"
+
+[sub_resource type="Resource" id="Resource_xitxc"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.snout"
+body_part_id = "entity.body_part.template.pig_quadruped.snout"
+parent_role_id = "anatomy.role.quadruped.head"
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_snout"
+lod_group = "head"
+
+[sub_resource type="Resource" id="Resource_v35bd"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.ear.left"
+body_part_id = "entity.body_part.template.pig_quadruped.ear_left"
+parent_role_id = "anatomy.role.quadruped.head"
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_ear_left"
+mirror_role_id = "anatomy.role.quadruped.ear.right"
+lod_group = "secondary"
+
+[sub_resource type="Resource" id="Resource_iw81n"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.ear.right"
+body_part_id = "entity.body_part.template.pig_quadruped.ear_right"
+parent_role_id = "anatomy.role.quadruped.head"
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_ear_right"
+mirror_role_id = "anatomy.role.quadruped.ear.left"
+lod_group = "secondary"
+
+[sub_resource type="Resource" id="Resource_ktyfe"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.leg.front_left"
+body_part_id = "entity.body_part.template.pig_quadruped.leg_front_left"
+parent_role_id = "anatomy.role.quadruped.torso"
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_leg_front_left"
+mirror_role_id = "anatomy.role.quadruped.leg.front_right"
+lod_group = "limb"
+
+[sub_resource type="Resource" id="Resource_cpx8f"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.leg.front_right"
+body_part_id = "entity.body_part.template.pig_quadruped.leg_front_right"
+parent_role_id = "anatomy.role.quadruped.torso"
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_leg_front_right"
+mirror_role_id = "anatomy.role.quadruped.leg.front_left"
+lod_group = "limb"
+
+[sub_resource type="Resource" id="Resource_d2kd0"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.leg.rear_left"
+body_part_id = "entity.body_part.template.pig_quadruped.leg_rear_left"
+parent_role_id = "anatomy.role.quadruped.torso"
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_leg_rear_left"
+mirror_role_id = "anatomy.role.quadruped.leg.rear_right"
+lod_group = "limb"
+
+[sub_resource type="Resource" id="Resource_do074"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.leg.rear_right"
+body_part_id = "entity.body_part.template.pig_quadruped.leg_rear_right"
+parent_role_id = "anatomy.role.quadruped.torso"
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_leg_rear_right"
+mirror_role_id = "anatomy.role.quadruped.leg.rear_left"
+lod_group = "limb"
+
+[sub_resource type="Resource" id="Resource_ap7s8"]
+script = ExtResource("2_kijd6")
+role_id = "anatomy.role.quadruped.tail"
+body_part_id = "entity.body_part.template.pig_quadruped.tail"
+parent_role_id = "anatomy.role.quadruped.torso"
+joint_id = "entity.rig.profile.pig_quadruped.joint.anatomy_role_quadruped_tail"
+lod_group = "secondary"
+
+[resource]
+script = ExtResource("3_sh803")
+rig_profile_id = "entity.rig.profile.pig_quadruped"
+display_name = "Golden Pig Quadruped Semantic Rigid Rig"
+entity_definition_id = "entity.definition.template.pig_quadruped"
+body_plan_id = "entity.body_plan.template.pig_quadruped"
+root_role_id = "anatomy.role.quadruped.torso"
+role_bindings = Array[ExtResource("2_kijd6")]([SubResource("Resource_nqre3"), SubResource("Resource_vcyjl"), SubResource("Resource_xitxc"), SubResource("Resource_v35bd"), SubResource("Resource_iw81n"), SubResource("Resource_ktyfe"), SubResource("Resource_cpx8f"), SubResource("Resource_d2kd0"), SubResource("Resource_do074"), SubResource("Resource_ap7s8")])
+joints = Array[ExtResource("1_dyimt")]([SubResource("Resource_0g1af"), SubResource("Resource_t4543"), SubResource("Resource_143rf"), SubResource("Resource_3ngat"), SubResource("Resource_340tr"), SubResource("Resource_e8fvu"), SubResource("Resource_v1wv2"), SubResource("Resource_dmvlf"), SubResource("Resource_p1gg8")])
+spatial_map_id = "spatial.map.entity.pig_quadruped"
+socket_reference_ids = PackedStringArray()
+rig_lod_levels = Array[Dictionary]([{
+"active_role_ids": Array[String](["anatomy.role.quadruped.torso", "anatomy.role.quadruped.head", "anatomy.role.quadruped.snout", "anatomy.role.quadruped.ear.left", "anatomy.role.quadruped.ear.right", "anatomy.role.quadruped.leg.front_left", "anatomy.role.quadruped.leg.front_right", "anatomy.role.quadruped.leg.rear_left", "anatomy.role.quadruped.leg.rear_right", "anatomy.role.quadruped.tail"]),
+"lod": 0,
+"solver_policy": "full_semantic",
+"update_divisor": 1
+}, {
+"active_role_ids": Array[String](["anatomy.role.quadruped.torso", "anatomy.role.quadruped.head", "anatomy.role.quadruped.snout", "anatomy.role.quadruped.ear.left", "anatomy.role.quadruped.ear.right", "anatomy.role.quadruped.leg.front_left", "anatomy.role.quadruped.leg.front_right", "anatomy.role.quadruped.leg.rear_left", "anatomy.role.quadruped.leg.rear_right", "anatomy.role.quadruped.tail"]),
+"lod": 1,
+"solver_policy": "reduced_contacts",
+"update_divisor": 2
+}, {
+"active_role_ids": Array[String](["anatomy.role.quadruped.torso", "anatomy.role.quadruped.head", "anatomy.role.quadruped.snout"]),
+"fallback_role_mappings": {
+"anatomy.role.quadruped.ear.left": "anatomy.role.quadruped.head",
+"anatomy.role.quadruped.ear.right": "anatomy.role.quadruped.head",
+"anatomy.role.quadruped.leg.front_left": "anatomy.role.quadruped.torso",
+"anatomy.role.quadruped.leg.front_right": "anatomy.role.quadruped.torso",
+"anatomy.role.quadruped.leg.rear_left": "anatomy.role.quadruped.torso",
+"anatomy.role.quadruped.leg.rear_right": "anatomy.role.quadruped.torso",
+"anatomy.role.quadruped.tail": "anatomy.role.quadruped.torso"
+},
+"lod": 2,
+"solver_policy": "core_rigid_parts",
+"update_divisor": 4
+}])
+motion_profiles = {
+"idle": {
+"frequency_hz": 0.45,
+"role_swings": {
+"anatomy.role.quadruped.head": {
+"amplitude_degrees": 1.5,
+"axis": "y",
+"phase": 0.0
+}
+},
+"root_bob_meters": 0.004
+},
+"walk": {
+"frequency_hz": 1.7,
+"role_swings": {
+"anatomy.role.quadruped.leg.front_left": {
+"amplitude_degrees": 20.0,
+"axis": "x",
+"phase": 3.141592653589793
+},
+"anatomy.role.quadruped.leg.front_right": {
+"amplitude_degrees": 20.0,
+"axis": "x",
+"phase": 0.0
+},
+"anatomy.role.quadruped.leg.rear_left": {
+"amplitude_degrees": 20.0,
+"axis": "x",
+"phase": 0.0
+},
+"anatomy.role.quadruped.leg.rear_right": {
+"amplitude_degrees": 20.0,
+"axis": "x",
+"phase": 3.141592653589793
+}
+},
+"root_bob_meters": 0.012
+}
+}
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.template.pig_quadruped", "entity.body_plan.template.pig_quadruped")
+aliases = PackedStringArray("entity.rig.template.pig_quadruped")

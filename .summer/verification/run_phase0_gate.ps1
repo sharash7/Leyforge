@@ -1,7 +1,6 @@
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true)]
-    [string]$GodotConsole,
+    [string]$GodotConsole = '',
 
     [string]$ProjectPath = '',
 
@@ -16,6 +15,9 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+
+. (Join-Path $PSScriptRoot 'godot_runner.ps1')
+$GodotConsole = Resolve-LeyforgeGodotConsole -GodotConsole $GodotConsole
 
 if ([string]::IsNullOrWhiteSpace($ProjectPath)) {
     $ProjectPath = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path

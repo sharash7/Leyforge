@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="ForgeCompiledVfxProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_compiled_vfx_product.gd" id="1_fbx4b"]
+
+[resource]
+script = ExtResource("1_fbx4b")
+product_id = "runtime.vfx.effect.golden.village_ambience.stage4"
+source_definition_id = "vfx.effect.golden.village_ambience.stage4"
+source_hash = "bd194dde44274f35aaab600775543cacb7c8cd384f68d02ed83daaefdb2595c1"
+dependency_hashes = {
+"vfx.form.golden.village_ambience.stage4": "76efacb1aa1b02ea51cce0f46c8912a2cf1bbba77ecf2d728b6331e3fa8a89ed",
+"vfx.graph.golden.village_ambience.stage4": "b9db555ea3f6c8af55f38ce39d227726c2daa76e788f8fd8f59418ebf4054e2c"
+}
+instructions = Array[Dictionary]([{
+"id": "spawn",
+"maximum": 12,
+"order": 0,
+"type": "bounded_spawn"
+}, {
+"id": "initialise",
+"lifetime_seconds": 6.0,
+"order": 1,
+"seeded": true,
+"type": "initialise"
+}, {
+"id": "volume",
+"maximum_cells": 32,
+"order": 2,
+"type": "bounded_volume"
+}, {
+"id": "integrate",
+"maximum_steps": 120,
+"order": 3,
+"type": "cpu_integrate"
+}, {
+"id": "output",
+"order": 4,
+"type": "voxel_multimesh_output"
+}])
+form_records = Array[Dictionary]([{
+"aliases": [],
+"asset_class": "vfx_form",
+"cell_records": Array[Dictionary]([{
+"palette_role": "material_role.foundation_primary",
+"position": [0, 0, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 0, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [0, 1, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 1, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [0, 2, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 2, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [0, 3, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 3, 0]
+}]),
+"contract_version": "23-foundation-v1",
+"dependency_ids": [],
+"display_name": "Village Ambience Voxel Form",
+"extension_fields": {},
+"fallback_ids": [],
+"family_id": "",
+"form_kind": "voxel_cluster",
+"lifecycle": "golden_source_candidate",
+"maximum_cells": 32,
+"optional_dependency_ids": [],
+"owner_pack_id": "pack.presentation.leyforge.foundation",
+"palette_role_ids": ["material_role.foundation_primary"],
+"pivot": Vector3(0, 0, 0),
+"provenance": {
+"document_set": "23",
+"legacy_replacement_status": "active_fallback",
+"manual_review": "open",
+"milestone": "4"
+},
+"review_history": Array[Dictionary]([]),
+"rights_status": "not_applicable",
+"schema": "leyforge.forge.vfx-form",
+"schema_version": 1,
+"source_status": "validated_runtime_source",
+"stable_id": "vfx.form.golden.village_ambience.stage4",
+"voxel_size_meters": 0.03125
+}])
+maximum_spawn_count = 12
+maximum_lifetime_seconds = 6.0
+maximum_instances = 12
+lifecycle_policy = "managed_loop"
+lod_tiers = Array[Dictionary]([{
+"spawn_scale": 1.0,
+"tier": "near"
+}, {
+"spawn_scale": 0.5,
+"tier": "mid"
+}, {
+"spawn_scale": 0.2,
+"tier": "far"
+}, {
+"spawn_scale": 0.0,
+"tier": "hidden",
+"virtualise": true
+}])
+budget_profile_id = "budget.profile.presentation.foundation"
+accessibility_profile_id = "access.profile.presentation.foundation"
+fallback_ids = PackedStringArray("legacy.runtime.vfx.village_ambience")
+product_hash = "5db73f66a2a4eff163e4d7d94138b56bc6004a87e28ac282fc0d59f40f3c3e41"

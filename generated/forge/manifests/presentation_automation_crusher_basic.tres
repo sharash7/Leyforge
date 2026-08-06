@@ -8,7 +8,7 @@ asset_id = "forge_asset.automation.crusher.basic"
 presentation_id = "presentation.automation.crusher.basic"
 source_revision = 1
 source_hash = "1f8a5e9044e3e7f265cbe5a92359ec05acb9b31104411f92ed2fabc6e260d09f"
-engine_version = "4.6.3-stable (official)"
+engine_version = "4.6.1-stable (custom_build)"
 baker_version = "forge-pipeline-v7"
 products = Array[Dictionary]([{
 "hash": "791b85d8072851b7abb4e0fc2fdbbdb02ae9d765f0d479585f9bc64fdcf1599b",
@@ -31,7 +31,7 @@ products = Array[Dictionary]([{
 "path": "res://generated/forge/products/presentation_automation_crusher_basic/a8d2a7919c77bae1/animations.tres",
 "type": "animation_library"
 }, {
-"hash": "aa2f67f722a9a83103b1ca4795d92347f0965c59c17c242d6815dbb231e499b1",
+"hash": "7395d64fee377ca829daa28d15928f7c2ce2687abe1dd6686822bc5a0aa8123b",
 "path": "res://generated/forge/products/presentation_automation_crusher_basic/a8d2a7919c77bae1/presentation.tscn",
 "type": "scene"
 }, {
@@ -40,7 +40,9 @@ products = Array[Dictionary]([{
 "type": "runtime_package"
 }])
 diagnostics_summary = {
+"blocker": 0,
 "critical": 0,
+"critical_release_blocker": 0,
 "error": 0,
 "info": 0,
 "warning": 0

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ForgeEntityAssemblyProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_assembly_profile.gd" id="1_xt5d2"]
+
+[resource]
+script = ExtResource("1_xt5d2")
+assembly_profile_id = "entity.assembly_profile.goblin_standard"
+display_name = "Goblin Standard Runtime Assembly"
+entity_definition_id = "entity.definition.creature.goblin_standard"
+rig_profile_id = "entity.rig.profile.goblin_standard"
+spatial_map_id = "spatial.map.entity.goblin_standard"
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.goblin_standard", "entity.rig.profile.goblin_standard", "spatial.map.entity.goblin_standard")
+aliases = PackedStringArray("entity.assembly_profile.template.goblin_standard")
+legacy_fallback = "legacy.procedural_visual.goblin"

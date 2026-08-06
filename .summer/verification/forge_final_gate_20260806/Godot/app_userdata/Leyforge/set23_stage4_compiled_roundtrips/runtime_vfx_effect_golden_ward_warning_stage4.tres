@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="ForgeCompiledVfxProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_compiled_vfx_product.gd" id="1_qs382"]
+
+[resource]
+script = ExtResource("1_qs382")
+product_id = "runtime.vfx.effect.golden.ward_warning.stage4"
+source_definition_id = "vfx.effect.golden.ward_warning.stage4"
+source_hash = "2e3357d39c5fb00ee0d213d006e183a833a9e8a7db00782d6b33c3c2f7f2ea15"
+dependency_hashes = {
+"vfx.form.golden.ward_warning.stage4": "7cc967c34d4da883401ad8a9fc3d1b0d253352629cb42245c70e7e1cf952d365",
+"vfx.graph.golden.ward_warning.stage4": "36cdc63363bdbb5b2754888f5583ebb4ae0b19b9291c77f35eb924c67f427efa"
+}
+instructions = Array[Dictionary]([{
+"id": "spawn",
+"maximum": 32,
+"order": 0,
+"type": "bounded_spawn"
+}, {
+"id": "initialise",
+"lifetime_seconds": 1.8,
+"order": 1,
+"seeded": true,
+"type": "initialise"
+}, {
+"id": "path",
+"maximum_points": 16,
+"order": 2,
+"type": "path_sample"
+}, {
+"id": "integrate",
+"maximum_steps": 120,
+"order": 3,
+"type": "cpu_integrate"
+}, {
+"id": "light",
+"maximum": 1,
+"order": 4,
+"type": "light_request"
+}, {
+"id": "output",
+"order": 5,
+"type": "voxel_multimesh_output"
+}])
+form_records = Array[Dictionary]([{
+"aliases": [],
+"asset_class": "vfx_form",
+"cell_records": Array[Dictionary]([{
+"palette_role": "material_role.foundation_primary",
+"position": [0, 0, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 0, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [0, 1, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 1, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [0, 2, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 2, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [0, 3, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 3, 0]
+}]),
+"contract_version": "23-foundation-v1",
+"dependency_ids": [],
+"display_name": "Ward Warning and Breach Voxel Form",
+"extension_fields": {},
+"fallback_ids": [],
+"family_id": "",
+"form_kind": "voxel_cluster",
+"lifecycle": "golden_source_candidate",
+"maximum_cells": 32,
+"optional_dependency_ids": [],
+"owner_pack_id": "pack.presentation.leyforge.foundation",
+"palette_role_ids": ["material_role.foundation_primary"],
+"pivot": Vector3(0, 0, 0),
+"provenance": {
+"document_set": "23",
+"legacy_replacement_status": "active_fallback",
+"manual_review": "open",
+"milestone": "4"
+},
+"review_history": Array[Dictionary]([]),
+"rights_status": "not_applicable",
+"schema": "leyforge.forge.vfx-form",
+"schema_version": 1,
+"source_status": "validated_runtime_source",
+"stable_id": "vfx.form.golden.ward_warning.stage4",
+"voxel_size_meters": 0.03125
+}])
+maximum_spawn_count = 32
+maximum_lifetime_seconds = 1.8
+maximum_instances = 32
+light_request_count = 1
+lod_tiers = Array[Dictionary]([{
+"spawn_scale": 1.0,
+"tier": "near"
+}, {
+"spawn_scale": 0.5,
+"tier": "mid"
+}, {
+"spawn_scale": 0.2,
+"tier": "far"
+}, {
+"spawn_scale": 0.0,
+"tier": "hidden",
+"virtualise": true
+}])
+budget_profile_id = "budget.profile.presentation.foundation"
+accessibility_profile_id = "access.profile.presentation.foundation"
+fallback_ids = PackedStringArray("legacy.runtime.vfx.ward_warning")
+product_hash = "047fefd5bcb8719f39610342a2f4978e26f27c36ac15960918a75ff057a5a48d"

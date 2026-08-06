@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://.summer/verification/set22_stage5_set23_world_presentation_probe.gd" id="1_probe"]
+
+[node name="Set22Stage5Set23WorldPresentationProbe" type="Node"]
+script = ExtResource("1_probe")

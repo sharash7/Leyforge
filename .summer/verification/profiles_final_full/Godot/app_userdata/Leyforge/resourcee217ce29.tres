@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeEntityPresentation" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_presentation.gd" id="1_ng838"]
+
+[resource]
+script = ExtResource("1_ng838")
+entity_presentation_id = "presentation.entity.npc.humanoid"
+entity_definition_id = "entity.definition.npc.humanoid"
+body_plan_id = "entity.body_plan.humanoid.standard"
+body_part_ids = PackedStringArray("entity.body_part.humanoid.torso")
+rig_id = "entity.rig.humanoid.standard"
+animation_set_id = "entity.animation_set.humanoid.foundation"
+contract_id = "entity.contract.humanoid.standard"
+equipment_profile_id = "entity.equipment_profile.humanoid.standard"
+capture_profile_id = "capture.profile.entity.current_state"
+dependency_ids = PackedStringArray()
+legacy_fallback = "legacy.runtime.npc_humanoid"

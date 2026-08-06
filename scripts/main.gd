@@ -29,6 +29,7 @@ var _save_health := {
 	"source": "none",
 	"rejected_candidates": [],
 }
+var _forge_world_presentation_state := ForgeWorldPresentationStateService.new()
 
 @onready var world: VoxelWorld = $VoxelWorld
 @onready var player: Player = $Player
@@ -38,6 +39,9 @@ var _save_health := {
 
 
 func _ready() -> void:
+	var forge_state_report := _forge_world_presentation_state.load_project_sources()
+	if not bool(forge_state_report.get("ok", false)):
+		push_warning("MAIN: Forge world presentation sources did not validate; legacy presentation remains active")
 	player.world = world
 	world.player = player
 	hud.player = player
@@ -174,6 +178,7 @@ func _save_game() -> bool:
 		"hamlet": HamletState.serialize_state(),
 		"combat": CombatState.serialize_state(),
 		"ui": UIState.serialize_world_state(),
+		"forge_presentation": _forge_world_presentation_state.serialize_state(),
 		"worldgen": world.get_worldgen_manifest(),
 		"save_manifest": {
 			"format": SAVE_FORMAT,
@@ -245,6 +250,8 @@ func _reset_world_autoloads() -> void:
 	SettlementManager.reset()
 	CombatState.initialized = false
 	UIState.reset_world_state()
+	_forge_world_presentation_state.reset()
+	_forge_world_presentation_state.load_project_sources()
 
 
 func configure_verification_save_paths(prefix: String) -> bool:
@@ -467,6 +474,7 @@ func _migrate_save(data: Dictionary) -> Dictionary:
 			"hamlet": data.get("hamlet", {}),
 			"combat": data.get("combat", {}),
 			"ui": data.get("ui", {}),
+			"forge_presentation": data.get("forge_presentation", {}),
 			"worldgen": data.get("worldgen", {}) if version >= 4 else {},
 			"world_id": str(data.get("world_id", WorldManager.active_world.get(
 				"world_id", ""))),
@@ -539,6 +547,7 @@ func _validate_save_shape(data: Dictionary) -> bool:
 	for dictionary_key in [
 		"inventory", "edits", "block_entities", "progression", "magic_player",
 		"edit_provenance", "settlements", "hamlet", "combat", "ui", "worldgen",
+		"forge_presentation",
 	]:
 		if data.has(dictionary_key) and not (data[dictionary_key] is Dictionary):
 			return false
@@ -637,6 +646,10 @@ func _apply_save(data: Dictionary) -> void:
 	var ui_data: Variant = data.get("ui", {})
 	if ui_data is Dictionary and not ui_data.is_empty():
 		UIState.restore_world_state(ui_data)
+	var forge_presentation_data: Variant = data.get("forge_presentation", {})
+	if forge_presentation_data is Dictionary:
+		if not _forge_world_presentation_state.restore_state(forge_presentation_data):
+			push_warning("MAIN: rejected incompatible optional Forge presentation state")
 	var p: Array = data.get("player_position", [])
 	if p.size() == 3:
 		var requested_position := Vector3(p[0], p[1], p[2])
@@ -651,3 +664,7 @@ func _apply_save(data: Dictionary) -> void:
 	world.restore_item_drops(data.get("item_drops", []))
 	if data.has("player_yaw"):
 		player.restore_view(float(data["player_yaw"]), float(data.get("player_pitch", 0.0)))
+
+
+func forge_world_presentation_state() -> ForgeWorldPresentationStateService:
+	return _forge_world_presentation_state

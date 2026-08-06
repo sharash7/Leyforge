@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ForgeCompiledSoundPlan" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_compiled_sound_plan.gd" id="1_sijoi"]
+
+[resource]
+script = ExtResource("1_sijoi")
+plan_id = "runtime.sound.event.golden.goblin_raid.stage4"
+source_event_id = "sound.event.golden.goblin_raid.stage4"
+source_hash = "2e9aaa5cb8cc787a1189a8bfbc7eed5db1fa35d8d6906479fe4005d9d915309f"
+source_ids = PackedStringArray("sound.source.legacy.mining.stone.foundation")
+layer_records = Array[Dictionary]([{
+"gain_db": 0.0,
+"provenance_review": "open",
+"role": "legacy_active_fallback",
+"source_id": "sound.source.legacy.mining.stone.foundation"
+}])
+concurrency_group = "golden.goblin_raid"
+maximum_voices = 8
+spatial_audio_profile_id = "sound.spatial_profile.contact.near.foundation"
+caption_key = "caption.golden.goblin_raid"
+critical_cue = true
+fallback_ids = PackedStringArray("legacy.runtime.audio.goblin_raid")
+product_hash = "5523738b228e409d7b9dbf4d7262827958f7fa4de9ba56394878967d70f81a68"

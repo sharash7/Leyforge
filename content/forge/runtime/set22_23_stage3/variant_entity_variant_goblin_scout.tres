@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeEntityVariantProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_variant_profile.gd" id="1_h13nr"]
+
+[resource]
+script = ExtResource("1_h13nr")
+variant_profile_id = "entity.variant.goblin.scout"
+display_name = "Goblin Scout"
+entity_definition_id = "entity.definition.creature.goblin_standard"
+entity_role_ids = PackedStringArray("entity_role.goblin")
+material_variant_ids = PackedStringArray("material.dna.entity.skin_tones", "material.dna.entity.hair_fur", "material.dna.entity.cloth", "material.dna.entity.hide_leather")
+equipment_profile_ids = PackedStringArray()
+seed_channels = PackedStringArray("body", "materials", "equipment", "markings")
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.goblin_standard")
+aliases = PackedStringArray()
+legacy_fallback = "legacy.procedural_visual.goblin"

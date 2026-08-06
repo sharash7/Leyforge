@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ForgePresentationProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_profile.gd" id="1_wv6vl"]
+
+[resource]
+script = ExtResource("1_wv6vl")
+allowed_contract_ids = PackedStringArray("state.machine.furnace.foundation")
+required_context_fields = PackedStringArray("position", "target_material", "intensity")
+component_ids = {
+"audio": "sound.event.contact.mining.stone.foundation",
+"vfx": "vfx.effect.contact.mining.stone.foundation"
+}
+spatial_role_ids = PackedStringArray("anchor.presentation.center")
+channels = PackedStringArray("persistent_state")
+budget_profile_id = "budget.profile.presentation.foundation"
+accessibility_profile_id = "access.profile.presentation.foundation"
+schema_id = "leyforge.forge.presentation-profile"
+stable_id = "presentation.profile.machine.furnace.stage3"
+display_name = "Furnace Runtime Stage 3 Profile"
+asset_class = "presentation_profile"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_source"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("sound.event.contact.mining.stone.foundation", "vfx.effect.contact.mining.stone.foundation", "budget.profile.presentation.foundation", "access.profile.presentation.foundation")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray("legacy.runtime.fallback.presentation")
+rights_status = "not_applicable"

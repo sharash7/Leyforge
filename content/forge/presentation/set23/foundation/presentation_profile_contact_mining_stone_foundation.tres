@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ForgePresentationProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_profile.gd" id="1_xflgf"]
+
+[resource]
+script = ExtResource("1_xflgf")
+allowed_contract_ids = PackedStringArray("event.block.mining_impact")
+required_context_fields = PackedStringArray("position", "target_material", "intensity")
+component_ids = {
+"audio": "sound.event.contact.mining.stone.foundation",
+"vfx": "vfx.effect.contact.mining.stone.foundation"
+}
+spatial_role_ids = PackedStringArray("runtime_anchor.block.mining_impact")
+channels = PackedStringArray("temporary_event")
+budget_profile_id = "budget.profile.presentation.foundation"
+accessibility_profile_id = "access.profile.presentation.foundation"
+schema_id = "leyforge.forge.presentation-profile"
+stable_id = "presentation.profile.contact.mining.stone.foundation"
+display_name = "Stone Mining Foundation Profile"
+asset_class = "presentation_profile"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("vfx.effect.contact.mining.stone.foundation", "sound.event.contact.mining.stone.foundation", "budget.profile.presentation.foundation", "access.profile.presentation.foundation")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"manual_review": "open",
+"production_status": "foundation_only"
+}
+rights_status = "not_applicable"

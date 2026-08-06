@@ -4,7 +4,8 @@ extends RefCounted
 const DEFAULT_PATH := "res://data/forge/semantic_registry.json"
 const SUPPORTED_FAMILIES := [
 	"marker", "zone", "socket", "network", "material_role",
-	"entity_role", "anatomy_role", "capture_profile",
+	"entity_role", "anatomy_role", "capture_profile", "anchor", "region",
+	"path", "mask", "portal", "runtime_anchor",
 ]
 
 var records: Dictionary = {}
@@ -70,8 +71,12 @@ func load_and_validate(path := DEFAULT_PATH) -> Dictionary:
 
 
 func resolve(requested_id: String) -> Dictionary:
-	var canonical := str(aliases.get(requested_id, requested_id))
+	var canonical := canonical_id(requested_id)
 	return records.get(canonical, {}).duplicate(true)
+
+
+func canonical_id(requested_id: String) -> String:
+	return ForgeId.canonical_id(requested_id, aliases)
 
 
 func has(requested_id: String) -> bool:

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ForgeEntityAssemblyProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_assembly_profile.gd" id="1_g5ff5"]
+
+[resource]
+script = ExtResource("1_g5ff5")
+assembly_profile_id = "entity.assembly_profile.centipede_giant"
+display_name = "Giant Centipede Technical Candidate Runtime Assembly"
+entity_definition_id = "entity.definition.creature.centipede_giant"
+rig_profile_id = "entity.rig.profile.centipede_giant"
+spatial_map_id = "spatial.map.entity.centipede_giant"
+lifecycle = "runtime_candidate"
+source_status = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.centipede_giant", "entity.rig.profile.centipede_giant", "spatial.map.entity.centipede_giant")
+aliases = PackedStringArray("entity.assembly_profile.template.centipede_giant")
+legacy_fallback = "legacy.procedural_visual.centipede"

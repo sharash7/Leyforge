@@ -28,11 +28,16 @@ var _has_current_bounds := false
 
 
 func _ready() -> void:
-	# Keep both preview-control rows reachable on compact 720p-class windows.
-	custom_minimum_size = Vector2(260, 260)
+	# The dock owns the controls above this canvas. A smaller vertical minimum
+	# lets the preview flex inside compact editor/game hosts without pushing its
+	# parent below the window; wider/taller layouts still expand it normally.
+	custom_minimum_size = Vector2(220, 180)
 	focus_mode = Control.FOCUS_ALL
 	mouse_default_cursor_shape = Control.CURSOR_MOVE
-	stretch = false
+	# Let the container, rather than the initial 420 x 420 render target, define
+	# the UI minimum. Godot then keeps the render target at the displayed pixel
+	# size without feeding that size back into the dock's minimum dimensions.
+	stretch = true
 	_viewport = SubViewport.new()
 	_viewport.size = Vector2i(420, 420)
 	_viewport.transparent_bg = false
@@ -62,15 +67,14 @@ func _ready() -> void:
 	_camera.current = true
 	_viewport.add_child(_camera)
 	reset_view()
-	call_deferred("_sync_viewport_size")
+	call_deferred("_refresh_projection_for_viewport_size")
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_RESIZED and is_instance_valid(_viewport):
-		_sync_viewport_size()
-		if _has_current_bounds:
-			_recalculate_fit_size()
-			_apply_zoom()
+		# A stretched SubViewportContainer owns its child's size. Refresh the
+		# projection after Godot has propagated the new container rectangle.
+		call_deferred("_refresh_projection_for_viewport_size")
 
 
 func show_asset(asset: ForgeAssetDefinition) -> void:
@@ -202,12 +206,12 @@ func _clear_presentation() -> void:
 	_has_current_bounds = false
 
 
-func _sync_viewport_size() -> void:
+func _refresh_projection_for_viewport_size() -> void:
 	if not is_instance_valid(_viewport):
 		return
-	_viewport.size = Vector2i(
-		maxi(1, roundi(size.x)),
-		maxi(1, roundi(size.y)))
+	if _has_current_bounds:
+		_recalculate_fit_size()
+		_apply_zoom()
 
 
 func _fit_bounds(bounds: AABB) -> void:

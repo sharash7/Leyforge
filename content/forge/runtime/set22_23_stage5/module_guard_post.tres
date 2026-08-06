@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="1_5gl0k"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="2_dpdmc"]
+
+[sub_resource type="Resource" id="Resource_ay562"]
+script = ExtResource("1_5gl0k")
+element_id = "guard_post.primary"
+element_kind = "asset"
+material_role_id = "material_role.structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+size = Vector3i(1, 2, 1)
+
+[resource]
+script = ExtResource("2_dpdmc")
+module_id = "blueprint.module.shared.guard_post.stage5"
+display_name = "Guard Post Cluster"
+module_kind = "guard_post"
+elements = Array[ExtResource("1_5gl0k")]([SubResource("Resource_ay562")])
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()

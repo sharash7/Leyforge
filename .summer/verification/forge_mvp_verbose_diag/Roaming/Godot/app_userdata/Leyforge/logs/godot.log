@@ -1,0 +1,472 @@
+Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org
+TextServer: Added interface "Dummy" (dummy)
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)" (advanced)
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)" (advanced).
+CORE API HASH: 3469113278
+EDITOR API HASH: 3896705417
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/autoload/block_registry.gd remapped: res://scripts/autoload/block_registry.gd
+Completed load for: 'res://scripts/autoload/block_registry.gd' remapped 'res://scripts/autoload/block_registry.gd' at thread -1
+Loading resource: res://scripts/autoload/item_registry.gd remapped: res://scripts/autoload/item_registry.gd
+Completed load for: 'res://scripts/autoload/item_registry.gd' remapped 'res://scripts/autoload/item_registry.gd' at thread -1
+Loading resource: res://scripts/autoload/recipe_registry.gd remapped: res://scripts/autoload/recipe_registry.gd
+Completed load for: 'res://scripts/autoload/recipe_registry.gd' remapped 'res://scripts/autoload/recipe_registry.gd' at thread -1
+Loading resource: res://scripts/autoload/settlement_content_registry.gd remapped: res://scripts/autoload/settlement_content_registry.gd
+Completed load for: 'res://scripts/autoload/settlement_content_registry.gd' remapped 'res://scripts/autoload/settlement_content_registry.gd' at thread -1
+Loading resource: res://scripts/autoload/hamlet_state.gd remapped: res://scripts/autoload/hamlet_state.gd
+Completed load for: 'res://scripts/autoload/hamlet_state.gd' remapped 'res://scripts/autoload/hamlet_state.gd' at thread -1
+Loading resource: res://scripts/autoload/world_manager.gd remapped: res://scripts/autoload/world_manager.gd
+Completed load for: 'res://scripts/autoload/world_manager.gd' remapped 'res://scripts/autoload/world_manager.gd' at thread -1
+Loading resource: res://scripts/autoload/release_quality.gd remapped: res://scripts/autoload/release_quality.gd
+Completed load for: 'res://scripts/autoload/release_quality.gd' remapped 'res://scripts/autoload/release_quality.gd' at thread -1
+ERROR: Failed to read the root certificate store.
+   at: OS_Windows::get_system_ca_certificates (platform\windows\os_windows.cpp:2588)
+Loaded builtin CA certificates
+Loading resource: res://.summer/verification/forge_mvp_probe.tscn remapped: res://.summer/verification/forge_mvp_probe.tscn
+Loading resource: res://.summer/verification/forge_mvp_probe.gd remapped: res://.summer/verification/forge_mvp_probe.gd
+Loading resource: res://forge_runtime_host.tscn remapped: res://forge_runtime_host.tscn
+Loading resource: res://scripts/forge/ui/forge_runtime_host.gd remapped: res://scripts/forge/ui/forge_runtime_host.gd
+Completed load for: 'res://scripts/forge/ui/forge_runtime_host.gd' remapped 'res://scripts/forge/ui/forge_runtime_host.gd' at thread -1
+Loading resource: res://scripts/forge/ui/forge_workspace.gd remapped: res://scripts/forge/ui/forge_workspace.gd
+Completed load for: 'res://scripts/forge/ui/forge_workspace.gd' remapped 'res://scripts/forge/ui/forge_workspace.gd' at thread -1
+Completed load for: 'res://forge_runtime_host.tscn' remapped 'res://forge_runtime_host.tscn' at thread -1
+Completed load for: 'res://.summer/verification/forge_mvp_probe.gd' remapped 'res://.summer/verification/forge_mvp_probe.gd' at thread -1
+Completed load for: 'res://.summer/verification/forge_mvp_probe.tscn' remapped 'res://.summer/verification/forge_mvp_probe.tscn' at thread -1
+BlockRegistry: loaded 143 blocks
+ItemRegistry: loaded 169 items
+SETTLEMENT REGISTRY: 120 definitions, 120 blueprints, 120 projects, 25 packs
+Loading resource: res://generated/forge/packages/presentation_automation_crusher_basic.tres remapped: res://generated/forge/packages/presentation_automation_crusher_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_automation_crusher_basic.tres' remapped 'res://generated/forge/packages/presentation_automation_crusher_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_automation_transport_chute.tres remapped: res://generated/forge/packages/presentation_automation_transport_chute.tres
+Completed load for: 'res://generated/forge/packages/presentation_automation_transport_chute.tres' remapped 'res://generated/forge/packages/presentation_automation_transport_chute.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_construction_brick_stone.tres remapped: res://generated/forge/packages/presentation_construction_brick_stone.tres
+Completed load for: 'res://generated/forge/packages/presentation_construction_brick_stone.tres' remapped 'res://generated/forge/packages/presentation_construction_brick_stone.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_functional_furnace_stone.tres remapped: res://generated/forge/packages/presentation_functional_furnace_stone.tres
+Completed load for: 'res://generated/forge/packages/presentation_functional_furnace_stone.tres' remapped 'res://generated/forge/packages/presentation_functional_furnace_stone.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_item_tool_crude_pickaxe.tres remapped: res://generated/forge/packages/presentation_item_tool_crude_pickaxe.tres
+Completed load for: 'res://generated/forge/packages/presentation_item_tool_crude_pickaxe.tres' remapped 'res://generated/forge/packages/presentation_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_light_torch_basic.tres remapped: res://generated/forge/packages/presentation_light_torch_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_light_torch_basic.tres' remapped 'res://generated/forge/packages/presentation_light_torch_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_magic_conduit_mana_basic.tres remapped: res://generated/forge/packages/presentation_magic_conduit_mana_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_magic_conduit_mana_basic.tres' remapped 'res://generated/forge/packages/presentation_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_ore_coal_basic.tres remapped: res://generated/forge/packages/presentation_ore_coal_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_ore_coal_basic.tres' remapped 'res://generated/forge/packages/presentation_ore_coal_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_ore_copper_basic.tres remapped: res://generated/forge/packages/presentation_ore_copper_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_ore_copper_basic.tres' remapped 'res://generated/forge/packages/presentation_ore_copper_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_ore_iron_basic.tres remapped: res://generated/forge/packages/presentation_ore_iron_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_ore_iron_basic.tres' remapped 'res://generated/forge/packages/presentation_ore_iron_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_terrain_dirt_basic.tres remapped: res://generated/forge/packages/presentation_terrain_dirt_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_terrain_dirt_basic.tres' remapped 'res://generated/forge/packages/presentation_terrain_dirt_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_terrain_grass_basic.tres remapped: res://generated/forge/packages/presentation_terrain_grass_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_terrain_grass_basic.tres' remapped 'res://generated/forge/packages/presentation_terrain_grass_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_terrain_stone_basic.tres remapped: res://generated/forge/packages/presentation_terrain_stone_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_terrain_stone_basic.tres' remapped 'res://generated/forge/packages/presentation_terrain_stone_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_test_forge_block_acceptance_machine.tres remapped: res://generated/forge/packages/presentation_test_forge_block_acceptance_machine.tres
+Completed load for: 'res://generated/forge/packages/presentation_test_forge_block_acceptance_machine.tres' remapped 'res://generated/forge/packages/presentation_test_forge_block_acceptance_machine.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_test_forge_block_acceptance_relay.tres remapped: res://generated/forge/packages/presentation_test_forge_block_acceptance_relay.tres
+Completed load for: 'res://generated/forge/packages/presentation_test_forge_block_acceptance_relay.tres' remapped 'res://generated/forge/packages/presentation_test_forge_block_acceptance_relay.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_test_forge_block_acceptance_surface.tres remapped: res://generated/forge/packages/presentation_test_forge_block_acceptance_surface.tres
+Completed load for: 'res://generated/forge/packages/presentation_test_forge_block_acceptance_surface.tres' remapped 'res://generated/forge/packages/presentation_test_forge_block_acceptance_surface.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_test_forge_item_acceptance_tool.tres remapped: res://generated/forge/packages/presentation_test_forge_item_acceptance_tool.tres
+Completed load for: 'res://generated/forge/packages/presentation_test_forge_item_acceptance_tool.tres' remapped 'res://generated/forge/packages/presentation_test_forge_item_acceptance_tool.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres remapped: res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres remapped: res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres remapped: res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres remapped: res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres remapped: res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres
+Completed load for: 'res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres' remapped 'res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_automation_crusher_basic.tres remapped: res://content/forge/assets/forge_asset_automation_crusher_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_automation_crusher_basic.tres' remapped 'res://content/forge/assets/forge_asset_automation_crusher_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_automation_crusher_basic.tres remapped: res://generated/forge/manifests/presentation_automation_crusher_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_automation_crusher_basic.tres' remapped 'res://generated/forge/manifests/presentation_automation_crusher_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_automation_transport_chute.tres remapped: res://content/forge/assets/forge_asset_automation_transport_chute.tres
+Completed load for: 'res://content/forge/assets/forge_asset_automation_transport_chute.tres' remapped 'res://content/forge/assets/forge_asset_automation_transport_chute.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_automation_transport_chute.tres remapped: res://generated/forge/manifests/presentation_automation_transport_chute.tres
+Completed load for: 'res://generated/forge/manifests/presentation_automation_transport_chute.tres' remapped 'res://generated/forge/manifests/presentation_automation_transport_chute.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_construction_brick_stone.tres remapped: res://content/forge/assets/forge_asset_construction_brick_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_construction_brick_stone.tres' remapped 'res://content/forge/assets/forge_asset_construction_brick_stone.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_construction_brick_stone.tres remapped: res://generated/forge/manifests/presentation_construction_brick_stone.tres
+Completed load for: 'res://generated/forge/manifests/presentation_construction_brick_stone.tres' remapped 'res://generated/forge/manifests/presentation_construction_brick_stone.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_functional_furnace_stone.tres remapped: res://content/forge/assets/forge_asset_functional_furnace_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' remapped 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_functional_furnace_stone.tres remapped: res://generated/forge/manifests/presentation_functional_furnace_stone.tres
+Completed load for: 'res://generated/forge/manifests/presentation_functional_furnace_stone.tres' remapped 'res://generated/forge/manifests/presentation_functional_furnace_stone.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres remapped: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres
+Completed load for: 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' remapped 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres remapped: res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres
+Completed load for: 'res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres' remapped 'res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_light_torch_basic.tres remapped: res://content/forge/assets/forge_asset_light_torch_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_light_torch_basic.tres' remapped 'res://content/forge/assets/forge_asset_light_torch_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_light_torch_basic.tres remapped: res://generated/forge/manifests/presentation_light_torch_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_light_torch_basic.tres' remapped 'res://generated/forge/manifests/presentation_light_torch_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres remapped: res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres' remapped 'res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres remapped: res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres' remapped 'res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_natural_log_oak.tres remapped: res://content/forge/assets/forge_asset_natural_log_oak.tres
+Completed load for: 'res://content/forge/assets/forge_asset_natural_log_oak.tres' remapped 'res://content/forge/assets/forge_asset_natural_log_oak.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_ore_coal_basic.tres remapped: res://content/forge/assets/forge_asset_ore_coal_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_ore_coal_basic.tres' remapped 'res://content/forge/assets/forge_asset_ore_coal_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_ore_coal_basic.tres remapped: res://generated/forge/manifests/presentation_ore_coal_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_ore_coal_basic.tres' remapped 'res://generated/forge/manifests/presentation_ore_coal_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_ore_copper_basic.tres remapped: res://content/forge/assets/forge_asset_ore_copper_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_ore_copper_basic.tres' remapped 'res://content/forge/assets/forge_asset_ore_copper_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_ore_copper_basic.tres remapped: res://generated/forge/manifests/presentation_ore_copper_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_ore_copper_basic.tres' remapped 'res://generated/forge/manifests/presentation_ore_copper_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_ore_iron_basic.tres remapped: res://content/forge/assets/forge_asset_ore_iron_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_ore_iron_basic.tres' remapped 'res://content/forge/assets/forge_asset_ore_iron_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_ore_iron_basic.tres remapped: res://generated/forge/manifests/presentation_ore_iron_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_ore_iron_basic.tres' remapped 'res://generated/forge/manifests/presentation_ore_iron_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_power_crank_basic.tres remapped: res://content/forge/assets/forge_asset_power_crank_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_power_crank_basic.tres' remapped 'res://content/forge/assets/forge_asset_power_crank_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_dirt_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_dirt_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_dirt_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_dirt_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_dirt_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_dirt_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_dirt_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_dirt_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_grass_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_grass_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_grass_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_grass_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_grass_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_grass_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_stone_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_stone_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_stone_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_stone_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_stone_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_stone_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_stone_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_stone_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_grass_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_grass_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' at thread -1
+Loading resource: res://content/forge/contracts/contract_block_standard_cube_v1.tres remapped: res://content/forge/contracts/contract_block_standard_cube_v1.tres
+Completed load for: 'res://content/forge/contracts/contract_block_standard_cube_v1.tres' remapped 'res://content/forge/contracts/contract_block_standard_cube_v1.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_grass_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_grass_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_grass_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_grass_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_construction_brick_stone.tres remapped: res://content/forge/assets/forge_asset_construction_brick_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_construction_brick_stone.tres' remapped 'res://content/forge/assets/forge_asset_construction_brick_stone.tres' at thread -1
+Loading resource: res://content/forge/contracts/contract_block_standard_cube_v1.tres remapped: res://content/forge/contracts/contract_block_standard_cube_v1.tres
+Completed load for: 'res://content/forge/contracts/contract_block_standard_cube_v1.tres' remapped 'res://content/forge/contracts/contract_block_standard_cube_v1.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_construction_brick_stone.tres remapped: res://generated/forge/manifests/presentation_construction_brick_stone.tres
+Completed load for: 'res://generated/forge/manifests/presentation_construction_brick_stone.tres' remapped 'res://generated/forge/manifests/presentation_construction_brick_stone.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_automation_transport_chute.tres remapped: res://content/forge/assets/forge_asset_automation_transport_chute.tres
+Completed load for: 'res://content/forge/assets/forge_asset_automation_transport_chute.tres' remapped 'res://content/forge/assets/forge_asset_automation_transport_chute.tres' at thread -1
+Loading resource: res://content/forge/contracts/contract_automation_chute_v1.tres remapped: res://content/forge/contracts/contract_automation_chute_v1.tres
+Completed load for: 'res://content/forge/contracts/contract_automation_chute_v1.tres' remapped 'res://content/forge/contracts/contract_automation_chute_v1.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_automation_transport_chute.tres remapped: res://generated/forge/manifests/presentation_automation_transport_chute.tres
+Completed load for: 'res://generated/forge/manifests/presentation_automation_transport_chute.tres' remapped 'res://generated/forge/manifests/presentation_automation_transport_chute.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_functional_furnace_stone.tres remapped: res://content/forge/assets/forge_asset_functional_furnace_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' remapped 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' at thread -1
+Loading resource: res://content/forge/contracts/contract_machine_furnace_v1.tres remapped: res://content/forge/contracts/contract_machine_furnace_v1.tres
+Completed load for: 'res://content/forge/contracts/contract_machine_furnace_v1.tres' remapped 'res://content/forge/contracts/contract_machine_furnace_v1.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_functional_furnace_stone.tres remapped: res://generated/forge/manifests/presentation_functional_furnace_stone.tres
+Completed load for: 'res://generated/forge/manifests/presentation_functional_furnace_stone.tres' remapped 'res://generated/forge/manifests/presentation_functional_furnace_stone.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres remapped: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres
+Completed load for: 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' remapped 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://content/forge/contracts/contract_item_held_tool_v1.tres remapped: res://content/forge/contracts/contract_item_held_tool_v1.tres
+Completed load for: 'res://content/forge/contracts/contract_item_held_tool_v1.tres' remapped 'res://content/forge/contracts/contract_item_held_tool_v1.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres remapped: res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres
+Completed load for: 'res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres' remapped 'res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres remapped: res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres' remapped 'res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://content/forge/contracts/contract_block_generated_shape_v1.tres remapped: res://content/forge/contracts/contract_block_generated_shape_v1.tres
+Completed load for: 'res://content/forge/contracts/contract_block_generated_shape_v1.tres' remapped 'res://content/forge/contracts/contract_block_generated_shape_v1.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres remapped: res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres' remapped 'res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_automation_crusher_basic.tres remapped: res://content/forge/assets/forge_asset_automation_crusher_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_automation_crusher_basic.tres' remapped 'res://content/forge/assets/forge_asset_automation_crusher_basic.tres' at thread -1
+Loading resource: res://content/forge/contracts/contract_block_generated_shape_v1.tres remapped: res://content/forge/contracts/contract_block_generated_shape_v1.tres
+Completed load for: 'res://content/forge/contracts/contract_block_generated_shape_v1.tres' remapped 'res://content/forge/contracts/contract_block_generated_shape_v1.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_automation_crusher_basic.tres remapped: res://generated/forge/manifests/presentation_automation_crusher_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_automation_crusher_basic.tres' remapped 'res://generated/forge/manifests/presentation_automation_crusher_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_functional_furnace_stone.tres remapped: res://content/forge/assets/forge_asset_functional_furnace_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' remapped 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' at thread -1
+Loading resource: res://content/forge/contracts/contract_machine_furnace_v1.tres remapped: res://content/forge/contracts/contract_machine_furnace_v1.tres
+Completed load for: 'res://content/forge/contracts/contract_machine_furnace_v1.tres' remapped 'res://content/forge/contracts/contract_machine_furnace_v1.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_automation_crusher_basic.tres remapped: res://generated/forge/packages/presentation_automation_crusher_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_automation_crusher_basic.tres' remapped 'res://generated/forge/packages/presentation_automation_crusher_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_automation_transport_chute.tres remapped: res://generated/forge/packages/presentation_automation_transport_chute.tres
+Completed load for: 'res://generated/forge/packages/presentation_automation_transport_chute.tres' remapped 'res://generated/forge/packages/presentation_automation_transport_chute.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_construction_brick_stone.tres remapped: res://generated/forge/packages/presentation_construction_brick_stone.tres
+Completed load for: 'res://generated/forge/packages/presentation_construction_brick_stone.tres' remapped 'res://generated/forge/packages/presentation_construction_brick_stone.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_functional_furnace_stone.tres remapped: res://generated/forge/packages/presentation_functional_furnace_stone.tres
+Completed load for: 'res://generated/forge/packages/presentation_functional_furnace_stone.tres' remapped 'res://generated/forge/packages/presentation_functional_furnace_stone.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_item_tool_crude_pickaxe.tres remapped: res://generated/forge/packages/presentation_item_tool_crude_pickaxe.tres
+Completed load for: 'res://generated/forge/packages/presentation_item_tool_crude_pickaxe.tres' remapped 'res://generated/forge/packages/presentation_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_light_torch_basic.tres remapped: res://generated/forge/packages/presentation_light_torch_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_light_torch_basic.tres' remapped 'res://generated/forge/packages/presentation_light_torch_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_magic_conduit_mana_basic.tres remapped: res://generated/forge/packages/presentation_magic_conduit_mana_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_magic_conduit_mana_basic.tres' remapped 'res://generated/forge/packages/presentation_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_ore_coal_basic.tres remapped: res://generated/forge/packages/presentation_ore_coal_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_ore_coal_basic.tres' remapped 'res://generated/forge/packages/presentation_ore_coal_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_ore_copper_basic.tres remapped: res://generated/forge/packages/presentation_ore_copper_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_ore_copper_basic.tres' remapped 'res://generated/forge/packages/presentation_ore_copper_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_ore_iron_basic.tres remapped: res://generated/forge/packages/presentation_ore_iron_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_ore_iron_basic.tres' remapped 'res://generated/forge/packages/presentation_ore_iron_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_terrain_dirt_basic.tres remapped: res://generated/forge/packages/presentation_terrain_dirt_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_terrain_dirt_basic.tres' remapped 'res://generated/forge/packages/presentation_terrain_dirt_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_terrain_grass_basic.tres remapped: res://generated/forge/packages/presentation_terrain_grass_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_terrain_grass_basic.tres' remapped 'res://generated/forge/packages/presentation_terrain_grass_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_terrain_stone_basic.tres remapped: res://generated/forge/packages/presentation_terrain_stone_basic.tres
+Completed load for: 'res://generated/forge/packages/presentation_terrain_stone_basic.tres' remapped 'res://generated/forge/packages/presentation_terrain_stone_basic.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_test_forge_block_acceptance_machine.tres remapped: res://generated/forge/packages/presentation_test_forge_block_acceptance_machine.tres
+Completed load for: 'res://generated/forge/packages/presentation_test_forge_block_acceptance_machine.tres' remapped 'res://generated/forge/packages/presentation_test_forge_block_acceptance_machine.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_test_forge_block_acceptance_relay.tres remapped: res://generated/forge/packages/presentation_test_forge_block_acceptance_relay.tres
+Completed load for: 'res://generated/forge/packages/presentation_test_forge_block_acceptance_relay.tres' remapped 'res://generated/forge/packages/presentation_test_forge_block_acceptance_relay.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_test_forge_block_acceptance_surface.tres remapped: res://generated/forge/packages/presentation_test_forge_block_acceptance_surface.tres
+Completed load for: 'res://generated/forge/packages/presentation_test_forge_block_acceptance_surface.tres' remapped 'res://generated/forge/packages/presentation_test_forge_block_acceptance_surface.tres' at thread -1
+Loading resource: res://generated/forge/packages/presentation_test_forge_item_acceptance_tool.tres remapped: res://generated/forge/packages/presentation_test_forge_item_acceptance_tool.tres
+Completed load for: 'res://generated/forge/packages/presentation_test_forge_item_acceptance_tool.tres' remapped 'res://generated/forge/packages/presentation_test_forge_item_acceptance_tool.tres' at thread -1
+Loading resource: res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation_mesh.res remapped: res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation_mesh.res
+Completed load for: 'res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation_mesh.res' remapped 'res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation_mesh.res' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_000.res remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_000.res
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_000.res' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_000.res' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res' at thread -1
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res' at thread -1
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' at thread -1
+Loading resource: res://generated/forge/products/presentation_item_tool_crude_pickaxe/b7790c482ca81a60/presentation.tscn remapped: res://generated/forge/products/presentation_item_tool_crude_pickaxe/b7790c482ca81a60/presentation.tscn
+Completed load for: 'res://generated/forge/products/presentation_item_tool_crude_pickaxe/b7790c482ca81a60/presentation.tscn' remapped 'res://generated/forge/products/presentation_item_tool_crude_pickaxe/b7790c482ca81a60/presentation.tscn' at thread -1
+Loading resource: res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation_mesh.res remapped: res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation_mesh.res
+Completed load for: 'res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation_mesh.res' remapped 'res://generated/forge/products/presentation_magic_conduit_mana_basic/b1a16c4cf4ea0847/presentation_mesh.res' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res' at thread -1
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres remapped: res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres remapped: res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres remapped: res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres remapped: res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres remapped: res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres
+Completed load for: 'res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres' remapped 'res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_automation_crusher_basic.tres remapped: res://content/forge/assets/forge_asset_automation_crusher_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_automation_crusher_basic.tres' remapped 'res://content/forge/assets/forge_asset_automation_crusher_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_automation_crusher_basic.tres remapped: res://generated/forge/manifests/presentation_automation_crusher_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_automation_crusher_basic.tres' remapped 'res://generated/forge/manifests/presentation_automation_crusher_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_automation_transport_chute.tres remapped: res://content/forge/assets/forge_asset_automation_transport_chute.tres
+Completed load for: 'res://content/forge/assets/forge_asset_automation_transport_chute.tres' remapped 'res://content/forge/assets/forge_asset_automation_transport_chute.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_automation_transport_chute.tres remapped: res://generated/forge/manifests/presentation_automation_transport_chute.tres
+Completed load for: 'res://generated/forge/manifests/presentation_automation_transport_chute.tres' remapped 'res://generated/forge/manifests/presentation_automation_transport_chute.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_construction_brick_stone.tres remapped: res://content/forge/assets/forge_asset_construction_brick_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_construction_brick_stone.tres' remapped 'res://content/forge/assets/forge_asset_construction_brick_stone.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_construction_brick_stone.tres remapped: res://generated/forge/manifests/presentation_construction_brick_stone.tres
+Completed load for: 'res://generated/forge/manifests/presentation_construction_brick_stone.tres' remapped 'res://generated/forge/manifests/presentation_construction_brick_stone.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_functional_furnace_stone.tres remapped: res://content/forge/assets/forge_asset_functional_furnace_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' remapped 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_functional_furnace_stone.tres remapped: res://generated/forge/manifests/presentation_functional_furnace_stone.tres
+Completed load for: 'res://generated/forge/manifests/presentation_functional_furnace_stone.tres' remapped 'res://generated/forge/manifests/presentation_functional_furnace_stone.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres remapped: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres
+Completed load for: 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' remapped 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres remapped: res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres
+Completed load for: 'res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres' remapped 'res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_light_torch_basic.tres remapped: res://content/forge/assets/forge_asset_light_torch_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_light_torch_basic.tres' remapped 'res://content/forge/assets/forge_asset_light_torch_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_light_torch_basic.tres remapped: res://generated/forge/manifests/presentation_light_torch_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_light_torch_basic.tres' remapped 'res://generated/forge/manifests/presentation_light_torch_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres remapped: res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres' remapped 'res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres remapped: res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres' remapped 'res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_natural_log_oak.tres remapped: res://content/forge/assets/forge_asset_natural_log_oak.tres
+Completed load for: 'res://content/forge/assets/forge_asset_natural_log_oak.tres' remapped 'res://content/forge/assets/forge_asset_natural_log_oak.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_ore_coal_basic.tres remapped: res://content/forge/assets/forge_asset_ore_coal_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_ore_coal_basic.tres' remapped 'res://content/forge/assets/forge_asset_ore_coal_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_ore_coal_basic.tres remapped: res://generated/forge/manifests/presentation_ore_coal_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_ore_coal_basic.tres' remapped 'res://generated/forge/manifests/presentation_ore_coal_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_ore_copper_basic.tres remapped: res://content/forge/assets/forge_asset_ore_copper_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_ore_copper_basic.tres' remapped 'res://content/forge/assets/forge_asset_ore_copper_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_ore_copper_basic.tres remapped: res://generated/forge/manifests/presentation_ore_copper_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_ore_copper_basic.tres' remapped 'res://generated/forge/manifests/presentation_ore_copper_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_ore_iron_basic.tres remapped: res://content/forge/assets/forge_asset_ore_iron_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_ore_iron_basic.tres' remapped 'res://content/forge/assets/forge_asset_ore_iron_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_ore_iron_basic.tres remapped: res://generated/forge/manifests/presentation_ore_iron_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_ore_iron_basic.tres' remapped 'res://generated/forge/manifests/presentation_ore_iron_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_power_crank_basic.tres remapped: res://content/forge/assets/forge_asset_power_crank_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_power_crank_basic.tres' remapped 'res://content/forge/assets/forge_asset_power_crank_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_dirt_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_dirt_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_dirt_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_dirt_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_dirt_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_dirt_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_dirt_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_dirt_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_grass_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_grass_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_grass_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_grass_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_grass_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_grass_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_stone_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_stone_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_stone_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_stone_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_stone_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_stone_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_stone_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_stone_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_machine.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres remapped: res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_machine.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_relay.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres remapped: res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_relay.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_block_acceptance_surface.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres remapped: res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_block_acceptance_surface.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres remapped: res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres
+Completed load for: 'res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres' remapped 'res://content/forge/assets/acceptance/forge_asset_test_forge_item_acceptance_tool.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres remapped: res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres
+Completed load for: 'res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres' remapped 'res://generated/forge/manifests/presentation_test_forge_item_acceptance_tool.tres' at thread -1
+Loading resource: res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres remapped: res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres
+Completed load for: 'res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres' remapped 'res://content/forge/assets/acceptance/override_test_forge_surface_weathered.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_automation_crusher_basic.tres remapped: res://content/forge/assets/forge_asset_automation_crusher_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_automation_crusher_basic.tres' remapped 'res://content/forge/assets/forge_asset_automation_crusher_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_automation_crusher_basic.tres remapped: res://generated/forge/manifests/presentation_automation_crusher_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_automation_crusher_basic.tres' remapped 'res://generated/forge/manifests/presentation_automation_crusher_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_automation_transport_chute.tres remapped: res://content/forge/assets/forge_asset_automation_transport_chute.tres
+Completed load for: 'res://content/forge/assets/forge_asset_automation_transport_chute.tres' remapped 'res://content/forge/assets/forge_asset_automation_transport_chute.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_automation_transport_chute.tres remapped: res://generated/forge/manifests/presentation_automation_transport_chute.tres
+Completed load for: 'res://generated/forge/manifests/presentation_automation_transport_chute.tres' remapped 'res://generated/forge/manifests/presentation_automation_transport_chute.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_construction_brick_stone.tres remapped: res://content/forge/assets/forge_asset_construction_brick_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_construction_brick_stone.tres' remapped 'res://content/forge/assets/forge_asset_construction_brick_stone.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_construction_brick_stone.tres remapped: res://generated/forge/manifests/presentation_construction_brick_stone.tres
+Completed load for: 'res://generated/forge/manifests/presentation_construction_brick_stone.tres' remapped 'res://generated/forge/manifests/presentation_construction_brick_stone.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_functional_furnace_stone.tres remapped: res://content/forge/assets/forge_asset_functional_furnace_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' remapped 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_functional_furnace_stone.tres remapped: res://generated/forge/manifests/presentation_functional_furnace_stone.tres
+Completed load for: 'res://generated/forge/manifests/presentation_functional_furnace_stone.tres' remapped 'res://generated/forge/manifests/presentation_functional_furnace_stone.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres remapped: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres
+Completed load for: 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' remapped 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres remapped: res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres
+Completed load for: 'res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres' remapped 'res://generated/forge/manifests/presentation_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_light_torch_basic.tres remapped: res://content/forge/assets/forge_asset_light_torch_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_light_torch_basic.tres' remapped 'res://content/forge/assets/forge_asset_light_torch_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_light_torch_basic.tres remapped: res://generated/forge/manifests/presentation_light_torch_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_light_torch_basic.tres' remapped 'res://generated/forge/manifests/presentation_light_torch_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres remapped: res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres' remapped 'res://content/forge/assets/forge_asset_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres remapped: res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres' remapped 'res://generated/forge/manifests/presentation_magic_conduit_mana_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_natural_log_oak.tres remapped: res://content/forge/assets/forge_asset_natural_log_oak.tres
+Completed load for: 'res://content/forge/assets/forge_asset_natural_log_oak.tres' remapped 'res://content/forge/assets/forge_asset_natural_log_oak.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_ore_coal_basic.tres remapped: res://content/forge/assets/forge_asset_ore_coal_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_ore_coal_basic.tres' remapped 'res://content/forge/assets/forge_asset_ore_coal_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_ore_coal_basic.tres remapped: res://generated/forge/manifests/presentation_ore_coal_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_ore_coal_basic.tres' remapped 'res://generated/forge/manifests/presentation_ore_coal_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_ore_copper_basic.tres remapped: res://content/forge/assets/forge_asset_ore_copper_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_ore_copper_basic.tres' remapped 'res://content/forge/assets/forge_asset_ore_copper_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_ore_copper_basic.tres remapped: res://generated/forge/manifests/presentation_ore_copper_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_ore_copper_basic.tres' remapped 'res://generated/forge/manifests/presentation_ore_copper_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_ore_iron_basic.tres remapped: res://content/forge/assets/forge_asset_ore_iron_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_ore_iron_basic.tres' remapped 'res://content/forge/assets/forge_asset_ore_iron_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_ore_iron_basic.tres remapped: res://generated/forge/manifests/presentation_ore_iron_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_ore_iron_basic.tres' remapped 'res://generated/forge/manifests/presentation_ore_iron_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_power_crank_basic.tres remapped: res://content/forge/assets/forge_asset_power_crank_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_power_crank_basic.tres' remapped 'res://content/forge/assets/forge_asset_power_crank_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_dirt_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_dirt_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_dirt_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_dirt_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_dirt_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_dirt_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_dirt_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_dirt_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_grass_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_grass_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_grass_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_grass_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_grass_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_grass_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_stone_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_stone_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_stone_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_stone_basic.tres' at thread -1
+Loading resource: res://generated/forge/manifests/presentation_terrain_stone_basic.tres remapped: res://generated/forge/manifests/presentation_terrain_stone_basic.tres
+Completed load for: 'res://generated/forge/manifests/presentation_terrain_stone_basic.tres' remapped 'res://generated/forge/manifests/presentation_terrain_stone_basic.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_terrain_grass_basic.tres remapped: res://content/forge/assets/forge_asset_terrain_grass_basic.tres
+Completed load for: 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' remapped 'res://content/forge/assets/forge_asset_terrain_grass_basic.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_dirt_base_01.tres remapped: res://content/forge/patterns/pattern_dirt_base_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_dirt_base_01.tres' remapped 'res://content/forge/patterns/pattern_dirt_base_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_01.tres remapped: res://content/forge/patterns/pattern_stone_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_01.tres' remapped 'res://content/forge/patterns/pattern_stone_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_copper_01.tres remapped: res://content/forge/patterns/pattern_stone_copper_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_copper_01.tres' remapped 'res://content/forge/patterns/pattern_stone_copper_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_iron_01.tres remapped: res://content/forge/patterns/pattern_stone_iron_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_iron_01.tres' remapped 'res://content/forge/patterns/pattern_stone_iron_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_dirt_base_01.tres remapped: res://content/forge/patterns/pattern_dirt_base_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_dirt_base_01.tres' remapped 'res://content/forge/patterns/pattern_dirt_base_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_01.tres remapped: res://content/forge/patterns/pattern_stone_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_01.tres' remapped 'res://content/forge/patterns/pattern_stone_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_copper_01.tres remapped: res://content/forge/patterns/pattern_stone_copper_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_copper_01.tres' remapped 'res://content/forge/patterns/pattern_stone_copper_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_iron_01.tres remapped: res://content/forge/patterns/pattern_stone_iron_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_iron_01.tres' remapped 'res://content/forge/patterns/pattern_stone_iron_01.tres' at thread -1
+Loading resource: res://content/forge/materials/material_mvp_fire.tres remapped: res://content/forge/materials/material_mvp_fire.tres
+Completed load for: 'res://content/forge/materials/material_mvp_fire.tres' remapped 'res://content/forge/materials/material_mvp_fire.tres' at thread -1
+Loading resource: res://content/forge/materials/material_mvp_glass.tres remapped: res://content/forge/materials/material_mvp_glass.tres
+Completed load for: 'res://content/forge/materials/material_mvp_glass.tres' remapped 'res://content/forge/materials/material_mvp_glass.tres' at thread -1
+Loading resource: res://content/forge/materials/material_mvp_iron.tres remapped: res://content/forge/materials/material_mvp_iron.tres
+Completed load for: 'res://content/forge/materials/material_mvp_iron.tres' remapped 'res://content/forge/materials/material_mvp_iron.tres' at thread -1
+Loading resource: res://content/forge/materials/material_mvp_mana.tres remapped: res://content/forge/materials/material_mvp_mana.tres
+Completed load for: 'res://content/forge/materials/material_mvp_mana.tres' remapped 'res://content/forge/materials/material_mvp_mana.tres' at thread -1
+Loading resource: res://content/forge/materials/material_mvp_stone.tres remapped: res://content/forge/materials/material_mvp_stone.tres
+Completed load for: 'res://content/forge/materials/material_mvp_stone.tres' remapped 'res://content/forge/materials/material_mvp_stone.tres' at thread -1
+Loading resource: res://content/forge/materials/material_mvp_wood.tres remapped: res://content/forge/materials/material_mvp_wood.tres
+Completed load for: 'res://content/forge/materials/material_mvp_wood.tres' remapped 'res://content/forge/materials/material_mvp_wood.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_dirt_base_01.tres remapped: res://content/forge/patterns/pattern_dirt_base_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_dirt_base_01.tres' remapped 'res://content/forge/patterns/pattern_dirt_base_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_01.tres remapped: res://content/forge/patterns/pattern_stone_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_01.tres' remapped 'res://content/forge/patterns/pattern_stone_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_copper_01.tres remapped: res://content/forge/patterns/pattern_stone_copper_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_copper_01.tres' remapped 'res://content/forge/patterns/pattern_stone_copper_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_iron_01.tres remapped: res://content/forge/patterns/pattern_stone_iron_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_iron_01.tres' remapped 'res://content/forge/patterns/pattern_stone_iron_01.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres remapped: res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres
+Completed load for: 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' remapped 'res://content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_dirt_base_01.tres remapped: res://content/forge/patterns/pattern_dirt_base_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_dirt_base_01.tres' remapped 'res://content/forge/patterns/pattern_dirt_base_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_01.tres remapped: res://content/forge/patterns/pattern_stone_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_01.tres' remapped 'res://content/forge/patterns/pattern_stone_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_copper_01.tres remapped: res://content/forge/patterns/pattern_stone_copper_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_copper_01.tres' remapped 'res://content/forge/patterns/pattern_stone_copper_01.tres' at thread -1
+Loading resource: res://content/forge/patterns/pattern_stone_iron_01.tres remapped: res://content/forge/patterns/pattern_stone_iron_01.tres
+Completed load for: 'res://content/forge/patterns/pattern_stone_iron_01.tres' remapped 'res://content/forge/patterns/pattern_stone_iron_01.tres' at thread -1
+Loading resource: res://content/forge/assets/forge_asset_functional_furnace_stone.tres remapped: res://content/forge/assets/forge_asset_functional_furnace_stone.tres
+Completed load for: 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' remapped 'res://content/forge/assets/forge_asset_functional_furnace_stone.tres' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res' at thread -1
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' at thread -1
+Loading resource: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn remapped: res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn
+Completed load for: 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' remapped 'res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/presentation.tscn' at thread -1
+Loading resource: user://forge_mvp_probe/atomic.tmp.tres remapped: user://forge_mvp_probe/atomic.tmp.tres
+Completed load for: 'user://forge_mvp_probe/atomic.tmp.tres' remapped 'user://forge_mvp_probe/atomic.tmp.tres' at thread -1
+Loading resource: user://forge_mvp_probe/atomic.tmp.tres remapped: user://forge_mvp_probe/atomic.tmp.tres
+Completed load for: 'user://forge_mvp_probe/atomic.tmp.tres' remapped 'user://forge_mvp_probe/atomic.tmp.tres' at thread -1
+Loading resource: user://forge_mvp_probe/atomic.tres remapped: user://forge_mvp_probe/atomic.tres
+Completed load for: 'user://forge_mvp_probe/atomic.tres' remapped 'user://forge_mvp_probe/atomic.tres' at thread -1
+Loading resource: user://leyforge/forge/autosaves/forge_asset_test_atomic.autosave.tres remapped: user://leyforge/forge/autosaves/forge_asset_test_atomic.autosave.tres
+Completed load for: 'user://leyforge/forge/autosaves/forge_asset_test_atomic.autosave.tres' remapped 'user://leyforge/forge/autosaves/forge_asset_test_atomic.autosave.tres' at thread -1
+Loading resource: res://content/forge/packs/pack_leyforge_project_visuals.tres remapped: res://content/forge/packs/pack_leyforge_project_visuals.tres
+Completed load for: 'res://content/forge/packs/pack_leyforge_project_visuals.tres' remapped 'res://content/forge/packs/pack_leyforge_project_visuals.tres' at thread -1
+FORGE_MVP_PROBE {"checks":934,"failures":[],"ok":true}

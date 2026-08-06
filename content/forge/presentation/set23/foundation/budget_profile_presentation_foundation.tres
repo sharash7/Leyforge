@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ForgePresentationBudgetProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_budget_profile.gd" id="1_jorhy"]
+
+[resource]
+script = ExtResource("1_jorhy")
+maximum_particles = 256
+maximum_voices = 32
+maximum_lights = 8
+maximum_surface_records = 256
+maximum_updates_per_second = 120
+fallback_chain = PackedStringArray("full", "reduced", "aggregated", "critical_only")
+critical_reserve = {
+"lights": 1,
+"particles": 16,
+"voices": 4
+}
+schema_id = "leyforge.forge.presentation-budget-profile"
+stable_id = "budget.profile.presentation.foundation"
+display_name = "Presentation Foundation Budget"
+asset_class = "budget_profile"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"manual_review": "open",
+"production_status": "foundation_only"
+}
+rights_status = "not_applicable"

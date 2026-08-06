@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ForgeSpatialAudioProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_spatial_audio_profile.gd" id="1_0uk5x"]
+
+[resource]
+script = ExtResource("1_0uk5x")
+occlusion_policy = "single_query_fallback"
+virtualisation_policy = "stop_one_shot"
+schema_id = "leyforge.forge.spatial-audio-profile"
+stable_id = "sound.spatial_profile.contact.near.foundation"
+display_name = "Near Contact Spatial Audio"
+asset_class = "spatial_audio_profile"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"manual_review": "open",
+"production_status": "foundation_only"
+}
+rights_status = "not_applicable"

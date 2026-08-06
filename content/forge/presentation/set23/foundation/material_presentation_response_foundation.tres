@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ForgeMaterialResponseTable" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_material_response_table.gd" id="1_fhtwr"]
+
+[resource]
+script = ExtResource("1_fhtwr")
+response_records = Array[Dictionary]([{
+"action": "mining",
+"profile_id": "presentation.profile.contact.mining.stone.foundation",
+"target_family": "stone"
+}])
+material_fallback_order = PackedStringArray("exact", "target_family", "hard", "generic")
+default_profile_id = "presentation.profile.contact.mining.stone.foundation"
+schema_id = "leyforge.forge.material-response-table"
+stable_id = "material.presentation.response.foundation"
+display_name = "Foundation Material Response"
+asset_class = "material_response_table"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("presentation.profile.contact.mining.stone.foundation")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"manual_review": "open",
+"production_status": "foundation_only"
+}
+rights_status = "not_applicable"

@@ -1,0 +1,308 @@
+[gd_resource type="Resource" script_class="ForgeSpatialMap" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_spatial_reference.gd" id="1_5hb5l"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_spatial_map.gd" id="2_eov5c"]
+
+[sub_resource type="Resource" id="Resource_uxua6"]
+script = ExtResource("1_5hb5l")
+owner_asset_id = "entity.definition.creature.spider_standard"
+semantic_role_id = "anchor.presentation.center"
+mapping_mode = "bone_bound"
+required_status = "required"
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.spider_standard.center"
+display_name = "anchor.presentation.center"
+asset_class = "spatial_reference"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.arthropod.core"
+}
+
+[sub_resource type="Resource" id="Resource_t0m7p"]
+script = ExtResource("1_5hb5l")
+owner_asset_id = "entity.definition.creature.spider_standard"
+spatial_type = "socket"
+semantic_role_id = "socket.audio.voice"
+mapping_mode = "bone_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.spider_standard.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.spider_standard.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.spider_standard.voice"
+display_name = "socket.audio.voice"
+asset_class = "spatial_reference"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.arthropod.head"
+}
+
+[sub_resource type="Resource" id="Resource_u4iqv"]
+script = ExtResource("1_5hb5l")
+owner_asset_id = "entity.definition.creature.spider_standard"
+spatial_type = "socket"
+semantic_role_id = "socket.presentation.mouth"
+mapping_mode = "bone_bound"
+local_position = Vector3(0, 0, -0.1)
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.spider_standard.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.spider_standard.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.spider_standard.mouth"
+display_name = "socket.presentation.mouth"
+asset_class = "spatial_reference"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.arthropod.head"
+}
+
+[sub_resource type="Resource" id="Resource_v12ox"]
+script = ExtResource("1_5hb5l")
+owner_asset_id = "entity.definition.creature.spider_standard"
+spatial_type = "socket"
+semantic_role_id = "socket.presentation.foot.left"
+mapping_mode = "bone_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.spider_standard.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.spider_standard.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.spider_standard.foot_left"
+display_name = "socket.presentation.foot.left"
+asset_class = "spatial_reference"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.arthropod.leg.left.1"
+}
+
+[sub_resource type="Resource" id="Resource_errnj"]
+script = ExtResource("1_5hb5l")
+owner_asset_id = "entity.definition.creature.spider_standard"
+spatial_type = "socket"
+semantic_role_id = "socket.presentation.foot.right"
+mapping_mode = "bone_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.spider_standard.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.spider_standard.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.spider_standard.foot_right"
+display_name = "socket.presentation.foot.right"
+asset_class = "spatial_reference"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.arthropod.leg.right.1"
+}
+
+[sub_resource type="Resource" id="Resource_j26wv"]
+script = ExtResource("1_5hb5l")
+owner_asset_id = "entity.definition.creature.spider_standard"
+spatial_type = "socket"
+semantic_role_id = "socket.equipment.primary"
+mapping_mode = "bone_bound"
+fallback_reference_id = "spatial.reference.entity.spider_standard.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.spider_standard.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.spider_standard.equipment"
+display_name = "socket.equipment.primary"
+asset_class = "spatial_reference"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.arthropod.core"
+}
+
+[sub_resource type="Resource" id="Resource_1lros"]
+script = ExtResource("1_5hb5l")
+owner_asset_id = "entity.definition.creature.spider_standard"
+spatial_type = "socket"
+semantic_role_id = "socket.presentation.damage"
+mapping_mode = "bone_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.spider_standard.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.spider_standard.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.spider_standard.damage"
+display_name = "socket.presentation.damage"
+asset_class = "spatial_reference"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.arthropod.core"
+}
+
+[sub_resource type="Resource" id="Resource_dxwys"]
+script = ExtResource("1_5hb5l")
+owner_asset_id = "entity.definition.creature.spider_standard"
+spatial_type = "socket"
+semantic_role_id = "socket.vfx.breath_origin"
+mapping_mode = "bone_bound"
+local_position = Vector3(0, 0, -0.12)
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.spider_standard.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.spider_standard.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.spider_standard.breath"
+display_name = "socket.vfx.breath_origin"
+asset_class = "spatial_reference"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.arthropod.head"
+}
+
+[sub_resource type="Resource" id="Resource_4lbg1"]
+script = ExtResource("1_5hb5l")
+owner_asset_id = "entity.definition.creature.spider_standard"
+spatial_type = "runtime_anchor"
+semantic_role_id = "runtime_anchor.movement.foot_contact"
+mapping_mode = "runtime_event_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.spider_standard.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.spider_standard.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.spider_standard.contact"
+display_name = "runtime_anchor.movement.foot_contact"
+asset_class = "spatial_reference"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.arthropod.leg.left.1"
+}
+
+[resource]
+script = ExtResource("2_eov5c")
+spatial_map_id = "spatial.map.entity.spider_standard"
+display_name = "Spider Standard Spatial Map"
+owner_asset_id = "entity.definition.creature.spider_standard"
+references = Array[ExtResource("1_5hb5l")]([SubResource("Resource_uxua6"), SubResource("Resource_t0m7p"), SubResource("Resource_u4iqv"), SubResource("Resource_v12ox"), SubResource("Resource_errnj"), SubResource("Resource_j26wv"), SubResource("Resource_1lros"), SubResource("Resource_dxwys"), SubResource("Resource_4lbg1")])
+alias_mappings = {
+"presentation.spatial.entity.spider_standard.contact": "runtime_anchor.movement.foot_contact",
+"presentation.spatial.entity.spider_standard.voice": "socket.audio.voice"
+}
+required_role_ids = PackedStringArray("socket.audio.voice", "socket.presentation.mouth", "socket.presentation.foot.left", "socket.presentation.foot.right", "socket.presentation.damage", "socket.vfx.breath_origin", "runtime_anchor.movement.foot_contact", "anchor.presentation.center")
+supported_variant_ids = PackedStringArray("base", "damaged")
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.spider_standard", "entity.rig.profile.spider_standard")
+aliases = PackedStringArray("spatial.map.template.spider_standard")

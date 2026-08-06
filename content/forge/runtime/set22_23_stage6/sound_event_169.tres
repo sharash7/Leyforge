@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="ForgeSoundEvent" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_sound_event.gd" id="1_80ckr"]
+
+[resource]
+script = ExtResource("1_80ckr")
+source_ids = PackedStringArray("sound.source.legacy.mining.stone.foundation")
+layer_records = Array[Dictionary]([{
+"replacement_status": "new_work",
+"rights_review": "open",
+"role": "active_legacy_fallback",
+"source_id": "sound.source.legacy.mining.stone.foundation"
+}])
+loop_policy = "managed_loop"
+concurrency_group = "forest_hamlet.catalogue_169"
+maximum_voices = 2
+spatial_audio_profile_id = "sound.spatial_profile.contact.near.foundation"
+caption_key = "caption.forest_hamlet.catalogue_169"
+schema_id = "leyforge.forge.sound-event"
+stable_id = "sound.event.forest_hamlet.catalogue_169.stage6"
+display_name = "Forest Hamlet Planned Sound Event 169"
+asset_class = "sound_event"
+source_status = "planned_new_work"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("sound.source.legacy.mining.stone.foundation", "sound.spatial_profile.contact.near.foundation")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray("legacy.runtime.audio.forest_hamlet_169")
+provenance = {
+"document_set": "23",
+"phase": "production_library",
+"status": "planned_new_work"
+}
+review_history = Array[Dictionary]([{
+"review": "human_evidence",
+"status": "open"
+}])
+extension_fields = {
+"accessible_approved": false,
+"forge_baked": false,
+"legacy_active": true,
+"legally_cleared": false,
+"migration_classification": "new_work",
+"production_ready": false,
+"replacement_strategy": "defer",
+"shippable": false,
+"visually_complete": false
+}

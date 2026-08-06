@@ -10,6 +10,8 @@ signal asset_baked(presentation_id: String)
 
 const MATERIAL_ROOT := "res://content/forge/materials"
 const PATTERN_ROOT := "res://content/forge/patterns"
+const LAYOUT_PREFERENCES_PATH := "user://leyforge_forge_ui.cfg"
+const WIDE_LAYOUT_MINIMUM := 1500.0
 
 var asset_index := ForgeAssetIndex.new()
 var document_service := ForgeDocumentService.new()
@@ -18,6 +20,8 @@ var autosave_service := ForgeAutosaveService.new()
 var validation_service := ForgeValidationService.new()
 var bake_service := ForgeBakeService.new()
 var registry_bridge := ForgeRegistryBridge.new()
+var presentation_workspace := ForgePresentationWorkspaceService.new()
+var presentation_laboratory := ForgePresentationTestLaboratory.new()
 
 var current_asset: ForgeAssetDefinition
 var current_record: Dictionary = {}
@@ -30,16 +34,42 @@ var _page_scroll: ScrollContainer
 var _asset_heading: Label
 var _status_label: Label
 var _preview: ForgePreviewViewport
+var _preview_panel: Control
 var _undo_button: Button
 var _redo_button: Button
 var _save_button: Button
+var _validate_button: Button
+var _bake_preview_button: Button
 var _approve_button: Button
+var _navigation_toggle_button: Button
+var _preview_toggle_button: Button
 var _search_entry: LineEdit
 var _browser_results: VBoxContainer
 var _surface_canvas: ForgePixelCanvas
 var _voxel_canvas: ForgeVoxelSliceCanvas
 var _columns: HSplitContainer
 var _centre_and_preview: HSplitContainer
+var _navigation_host: Control
+var _primary_rail: VBoxContainer
+var _secondary_navigation: PanelContainer
+var _secondary_title_label: Label
+var _route_container: VBoxContainer
+var _route_popup: PopupPanel
+var _route_popup_container: VBoxContainer
+var _workflow_cards: GridContainer
+var _section_context_label: Label
+var _breadcrumb_context_label: Label
+var _asset_context_label: Label
+var _lifecycle_context_label: Label
+var _section_buttons := {}
+var _route_buttons := {}
+var _active_section_id := "home"
+var _active_route_id := "home_dashboard"
+var _active_accent := Color("#D9A441")
+var _secondary_user_collapsed := false
+var _preview_user_visible := true
+var _current_route_allows_preview := false
+var _synchronising_route := false
 var _selected_face := "north"
 var _selected_palette_index := 0
 var _surface_face_clipboard := PackedByteArray()
@@ -55,18 +85,21 @@ func _ready() -> void:
 	if not ForgeAccessPolicy.is_development_enabled():
 		_show_access_denied()
 		return
+	clip_contents = true
+	_load_layout_preferences()
 	_build_shell()
 	command_service.history_changed.connect(_on_history_changed)
 	document_service.document_saved.connect(_on_document_saved)
 	bake_service.bake_completed.connect(_on_bake_completed)
 	asset_index.rebuild()
-	_show_home()
+	resized.connect(_apply_responsive_layout)
+	open_section(_active_section_id)
 	call_deferred("_offer_recovery")
 
 
 func _build_shell() -> void:
 	var background := ColorRect.new()
-	background.color = Color("#0d1419")
+	background.color = ForgeVisualTheme.INK
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(background)
 	var root := VBoxContainer.new()
@@ -74,19 +107,26 @@ func _build_shell() -> void:
 	root.add_theme_constant_override("separation", 0)
 	add_child(root)
 	root.add_child(_build_toolbar())
+	root.add_child(_build_context_ribbon())
 	var separator := HSeparator.new()
 	root.add_child(separator)
 	_columns = HSplitContainer.new()
 	_columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	_columns.split_offset = 220
+	_columns.split_offset = 312
 	root.add_child(_columns)
-	_columns.add_child(_build_navigation())
+	_navigation_host = _build_navigation()
+	_columns.add_child(_navigation_host)
 	_centre_and_preview = HSplitContainer.new()
 	_centre_and_preview.split_offset = 560
 	_columns.add_child(_centre_and_preview)
 	_centre_and_preview.add_child(_build_page_host())
-	_centre_and_preview.add_child(_build_preview_panel())
+	_preview_panel = _build_preview_panel()
+	_centre_and_preview.add_child(_preview_panel)
 	_centre_and_preview.resized.connect(_fit_shell_splits)
+	_route_popup = _build_route_popup()
+	add_child(_route_popup)
+	_rebuild_navigation()
+	_apply_responsive_layout()
 	call_deferred("_fit_shell_splits")
 
 
@@ -95,89 +135,489 @@ func _build_toolbar() -> Control:
 	bar.custom_minimum_size = Vector2(0, 58)
 	bar.add_theme_constant_override("separation", 8)
 	var brand := Label.new()
-	brand.text = " VOXEL ASSET FORGE"
-	brand.custom_minimum_size = Vector2(225, 0)
+	brand.text = " LEYFORGE FORGE"
+	brand.custom_minimum_size = Vector2(205, 0)
 	brand.add_theme_font_size_override("font_size", 20)
-	brand.add_theme_color_override("font_color", Color("#f1cd78"))
+	brand.add_theme_color_override("font_color", ForgeVisualTheme.FOCUS_GOLD)
 	bar.add_child(brand)
-	_save_button = _toolbar_button("Save Draft  Ctrl+S", _save_current)
+	_save_button = _toolbar_button("Save Draft", _save_current)
+	_save_button.disabled = true
+	_save_button.tooltip_text = (
+		"Save Draft (Ctrl+S). Open or create an editable asset before saving.")
 	bar.add_child(_save_button)
-	_undo_button = _toolbar_button("Undo  Ctrl+Z", command_service.undo)
+	_undo_button = _toolbar_button("Undo", command_service.undo)
 	_undo_button.disabled = true
+	_undo_button.tooltip_text = "Undo (Ctrl+Z). No undo command is available."
 	bar.add_child(_undo_button)
-	_redo_button = _toolbar_button("Redo  Ctrl+Y", command_service.redo)
+	_redo_button = _toolbar_button("Redo", command_service.redo)
 	_redo_button.disabled = true
+	_redo_button.tooltip_text = "Redo (Ctrl+Y). No redo command is available."
 	bar.add_child(_redo_button)
-	bar.add_child(_toolbar_button("Validate  Ctrl+Enter", _validate_current))
-	bar.add_child(_toolbar_button("Bake Preview", _bake_preview))
+	_validate_button = _toolbar_button("Validate", _validate_current)
+	_validate_button.disabled = true
+	_validate_button.tooltip_text = (
+		"Validate (Ctrl+Enter). Open or create an asset before validating.")
+	bar.add_child(_validate_button)
+	_bake_preview_button = _toolbar_button("Bake Preview", _bake_preview)
+	_bake_preview_button.disabled = true
+	_bake_preview_button.tooltip_text = "Open or create an asset before baking a preview."
+	bar.add_child(_bake_preview_button)
 	_approve_button = _toolbar_button("Approve & Bake", _approve_and_bake)
+	_approve_button.disabled = true
+	_approve_button.tooltip_text = (
+		"Open a validated editable asset before approving a runtime product.")
 	bar.add_child(_approve_button)
+	_navigation_toggle_button = _toolbar_button("Studio Workflows", _show_route_popup)
+	_navigation_toggle_button.tooltip_text = (
+		"Open the workflows for the current Forge studio.")
+	bar.add_child(_navigation_toggle_button)
+	_preview_toggle_button = _toolbar_button("Preview Panel", func() -> void:
+		_preview_user_visible = not _preview_user_visible
+		_save_layout_preferences()
+		_apply_preview_visibility())
+	_preview_toggle_button.tooltip_text = (
+		"Show or hide the contextual live preview without changing the asset.")
+	bar.add_child(_preview_toggle_button)
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	bar.add_child(spacer)
 	_status_label = Label.new()
 	_status_label.text = "No asset open"
-	_status_label.add_theme_color_override("font_color", Color("#a9bac2"))
+	_status_label.add_theme_color_override("font_color", ForgeVisualTheme.MUTED)
 	bar.add_child(_status_label)
 	return bar
 
 
-func _build_navigation() -> Control:
+func _build_context_ribbon() -> Control:
 	var panel := PanelContainer.new()
-	panel.custom_minimum_size = Vector2(220, 0)
+	panel.custom_minimum_size = Vector2(0, 38)
+	panel.add_theme_stylebox_override(
+		"panel", ForgeVisualTheme.panel_style(
+			ForgeVisualTheme.PANEL.darkened(0.08), Color("#263840"), 1))
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 12)
+	panel.add_child(row)
+	_section_context_label = Label.new()
+	_section_context_label.custom_minimum_size = Vector2(155, 0)
+	_section_context_label.add_theme_font_size_override("font_size", 13)
+	row.add_child(_section_context_label)
+	_breadcrumb_context_label = Label.new()
+	_breadcrumb_context_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_breadcrumb_context_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	_breadcrumb_context_label.add_theme_color_override(
+		"font_color", ForgeVisualTheme.PARCHMENT)
+	row.add_child(_breadcrumb_context_label)
+	_asset_context_label = Label.new()
+	_asset_context_label.custom_minimum_size = Vector2(260, 0)
+	_asset_context_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	_asset_context_label.add_theme_color_override("font_color", ForgeVisualTheme.MUTED)
+	row.add_child(_asset_context_label)
+	_lifecycle_context_label = Label.new()
+	_lifecycle_context_label.custom_minimum_size = Vector2(300, 0)
+	_lifecycle_context_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	row.add_child(_lifecycle_context_label)
+	return panel
+
+
+func _build_navigation() -> Control:
+	var host := HBoxContainer.new()
+	host.custom_minimum_size = Vector2(312, 0)
+	host.add_theme_constant_override("separation", 0)
+	var rail_panel := PanelContainer.new()
+	rail_panel.custom_minimum_size = Vector2(72, 0)
+	var rail_style := ForgeVisualTheme.panel_style(
+		ForgeVisualTheme.PANEL.darkened(0.05), Color("#26343B"), 1)
+	rail_style.content_margin_left = 0.0
+	rail_style.content_margin_right = 0.0
+	rail_style.content_margin_top = 0.0
+	rail_style.content_margin_bottom = 0.0
+	rail_panel.add_theme_stylebox_override("panel", rail_style)
+	host.add_child(rail_panel)
+	var rail_margin := MarginContainer.new()
+	rail_margin.add_theme_constant_override("margin_left", 6)
+	rail_margin.add_theme_constant_override("margin_right", 6)
+	rail_margin.add_theme_constant_override("margin_top", 8)
+	rail_margin.add_theme_constant_override("margin_bottom", 8)
+	rail_panel.add_child(rail_margin)
+	_primary_rail = VBoxContainer.new()
+	_primary_rail.name = "ForgeStudioRail"
+	_primary_rail.add_theme_constant_override("separation", 5)
+	rail_margin.add_child(_primary_rail)
+	var crest := Label.new()
+	crest.text = "LF"
+	crest.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	crest.add_theme_font_size_override("font_size", 17)
+	crest.add_theme_color_override("font_color", ForgeVisualTheme.FOCUS_GOLD)
+	_primary_rail.add_child(crest)
+	for section in ForgeNavigationCatalog.sections():
+		var button := Button.new()
+		button.name = "Studio_%s" % str(section.id)
+		button.custom_minimum_size = Vector2(58, 48)
+		button.tooltip_text = "%s — %s" % [section.label, section.description]
+		button.set_meta("accessible_label", str(section.label))
+		var icon_path := str(section.icon)
+		if ResourceLoader.exists(icon_path):
+			button.icon = load(icon_path)
+			button.expand_icon = true
+		else:
+			button.text = str(section.short_label)
+		button.pressed.connect(open_section.bind(str(section.id)))
+		_primary_rail.add_child(button)
+		_section_buttons[str(section.id)] = button
+	var rail_spacer := Control.new()
+	rail_spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_primary_rail.add_child(rail_spacer)
+	var help := Button.new()
+	help.text = "?"
+	help.custom_minimum_size = Vector2(58, 38)
+	help.tooltip_text = "Open the complete Leyforge Forge guide."
+	help.set_meta("accessible_label", "Forge Guide")
+	help.pressed.connect(open_route.bind("forge_guide"))
+	ForgeVisualTheme.apply_button(help, ForgeVisualTheme.FOCUS_GOLD)
+	_primary_rail.add_child(help)
+	if host_mode == "runtime":
+		var back := Button.new()
+		back.text = "←"
+		back.custom_minimum_size = Vector2(58, 38)
+		back.tooltip_text = "Back to Main Menu"
+		back.set_meta("accessible_label", "Back to Main Menu")
+		back.pressed.connect(_return_to_main_menu)
+		ForgeVisualTheme.apply_button(back, ForgeVisualTheme.FOCUS_GOLD)
+		_primary_rail.add_child(back)
+
+	_secondary_navigation = PanelContainer.new()
+	_secondary_navigation.name = "ForgeContextNavigation"
+	_secondary_navigation.custom_minimum_size = Vector2(240, 0)
+	var secondary_style := ForgeVisualTheme.panel_style(
+		ForgeVisualTheme.PANEL, Color("#2A3A42"), 1)
+	secondary_style.content_margin_left = 8.0
+	secondary_style.content_margin_right = 8.0
+	_secondary_navigation.add_theme_stylebox_override("panel", secondary_style)
+	host.add_child(_secondary_navigation)
+	var secondary_stack := VBoxContainer.new()
+	secondary_stack.add_theme_constant_override("separation", 8)
+	_secondary_navigation.add_child(secondary_stack)
+	var secondary_header := HBoxContainer.new()
+	_secondary_title_label = Label.new()
+	_secondary_title_label.name = "StudioNavigationTitle"
+	_secondary_title_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_secondary_title_label.add_theme_font_size_override("font_size", 17)
+	secondary_header.add_child(_secondary_title_label)
+	var collapse := Button.new()
+	collapse.text = "‹"
+	collapse.tooltip_text = "Collapse studio workflows."
+	collapse.pressed.connect(func() -> void:
+		_secondary_user_collapsed = true
+		_save_layout_preferences()
+		_apply_responsive_layout())
+	ForgeVisualTheme.apply_button(collapse, ForgeVisualTheme.FOCUS_GOLD)
+	secondary_header.add_child(collapse)
+	secondary_stack.add_child(secondary_header)
 	var scroll := ScrollContainer.new()
 	scroll.name = "ForgeNavigationScroll"
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	panel.add_child(scroll)
+	secondary_stack.add_child(scroll)
 	var margin := MarginContainer.new()
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	margin.add_theme_constant_override("margin_left", 14)
-	margin.add_theme_constant_override("margin_right", 14)
-	margin.add_theme_constant_override("margin_top", 16)
-	margin.add_theme_constant_override("margin_bottom", 16)
+	margin.add_theme_constant_override("margin_left", 2)
+	margin.add_theme_constant_override("margin_right", 2)
+	margin.add_theme_constant_override("margin_top", 2)
+	margin.add_theme_constant_override("margin_bottom", 8)
 	scroll.add_child(margin)
-	var navigation := VBoxContainer.new()
-	navigation.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	navigation.add_theme_constant_override("separation", 7)
-	margin.add_child(navigation)
-	for entry in [
-		["Forge Home", _show_home],
-		["Forge Guide", _show_guide],
-		["Asset Browser", _show_asset_browser],
-		["New Asset Wizard", _show_new_asset],
-		["Block Surface", _show_surface_editor],
-		["Voxel Model", _show_voxel_editor],
-		["Palette & Materials", _show_palette_material_editor],
-		["Compound & Sockets", _show_compound_editor],
-		["Collision & Placement", _show_collision_placement_editor],
-		["Item & Icon Preview", _show_item_preview],
-		["Animation & States", _show_animation_editor],
-		["Overrides & Variants", _show_override_editor],
-		["World Test Preview", _show_world_test_preview],
-		["Validation Centre", _show_validation],
-		["Blueprint Handoff", _show_blueprint_handoff],
-		["Migration Register", _show_migration_register],
-		["Recovery & History", _show_recovery],
-	]:
+	_route_container = VBoxContainer.new()
+	_route_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_route_container.add_theme_constant_override("separation", 6)
+	margin.add_child(_route_container)
+	return host
+
+
+func _build_route_popup() -> PopupPanel:
+	var popup := PopupPanel.new()
+	popup.name = "ForgeWorkflowDrawer"
+	popup.transparent_bg = false
+	var margin := MarginContainer.new()
+	for side in ["left", "right", "top", "bottom"]:
+		margin.add_theme_constant_override("margin_%s" % side, 12)
+	popup.add_child(margin)
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	margin.add_child(scroll)
+	_route_popup_container = VBoxContainer.new()
+	_route_popup_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_route_popup_container.add_theme_constant_override("separation", 6)
+	scroll.add_child(_route_popup_container)
+	return popup
+
+
+func open_section(section_id: String) -> void:
+	var section := ForgeNavigationCatalog.section(section_id)
+	if section.is_empty():
+		_set_status("Unknown Forge studio: %s" % section_id, true)
+		return
+	_active_section_id = section_id
+	_active_route_id = ""
+	_active_accent = Color(str(section.accent))
+	_current_route_allows_preview = false
+	_apply_preview_visibility()
+	_rebuild_navigation()
+	_refresh_context_ribbon()
+	_save_layout_preferences()
+	var handler_name := str(section.landing_handler)
+	if has_method(handler_name):
+		Callable(self, handler_name).call()
+
+
+func open_route(route_id: String) -> void:
+	var route := ForgeNavigationCatalog.route(route_id)
+	if route.is_empty():
+		_set_status("Unknown Forge workflow: %s" % route_id, true)
+		return
+	if str(route.availability) == ForgeNavigationCatalog.PLANNED:
+		_set_status("%s is planned and is not presented as complete." % route.label, false)
+		return
+	if bool(route.requires_asset) and current_asset == null:
+		_set_status("Open or create an asset before using %s." % route.label, true)
+		return
+	_active_section_id = str(route.section_id)
+	_active_route_id = route_id
+	var section := ForgeNavigationCatalog.section(_active_section_id)
+	_active_accent = Color(str(section.accent))
+	_current_route_allows_preview = bool(route.show_preview)
+	_apply_preview_visibility()
+	_rebuild_navigation()
+	_refresh_context_ribbon()
+	_save_layout_preferences()
+	if is_instance_valid(_route_popup):
+		_route_popup.hide()
+	var handler_name := str(route.handler)
+	if has_method(handler_name):
+		Callable(self, handler_name).call()
+	else:
+		_set_status("Forge workflow handler is unavailable: %s" % handler_name, true)
+
+
+func _rebuild_navigation() -> void:
+	if not is_instance_valid(_primary_rail):
+		return
+	var section := ForgeNavigationCatalog.section(_active_section_id)
+	if section.is_empty():
+		return
+	_active_accent = Color(str(section.accent))
+	if is_instance_valid(_secondary_title_label):
+		_secondary_title_label.text = str(section.label)
+		_secondary_title_label.add_theme_color_override("font_color", _active_accent)
+	for section_id in _section_buttons:
+		var button: Button = _section_buttons[section_id]
+		var definition := ForgeNavigationCatalog.section(str(section_id))
+		ForgeVisualTheme.apply_button(
+			button, Color(str(definition.accent)), str(section_id) == _active_section_id)
+	_populate_route_buttons(_route_container, true)
+	_populate_route_buttons(_route_popup_container, false)
+	if is_instance_valid(_page_title):
+		_page_title.add_theme_color_override("font_color", _active_accent.lightened(0.18))
+
+
+func _populate_route_buttons(container: VBoxContainer, track_buttons: bool) -> void:
+	if not is_instance_valid(container):
+		return
+	for child in container.get_children():
+		container.remove_child(child)
+		child.queue_free()
+	if track_buttons:
+		_route_buttons.clear()
+	var last_group := ""
+	for route in ForgeNavigationCatalog.routes_for_section(_active_section_id):
+		var group := str(route.group)
+		if group != last_group:
+			var heading := Label.new()
+			heading.text = group.to_upper()
+			heading.add_theme_font_size_override("font_size", 11)
+			heading.add_theme_color_override("font_color", _active_accent)
+			container.add_child(heading)
+			last_group = group
 		var button := Button.new()
-		button.text = str(entry[0])
+		button.name = "Route_%s" % str(route.route_id)
+		button.text = "%s  %s" % [
+			ForgeVisualTheme.availability_prefix(str(route.availability)),
+			str(route.label),
+		]
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		button.clip_text = true
+		button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		button.custom_minimum_size = Vector2(0, 40)
-		button.pressed.connect(entry[1])
-		navigation.add_child(button)
-	var spacer := Control.new()
-	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	navigation.add_child(spacer)
-	if host_mode == "runtime":
-		var back := Button.new()
-		back.text = "Back to Main Menu"
-		back.pressed.connect(_return_to_main_menu)
-		navigation.add_child(back)
-	return panel
+		button.set_meta("accessible_label", "%s, %s" % [
+			route.label, route.availability])
+		button.tooltip_text = "%s workflow." % str(route.availability)
+		var disabled_reason := ""
+		if str(route.availability) == ForgeNavigationCatalog.PLANNED:
+			disabled_reason = "Planned specialist editor; it is not implemented yet."
+		elif bool(route.requires_asset) and current_asset == null:
+			disabled_reason = "Open or create an asset before using this workflow."
+		button.disabled = not disabled_reason.is_empty()
+		if not disabled_reason.is_empty():
+			button.tooltip_text = disabled_reason
+		button.pressed.connect(open_route.bind(str(route.route_id)))
+		ForgeVisualTheme.apply_button(
+			button, _active_accent, str(route.route_id) == _active_route_id)
+		container.add_child(button)
+		if track_buttons:
+			_route_buttons[str(route.route_id)] = button
+
+
+func _show_route_popup() -> void:
+	if not is_instance_valid(_route_popup):
+		return
+	_populate_route_buttons(_route_popup_container, false)
+	var popup_height := clampi(roundi(size.y - 100.0), 360, 680)
+	_route_popup.popup(Rect2i(Vector2i(72, 76), Vector2i(300, popup_height)))
+
+
+func _apply_responsive_layout() -> void:
+	if not is_instance_valid(_navigation_host) or not is_instance_valid(_columns):
+		return
+	var show_secondary := size.x >= WIDE_LAYOUT_MINIMUM \
+		and not _secondary_user_collapsed
+	_secondary_navigation.visible = show_secondary
+	_navigation_host.custom_minimum_size.x = 312.0 if show_secondary else 72.0
+	_columns.split_offset = 312 if show_secondary else 72
+	if is_instance_valid(_navigation_toggle_button):
+		_navigation_toggle_button.visible = not show_secondary
+	if is_instance_valid(_status_label):
+		_status_label.visible = size.x >= 1400.0
+	_update_workflow_card_columns()
+	_fit_shell_splits()
+
+
+func refresh_host_layout() -> void:
+	if not is_node_ready():
+		return
+	# The Godot main-screen plug-in creates this workspace hidden. Containers can
+	# therefore miss their first sort notification even though their children and
+	# minimum sizes are already valid. Re-sort the current page after the editor
+	# makes it visible or changes the available centre-panel rectangle.
+	_apply_responsive_layout()
+	if is_instance_valid(_page_scroll):
+		_page_scroll.queue_sort()
+	if is_instance_valid(_page):
+		_page.queue_sort()
+	if is_instance_valid(_workflow_cards):
+		_workflow_cards.queue_sort()
+
+
+func _update_workflow_card_columns() -> void:
+	if not is_instance_valid(_workflow_cards):
+		return
+	var available_width := _page_scroll.size.x if is_instance_valid(_page_scroll) else 0.0
+	if available_width <= 0.0:
+		available_width = size.x - (
+			_navigation_host.custom_minimum_size.x
+			if is_instance_valid(_navigation_host) else 72.0) - 48.0
+	# Cards have a 245 px minimum and 10 px separation. Three columns keep the
+	# hubs scannable on normal Forge layouts; narrower hosts step down cleanly.
+	_workflow_cards.columns = clampi(
+		floori((maxf(245.0, available_width) + 10.0) / 255.0), 1, 3)
+
+
+func _apply_preview_visibility() -> void:
+	if not is_instance_valid(_preview_panel):
+		return
+	var visible_now := _current_route_allows_preview and _preview_user_visible
+	_preview_panel.visible = visible_now
+	if is_instance_valid(_preview_toggle_button):
+		_preview_toggle_button.disabled = not _current_route_allows_preview
+		_preview_toggle_button.text = (
+			"Preview: On" if visible_now else "Preview: Off")
+		_preview_toggle_button.tooltip_text = (
+			"This workflow has no contextual preview."
+			if not _current_route_allows_preview
+			else "Show or hide the preview without changing source data.")
+	_fit_shell_splits()
+	call_deferred("_fit_shell_splits")
+
+
+func _sync_route_from_page_title(page_title: String) -> void:
+	if _synchronising_route:
+		return
+	var route := ForgeNavigationCatalog.route_for_page(page_title)
+	if route.is_empty():
+		return
+	_synchronising_route = true
+	_active_section_id = str(route.section_id)
+	_active_route_id = str(route.route_id)
+	var section := ForgeNavigationCatalog.section(_active_section_id)
+	_active_accent = Color(str(section.accent))
+	_current_route_allows_preview = bool(route.show_preview)
+	_apply_preview_visibility()
+	_rebuild_navigation()
+	_refresh_context_ribbon()
+	_save_layout_preferences()
+	_synchronising_route = false
+
+
+func _refresh_context_ribbon() -> void:
+	if not is_instance_valid(_section_context_label):
+		return
+	var section := ForgeNavigationCatalog.section(_active_section_id)
+	var section_label := str(section.get("label", "Leyforge Forge"))
+	var route := ForgeNavigationCatalog.route(_active_route_id)
+	var route_label := str(route.get("label", "Studio Overview"))
+	_section_context_label.text = "◆  %s" % section_label
+	_section_context_label.add_theme_color_override("font_color", _active_accent)
+	_breadcrumb_context_label.text = "%s  ›  %s" % [section_label, route_label]
+	if current_asset == null:
+		_asset_context_label.text = "No asset open"
+		_lifecycle_context_label.text = "◇ SOURCE: NONE  •  VALIDATION: NOT RUN"
+		_lifecycle_context_label.add_theme_color_override(
+			"font_color", ForgeVisualTheme.MUTED)
+		return
+	_asset_context_label.text = "%s  •  %s" % [
+		current_asset.display_name, current_asset.presentation_id]
+	var source_status := current_asset.source_status.to_upper()
+	var validation_status := "NOT RUN"
+	var has_blocker := false
+	if not current_diagnostics.is_empty():
+		var summary := validation_service.summarize(current_diagnostics)
+		has_blocker = int(summary.error) + int(summary.critical) > 0
+		validation_status = (
+			"BLOCKED" if has_blocker else "%d WARNING(S)" % int(summary.warning))
+	var bake_status := "STALE" if bool(current_record.get(
+		"approved_product_stale", false)) else (
+		"MATCHED" if current_asset.source_status == "approved" else "PREVIEW ONLY")
+	_lifecycle_context_label.text = "◆ SOURCE: %s  •  VALIDATION: %s  •  BAKE: %s" % [
+		source_status, validation_status, bake_status]
+	_lifecycle_context_label.add_theme_color_override(
+		"font_color", ForgeVisualTheme.ERROR if has_blocker else _active_accent.lightened(0.2))
+
+
+func _load_layout_preferences() -> void:
+	var config := ConfigFile.new()
+	if config.load(LAYOUT_PREFERENCES_PATH) != OK:
+		return
+	var requested_section := str(config.get_value("layout", "active_section", "home"))
+	if not ForgeNavigationCatalog.section(requested_section).is_empty():
+		_active_section_id = requested_section
+	_secondary_user_collapsed = bool(config.get_value(
+		"layout", "secondary_collapsed", false))
+	_preview_user_visible = bool(config.get_value(
+		"layout", "preview_visible", true))
+
+
+func _save_layout_preferences() -> void:
+	var config := ConfigFile.new()
+	config.set_value("layout", "active_section", _active_section_id)
+	config.set_value("layout", "secondary_collapsed", _secondary_user_collapsed)
+	config.set_value("layout", "preview_visible", _preview_user_visible)
+	config.save(LAYOUT_PREFERENCES_PATH)
 
 
 func _build_page_host() -> Control:
+	var panel := PanelContainer.new()
+	panel.add_theme_stylebox_override(
+		"panel", ForgeVisualTheme.panel_style(
+			ForgeVisualTheme.INK, Color("#203139"), 1))
 	var margin := MarginContainer.new()
 	margin.add_theme_constant_override("margin_left", 20)
 	margin.add_theme_constant_override("margin_right", 20)
@@ -185,10 +625,11 @@ func _build_page_host() -> Control:
 	margin.add_theme_constant_override("margin_bottom", 16)
 	var content := VBoxContainer.new()
 	content.add_theme_constant_override("separation", 10)
+	panel.add_child(margin)
 	margin.add_child(content)
 	_page_title = Label.new()
 	_page_title.add_theme_font_size_override("font_size", 27)
-	_page_title.add_theme_color_override("font_color", Color("#f0e6d1"))
+	_page_title.add_theme_color_override("font_color", _active_accent.lightened(0.18))
 	content.add_child(_page_title)
 	_page_scroll = ScrollContainer.new()
 	_page_scroll.name = "ForgePageScroll"
@@ -200,33 +641,34 @@ func _build_page_host() -> Control:
 	_page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_page.add_theme_constant_override("separation", 10)
 	_page_scroll.add_child(_page)
-	return margin
+	return panel
 
 
 func _build_preview_panel() -> Control:
 	var panel := PanelContainer.new()
 	panel.custom_minimum_size = Vector2(280, 0)
-	var scroll := ScrollContainer.new()
-	scroll.name = "ForgePreviewScroll"
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	panel.add_child(scroll)
+	panel.clip_contents = true
+	panel.add_theme_stylebox_override(
+		"panel", ForgeVisualTheme.panel_style(
+			ForgeVisualTheme.PANEL, Color("#2B3B43"), 1))
 	var margin := MarginContainer.new()
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	margin.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	for side in ["left", "right", "top", "bottom"]:
 		margin.add_theme_constant_override("margin_%s" % side, 12)
-	scroll.add_child(margin)
+	panel.add_child(margin)
 	var stack := VBoxContainer.new()
 	stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	stack.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	stack.add_theme_constant_override("separation", 10)
 	margin.add_child(stack)
 	var title := Label.new()
 	title.text = "Live Preview"
 	title.add_theme_font_size_override("font_size", 20)
+	title.add_theme_color_override("font_color", ForgeVisualTheme.FOCUS_GOLD)
 	stack.add_child(title)
 	_preview = ForgePreviewViewport.new()
 	_preview.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	stack.add_child(_preview)
 	var preview_controls := HBoxContainer.new()
 	preview_controls.alignment = BoxContainer.ALIGNMENT_CENTER
 	preview_controls.add_theme_constant_override("separation", 8)
@@ -261,22 +703,36 @@ func _build_preview_panel() -> Control:
 		pan_button.tooltip_text = "%s (arrow key)" % str(control[1])
 		pan_controls.add_child(pan_button)
 	stack.add_child(pan_controls)
-	# Navigation can make the Forge taller than a compact viewport. Keep the
-	# camera controls above the expanding preview so they remain reachable.
-	stack.move_child(_preview, pan_controls.get_index() + 1)
+	# The canvas flexes inside the remaining panel height. It is deliberately not
+	# inside a whole-panel ScrollContainer: an expanding SubViewport in a scroll
+	# child can feed its own height back into the content minimum and run below
+	# the host viewport.
+	stack.add_child(_preview)
+	var details_scroll := ScrollContainer.new()
+	details_scroll.name = "ForgePreviewScroll"
+	details_scroll.custom_minimum_size = Vector2(0, 68)
+	details_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	details_scroll.size_flags_vertical = Control.SIZE_SHRINK_END
+	details_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	details_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	stack.add_child(details_scroll)
+	var details := VBoxContainer.new()
+	details.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	details.add_theme_constant_override("separation", 5)
+	details_scroll.add_child(details)
 	_asset_heading = Label.new()
 	_asset_heading.text = "No asset open"
 	_asset_heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_asset_heading.add_theme_color_override("font_color", Color("#e7d6a9"))
-	stack.add_child(_asset_heading)
+	_asset_heading.add_theme_color_override("font_color", ForgeVisualTheme.PARCHMENT)
+	details.add_child(_asset_heading)
 	var hint := Label.new()
 	hint.text = (
 		"Drag to orbit. Shift-drag, middle-drag, right-drag, or use the "
 		+ "arrow controls to pan. Scroll or use +/− to zoom; press 0 to "
 		+ "centre and reset. Preview state never edits gameplay.")
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	hint.add_theme_color_override("font_color", Color("#8ea3ad"))
-	stack.add_child(hint)
+	hint.add_theme_color_override("font_color", ForgeVisualTheme.MUTED)
+	details.add_child(hint)
 	return panel
 
 
@@ -284,20 +740,26 @@ func _toolbar_button(label: String, action: Callable) -> Button:
 	var button := Button.new()
 	button.text = label
 	button.pressed.connect(action)
+	ForgeVisualTheme.apply_button(button, ForgeVisualTheme.FOCUS_GOLD)
 	return button
 
 
 func _clear_page(title: String) -> void:
+	_sync_route_from_page_title(title)
 	_page_title.text = title
+	_page_title.add_theme_color_override("font_color", _active_accent.lightened(0.18))
 	for child in _page.get_children():
 		_page.remove_child(child)
 		child.queue_free()
+	_workflow_cards = null
 	_page_scroll.scroll_vertical = 0
 	_add_inline_guide(title)
 
 
 func _fit_shell_splits() -> void:
 	if not is_instance_valid(_centre_and_preview):
+		return
+	if not is_instance_valid(_preview_panel) or not _preview_panel.visible:
 		return
 	var available := roundi(_centre_and_preview.size.x)
 	if available <= 0:
@@ -310,10 +772,16 @@ func _fit_shell_splits() -> void:
 
 func _add_inline_guide(page_title: String) -> void:
 	var steps := ForgeSectionGuides.steps_for_page(page_title)
+	if steps.is_empty() and not _active_route_id.is_empty():
+		var route := ForgeNavigationCatalog.route(_active_route_id)
+		steps = ForgeSectionGuides.steps_for_page(str(route.get("help_key", "")))
 	if steps.is_empty():
 		return
 	var panel := PanelContainer.new()
 	panel.name = "SectionGuide"
+	panel.add_theme_stylebox_override(
+		"panel", ForgeVisualTheme.panel_style(
+			ForgeVisualTheme.PANEL, _active_accent.darkened(0.35), 1))
 	var stack := VBoxContainer.new()
 	stack.add_theme_constant_override("separation", 6)
 	panel.add_child(stack)
@@ -321,6 +789,7 @@ func _add_inline_guide(page_title: String) -> void:
 	toggle.text = "How to use this section — %d steps" % steps.size()
 	toggle.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	toggle.toggle_mode = true
+	ForgeVisualTheme.apply_button(toggle, _active_accent)
 	stack.add_child(toggle)
 	var details := VBoxContainer.new()
 	details.visible = false
@@ -338,9 +807,21 @@ func _add_inline_guide(page_title: String) -> void:
 func _show_guide() -> void:
 	_clear_page("Forge Guide")
 	_add_body(
-		"Start here if you have never used the Forge. This guide explains what "
+		"Start here if you have never used Leyforge Forge. This guide explains what "
 		+ "each page is for, exactly what to click, and when to save, validate or "
 		+ "bake. Every page repeats its own section in a collapsible help panel.")
+	_add_section("The eight studios")
+	_add_body(
+		"Home resumes and recovers work. Library & Create finds canonical IDs and "
+		+ "starts sources. Items & Blocks owns voxel, surface and shared material "
+		+ "authoring. Structures & Buildings and Characters & Creatures expose their "
+		+ "current shared catalogues without pretending unfinished specialist editors "
+		+ "are complete. VFX and Audio inspect their production records. Test & "
+		+ "Delivery owns shared contracts, evidence, validation and publication.")
+	_add_body(
+		"The normal path is Home -> Library & Create -> a specialist studio -> "
+		+ "Test & Delivery -> Approve & Bake. Switching studios does not close the "
+		+ "asset or change its stable identity, draft, undo history or preview camera.")
 	_add_section("Five terms to learn first")
 	_add_body(
 		"Gameplay ID — the permanent block or item identity used by recipes and "
@@ -372,8 +853,99 @@ func _show_guide() -> void:
 			_add_body("%d. %s" % [index + 1, str(steps[index])])
 
 
+func _add_hub_banner(section_id: String, title: String, description: String) -> void:
+	var section := ForgeNavigationCatalog.section(section_id)
+	var banner := ForgeSectionBackdrop.new()
+	banner.name = "ForgeHubBackdrop_%s" % section_id
+	banner.custom_minimum_size = Vector2(0, 156)
+	banner.configure(str(section.motif), Color(str(section.accent)))
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 22)
+	margin.add_theme_constant_override("margin_right", 22)
+	margin.add_theme_constant_override("margin_top", 20)
+	margin.add_theme_constant_override("margin_bottom", 18)
+	banner.add_child(margin)
+	var stack := VBoxContainer.new()
+	stack.add_theme_constant_override("separation", 8)
+	margin.add_child(stack)
+	var eyebrow := Label.new()
+	eyebrow.text = "LEYFORGE FORGE  /  %s" % str(section.label).to_upper()
+	eyebrow.add_theme_font_size_override("font_size", 11)
+	eyebrow.add_theme_color_override("font_color", Color(str(section.accent)))
+	stack.add_child(eyebrow)
+	var heading := Label.new()
+	heading.text = title
+	heading.add_theme_font_size_override("font_size", 27)
+	heading.add_theme_color_override("font_color", ForgeVisualTheme.PARCHMENT)
+	stack.add_child(heading)
+	var body := Label.new()
+	body.text = description
+	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	body.add_theme_color_override("font_color", ForgeVisualTheme.PARCHMENT.darkened(0.12))
+	stack.add_child(body)
+	var badge := Label.new()
+	badge.text = "[MOTIF] %s  |  STATIC DECORATION  |  REDUCED-MOTION SAFE" % (
+		str(section.motif).replace("_", " ").to_upper())
+	badge.add_theme_font_size_override("font_size", 10)
+	badge.add_theme_color_override("font_color", ForgeVisualTheme.MUTED)
+	stack.add_child(badge)
+	_page.add_child(banner)
+
+
+func _add_studio_workflow_cards(section_id: String) -> void:
+	_add_section("Studio workflows")
+	var cards := GridContainer.new()
+	cards.name = "ForgeStudioWorkflowCards"
+	cards.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	cards.add_theme_constant_override("h_separation", 10)
+	cards.add_theme_constant_override("v_separation", 10)
+	_workflow_cards = cards
+	_page.add_child(cards)
+	for route in ForgeNavigationCatalog.routes_for_section(section_id):
+		var panel := PanelContainer.new()
+		panel.name = "WorkflowCard_%s" % str(route.route_id)
+		panel.custom_minimum_size = Vector2(245, 96)
+		panel.add_theme_stylebox_override(
+			"panel", ForgeVisualTheme.panel_style(
+				ForgeVisualTheme.RAISED, _active_accent.darkened(0.35), 1))
+		var stack := VBoxContainer.new()
+		stack.add_theme_constant_override("separation", 5)
+		panel.add_child(stack)
+		var button := Button.new()
+		button.name = "WorkflowCardButton_%s" % str(route.route_id)
+		button.text = "%s  %s" % [
+			ForgeVisualTheme.availability_prefix(str(route.availability)),
+			str(route.label),
+		]
+		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		button.set_meta("accessible_label", "%s, %s" % [
+			route.label, route.availability])
+		var disabled_reason := ""
+		if str(route.availability) == ForgeNavigationCatalog.PLANNED:
+			disabled_reason = "Planned specialist editor; inspect the available catalogue instead."
+		elif bool(route.requires_asset) and current_asset == null:
+			disabled_reason = "Open or create an asset before using this workflow."
+		button.disabled = not disabled_reason.is_empty()
+		button.tooltip_text = disabled_reason if not disabled_reason.is_empty() else (
+			"Open %s." % str(route.label))
+		button.pressed.connect(open_route.bind(str(route.route_id)))
+		ForgeVisualTheme.apply_button(button, _active_accent)
+		stack.add_child(button)
+		var note := Label.new()
+		note.text = "%s  |  %s" % [str(route.group), str(route.availability)]
+		note.add_theme_font_size_override("font_size", 11)
+		note.add_theme_color_override("font_color", ForgeVisualTheme.MUTED)
+		stack.add_child(note)
+		cards.add_child(panel)
+	_update_workflow_card_columns()
+	call_deferred("refresh_host_layout")
+
+
 func _show_home() -> void:
 	_clear_page("Forge Home")
+	_add_hub_banner("home", "Forge Hall",
+		"Resume work beside the hearth, inspect source health and recover drafts. "
+		+ "The shared toolbar and lifecycle ribbon stay fixed throughout every studio.")
 	var summary := asset_index.rebuild()
 	_add_body(
 		"Developer-only visual authoring for Leyforge blocks, items and machines. "
@@ -393,6 +965,105 @@ func _show_home() -> void:
 		+ "or save identity.")
 	if not autosave_service.recovery_candidates().is_empty():
 		_add_action("Review recovery candidates", _show_recovery)
+	_add_studio_workflow_cards("home")
+
+
+func _show_library_hub() -> void:
+	_clear_page("Library & Create")
+	_add_hub_banner("library_create", "Archive & Map Room",
+		"Search canonical gameplay identities, create visual sources and inspect the "
+		+ "migration map without duplicating registries or rewriting save identity.")
+	var summary := asset_index.rebuild()
+	_add_stat_card("Canonical presentations", int(summary.get("asset_count", 0)))
+	_add_stat_card("Migration records", _migration_record_count())
+	_add_studio_workflow_cards("library_create")
+
+
+func _show_items_hub() -> void:
+	_clear_page("Items & Blocks")
+	_add_hub_banner("items_blocks", "Smithing Workbench",
+		"Shape surfaces and voxel forms, then finish them with shared Material DNA, "
+		+ "collision, icons, animation, variants and world-test evidence.")
+	var summary := asset_index.rebuild()
+	_add_stat_card("Indexed item and block presentations", int(summary.get("asset_count", 0)))
+	_add_stat_card("Shared Material DNA", _resource_paths_in(MATERIAL_ROOT).size())
+	if current_asset != null:
+		_add_body("OPEN ON BENCH  |  %s  |  %s" % [
+			current_asset.display_name, current_asset.source_status.to_upper()])
+	_add_studio_workflow_cards("items_blocks")
+
+
+func _show_structures_hub() -> void:
+	_clear_page("Structures & Buildings")
+	_add_hub_banner("structures", "Mason's Drafting Table",
+		"Inspect the unified blueprint foundation and construction handoff. The "
+		+ "specialist composition editor remains plainly marked as planned.")
+	_ensure_presentation_workspace()
+	_add_stat_card("Blueprint definitions",
+		presentation_workspace.filtered_list("blueprint_definition").size())
+	_add_stat_card("Blueprint modules",
+		presentation_workspace.filtered_list("blueprint_module_definition").size())
+	_add_stat_card("Construction handoff records", SettlementContentRegistry.blueprints.size())
+	_add_studio_workflow_cards("structures")
+
+
+func _show_characters_hub() -> void:
+	_clear_page("Characters & Creatures")
+	_add_hub_banner("characters", "Bestiary Gallery",
+		"Browse canonical entities, anatomy, rigs, appearance, animation and equipment "
+		+ "records. The dedicated entity modeller is not yet an authoring claim.")
+	_ensure_presentation_workspace()
+	_add_stat_card("Entity definitions",
+		presentation_workspace.filtered_list("entity_definition").size())
+	_add_stat_card("Body plans",
+		presentation_workspace.filtered_list("body_plan").size())
+	_add_stat_card("Rig profiles",
+		presentation_workspace.filtered_list("rig_profile").size())
+	_add_studio_workflow_cards("characters")
+
+
+func _show_vfx_hub() -> void:
+	_clear_page("VFX")
+	_add_hub_banner("vfx", "Arcane Laboratory",
+		"Inspect bounded effects, voxel forms, graph sources and budgets on a static "
+		+ "rune grid. The live graph editor remains planned.")
+	_ensure_presentation_workspace()
+	_add_stat_card("VFX definitions", presentation_workspace.filtered_list("vfx_effect").size())
+	_add_stat_card("Voxel forms", presentation_workspace.filtered_list("vfx_form").size())
+	_add_stat_card("Graph records", presentation_workspace.filtered_list("vfx_graph").size())
+	_add_studio_workflow_cards("vfx")
+
+
+func _show_audio_hub() -> void:
+	_clear_page("Audio")
+	_add_hub_banner("audio", "Resonance Chamber",
+		"Inspect Sound Events, sources, families, ambience and acoustics. Nothing on "
+		+ "this landing page autoplays, and the waveform editor remains planned.")
+	_ensure_presentation_workspace()
+	_add_stat_card("Sound Events", presentation_workspace.filtered_list("sound_event").size())
+	_add_stat_card("Sound sources", presentation_workspace.filtered_list("sound_source").size())
+	_add_stat_card("Ambience plans", presentation_workspace.filtered_list("ambience_plan").size())
+	_add_studio_workflow_cards("audio")
+
+
+func _show_delivery_hub() -> void:
+	_clear_page("Test & Delivery")
+	_add_hub_banner("test_delivery", "Proving Ground",
+		"Bring shared presentation contracts through accessibility, deterministic "
+		+ "capture, validation, evidence review and recoverable publication.")
+	_ensure_presentation_workspace()
+	_add_stat_card("Indexed foundation records", presentation_workspace.filtered_list().size())
+	_add_stat_card("Open diagnostics", presentation_workspace.diagnostics.size())
+	_add_stat_card("Test scenarios", presentation_workspace.filtered_list("test_scenario").size())
+	_add_studio_workflow_cards("test_delivery")
+
+
+func _migration_record_count() -> int:
+	var path := "res://content/forge/migration/registry_migration_register.json"
+	if not FileAccess.file_exists(path):
+		return 0
+	var payload: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	return payload.get("records", []).size() if payload is Dictionary else 0
 
 
 func _show_asset_browser() -> void:
@@ -2062,6 +2733,84 @@ func _duplicate_visual_draft() -> void:
 	_show_override_editor()
 
 
+func _show_blueprint_catalogue() -> void:
+	_clear_page("Blueprint Catalogue")
+	_ensure_presentation_workspace()
+	_add_body(
+		"Read-only catalogue from the unified Forge foundation index. These are the "
+		+ "real blueprint, module, state and compiled-product sources; this view does "
+		+ "not create a competing building schema.")
+	_add_foundation_catalogue([
+		"blueprint_definition", "blueprint_module_definition",
+		"blueprint_state_definition", "blueprint_runtime_product",
+	], 18)
+
+
+func _show_entity_catalogue() -> void:
+	_clear_page("Entity Catalogue")
+	_ensure_presentation_workspace()
+	_add_body(
+		"Read-only entity records from the shared source index. Stable IDs, gameplay "
+		+ "proxy links and publication status remain owned by their canonical sources.")
+	_add_foundation_catalogue([
+		"entity_definition", "entity_assembly_profile", "gameplay_proxy_profile",
+	], 18)
+
+
+func _show_body_rig_catalogue() -> void:
+	_clear_page("Body Plans & Rigs")
+	_ensure_presentation_workspace()
+	_add_body(
+		"Inspect anatomy, body-part, semantic rig, retargeting and foot-placement "
+		+ "records. Editing belongs to the future specialist Entity studio tools.")
+	_add_foundation_catalogue([
+		"body_plan", "body_part", "rig_profile", "retarget_map",
+		"foot_placement_profile", "entity_animation_library",
+	], 18)
+
+
+func _show_entity_equipment_catalogue() -> void:
+	_clear_page("Equipment & Variants")
+	_ensure_presentation_workspace()
+	_add_body(
+		"Inspect equipment-fit and appearance-variant sources against the same stable "
+		+ "entity identities. This catalogue is not a visual fitting editor.")
+	_add_foundation_catalogue([
+		"equipment_fit_profile", "entity_variant_profile",
+	], 18)
+
+
+func _add_foundation_catalogue(kinds: Array, record_limit: int) -> void:
+	for kind_value in kinds:
+		var kind := str(kind_value)
+		_add_stat_card(
+			kind.replace("_", " ").capitalize(),
+			presentation_workspace.filtered_list(kind).size())
+	_add_section("Indexed source records")
+	var remaining := record_limit
+	for kind_value in kinds:
+		if remaining <= 0:
+			break
+		var kind := str(kind_value)
+		var records := presentation_workspace.filtered_list(kind)
+		for record in records.slice(0, mini(records.size(), remaining)):
+			var source_id := ForgeRuntimeRegistryGeneration._record_id(record)
+			_add_body("[INSPECT] %s  |  %s  |  %s" % [
+				source_id,
+				str(record.get("display_name", kind.replace("_", " "))),
+				str(record.get("source_status", "unknown")),
+			])
+			remaining -= 1
+
+
+func _show_planned_capability() -> void:
+	_clear_page("Planned Specialist Editor")
+	_add_hub_banner(_active_section_id, "Planned Capability",
+		"This specialist authoring surface is intentionally disabled. Use the "
+		+ "available inspect catalogue and shared Test & Delivery tools until its "
+		+ "source editor, undo contract and validation coverage are complete.")
+
+
 func _show_blueprint_handoff() -> void:
 	_clear_page("Blueprint Designer Handoff")
 	_add_body(
@@ -2174,6 +2923,204 @@ func _show_migration_register() -> void:
 			])
 
 
+func _show_presentation_forge() -> void:
+	_clear_page("Presentation Forge")
+	var report := presentation_workspace.load_and_validate()
+	var summary := presentation_workspace.source_summary()
+	_add_body(
+		"The Presentation Forge shares the project manifest, source index, stable "
+		+ "IDs, dependency graph and validation pipeline used by Entity and Blueprint "
+		+ "Forge. Active legacy effects and sounds remain fallbacks until their "
+		+ "individual replacement evidence is approved.")
+	_add_stat_card("Indexed Forge sources", int(report.get("record_count", 0)))
+	_add_stat_card("Presentation profiles", int(summary.counts.get(
+		"presentation_profile", 0)))
+	_add_stat_card("VFX definitions", int(summary.counts.get("vfx_effect", 0)))
+	_add_stat_card("Sound events", int(summary.counts.get("sound_event", 0)))
+	_add_stat_card("Open diagnostics", presentation_workspace.diagnostics.size())
+	_add_section("Publication state")
+	_add_body("Known-good registry generation: %s" % str(
+		report.get("generation_id", "not published")))
+	_add_body(
+		"Generated products remain replaceable output. Source hash changes make "
+		+ "approval stale and require comparison plus human review.")
+
+
+func _show_presentation_spatial() -> void:
+	_show_presentation_catalogue("Spatial Roles", "spatial_map",
+		"Inspect shared owner-local anchors, sockets, regions, paths, masks, zones, "
+		+ "audio portals and runtime contacts. Scene paths are not stable identity.")
+
+
+func _show_presentation_events() -> void:
+	_clear_page("Events & Profiles")
+	_ensure_presentation_workspace()
+	_add_body(
+		"Inspect typed event/state contracts, context requirements, bindings and "
+		+ "resolved presentation profiles. Gameplay remains authoritative; these "
+		+ "records only request presentation.")
+	for kind in ["event_contract", "state_contract", "context_schema",
+			"presentation_binding", "presentation_profile"]:
+		_add_stat_card(str(kind).capitalize(),
+			presentation_workspace.filtered_list(kind).size())
+	_add_presentation_records("presentation_profile", 16)
+
+
+func _show_presentation_vfx() -> void:
+	_clear_page("VFX Graph Authoring")
+	_ensure_presentation_workspace()
+	_add_body(
+		"Review bounded graph source, voxel forms, families, surface layers, LOD and "
+		+ "budget contracts. Cycles and unbounded spawn, lifetime or node limits block "
+		+ "publication. Editing remains non-destructive and legacy VFX stays active.")
+	for kind in ["vfx_effect", "vfx_family", "vfx_graph", "vfx_form",
+			"surface_layer"]:
+		_add_stat_card(str(kind).capitalize(),
+			presentation_workspace.filtered_list(kind).size())
+	_add_presentation_records("vfx_effect", 16)
+
+
+func _show_presentation_audio() -> void:
+	_clear_page("Sound Event Authoring")
+	_ensure_presentation_workspace()
+	_add_body(
+		"Review seeded Sound Events, source provenance, managed-loop ownership, "
+		+ "spatial profiles, concurrency, buses and captions. The 700-1,100 source "
+		+ "figure is planning guidance; it is never treated as a completion count.")
+	for kind in ["sound_event", "sound_source", "audio_family",
+			"spatial_audio_profile", "acoustic_profile", "ambience_plan"]:
+		_add_stat_card(str(kind).capitalize(),
+			presentation_workspace.filtered_list(kind).size())
+	_add_presentation_records("sound_event", 16)
+
+
+func _show_presentation_accessibility() -> void:
+	_clear_page("Accessibility Preview")
+	_ensure_presentation_workspace()
+	_add_body(
+		"Preview declared reduced-motion, reduced-flash, colour-independent, muted "
+		+ "audio, caption and directional equivalents per listener. Automated checks "
+		+ "do not close listening or accessibility approval.")
+	_add_stat_card("Accessibility profiles",
+		presentation_workspace.filtered_list("accessibility_profile").size())
+	_add_stat_card("Budget / quality profiles",
+		presentation_workspace.filtered_list("budget_profile").size())
+	_add_section("Human evidence")
+	for gate in ["Visual", "Listening", "Accessibility", "Rights",
+			"Performance tier", "Owner"]:
+		_add_body("%s approval: open" % gate)
+
+
+func _show_presentation_capture() -> void:
+	_clear_page("Capture & Replay")
+	_ensure_presentation_workspace()
+	var scenarios := _load_presentation_scenarios()
+	var report := presentation_laboratory.load_and_validate(scenarios)
+	_add_body(
+		"Capture stable contract IDs, payloads, timestamps, seeds, context and "
+		+ "resolver commands. Rendered particles, voices and scene instances are not "
+		+ "capture identity.")
+	_add_stat_card("Available scenarios", int(report.get("scenario_count", 0)))
+	for scenario in scenarios.slice(0, mini(scenarios.size(), 12)):
+		_add_action("Capture %s" % scenario.display_name,
+			_capture_presentation_scenario.bind(scenario.stable_id))
+
+
+func _capture_presentation_scenario(scenario_id: String) -> void:
+	var generation := presentation_workspace.registry_publisher.current_generation()
+	var result := presentation_laboratory.capture(scenario_id,
+		str(generation.get("generation_id", "registry.presentation.preview")), 23006)
+	_set_status("Captured %s" % str(result.get("capture_id", scenario_id)),
+		not bool(result.get("ok", false)))
+
+
+func _show_presentation_test_laboratory() -> void:
+	_clear_page("Test Laboratory")
+	_ensure_presentation_workspace()
+	var scenarios := _load_presentation_scenarios()
+	var report := presentation_laboratory.load_and_validate(scenarios)
+	_add_body(
+		"Run deterministic scenario matrices across quality and accessibility modes, "
+		+ "compare registry generations, multiply density, and keep manual visual and "
+		+ "listening review visible.")
+	_add_stat_card("Regression and stress scenarios",
+		int(report.get("scenario_count", 0)))
+	if not scenarios.is_empty():
+		var matrix := presentation_laboratory.accessibility_matrix(
+			scenarios[0].stable_id)
+		_add_stat_card("First scenario matrix cells",
+			int(matrix.get("cell_count", 0)))
+	_add_presentation_records("test_scenario", 20)
+
+
+func _show_presentation_hot_reload() -> void:
+	_clear_page("Hot Reload & Repair")
+	_ensure_presentation_workspace()
+	_add_body(
+		"Validate and delta-stage changes before an atomic registry swap. The previous "
+		+ "known-good generation stays available until verification and can be restored "
+		+ "without deleting sources or active legacy fallbacks.")
+	var generation := presentation_workspace.registry_publisher.current_generation()
+	_add_body("Published generation: %s" % str(
+		generation.get("generation_id", "none")))
+	_add_action("Stage current sources", func() -> void:
+		var result := presentation_workspace.stage_current_sources()
+		_set_status("Staged generation %s" % str(result.get("generation_id", "")),
+			not bool(result.get("ok", false))))
+	_add_action("Publish validated generation", func() -> void:
+		var result := presentation_workspace.publish_staged()
+		_set_status("Published generation %s" % str(result.get("generation_id", "")),
+			not bool(result.get("ok", false))))
+	_add_action("Roll back to previous known-good generation", func() -> void:
+		var result := presentation_workspace.rollback_generation()
+		_set_status("Rollback generation %s" % str(result.get("generation_id", "")),
+			not bool(result.get("ok", false))))
+	_add_section("Repair policy")
+	_add_body(
+		"Repairs are proposed as explicit non-destructive actions. Missing dependencies, "
+		+ "aliases or products are never silently removed or rewritten.")
+
+
+func _show_presentation_catalogue(
+		title: String, kind: String, description: String) -> void:
+	_clear_page(title)
+	_ensure_presentation_workspace()
+	_add_body(description)
+	_add_stat_card("Indexed records", presentation_workspace.filtered_list(kind).size())
+	_add_presentation_records(kind, 20)
+
+
+func _add_presentation_records(kind: String, limit: int) -> void:
+	var records := presentation_workspace.filtered_list(kind)
+	for record in records.slice(0, mini(records.size(), limit)):
+		var source_id := ForgeRuntimeRegistryGeneration._record_id(record)
+		_add_body("%s  |  %s  |  %s" % [source_id,
+			str(record.get("display_name", kind)),
+			str(record.get("source_status", "unknown"))])
+	if records.size() > limit:
+		_add_body("Showing %d of %d records." % [limit, records.size()])
+
+
+func _ensure_presentation_workspace() -> void:
+	if presentation_workspace.registry_publisher.current_generation().is_empty():
+		presentation_workspace.load_and_validate()
+
+
+func _load_presentation_scenarios() -> Array[ForgePresentationTestScenario]:
+	var scenarios: Array[ForgePresentationTestScenario] = []
+	for record in presentation_workspace.asset_index.filtered_list("test_scenario"):
+		var path := presentation_workspace.asset_index.foundation_path_for(
+			str(record.get("source_id", "")))
+		var resource := ResourceLoader.load(
+			path, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if resource is ForgePresentationTestScenario:
+			scenarios.append(resource)
+	scenarios.sort_custom(func(a: ForgePresentationTestScenario,
+			b: ForgePresentationTestScenario) -> bool:
+		return a.stable_id < b.stable_id)
+	return scenarios
+
+
 func _recover_autosave(path: String) -> void:
 	current_asset = document_service.open_path(path)
 	if current_asset == null:
@@ -2271,7 +3218,11 @@ func _after_open_asset() -> void:
 	]
 	_preview.show_asset(current_asset)
 	_save_button.disabled = false
+	_validate_button.disabled = false
+	_bake_preview_button.disabled = false
 	_approve_button.disabled = false
+	_rebuild_navigation()
+	_refresh_context_ribbon()
 	_set_status("Opened %s." % current_asset.display_name, false)
 	asset_opened.emit(current_asset.forge_asset_id)
 
@@ -2283,6 +3234,7 @@ func _after_edit() -> void:
 		current_asset.source_status = "draft"
 	document_service.mark_dirty(current_asset.forge_asset_id)
 	_preview.show_asset(current_asset)
+	_refresh_context_ribbon()
 	_set_status("Unsaved changes.", false)
 	if is_instance_valid(_surface_canvas):
 		_surface_canvas.queue_redraw()
@@ -2409,7 +3361,7 @@ func _require_asset() -> bool:
 func _show_access_denied() -> void:
 	var label := Label.new()
 	label.text = (
-		"Voxel Asset Forge is unavailable in this build.\n"
+		"Leyforge Forge is unavailable in this build.\n"
 		+ "It is restricted to editor/development configurations.")
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -2442,14 +3394,15 @@ func _set_status(message: String, is_error: bool) -> void:
 		return
 	_status_label.text = message
 	_status_label.add_theme_color_override(
-		"font_color", Color("#eda3a3") if is_error else Color("#a9bac2"))
+		"font_color", ForgeVisualTheme.ERROR if is_error else ForgeVisualTheme.MUTED)
+	_refresh_context_ribbon()
 
 
 func _add_section(text: String) -> void:
 	var label := Label.new()
 	label.text = text
 	label.add_theme_font_size_override("font_size", 20)
-	label.add_theme_color_override("font_color", Color("#e8d6a4"))
+	label.add_theme_color_override("font_color", _active_accent.lightened(0.2))
 	_page.add_child(label)
 
 
@@ -2457,19 +3410,24 @@ func _add_body(text: String) -> void:
 	var label := Label.new()
 	label.text = text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_color_override("font_color", Color("#c3d0d4"))
+	label.add_theme_color_override("font_color", ForgeVisualTheme.PARCHMENT.darkened(0.08))
 	_page.add_child(label)
 
 
 func _add_stat_card(label_text: String, value: int) -> void:
 	var panel := PanelContainer.new()
+	panel.add_theme_stylebox_override(
+		"panel", ForgeVisualTheme.panel_style(
+			ForgeVisualTheme.RAISED, _active_accent.darkened(0.42), 1))
 	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 12)
 	var label := Label.new()
 	label.text = label_text
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var value_label := Label.new()
 	value_label.text = str(value)
 	value_label.add_theme_font_size_override("font_size", 21)
+	value_label.add_theme_color_override("font_color", _active_accent.lightened(0.2))
 	row.add_child(label)
 	row.add_child(value_label)
 	panel.add_child(row)
@@ -2481,6 +3439,7 @@ func _add_action(label: String, action: Callable) -> void:
 	button.text = label
 	button.custom_minimum_size = Vector2(0, 42)
 	button.pressed.connect(action)
+	ForgeVisualTheme.apply_button(button, _active_accent)
 	_page.add_child(button)
 
 
@@ -2488,7 +3447,7 @@ func _add_child_note(parent: Node, text: String) -> void:
 	var label := Label.new()
 	label.text = text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_color_override("font_color", Color("#94aab3"))
+	label.add_theme_color_override("font_color", ForgeVisualTheme.MUTED)
 	parent.add_child(label)
 
 

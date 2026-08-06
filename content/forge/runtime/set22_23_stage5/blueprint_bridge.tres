@@ -1,0 +1,296 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_pu3vs"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_66lcy"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_eqwjd"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_2gswf"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_it767"]
+
+[sub_resource type="Resource" id="Resource_kxed8"]
+script = ExtResource("1_pu3vs")
+delta_id = "delta.site"
+stage_id = "site"
+add_element_ids = PackedStringArray()
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_byx7a"]
+script = ExtResource("1_pu3vs")
+delta_id = "delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("volume.foundation")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("site")
+
+[sub_resource type="Resource" id="Resource_r21u2"]
+script = ExtResource("1_pu3vs")
+delta_id = "delta.frame"
+stage_id = "frame"
+add_element_ids = PackedStringArray()
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_2w6hh"]
+script = ExtResource("1_pu3vs")
+delta_id = "delta.shell"
+stage_id = "shell"
+add_element_ids = PackedStringArray("volume.floor", "volume.wall.north", "volume.wall.south")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("frame")
+
+[sub_resource type="Resource" id="Resource_auuo3"]
+script = ExtResource("1_pu3vs")
+delta_id = "delta.roof"
+stage_id = "roof"
+add_element_ids = PackedStringArray("volume.roof")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("shell")
+
+[sub_resource type="Resource" id="Resource_3c6d6"]
+script = ExtResource("1_pu3vs")
+delta_id = "delta.interior"
+stage_id = "interior"
+add_element_ids = PackedStringArray("marker.00", "marker.01", "marker.02")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("roof")
+
+[sub_resource type="Resource" id="Resource_cs560"]
+script = ExtResource("1_pu3vs")
+delta_id = "delta.equipment"
+stage_id = "equipment"
+add_element_ids = PackedStringArray("module.bridge_span.00", "module.bridge_span.01", "module.stairs_rail.02", "module.scaffold.03", "network.road", "network.transport")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("interior")
+
+[sub_resource type="Resource" id="Resource_xj0t8"]
+script = ExtResource("1_pu3vs")
+delta_id = "delta.complete"
+stage_id = "complete"
+add_element_ids = PackedStringArray()
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("equipment")
+
+[sub_resource type="Resource" id="Resource_gtolx"]
+script = ExtResource("2_66lcy")
+element_id = "volume.foundation"
+element_kind = "block_group"
+material_role_id = "material_role.foundation_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+size = Vector3i(5, 1, 12)
+
+[sub_resource type="Resource" id="Resource_ino8o"]
+script = ExtResource("2_66lcy")
+element_id = "volume.floor"
+element_kind = "block_group"
+material_role_id = "material_role.floor_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 1, 0)
+size = Vector3i(5, 1, 12)
+
+[sub_resource type="Resource" id="Resource_sufw8"]
+script = ExtResource("2_66lcy")
+element_id = "volume.wall.north"
+element_kind = "block_group"
+material_role_id = "material_role.wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 2, 0)
+size = Vector3i(5, 1, 1)
+
+[sub_resource type="Resource" id="Resource_gk3tv"]
+script = ExtResource("2_66lcy")
+element_id = "volume.wall.south"
+element_kind = "block_group"
+material_role_id = "material_role.wall_secondary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 2, 11)
+size = Vector3i(5, 1, 1)
+
+[sub_resource type="Resource" id="Resource_bxbbj"]
+script = ExtResource("2_66lcy")
+element_id = "volume.roof"
+element_kind = "block_group"
+material_role_id = "material_role.roof_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "roof"
+position = Vector3i(0, 2, 0)
+size = Vector3i(5, 1, 12)
+
+[sub_resource type="Resource" id="Resource_3swl8"]
+script = ExtResource("2_66lcy")
+element_id = "module.bridge_span.00"
+module_id = "blueprint.module.shared.bridge_span.stage5"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+position = Vector3i(1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_ihm6l"]
+script = ExtResource("2_66lcy")
+element_id = "module.bridge_span.01"
+module_id = "blueprint.module.shared.bridge_span.stage5"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+position = Vector3i(2, 1, 1)
+
+[sub_resource type="Resource" id="Resource_m2gjt"]
+script = ExtResource("2_66lcy")
+element_id = "module.stairs_rail.02"
+module_id = "blueprint.module.shared.stairs_rail.stage5"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+position = Vector3i(3, 1, 1)
+
+[sub_resource type="Resource" id="Resource_lxx0i"]
+script = ExtResource("2_66lcy")
+element_id = "module.scaffold.03"
+module_id = "blueprint.module.shared.scaffold.stage5"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+position = Vector3i(1, 1, 2)
+
+[sub_resource type="Resource" id="Resource_rtx6x"]
+script = ExtResource("2_66lcy")
+element_id = "module.damage_rubble"
+module_id = "blueprint.module.shared.damage_rubble.stage5"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "complete"
+position = Vector3i(2, 1, 9)
+optional = true
+
+[sub_resource type="Resource" id="Resource_3ppsl"]
+script = ExtResource("2_66lcy")
+element_id = "marker.00"
+element_kind = "marker"
+marker_role_ids = PackedStringArray("marker.role.navigable_approach")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "interior"
+position = Vector3i(0, 1, 0)
+
+[sub_resource type="Resource" id="Resource_nwxys"]
+script = ExtResource("2_66lcy")
+element_id = "marker.01"
+element_kind = "marker"
+marker_role_ids = PackedStringArray("marker.role.bridge_supports_landings")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "interior"
+position = Vector3i(1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_bn06j"]
+script = ExtResource("2_66lcy")
+element_id = "marker.02"
+element_kind = "marker"
+marker_role_ids = PackedStringArray("marker.role.road_nodes")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "interior"
+position = Vector3i(2, 1, 2)
+
+[sub_resource type="Resource" id="Resource_wthkb"]
+script = ExtResource("2_66lcy")
+element_id = "network.road"
+element_kind = "marker"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray("network.role.road")
+stage_id = "equipment"
+
+[sub_resource type="Resource" id="Resource_y3ruq"]
+script = ExtResource("2_66lcy")
+element_id = "network.transport"
+element_kind = "marker"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray("network.role.transport")
+stage_id = "equipment"
+
+[sub_resource type="Resource" id="Resource_2o2kb"]
+script = ExtResource("3_eqwjd")
+material_role_set_id = "blueprint.material_role_set.bridge.stage5"
+role_bindings = {
+"material_role.door_material": "material.mvp.wood",
+"material_role.floor_material": "material.mvp.wood",
+"material_role.foundation_material": "material.mvp.stone",
+"material_role.frame_material": "material.mvp.wood",
+"material_role.functional": "material.mvp.iron",
+"material_role.roof_material": "material.mvp.wood",
+"material_role.structural_beam": "material.mvp.wood",
+"material_role.wall_primary": "material.mvp.wood",
+"material_role.wall_secondary": "material.mvp.stone",
+"material_role.window_material": "material.mvp.glass"
+}
+required_role_ids = PackedStringArray("material_role.foundation_material", "material_role.floor_material", "material_role.wall_primary", "material_role.wall_secondary", "material_role.frame_material", "material_role.roof_material", "material_role.door_material", "material_role.window_material", "material_role.structural_beam", "material_role.functional")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray()
+lifecycle = "runtime_candidate"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_7fr4w"]
+script = ExtResource("4_2gswf")
+placement_profile_id = "blueprint.placement_profile.bridge.stage5"
+allowed_zone_role_ids = PackedStringArray("zone.role.placement")
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_max = Vector3i(4, 2, 11)
+max_slope = 2
+terrain_mode = "bridge_supports"
+lifecycle = "runtime_candidate"
+
+[resource]
+script = ExtResource("5_it767")
+blueprint_id = "blueprint.leyforge.transport.stone_road_bridge_set_a"
+display_name = "Stone Road Bridge"
+definition_ids = PackedStringArray()
+module_ids = PackedStringArray("blueprint.module.shared.bridge_span.stage5", "blueprint.module.shared.stairs_rail.stage5", "blueprint.module.shared.scaffold.stage5", "blueprint.module.shared.damage_rubble.stage5")
+elements = Array[ExtResource("2_66lcy")]([SubResource("Resource_gtolx"), SubResource("Resource_ino8o"), SubResource("Resource_sufw8"), SubResource("Resource_gk3tv"), SubResource("Resource_bxbbj"), SubResource("Resource_3swl8"), SubResource("Resource_ihm6l"), SubResource("Resource_m2gjt"), SubResource("Resource_lxx0i"), SubResource("Resource_rtx6x"), SubResource("Resource_3ppsl"), SubResource("Resource_nwxys"), SubResource("Resource_bn06j"), SubResource("Resource_wthkb"), SubResource("Resource_y3ruq")])
+construction_deltas = Array[ExtResource("1_pu3vs")]([SubResource("Resource_kxed8"), SubResource("Resource_byx7a"), SubResource("Resource_r21u2"), SubResource("Resource_2w6hh"), SubResource("Resource_auuo3"), SubResource("Resource_3c6d6"), SubResource("Resource_cs560"), SubResource("Resource_xj0t8")])
+placement_profile = SubResource("Resource_7fr4w")
+material_role_set = SubResource("Resource_2o2kb")
+contract_ids = PackedStringArray()
+capture_profile_id = "capture.profile.blueprint.current_state"
+lifecycle = "runtime_candidate"
+extension_points = PackedStringArray("construction", "damage_repair", "acoustics", "worldgen")
+source_status = "validated_runtime_candidate"
+contract_version = "22-stage5-v1"
+dependency_ids = PackedStringArray("blueprint.module.shared.bridge_span.stage5", "blueprint.module.shared.stairs_rail.stage5", "blueprint.module.shared.scaffold.stage5", "blueprint.module.shared.damage_rubble.stage5")
+legacy_fallback = "bp.project.road_bridge_stone"

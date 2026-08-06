@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ForgeAmbiencePlan" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_ambience_plan.gd" id="1_5mifc"]
+
+[resource]
+script = ExtResource("1_5mifc")
+owner_blueprint_id = "blueprint.leyforge.worldgen.rune_ruin_a"
+acoustic_graph_id = "acoustic.zone_graph.rune_ruin.stage5"
+components = Array[Dictionary]([{
+"component_id": "bed",
+"priority": 20,
+"required_state": "occupied",
+"sound_event_id": "sound.event.golden.mana_conduit.stage4"
+}, {
+"component_id": "weather",
+"priority": 30,
+"required_state": "raining",
+"sound_event_id": "sound.event.golden.rain_shelter.stage4"
+}])
+maximum_active_components = 4
+schema_id = "leyforge.forge.ambience-plan"
+stable_id = "acoustic.ambience.rune_ruin.stage5"
+display_name = "Rune Ruin Ambience Plan"
+asset_class = "ambience_plan"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("acoustic.zone_graph.rune_ruin.stage5", "sound.event.golden.mana_conduit.stage4", "sound.event.golden.rain_shelter.stage4")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"generator": "generate_set22_23_stage5_sources.gd",
+"listening_approval": "open",
+"visual_approval": "open"
+}
+rights_status = "not_applicable_generated_data"

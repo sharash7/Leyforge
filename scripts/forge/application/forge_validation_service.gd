@@ -25,6 +25,40 @@ func validate_blueprint_source(
 		blueprint, semantic_registry)
 
 
+func validate_blueprint_module_source(
+		module: ForgeBlueprintModuleDefinition,
+		semantic_registry: ForgeSemanticRegistry = null) -> Array[ForgeDiagnostic]:
+	return ForgeBlueprintRuntimeValidationService.new().validate_module(
+		module, semantic_registry)
+
+
+func validate_blueprint_state_source(
+		state: ForgeBlueprintStateDefinition,
+		semantic_registry: ForgeSemanticRegistry = null) -> Array[ForgeDiagnostic]:
+	return ForgeBlueprintRuntimeValidationService.new().validate_state(
+		state, semantic_registry)
+
+
+func validate_blueprint_runtime_product_source(
+		product: ForgeBlueprintRuntimeProduct) -> Array[ForgeDiagnostic]:
+	return ForgeBlueprintRuntimeValidationService.new().validate_product(product)
+
+
+func validate_blueprint_instance_snapshot_source(
+		snapshot: ForgeBlueprintInstanceSnapshot) -> Array[ForgeDiagnostic]:
+	return ForgeBlueprintRuntimeValidationService.new().validate_snapshot(snapshot)
+
+
+func validate_acoustic_zone_graph_source(
+		graph: ForgeAcousticZoneGraph) -> Array[ForgeDiagnostic]:
+	return ForgeBlueprintRuntimeValidationService.new().validate_acoustic_graph(graph)
+
+
+func validate_ambience_plan_source(
+		plan: ForgeAmbiencePlan) -> Array[ForgeDiagnostic]:
+	return ForgeBlueprintRuntimeValidationService.new().validate_ambience_plan(plan)
+
+
 func validate_body_plan_source(
 		body_plan: ForgeBodyPlanDefinition,
 		semantic_registry: ForgeSemanticRegistry = null,
@@ -62,6 +96,105 @@ func validate_placement_profile_source(
 		semantic_registry: ForgeSemanticRegistry = null) -> Array[ForgeDiagnostic]:
 	return ForgeFoundationValidationService.new().validate_placement_profile(
 		profile, semantic_registry)
+
+
+func validate_presentation_source(
+		definition: ForgePresentationDefinition,
+		semantic_registry: ForgeSemanticRegistry = null) -> Array[ForgeDiagnostic]:
+	return ForgePresentationValidationService.new().validate(
+		definition, semantic_registry)
+
+
+func validate_presentation_library_source(
+		manifest: ForgePresentationLibraryManifest) -> Array[ForgeDiagnostic]:
+	return ForgePresentationProductionValidationService.new().\
+		validate_library_manifest(manifest)
+
+
+func validate_runtime_registry_generation_source(
+		generation: ForgeRuntimeRegistryGeneration) -> Array[ForgeDiagnostic]:
+	return ForgePresentationProductionValidationService.new().\
+		validate_generation(generation)
+
+
+func validate_presentation_pack_source(
+		pack: ForgeContentPackManifest) -> Array[ForgeDiagnostic]:
+	return ForgePresentationValidationService.new().validate_pack(pack)
+
+
+func validate_presentation_migration_source(
+		record: ForgeMigrationRecord) -> Array[ForgeDiagnostic]:
+	return ForgePresentationValidationService.new().validate_migration_record(record)
+
+
+func validate_rig_source(
+		profile: ForgeRigProfile, entity: ForgeEntityDefinition = null,
+		semantic_registry: ForgeSemanticRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeRuntimeAssemblyValidationService.new().validate_rig_profile(
+		profile, entity, semantic_registry)
+
+
+func validate_spatial_map_source(
+		spatial_map: ForgeSpatialMap,
+		semantic_registry: ForgeSemanticRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeRuntimeAssemblyValidationService.new().validate_spatial_map(
+		spatial_map, semantic_registry)
+
+
+func validate_entity_assembly_source(
+		profile: ForgeEntityAssemblyProfile) -> Array[ForgeDiagnostic]:
+	return ForgeRuntimeAssemblyValidationService.new().validate_assembly_profile(
+		profile)
+
+
+func validate_runtime_contact_source(
+		contact: ForgeRuntimeContactRecord,
+		semantic_registry: ForgeSemanticRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeRuntimeAssemblyValidationService.new().validate_runtime_contact(
+		contact, semantic_registry)
+
+
+func validate_animation_library_source(
+		library: ForgeEntityAnimationLibrary,
+		semantic_registry: ForgeSemanticRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeEntityAnimationValidationService.new().validate_animation_library(
+		library, semantic_registry)
+
+
+func validate_retarget_map_source(
+		record: ForgeRetargetMap) -> Array[ForgeDiagnostic]:
+	return ForgeEntityAnimationValidationService.new().validate_retarget_map(record)
+
+
+func validate_foot_placement_source(
+		profile: ForgeFootPlacementProfile,
+		semantic_registry: ForgeSemanticRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeEntityAnimationValidationService.new().validate_foot_placement(
+		profile, semantic_registry)
+
+
+func validate_equipment_fit_source(
+		profile: ForgeEquipmentFitProfile,
+		semantic_registry: ForgeSemanticRegistry = null) \
+		-> Array[ForgeDiagnostic]:
+	return ForgeEntityAnimationValidationService.new().validate_equipment_fit(
+		profile, semantic_registry)
+
+
+func validate_entity_variant_source(
+		profile: ForgeEntityVariantProfile) -> Array[ForgeDiagnostic]:
+	return ForgeEntityAnimationValidationService.new().validate_variant(profile)
+
+
+func validate_gameplay_proxy_source(
+		profile: ForgeGameplayProxyProfile) -> Array[ForgeDiagnostic]:
+	return ForgeEntityAnimationValidationService.new().validate_gameplay_proxy(
+		profile)
 
 
 func validate_asset(
@@ -197,7 +330,10 @@ func _validate_footprint(
 
 func has_blockers(diagnostics: Array[ForgeDiagnostic]) -> bool:
 	for diagnostic in diagnostics:
-		if diagnostic.severity in [ForgeDiagnostic.ERROR, ForgeDiagnostic.CRITICAL]:
+		if diagnostic.severity in [
+				ForgeDiagnostic.ERROR, ForgeDiagnostic.CRITICAL,
+				ForgeDiagnostic.BLOCKER,
+				ForgeDiagnostic.CRITICAL_RELEASE_BLOCKER]:
 			return true
 	return false
 
@@ -205,6 +341,7 @@ func has_blockers(diagnostics: Array[ForgeDiagnostic]) -> bool:
 func summarize(diagnostics: Array[ForgeDiagnostic]) -> Dictionary:
 	var summary := {
 		"info": 0, "warning": 0, "error": 0, "critical": 0,
+		"blocker": 0, "critical_release_blocker": 0,
 	}
 	for diagnostic in diagnostics:
 		summary[diagnostic.severity] = int(

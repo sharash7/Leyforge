@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintStateDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_state_definition.gd" id="1_eyh4k"]
+
+[resource]
+script = ExtResource("1_eyh4k")
+state_id = "blueprint.state.watchtower.repaired"
+blueprint_id = "blueprint.leyforge.safety.wooden_watchtower_a"
+state_kind = "repaired"
+parent_state_id = "blueprint.state.watchtower.light_damage"
+add_element_ids = PackedStringArray()
+remove_element_ids = PackedStringArray()
+material_role_overrides = {
+"material_role.wall_secondary": "material.mvp.wood"
+}
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+enable_network_role_ids = PackedStringArray()
+disable_network_role_ids = PackedStringArray()
+surface_layer_ids = PackedStringArray("surface.layer.repair_patch.stage5")
+repair_resource_ids = PackedStringArray("material.mvp.wood", "material.mvp.stone")
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("blueprint.leyforge.safety.wooden_watchtower_a", "blueprint.state.watchtower.light_damage", "surface.layer.repair_patch.stage5")

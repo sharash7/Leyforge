@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="1_xd777"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="2_wuxh5"]
+
+[sub_resource type="Resource" id="Resource_plvqm"]
+script = ExtResource("1_xd777")
+element_id = "bridge_span.primary"
+element_kind = "block_group"
+material_role_id = "material_role.foundation_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+size = Vector3i(3, 1, 4)
+
+[resource]
+script = ExtResource("2_wuxh5")
+module_id = "blueprint.module.shared.bridge_span.stage5"
+display_name = "Bridge Span and Support"
+module_kind = "bridge_span"
+elements = Array[ExtResource("1_xd777")]([SubResource("Resource_plvqm")])
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()

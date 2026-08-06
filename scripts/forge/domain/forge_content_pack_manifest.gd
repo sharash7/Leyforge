@@ -21,6 +21,11 @@ extends Resource
 @export var fallback := ""
 @export var removal_gate := "explicit_pack_migration"
 @export var review_history: Array[Dictionary] = []
+@export var provided_schema_ids: PackedStringArray = []
+@export var presentation_asset_ids: PackedStringArray = []
+@export var required_contract_versions: Dictionary = {}
+@export var rights_manifest_ids: PackedStringArray = []
+@export var override_policy := "declared_only"
 
 
 func to_record() -> Dictionary:
@@ -45,4 +50,9 @@ func to_record() -> Dictionary:
 		"fallback": fallback,
 		"removal_gate": removal_gate,
 		"review_history": review_history.duplicate(true),
+		"provided_schema_ids": Array(provided_schema_ids),
+		"presentation_asset_ids": Array(presentation_asset_ids),
+		"required_contract_versions": required_contract_versions.duplicate(true),
+		"rights_manifest_ids": Array(rights_manifest_ids),
+		"override_policy": override_policy,
 	}

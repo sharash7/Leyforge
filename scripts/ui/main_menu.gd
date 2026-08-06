@@ -413,7 +413,7 @@ func _show_developer_tools() -> void:
 		"Development-only project tools. These entries are omitted from "
 		+ "non-development builds and never become part of world save data.")
 	var forge := Button.new()
-	forge.text = "Voxel Asset Forge"
+	forge.text = "Leyforge Forge"
 	forge.custom_minimum_size = Vector2(0, 54)
 	forge.tooltip_text = (
 		"Author and validate block, item and machine presentations")
@@ -426,11 +426,11 @@ func _show_developer_tools() -> void:
 
 func _open_forge() -> void:
 	if not ForgeAccessPolicy.is_development_enabled():
-		_show_error("Voxel Asset Forge is unavailable in this build.")
+		_show_error("Leyforge Forge is unavailable in this build.")
 		return
 	var error := get_tree().change_scene_to_file(FORGE_SCENE)
 	if error != OK:
-		_show_error("Could not open Voxel Asset Forge: %s" % error_string(error))
+		_show_error("Could not open Leyforge Forge: %s" % error_string(error))
 
 
 func _begin_rebind(action: String) -> void:

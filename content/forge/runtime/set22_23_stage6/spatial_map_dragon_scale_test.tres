@@ -1,0 +1,211 @@
+[gd_resource type="Resource" script_class="ForgeSpatialMap" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_spatial_reference.gd" id="1_8j1kr"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_spatial_map.gd" id="2_g3bi5"]
+
+[sub_resource type="Resource" id="Resource_woj3u"]
+script = ExtResource("1_8j1kr")
+owner_asset_id = "entity.definition.creature.dragon_scale_test"
+semantic_role_id = "anchor.presentation.center"
+mapping_mode = "bone_bound"
+required_status = "required"
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.dragon_scale_test.center"
+display_name = "anchor.presentation.center"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role"
+}
+
+[sub_resource type="Resource" id="Resource_hmdpc"]
+script = ExtResource("1_8j1kr")
+owner_asset_id = "entity.definition.creature.dragon_scale_test"
+spatial_type = "socket"
+semantic_role_id = "socket.audio.voice"
+mapping_mode = "bone_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.dragon_scale_test.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.dragon_scale_test.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.dragon_scale_test.voice"
+display_name = "socket.audio.voice"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.dragon.head"
+}
+
+[sub_resource type="Resource" id="Resource_q2lty"]
+script = ExtResource("1_8j1kr")
+owner_asset_id = "entity.definition.creature.dragon_scale_test"
+spatial_type = "socket"
+semantic_role_id = "socket.presentation.mouth"
+mapping_mode = "bone_bound"
+local_position = Vector3(0, 0, -0.2)
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.dragon_scale_test.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.dragon_scale_test.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.dragon_scale_test.mouth"
+display_name = "socket.presentation.mouth"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.dragon.head"
+}
+
+[sub_resource type="Resource" id="Resource_pvt0e"]
+script = ExtResource("1_8j1kr")
+owner_asset_id = "entity.definition.creature.dragon_scale_test"
+spatial_type = "socket"
+semantic_role_id = "socket.presentation.damage"
+mapping_mode = "bone_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.dragon_scale_test.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.dragon_scale_test.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.dragon_scale_test.damage"
+display_name = "socket.presentation.damage"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.dragon.torso"
+}
+
+[sub_resource type="Resource" id="Resource_pqsu6"]
+script = ExtResource("1_8j1kr")
+owner_asset_id = "entity.definition.creature.dragon_scale_test"
+spatial_type = "socket"
+semantic_role_id = "socket.vfx.breath_origin"
+mapping_mode = "bone_bound"
+local_position = Vector3(0, 0, -0.25)
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.dragon_scale_test.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.dragon_scale_test.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.dragon_scale_test.breath"
+display_name = "socket.vfx.breath_origin"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.dragon.head"
+}
+
+[sub_resource type="Resource" id="Resource_r5fdh"]
+script = ExtResource("1_8j1kr")
+owner_asset_id = "entity.definition.creature.dragon_scale_test"
+spatial_type = "runtime_anchor"
+semantic_role_id = "runtime_anchor.movement.foot_contact"
+mapping_mode = "runtime_event_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.dragon_scale_test.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.dragon_scale_test.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.dragon_scale_test.contact"
+display_name = "runtime_anchor.movement.foot_contact"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.dragon.torso"
+}
+
+[resource]
+script = ExtResource("2_g3bi5")
+spatial_map_id = "spatial.map.entity.dragon_scale_test"
+display_name = "Dragon Scale Technical Candidate Spatial Map"
+owner_asset_id = "entity.definition.creature.dragon_scale_test"
+references = Array[ExtResource("1_8j1kr")]([SubResource("Resource_woj3u"), SubResource("Resource_hmdpc"), SubResource("Resource_q2lty"), SubResource("Resource_pvt0e"), SubResource("Resource_pqsu6"), SubResource("Resource_r5fdh")])
+alias_mappings = {
+"presentation.spatial.entity.dragon_scale_test.contact": "runtime_anchor.movement.foot_contact",
+"presentation.spatial.entity.dragon_scale_test.voice": "socket.audio.voice"
+}
+required_role_ids = PackedStringArray("socket.audio.voice", "socket.presentation.mouth", "socket.presentation.damage", "socket.vfx.breath_origin", "runtime_anchor.movement.foot_contact", "anchor.presentation.center")
+supported_variant_ids = PackedStringArray("base", "damaged")
+lifecycle = "runtime_candidate"
+source_status = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.dragon_scale_test", "entity.rig.profile.dragon_scale_test")
+aliases = PackedStringArray("spatial.map.template.dragon_scale_test")
+legacy_fallback = "legacy.procedural_visual.dragon_test"

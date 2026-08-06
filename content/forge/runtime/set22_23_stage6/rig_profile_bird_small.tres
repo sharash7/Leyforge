@@ -1,0 +1,215 @@
+[gd_resource type="Resource" script_class="ForgeRigProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_joint_definition.gd" id="1_bn241"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_role_binding.gd" id="2_n4cgq"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_profile.gd" id="3_aern5"]
+
+[sub_resource type="Resource" id="Resource_qh21n"]
+script = ExtResource("1_bn241")
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_head"
+parent_role_id = "anatomy.role.avian.core"
+child_role_id = "anatomy.role.avian.head"
+joint_type = "ball"
+rest_position_meters = Vector3(0, 0.12, -0.25)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_sjudi"]
+script = ExtResource("1_bn241")
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_beak"
+parent_role_id = "anatomy.role.avian.head"
+child_role_id = "anatomy.role.avian.beak"
+joint_type = "ball"
+rest_position_meters = Vector3(0, 0, -0.15)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_87ex5"]
+script = ExtResource("1_bn241")
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_wing_left"
+parent_role_id = "anatomy.role.avian.core"
+child_role_id = "anatomy.role.avian.wing.left"
+joint_type = "hinge"
+rest_position_meters = Vector3(-0.28, 0.03, 0)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_a8xlt"]
+script = ExtResource("1_bn241")
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_wing_right"
+parent_role_id = "anatomy.role.avian.core"
+child_role_id = "anatomy.role.avian.wing.right"
+joint_type = "hinge"
+rest_position_meters = Vector3(0.28, 0.03, 0)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_y0wfc"]
+script = ExtResource("1_bn241")
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_leg_left"
+parent_role_id = "anatomy.role.avian.core"
+child_role_id = "anatomy.role.avian.leg.left"
+joint_type = "hinge"
+rest_position_meters = Vector3(-0.08, -0.22, 0)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_fxf1k"]
+script = ExtResource("1_bn241")
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_leg_right"
+parent_role_id = "anatomy.role.avian.core"
+child_role_id = "anatomy.role.avian.leg.right"
+joint_type = "hinge"
+rest_position_meters = Vector3(0.08, -0.22, 0)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_qk0sc"]
+script = ExtResource("1_bn241")
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_tail"
+parent_role_id = "anatomy.role.avian.core"
+child_role_id = "anatomy.role.avian.tail"
+joint_type = "ball"
+rest_position_meters = Vector3(0, 0, 0.28)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_t7nh2"]
+script = ExtResource("2_n4cgq")
+role_id = "anatomy.role.avian.core"
+body_part_id = "entity.body_part.bird_small.core"
+
+[sub_resource type="Resource" id="Resource_m8m26"]
+script = ExtResource("2_n4cgq")
+role_id = "anatomy.role.avian.head"
+body_part_id = "entity.body_part.bird_small.head"
+parent_role_id = "anatomy.role.avian.core"
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_head"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_nliov"]
+script = ExtResource("2_n4cgq")
+role_id = "anatomy.role.avian.beak"
+body_part_id = "entity.body_part.bird_small.beak"
+parent_role_id = "anatomy.role.avian.head"
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_beak"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_2nsdl"]
+script = ExtResource("2_n4cgq")
+role_id = "anatomy.role.avian.wing.left"
+body_part_id = "entity.body_part.bird_small.wing_left"
+parent_role_id = "anatomy.role.avian.core"
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_wing_left"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_g3lmo"]
+script = ExtResource("2_n4cgq")
+role_id = "anatomy.role.avian.wing.right"
+body_part_id = "entity.body_part.bird_small.wing_right"
+parent_role_id = "anatomy.role.avian.core"
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_wing_right"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_ft72m"]
+script = ExtResource("2_n4cgq")
+role_id = "anatomy.role.avian.leg.left"
+body_part_id = "entity.body_part.bird_small.leg_left"
+parent_role_id = "anatomy.role.avian.core"
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_leg_left"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_0bo2f"]
+script = ExtResource("2_n4cgq")
+role_id = "anatomy.role.avian.leg.right"
+body_part_id = "entity.body_part.bird_small.leg_right"
+parent_role_id = "anatomy.role.avian.core"
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_leg_right"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_6042s"]
+script = ExtResource("2_n4cgq")
+role_id = "anatomy.role.avian.tail"
+body_part_id = "entity.body_part.bird_small.tail"
+parent_role_id = "anatomy.role.avian.core"
+joint_id = "entity.rig.profile.bird_small.joint.anatomy_role_avian_tail"
+lod_group = "appendage"
+
+[resource]
+script = ExtResource("3_aern5")
+rig_profile_id = "entity.rig.profile.bird_small"
+display_name = "Small Bird Technical Candidate Semantic Rig"
+entity_definition_id = "entity.definition.creature.bird_small"
+body_plan_id = "entity.body_plan.bird_small"
+root_role_id = "anatomy.role.avian.core"
+role_bindings = Array[ExtResource("2_n4cgq")]([SubResource("Resource_t7nh2"), SubResource("Resource_m8m26"), SubResource("Resource_nliov"), SubResource("Resource_2nsdl"), SubResource("Resource_g3lmo"), SubResource("Resource_ft72m"), SubResource("Resource_0bo2f"), SubResource("Resource_6042s")])
+joints = Array[ExtResource("1_bn241")]([SubResource("Resource_qh21n"), SubResource("Resource_sjudi"), SubResource("Resource_87ex5"), SubResource("Resource_a8xlt"), SubResource("Resource_y0wfc"), SubResource("Resource_fxf1k"), SubResource("Resource_qk0sc")])
+spatial_map_id = "spatial.map.entity.bird_small"
+socket_reference_ids = PackedStringArray()
+rig_lod_levels = Array[Dictionary]([{
+"active_role_ids": PackedStringArray("anatomy.role.avian.core", "anatomy.role.avian.head", "anatomy.role.avian.beak", "anatomy.role.avian.wing.left", "anatomy.role.avian.wing.right", "anatomy.role.avian.leg.left", "anatomy.role.avian.leg.right", "anatomy.role.avian.tail"),
+"lod": 0,
+"solver_policy": "full_semantic"
+}, {
+"active_role_ids": PackedStringArray("anatomy.role.avian.core", "anatomy.role.avian.head", "anatomy.role.avian.beak", "anatomy.role.avian.wing.left", "anatomy.role.avian.wing.right", "anatomy.role.avian.leg.left", "anatomy.role.avian.leg.right", "anatomy.role.avian.tail"),
+"lod": 1,
+"solver_policy": "reduced_chains"
+}, {
+"active_role_ids": PackedStringArray("anatomy.role.avian.core"),
+"lod": 2,
+"solver_policy": "rigid_core"
+}])
+motion_profiles = {
+"flight": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"glide": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"idle": {
+"amplitude": 0.02,
+"speed": 0.0
+},
+"landing": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"perch": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"take_off": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"walk": {
+"amplitude": 0.12,
+"speed": 1.0
+}
+}
+lifecycle = "runtime_candidate"
+source_status = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.bird_small", "entity.body_plan.bird_small")
+aliases = PackedStringArray("entity.rig.template.bird_small")
+legacy_fallback = "legacy.procedural_visual.bird"

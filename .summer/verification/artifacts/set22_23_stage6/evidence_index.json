@@ -1,0 +1,16 @@
+{
+  "artifact_count": 7,
+  "artifact_hashes": {
+    "acceptance_status.json": "792b7e1bd145628f662392533b1a6049bfbadd59b150139eee0ebe1eaf386314",
+    "capture_replay_sheet.json": "ee7b83527b16c04a50030ec35aec5f70a27a71c0ab1c252f858962341ebf7f79",
+    "contract_baseline.json": "f86dc7b7d28f209e1957b147d907f9536e603253ce422f48964520bbeca4f169",
+    "dependency_snapshot.json": "c2a1c85331703b6ee40ba3f067d1c905bd609847601e9f9a1b875bf2a3f9201b",
+    "legacy_fallback_register.json": "696ad42bf9b3bc7aefad3f54fbdbbfa740fa4e98899dffada153b9c29b0fd037",
+    "runtime_interface_baseline.json": "e012b61e76c65a2f6898ca759b8ccb49538acd228d2ce2cc8a19a661e85f688d",
+    "toolchain_evidence.json": "ba70b3435f78e82397f014c5ad4d47957aa8274d05a56f2588116d10603fad10"
+  },
+  "evidence_hash": "a45a17c7a75da2c9a198358c28b9992b4c7b2fd7f0e9eb886d2c3505e698acc2",
+  "milestone": "set22_23_unified_forge_milestone_6",
+  "schema": "leyforge.verification.stage6-evidence-index",
+  "schema_version": 1
+}

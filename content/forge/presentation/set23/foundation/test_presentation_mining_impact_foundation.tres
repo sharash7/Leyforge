@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ForgePresentationTestScenario" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_test_scenario.gd" id="1_8yv3f"]
+
+[resource]
+script = ExtResource("1_8yv3f")
+fixture_ids = PackedStringArray("presentation.binding.block.mining.stone.foundation", "presentation.profile.contact.mining.stone.foundation")
+action_records = Array[Dictionary]([{
+"event_id": "event.block.mining_impact",
+"payload": {
+"intensity": 0.75,
+"target_material": "stone"
+},
+"seed": 23001
+}])
+expected_trace_records = Array[Dictionary]([{
+"profile_id": "presentation.profile.contact.mining.stone.foundation",
+"spatial_role_id": "runtime_anchor.block.mining_impact"
+}])
+quality_tiers = PackedStringArray("full", "reduced")
+accessibility_modes = PackedStringArray("default", "reduced_motion", "audio_muted")
+duration_seconds = 5.0
+schema_id = "leyforge.forge.presentation-test-scenario"
+stable_id = "test.presentation.mining_impact.foundation"
+display_name = "Mining Impact Foundation Scenario"
+asset_class = "test_scenario"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("presentation.binding.block.mining.stone.foundation", "presentation.profile.contact.mining.stone.foundation")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"manual_review": "open",
+"production_status": "foundation_only"
+}
+rights_status = "not_applicable"

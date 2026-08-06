@@ -12,6 +12,56 @@ const MANIFEST_ROOT := GENERATED_ROOT + "/manifests"
 const BAKER_VERSION := "forge-pipeline-v7"
 
 var validation_service := ForgeValidationService.new()
+var output_root := GENERATED_ROOT
+
+
+func set_output_root(path: String) -> ForgeBakeService:
+	## Redirects every replaceable bake product as one unit. Production uses
+	## res://generated/forge; tests and external tooling can use an isolated
+	## user:// root without touching approved products.
+	var normalized := path.strip_edges().trim_suffix("/")
+	output_root = GENERATED_ROOT if normalized.is_empty() else normalized
+	return self
+
+
+func output_paths() -> Dictionary:
+	return {
+		"root": output_root,
+		"products": output_root.path_join("products"),
+		"packages": output_root.path_join("packages"),
+		"manifests": output_root.path_join("manifests"),
+	}
+
+
+func compile_vfx_sources(
+		graphs: Array[ForgeVfxGraph], forms: Array[ForgeVfxForm],
+		definitions: Array[ForgeVfxDefinition]) -> Dictionary:
+	var compiler := ForgeVfxGraphCompiler.new()
+	var report := compiler.load_and_validate(graphs, forms, definitions)
+	if not bool(report.get("ok", false)):
+		return report
+	return compiler.compile_all()
+
+
+func compile_sound_sources(
+		events: Array[ForgeSoundEvent], sources: Array[ForgeSoundSource],
+		spatial_profiles: Array[ForgeSpatialAudioProfile]) -> Dictionary:
+	var compiler := ForgeSoundPlanCompiler.new()
+	var report := compiler.load_and_validate(events, sources, spatial_profiles)
+	if not bool(report.get("ok", false)):
+		return report
+	return compiler.compile_all()
+
+
+func compile_blueprint_sources(
+		blueprints: Array[ForgeBlueprintDefinition],
+		modules: Array[ForgeBlueprintModuleDefinition],
+		states: Array[ForgeBlueprintStateDefinition]) -> Dictionary:
+	var compiler := ForgeBlueprintCompiler.new()
+	var report := compiler.load_and_validate(blueprints, modules, states)
+	if not bool(report.get("ok", false)):
+		return report
+	return compiler.compile_all()
 
 
 func bake(
@@ -42,7 +92,9 @@ func bake(
 	var safe_name := ForgeId.safe_filename(asset.presentation_id)
 	var version_key := ("%s|%s" % [
 		source_hash, BAKER_VERSION]).sha256_text().substr(0, 16)
-	var product_dir := PRODUCT_ROOT.path_join(safe_name).path_join(version_key)
+	var paths := output_paths()
+	var product_dir := str(paths["products"]).path_join(
+		safe_name).path_join(version_key)
 	var directory_error := DirAccess.make_dir_recursive_absolute(
 		ProjectSettings.globalize_path(product_dir))
 	if directory_error not in [OK, ERR_ALREADY_EXISTS]:
@@ -158,7 +210,8 @@ func bake(
 		asset, contract, source_hash, geometry, root_scene_path, mesh_path,
 		material_paths, collision_path, animation_path, state_binding_path,
 		icon_path, palette, frame_result)
-	var package_path := PACKAGE_ROOT.path_join("%s.tres" % safe_name)
+	var package_path := str(paths["packages"]).path_join(
+		"%s.tres" % safe_name)
 	var package_result := _atomic_save_resource(package, package_path)
 	if not bool(package_result.get("ok", false)):
 		return _finish({
@@ -178,7 +231,8 @@ func bake(
 	manifest.products = products
 	manifest.diagnostics_summary = validation_service.summarize(diagnostics)
 	manifest.approved_status = "approved" if approve else "draft"
-	var manifest_path := MANIFEST_ROOT.path_join("%s.tres" % safe_name)
+	var manifest_path := str(paths["manifests"]).path_join(
+		"%s.tres" % safe_name)
 	var manifest_result := _atomic_save_resource(manifest, manifest_path)
 	if not bool(manifest_result.get("ok", false)):
 		return _finish({

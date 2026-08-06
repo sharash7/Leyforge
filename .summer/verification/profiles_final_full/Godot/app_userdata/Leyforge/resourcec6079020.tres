@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ForgeConstructionDelta" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_1mkra"]
+
+[resource]
+script = ExtResource("1_1mkra")
+delta_id = "construction_delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("element.foundation.entry")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()

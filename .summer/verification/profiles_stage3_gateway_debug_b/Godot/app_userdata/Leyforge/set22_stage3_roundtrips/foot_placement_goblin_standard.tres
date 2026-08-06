@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeFootPlacementProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_foot_placement_profile.gd" id="1_oh0ld"]
+
+[resource]
+script = ExtResource("1_oh0ld")
+foot_placement_profile_id = "entity.foot_placement.goblin_standard"
+display_name = "Goblin Standard Foot Placement"
+rig_profile_id = "entity.rig.profile.goblin_standard"
+contact_role_ids = PackedStringArray("anatomy.role.humanoid.foot.left", "anatomy.role.humanoid.foot.right")
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.rig.profile.goblin_standard")

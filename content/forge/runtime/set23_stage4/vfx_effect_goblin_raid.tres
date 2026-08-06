@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ForgeVfxDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_vfx_definition.gd" id="1_bxjpn"]
+
+[resource]
+script = ExtResource("1_bxjpn")
+graph_id = "vfx.graph.golden.goblin_raid.stage4"
+form_ids = PackedStringArray("vfx.form.golden.goblin_raid.stage4")
+material_ids = PackedStringArray("material.presentation.golden.goblin_raid")
+maximum_instances = 36
+lod_tiers = Array[Dictionary]([{
+"spawn_scale": 1.0,
+"tier": "near"
+}, {
+"spawn_scale": 0.5,
+"tier": "mid"
+}, {
+"spawn_scale": 0.2,
+"tier": "far"
+}, {
+"spawn_scale": 0.0,
+"tier": "hidden",
+"virtualise": true
+}])
+budget_profile_id = "budget.profile.presentation.foundation"
+accessibility_profile_id = "access.profile.presentation.foundation"
+schema_id = "leyforge.forge.vfx-definition"
+stable_id = "vfx.effect.golden.goblin_raid.stage4"
+display_name = "Goblin Raid Golden Core Effect"
+asset_class = "vfx_effect"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_source"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("vfx.graph.golden.goblin_raid.stage4", "vfx.form.golden.goblin_raid.stage4", "budget.profile.presentation.foundation", "access.profile.presentation.foundation")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray("legacy.runtime.vfx.goblin_raid")
+provenance = {
+"document_set": "23",
+"legacy_replacement_status": "active_fallback",
+"manual_review": "open",
+"milestone": "4"
+}
+rights_status = "not_applicable"

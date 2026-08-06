@@ -38,6 +38,10 @@ func _run() -> void:
 	await _test_workspace_and_persistence()
 	_test_migration_register()
 	ForgeAccessPolicy.clear_test_override()
+	# Let deferred preview/runtime frees complete before the machine-readable
+	# result is emitted and the process begins engine teardown.
+	await get_tree().process_frame
+	await get_tree().process_frame
 	var report := {
 		"ok": failures.is_empty(),
 		"checks": checks,
@@ -141,14 +145,15 @@ func _test_access_and_identity() -> void:
 func _test_asset_index_and_sources() -> void:
 	var index := ForgeAssetIndex.new()
 	var summary := index.rebuild()
-	_check(int(summary["asset_count"]) == 312, "asset index lost registry coverage")
+	_check(int(summary["asset_count"]) == 316,
+		"asset index lost registry or acceptance-fixture coverage")
 	_check(
 		int(summary["status_counts"].get("approved", 0)) \
 			+ int(summary["status_counts"].get("draft", 0)) >= 7,
 		"asset index lost the seven MVP source presentations")
 	_check(
 		int(summary["status_counts"].get("legacy_wrapper", 0)) \
-			== 312 \
+			== 316 \
 				- int(summary["status_counts"].get("approved", 0)) \
 				- int(summary["status_counts"].get("draft", 0)),
 		"asset index status counts no longer cover every presentation once")
@@ -660,8 +665,8 @@ func _test_connections_overrides_and_dependencies() -> void:
 func _test_runtime_packages_and_consumers() -> void:
 	var runtime_summary := ForgeRuntime.reload_packages()
 	_check(
-		int(runtime_summary["package_count"]) == 7,
-		"runtime did not load seven approved packages")
+		int(runtime_summary["package_count"]) >= GOLDEN_GAMEPLAY_IDS.size(),
+		"runtime loaded fewer than the seven required golden packages")
 	for gameplay_id in GOLDEN_GAMEPLAY_IDS:
 		_check(
 			ForgeRuntime.has_package_for(gameplay_id),
@@ -835,6 +840,7 @@ func _test_runtime_packages_and_consumers() -> void:
 			damaged_actions.size() == 1 \
 			and furnace.get_node("DamageOverlay").visible,
 			"damaged state did not show its condition layer")
+		_release_animation_resources(furnace)
 		furnace.queue_free()
 		await get_tree().process_frame
 
@@ -906,7 +912,8 @@ func _test_runtime_packages_and_consumers() -> void:
 		preview._base_camera_size \
 			>= preview_bounds.size.length() * 1.44,
 		"100 percent preview is not a padded whole-asset fit")
-	preview._viewport.size = Vector2i(260, 520)
+	preview.size = Vector2(260, 520)
+	await get_tree().process_frame
 	preview._recalculate_fit_size()
 	_check(
 		preview._base_camera_size \
@@ -1075,38 +1082,205 @@ func _test_workspace_and_persistence() -> void:
 			and is_zero_approx(editor_workspace.offset_right) \
 			and is_zero_approx(editor_workspace.offset_bottom),
 		"Summer Engine resize repair did not clear the blocking host offsets")
+	# Mirror the real EditorPlugin lifecycle: the shared workspace is added while
+	# hidden and only made visible after the Leyforge Forge main-screen tab opens.
+	var plugin_workspace := ForgeWorkspace.new()
+	plugin_workspace.name = "LeyforgeForgePluginLifecycleProbe"
+	plugin_workspace.host_mode = "editor"
+	plugin_workspace.hide()
+	editor_main_screen.add_child(plugin_workspace)
+	ForgeEditorHostLayout.fill(plugin_workspace)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	plugin_workspace.show()
+	ForgeEditorHostLayout.fill(plugin_workspace)
+	plugin_workspace.refresh_host_layout()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	for section in ForgeNavigationCatalog.sections():
+		var section_id := str(section.id)
+		plugin_workspace.open_section(section_id)
+		plugin_workspace.refresh_host_layout()
+		await get_tree().process_frame
+		await get_tree().process_frame
+		var workflow_cards := plugin_workspace.find_child(
+			"ForgeStudioWorkflowCards", true, false)
+		var expected_routes := ForgeNavigationCatalog.routes_for_section(section_id)
+		var cards_laid_out := workflow_cards is GridContainer \
+			and workflow_cards.get_child_count() == expected_routes.size()
+		if cards_laid_out:
+			for card in workflow_cards.get_children():
+				var button := card.get_child(0).get_child(0) \
+					if card.get_child_count() > 0 else null
+				cards_laid_out = cards_laid_out \
+					and card is PanelContainer \
+					and card.is_visible_in_tree() \
+					and card.size.x >= 245.0 \
+					and card.size.y >= 96.0 \
+					and button is Button \
+					and button.focus_mode == Control.FOCUS_ALL \
+					and not str(button.get_meta(
+						"accessible_label", "")).is_empty()
+		_check(cards_laid_out,
+			"Summer Engine hid or collapsed %s studio workflow cards" % section_id)
+	plugin_workspace.queue_free()
+	await get_tree().process_frame
+	await get_tree().process_frame
 	editor_main_screen.queue_free()
+	await get_tree().process_frame
+	# Headless probes default to a 64 x 64 logical viewport. Exercise the real
+	# compact Forge contract instead of asking a multi-column authoring shell to
+	# fit that artificial engine minimum.
+	var original_window_size := get_window().size
+	get_window().size = Vector2i(1280, 720)
 	await get_tree().process_frame
 	var host := ForgeHostScene.instantiate()
 	add_child(host)
 	await get_tree().process_frame
 	var workspace: ForgeWorkspace = host.get_node("ForgeWorkspace")
 	_check(workspace != null, "runtime host has no shared Forge workspace")
+	_check(
+		host.size.is_equal_approx(get_viewport().get_visible_rect().size) \
+			and workspace.size.is_equal_approx(host.size),
+		"standalone Forge runtime host did not fill its logical viewport")
+	get_window().size = Vector2i(1904, 930)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	get_window().size = Vector2i(1280, 720)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_check(
+		host.position.is_equal_approx(Vector2.ZERO) \
+			and host.size.is_equal_approx(Vector2(1280, 720)) \
+			and workspace.global_position.is_equal_approx(Vector2.ZERO) \
+			and workspace.size.is_equal_approx(host.size),
+		"standalone Forge shifted or retained stale bounds after wide-to-compact resize")
+	var branded_shell := false
+	for candidate in workspace.find_children("*", "Label", true, false):
+		if "LEYFORGE FORGE" in str(candidate.text):
+			branded_shell = true
+			break
+	_check(
+		branded_shell \
+			and "Leyforge Forge" in FileAccess.get_file_as_string(
+				"res://addons/leyforge_forge/plugin.cfg") \
+			and "Leyforge Forge" in FileAccess.get_file_as_string(
+				"res://scripts/ui/main_menu.gd"),
+		"runtime, editor plugin, and main-menu Forge branding are inconsistent")
 	var navigation_scroll := workspace.find_child(
 		"ForgeNavigationScroll", true, false)
 	var page_scroll := workspace.find_child("ForgePageScroll", true, false)
-	var preview_scroll := workspace.find_child(
-		"ForgePreviewScroll", true, false)
+	var preview_scroll: ScrollContainer = workspace.find_child(
+		"ForgePreviewScroll", true, false) as ScrollContainer
 	_check(
 		navigation_scroll is ScrollContainer \
 			and page_scroll is ScrollContainer \
 			and preview_scroll is ScrollContainer,
 		"Forge navigation, pages, and live-preview column are not scrollable")
 	_check(
-		ForgeSectionGuides.page_titles().size() == 16,
-		"Forge guide does not cover every authoring section")
+		ForgeSectionGuides.page_titles().size() >= 32,
+		"Leyforge Forge guide does not cover the eight studios and authoring pages")
 	var documented_steps := 0
 	for guide_title in ForgeSectionGuides.page_titles():
 		documented_steps += ForgeSectionGuides.steps_for_page(
 			str(guide_title)).size()
 	_check(
-		documented_steps >= 120 \
+		documented_steps >= 200 \
 			and ForgeSectionGuides.steps_for_page(
 				"Block Surface Editor").size() >= 12,
 		"Forge guide is not detailed enough for a first-time creator")
+	var section_ids := {}
+	for section in ForgeNavigationCatalog.sections():
+		section_ids[str(section.id)] = true
 	_check(
-		workspace.asset_index.summary()["asset_count"] == 312,
-		"runtime workspace did not index the complete registry")
+		ForgeNavigationCatalog.sections().size() == 8 and section_ids.size() == 8,
+		"Leyforge Forge does not expose exactly eight unique studios")
+	_check(
+		ForgeNavigationCatalog.validate().is_empty(),
+		"Leyforge Forge navigation catalogue is internally invalid")
+	var route_ids := {}
+	var route_handlers_valid := true
+	var route_guides_complete := true
+	for section in ForgeNavigationCatalog.sections():
+		for route in ForgeNavigationCatalog.routes_for_section(str(section.id)):
+			route_ids[str(route.route_id)] = true
+			route_handlers_valid = route_handlers_valid \
+				and workspace.has_method(str(route.handler))
+			route_guides_complete = route_guides_complete \
+				and not ForgeSectionGuides.steps_for_page(str(route.help_key)).is_empty()
+	_check(
+		route_ids.size() == ForgeNavigationCatalog.ROUTES.size(),
+		"Leyforge Forge route IDs are not unique")
+	_check(
+		route_handlers_valid,
+		"Leyforge Forge route catalogue points at a missing workspace handler")
+	_check(
+		route_guides_complete,
+		"Leyforge Forge route catalogue has incomplete guide coverage")
+	var studio_rail := workspace.find_child("ForgeStudioRail", true, false)
+	var contextual_navigation := workspace.find_child(
+		"ForgeContextNavigation", true, false)
+	var studio_buttons := workspace.find_children("Studio_*", "Button", true, false)
+	_check(
+		studio_rail is VBoxContainer and studio_buttons.size() == 8,
+		"Leyforge Forge main rail is not the required eight-studio rail")
+	var rail_accessible := true
+	for studio_button in studio_buttons:
+		rail_accessible = rail_accessible \
+			and studio_button.focus_mode == Control.FOCUS_ALL \
+			and not str(studio_button.get_meta("accessible_label", "")).is_empty() \
+			and studio_button.icon != null
+	_check(
+		rail_accessible,
+		"Leyforge Forge studio rail lacks keyboard focus, labels, or voxel icons")
+	_check(
+		"SOURCE: NONE" in workspace._lifecycle_context_label.text \
+			and workspace._asset_context_label.text == "No asset open",
+		"Leyforge Forge context ribbon does not expose textual lifecycle state")
+	workspace.size = Vector2(1920, 860)
+	workspace._secondary_user_collapsed = false
+	workspace._apply_responsive_layout()
+	_check(
+		contextual_navigation.visible \
+			and is_equal_approx(workspace._navigation_host.custom_minimum_size.x, 312.0),
+		"wide Leyforge Forge layout did not show independent contextual navigation")
+	workspace.size = Vector2(1280, 720)
+	workspace._apply_responsive_layout()
+	_check(
+		not contextual_navigation.visible \
+			and workspace._navigation_toggle_button.visible \
+			and is_equal_approx(workspace._navigation_host.custom_minimum_size.x, 72.0),
+		"medium Leyforge Forge layout did not collapse to the studio rail and drawer")
+	workspace._show_route_popup()
+	_check(
+		workspace._route_popup.visible,
+		"compact Leyforge Forge workflow drawer did not open")
+	workspace._route_popup.hide()
+	workspace.size = Vector2(1920, 860)
+	workspace._apply_responsive_layout()
+	workspace.open_section("vfx")
+	await get_tree().process_frame
+	var planned_vfx_button := workspace.find_child(
+		"Route_vfx_editor", true, false)
+	_check(
+		workspace._page_title.text == "VFX" \
+			and not workspace._preview_panel.visible \
+			and planned_vfx_button is Button \
+			and planned_vfx_button.disabled \
+			and "Planned" in planned_vfx_button.tooltip_text,
+		"VFX hub wastes preview space or misrepresents its planned editor")
+	workspace.open_section("home")
+	await get_tree().process_frame
+	host._sync_runtime_rect()
+	workspace._apply_responsive_layout()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_check(
+		FileAccess.file_exists(ForgeWorkspace.LAYOUT_PREFERENCES_PATH),
+		"Leyforge Forge layout preferences were not stored outside project assets")
+	_check(
+		workspace.asset_index.summary()["asset_count"] == 316,
+		"runtime workspace did not index the registry plus acceptance fixtures")
 	var grass_record := workspace.asset_index.record_for_source_id(
 		"forge_asset.terrain.grass.basic")
 	workspace._open_record(grass_record)
@@ -1118,11 +1292,43 @@ func _test_workspace_and_persistence() -> void:
 		workspace.current_asset.forge_asset_id \
 			== "forge_asset.terrain.grass.basic",
 		"runtime workspace opened the wrong source")
-	workspace._show_surface_editor()
+	var open_identity := workspace.current_asset.forge_asset_id
+	var open_source_status := workspace.current_asset.source_status
+	var open_camera_size := workspace._preview._camera.size
+	workspace.open_section("structures")
 	await get_tree().process_frame
 	_check(
-		workspace._surface_canvas != null,
-		"runtime workspace has no 32 x 32 surface canvas")
+		workspace.current_asset.forge_asset_id == open_identity \
+			and workspace.current_asset.source_status == open_source_status \
+			and is_equal_approx(workspace._preview._camera.size, open_camera_size),
+		"switching Forge studios changed open asset identity, source state, or camera")
+	workspace.open_route("block_surface")
+	await get_tree().process_frame
+	_check(
+		workspace._surface_canvas != null and workspace._preview_panel.visible,
+		"runtime workspace has no 32 x 32 surface canvas or contextual preview")
+	var workspace_bottom := workspace.global_position.y + workspace.size.y
+	var preview_panel_bottom := (
+		workspace._preview_panel.global_position.y + workspace._preview_panel.size.y)
+	var preview_canvas_bottom := (
+		workspace._preview.global_position.y + workspace._preview.size.y)
+	var preview_details_bottom: float = (
+		preview_scroll.global_position.y + preview_scroll.size.y)
+	_check(
+		preview_panel_bottom <= workspace_bottom + 1.0 \
+			and preview_canvas_bottom <= preview_panel_bottom + 1.0 \
+			and preview_details_bottom <= preview_panel_bottom + 1.0,
+		("live preview or its metadata extends below the Forge host " \
+			+ "(viewport %s, host %s, workspace pos %s size %s, " \
+			+ "bottoms %.1f/%.1f/%.1f/%.1f, mins columns %s rail %s " \
+			+ "preview %s canvas %s)") % [
+				get_viewport().get_visible_rect().size, host.size,
+				workspace.global_position, workspace.size, workspace_bottom,
+				preview_panel_bottom, preview_canvas_bottom, preview_details_bottom,
+				workspace._columns.get_combined_minimum_size(),
+				workspace._primary_rail.get_combined_minimum_size(),
+				workspace._preview_panel.get_combined_minimum_size(),
+				workspace._preview.get_combined_minimum_size()])
 	_check(
 		workspace._page.find_child("SectionGuide", false, false) != null,
 		"surface editor did not expose its maintained step-by-step guide")
@@ -1277,6 +1483,7 @@ func _test_workspace_and_persistence() -> void:
 	host.queue_free()
 	await get_tree().process_frame
 	await get_tree().process_frame
+	get_window().size = original_window_size
 
 	var documents := ForgeDocumentService.new()
 	var asset := ForgeAssetDefinition.new()
@@ -1424,6 +1631,21 @@ func _mesh_uses_godot_front_winding(mesh: ArrayMesh) -> bool:
 func _remove_user_file(path: String) -> void:
 	if FileAccess.file_exists(path):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+
+
+func _release_animation_resources(root: Node) -> void:
+	if root == null:
+		return
+	if root is AnimationPlayer:
+		var player := root as AnimationPlayer
+		player.stop()
+		# Voxel-frame tracks own generated mesh RIDs through AnimationLibrary.
+		# Detach the libraries before deferred node destruction so that ownership
+		# cannot survive into engine teardown behind a clean structured result.
+		for library_name in player.get_animation_library_list():
+			player.remove_animation_library(library_name)
+	for child in root.get_children():
+		_release_animation_resources(child)
 
 
 func _has_diagnostic_code(

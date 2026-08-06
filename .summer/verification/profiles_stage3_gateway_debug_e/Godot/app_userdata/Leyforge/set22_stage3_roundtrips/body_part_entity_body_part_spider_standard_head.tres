@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ForgeBodyPartDefinition" format=4]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_rsqs2"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_0vtwd"]
+
+[sub_resource type="Resource" id="Resource_s2487"]
+script = ExtResource("2_0vtwd")
+dimensions = Vector3i(8, 6, 8)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[resource]
+script = ExtResource("1_rsqs2")
+body_part_id = "entity.body_part.spider_standard.head"
+display_name = "Head"
+parent_part_id = "entity.body_part.spider_standard.core"
+anatomy_role_id = "anatomy.role.arthropod.head"
+voxel_source = SubResource("Resource_s2487")
+material_dna_id = "material.dna.entity.hide_leather"
+local_position_meters = Vector3(0, 0.02, -0.42)
+rig_role = "anatomy.role.arthropod.head"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray()
+visibility_rules = PackedStringArray()
+planning_status = "golden_source_candidate"
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.hide_leather")

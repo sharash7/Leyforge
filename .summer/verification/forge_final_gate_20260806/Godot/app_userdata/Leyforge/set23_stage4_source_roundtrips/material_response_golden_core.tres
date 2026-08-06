@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="ForgeMaterialResponseTable" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_material_response_table.gd" id="1_pw7gh"]
+
+[resource]
+script = ExtResource("1_pw7gh")
+response_records = Array[Dictionary]([{
+"action": "mining",
+"environment": "any",
+"intensity_band": "standard",
+"profile_id": "presentation.profile.golden.mining.stage4",
+"state": "any",
+"target_family": "stone",
+"wetness_band": "any"
+}, {
+"action": "footstep",
+"environment": "any",
+"intensity_band": "standard",
+"profile_id": "presentation.profile.golden.footsteps.stage4",
+"state": "any",
+"target_family": "soil",
+"wetness_band": "any"
+}, {
+"action": "machine_operating",
+"environment": "any",
+"intensity_band": "standard",
+"profile_id": "presentation.profile.golden.furnace_lifecycle.stage4",
+"state": "any",
+"target_family": "metal",
+"wetness_band": "any"
+}, {
+"action": "mana_flow",
+"environment": "any",
+"intensity_band": "standard",
+"profile_id": "presentation.profile.golden.mana_conduit.stage4",
+"state": "any",
+"target_family": "arcane",
+"wetness_band": "any"
+}, {
+"action": "ward_warning",
+"environment": "any",
+"intensity_band": "standard",
+"profile_id": "presentation.profile.golden.ward_warning.stage4",
+"state": "any",
+"target_family": "arcane",
+"wetness_band": "any"
+}, {
+"action": "rain_contact",
+"environment": "any",
+"intensity_band": "standard",
+"profile_id": "presentation.profile.golden.rain_shelter.stage4",
+"state": "any",
+"target_family": "generic",
+"wetness_band": "any"
+}, {
+"action": "village_ambience",
+"environment": "any",
+"intensity_band": "standard",
+"profile_id": "presentation.profile.golden.village_ambience.stage4",
+"state": "any",
+"target_family": "generic",
+"wetness_band": "any"
+}, {
+"action": "raid_warning",
+"environment": "any",
+"intensity_band": "standard",
+"profile_id": "presentation.profile.golden.goblin_raid.stage4",
+"state": "any",
+"target_family": "generic",
+"wetness_band": "any"
+}])
+material_fallback_order = PackedStringArray("exact", "target_family", "hard", "soft", "generic")
+default_profile_id = "presentation.profile.golden.mining.stage4"
+schema_id = "leyforge.forge.material-response-table"
+stable_id = "material.presentation.response.golden_core.stage4"
+display_name = "Golden Core Material Responses"
+asset_class = "material_response_table"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_source"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("presentation.profile.golden.mining.stage4", "presentation.profile.golden.footsteps.stage4", "presentation.profile.golden.furnace_lifecycle.stage4", "presentation.profile.golden.mana_conduit.stage4", "presentation.profile.golden.ward_warning.stage4", "presentation.profile.golden.rain_shelter.stage4", "presentation.profile.golden.village_ambience.stage4", "presentation.profile.golden.goblin_raid.stage4")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"legacy_replacement_status": "active_fallback",
+"manual_review": "open",
+"milestone": "4"
+}
+rights_status = "not_applicable"

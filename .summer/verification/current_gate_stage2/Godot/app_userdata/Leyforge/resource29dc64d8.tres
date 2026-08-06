@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_3guw0"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_vo1gd"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="3_ur6vq"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="4_lvvsm"]
+
+[sub_resource type="Resource" id="Resource_wx1v8"]
+script = ExtResource("1_3guw0")
+delta_id = "construction_delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("element.foundation.entry")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_qqwfx"]
+script = ExtResource("2_vo1gd")
+element_id = "element.foundation.entry"
+module_id = "blueprint.module.settlement.foundation"
+material_role_id = "material_role.foundation_primary"
+marker_role_ids = PackedStringArray("marker.role.entrance")
+socket_role_ids = PackedStringArray("socket.role.road_access")
+network_role_ids = PackedStringArray("network.role.road_access")
+stage_id = "foundation"
+
+[sub_resource type="Resource" id="Resource_cp4ub"]
+script = ExtResource("3_ur6vq")
+placement_profile_id = "blueprint.placement_profile.settlement.foundation"
+allowed_zone_role_ids = PackedStringArray("zone.role.placement")
+required_socket_role_ids = PackedStringArray("socket.role.road_access")
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-1, 0, -1)
+footprint_max = Vector3i(1, 3, 1)
+max_slope = 1
+
+[resource]
+script = ExtResource("4_lvvsm")
+blueprint_id = "blueprint.leyforge.probe.foundation_a"
+display_name = "Foundation Probe"
+definition_ids = PackedStringArray("building.residential.small_cottage")
+module_ids = PackedStringArray("blueprint.module.settlement.foundation")
+elements = Array[ExtResource("2_vo1gd")]([SubResource("Resource_qqwfx")])
+construction_deltas = Array[ExtResource("1_3guw0")]([SubResource("Resource_wx1v8")])
+placement_profile = SubResource("Resource_cp4ub")
+contract_ids = PackedStringArray()
+capture_profile_id = "capture.profile.blueprint.current_state"
+extension_points = PackedStringArray()
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.building.cottage_forest_small"

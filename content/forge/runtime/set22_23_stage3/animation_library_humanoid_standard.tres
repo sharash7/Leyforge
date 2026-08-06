@@ -1,0 +1,130 @@
+[gd_resource type="Resource" script_class="ForgeEntityAnimationLibrary" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_animation_clip.gd" id="1_fmp5m"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_animation_event_marker.gd" id="2_h85un"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_animation_library.gd" id="3_imew4"]
+
+[sub_resource type="Resource" id="Resource_l73w5"]
+script = ExtResource("1_fmp5m")
+clip_id = "entity.animation.clip.humanoid_standard.idle"
+display_name = "Humanoid Standard Idle"
+duration_seconds = 1.6
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_vgulb"]
+script = ExtResource("2_h85un")
+marker_id = "animation.marker.event_movement_foot_contact.foot_0"
+event_contract_id = "event.movement.foot_contact"
+normalized_time = 0.25
+spatial_role_id = "runtime_anchor.movement.foot_contact"
+contact_kind = "foot_contact"
+required = true
+
+[sub_resource type="Resource" id="Resource_hhmsv"]
+script = ExtResource("2_h85un")
+marker_id = "animation.marker.event_movement_foot_contact.foot_1"
+event_contract_id = "event.movement.foot_contact"
+normalized_time = 0.75
+spatial_role_id = "runtime_anchor.movement.foot_contact"
+contact_kind = "foot_contact"
+required = true
+
+[sub_resource type="Resource" id="Resource_i2v8g"]
+script = ExtResource("1_fmp5m")
+clip_id = "entity.animation.clip.humanoid_standard.walk"
+display_name = "Humanoid Standard Walk"
+semantic_action = "walk"
+duration_seconds = 0.8
+role_tracks = Array[Dictionary]([{
+"interpolation": "linear",
+"keys": [{
+"rotation_degrees": Vector3(2.9391522e-15, 0, 0),
+"time": 0.0
+}, {
+"rotation_degrees": Vector3(24, 0, 0),
+"time": 0.5
+}, {
+"rotation_degrees": Vector3(2.9391522e-15, 0, 0),
+"time": 1.0
+}],
+"role_id": "anatomy.role.humanoid.foot.left"
+}, {
+"interpolation": "linear",
+"keys": [{
+"rotation_degrees": Vector3(0, 0, 0),
+"time": 0.0
+}, {
+"rotation_degrees": Vector3(-24, 0, 0),
+"time": 0.5
+}, {
+"rotation_degrees": Vector3(0, 0, 0),
+"time": 1.0
+}],
+"role_id": "anatomy.role.humanoid.foot.right"
+}])
+event_markers = Array[ExtResource("2_h85un")]([SubResource("Resource_vgulb"), SubResource("Resource_hhmsv")])
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_f1tia"]
+script = ExtResource("2_h85un")
+marker_id = "animation.marker.event_animation_equipment_release.equipment_release"
+event_contract_id = "event.animation.equipment_release"
+normalized_time = 0.45
+spatial_role_id = "runtime_anchor.equipment.release"
+contact_kind = "release"
+required = true
+
+[sub_resource type="Resource" id="Resource_sfrao"]
+script = ExtResource("2_h85un")
+marker_id = "animation.marker.event_block_mining_impact.mining_impact"
+event_contract_id = "event.block.mining_impact"
+normalized_time = 0.65
+spatial_role_id = "runtime_anchor.block.mining_impact"
+contact_kind = "impact"
+required = true
+
+[sub_resource type="Resource" id="Resource_1wgo4"]
+script = ExtResource("1_fmp5m")
+clip_id = "entity.animation.clip.humanoid_standard.mine"
+display_name = "Humanoid Standard Mine"
+semantic_action = "mine"
+looping = false
+role_tracks = Array[Dictionary]([{
+"interpolation": "linear",
+"keys": [{
+"rotation_degrees": Vector3(0, 0, 0),
+"time": 0.0
+}, {
+"rotation_degrees": Vector3(-55, 0, 0),
+"time": 0.5
+}, {
+"rotation_degrees": Vector3(0, 0, 0),
+"time": 1.0
+}],
+"role_id": "anatomy.role.humanoid.hand.right"
+}])
+event_markers = Array[ExtResource("2_h85un")]([SubResource("Resource_f1tia"), SubResource("Resource_sfrao")])
+lifecycle = "golden_source_candidate"
+
+[resource]
+script = ExtResource("3_imew4")
+animation_library_id = "entity.animation_set.humanoid_standard.stage3"
+display_name = "Golden Standard Humanoid Semantic Animation Library"
+rig_profile_id = "entity.rig.profile.humanoid_standard"
+rig_family = "humanoid"
+clips = Array[ExtResource("1_fmp5m")]([SubResource("Resource_l73w5"), SubResource("Resource_i2v8g"), SubResource("Resource_1wgo4")])
+retarget_map_ids = PackedStringArray("entity.retarget_map.humanoid_standard.self")
+foot_placement_profile_id = "entity.foot_placement.humanoid_standard"
+animation_lod_levels = Array[Dictionary]([{
+"lod": 0,
+"marker_policy": "all"
+}, {
+"lod": 1,
+"marker_policy": "critical_contacts"
+}, {
+"lod": 2,
+"marker_policy": "state_only"
+}])
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.rig.profile.humanoid_standard", "entity.retarget_map.humanoid_standard.self", "entity.foot_placement.humanoid_standard", "event.movement.foot_contact", "event.animation.equipment_release", "event.block.mining_impact")
+aliases = PackedStringArray("entity.animation_set.template.humanoid_standard")

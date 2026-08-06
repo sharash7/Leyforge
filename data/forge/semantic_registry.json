@@ -4,27 +4,315 @@
     "anatomy_role": [
       {
         "aliases": [],
-        "contract_version": "22-foundation-v1",
+        "contract_version": "23-foundation-v1",
         "dependencies": [],
-        "display_name": "Humanoid Pelvis",
-        "id": "anatomy.role.humanoid.pelvis",
+        "display_name": "Arthropod Core",
+        "id": "anatomy.role.arthropod.core",
         "lifecycle": "foundation"
       },
       {
         "aliases": [],
-        "contract_version": "22-foundation-v1",
+        "contract_version": "23-foundation-v1",
         "dependencies": [],
-        "display_name": "Humanoid Torso",
-        "id": "anatomy.role.humanoid.torso",
+        "display_name": "Arthropod Head",
+        "id": "anatomy.role.arthropod.head",
         "lifecycle": "foundation"
       },
       {
         "aliases": [],
-        "contract_version": "22-foundation-v1",
+        "contract_version": "23-foundation-v1",
         "dependencies": [],
-        "display_name": "Humanoid Head",
-        "id": "anatomy.role.humanoid.head",
+        "display_name": "Arthropod Leg Left 1",
+        "id": "anatomy.role.arthropod.leg.left.1",
         "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Arthropod Leg Left 2",
+        "id": "anatomy.role.arthropod.leg.left.2",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Arthropod Leg Left 3",
+        "id": "anatomy.role.arthropod.leg.left.3",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Arthropod Leg Left 4",
+        "id": "anatomy.role.arthropod.leg.left.4",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Arthropod Leg Right 1",
+        "id": "anatomy.role.arthropod.leg.right.1",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Arthropod Leg Right 2",
+        "id": "anatomy.role.arthropod.leg.right.2",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Arthropod Leg Right 3",
+        "id": "anatomy.role.arthropod.leg.right.3",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Arthropod Leg Right 4",
+        "id": "anatomy.role.arthropod.leg.right.4",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Avian Beak",
+        "id": "anatomy.role.avian.beak",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Avian Core",
+        "id": "anatomy.role.avian.core",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Avian Head",
+        "id": "anatomy.role.avian.head",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Avian Leg Left",
+        "id": "anatomy.role.avian.leg.left",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Avian Leg Right",
+        "id": "anatomy.role.avian.leg.right",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Avian Tail",
+        "id": "anatomy.role.avian.tail",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Avian Wing Left",
+        "id": "anatomy.role.avian.wing.left",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Avian Wing Right",
+        "id": "anatomy.role.avian.wing.right",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Centipede Core",
+        "id": "anatomy.role.centipede.core",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Centipede Head",
+        "id": "anatomy.role.centipede.head",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Centipede Segment 001",
+        "id": "anatomy.role.centipede.segment.001",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Centipede Segment 002",
+        "id": "anatomy.role.centipede.segment.002",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Centipede Segment 003",
+        "id": "anatomy.role.centipede.segment.003",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Centipede Segment 004",
+        "id": "anatomy.role.centipede.segment.004",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Centipede Segment 005",
+        "id": "anatomy.role.centipede.segment.005",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Centipede Segment 006",
+        "id": "anatomy.role.centipede.segment.006",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Centipede Tail",
+        "id": "anatomy.role.centipede.tail",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Head",
+        "id": "anatomy.role.dragon.head",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Leg Front Left",
+        "id": "anatomy.role.dragon.leg.front_left",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Leg Front Right",
+        "id": "anatomy.role.dragon.leg.front_right",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Leg Rear Left",
+        "id": "anatomy.role.dragon.leg.rear_left",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Leg Rear Right",
+        "id": "anatomy.role.dragon.leg.rear_right",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Neck 01",
+        "id": "anatomy.role.dragon.neck.01",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Neck 02",
+        "id": "anatomy.role.dragon.neck.02",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Tail 01",
+        "id": "anatomy.role.dragon.tail.01",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Tail 02",
+        "id": "anatomy.role.dragon.tail.02",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Torso",
+        "id": "anatomy.role.dragon.torso",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Wing Left",
+        "id": "anatomy.role.dragon.wing.left",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Wing Right",
+        "id": "anatomy.role.dragon.wing.right",
+        "lifecycle": "runtime_candidate"
       },
       {
         "aliases": [],
@@ -40,38 +328,6 @@
         "dependencies": [],
         "display_name": "Humanoid Arm Right",
         "id": "anatomy.role.humanoid.arm.right",
-        "lifecycle": "foundation"
-      },
-      {
-        "aliases": [],
-        "contract_version": "22-foundation-v1",
-        "dependencies": [],
-        "display_name": "Humanoid Hand Left",
-        "id": "anatomy.role.humanoid.hand.left",
-        "lifecycle": "foundation"
-      },
-      {
-        "aliases": [],
-        "contract_version": "22-foundation-v1",
-        "dependencies": [],
-        "display_name": "Humanoid Hand Right",
-        "id": "anatomy.role.humanoid.hand.right",
-        "lifecycle": "foundation"
-      },
-      {
-        "aliases": [],
-        "contract_version": "22-foundation-v1",
-        "dependencies": [],
-        "display_name": "Humanoid Leg Left",
-        "id": "anatomy.role.humanoid.leg.left",
-        "lifecycle": "foundation"
-      },
-      {
-        "aliases": [],
-        "contract_version": "22-foundation-v1",
-        "dependencies": [],
-        "display_name": "Humanoid Leg Right",
-        "id": "anatomy.role.humanoid.leg.right",
         "lifecycle": "foundation"
       },
       {
@@ -94,24 +350,56 @@
         "aliases": [],
         "contract_version": "22-foundation-v1",
         "dependencies": [],
-        "display_name": "Quadruped Torso",
-        "id": "anatomy.role.quadruped.torso",
+        "display_name": "Humanoid Hand Left",
+        "id": "anatomy.role.humanoid.hand.left",
         "lifecycle": "foundation"
       },
       {
         "aliases": [],
         "contract_version": "22-foundation-v1",
         "dependencies": [],
-        "display_name": "Quadruped Head",
-        "id": "anatomy.role.quadruped.head",
+        "display_name": "Humanoid Hand Right",
+        "id": "anatomy.role.humanoid.hand.right",
         "lifecycle": "foundation"
       },
       {
         "aliases": [],
         "contract_version": "22-foundation-v1",
         "dependencies": [],
-        "display_name": "Quadruped Snout",
-        "id": "anatomy.role.quadruped.snout",
+        "display_name": "Humanoid Head",
+        "id": "anatomy.role.humanoid.head",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Humanoid Leg Left",
+        "id": "anatomy.role.humanoid.leg.left",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Humanoid Leg Right",
+        "id": "anatomy.role.humanoid.leg.right",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Humanoid Pelvis",
+        "id": "anatomy.role.humanoid.pelvis",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Humanoid Torso",
+        "id": "anatomy.role.humanoid.torso",
         "lifecycle": "foundation"
       },
       {
@@ -128,6 +416,14 @@
         "dependencies": [],
         "display_name": "Quadruped Ear Right",
         "id": "anatomy.role.quadruped.ear.right",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Quadruped Head",
+        "id": "anatomy.role.quadruped.head",
         "lifecycle": "foundation"
       },
       {
@@ -166,20 +462,98 @@
         "aliases": [],
         "contract_version": "22-foundation-v1",
         "dependencies": [],
-        "display_name": "Quadruped Tail",
-        "id": "anatomy.role.quadruped.tail",
+        "display_name": "Quadruped Snout",
+        "id": "anatomy.role.quadruped.snout",
         "lifecycle": "foundation"
-      }
-    ],
-    "capture_profile": [
+      },
       {
         "aliases": [],
         "contract_version": "22-foundation-v1",
         "dependencies": [],
-        "display_name": "Entity Current State",
-        "id": "capture.profile.entity.current_state",
+        "display_name": "Quadruped Tail",
+        "id": "anatomy.role.quadruped.tail",
         "lifecycle": "foundation"
       },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Quadruped Torso",
+        "id": "anatomy.role.quadruped.torso",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Wisp Core",
+        "id": "anatomy.role.wisp.core",
+        "lifecycle": "foundation"
+      }
+    ],
+    "anchor": [
+      {
+        "aliases": [
+          "spatial.anchor.machine.body"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Machine Body Audio",
+        "id": "anchor.audio.machine_body",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.anchor.contact.primary"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Primary Contact",
+        "id": "anchor.contact.primary",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.anchor.presentation.center"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Presentation Centre",
+        "id": "anchor.presentation.center",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.anchor.magic.mana_origin"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Mana Origin",
+        "id": "anchor.presentation.mana_origin",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.anchor.presentation.warning"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Warning Origin",
+        "id": "anchor.presentation.warning",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.anchor.machine.firebox"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Firebox VFX",
+        "id": "anchor.vfx.firebox",
+        "lifecycle": "foundation"
+      }
+    ],
+    "capture_profile": [
       {
         "aliases": [],
         "contract_version": "22-foundation-v1",
@@ -195,32 +569,48 @@
         "display_name": "Contract Baseline",
         "id": "capture.profile.contract.baseline",
         "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Entity Current State",
+        "id": "capture.profile.entity.current_state",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Presentation Contract Baseline",
+        "id": "capture.profile.presentation.contract_baseline",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Presentation Current State",
+        "id": "capture.profile.presentation.current_state",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Presentation Performance Baseline",
+        "id": "capture.profile.presentation.performance_baseline",
+        "lifecycle": "foundation"
       }
     ],
     "entity_role": [
       {
         "aliases": [],
-        "contract_version": "22-foundation-v1",
+        "contract_version": "22-stage6-candidate-v1",
         "dependencies": [],
-        "display_name": "Player",
-        "id": "entity_role.player",
-        "lifecycle": "foundation"
-      },
-      {
-        "aliases": [],
-        "contract_version": "22-foundation-v1",
-        "dependencies": [],
-        "display_name": "Npc",
-        "id": "entity_role.npc",
-        "lifecycle": "foundation"
-      },
-      {
-        "aliases": [],
-        "contract_version": "22-foundation-v1",
-        "dependencies": [],
-        "display_name": "Elder",
-        "id": "entity_role.elder",
-        "lifecycle": "foundation"
+        "display_name": "Bird",
+        "id": "entity_role.bird",
+        "lifecycle": "runtime_candidate"
       },
       {
         "aliases": [],
@@ -228,6 +618,30 @@
         "dependencies": [],
         "display_name": "Builder",
         "id": "entity_role.builder",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Giant Centipede",
+        "id": "entity_role.centipede",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-stage6-candidate-v1",
+        "dependencies": [],
+        "display_name": "Dragon Technical Test",
+        "id": "entity_role.dragon",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Elder",
+        "id": "entity_role.elder",
         "lifecycle": "foundation"
       },
       {
@@ -242,32 +656,16 @@
         "aliases": [],
         "contract_version": "22-foundation-v1",
         "dependencies": [],
+        "display_name": "Goblin",
+        "id": "entity_role.goblin",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
         "display_name": "Guard",
         "id": "entity_role.guard",
-        "lifecycle": "foundation"
-      },
-      {
-        "aliases": [],
-        "contract_version": "22-foundation-v1",
-        "dependencies": [],
-        "display_name": "Merchant",
-        "id": "entity_role.merchant",
-        "lifecycle": "foundation"
-      },
-      {
-        "aliases": [],
-        "contract_version": "22-foundation-v1",
-        "dependencies": [],
-        "display_name": "Mage",
-        "id": "entity_role.mage",
-        "lifecycle": "foundation"
-      },
-      {
-        "aliases": [],
-        "contract_version": "22-foundation-v1",
-        "dependencies": [],
-        "display_name": "Miner",
-        "id": "entity_role.miner",
         "lifecycle": "foundation"
       },
       {
@@ -282,8 +680,32 @@
         "aliases": [],
         "contract_version": "22-foundation-v1",
         "dependencies": [],
-        "display_name": "Goblin",
-        "id": "entity_role.goblin",
+        "display_name": "Mage",
+        "id": "entity_role.mage",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Merchant",
+        "id": "entity_role.merchant",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Miner",
+        "id": "entity_role.miner",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Npc",
+        "id": "entity_role.npc",
         "lifecycle": "foundation"
       },
       {
@@ -292,6 +714,14 @@
         "dependencies": [],
         "display_name": "Pig",
         "id": "entity_role.pig",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Player",
+        "id": "entity_role.player",
         "lifecycle": "foundation"
       },
       {
@@ -7284,6 +7714,62 @@
         "lifecycle": "foundation"
       }
     ],
+    "mask": [
+      {
+        "aliases": [
+          "surface.mask.machine.chimney_opening"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Chimney Opening",
+        "id": "mask.surface.chimney_opening",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-acoustic-runtime-v1",
+        "dependencies": [],
+        "display_name": "Corruption Surface Mask",
+        "id": "mask.surface.corruption",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [
+          "surface.mask.rune_glow"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Rune Glow",
+        "id": "mask.surface.rune_glow",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-acoustic-runtime-v1",
+        "dependencies": [],
+        "display_name": "Scorch Surface Mask",
+        "id": "mask.surface.scorch",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-acoustic-runtime-v1",
+        "dependencies": [],
+        "display_name": "Soot Surface Mask",
+        "id": "mask.surface.soot",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [
+          "surface.mask.environment.wetness"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Wetness Surface",
+        "id": "mask.surface.wetness",
+        "lifecycle": "foundation"
+      }
+    ],
     "material_role": [
       {
         "aliases": [
@@ -7635,7 +8121,249 @@
         "lifecycle": "foundation"
       }
     ],
+    "path": [
+      {
+        "aliases": [
+          "spatial.path.magic.mana_flow"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Mana Flow",
+        "id": "path.vfx.mana_flow",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.path.magic.ward_boundary"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Ward Boundary",
+        "id": "path.vfx.ward_boundary",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.path.combat.weapon_trail"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Weapon Trail",
+        "id": "path.vfx.weapon_trail",
+        "lifecycle": "foundation"
+      }
+    ],
+    "portal": [
+      {
+        "aliases": [],
+        "contract_version": "23-acoustic-runtime-v1",
+        "dependencies": [],
+        "display_name": "Audio Chimney Portal",
+        "id": "portal.audio.chimney",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [
+          "acoustic.portal.front_door"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Front Door Sound Portal",
+        "id": "portal.audio.front_door",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-acoustic-runtime-v1",
+        "dependencies": [],
+        "display_name": "Audio Gate Portal",
+        "id": "portal.audio.gate",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-acoustic-runtime-v1",
+        "dependencies": [],
+        "display_name": "Audio Window Portal",
+        "id": "portal.audio.window",
+        "lifecycle": "runtime_candidate"
+      }
+    ],
+    "region": [
+      {
+        "aliases": [
+          "spatial.region.entity.body"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Entity Body",
+        "id": "region.entity.body",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.region.machine.damage"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Machine Damage",
+        "id": "region.machine.damage",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.region.machine.hot_surface"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Machine Hot Surface",
+        "id": "region.machine.hot_surface",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.region.structure.roof_contact"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Roof Contact",
+        "id": "region.presentation.roof_contact",
+        "lifecycle": "foundation"
+      }
+    ],
+    "runtime_anchor": [
+      {
+        "aliases": [
+          "spatial.runtime_anchor.block.mining_impact"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Mining Impact",
+        "id": "runtime_anchor.block.mining_impact",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.runtime_anchor.combat.impact"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Combat Impact",
+        "id": "runtime_anchor.combat.impact",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.runtime_anchor.creature.telegraph"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Creature Telegraph",
+        "id": "runtime_anchor.creature.telegraph",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.runtime_anchor.equipment.release"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Equipment Release",
+        "id": "runtime_anchor.equipment.release",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.runtime_anchor.movement.foot_contact"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Foot Contact",
+        "id": "runtime_anchor.movement.foot_contact",
+        "lifecycle": "foundation"
+      }
+    ],
     "socket": [
+      {
+        "aliases": [
+          "spatial.socket.entity.voice"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Voice Origin",
+        "id": "socket.audio.voice",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.socket.entity.equipment_primary"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Primary Equipment",
+        "id": "socket.equipment.primary",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.socket.entity.damage"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Damage Presentation",
+        "id": "socket.presentation.damage",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.socket.entity.foot_left"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Left Foot Presentation",
+        "id": "socket.presentation.foot.left",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.socket.entity.foot_right"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Right Foot Presentation",
+        "id": "socket.presentation.foot.right",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.socket.entity.hand_left"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Left Hand Presentation",
+        "id": "socket.presentation.hand.left",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.socket.entity.hand_right"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Right Hand Presentation",
+        "id": "socket.presentation.hand.right",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.socket.entity.mouth"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Mouth Presentation",
+        "id": "socket.presentation.mouth",
+        "lifecycle": "foundation"
+      },
       {
         "aliases": [
           "legacy.socket.fuel"
@@ -7715,23 +8443,88 @@
         "display_name": "Water",
         "id": "socket.role.water",
         "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.socket.creature.breath_origin"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Breath Origin",
+        "id": "socket.vfx.breath_origin",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "presentation.spatial.machine.furnace.chimney",
+          "spatial.socket.machine.chimney"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Chimney VFX",
+        "id": "socket.vfx.chimney",
+        "lifecycle": "foundation"
       }
     ],
     "zone": [
       {
         "aliases": [],
-        "contract_version": "22-foundation-v1",
+        "contract_version": "23-acoustic-runtime-v1",
         "dependencies": [],
-        "display_name": "Interior",
-        "id": "zone.role.interior",
+        "display_name": "Cottage Interior Audio Zone",
+        "id": "zone.audio.cottage_interior",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [
+          "acoustic.zone.exterior"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Exterior Audio",
+        "id": "zone.audio.exterior",
         "lifecycle": "foundation"
       },
       {
         "aliases": [],
-        "contract_version": "22-foundation-v1",
+        "contract_version": "23-acoustic-runtime-v1",
         "dependencies": [],
-        "display_name": "Work Zone",
-        "id": "zone.role.work",
+        "display_name": "Goblin Camp Audio Zone",
+        "id": "zone.audio.goblin_camp",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-acoustic-runtime-v1",
+        "dependencies": [],
+        "display_name": "Rune Ruin Audio Zone",
+        "id": "zone.audio.rune_ruin",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-acoustic-runtime-v1",
+        "dependencies": [],
+        "display_name": "Warehouse Interior Audio Zone",
+        "id": "zone.audio.warehouse_interior",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [],
+        "contract_version": "23-acoustic-runtime-v1",
+        "dependencies": [],
+        "display_name": "Watchtower Interior Audio Zone",
+        "id": "zone.audio.watchtower_interior",
+        "lifecycle": "runtime_candidate"
+      },
+      {
+        "aliases": [
+          "acoustic.zone.workshop_interior"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Workshop Interior",
+        "id": "zone.audio.workshop_interior",
         "lifecycle": "foundation"
       },
       {
@@ -7740,6 +8533,14 @@
         "dependencies": [],
         "display_name": "Clearance Zone",
         "id": "zone.role.clearance",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Interior",
+        "id": "zone.role.interior",
         "lifecycle": "foundation"
       },
       {
@@ -7757,8 +8558,41 @@
         "display_name": "Placement Zone",
         "id": "zone.role.placement",
         "lifecycle": "foundation"
+      },
+      {
+        "aliases": [],
+        "contract_version": "22-foundation-v1",
+        "dependencies": [],
+        "display_name": "Work Zone",
+        "id": "zone.role.work",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.zone.weather.rain"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Rain Weather",
+        "id": "zone.weather.rain",
+        "lifecycle": "foundation"
+      },
+      {
+        "aliases": [
+          "spatial.zone.weather.shelter"
+        ],
+        "contract_version": "23-foundation-v1",
+        "dependencies": [],
+        "display_name": "Weather Shelter",
+        "id": "zone.weather.shelter",
+        "lifecycle": "foundation"
       }
     ]
+  },
+  "feature_contract_versions": {
+    "set22": "22-foundation-v1",
+    "set22_stage6_advanced_bodies": "22-stage6-candidate-v1",
+    "set23": "23-foundation-v1"
   },
   "lifecycle": "foundation",
   "schema": "leyforge.forge.semantic-registry",

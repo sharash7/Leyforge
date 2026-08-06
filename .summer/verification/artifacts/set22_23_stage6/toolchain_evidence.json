@@ -1,0 +1,12 @@
+{
+  "artifact_hash": "ba70b3435f78e82397f014c5ad4d47957aa8274d05a56f2588116d10603fad10",
+  "engine_feature": "4.6",
+  "engine_upgrade_performed": false,
+  "generated_product_policy": "replaceable_output",
+  "main_scene_changed": false,
+  "renderer": "gl_compatibility",
+  "save_version": 17,
+  "schema": "leyforge.verification.toolchain-evidence",
+  "schema_version": 1,
+  "verification_runner": "Godot_v4.8-dev-a9c94-shutdown-fixed"
+}

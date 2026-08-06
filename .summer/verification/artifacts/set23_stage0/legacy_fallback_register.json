@@ -1,0 +1,803 @@
+{
+  "contract_version": "23-foundation-v1",
+  "record_count": 30,
+  "records": [
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/forge/runtime/forge_runtime_effects.gd",
+      "dependency_information": {
+        "line_numbers": [
+          50,
+          98,
+          99,
+          105
+        ],
+        "match_count": 4,
+        "scan_category": "direct_light_node"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.bdc5f104c58e4303",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "wrap",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "direct_light_node",
+      "target_id": "migration.presentation.direct_light_node.bdc5f104c58e4303",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/forge/ui/forge_preview_viewport.gd",
+      "dependency_information": {
+        "line_numbers": [
+          56
+        ],
+        "match_count": 1,
+        "scan_category": "direct_light_node"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.e8a429790fdeeac7",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "wrap",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "direct_light_node",
+      "target_id": "migration.presentation.direct_light_node.e8a429790fdeeac7",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/forge/runtime/forge_runtime_effects.gd",
+      "dependency_information": {
+        "line_numbers": [
+          1,
+          14,
+          18,
+          20
+        ],
+        "match_count": 4,
+        "scan_category": "hardcoded_effect_dispatch"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.077c3eb23e0d4186",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "wrap",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "hardcoded_effect_dispatch",
+      "target_id": "migration.presentation.hardcoded_effect_dispatch.077c3eb23e0d4186",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/forge/runtime/forge_runtime.gd",
+      "dependency_information": {
+        "line_numbers": [
+          77
+        ],
+        "match_count": 1,
+        "scan_category": "hardcoded_effect_dispatch"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.d2f326282cf442b1",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "wrap",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "hardcoded_effect_dispatch",
+      "target_id": "migration.presentation.hardcoded_effect_dispatch.d2f326282cf442b1",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/forge/runtime/forge_runtime_effects.gd",
+      "dependency_information": {
+        "line_numbers": [
+          47,
+          56,
+          58,
+          64
+        ],
+        "match_count": 4,
+        "scan_category": "particle_node"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.19a88e5076dc9d95",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "wrap",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "particle_node",
+      "target_id": "migration.presentation.particle_node.19a88e5076dc9d95",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/forge/runtime/forge_runtime_effects.gd",
+      "dependency_information": {
+        "line_numbers": [
+          17
+        ],
+        "match_count": 1,
+        "scan_category": "scene_path_presentation"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.5590e0c5f1e832b1",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "wrap",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "scene_path_presentation",
+      "target_id": "migration.presentation.scene_path_presentation.5590e0c5f1e832b1",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/player/player.gd",
+      "dependency_information": {
+        "line_numbers": [
+          26
+        ],
+        "match_count": 1,
+        "scan_category": "scene_path_presentation"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.bd37f9244fcab057",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "wrap",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "scene_path_presentation",
+      "target_id": "migration.presentation.scene_path_presentation.bd37f9244fcab057",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "manual semantic-transform audit",
+      "dependency_information": {
+        "automated_scan": "not_sufficient",
+        "scope": "unnamed transforms used as presentation origins"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.unnamed_transforms",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "named_spatial_roles_and_runtime_alignment_evidence",
+      "replacement_strategy": "defer",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.transform",
+      "status": "inventoried_manual_review_open",
+      "subject_type": "unnamed_transform",
+      "target_id": "migration.presentation.semantic_gap.unnamed_transforms",
+      "target_schema_id": "leyforge.forge.spatial-reference",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_ore_copper_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          140
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.26f33030df90e024",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.26f33030df90e024",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_ore_iron_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          148
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.2a9ea8adbbcec323",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.2a9ea8adbbcec323",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/forge/runtime/forge_runtime.gd",
+      "dependency_information": {
+        "line_numbers": [
+          20,
+          27,
+          36
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.34c26a5f7e9710b1",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.34c26a5f7e9710b1",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_ore_coal_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          140
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.42f8bb9bc45eb5ad",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.42f8bb9bc45eb5ad",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/forge_project_manifest.tres",
+      "dependency_information": {
+        "line_numbers": [
+          14
+        ],
+        "match_count": 1,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.6228d8c67c80ab82",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.6228d8c67c80ab82",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_functional_furnace_stone.tres",
+      "dependency_information": {
+        "line_numbers": [
+          108,
+          116,
+          303
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.6a73ad5a235ae02d",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.6a73ad5a235ae02d",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_construction_brick_stone.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          73
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.6cbc0d62ac8e1d2d",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.6cbc0d62ac8e1d2d",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_automation_crusher_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          38,
+          46,
+          150
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.6d247bd7220aa010",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.6d247bd7220aa010",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/visual/item_model_factory.gd",
+      "dependency_information": {
+        "line_numbers": [
+          62,
+          63
+        ],
+        "match_count": 2,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.6df2ad1d00485c3e",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.6df2ad1d00485c3e",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_terrain_stone_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          108
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.86caf6f8d9d09efd",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.86caf6f8d9d09efd",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/contracts/contract_automation_chute_v1.tres",
+      "dependency_information": {
+        "line_numbers": [
+          15
+        ],
+        "match_count": 1,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.8e4c93a400f19da8",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.8e4c93a400f19da8",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_power_crank_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          60
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.8ed11bbea0a69798",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.8ed11bbea0a69798",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_light_torch_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          48,
+          53,
+          61,
+          147,
+          205
+        ],
+        "match_count": 5,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.985212ed9a569a03",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.985212ed9a569a03",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_natural_log_oak.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          60
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.a38c814b60bd365b",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.a38c814b60bd365b",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_automation_transport_chute.tres",
+      "dependency_information": {
+        "line_numbers": [
+          14,
+          28,
+          104,
+          105,
+          124
+        ],
+        "match_count": 5,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.ab668aced4c03da8",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.ab668aced4c03da8",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/world/voxel_world.gd",
+      "dependency_information": {
+        "line_numbers": [
+          2145,
+          2147
+        ],
+        "match_count": 2,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.b1fc9e93599d9a9a",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.b1fc9e93599d9a9a",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_magic_conduit_mana_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          13,
+          21,
+          90
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.be969e8f02643a0a",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.be969e8f02643a0a",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_item_tool_crude_pickaxe.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          85
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.d0b4b796e2f09e95",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.d0b4b796e2f09e95",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_terrain_grass_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          84
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.d2366915bd4e2134",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.d2366915bd4e2134",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "scripts/forge/bake/forge_bake_service.gd",
+      "dependency_information": {
+        "line_numbers": [
+          402
+        ],
+        "match_count": 1,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.de189986fbcb9f22",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.de189986fbcb9f22",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/assets/forge_asset_terrain_dirt_basic.tres",
+      "dependency_information": {
+        "line_numbers": [
+          11,
+          19,
+          108
+        ],
+        "match_count": 3,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.dfc857385606f4d2",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.dfc857385606f4d2",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    },
+    {
+      "contract_version": "23-foundation-v1",
+      "current_source": "content/forge/contracts/contract_machine_furnace_v1.tres",
+      "dependency_information": {
+        "line_numbers": [
+          15
+        ],
+        "match_count": 1,
+        "scan_category": "stable_presentation_reference"
+      },
+      "fallback": "active_legacy_runtime",
+      "fallback_active": true,
+      "fallback_id": "legacy.presentation.e3590b7284b36974",
+      "lifecycle": "active_fallback",
+      "manual_review": "open",
+      "removal_gate": "approved_replacement_and_regression_evidence",
+      "replacement_strategy": "preserve",
+      "review_history": [],
+      "source_schema_id": "legacy.runtime.presentation",
+      "status": "inventoried",
+      "subject_type": "stable_presentation_reference",
+      "target_id": "migration.presentation.stable_presentation_reference.e3590b7284b36974",
+      "target_schema_id": "leyforge.forge.migration-record",
+      "transformation_version": 1
+    }
+  ],
+  "register_hash": "93818f5334b41912c5543035bfcc882f2ae4621351b9ee82dc24ba4e20af6cd3",
+  "removal_count": 0,
+  "schema": "leyforge.verification.set23.legacy-fallback-register"
+}

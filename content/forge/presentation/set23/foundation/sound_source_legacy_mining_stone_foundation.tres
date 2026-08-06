@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ForgeSoundSource" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_sound_source.gd" id="1_jebpj"]
+
+[resource]
+script = ExtResource("1_jebpj")
+source_path = "legacy://runtime/mining_stone"
+source_hash = "fb6b6603292a8d65459f4a061d767e196b348623a11d247353631f0d6454b7d0"
+schema_id = "leyforge.forge.sound-source"
+stable_id = "sound.source.legacy.mining.stone.foundation"
+display_name = "Legacy Stone Mining Source"
+asset_class = "sound_source"
+lifecycle = "active_fallback"
+source_status = "legacy_fallback_inventory"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"classification": "existing_runtime_fallback",
+"manual_rights_review": "open"
+}
+rights_status = "legacy_runtime_unverified"

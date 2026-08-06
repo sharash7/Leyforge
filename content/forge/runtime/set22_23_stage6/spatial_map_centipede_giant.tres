@@ -1,0 +1,211 @@
+[gd_resource type="Resource" script_class="ForgeSpatialMap" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_spatial_reference.gd" id="1_7jf3a"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_spatial_map.gd" id="2_poix7"]
+
+[sub_resource type="Resource" id="Resource_0qxg6"]
+script = ExtResource("1_7jf3a")
+owner_asset_id = "entity.definition.creature.centipede_giant"
+semantic_role_id = "anchor.presentation.center"
+mapping_mode = "bone_bound"
+required_status = "required"
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.centipede_giant.center"
+display_name = "anchor.presentation.center"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role"
+}
+
+[sub_resource type="Resource" id="Resource_2yfe3"]
+script = ExtResource("1_7jf3a")
+owner_asset_id = "entity.definition.creature.centipede_giant"
+spatial_type = "socket"
+semantic_role_id = "socket.audio.voice"
+mapping_mode = "bone_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.centipede_giant.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.centipede_giant.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.centipede_giant.voice"
+display_name = "socket.audio.voice"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.centipede.head"
+}
+
+[sub_resource type="Resource" id="Resource_nmcpg"]
+script = ExtResource("1_7jf3a")
+owner_asset_id = "entity.definition.creature.centipede_giant"
+spatial_type = "socket"
+semantic_role_id = "socket.presentation.mouth"
+mapping_mode = "bone_bound"
+local_position = Vector3(0, 0, -0.2)
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.centipede_giant.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.centipede_giant.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.centipede_giant.mouth"
+display_name = "socket.presentation.mouth"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.centipede.head"
+}
+
+[sub_resource type="Resource" id="Resource_ksw48"]
+script = ExtResource("1_7jf3a")
+owner_asset_id = "entity.definition.creature.centipede_giant"
+spatial_type = "socket"
+semantic_role_id = "socket.presentation.damage"
+mapping_mode = "bone_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.centipede_giant.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.centipede_giant.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.centipede_giant.damage"
+display_name = "socket.presentation.damage"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.centipede.core"
+}
+
+[sub_resource type="Resource" id="Resource_k1uhn"]
+script = ExtResource("1_7jf3a")
+owner_asset_id = "entity.definition.creature.centipede_giant"
+spatial_type = "socket"
+semantic_role_id = "socket.vfx.breath_origin"
+mapping_mode = "bone_bound"
+local_position = Vector3(0, 0, -0.25)
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.centipede_giant.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.centipede_giant.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.centipede_giant.breath"
+display_name = "socket.vfx.breath_origin"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.centipede.head"
+}
+
+[sub_resource type="Resource" id="Resource_j0o5v"]
+script = ExtResource("1_7jf3a")
+owner_asset_id = "entity.definition.creature.centipede_giant"
+spatial_type = "runtime_anchor"
+semantic_role_id = "runtime_anchor.movement.foot_contact"
+mapping_mode = "runtime_event_bound"
+required_status = "required"
+fallback_reference_id = "spatial.reference.entity.centipede_giant.center"
+lod_mappings = Array[Dictionary]([{
+"lod": 1,
+"quality": "equivalent"
+}, {
+"lod": 2,
+"quality": "approximate",
+"reference_id": "spatial.reference.entity.centipede_giant.center"
+}])
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.entity.centipede_giant.contact"
+display_name = "runtime_anchor.movement.foot_contact"
+asset_class = "spatial_reference"
+lifecycle = "golden_source_candidate"
+source_status = "golden_source_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+rights_status = "not_applicable"
+extension_fields = {
+"base_mapping_quality": "exact",
+"follow_mode": "live_role",
+"parent_role_id": "anatomy.role.centipede.core"
+}
+
+[resource]
+script = ExtResource("2_poix7")
+spatial_map_id = "spatial.map.entity.centipede_giant"
+display_name = "Giant Centipede Technical Candidate Spatial Map"
+owner_asset_id = "entity.definition.creature.centipede_giant"
+references = Array[ExtResource("1_7jf3a")]([SubResource("Resource_0qxg6"), SubResource("Resource_2yfe3"), SubResource("Resource_nmcpg"), SubResource("Resource_ksw48"), SubResource("Resource_k1uhn"), SubResource("Resource_j0o5v")])
+alias_mappings = {
+"presentation.spatial.entity.centipede_giant.contact": "runtime_anchor.movement.foot_contact",
+"presentation.spatial.entity.centipede_giant.voice": "socket.audio.voice"
+}
+required_role_ids = PackedStringArray("socket.audio.voice", "socket.presentation.mouth", "socket.presentation.damage", "socket.vfx.breath_origin", "runtime_anchor.movement.foot_contact", "anchor.presentation.center")
+supported_variant_ids = PackedStringArray("base", "damaged")
+lifecycle = "runtime_candidate"
+source_status = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.centipede_giant", "entity.rig.profile.centipede_giant")
+aliases = PackedStringArray("spatial.map.template.centipede_giant")
+legacy_fallback = "legacy.procedural_visual.centipede"

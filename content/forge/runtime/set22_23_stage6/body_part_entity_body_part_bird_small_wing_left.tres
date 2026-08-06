@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ForgeBodyPartDefinition" format=4]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_seoph"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_2ifoc"]
+
+[sub_resource type="Resource" id="Resource_03hbj"]
+script = ExtResource("2_2ifoc")
+dimensions = Vector3i(12, 2, 8)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[resource]
+script = ExtResource("1_seoph")
+body_part_id = "entity.body_part.bird_small.wing_left"
+display_name = "Wing Left"
+parent_part_id = "entity.body_part.bird_small.core"
+anatomy_role_id = "anatomy.role.avian.wing.left"
+voxel_source = SubResource("Resource_03hbj")
+material_dna_id = "material.dna.entity.hide_leather"
+local_position_meters = Vector3(-0.28, 0.03, 0)
+side_token = "left"
+rig_role = "anatomy.role.avian.wing.left"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray()
+visibility_rules = PackedStringArray()
+planning_status = "golden_source_candidate"
+lifecycle = "runtime_candidate"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.hide_leather")

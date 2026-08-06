@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3 uid="uid://borvelvslphyr"]
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3 uid="uid://dttyspoljcxpl"]
 
 [ext_resource type="Script" uid="uid://cfvrxyd74eqwx" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_a0agf"]
 
@@ -47,11 +47,11 @@ products = Array[Dictionary]([{
 "path": "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/collision.tres",
 "type": "collision"
 }, {
-"hash": "e3ef346a659a88999e8466861c4ac23aef8342ac7e6f966cccf147005e3a6d0e",
+"hash": "f20cc55b568c97376cfafd766f329ce0e5b3503fbe778c4fc60c96b86d63742f",
 "path": "res://generated/forge/products/presentation_ore_coal_basic/93bcaa91fdce9e62/presentation.tscn",
 "type": "scene"
 }, {
-"hash": "ed5ca4bcea9a89feae2e91a00320e1b81a05c104ef9cdbd5f2ed0f3d67f841cb",
+"hash": "71f3c6e78e2daa6c28a994fa39731400b8720e066b7bff3e7e8856e2c80246d0",
 "path": "res://generated/forge/packages/presentation_ore_coal_basic.tres",
 "type": "runtime_package"
 }])
@@ -61,4 +61,3 @@ diagnostics_summary = {
 "info": 0,
 "warning": 0
 }
-approved_status = "approved"

@@ -1,0 +1,5508 @@
+{
+  "artifact_hash": "696ad42bf9b3bc7aefad3f54fbdbbfa740fa4e98899dffada153b9c29b0fd037",
+  "record_count": 621,
+  "records": [
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "bp.building.workshop_carpenter",
+      "replacement_status": "not_removed",
+      "source_id": "blueprint.leyforge.crafting.carpenter_workshop_a",
+      "source_status": "validated_runtime_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "bp.building.cottage_forest_small",
+      "replacement_status": "not_removed",
+      "source_id": "blueprint.leyforge.residential.small_cottage_a",
+      "source_status": "validated_editable_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "bp.building.watchtower_wood",
+      "replacement_status": "not_removed",
+      "source_id": "blueprint.leyforge.safety.wooden_watchtower_a",
+      "source_status": "validated_runtime_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "bp.building.warehouse_village",
+      "replacement_status": "not_removed",
+      "source_id": "blueprint.leyforge.storage.village_warehouse_a",
+      "source_status": "validated_runtime_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "bp.project.road_bridge_stone",
+      "replacement_status": "not_removed",
+      "source_id": "blueprint.leyforge.transport.stone_road_bridge_set_a",
+      "source_status": "validated_runtime_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.scene.goblin_camp",
+      "replacement_status": "not_removed",
+      "source_id": "blueprint.leyforge.worldgen.goblin_camp_a",
+      "source_status": "validated_runtime_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.scene.rune_ruin",
+      "replacement_status": "not_removed",
+      "source_id": "blueprint.leyforge.worldgen.rune_ruin_a",
+      "source_status": "validated_runtime_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.hamlet.pig_pen",
+      "replacement_status": "not_removed",
+      "source_id": "blueprint.module.farm.pen_basic_a",
+      "source_status": "validated_runtime_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "road.path.dirt",
+      "replacement_status": "not_removed",
+      "source_id": "blueprint.module.road.forest_path_a",
+      "source_status": "validated_runtime_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.animation.bird_small",
+      "replacement_status": "not_removed",
+      "source_id": "entity.animation_set.bird_small.stage6",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.animation.centipede_giant",
+      "replacement_status": "not_removed",
+      "source_id": "entity.animation_set.centipede_giant.stage6",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.animation.dragon_scale_test",
+      "replacement_status": "not_removed",
+      "source_id": "entity.animation_set.dragon_scale_test.stage6",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.goblin",
+      "replacement_status": "not_removed",
+      "source_id": "entity.animation_set.goblin_standard.stage3",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.spider",
+      "replacement_status": "not_removed",
+      "source_id": "entity.animation_set.spider_standard.stage3",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.wisp",
+      "replacement_status": "not_removed",
+      "source_id": "entity.animation_set.wisp_standard.stage3",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.bird",
+      "replacement_status": "not_removed",
+      "source_id": "entity.assembly_profile.bird_small",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.centipede",
+      "replacement_status": "not_removed",
+      "source_id": "entity.assembly_profile.centipede_giant",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.dragon_test",
+      "replacement_status": "not_removed",
+      "source_id": "entity.assembly_profile.dragon_scale_test",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.goblin",
+      "replacement_status": "not_removed",
+      "source_id": "entity.assembly_profile.goblin_standard",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.spider",
+      "replacement_status": "not_removed",
+      "source_id": "entity.assembly_profile.spider_standard",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.wisp",
+      "replacement_status": "not_removed",
+      "source_id": "entity.assembly_profile.wisp_standard",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.bird",
+      "replacement_status": "not_removed",
+      "source_id": "entity.definition.creature.bird_small",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.centipede",
+      "replacement_status": "not_removed",
+      "source_id": "entity.definition.creature.centipede_giant",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.dragon_test",
+      "replacement_status": "not_removed",
+      "source_id": "entity.definition.creature.dragon_scale_test",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.goblin",
+      "replacement_status": "not_removed",
+      "source_id": "entity.definition.creature.goblin_standard",
+      "source_status": "validated_editable_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.spider",
+      "replacement_status": "not_removed",
+      "source_id": "entity.definition.creature.spider_standard",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.wisp",
+      "replacement_status": "not_removed",
+      "source_id": "entity.definition.creature.wisp_standard",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.held_item.pickaxe_crude",
+      "replacement_status": "not_removed",
+      "source_id": "entity.equipment_profile.crude_pickaxe.stage3",
+      "source_status": ""
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.bird",
+      "replacement_status": "not_removed",
+      "source_id": "entity.rig.profile.bird_small",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.centipede",
+      "replacement_status": "not_removed",
+      "source_id": "entity.rig.profile.centipede_giant",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.dragon_test",
+      "replacement_status": "not_removed",
+      "source_id": "entity.rig.profile.dragon_scale_test",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.goblin",
+      "replacement_status": "not_removed",
+      "source_id": "entity.variant.goblin.raider",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.goblin",
+      "replacement_status": "not_removed",
+      "source_id": "entity.variant.goblin.scout",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.goblin",
+      "replacement_status": "not_removed",
+      "source_id": "entity.variant.goblin.shaman",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.spider",
+      "replacement_status": "not_removed",
+      "source_id": "entity.variant.spider.base",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.wisp",
+      "replacement_status": "not_removed",
+      "source_id": "entity.variant.wisp.base",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.fallback.presentation"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.animation_equipment_release.stage3",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.fallback.presentation"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.creature_telegraph.stage3",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_000"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_000.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_001"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_001.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_002"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_002.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_003"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_003.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_004"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_004.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_005"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_005.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_006"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_006.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_007"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_007.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_008"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_008.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_009"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_009.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_010"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_010.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_011"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_011.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_012"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_012.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_013"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_013.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_014"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_014.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_015"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_015.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_016"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_016.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_017"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_017.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_018"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_018.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_019"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_019.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_020"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_020.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_021"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_021.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_022"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_022.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_023"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_023.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_024"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_024.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_025"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_025.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_026"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_026.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_027"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_027.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_028"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_028.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_029"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_029.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_030"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_030.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_031"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_031.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_032"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_032.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_033"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_033.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_034"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_034.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_035"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_035.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_036"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_036.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_037"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_037.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_038"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_038.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_039"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_039.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_040"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_040.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_041"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_041.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_042"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_042.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_043"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_043.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_044"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_044.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_045"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_045.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_046"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_046.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_047"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_047.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_048"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_048.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_049"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_049.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_050"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_050.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_051"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_051.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_052"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_052.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_053"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_053.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_054"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_054.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_055"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_055.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_056"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_056.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_057"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_057.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_058"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_058.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_059"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_059.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_060"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_060.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_061"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_061.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_062"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_062.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_063"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_063.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_064"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_064.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_065"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_065.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_066"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_066.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_067"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_067.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_068"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_068.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_069"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_069.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_070"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_070.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_071"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_071.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_072"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_072.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_073"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_073.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_074"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_074.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_075"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_075.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_076"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_076.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_077"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_077.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_078"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_078.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_079"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_079.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_080"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_080.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_081"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_081.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_082"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_082.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_083"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_083.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_084"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_084.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_085"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_085.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_086"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_086.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_087"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_087.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_088"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_088.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_089"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_089.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_090"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_090.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_091"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_091.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_092"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_092.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_093"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_093.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_094"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_094.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_095"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_095.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_096"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_096.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_097"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_097.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_098"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_098.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_099"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_099.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_100"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_100.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_101"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_101.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_102"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_102.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_103"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_103.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_104"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_104.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_105"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_105.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_106"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_106.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_107"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_107.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_108"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_108.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_109"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_109.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_110"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_110.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_111"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_111.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_112"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_112.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_113"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_113.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_114"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_114.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_115"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_115.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_116"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_116.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_117"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_117.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_118"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_118.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_119"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_119.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_120"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_120.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_121"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_121.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_122"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_122.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_123"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_123.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_124"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_124.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_125"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_125.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_126"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_126.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_127"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_127.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_128"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_128.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_129"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_129.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_130"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_130.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_131"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_131.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_132"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_132.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_133"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_133.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_134"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_134.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_135"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_135.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.forest_hamlet_136"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.forest_hamlet.catalogue_136.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.footsteps"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.golden.footsteps.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.furnace_lifecycle"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.golden.furnace_lifecycle.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.goblin_raid"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.golden.goblin_raid.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.mana_conduit"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.golden.mana_conduit.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.mining"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.golden.mining.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.rain_shelter"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.golden.rain_shelter.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.village_ambience"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.golden.village_ambience.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.profile.ward_warning"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.golden.ward_warning.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.fallback.presentation"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.machine.furnace.stage3",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.fallback.presentation"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "presentation.profile.movement_foot_contact.stage3",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_000"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_000.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_001"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_001.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_002"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_002.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_003"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_003.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_004"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_004.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_005"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_005.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_006"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_006.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_007"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_007.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_008"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_008.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_009"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_009.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_010"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_010.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_011"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_011.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_012"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_012.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_013"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_013.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_014"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_014.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_015"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_015.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_016"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_016.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_017"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_017.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_018"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_018.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_019"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_019.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_020"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_020.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_021"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_021.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_022"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_022.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_023"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_023.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_024"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_024.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_025"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_025.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_026"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_026.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_027"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_027.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_028"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_028.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_029"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_029.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_030"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_030.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_031"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_031.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_032"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_032.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_033"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_033.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_034"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_034.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_035"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_035.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_036"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_036.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_037"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_037.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_038"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_038.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_039"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_039.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_040"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_040.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_041"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_041.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_042"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_042.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_043"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_043.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_044"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_044.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_045"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_045.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_046"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_046.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_047"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_047.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_048"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_048.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_049"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_049.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_050"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_050.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_051"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_051.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_052"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_052.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_053"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_053.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_054"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_054.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_055"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_055.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_056"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_056.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_057"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_057.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_058"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_058.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_059"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_059.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_060"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_060.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_061"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_061.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_062"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_062.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_063"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_063.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_064"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_064.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_065"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_065.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_066"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_066.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_067"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_067.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_068"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_068.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_069"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_069.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_070"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_070.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_071"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_071.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_072"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_072.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_073"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_073.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_074"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_074.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_075"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_075.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_076"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_076.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_077"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_077.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_078"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_078.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_079"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_079.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_080"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_080.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_081"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_081.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_082"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_082.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_083"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_083.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_084"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_084.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_085"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_085.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_086"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_086.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_087"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_087.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_088"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_088.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_089"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_089.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_090"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_090.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_091"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_091.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_092"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_092.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_093"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_093.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_094"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_094.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_095"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_095.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_096"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_096.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_097"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_097.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_098"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_098.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_099"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_099.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_100"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_100.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_101"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_101.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_102"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_102.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_103"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_103.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_104"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_104.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_105"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_105.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_106"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_106.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_107"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_107.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_108"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_108.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_109"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_109.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_110"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_110.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_111"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_111.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_112"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_112.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_113"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_113.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_114"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_114.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_115"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_115.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_116"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_116.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_117"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_117.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_118"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_118.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_119"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_119.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_120"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_120.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_121"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_121.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_122"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_122.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_123"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_123.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_124"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_124.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_125"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_125.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_126"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_126.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_127"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_127.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_128"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_128.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_129"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_129.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_130"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_130.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_131"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_131.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_132"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_132.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_133"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_133.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_134"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_134.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_135"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_135.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_136"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_136.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_137"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_137.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_138"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_138.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_139"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_139.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_140"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_140.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_141"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_141.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_142"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_142.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_143"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_143.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_144"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_144.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_145"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_145.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_146"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_146.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_147"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_147.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_148"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_148.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_149"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_149.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_150"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_150.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_151"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_151.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_152"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_152.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_153"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_153.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_154"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_154.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_155"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_155.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_156"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_156.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_157"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_157.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_158"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_158.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_159"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_159.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_160"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_160.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_161"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_161.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_162"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_162.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_163"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_163.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_164"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_164.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_165"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_165.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_166"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_166.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_167"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_167.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_168"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_168.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_169"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_169.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_170"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_170.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_171"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_171.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_172"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_172.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_173"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_173.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_174"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_174.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_175"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_175.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_176"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_176.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_177"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_177.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_178"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_178.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_179"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_179.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_180"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_180.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_181"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_181.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_182"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_182.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_183"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_183.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_184"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_184.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_185"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_185.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_186"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_186.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_187"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_187.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_188"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_188.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_189"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_189.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_190"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_190.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_191"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_191.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_192"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_192.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_193"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_193.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_194"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_194.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_195"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_195.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_196"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_196.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_197"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_197.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_198"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_198.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_199"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_199.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_200"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_200.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_201"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_201.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_202"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_202.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_203"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_203.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_204"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_204.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_205"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_205.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_206"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_206.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_207"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_207.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_208"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_208.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_209"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_209.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_210"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_210.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_211"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_211.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_212"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_212.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_213"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_213.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_214"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_214.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_215"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_215.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_216"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_216.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_217"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_217.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_218"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_218.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_219"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_219.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_220"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_220.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_221"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_221.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_222"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_222.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_223"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_223.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_224"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_224.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_225"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_225.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_226"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_226.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_227"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_227.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_228"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_228.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_229"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_229.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_230"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_230.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_231"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_231.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_232"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_232.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_233"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_233.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_234"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_234.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_235"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_235.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_236"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_236.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_237"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_237.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_238"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_238.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_239"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_239.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_240"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_240.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_241"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_241.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_242"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_242.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_243"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_243.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_244"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_244.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_245"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_245.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_246"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_246.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_247"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_247.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_248"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_248.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_249"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_249.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_250"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_250.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_251"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_251.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_252"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_252.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_253"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_253.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_254"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_254.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_255"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_255.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_256"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_256.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_257"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_257.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_258"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_258.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_259"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_259.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_260"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_260.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_261"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_261.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_262"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_262.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_263"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_263.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_264"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_264.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_265"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_265.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_266"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_266.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_267"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_267.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_268"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_268.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_269"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_269.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_270"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_270.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_271"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_271.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_272"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_272.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_273"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_273.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_274"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_274.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_275"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_275.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_276"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_276.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_277"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_277.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_278"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_278.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_279"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_279.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_280"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_280.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_281"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_281.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_282"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_282.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_283"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_283.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_284"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_284.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_285"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_285.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_286"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_286.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_287"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_287.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_288"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_288.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_289"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_289.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.forest_hamlet_290"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.forest_hamlet.catalogue_290.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.footsteps"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.golden.footsteps.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.furnace_lifecycle"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.golden.furnace_lifecycle.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.goblin_raid"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.golden.goblin_raid.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.mana_conduit"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.golden.mana_conduit.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.mining"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.golden.mining.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.rain_shelter"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.golden.rain_shelter.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.village_ambience"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.golden.village_ambience.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.audio.ward_warning"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "sound.event.golden.ward_warning.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.bird",
+      "replacement_status": "not_removed",
+      "source_id": "spatial.map.entity.bird_small",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.centipede",
+      "replacement_status": "not_removed",
+      "source_id": "spatial.map.entity.centipede_giant",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.procedural_visual.dragon_test",
+      "replacement_status": "not_removed",
+      "source_id": "spatial.map.entity.dragon_scale_test",
+      "source_status": "golden_source_candidate"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.scene_transform.forest_hamlet_00",
+      "replacement_status": "not_removed",
+      "source_id": "spatial.map.presentation.forest_hamlet_00.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.scene_transform.forest_hamlet_01",
+      "replacement_status": "not_removed",
+      "source_id": "spatial.map.presentation.forest_hamlet_01.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.scene_transform.forest_hamlet_02",
+      "replacement_status": "not_removed",
+      "source_id": "spatial.map.presentation.forest_hamlet_02.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.scene_transform.forest_hamlet_03",
+      "replacement_status": "not_removed",
+      "source_id": "spatial.map.presentation.forest_hamlet_03.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.scene_transform.forest_hamlet_04",
+      "replacement_status": "not_removed",
+      "source_id": "spatial.map.presentation.forest_hamlet_04.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [],
+      "legacy_fallback": "legacy.scene_transform.forest_hamlet_05",
+      "replacement_status": "not_removed",
+      "source_id": "spatial.map.presentation.forest_hamlet_05.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_000"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_000.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_001"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_001.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_002"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_002.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_003"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_003.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_004"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_004.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_005"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_005.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_006"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_006.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_007"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_007.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_008"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_008.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_009"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_009.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_010"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_010.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_011"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_011.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_012"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_012.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_013"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_013.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_014"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_014.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_015"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_015.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_016"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_016.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_017"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_017.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_018"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_018.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_019"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_019.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_020"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_020.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_021"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_021.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_022"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_022.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_023"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_023.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_024"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_024.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_025"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_025.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_026"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_026.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_027"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_027.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_028"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_028.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_029"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_029.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_030"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_030.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_031"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_031.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_032"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_032.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_033"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_033.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_034"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_034.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_035"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_035.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_036"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_036.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_037"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_037.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_038"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_038.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_039"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_039.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_040"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_040.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_041"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_041.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_042"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_042.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_043"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_043.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_044"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_044.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_045"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_045.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_046"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_046.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_047"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_047.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_048"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_048.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_049"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_049.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_050"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_050.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_051"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_051.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_052"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_052.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_053"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_053.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_054"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_054.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_055"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_055.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_056"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_056.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_057"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_057.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_058"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_058.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_059"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_059.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_060"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_060.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_061"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_061.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_062"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_062.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_063"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_063.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_064"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_064.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_065"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_065.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_066"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_066.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_067"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_067.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_068"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_068.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_069"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_069.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_070"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_070.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_071"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_071.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_072"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_072.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_073"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_073.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_074"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_074.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_075"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_075.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_076"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_076.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_077"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_077.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_078"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_078.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_079"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_079.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_080"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_080.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_081"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_081.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_082"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_082.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_083"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_083.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_084"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_084.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_085"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_085.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_086"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_086.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_087"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_087.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_088"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_088.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_089"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_089.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_090"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_090.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_091"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_091.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_092"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_092.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_093"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_093.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_094"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_094.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_095"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_095.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_096"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_096.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_097"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_097.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_098"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_098.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_099"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_099.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_100"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_100.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_101"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_101.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_102"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_102.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_103"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_103.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_104"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_104.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_105"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_105.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_106"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_106.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_107"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_107.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_108"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_108.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_109"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_109.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_110"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_110.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_111"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_111.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_112"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_112.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_113"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_113.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_114"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_114.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_115"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_115.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_116"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_116.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_117"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_117.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_118"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_118.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.forest_hamlet_119"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.forest_hamlet.catalogue_119.stage6",
+      "source_status": "planned_new_work"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.footsteps"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.golden.footsteps.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.furnace_lifecycle"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.golden.furnace_lifecycle.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.goblin_raid"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.golden.goblin_raid.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.mana_conduit"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.golden.mana_conduit.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.mining"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.golden.mining.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.rain_shelter"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.golden.rain_shelter.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.village_ambience"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.golden.village_ambience.stage4",
+      "source_status": "validated_runtime_source"
+    },
+    {
+      "fallback_ids": [
+        "legacy.runtime.vfx.ward_warning"
+      ],
+      "legacy_fallback": "",
+      "replacement_status": "not_removed",
+      "source_id": "vfx.effect.golden.ward_warning.stage4",
+      "source_status": "validated_runtime_source"
+    }
+  ],
+  "removals": 0,
+  "schema": "leyforge.verification.legacy-fallback-register",
+  "schema_version": 1
+}

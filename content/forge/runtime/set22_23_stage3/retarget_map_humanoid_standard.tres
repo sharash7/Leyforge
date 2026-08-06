@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ForgeRetargetMap" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_retarget_map.gd" id="1_gvmn5"]
+
+[resource]
+script = ExtResource("1_gvmn5")
+retarget_map_id = "entity.retarget_map.humanoid_standard.self"
+display_name = "Golden Standard Humanoid Exact Retarget"
+source_rig_profile_id = "entity.rig.profile.humanoid_standard"
+target_rig_profile_id = "entity.rig.profile.humanoid_standard"
+role_mappings = {
+"anatomy.role.humanoid.arm.left": "anatomy.role.humanoid.arm.left",
+"anatomy.role.humanoid.arm.right": "anatomy.role.humanoid.arm.right",
+"anatomy.role.humanoid.foot.left": "anatomy.role.humanoid.foot.left",
+"anatomy.role.humanoid.foot.right": "anatomy.role.humanoid.foot.right",
+"anatomy.role.humanoid.hand.left": "anatomy.role.humanoid.hand.left",
+"anatomy.role.humanoid.hand.right": "anatomy.role.humanoid.hand.right",
+"anatomy.role.humanoid.head": "anatomy.role.humanoid.head",
+"anatomy.role.humanoid.leg.left": "anatomy.role.humanoid.leg.left",
+"anatomy.role.humanoid.leg.right": "anatomy.role.humanoid.leg.right",
+"anatomy.role.humanoid.pelvis": "anatomy.role.humanoid.pelvis",
+"anatomy.role.humanoid.torso": "anatomy.role.humanoid.torso"
+}
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.rig.profile.humanoid_standard")
+aliases = PackedStringArray("entity.retarget_map.template.humanoid_standard")

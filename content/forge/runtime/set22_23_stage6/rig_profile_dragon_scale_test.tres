@@ -1,0 +1,295 @@
+[gd_resource type="Resource" script_class="ForgeRigProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_joint_definition.gd" id="1_ukn6y"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_role_binding.gd" id="2_jjrck"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_profile.gd" id="3_1uwle"]
+
+[sub_resource type="Resource" id="Resource_il5bg"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_neck_01"
+parent_role_id = "anatomy.role.dragon.torso"
+child_role_id = "anatomy.role.dragon.neck.01"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0.12, -0.48)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_t0pa3"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_neck_02"
+parent_role_id = "anatomy.role.dragon.neck.01"
+child_role_id = "anatomy.role.dragon.neck.02"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0.08, -0.32)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_88y3j"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_head"
+parent_role_id = "anatomy.role.dragon.neck.02"
+child_role_id = "anatomy.role.dragon.head"
+joint_type = "ball"
+rest_position_meters = Vector3(0, 0.02, -0.35)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_lfdsr"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_wing_left"
+parent_role_id = "anatomy.role.dragon.torso"
+child_role_id = "anatomy.role.dragon.wing.left"
+joint_type = "hinge"
+rest_position_meters = Vector3(-0.62, 0.18, 0)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_js53s"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_wing_right"
+parent_role_id = "anatomy.role.dragon.torso"
+child_role_id = "anatomy.role.dragon.wing.right"
+joint_type = "hinge"
+rest_position_meters = Vector3(0.62, 0.18, 0)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_a7quy"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_leg_front_left"
+parent_role_id = "anatomy.role.dragon.torso"
+child_role_id = "anatomy.role.dragon.leg.front_left"
+joint_type = "hinge"
+rest_position_meters = Vector3(-0.32, -0.4, -0.28)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_jgjal"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_leg_front_right"
+parent_role_id = "anatomy.role.dragon.torso"
+child_role_id = "anatomy.role.dragon.leg.front_right"
+joint_type = "hinge"
+rest_position_meters = Vector3(0.32, -0.4, -0.28)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_7ho5c"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_leg_rear_left"
+parent_role_id = "anatomy.role.dragon.torso"
+child_role_id = "anatomy.role.dragon.leg.rear_left"
+joint_type = "hinge"
+rest_position_meters = Vector3(-0.36, -0.42, 0.34)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_ttvqa"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_leg_rear_right"
+parent_role_id = "anatomy.role.dragon.torso"
+child_role_id = "anatomy.role.dragon.leg.rear_right"
+joint_type = "hinge"
+rest_position_meters = Vector3(0.36, -0.42, 0.34)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_agmy3"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_tail_01"
+parent_role_id = "anatomy.role.dragon.torso"
+child_role_id = "anatomy.role.dragon.tail.01"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0, 0.52)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_xi4d4"]
+script = ExtResource("1_ukn6y")
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_tail_02"
+parent_role_id = "anatomy.role.dragon.tail.01"
+child_role_id = "anatomy.role.dragon.tail.02"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0, 0.42)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "flight_control"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_x1foi"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.torso"
+body_part_id = "entity.body_part.dragon_scale_test.torso"
+
+[sub_resource type="Resource" id="Resource_ejith"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.neck.01"
+body_part_id = "entity.body_part.dragon_scale_test.neck_01"
+parent_role_id = "anatomy.role.dragon.torso"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_neck_01"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_gwvqb"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.neck.02"
+body_part_id = "entity.body_part.dragon_scale_test.neck_02"
+parent_role_id = "anatomy.role.dragon.neck.01"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_neck_02"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_hoew3"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.head"
+body_part_id = "entity.body_part.dragon_scale_test.head"
+parent_role_id = "anatomy.role.dragon.neck.02"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_head"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_i37q6"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.wing.left"
+body_part_id = "entity.body_part.dragon_scale_test.wing_left"
+parent_role_id = "anatomy.role.dragon.torso"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_wing_left"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_tq7xo"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.wing.right"
+body_part_id = "entity.body_part.dragon_scale_test.wing_right"
+parent_role_id = "anatomy.role.dragon.torso"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_wing_right"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_bhldn"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.leg.front_left"
+body_part_id = "entity.body_part.dragon_scale_test.leg_front_left"
+parent_role_id = "anatomy.role.dragon.torso"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_leg_front_left"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_twdt2"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.leg.front_right"
+body_part_id = "entity.body_part.dragon_scale_test.leg_front_right"
+parent_role_id = "anatomy.role.dragon.torso"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_leg_front_right"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_ciewf"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.leg.rear_left"
+body_part_id = "entity.body_part.dragon_scale_test.leg_rear_left"
+parent_role_id = "anatomy.role.dragon.torso"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_leg_rear_left"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_604wg"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.leg.rear_right"
+body_part_id = "entity.body_part.dragon_scale_test.leg_rear_right"
+parent_role_id = "anatomy.role.dragon.torso"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_leg_rear_right"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_68i8w"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.tail.01"
+body_part_id = "entity.body_part.dragon_scale_test.tail_01"
+parent_role_id = "anatomy.role.dragon.torso"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_tail_01"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_prg7g"]
+script = ExtResource("2_jjrck")
+role_id = "anatomy.role.dragon.tail.02"
+body_part_id = "entity.body_part.dragon_scale_test.tail_02"
+parent_role_id = "anatomy.role.dragon.tail.01"
+joint_id = "entity.rig.profile.dragon_scale_test.joint.anatomy_role_dragon_tail_02"
+lod_group = "appendage"
+
+[resource]
+script = ExtResource("3_1uwle")
+rig_profile_id = "entity.rig.profile.dragon_scale_test"
+display_name = "Dragon Scale Technical Candidate Semantic Rig"
+entity_definition_id = "entity.definition.creature.dragon_scale_test"
+body_plan_id = "entity.body_plan.dragon_scale_test"
+root_role_id = "anatomy.role.dragon.torso"
+role_bindings = Array[ExtResource("2_jjrck")]([SubResource("Resource_x1foi"), SubResource("Resource_ejith"), SubResource("Resource_gwvqb"), SubResource("Resource_hoew3"), SubResource("Resource_i37q6"), SubResource("Resource_tq7xo"), SubResource("Resource_bhldn"), SubResource("Resource_twdt2"), SubResource("Resource_ciewf"), SubResource("Resource_604wg"), SubResource("Resource_68i8w"), SubResource("Resource_prg7g")])
+joints = Array[ExtResource("1_ukn6y")]([SubResource("Resource_il5bg"), SubResource("Resource_t0pa3"), SubResource("Resource_88y3j"), SubResource("Resource_lfdsr"), SubResource("Resource_js53s"), SubResource("Resource_a7quy"), SubResource("Resource_jgjal"), SubResource("Resource_7ho5c"), SubResource("Resource_ttvqa"), SubResource("Resource_agmy3"), SubResource("Resource_xi4d4")])
+spatial_map_id = "spatial.map.entity.dragon_scale_test"
+socket_reference_ids = PackedStringArray()
+rig_lod_levels = Array[Dictionary]([{
+"active_role_ids": PackedStringArray("anatomy.role.dragon.torso", "anatomy.role.dragon.neck.01", "anatomy.role.dragon.neck.02", "anatomy.role.dragon.head", "anatomy.role.dragon.wing.left", "anatomy.role.dragon.wing.right", "anatomy.role.dragon.leg.front_left", "anatomy.role.dragon.leg.front_right", "anatomy.role.dragon.leg.rear_left", "anatomy.role.dragon.leg.rear_right", "anatomy.role.dragon.tail.01", "anatomy.role.dragon.tail.02"),
+"lod": 0,
+"solver_policy": "full_semantic"
+}, {
+"active_role_ids": PackedStringArray("anatomy.role.dragon.torso", "anatomy.role.dragon.neck.01", "anatomy.role.dragon.neck.02", "anatomy.role.dragon.head", "anatomy.role.dragon.wing.left", "anatomy.role.dragon.wing.right", "anatomy.role.dragon.leg.front_left", "anatomy.role.dragon.leg.front_right", "anatomy.role.dragon.leg.rear_left", "anatomy.role.dragon.leg.rear_right", "anatomy.role.dragon.tail.01", "anatomy.role.dragon.tail.02"),
+"lod": 1,
+"solver_policy": "reduced_chains"
+}, {
+"active_role_ids": PackedStringArray("anatomy.role.dragon.torso"),
+"lod": 2,
+"solver_policy": "rigid_core"
+}])
+motion_profiles = {
+"breath_charge": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"flight": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"ground_heavy": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"idle": {
+"amplitude": 0.02,
+"speed": 0.0
+},
+"landing": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"take_off": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"walk": {
+"amplitude": 0.12,
+"speed": 1.0
+}
+}
+lifecycle = "runtime_candidate"
+source_status = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.dragon_scale_test", "entity.body_plan.dragon_scale_test")
+aliases = PackedStringArray("entity.rig.template.dragon_scale_test")
+legacy_fallback = "legacy.procedural_visual.dragon_test"

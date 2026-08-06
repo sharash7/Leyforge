@@ -9,6 +9,7 @@ var source_paths: Dictionary = {}
 var diagnostics: Array[Dictionary] = []
 var foundation_records_by_id: Dictionary = {}
 var foundation_source_paths: Dictionary = {}
+var foundation_aliases: Dictionary = {}
 var foundation_diagnostics: Array[Dictionary] = []
 var registry_bridge := ForgeRegistryBridge.new()
 
@@ -82,23 +83,27 @@ func load_and_validate(
 		density_registry: ForgeDensityProfileRegistry = null) -> Dictionary:
 	foundation_records_by_id.clear()
 	foundation_source_paths.clear()
+	foundation_aliases.clear()
 	foundation_diagnostics.clear()
 	for source_root in source_roots:
 		_scan_foundation_directory(
 			source_root, semantic_registry, density_registry)
+	_validate_foundation_dependencies(semantic_registry)
 	return {
 		"ok": foundation_diagnostics.is_empty(),
 		"record_count": foundation_records_by_id.size(),
+		"alias_count": foundation_aliases.size(),
 		"diagnostics": foundation_diagnostics.duplicate(true),
 	}
 
 
 func resolve(source_id: String) -> Dictionary:
-	return foundation_records_by_id.get(source_id, {}).duplicate(true)
+	var canonical := ForgeId.canonical_id(source_id, foundation_aliases)
+	return foundation_records_by_id.get(canonical, {}).duplicate(true)
 
 
 func has(source_id: String) -> bool:
-	return foundation_records_by_id.has(source_id)
+	return not resolve(source_id).is_empty()
 
 
 func filtered_list(kind := "") -> Array[Dictionary]:
@@ -112,7 +117,8 @@ func filtered_list(kind := "") -> Array[Dictionary]:
 
 
 func foundation_path_for(source_id: String) -> String:
-	return str(foundation_source_paths.get(source_id, ""))
+	var canonical := ForgeId.canonical_id(source_id, foundation_aliases)
+	return str(foundation_source_paths.get(canonical, ""))
 
 
 func _scan_directory(path: String) -> void:
@@ -176,7 +182,8 @@ func _index_foundation_source(
 		return
 	if foundation_records_by_id.has(source_id):
 		foundation_diagnostics.append({
-			"code": "EFB-ID-001",
+			"code": "REG-001" if resource is ForgePresentationDefinition \
+				else "EFB-ID-001",
 			"severity": "critical",
 			"target_id": source_id,
 			"message": "Duplicate Forge foundation source ID.",
@@ -189,6 +196,39 @@ func _index_foundation_source(
 	record["source_path"] = path
 	foundation_records_by_id[source_id] = record
 	foundation_source_paths[source_id] = path
+	if resource is ForgePresentationDefinition:
+		for alias_id in resource.aliases:
+			if foundation_records_by_id.has(alias_id) \
+					or foundation_aliases.has(alias_id):
+				foundation_diagnostics.append({
+					"code": "REG-001",
+					"severity": "critical",
+					"target_id": alias_id,
+					"message": "Presentation alias is duplicated.",
+				})
+			else:
+				foundation_aliases[alias_id] = source_id
+	elif resource is ForgeRigProfile \
+			or resource is ForgeSpatialMap \
+			or resource is ForgeEntityAssemblyProfile \
+			or resource is ForgeEntityAnimationLibrary \
+			or resource is ForgeRetargetMap \
+			or resource is ForgeEntityVariantProfile \
+			or resource is ForgeBlueprintModuleDefinition \
+			or resource is ForgeBlueprintStateDefinition \
+			or resource is ForgeBlueprintRuntimeProduct \
+			or resource is ForgePresentationLibraryManifest:
+		for alias_id in resource.aliases:
+			if foundation_records_by_id.has(alias_id) \
+					or foundation_aliases.has(alias_id):
+				foundation_diagnostics.append({
+					"code": "EFB-ID-001",
+					"severity": "critical",
+					"target_id": alias_id,
+					"message": "Runtime Forge alias is duplicated.",
+				})
+			else:
+				foundation_aliases[alias_id] = source_id
 	var validator := ForgeFoundationValidationService.new()
 	var resource_diagnostics: Array[ForgeDiagnostic] = []
 	if resource is ForgeEntityDefinition:
@@ -208,6 +248,15 @@ func _index_foundation_source(
 	elif resource is ForgeBlueprintMaterialRoleSet:
 		resource_diagnostics = validator.validate_material_role_set(
 			resource, semantic_registry)
+	elif resource is ForgeBlueprintModuleDefinition:
+		resource_diagnostics = ForgeBlueprintRuntimeValidationService.new().\
+			validate_module(resource, semantic_registry)
+	elif resource is ForgeBlueprintStateDefinition:
+		resource_diagnostics = ForgeBlueprintRuntimeValidationService.new().\
+			validate_state(resource, semantic_registry)
+	elif resource is ForgeBlueprintRuntimeProduct:
+		resource_diagnostics = ForgeBlueprintRuntimeValidationService.new().\
+			validate_product(resource)
 	elif resource is ForgeMaterialDefinition:
 		if resource.schema_version != 1 \
 				or not ForgeId.is_valid(resource.material_id, "material."):
@@ -217,11 +266,53 @@ func _index_foundation_source(
 				"target_id": source_id,
 				"message": "Material DNA source contract is invalid.",
 			})
+	elif resource is ForgeAcousticZoneGraph:
+		resource_diagnostics = ForgeBlueprintRuntimeValidationService.new().\
+			validate_acoustic_graph(resource)
+	elif resource is ForgeAmbiencePlan:
+		resource_diagnostics = ForgeBlueprintRuntimeValidationService.new().\
+			validate_ambience_plan(resource)
+	elif resource is ForgePresentationLibraryManifest:
+		resource_diagnostics = ForgePresentationProductionValidationService.new().\
+			validate_library_manifest(resource)
+	elif resource is ForgePresentationDefinition:
+		resource_diagnostics = ForgePresentationValidationService.new().validate(
+			resource, semantic_registry)
+	elif resource is ForgeRigProfile:
+		resource_diagnostics = ForgeRuntimeAssemblyValidationService.new().\
+			validate_rig_profile(resource, null, semantic_registry)
+	elif resource is ForgeSpatialMap:
+		resource_diagnostics = ForgeRuntimeAssemblyValidationService.new().\
+			validate_spatial_map(resource, semantic_registry)
+	elif resource is ForgeEntityAssemblyProfile:
+		resource_diagnostics = ForgeRuntimeAssemblyValidationService.new().\
+			validate_assembly_profile(resource)
+	elif resource is ForgeEntityAnimationLibrary:
+		resource_diagnostics = ForgeEntityAnimationValidationService.new().\
+			validate_animation_library(resource, semantic_registry)
+	elif resource is ForgeRetargetMap:
+		resource_diagnostics = ForgeEntityAnimationValidationService.new().\
+			validate_retarget_map(resource)
+	elif resource is ForgeFootPlacementProfile:
+		resource_diagnostics = ForgeEntityAnimationValidationService.new().\
+			validate_foot_placement(resource, semantic_registry)
+	elif resource is ForgeEquipmentFitProfile:
+		resource_diagnostics = ForgeEntityAnimationValidationService.new().\
+			validate_equipment_fit(resource, semantic_registry)
+	elif resource is ForgeEntityVariantProfile:
+		resource_diagnostics = ForgeEntityAnimationValidationService.new().\
+			validate_variant(resource)
+	elif resource is ForgeGameplayProxyProfile:
+		resource_diagnostics = ForgeEntityAnimationValidationService.new().\
+			validate_gameplay_proxy(resource)
 	for diagnostic in resource_diagnostics:
 		foundation_diagnostics.append(diagnostic.to_record())
 
 
 func _foundation_identity(resource: Resource) -> Dictionary:
+	if resource is ForgePresentationDefinition:
+		return {"source_id": resource.stable_id,
+			"kind": resource.asset_class}
 	if resource is ForgeEntityDefinition:
 		return {"source_id": resource.entity_definition_id,
 			"kind": "entity_definition"}
@@ -238,9 +329,91 @@ func _foundation_identity(resource: Resource) -> Dictionary:
 	if resource is ForgeBlueprintMaterialRoleSet:
 		return {"source_id": resource.material_role_set_id,
 			"kind": "blueprint_material_role_set"}
+	if resource is ForgeBlueprintModuleDefinition:
+		return {"source_id": resource.module_id,
+			"kind": "blueprint_module_definition"}
+	if resource is ForgeBlueprintStateDefinition:
+		return {"source_id": resource.state_id,
+			"kind": "blueprint_state_definition"}
+	if resource is ForgeBlueprintRuntimeProduct:
+		return {"source_id": resource.product_id,
+			"kind": "blueprint_runtime_product"}
 	if resource is ForgeMaterialDefinition:
 		return {"source_id": resource.material_id, "kind": "material_dna"}
+	if resource is ForgeRigProfile:
+		return {"source_id": resource.rig_profile_id, "kind": "rig_profile"}
+	if resource is ForgeSpatialMap:
+		return {"source_id": resource.spatial_map_id, "kind": "spatial_map"}
+	if resource is ForgeEntityAssemblyProfile:
+		return {"source_id": resource.assembly_profile_id,
+			"kind": "entity_assembly_profile"}
+	if resource is ForgeEntityAnimationLibrary:
+		return {"source_id": resource.animation_library_id,
+			"kind": "entity_animation_library"}
+	if resource is ForgeRetargetMap:
+		return {"source_id": resource.retarget_map_id, "kind": "retarget_map"}
+	if resource is ForgeFootPlacementProfile:
+		return {"source_id": resource.foot_placement_profile_id,
+			"kind": "foot_placement_profile"}
+	if resource is ForgeEquipmentFitProfile:
+		return {"source_id": resource.equipment_profile_id,
+			"kind": "equipment_fit_profile"}
+	if resource is ForgeEntityVariantProfile:
+		return {"source_id": resource.variant_profile_id,
+			"kind": "entity_variant_profile"}
+	if resource is ForgeGameplayProxyProfile:
+		return {"source_id": resource.gameplay_proxy_profile_id,
+			"kind": "gameplay_proxy_profile"}
+	if resource is ForgePresentationLibraryManifest:
+		return {"source_id": resource.library_id,
+			"kind": "presentation_library_manifest"}
 	return {}
+
+
+func _validate_foundation_dependencies(
+		semantic_registry: ForgeSemanticRegistry) -> void:
+	var presentation_records: Array[Dictionary] = []
+	for record in foundation_records_by_id.values():
+		var contract_version := str(record.get("contract_version", ""))
+		if contract_version not in [
+				ForgePresentationDefinition.CONTRACT_VERSION,
+				ForgeRigProfile.CONTRACT_VERSION,
+				ForgeSpatialMap.CONTRACT_VERSION,
+				ForgeEntityAssemblyProfile.CONTRACT_VERSION,
+				ForgeEntityAnimationLibrary.CONTRACT_VERSION,
+				ForgeRetargetMap.CONTRACT_VERSION,
+				ForgeFootPlacementProfile.CONTRACT_VERSION,
+				ForgeEquipmentFitProfile.CONTRACT_VERSION,
+				ForgeEntityVariantProfile.CONTRACT_VERSION,
+				ForgeGameplayProxyProfile.CONTRACT_VERSION,
+				ForgeBlueprintModuleDefinition.CONTRACT_VERSION,
+				ForgeBlueprintStateDefinition.CONTRACT_VERSION,
+				ForgeBlueprintRuntimeProduct.CONTRACT_VERSION,
+				ForgePresentationLibraryManifest.CONTRACT_VERSION]:
+			continue
+		presentation_records.append(record)
+		var source_id := str(record.get("source_id", ""))
+		for dependency_id in record.get("dependency_ids", []):
+			var dependency := str(dependency_id)
+			if not has(dependency) \
+					and (semantic_registry == null \
+					or not semantic_registry.has(dependency)):
+				foundation_diagnostics.append({
+					"code": "REG-001" if contract_version == \
+						ForgePresentationDefinition.CONTRACT_VERSION else "EFB-DEP-001",
+					"severity": "error",
+					"target_id": source_id,
+					"message": "Presentation dependency is missing: %s" % dependency,
+				})
+	var graph := ForgeDependencyGraph.new()
+	var report := graph.rebuild(presentation_records)
+	for cycle in report.get("cycles", []):
+		foundation_diagnostics.append({
+			"code": "REG-004",
+			"severity": "error",
+			"target_id": " -> ".join(Array(cycle)),
+			"message": "Presentation dependency cycle detected.",
+		})
 
 
 func _index_source(path: String) -> void:
@@ -267,6 +440,15 @@ func _index_source(path: String) -> void:
 		})
 		return
 	var record: Dictionary = resource.call("to_record")
+	var gameplay_id := ""
+	if not resource.gameplay_links.is_empty():
+		gameplay_id = str(resource.gameplay_links[0])
+	record["gameplay_id"] = gameplay_id
+	record["kind"] = "item" if resource.asset_kind == "item_model" else "block"
+	var development_only: bool = "development_only" in resource.planning_tags
+	record["development_only"] = development_only
+	if development_only:
+		record["category"] = "Forge / Acceptance Fixtures"
 	if resource.source_status == "approved":
 		var manifest_path := (
 			"res://generated/forge/manifests/%s.tres"

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ForgeBodyPartDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_evb06"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_k8c4j"]
+
+[sub_resource type="Resource" id="Resource_h83un"]
+script = ExtResource("2_k8c4j")
+dimensions = Vector3i(2, 6, 2)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+helper_flags = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[resource]
+script = ExtResource("1_evb06")
+body_part_id = "entity.body_part.bird_small.leg_left"
+display_name = "Leg Left"
+parent_part_id = "entity.body_part.bird_small.core"
+anatomy_role_id = "anatomy.role.avian.leg.left"
+voxel_source = SubResource("Resource_h83un")
+material_dna_id = "material.dna.entity.hide_leather"
+local_position_meters = Vector3(-0.08, -0.22, 0)
+side_token = "left"
+rig_role = "anatomy.role.avian.leg.left"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray()
+visibility_rules = PackedStringArray()
+planning_status = "golden_source_candidate"
+lifecycle = "runtime_candidate"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.hide_leather")

@@ -31,6 +31,13 @@ extends Resource
 @export var fallback := "legacy_runtime"
 @export var review_notes := ""
 @export var legacy_deprecation_state := "active"
+@export var source_schema_id := ""
+@export var target_schema_id := ""
+@export var transformation_version := 1
+@export var changed_fields: PackedStringArray = []
+@export var defaulted_fields: PackedStringArray = []
+@export var removed_fields: PackedStringArray = []
+@export var blocked_reason := ""
 
 
 func to_record() -> Dictionary:
@@ -65,4 +72,11 @@ func to_record() -> Dictionary:
 		"fallback": fallback,
 		"review_notes": review_notes,
 		"legacy_deprecation_state": legacy_deprecation_state,
+		"source_schema_id": source_schema_id,
+		"target_schema_id": target_schema_id,
+		"transformation_version": transformation_version,
+		"changed_fields": Array(changed_fields),
+		"defaulted_fields": Array(defaulted_fields),
+		"removed_fields": Array(removed_fields),
+		"blocked_reason": blocked_reason,
 	}

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ForgeVfxFamily" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_vfx_family.gd" id="1_ony6i"]
+
+[resource]
+script = ExtResource("1_ony6i")
+default_graph_id = "vfx.graph.probe.placeholder"
+default_form_ids = PackedStringArray()
+fallback_effect_id = "vfx.effect.probe.placeholder"
+schema_id = "leyforge.forge.vfx-family"
+stable_id = "vfx.family.probe.cycle_b"
+asset_class = "vfx_family"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("vfx.family.probe.cycle_a")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()

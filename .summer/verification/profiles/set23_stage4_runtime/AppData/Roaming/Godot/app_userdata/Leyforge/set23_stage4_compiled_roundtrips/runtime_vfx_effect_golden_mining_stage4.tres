@@ -1,0 +1,104 @@
+[gd_resource type="Resource" script_class="ForgeCompiledVfxProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_compiled_vfx_product.gd" id="1_1khg4"]
+
+[resource]
+script = ExtResource("1_1khg4")
+product_id = "runtime.vfx.effect.golden.mining.stage4"
+source_definition_id = "vfx.effect.golden.mining.stage4"
+source_hash = "b844e6ea030edf7d97cf467d3a1c38bc3743a7e6aa4f82e3c03c3b6530d2c348"
+dependency_hashes = {
+"vfx.form.golden.mining.stage4": "717325ff138f35368c6c0a325012bbe70dd871c1c5f980d88db26c76715f415d",
+"vfx.graph.golden.mining.stage4": "60268284a974aebc91ee2dc42a4d954b0586e8e2d7c45df47e5b1a4b13cc3a20"
+}
+instructions = Array[Dictionary]([{
+"id": "spawn",
+"maximum": 18,
+"order": 0,
+"type": "bounded_spawn"
+}, {
+"id": "initialise",
+"lifetime_seconds": 1.2,
+"order": 1,
+"seeded": true,
+"type": "initialise"
+}, {
+"id": "integrate",
+"maximum_steps": 120,
+"order": 2,
+"type": "cpu_integrate"
+}, {
+"id": "surface",
+"maximum": 2,
+"order": 3,
+"type": "surface_write"
+}, {
+"id": "output",
+"order": 4,
+"type": "voxel_multimesh_output"
+}])
+form_records = Array[Dictionary]([{
+"aliases": [],
+"asset_class": "vfx_form",
+"cell_records": Array[Dictionary]([{
+"palette_role": "material_role.foundation_primary",
+"position": [0, 0, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 0, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [0, 1, 0]
+}, {
+"palette_role": "material_role.foundation_primary",
+"position": [1, 1, 0]
+}]),
+"contract_version": "23-foundation-v1",
+"dependency_ids": [],
+"display_name": "Mining Voxel Form",
+"extension_fields": {},
+"fallback_ids": [],
+"family_id": "",
+"form_kind": "voxel_cluster",
+"lifecycle": "golden_source_candidate",
+"maximum_cells": 32,
+"optional_dependency_ids": [],
+"owner_pack_id": "pack.presentation.leyforge.foundation",
+"palette_role_ids": ["material_role.foundation_primary"],
+"pivot": Vector3(0, 0, 0),
+"provenance": {
+"document_set": "23",
+"legacy_replacement_status": "active_fallback",
+"manual_review": "open",
+"milestone": "4"
+},
+"review_history": Array[Dictionary]([]),
+"rights_status": "not_applicable",
+"schema": "leyforge.forge.vfx-form",
+"schema_version": 1,
+"source_status": "validated_runtime_source",
+"stable_id": "vfx.form.golden.mining.stage4",
+"voxel_size_meters": 0.03125
+}])
+maximum_spawn_count = 18
+maximum_lifetime_seconds = 1.2
+maximum_instances = 18
+surface_request_count = 2
+lod_tiers = Array[Dictionary]([{
+"spawn_scale": 1.0,
+"tier": "near"
+}, {
+"spawn_scale": 0.5,
+"tier": "mid"
+}, {
+"spawn_scale": 0.2,
+"tier": "far"
+}, {
+"spawn_scale": 0.0,
+"tier": "hidden",
+"virtualise": true
+}])
+budget_profile_id = "budget.profile.presentation.foundation"
+accessibility_profile_id = "access.profile.presentation.foundation"
+fallback_ids = PackedStringArray("legacy.runtime.vfx.mining")
+product_hash = "b39ebe76a84f8771ba8760830b6629bfdf7c68ea5004a84dac9dec3400ef2c39"

@@ -1,7 +1,6 @@
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true)]
-    [string]$GodotConsole,
+    [string]$GodotConsole = '',
 
     [string]$ProjectPath = '',
 
@@ -16,6 +15,9 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+
+. (Join-Path $PSScriptRoot 'godot_runner.ps1')
+$GodotConsole = Resolve-LeyforgeGodotConsole -GodotConsole $GodotConsole
 
 if ([string]::IsNullOrWhiteSpace($ProjectPath)) {
     $ProjectPath = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
@@ -89,11 +91,18 @@ $sceneExpectations = [ordered]@{
     'res://.summer/verification/world_lifecycle_probe.tscn' = 41
     'res://.summer/verification/legacy_import_probe.tscn' = 14
     'res://.summer/verification/main_menu_probe.tscn' = 23
-    'res://.summer/verification/forge_mvp_probe.tscn' = 934
+    'res://.summer/verification/forge_mvp_probe.tscn' = 960
+    'res://.summer/verification/forge_end_to_end_probe.tscn' = 250
     'res://.summer/verification/village_progression_lab_probe.tscn' = 63
     'res://.summer/verification/stageb_living_settlement_probe.tscn' = 534
     'res://.summer/verification/set20_v02_set22_foundation_probe.tscn' = 1168
     'res://.summer/verification/set22_stage1_golden_templates_probe.tscn' = 481
+    'res://.summer/verification/set23_foundation_probe.tscn' = 1816
+    'res://.summer/verification/set22_stage2_set23_spatial_probe.tscn' = 218
+    'res://.summer/verification/set22_stage3_set23_events_probe.tscn' = 676
+    'res://.summer/verification/set23_stage4_runtime_presentation_probe.tscn' = 436
+    'res://.summer/verification/set22_stage5_set23_world_presentation_probe.tscn' = 564
+    'res://.summer/verification/set22_stage6_set23_production_probe.tscn' = 6113
 }
 
 if ($ExtendedWorldgenSeeds -gt 0) {
@@ -104,6 +113,17 @@ if ($ExtendedWorldgenSeeds -gt 0) {
 
 $totalChecks = 0
 $recoveredShutdownCrashes = 0
+# The Codex Windows sandbox denies the system ROOT-store read while Godot's
+# built-in CA bundle remains available, so that exact environment warning is
+# intentionally excluded. Engine, content, and teardown leakage remain fatal.
+$releaseBlockingPattern = (
+    'SCRIPT ERROR|Parse Error|registry file not found|' +
+    'using fallback block set|' +
+    'RID allocations.*were leaked at exit|' +
+    'Leaked instance:|ObjectDB instances were leaked at exit|' +
+    'Resource still in use:|resources? still in use at exit|' +
+    'Orphan StringName:|unclaimed string names at exit'
+)
 foreach ($entry in $sceneExpectations.GetEnumerator()) {
     $scene = [string]$entry.Key
     $expected = [int]$entry.Value
@@ -130,17 +150,14 @@ foreach ($entry in $sceneExpectations.GetEnumerator()) {
     $output | ForEach-Object { Write-Host $_ }
     $combined = $output | Out-String
 
-    # Godot 4.6.3 can very occasionally access-violate during process teardown
-    # after a probe has already reported a complete clean result. Retry only
-    # that exact Windows exit, only when the expected machine result is intact.
+    # Legacy defensive fallback for an unrecognized engine that reproduces the
+    # native teardown fault after a complete clean result. The runner resolver
+    # blocks official Godot 4.6.3 hashes; this retry is not permission to use it.
     $preRetryMatches = [regex]::Matches($combined, '"checks":(\d+)')
     $cleanResultBeforeShutdown = (
         $combined -match '"ok":true' -and
         $combined -match '"failures":\[\]' -and
-        $combined -notmatch (
-            'SCRIPT ERROR|Parse Error|registry file not found|' +
-            'using fallback block set'
-        ) -and
+        $combined -notmatch $releaseBlockingPattern -and
         $preRetryMatches.Count -eq 1 -and
         [int]$preRetryMatches[0].Groups[1].Value -eq $expected
     )
@@ -166,11 +183,11 @@ foreach ($entry in $sceneExpectations.GetEnumerator()) {
     if ($sceneExit -ne 0) {
         throw "Probe failed with exit code ${sceneExit}: $scene"
     }
-    if (
-        $combined -match
-        'SCRIPT ERROR|Parse Error|registry file not found|using fallback block set'
-    ) {
-        throw "Probe emitted a release-blocking engine or content error: $scene"
+    if ($combined -match $releaseBlockingPattern) {
+        throw (
+            'Probe emitted a release-blocking engine, content, or teardown ' +
+            "error: $scene"
+        )
     }
     if ($combined -notmatch '"ok":true' -or $combined -notmatch '"failures":\[\]') {
         throw "Probe did not report a clean machine-readable result: $scene"

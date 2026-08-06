@@ -3,6 +3,10 @@ extends Node
 
 const ForgeHostScene = preload("res://forge_runtime_host.tscn")
 const CAPTURE_ROOT := "res://.summer/verification/artifacts/forge_preview"
+const STUDIO_IDS := [
+	"home", "library_create", "items_blocks", "structures",
+	"characters", "vfx", "audio", "test_delivery",
+]
 
 var failures: Array[String] = []
 var captures := PackedStringArray()
@@ -44,6 +48,8 @@ func _run() -> void:
 			if child.global_position.y + child.size.y > visible_size.y \
 					or child.global_position.x + child.size.x > visible_size.x:
 				failures.append("%s control is outside the viewport." % child.text)
+	await _capture_hubs(workspace, "runtime")
+	await _capture_representative_pages(workspace, "runtime")
 	await _capture_asset(
 		workspace, "forge_asset.terrain.grass.basic", "grass_cube", true)
 	await _capture_asset(
@@ -59,10 +65,108 @@ func _run() -> void:
 		workspace, "forge_asset.magic.conduit.mana_basic", "mana_conduit")
 	await _capture_asset(
 		workspace, "forge_asset.automation.crusher.basic", "basic_crusher")
+	await _capture_compact_runtime(workspace)
 	host.queue_free()
+	await get_tree().process_frame
+	var editor_host := Control.new()
+	editor_host.name = "EditorHostCapture"
+	editor_host.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	add_child(editor_host)
+	var editor_workspace := ForgeWorkspace.new()
+	editor_workspace.name = "LeyforgeForge"
+	editor_workspace.host_mode = "editor"
+	editor_workspace.hide()
+	editor_host.add_child(editor_workspace)
+	ForgeEditorHostLayout.fill(editor_workspace)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	editor_workspace.show()
+	editor_workspace.refresh_host_layout()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await _capture_hubs(editor_workspace, "editor")
+	await _capture_representative_pages(editor_workspace, "editor")
+	editor_host.queue_free()
 	await get_tree().process_frame
 	ForgeAccessPolicy.clear_test_override()
 	_finish()
+
+
+func _capture_hubs(workspace: ForgeWorkspace, host_label: String) -> void:
+	for section_id in STUDIO_IDS:
+		workspace.open_section(section_id)
+		workspace.refresh_host_layout()
+		await get_tree().process_frame
+		await get_tree().process_frame
+		var cards := workspace.find_child(
+			"ForgeStudioWorkflowCards", true, false)
+		var routes := ForgeNavigationCatalog.routes_for_section(section_id)
+		if not cards is GridContainer or cards.get_child_count() != routes.size():
+			failures.append("%s %s workflow cards are missing." % [
+				host_label, section_id])
+		else:
+			for card in cards.get_children():
+				if card.size.x < 245.0 or card.size.y < 96.0:
+					failures.append("%s %s workflow card collapsed." % [
+						host_label, section_id])
+					break
+		await RenderingServer.frame_post_draw
+		_save_image(get_viewport().get_texture().get_image(),
+			"%s_hub_%s.png" % [host_label, section_id])
+
+
+func _capture_representative_pages(
+		workspace: ForgeWorkspace, host_label: String) -> void:
+	var record := workspace.asset_index.record_for_source_id(
+		"forge_asset.terrain.grass.basic")
+	workspace._open_record(record)
+	await get_tree().process_frame
+	workspace.open_route("block_surface")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	_save_image(get_viewport().get_texture().get_image(),
+		"%s_author_block_surface.png" % host_label)
+	workspace.open_route("materials")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	_save_image(get_viewport().get_texture().get_image(),
+		"%s_author_materials.png" % host_label)
+	workspace.open_route("validation")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	_save_image(get_viewport().get_texture().get_image(),
+		"%s_delivery_validation.png" % host_label)
+
+
+func _capture_compact_runtime(workspace: ForgeWorkspace) -> void:
+	var window := get_window()
+	var original_size := window.size
+	window.size = Vector2i(1280, 720)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	workspace.open_section("home")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	_save_image(get_viewport().get_texture().get_image(),
+		"runtime_compact_home_1280x720.png")
+	var record := workspace.asset_index.record_for_source_id(
+		"forge_asset.terrain.grass.basic")
+	workspace._open_record(record)
+	await get_tree().process_frame
+	workspace.open_route("block_surface")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	_save_image(get_viewport().get_texture().get_image(),
+		"runtime_compact_author_1280x720.png")
+	window.size = original_size
+	await get_tree().process_frame
+	await get_tree().process_frame
 
 
 func _capture_asset(

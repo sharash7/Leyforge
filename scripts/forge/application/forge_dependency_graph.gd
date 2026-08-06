@@ -11,7 +11,9 @@ func rebuild(records: Array[Dictionary]) -> Dictionary:
 	dependencies.clear()
 	dependents.clear()
 	for record in records:
-		var source_id := str(record.get("forge_asset_id", ""))
+		var source_id := str(record.get(
+			"source_id", record.get(
+				"stable_id", record.get("forge_asset_id", ""))))
 		if source_id.is_empty():
 			continue
 		var values: Array[String] = []

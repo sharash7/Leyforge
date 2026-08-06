@@ -6,6 +6,8 @@ const INFO := "info"
 const WARNING := "warning"
 const ERROR := "error"
 const CRITICAL := "critical"
+const BLOCKER := "blocker"
+const CRITICAL_RELEASE_BLOCKER := "critical_release_blocker"
 
 var code := ""
 var severity := INFO

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_d71f3"]
+
+[resource]
+script = ExtResource("1_d71f3")
+asset_id = "forge_asset.test.forge.block.acceptance_relay"
+presentation_id = "presentation.test.forge.block.acceptance_relay"
+source_revision = 1
+source_hash = "4c12e02bb83cff494d7f9bfce1b197d02899da5702d1de1477a5254a0193f0be"
+engine_version = "4.8-dev (custom_build)"
+baker_version = "forge-pipeline-v7"
+products = Array[Dictionary]([{
+"hash": "ba13580c2c45a3a14d92901dbc1a12dbb01e79b0e4ef8bbce2ebe3d6b1daae92",
+"path": "res://generated/forge/products/presentation_test_forge_block_acceptance_relay/e38e6c8df52705cf/presentation_mesh.res",
+"type": "mesh"
+}, {
+"hash": "036a4dca3491147e7ff4477aed4a8cea9088c945f54bb4f3b6f7c1a57c8cdbc7",
+"path": "res://generated/forge/products/presentation_test_forge_block_acceptance_relay/e38e6c8df52705cf/icon.png",
+"type": "icon"
+}, {
+"hash": "a1c79b241bbd48d019d4b8246ee4a273539680e9590e8b3cfb1ebd50d90f96be",
+"path": "res://generated/forge/products/presentation_test_forge_block_acceptance_relay/e38e6c8df52705cf/collision.tres",
+"type": "collision"
+}, {
+"hash": "b0dde8377c6542f845eb7c529bbe7e5c9cd73f9b08b9a5caa0fa5cae545a2e74",
+"path": "res://generated/forge/products/presentation_test_forge_block_acceptance_relay/e38e6c8df52705cf/state_binding.tres",
+"type": "state_binding"
+}, {
+"hash": "1309c7cf3650826b5811a72c57ab3af17b2e5b2f9de09df1fbd113fe665bd879",
+"path": "res://generated/forge/products/presentation_test_forge_block_acceptance_relay/e38e6c8df52705cf/presentation.tscn",
+"type": "scene"
+}, {
+"hash": "c1b8fe9521b52e56247df2125c7c945b770d62ca656129a1dde2269e5822a7cc",
+"path": "res://generated/forge/packages/presentation_test_forge_block_acceptance_relay.tres",
+"type": "runtime_package"
+}])
+diagnostics_summary = {
+"blocker": 0,
+"critical": 0,
+"critical_release_blocker": 0,
+"error": 0,
+"info": 0,
+"warning": 0
+}
+approved_status = "approved"

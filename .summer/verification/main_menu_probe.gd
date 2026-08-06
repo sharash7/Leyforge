@@ -71,11 +71,11 @@ func _run() -> void:
 	button_texts.clear()
 	_collect_button_text(menu, button_texts)
 	_check(
-		"Voxel Asset Forge" in button_texts,
-		"developer tools page omitted Voxel Asset Forge")
+		"Leyforge Forge" in button_texts,
+		"developer tools page omitted Leyforge Forge")
 	_check(
 		ResourceLoader.exists("res://forge_runtime_host.tscn"),
-		"Voxel Asset Forge runtime host scene is missing")
+		"Leyforge Forge runtime host scene is missing")
 	menu.queue_free()
 	await get_tree().process_frame
 

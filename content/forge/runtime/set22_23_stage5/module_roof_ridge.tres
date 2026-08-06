@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="1_mxb86"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="2_dn1wn"]
+
+[sub_resource type="Resource" id="Resource_3qaw1"]
+script = ExtResource("1_mxb86")
+element_id = "roof_ridge.primary"
+element_kind = "block_group"
+material_role_id = "material_role.roof_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+size = Vector3i(3, 1, 1)
+
+[resource]
+script = ExtResource("2_dn1wn")
+module_id = "blueprint.module.shared.roof_ridge.stage5"
+display_name = "Roof Ridge Set"
+module_kind = "roof_ridge"
+elements = Array[ExtResource("1_mxb86")]([SubResource("Resource_3qaw1")])
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()

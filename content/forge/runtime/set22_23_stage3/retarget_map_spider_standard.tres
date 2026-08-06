@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ForgeRetargetMap" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_retarget_map.gd" id="1_cljou"]
+
+[resource]
+script = ExtResource("1_cljou")
+retarget_map_id = "entity.retarget_map.spider_standard.self"
+display_name = "Spider Standard Exact Retarget"
+source_rig_profile_id = "entity.rig.profile.spider_standard"
+target_rig_profile_id = "entity.rig.profile.spider_standard"
+role_mappings = {
+"anatomy.role.arthropod.core": "anatomy.role.arthropod.core",
+"anatomy.role.arthropod.head": "anatomy.role.arthropod.head",
+"anatomy.role.arthropod.leg.left.1": "anatomy.role.arthropod.leg.left.1",
+"anatomy.role.arthropod.leg.left.2": "anatomy.role.arthropod.leg.left.2",
+"anatomy.role.arthropod.leg.left.3": "anatomy.role.arthropod.leg.left.3",
+"anatomy.role.arthropod.leg.left.4": "anatomy.role.arthropod.leg.left.4",
+"anatomy.role.arthropod.leg.right.1": "anatomy.role.arthropod.leg.right.1",
+"anatomy.role.arthropod.leg.right.2": "anatomy.role.arthropod.leg.right.2",
+"anatomy.role.arthropod.leg.right.3": "anatomy.role.arthropod.leg.right.3",
+"anatomy.role.arthropod.leg.right.4": "anatomy.role.arthropod.leg.right.4"
+}
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.rig.profile.spider_standard")
+aliases = PackedStringArray("entity.retarget_map.template.spider_standard")

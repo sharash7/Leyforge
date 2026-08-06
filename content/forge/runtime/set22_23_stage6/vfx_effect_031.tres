@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="ForgeVfxDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_vfx_definition.gd" id="1_uy1il"]
+
+[resource]
+script = ExtResource("1_uy1il")
+graph_id = "vfx.graph.forest_hamlet.template_001.stage6"
+form_ids = PackedStringArray("vfx.form.forest_hamlet.template_001.stage6")
+material_ids = PackedStringArray("material.presentation.response.forest_hamlet_09.stage6")
+maximum_instances = 30
+lod_tiers = Array[Dictionary]([{
+"spawn_scale": 1.0,
+"tier": "near"
+}, {
+"spawn_scale": 0.5,
+"tier": "mid"
+}, {
+"spawn_scale": 0.2,
+"tier": "far"
+}, {
+"spawn_scale": 0.0,
+"tier": "hidden",
+"virtualise": true
+}])
+budget_profile_id = "budget.profile.presentation.foundation"
+accessibility_profile_id = "access.profile.presentation.foundation"
+schema_id = "leyforge.forge.vfx-definition"
+stable_id = "vfx.effect.forest_hamlet.catalogue_031.stage6"
+display_name = "Forest Hamlet Planned VFX 031"
+asset_class = "vfx_effect"
+source_status = "planned_new_work"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("vfx.graph.forest_hamlet.template_001.stage6", "vfx.form.forest_hamlet.template_001.stage6", "budget.profile.presentation.foundation", "access.profile.presentation.foundation")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray("legacy.runtime.vfx.forest_hamlet_031")
+provenance = {
+"document_set": "23",
+"phase": "production_library",
+"status": "planned_new_work"
+}
+review_history = Array[Dictionary]([{
+"review": "human_evidence",
+"status": "open"
+}])
+extension_fields = {
+"accessible_approved": false,
+"forge_baked": false,
+"legacy_active": true,
+"legally_cleared": false,
+"migration_classification": "new_work",
+"production_ready": false,
+"replacement_strategy": "defer",
+"shippable": false,
+"visually_complete": false
+}

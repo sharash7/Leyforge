@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="1_dc7od"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="2_tqnrl"]
+
+[sub_resource type="Resource" id="Resource_8a1ks"]
+script = ExtResource("1_dc7od")
+element_id = "door.primary"
+element_kind = "asset"
+material_role_id = "material_role.door_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+size = Vector3i(1, 2, 1)
+
+[resource]
+script = ExtResource("2_tqnrl")
+module_id = "blueprint.module.shared.door.stage5"
+display_name = "Door Assembly"
+module_kind = "door"
+elements = Array[ExtResource("1_dc7od")]([SubResource("Resource_8a1ks")])
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()

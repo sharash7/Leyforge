@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="ForgeVfxGraph" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_vfx_graph.gd" id="1_30wj6"]
+
+[resource]
+script = ExtResource("1_30wj6")
+nodes = Array[Dictionary]([{
+"id": "spawn",
+"maximum": 12,
+"type": "bounded_spawn"
+}, {
+"id": "initialise",
+"lifetime_seconds": 6.0,
+"seeded": true,
+"type": "initialise"
+}, {
+"id": "volume",
+"maximum_cells": 32,
+"type": "bounded_volume"
+}, {
+"id": "integrate",
+"maximum_steps": 120,
+"type": "cpu_integrate"
+}, {
+"id": "output",
+"type": "voxel_multimesh_output"
+}])
+edges = Array[Dictionary]([{
+"from": "spawn",
+"to": "initialise"
+}, {
+"from": "initialise",
+"to": "volume"
+}, {
+"from": "volume",
+"to": "integrate"
+}, {
+"from": "integrate",
+"to": "output"
+}])
+maximum_nodes = 16
+maximum_spawn_count = 12
+maximum_lifetime_seconds = 6.0
+schema_id = "leyforge.forge.vfx-graph"
+stable_id = "vfx.graph.golden.village_ambience.stage4"
+display_name = "Village Ambience Bounded Graph"
+asset_class = "vfx_graph"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_source"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"legacy_replacement_status": "active_fallback",
+"manual_review": "open",
+"milestone": "4"
+}
+rights_status = "not_applicable"

@@ -1,0 +1,31 @@
+{
+  "audio_voice_measurement": "open",
+  "baseline_hash": "53231bf5ba561ab1bb1a9351cde62fc05ad1dc8f76cb73ff2c21a7e58da4d6f4",
+  "contract_version": "23-foundation-v1",
+  "measurement_status": "foundation_static_baseline",
+  "required_future_counters": [
+    "active_logical_instances",
+    "particles",
+    "voices",
+    "lights",
+    "surface_records",
+    "resolver_time",
+    "pool_misses"
+  ],
+  "runtime_cpu_measurement": "open",
+  "runtime_gpu_measurement": "open",
+  "schema": "leyforge.verification.set23.presentation-performance-baseline",
+  "set23_runtime_implementation": "not_started",
+  "static_inventory_category_counts": {
+    "audio_node": 0,
+    "caption_or_warning": 0,
+    "direct_audio_media": 0,
+    "direct_light_node": 2,
+    "hardcoded_effect_dispatch": 2,
+    "hardcoded_material_response": 0,
+    "particle_node": 1,
+    "scene_path_presentation": 2,
+    "stable_presentation_reference": 22,
+    "unnamed_transform": 1
+  }
+}

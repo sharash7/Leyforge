@@ -1,0 +1,65 @@
+[gd_resource type="AnimationLibrary" format=3]
+
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_test_forge_block_acceptance_machine/451a04ba2f85d16a/frames_magical_flame/frame_000.res" id="1_ya34f"]
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_test_forge_block_acceptance_machine/451a04ba2f85d16a/frames_magical_flame/frame_001.res" id="2_onq3a"]
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_test_forge_block_acceptance_machine/451a04ba2f85d16a/frames_magical_flame/frame_002.res" id="3_b6grd"]
+
+[sub_resource type="Animation" id="Animation_uq0n0"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flame/Geometry:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.6, 2.2, 0.6]
+}
+
+[sub_resource type="Animation" id="Animation_jrjot"]
+length = 0.35
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.1, 0.1, 0.1, 0.35, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_0jkl4"]
+length = 0.42000000178813934
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrameGeometry:mesh")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [ExtResource("1_ya34f"), ExtResource("2_onq3a"), ExtResource("3_b6grd")]
+}
+
+[sub_resource type="Animation" id="Animation_0ihgn"]
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gear")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, 0, 0, 0.7071068, 0.7071068, 0.5, 1, 0, 0, 1, 0, 0.75, 1, 0, 0, 0.7071068, -0.7071068, 1, 1, 0, 0, 0, -1)
+
+[resource]
+_data = {
+&"heat_pulse": SubResource("Animation_uq0n0"),
+&"ignite": SubResource("Animation_jrjot"),
+&"magical_flame": SubResource("Animation_0jkl4"),
+&"work_cycle": SubResource("Animation_0ihgn")
+}

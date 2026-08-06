@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ForgePresentationContract" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_contract.gd" id="1_crchl"]
+
+[resource]
+script = ExtResource("1_crchl")
+contract_id = "contract.test.forge.acceptance_machine.v1"
+gameplay_categories = PackedStringArray("development_test", "machine")
+required_representations = PackedStringArray("world", "preview", "icon")
+required_parts = PackedStringArray("body", "gear", "flame")
+required_pivots = PackedStringArray()
+required_sockets = PackedStringArray("item_input", "item_output", "smoke", "work_audio")
+required_states = PackedStringArray("processing", "blocked", "damaged")
+critical_responses = PackedStringArray("blocked", "damaged")
+footprint_profile_id = "footprint.presentation.test.forge.block.acceptance_machine"
+allowed_collision_profiles = PackedStringArray()
+fallback_presentation_id = "presentation.terrain.stone.basic"
+supported_variant_dimensions = PackedStringArray()
+accessibility_requirements = PackedStringArray("critical_state_not_colour_only", "reduced_motion_equivalent")

@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ForgePresentationTestScenario" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_test_scenario.gd" id="1_trjvt"]
+
+[resource]
+script = ExtResource("1_trjvt")
+fixture_ids = PackedStringArray("vfx.effect.golden.mining.stage4", "sound.event.golden.mining.stage4", "presentation.profile.golden.mining.stage4")
+action_records = Array[Dictionary]([{
+"action": "publish_contract",
+"contract_id": "event.block.mining_impact",
+"seed": 23004
+}, {
+"action": "advance",
+"seconds": 1.0
+}, {
+"action": "stop",
+"required": false
+}])
+expected_trace_records = Array[Dictionary]([{
+"count": 2,
+"kind": "dispatch"
+}, {
+"kind": "unbounded_instances",
+"maximum": 0
+}, {
+"expected": true,
+"kind": "legacy_fallback_active"
+}])
+quality_tiers = PackedStringArray("full", "reduced", "aggregated", "critical_only")
+accessibility_modes = PackedStringArray("default", "reduced_motion", "audio_muted", "captions")
+duration_seconds = 1.2
+schema_id = "leyforge.forge.presentation-test-scenario"
+stable_id = "test.presentation.golden.mining.stage4"
+display_name = "Mining Golden Core Scenario"
+asset_class = "test_scenario"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_source"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("vfx.effect.golden.mining.stage4", "sound.event.golden.mining.stage4", "presentation.profile.golden.mining.stage4")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"legacy_replacement_status": "active_fallback",
+"manual_review": "open",
+"milestone": "4"
+}
+rights_status = "not_applicable"

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ForgeAcousticProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_acoustic_profile.gd" id="1_1tfdr"]
+
+[resource]
+script = ExtResource("1_1tfdr")
+zone_role_ids = PackedStringArray("zone.audio.workshop_interior")
+portal_role_ids = PackedStringArray("portal.audio.front_door")
+reverb_profile_id = "audio.snapshot.indoor_small.foundation"
+transmission = 0.72
+occlusion = 0.28
+fallback_profile_id = "acoustic.profile.room.workshop.foundation"
+schema_id = "leyforge.forge.acoustic-profile"
+stable_id = "acoustic.profile.workshop.stage5"
+display_name = "Workshop Acoustic Profile"
+asset_class = "acoustic_profile"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("blueprint.leyforge.crafting.carpenter_workshop_a")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"generator": "generate_set22_23_stage5_sources.gd",
+"listening_approval": "open",
+"visual_approval": "open"
+}
+rights_status = "not_applicable_generated_data"

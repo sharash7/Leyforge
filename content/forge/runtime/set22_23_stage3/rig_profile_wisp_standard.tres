@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="ForgeRigProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_joint_definition.gd" id="1_8ngdx"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_role_binding.gd" id="2_qi8ql"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_profile.gd" id="3_0x316"]
+
+[sub_resource type="Resource" id="Resource_xafni"]
+script = ExtResource("2_qi8ql")
+role_id = "anatomy.role.wisp.core"
+body_part_id = "entity.body_part.wisp_standard.core"
+
+[resource]
+script = ExtResource("3_0x316")
+rig_profile_id = "entity.rig.profile.wisp_standard"
+display_name = "Wisp Standard Semantic Rig"
+entity_definition_id = "entity.definition.creature.wisp_standard"
+body_plan_id = "entity.body_plan.wisp_standard"
+root_role_id = "anatomy.role.wisp.core"
+role_bindings = Array[ExtResource("2_qi8ql")]([SubResource("Resource_xafni")])
+spatial_map_id = "spatial.map.entity.wisp_standard"
+socket_reference_ids = PackedStringArray()
+rig_lod_levels = Array[Dictionary]([{
+"active_role_ids": Array[String](["anatomy.role.wisp.core"]),
+"lod": 0,
+"solver_policy": "full_semantic"
+}, {
+"active_role_ids": Array[String](["anatomy.role.wisp.core"]),
+"lod": 1,
+"solver_policy": "reduced_contacts"
+}, {
+"active_role_ids": Array[String](["anatomy.role.wisp.core"]),
+"lod": 2,
+"solver_policy": "rigid_core"
+}])
+motion_profiles = {
+"idle": {
+"frequency_hz": 0.5,
+"role_swings": {},
+"root_bob_meters": 0.004
+},
+"mine": {
+"frequency_hz": 1.0,
+"role_swings": {},
+"root_bob_meters": 0.0
+},
+"telegraph": {
+"frequency_hz": 1.0,
+"role_swings": {},
+"root_bob_meters": 0.01
+},
+"walk": {
+"frequency_hz": 1.7,
+"role_swings": {},
+"root_bob_meters": 0.012
+}
+}
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.wisp_standard", "entity.body_plan.wisp_standard")
+aliases = PackedStringArray("entity.rig.template.wisp_standard")

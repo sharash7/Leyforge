@@ -1,0 +1,220 @@
+[gd_resource type="Resource" script_class="ForgeRigProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_joint_definition.gd" id="1_fhrgf"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_role_binding.gd" id="2_nmqer"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_profile.gd" id="3_xg2xj"]
+
+[sub_resource type="Resource" id="Resource_yv7ql"]
+script = ExtResource("1_fhrgf")
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_head"
+parent_role_id = "anatomy.role.centipede.core"
+child_role_id = "anatomy.role.centipede.head"
+joint_type = "ball"
+rest_position_meters = Vector3(0, 0, -0.3)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "travel_wave"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_paqxa"]
+script = ExtResource("1_fhrgf")
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_001"
+parent_role_id = "anatomy.role.centipede.core"
+child_role_id = "anatomy.role.centipede.segment.001"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0, 0.28)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "travel_wave"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_84c1t"]
+script = ExtResource("1_fhrgf")
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_002"
+parent_role_id = "anatomy.role.centipede.segment.001"
+child_role_id = "anatomy.role.centipede.segment.002"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0, 0.28)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "travel_wave"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_pjoiv"]
+script = ExtResource("1_fhrgf")
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_003"
+parent_role_id = "anatomy.role.centipede.segment.002"
+child_role_id = "anatomy.role.centipede.segment.003"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0, 0.28)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "travel_wave"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_wvpku"]
+script = ExtResource("1_fhrgf")
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_004"
+parent_role_id = "anatomy.role.centipede.segment.003"
+child_role_id = "anatomy.role.centipede.segment.004"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0, 0.28)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "travel_wave"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_4s2fp"]
+script = ExtResource("1_fhrgf")
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_005"
+parent_role_id = "anatomy.role.centipede.segment.004"
+child_role_id = "anatomy.role.centipede.segment.005"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0, 0.28)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "travel_wave"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_8hpti"]
+script = ExtResource("1_fhrgf")
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_006"
+parent_role_id = "anatomy.role.centipede.segment.005"
+child_role_id = "anatomy.role.centipede.segment.006"
+joint_type = "chain"
+rest_position_meters = Vector3(0, 0, 0.28)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "travel_wave"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_w6m0c"]
+script = ExtResource("1_fhrgf")
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_tail"
+parent_role_id = "anatomy.role.centipede.segment.006"
+child_role_id = "anatomy.role.centipede.tail"
+joint_type = "ball"
+rest_position_meters = Vector3(0, 0, 0.25)
+minimum_angles_degrees = Vector3(-35, -30, -30)
+maximum_angles_degrees = Vector3(35, 30, 30)
+procedural_hook = "travel_wave"
+lifecycle = "runtime_candidate"
+
+[sub_resource type="Resource" id="Resource_2nkxx"]
+script = ExtResource("2_nmqer")
+role_id = "anatomy.role.centipede.core"
+body_part_id = "entity.body_part.centipede_giant.core"
+
+[sub_resource type="Resource" id="Resource_aicca"]
+script = ExtResource("2_nmqer")
+role_id = "anatomy.role.centipede.head"
+body_part_id = "entity.body_part.centipede_giant.head"
+parent_role_id = "anatomy.role.centipede.core"
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_head"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_ciqht"]
+script = ExtResource("2_nmqer")
+role_id = "anatomy.role.centipede.segment.001"
+body_part_id = "entity.body_part.centipede_giant.segment_001"
+parent_role_id = "anatomy.role.centipede.core"
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_001"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_vjmun"]
+script = ExtResource("2_nmqer")
+role_id = "anatomy.role.centipede.segment.002"
+body_part_id = "entity.body_part.centipede_giant.segment_002"
+parent_role_id = "anatomy.role.centipede.segment.001"
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_002"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_rkh6d"]
+script = ExtResource("2_nmqer")
+role_id = "anatomy.role.centipede.segment.003"
+body_part_id = "entity.body_part.centipede_giant.segment_003"
+parent_role_id = "anatomy.role.centipede.segment.002"
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_003"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_cpve4"]
+script = ExtResource("2_nmqer")
+role_id = "anatomy.role.centipede.segment.004"
+body_part_id = "entity.body_part.centipede_giant.segment_004"
+parent_role_id = "anatomy.role.centipede.segment.003"
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_004"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_0gs6d"]
+script = ExtResource("2_nmqer")
+role_id = "anatomy.role.centipede.segment.005"
+body_part_id = "entity.body_part.centipede_giant.segment_005"
+parent_role_id = "anatomy.role.centipede.segment.004"
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_005"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_6icll"]
+script = ExtResource("2_nmqer")
+role_id = "anatomy.role.centipede.segment.006"
+body_part_id = "entity.body_part.centipede_giant.segment_006"
+parent_role_id = "anatomy.role.centipede.segment.005"
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_segment_006"
+lod_group = "appendage"
+
+[sub_resource type="Resource" id="Resource_2fmc7"]
+script = ExtResource("2_nmqer")
+role_id = "anatomy.role.centipede.tail"
+body_part_id = "entity.body_part.centipede_giant.tail"
+parent_role_id = "anatomy.role.centipede.segment.006"
+joint_id = "entity.rig.profile.centipede_giant.joint.anatomy_role_centipede_tail"
+lod_group = "appendage"
+
+[resource]
+script = ExtResource("3_xg2xj")
+rig_profile_id = "entity.rig.profile.centipede_giant"
+display_name = "Giant Centipede Technical Candidate Semantic Rig"
+entity_definition_id = "entity.definition.creature.centipede_giant"
+body_plan_id = "entity.body_plan.centipede_giant"
+root_role_id = "anatomy.role.centipede.core"
+role_bindings = Array[ExtResource("2_nmqer")]([SubResource("Resource_2nkxx"), SubResource("Resource_aicca"), SubResource("Resource_ciqht"), SubResource("Resource_vjmun"), SubResource("Resource_rkh6d"), SubResource("Resource_cpve4"), SubResource("Resource_0gs6d"), SubResource("Resource_6icll"), SubResource("Resource_2fmc7")])
+joints = Array[ExtResource("1_fhrgf")]([SubResource("Resource_yv7ql"), SubResource("Resource_paqxa"), SubResource("Resource_84c1t"), SubResource("Resource_pjoiv"), SubResource("Resource_wvpku"), SubResource("Resource_4s2fp"), SubResource("Resource_8hpti"), SubResource("Resource_w6m0c")])
+spatial_map_id = "spatial.map.entity.centipede_giant"
+socket_reference_ids = PackedStringArray()
+rig_lod_levels = Array[Dictionary]([{
+"active_role_ids": PackedStringArray("anatomy.role.centipede.core", "anatomy.role.centipede.head", "anatomy.role.centipede.segment.001", "anatomy.role.centipede.segment.002", "anatomy.role.centipede.segment.003", "anatomy.role.centipede.segment.004", "anatomy.role.centipede.segment.005", "anatomy.role.centipede.segment.006", "anatomy.role.centipede.tail"),
+"lod": 0,
+"solver_policy": "full_semantic"
+}, {
+"active_role_ids": PackedStringArray("anatomy.role.centipede.core", "anatomy.role.centipede.head", "anatomy.role.centipede.segment.001", "anatomy.role.centipede.segment.002", "anatomy.role.centipede.segment.003", "anatomy.role.centipede.segment.004", "anatomy.role.centipede.segment.005", "anatomy.role.centipede.segment.006", "anatomy.role.centipede.tail"),
+"lod": 1,
+"solver_policy": "reduced_chains"
+}, {
+"active_role_ids": PackedStringArray("anatomy.role.centipede.core"),
+"lod": 2,
+"solver_policy": "rigid_core"
+}])
+motion_profiles = {
+"burrow": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"idle": {
+"amplitude": 0.02,
+"speed": 0.0
+},
+"travel_wave": {
+"amplitude": 0.18,
+"candidate": true,
+"speed": 1.0
+},
+"walk": {
+"amplitude": 0.12,
+"speed": 1.0
+}
+}
+lifecycle = "runtime_candidate"
+source_status = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.centipede_giant", "entity.body_plan.centipede_giant")
+aliases = PackedStringArray("entity.rig.template.centipede_giant")
+legacy_fallback = "legacy.procedural_visual.centipede"

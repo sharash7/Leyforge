@@ -1,11 +1,8 @@
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true)]
-    [string]$GodotConsole,
+    [string]$GodotConsole = '',
 
-    [string]$ProjectPath = (
-        Resolve-Path (Join-Path $PSScriptRoot '..\..')
-    ).Path,
+    [string]$ProjectPath = '',
 
     [string]$ProfileRoot = (
         Join-Path ([System.IO.Path]::GetTempPath()) (
@@ -16,6 +13,13 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $expectedChecks = 489
+
+. (Join-Path $PSScriptRoot 'godot_runner.ps1')
+$GodotConsole = Resolve-LeyforgeGodotConsole -GodotConsole $GodotConsole
+
+if ([string]::IsNullOrWhiteSpace($ProjectPath)) {
+    $ProjectPath = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
+}
 
 if (-not (Test-Path -LiteralPath $GodotConsole -PathType Leaf)) {
     throw "Godot console executable not found: $GodotConsole"

@@ -1,0 +1,281 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_yjpui"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_r2bmu"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_ihuac"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_357o4"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_r106d"]
+
+[sub_resource type="Resource" id="Resource_pmin5"]
+script = ExtResource("2_r2bmu")
+element_id = "block_group.foundation_main"
+element_kind = "block_group"
+material_role_id = "material_role.foundation_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_ma7li"]
+script = ExtResource("2_r2bmu")
+element_id = "block_group.floor_main"
+element_kind = "block_group"
+material_role_id = "material_role.floor_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 1, 5)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_wo20n"]
+script = ExtResource("2_r2bmu")
+element_id = "block_group.wall_front"
+element_kind = "block_group"
+material_role_id = "material_role.wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 1)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_8nxtg"]
+script = ExtResource("2_r2bmu")
+element_id = "block_group.wall_back"
+element_kind = "block_group"
+material_role_id = "material_role.wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(5, 2, 1)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_il06b"]
+script = ExtResource("2_r2bmu")
+element_id = "block_group.wall_left"
+element_kind = "block_group"
+material_role_id = "material_role.wall_secondary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -1)
+size = Vector3i(1, 2, 3)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_awjwr"]
+script = ExtResource("2_r2bmu")
+element_id = "block_group.wall_right"
+element_kind = "block_group"
+material_role_id = "material_role.wall_secondary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(2, 1, -1)
+size = Vector3i(1, 2, 3)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_tiruo"]
+script = ExtResource("2_r2bmu")
+element_id = "block_group.frame"
+element_kind = "block_group"
+material_role_id = "material_role.frame_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 3, 5)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_ukj3n"]
+script = ExtResource("2_r2bmu")
+element_id = "block_group.roof"
+element_kind = "block_group"
+material_role_id = "material_role.roof_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "roof"
+position = Vector3i(-2, 3, -2)
+size = Vector3i(5, 2, 5)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_etj2s"]
+script = ExtResource("2_r2bmu")
+element_id = "asset.front_door"
+element_kind = "asset"
+material_role_id = "material_role.door_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 1, -2)
+size = Vector3i(1, 2, 1)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_yugll"]
+script = ExtResource("2_r2bmu")
+element_id = "asset.window_east"
+element_kind = "asset"
+material_role_id = "material_role.window_material"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(2, 2, 0)
+metadata = {
+"authoring_resolution": "world_block_grid"
+}
+
+[sub_resource type="Resource" id="Resource_xdcvr"]
+script = ExtResource("2_r2bmu")
+element_id = "marker.entrance.primary"
+element_kind = "marker"
+marker_role_ids = PackedStringArray("marker.role.entrance")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"semantic_only": true
+}
+
+[sub_resource type="Resource" id="Resource_s5u2f"]
+script = ExtResource("2_r2bmu")
+element_id = "marker.bed.01"
+element_kind = "marker"
+marker_role_ids = PackedStringArray("marker.role.household_bed")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, 1)
+metadata = {
+"semantic_only": true
+}
+
+[sub_resource type="Resource" id="Resource_h6026"]
+script = ExtResource("2_r2bmu")
+element_id = "marker.bed.02"
+element_kind = "marker"
+marker_role_ids = PackedStringArray("marker.role.household_bed")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, 1)
+metadata = {
+"semantic_only": true
+}
+
+[sub_resource type="Resource" id="Resource_w2q1t"]
+script = ExtResource("2_r2bmu")
+element_id = "marker.storage.primary"
+element_kind = "marker"
+marker_role_ids = PackedStringArray("marker.role.household_storage")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, 1)
+metadata = {
+"semantic_only": true
+}
+
+[sub_resource type="Resource" id="Resource_ogr7b"]
+script = ExtResource("2_r2bmu")
+element_id = "marker.heat.primary"
+element_kind = "marker"
+marker_role_ids = PackedStringArray("marker.role.heat_light")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 2, 1)
+metadata = {
+"semantic_only": true
+}
+
+[sub_resource type="Resource" id="Resource_b0p1x"]
+script = ExtResource("2_r2bmu")
+element_id = "marker.road.primary"
+element_kind = "marker"
+marker_role_ids = PackedStringArray("marker.role.road_socket")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 0, -3)
+metadata = {
+"semantic_only": true
+}
+
+[sub_resource type="Resource" id="Resource_fg2c8"]
+script = ExtResource("3_ihuac")
+material_role_set_id = "blueprint.material_role_set.forest_cottage_golden"
+display_name = "Forest Cottage Golden Material Roles"
+role_bindings = {
+"material_role.door_material": "material.mvp.wood",
+"material_role.floor_material": "material.mvp.wood",
+"material_role.foundation_material": "material.mvp.stone",
+"material_role.frame_material": "material.mvp.wood",
+"material_role.magic_accent": "material.mvp.mana",
+"material_role.metal_fittings": "material.mvp.iron",
+"material_role.roof_material": "material.mvp.wood",
+"material_role.trim_material": "material.mvp.wood",
+"material_role.wall_primary": "material.mvp.wood",
+"material_role.wall_secondary": "material.mvp.wood",
+"material_role.window_material": "material.mvp.glass"
+}
+required_role_ids = PackedStringArray("material_role.door_material", "material_role.floor_material", "material_role.foundation_material", "material_role.frame_material", "material_role.magic_accent", "material_role.metal_fittings", "material_role.roof_material", "material_role.trim_material", "material_role.wall_primary", "material_role.wall_secondary", "material_role.window_material")
+culture_ids = PackedStringArray("culture.forest_human")
+biome_ids = PackedStringArray("biome.temperate_forest")
+lifecycle = "foundation_validated"
+dependency_ids = PackedStringArray("material.mvp.stone", "material.mvp.wood", "material.mvp.glass", "material.mvp.iron", "material.mvp.mana")
+
+[sub_resource type="Resource" id="Resource_jnnby"]
+script = ExtResource("4_357o4")
+placement_profile_id = "blueprint.placement_profile.forest_cottage_golden"
+allowed_zone_role_ids = PackedStringArray("zone.role.placement", "zone.role.interior")
+required_socket_role_ids = PackedStringArray("socket.role.road_access")
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -3)
+footprint_max = Vector3i(2, 4, 2)
+max_slope = 1
+lifecycle = "foundation_validated"
+
+[resource]
+script = ExtResource("5_r106d")
+blueprint_id = "blueprint.leyforge.residential.small_cottage_a"
+display_name = "Golden Small Forest Cottage"
+definition_ids = PackedStringArray("building.residential.small_cottage")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_r2bmu")]([SubResource("Resource_pmin5"), SubResource("Resource_ma7li"), SubResource("Resource_wo20n"), SubResource("Resource_8nxtg"), SubResource("Resource_il06b"), SubResource("Resource_awjwr"), SubResource("Resource_tiruo"), SubResource("Resource_ukj3n"), SubResource("Resource_etj2s"), SubResource("Resource_yugll"), SubResource("Resource_xdcvr"), SubResource("Resource_s5u2f"), SubResource("Resource_h6026"), SubResource("Resource_w2q1t"), SubResource("Resource_ogr7b"), SubResource("Resource_b0p1x")])
+placement_profile = SubResource("Resource_jnnby")
+material_role_set = SubResource("Resource_fg2c8")
+contract_ids = PackedStringArray()
+capture_profile_id = "capture.profile.blueprint.current_state"
+lifecycle = "golden_source_candidate"
+template_id = "template.building.small_house"
+template_locked = true
+extension_points = PackedStringArray("culture_palette", "room_module", "roof_variant", "hearth_variant")
+source_status = "validated_editable_source"
+dependency_ids = PackedStringArray("blueprint.material_role_set.forest_cottage_golden", "blueprint.placement_profile.forest_cottage_golden")
+legacy_fallback = "bp.building.cottage_forest_small"

@@ -34,6 +34,36 @@ func migrate_asset(asset: ForgeAssetDefinition) -> Dictionary:
 	}
 
 
+func migrate_project_manifest(manifest: ForgeProjectManifest) -> Dictionary:
+	if manifest == null:
+		return {"ok": false, "error": "Project manifest is missing."}
+	var from_version := manifest.schema_version
+	if from_version > 2 or from_version < 1:
+		return {
+			"ok": false,
+			"error": "Project manifest schema is unsupported.",
+			"from_version": from_version,
+		}
+	var steps: Array[String] = []
+	if manifest.schema_version == 1:
+		if manifest.feature_contract_versions.is_empty():
+			manifest.feature_contract_versions = {
+				"set22": manifest.contract_version,
+				"set23": "23-foundation-v1",
+			}
+		manifest.engine_feature = "4.6"
+		manifest.rendering_method = "gl_compatibility"
+		manifest.generated_product_policy = "replaceable_output"
+		manifest.schema_version = 2
+		steps.append("project-manifest:1->2")
+	return {
+		"ok": true,
+		"from_version": from_version,
+		"to_version": manifest.schema_version,
+		"steps": steps,
+	}
+
+
 func build_migration_record(
 		record: Dictionary, status := "unreviewed") -> ForgeMigrationRecord:
 	var migration := ForgeMigrationRecord.new()

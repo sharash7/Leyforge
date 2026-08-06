@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ForgeGameplayProxyProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_gameplay_proxy_profile.gd" id="1_iqcu3"]
+
+[resource]
+script = ExtResource("1_iqcu3")
+gameplay_proxy_profile_id = "entity.gameplay_proxy.goblin_standard"
+display_name = "Goblin Standard Presentation Proxy"
+entity_definition_id = "entity.definition.creature.goblin_standard"
+collision_size_meters = Vector3(0.59040004, 1.435, 0.41)
+region_proxies = Array[Dictionary]([{
+"authority": "readback_only",
+"local_position": Vector3(0, 0, 0),
+"role_id": "region.entity.body"
+}])
+interaction_role_ids = PackedStringArray("region.entity.body")
+ai_marker_role_ids = PackedStringArray()
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.goblin_standard")

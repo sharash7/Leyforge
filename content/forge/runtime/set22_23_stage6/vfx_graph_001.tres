@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="ForgeVfxGraph" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_vfx_graph.gd" id="1_6f4g8"]
+
+[resource]
+script = ExtResource("1_6f4g8")
+nodes = Array[Dictionary]([{
+"id": "spawn",
+"maximum": 32,
+"type": "bounded_spawn"
+}, {
+"id": "integrate",
+"maximum_steps": 90,
+"type": "cpu_integrate"
+}, {
+"id": "output",
+"type": "voxel_multimesh_output"
+}])
+edges = Array[Dictionary]([{
+"from": "spawn",
+"to": "integrate"
+}, {
+"from": "integrate",
+"to": "output"
+}])
+maximum_nodes = 8
+maximum_spawn_count = 32
+maximum_lifetime_seconds = 4.0
+schema_id = "leyforge.forge.vfx-graph"
+stable_id = "vfx.graph.forest_hamlet.template_001.stage6"
+display_name = "Forest Hamlet Bounded VFX Graph 001"
+asset_class = "vfx_graph"
+source_status = "planned_new_work"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"phase": "production_library",
+"status": "planned_new_work"
+}
+review_history = Array[Dictionary]([{
+"review": "human_evidence",
+"status": "open"
+}])
+extension_fields = {
+"accessible_approved": false,
+"forge_baked": false,
+"legacy_active": true,
+"legally_cleared": false,
+"migration_classification": "new_work",
+"production_ready": false,
+"replacement_strategy": "defer",
+"shippable": false,
+"visually_complete": false
+}

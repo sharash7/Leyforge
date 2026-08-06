@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="1_kcpwa"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="2_xcqw5"]
+
+[sub_resource type="Resource" id="Resource_yjlj5"]
+script = ExtResource("1_kcpwa")
+element_id = "wall_gate.primary"
+element_kind = "block_group"
+material_role_id = "material_role.wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "equipment"
+size = Vector3i(3, 2, 1)
+
+[resource]
+script = ExtResource("2_xcqw5")
+module_id = "blueprint.module.shared.wall_gate.stage5"
+display_name = "Wall and Gate Segment"
+module_kind = "wall_gate"
+elements = Array[ExtResource("1_kcpwa")]([SubResource("Resource_yjlj5")])
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()

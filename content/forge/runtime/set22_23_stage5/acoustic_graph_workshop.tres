@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ForgeAcousticZoneGraph" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_acoustic_zone_graph.gd" id="1_7x0vq"]
+
+[resource]
+script = ExtResource("1_7x0vq")
+owner_blueprint_id = "blueprint.leyforge.crafting.carpenter_workshop_a"
+zones = Array[Dictionary]([{
+"exterior_bleed": 0.22,
+"maximum": [7, 5, 7],
+"minimum": [0, 0, 0],
+"profile_id": "acoustic.profile.workshop.stage5",
+"zone_id": "acoustic.zone.workshop.interior",
+"zone_role_id": "zone.audio.workshop_interior"
+}])
+portals = Array[Dictionary]([{
+"bidirectional": true,
+"from_zone_id": "acoustic.zone.workshop.interior",
+"openness": 0.0,
+"portal_id": "acoustic.portal.workshop.front_door",
+"portal_role_id": "portal.audio.front_door",
+"to_zone_id": "acoustic.zone.exterior",
+"transmission": 0.78
+}, {
+"bidirectional": true,
+"from_zone_id": "acoustic.zone.workshop.interior",
+"openness": 1.0,
+"portal_id": "acoustic.portal.workshop.chimney",
+"portal_role_id": "portal.audio.chimney",
+"to_zone_id": "acoustic.zone.exterior",
+"transmission": 0.58
+}])
+schema_id = "leyforge.forge.acoustic-zone-graph"
+stable_id = "acoustic.zone_graph.workshop.stage5"
+display_name = "Workshop Acoustic Zone Graph"
+asset_class = "acoustic_zone_graph"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_candidate"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("blueprint.leyforge.crafting.carpenter_workshop_a")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"generator": "generate_set22_23_stage5_sources.gd",
+"listening_approval": "open",
+"visual_approval": "open"
+}
+rights_status = "not_applicable_generated_data"

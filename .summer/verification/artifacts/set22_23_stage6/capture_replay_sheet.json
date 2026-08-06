@@ -1,0 +1,149 @@
+{
+  "artifact_hash": "ee7b83527b16c04a50030ec35aec5f70a27a71c0ab1c252f858962341ebf7f79",
+  "capture_count": 20,
+  "captures": [
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_block_place_break_stage6.3c173d3a4efd747d",
+      "manual_review_status": "open",
+      "replay_hash": "fed7e8736dbd9f9dd1263d01d7d4fbf6d45e051c137d197a85d666170692c25d",
+      "scenario_id": "test.presentation.forest_hamlet.block_place_break.stage6",
+      "trace_hash": "3c173d3a4efd747da64736818efaf9887922404d0ed804683b5390d090d1d8f7"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_cave_acoustics_stage6.cb17e0e94145b284",
+      "manual_review_status": "open",
+      "replay_hash": "0ccc6e326b908c6c2ad8ce7261e26f3296f0b1fa9dfaef86fbbfa304a6c052a7",
+      "scenario_id": "test.presentation.forest_hamlet.cave_acoustics.stage6",
+      "trace_hash": "cb17e0e94145b28489158a2124fbefde894820f4551c862e7252225aa06ef6da"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_content_pack_override_stage6.802f2c60c0015450",
+      "manual_review_status": "open",
+      "replay_hash": "0e558f626b264e84ad1d47693d3481f1f52f62a228e95114715f07f4de5a167a",
+      "scenario_id": "test.presentation.forest_hamlet.content_pack_override.stage6",
+      "trace_hash": "802f2c60c0015450fb90a3e98a9de8bbe8fd7fc5b1dca242272164c5e9e3759d"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_degradation_matrix_stage6.ec31692297083613",
+      "manual_review_status": "open",
+      "replay_hash": "51409b5ca46dc77b9a4ed394d92ed32d7de9f9bea4adae5d2e4fb01e3963ce0c",
+      "scenario_id": "test.presentation.forest_hamlet.degradation_matrix.stage6",
+      "trace_hash": "ec31692297083613477619734e0ba110c7fec092513715cf540e14045d9030ee"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_dense_village_stage6.c07b845fe923e8df",
+      "manual_review_status": "open",
+      "replay_hash": "bcbcc2c3afaf7c9473083d551ec2491eebaf63fc24f438c40e7f90807aa0dfab",
+      "scenario_id": "test.presentation.forest_hamlet.dense_village.stage6",
+      "trace_hash": "c07b845fe923e8df7c07fcfc8c5ce2ce7a5bccb53fe5112737b57aae748b2f0d"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_hot_reload_stage6.5310682ce0cfe9f2",
+      "manual_review_status": "open",
+      "replay_hash": "b312cd91e43a2e929e7c201ba20e9af4fd49e3e97750b5adf2f9c86cce72ce70",
+      "scenario_id": "test.presentation.forest_hamlet.hot_reload.stage6",
+      "trace_hash": "5310682ce0cfe9f28dbea9a8e2606853ef0fa710fd49cab051e8d03cd61650e8"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_late_join_stage6.3be3fc5d45203b5f",
+      "manual_review_status": "open",
+      "replay_hash": "3add7e8e01bbd186edbe91024a648de72427bbab7e360c764c414ca7aca34841",
+      "scenario_id": "test.presentation.forest_hamlet.late_join.stage6",
+      "trace_hash": "3be3fc5d45203b5f7dac9fd5d9cb1a73477ed6393c17efe0590b857018e4c985"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_machine_dense_stage6.dda2cfe3f7e696f2",
+      "manual_review_status": "open",
+      "replay_hash": "b2a41b48befd072152c8b56ec43f7fa860dee52bcc0d5c8c75732577b1b01a36",
+      "scenario_id": "test.presentation.forest_hamlet.machine_dense.stage6",
+      "trace_hash": "dda2cfe3f7e696f28baf670b476be6bb10a24b1953981c72f5c7b72eacffc0b5"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_mana_ward_dense_stage6.b86c6e5d5da45f05",
+      "manual_review_status": "open",
+      "replay_hash": "a3e7b4ac153bbe163641553d7ac6818172a0a74680488a11ca24873c1ce53995",
+      "scenario_id": "test.presentation.forest_hamlet.mana_ward_dense.stage6",
+      "trace_hash": "b86c6e5d5da45f0592aac600b089f20f0d1d71d9f5cd0e1b638caae0fcfc34b1"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_save_load_reconstruction_stage6.bd553a45dda2a630",
+      "manual_review_status": "open",
+      "replay_hash": "ecbf0396595ec11be096439557e0b8a6a2926c795d38ddebcaf87a0564780928",
+      "scenario_id": "test.presentation.forest_hamlet.save_load_reconstruction.stage6",
+      "trace_hash": "bd553a45dda2a630f055df8e29a787f6868bddb4d9be2253fb183b6ebcfd7726"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_forest_hamlet_split_screen_stage6.d02b05bc0f1e9ec3",
+      "manual_review_status": "open",
+      "replay_hash": "246ad17e4fad2792ee49732312c1f078f529ae20d2be5a0f264b26aeaf83d8e9",
+      "scenario_id": "test.presentation.forest_hamlet.split_screen.stage6",
+      "trace_hash": "d02b05bc0f1e9ec3ce101ecb76dbed3720d894a810772f10b247ddc9edbc9ab7"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_golden_footsteps_stage4.ebd7ab07425ae858",
+      "manual_review_status": "open",
+      "replay_hash": "083f3902feb64151157c4357f29f75c4d08fb28e674ab6d9fb66fd9683706ca2",
+      "scenario_id": "test.presentation.golden.footsteps.stage4",
+      "trace_hash": "ebd7ab07425ae858de3ca8359561699efd3a05897f4a11875e2b39bb1aa4cf04"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_golden_furnace_lifecycle_stage4.dfcebbcb99a01e48",
+      "manual_review_status": "open",
+      "replay_hash": "a061e8c15efff19c90682ed428ee7e38d7dec94d862d95080c36d31c2346a55f",
+      "scenario_id": "test.presentation.golden.furnace_lifecycle.stage4",
+      "trace_hash": "dfcebbcb99a01e4844e5e1d2aba8f34ca00541c7c550f3d5d439bbbc5b047242"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_golden_goblin_raid_stage4.77555c094e042ce3",
+      "manual_review_status": "open",
+      "replay_hash": "777c61aef23898ae3831364e5a1ca5a6958e14362bb49643da7b0e44982939c3",
+      "scenario_id": "test.presentation.golden.goblin_raid.stage4",
+      "trace_hash": "77555c094e042ce32bea58b3982aca5a7901cb7c98fa80f803ea1719d63d1cea"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_golden_mana_conduit_stage4.7fe1eb1027375d91",
+      "manual_review_status": "open",
+      "replay_hash": "52d6f090711f468a0019b4d5d7d25ac17b4c76fedc9ef888558fcb782604ba26",
+      "scenario_id": "test.presentation.golden.mana_conduit.stage4",
+      "trace_hash": "7fe1eb1027375d911e01d83c9b533273ef41d4dff34f0d1354b264c537c817a6"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_golden_mining_stage4.64dbc92803ec4e0d",
+      "manual_review_status": "open",
+      "replay_hash": "6f7ca357a7be03e1ab71be33c659db5ea6527ce89de1df252155a5b4f9bf7d2e",
+      "scenario_id": "test.presentation.golden.mining.stage4",
+      "trace_hash": "64dbc92803ec4e0d6406b3d4c65e3c975ec5f3896c395d2b7c227b2f93ff61dc"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_golden_rain_shelter_stage4.7ae50d86f7c68a1e",
+      "manual_review_status": "open",
+      "replay_hash": "d0969144ea3c90ab9300c4d11e991269b5696293591af8ba908005fbe41d9094",
+      "scenario_id": "test.presentation.golden.rain_shelter.stage4",
+      "trace_hash": "7ae50d86f7c68a1ec55dd6e6372646ba5dbd2cdd258efeef834cffc2012b5616"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_golden_village_ambience_stage4.a25089822652ab7b",
+      "manual_review_status": "open",
+      "replay_hash": "1f3ff2420d895ad498ca0150b9889dce581569248f95bdb83d8e5c2cb2d588c7",
+      "scenario_id": "test.presentation.golden.village_ambience.stage4",
+      "trace_hash": "a25089822652ab7b64cccff75fec352cbfe3cc081ccd4e40a90aeb0c13ce6dfe"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_golden_ward_warning_stage4.cb60b60ed268573e",
+      "manual_review_status": "open",
+      "replay_hash": "0a85512c7b892c0ec7f6e23215eb97943a28076cf5d2e9c8d03f25f6f9eed3ce",
+      "scenario_id": "test.presentation.golden.ward_warning.stage4",
+      "trace_hash": "cb60b60ed268573ee71a190e1036a494fa3a72aa6234988eaea8d09d48b19b50"
+    },
+    {
+      "capture_id": "capture.presentation.test_presentation_mining_impact_foundation.094f88717e574e63",
+      "manual_review_status": "open",
+      "replay_hash": "6b52576401352e930cde85b349e0b578e2e7a6bed96483b5242aad175fbaa8e6",
+      "scenario_id": "test.presentation.mining_impact.foundation",
+      "trace_hash": "094f88717e574e6395e48be340b208288e896c6df32dd5a74b610c5d8ab40241"
+    }
+  ],
+  "scenario_count": 20,
+  "schema": "leyforge.verification.capture-replay-sheet",
+  "schema_version": 1
+}

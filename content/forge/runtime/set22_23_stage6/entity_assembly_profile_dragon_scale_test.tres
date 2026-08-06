@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ForgeEntityAssemblyProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_assembly_profile.gd" id="1_63gcd"]
+
+[resource]
+script = ExtResource("1_63gcd")
+assembly_profile_id = "entity.assembly_profile.dragon_scale_test"
+display_name = "Dragon Scale Technical Candidate Runtime Assembly"
+entity_definition_id = "entity.definition.creature.dragon_scale_test"
+rig_profile_id = "entity.rig.profile.dragon_scale_test"
+spatial_map_id = "spatial.map.entity.dragon_scale_test"
+lifecycle = "runtime_candidate"
+source_status = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.dragon_scale_test", "entity.rig.profile.dragon_scale_test", "spatial.map.entity.dragon_scale_test")
+aliases = PackedStringArray("entity.assembly_profile.template.dragon_scale_test")
+legacy_fallback = "legacy.procedural_visual.dragon_test"

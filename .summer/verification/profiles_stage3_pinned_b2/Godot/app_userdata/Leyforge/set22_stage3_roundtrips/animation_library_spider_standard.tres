@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="ForgeEntityAnimationLibrary" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_animation_clip.gd" id="1_hbj4d"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_animation_event_marker.gd" id="2_ocuq1"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_animation_library.gd" id="3_yh51r"]
+
+[sub_resource type="Resource" id="Resource_8rrjj"]
+script = ExtResource("1_hbj4d")
+clip_id = "entity.animation.clip.spider_standard.idle"
+display_name = "Spider Standard Idle"
+duration_seconds = 1.6
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_e44sw"]
+script = ExtResource("2_ocuq1")
+marker_id = "animation.marker.event_movement_foot_contact.foot_0"
+event_contract_id = "event.movement.foot_contact"
+normalized_time = 0.25
+spatial_role_id = "runtime_anchor.movement.foot_contact"
+contact_kind = "foot_contact"
+required = true
+
+[sub_resource type="Resource" id="Resource_1x8hq"]
+script = ExtResource("2_ocuq1")
+marker_id = "animation.marker.event_movement_foot_contact.foot_1"
+event_contract_id = "event.movement.foot_contact"
+normalized_time = 0.75
+spatial_role_id = "runtime_anchor.movement.foot_contact"
+contact_kind = "foot_contact"
+required = true
+
+[sub_resource type="Resource" id="Resource_6h7qp"]
+script = ExtResource("1_hbj4d")
+clip_id = "entity.animation.clip.spider_standard.walk"
+display_name = "Spider Standard Walk"
+semantic_action = "walk"
+duration_seconds = 0.8
+role_tracks = Array[Dictionary]([{
+"interpolation": "linear",
+"keys": [{
+"rotation_degrees": Vector3(2.9391522e-15, 0, 0),
+"time": 0.0
+}, {
+"rotation_degrees": Vector3(24, 0, 0),
+"time": 0.5
+}, {
+"rotation_degrees": Vector3(2.9391522e-15, 0, 0),
+"time": 1.0
+}],
+"role_id": "anatomy.role.arthropod.leg.left.1"
+}, {
+"interpolation": "linear",
+"keys": [{
+"rotation_degrees": Vector3(0, 0, 0),
+"time": 0.0
+}, {
+"rotation_degrees": Vector3(-24, 0, 0),
+"time": 0.5
+}, {
+"rotation_degrees": Vector3(0, 0, 0),
+"time": 1.0
+}],
+"role_id": "anatomy.role.arthropod.leg.right.1"
+}])
+event_markers = Array[ExtResource("2_ocuq1")]([SubResource("Resource_e44sw"), SubResource("Resource_1x8hq")])
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_dqf25"]
+script = ExtResource("2_ocuq1")
+marker_id = "animation.marker.event_creature_telegraph.creature_telegraph"
+event_contract_id = "event.creature.telegraph"
+normalized_time = 0.4
+spatial_role_id = "runtime_anchor.creature.telegraph"
+contact_kind = "telegraph"
+required = true
+
+[sub_resource type="Resource" id="Resource_gd4by"]
+script = ExtResource("1_hbj4d")
+clip_id = "entity.animation.clip.spider_standard.telegraph"
+display_name = "Spider Standard Telegraph"
+semantic_action = "telegraph"
+duration_seconds = 0.9
+looping = false
+event_markers = Array[ExtResource("2_ocuq1")]([SubResource("Resource_dqf25")])
+lifecycle = "golden_source_candidate"
+
+[resource]
+script = ExtResource("3_yh51r")
+animation_library_id = "entity.animation_set.spider_standard.stage3"
+display_name = "Spider Standard Semantic Animation Library"
+rig_profile_id = "entity.rig.profile.spider_standard"
+rig_family = "arthropod"
+clips = Array[ExtResource("1_hbj4d")]([SubResource("Resource_8rrjj"), SubResource("Resource_6h7qp"), SubResource("Resource_gd4by")])
+retarget_map_ids = PackedStringArray("entity.retarget_map.spider_standard.self")
+foot_placement_profile_id = "entity.foot_placement.spider_standard"
+animation_lod_levels = Array[Dictionary]([{
+"lod": 0,
+"marker_policy": "all"
+}, {
+"lod": 1,
+"marker_policy": "critical_contacts"
+}, {
+"lod": 2,
+"marker_policy": "state_only"
+}])
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.rig.profile.spider_standard", "entity.retarget_map.spider_standard.self", "entity.foot_placement.spider_standard", "event.movement.foot_contact", "event.creature.telegraph")
+aliases = PackedStringArray("entity.animation_set.template.spider_standard")
+legacy_fallback = "legacy.procedural_visual.spider"

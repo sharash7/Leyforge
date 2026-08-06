@@ -1,0 +1,276 @@
+[gd_resource type="Resource" script_class="ForgeRigProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_joint_definition.gd" id="1_gupm7"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_role_binding.gd" id="2_7r5xy"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_profile.gd" id="3_n0dg7"]
+
+[sub_resource type="Resource" id="Resource_ojcbd"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_torso"
+parent_role_id = "anatomy.role.humanoid.pelvis"
+child_role_id = "anatomy.role.humanoid.torso"
+joint_type = "ball"
+rest_position_meters = Vector3(-0.025625, 0.15375, 0)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "look_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_nxtwk"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_head"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.head"
+joint_type = "ball"
+rest_position_meters = Vector3(0.025625, 0.41, -0.05125)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "look_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_4ifmw"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_arm_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.arm.left"
+joint_type = "ball"
+rest_position_meters = Vector3(-0.128125, 0.205, 0.0128125)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "look_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_isrkt"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_arm_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.arm.right"
+joint_type = "ball"
+rest_position_meters = Vector3(0.3075, 0.205, 0.0128125)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "look_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_3acnf"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_hand_left"
+parent_role_id = "anatomy.role.humanoid.arm.left"
+child_role_id = "anatomy.role.humanoid.hand.left"
+joint_type = "ball"
+rest_position_meters = Vector3(0, -0.1025, 0)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "look_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_sw6sn"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_hand_right"
+parent_role_id = "anatomy.role.humanoid.arm.right"
+child_role_id = "anatomy.role.humanoid.hand.right"
+joint_type = "ball"
+rest_position_meters = Vector3(0, -0.1025, 0)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "look_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_3j6ym"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_leg_left"
+parent_role_id = "anatomy.role.humanoid.pelvis"
+child_role_id = "anatomy.role.humanoid.leg.left"
+joint_type = "hinge"
+rest_position_meters = Vector3(0, -0.46125, 0)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "contact_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_1shoo"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_leg_right"
+parent_role_id = "anatomy.role.humanoid.pelvis"
+child_role_id = "anatomy.role.humanoid.leg.right"
+joint_type = "hinge"
+rest_position_meters = Vector3(0.128125, -0.46125, 0)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "contact_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_4i7or"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_foot_left"
+parent_role_id = "anatomy.role.humanoid.leg.left"
+child_role_id = "anatomy.role.humanoid.foot.left"
+joint_type = "ball"
+rest_position_meters = Vector3(0, -0.15375, -0.1025)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "look_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_d1aje"]
+script = ExtResource("1_gupm7")
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_foot_right"
+parent_role_id = "anatomy.role.humanoid.leg.right"
+child_role_id = "anatomy.role.humanoid.foot.right"
+joint_type = "ball"
+rest_position_meters = Vector3(0, -0.15375, -0.1025)
+minimum_angles_degrees = Vector3(-35, -20, -25)
+maximum_angles_degrees = Vector3(35, 20, 25)
+procedural_hook = "look_assist"
+lifecycle = "golden_source_candidate"
+
+[sub_resource type="Resource" id="Resource_5562r"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.pelvis"
+body_part_id = "entity.body_part.goblin_standard.pelvis"
+
+[sub_resource type="Resource" id="Resource_dvst4"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.torso"
+body_part_id = "entity.body_part.goblin_standard.torso"
+parent_role_id = "anatomy.role.humanoid.pelvis"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_torso"
+
+[sub_resource type="Resource" id="Resource_jee6w"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.head"
+body_part_id = "entity.body_part.goblin_standard.head"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_head"
+lod_group = "head"
+
+[sub_resource type="Resource" id="Resource_gl1c4"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.arm.left"
+body_part_id = "entity.body_part.goblin_standard.arm_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_arm_left"
+lod_group = "limb"
+
+[sub_resource type="Resource" id="Resource_l3dxj"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.arm.right"
+body_part_id = "entity.body_part.goblin_standard.arm_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_arm_right"
+lod_group = "limb"
+
+[sub_resource type="Resource" id="Resource_e0mov"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.hand.left"
+body_part_id = "entity.body_part.goblin_standard.hand_left"
+parent_role_id = "anatomy.role.humanoid.arm.left"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_hand_left"
+lod_group = "secondary"
+
+[sub_resource type="Resource" id="Resource_hwms4"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.hand.right"
+body_part_id = "entity.body_part.goblin_standard.hand_right"
+parent_role_id = "anatomy.role.humanoid.arm.right"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_hand_right"
+lod_group = "secondary"
+
+[sub_resource type="Resource" id="Resource_pnyop"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.leg.left"
+body_part_id = "entity.body_part.goblin_standard.leg_left"
+parent_role_id = "anatomy.role.humanoid.pelvis"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_leg_left"
+lod_group = "limb"
+
+[sub_resource type="Resource" id="Resource_e5ln5"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.leg.right"
+body_part_id = "entity.body_part.goblin_standard.leg_right"
+parent_role_id = "anatomy.role.humanoid.pelvis"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_leg_right"
+lod_group = "limb"
+
+[sub_resource type="Resource" id="Resource_gde4e"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.foot.left"
+body_part_id = "entity.body_part.goblin_standard.foot_left"
+parent_role_id = "anatomy.role.humanoid.leg.left"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_foot_left"
+lod_group = "limb"
+
+[sub_resource type="Resource" id="Resource_0vr8q"]
+script = ExtResource("2_7r5xy")
+role_id = "anatomy.role.humanoid.foot.right"
+body_part_id = "entity.body_part.goblin_standard.foot_right"
+parent_role_id = "anatomy.role.humanoid.leg.right"
+joint_id = "entity.rig.profile.goblin_standard.joint.anatomy_role_humanoid_foot_right"
+lod_group = "limb"
+
+[resource]
+script = ExtResource("3_n0dg7")
+rig_profile_id = "entity.rig.profile.goblin_standard"
+display_name = "Goblin Standard Semantic Rig"
+entity_definition_id = "entity.definition.creature.goblin_standard"
+body_plan_id = "entity.body_plan.goblin_standard"
+root_role_id = "anatomy.role.humanoid.pelvis"
+role_bindings = Array[ExtResource("2_7r5xy")]([SubResource("Resource_5562r"), SubResource("Resource_dvst4"), SubResource("Resource_jee6w"), SubResource("Resource_gl1c4"), SubResource("Resource_l3dxj"), SubResource("Resource_e0mov"), SubResource("Resource_hwms4"), SubResource("Resource_pnyop"), SubResource("Resource_e5ln5"), SubResource("Resource_gde4e"), SubResource("Resource_0vr8q")])
+joints = Array[ExtResource("1_gupm7")]([SubResource("Resource_ojcbd"), SubResource("Resource_nxtwk"), SubResource("Resource_4ifmw"), SubResource("Resource_isrkt"), SubResource("Resource_3acnf"), SubResource("Resource_sw6sn"), SubResource("Resource_3j6ym"), SubResource("Resource_1shoo"), SubResource("Resource_4i7or"), SubResource("Resource_d1aje")])
+spatial_map_id = "spatial.map.entity.goblin_standard"
+socket_reference_ids = PackedStringArray()
+rig_lod_levels = Array[Dictionary]([{
+"active_role_ids": Array[String](["anatomy.role.humanoid.pelvis", "anatomy.role.humanoid.torso", "anatomy.role.humanoid.head", "anatomy.role.humanoid.arm.left", "anatomy.role.humanoid.arm.right", "anatomy.role.humanoid.hand.left", "anatomy.role.humanoid.hand.right", "anatomy.role.humanoid.leg.left", "anatomy.role.humanoid.leg.right", "anatomy.role.humanoid.foot.left", "anatomy.role.humanoid.foot.right"]),
+"lod": 0,
+"solver_policy": "full_semantic"
+}, {
+"active_role_ids": Array[String](["anatomy.role.humanoid.pelvis", "anatomy.role.humanoid.torso", "anatomy.role.humanoid.head", "anatomy.role.humanoid.arm.left", "anatomy.role.humanoid.arm.right", "anatomy.role.humanoid.hand.left", "anatomy.role.humanoid.hand.right", "anatomy.role.humanoid.leg.left", "anatomy.role.humanoid.leg.right", "anatomy.role.humanoid.foot.left", "anatomy.role.humanoid.foot.right"]),
+"lod": 1,
+"solver_policy": "rigid_core"
+}])
+motion_profiles = {
+"idle": {
+"frequency_hz": 0.5,
+"role_swings": {},
+"root_bob_meters": 0.004
+},
+"mine": {
+"frequency_hz": 1.0,
+"role_swings": {},
+"root_bob_meters": 0.0
+},
+"telegraph": {
+"frequency_hz": 1.0,
+"role_swings": {},
+"root_bob_meters": 0.01
+},
+"walk": {
+"frequency_hz": 1.7,
+"role_swings": {
+"anatomy.role.humanoid.arm.left": {
+"amplitude_degrees": 24.0,
+"axis": "x",
+"phase": 3.141592653589793
+},
+"anatomy.role.humanoid.arm.right": {
+"amplitude_degrees": 24.0,
+"axis": "x",
+"phase": 0.0
+},
+"anatomy.role.humanoid.leg.left": {
+"amplitude_degrees": 24.0,
+"axis": "x",
+"phase": 3.141592653589793
+},
+"anatomy.role.humanoid.leg.right": {
+"amplitude_degrees": 24.0,
+"axis": "x",
+"phase": 0.0
+}
+},
+"root_bob_meters": 0.012
+}
+}
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("entity.definition.creature.goblin_standard", "entity.body_plan.goblin_standard", "spatial.map.entity.goblin_standard")
+aliases = PackedStringArray("entity.rig.template.goblin_standard")

@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="ForgeVfxGraph" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_vfx_graph.gd" id="1_d5dfv"]
+
+[resource]
+script = ExtResource("1_d5dfv")
+nodes = Array[Dictionary]([{
+"id": "spawn",
+"maximum": 32,
+"type": "bounded_spawn"
+}, {
+"id": "initialise",
+"lifetime_seconds": 1.8,
+"seeded": true,
+"type": "initialise"
+}, {
+"id": "path",
+"maximum_points": 16,
+"type": "path_sample"
+}, {
+"id": "integrate",
+"maximum_steps": 120,
+"type": "cpu_integrate"
+}, {
+"id": "light",
+"maximum": 1,
+"type": "light_request"
+}, {
+"id": "output",
+"type": "voxel_multimesh_output"
+}])
+edges = Array[Dictionary]([{
+"from": "spawn",
+"to": "initialise"
+}, {
+"from": "initialise",
+"to": "path"
+}, {
+"from": "path",
+"to": "integrate"
+}, {
+"from": "integrate",
+"to": "light"
+}, {
+"from": "light",
+"to": "output"
+}])
+maximum_nodes = 16
+maximum_spawn_count = 32
+maximum_lifetime_seconds = 1.8
+schema_id = "leyforge.forge.vfx-graph"
+stable_id = "vfx.graph.golden.ward_warning.stage4"
+display_name = "Ward Warning and Breach Bounded Graph"
+asset_class = "vfx_graph"
+lifecycle = "golden_source_candidate"
+source_status = "validated_runtime_source"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"legacy_replacement_status": "active_fallback",
+"manual_review": "open",
+"milestone": "4"
+}
+rights_status = "not_applicable"

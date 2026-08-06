@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ForgeBodyPartDefinition" format=4]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_cxt0t"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_cqo12"]
+
+[sub_resource type="Resource" id="Resource_104qj"]
+script = ExtResource("2_cqo12")
+dimensions = Vector3i(5, 7, 9)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AAAAAAAAAAAAAAAAAQAAAAEBAQAAAAEAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAEAAAABAQEAAAABAAAAAAAAAAAAAAAA")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[resource]
+script = ExtResource("1_cxt0t")
+body_part_id = "entity.body_part.goblin_standard.foot_right"
+display_name = "Right Foot"
+parent_part_id = "entity.body_part.goblin_standard.leg_right"
+anatomy_role_id = "anatomy.role.humanoid.foot.right"
+voxel_source = SubResource("Resource_104qj")
+material_dna_id = "material.dna.entity.hide_leather"
+local_position_meters = Vector3(0, -0.15375, -0.1025)
+side_token = "right"
+region_ids = PackedStringArray("region.foot")
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray()
+visibility_rules = PackedStringArray()
+planning_status = "golden_source_candidate"
+lifecycle = "golden_source_candidate"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.hide_leather")

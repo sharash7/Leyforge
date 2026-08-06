@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ForgeStateBindingDefinition" format=3 uid="uid://c5m0s6crr6sah"]
+
+[ext_resource type="Script" uid="uid://bo46nynsvn1r6" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="1_lty6t"]
+
+[resource]
+script = ExtResource("1_lty6t")
+state_binding_id = "statebinding.presentation.light.torch.basic"
+bindings = Array[Dictionary]([{
+"actions": [{
+"clip": "work_cycle",
+"player": "AnimationPlayer",
+"type": "animation"
+}, {
+"target": "Flame",
+"type": "visibility",
+"value": true
+}, {
+"cue_id": "machine.work_loop",
+"socket": "work_audio",
+"type": "audio_cue"
+}],
+"field": "processing",
+"operator": "equals",
+"value": true
+}, {
+"actions": [{
+"clip": "work_cycle",
+"player": "AnimationPlayer",
+"type": "animation"
+}, {
+"target": "Flame",
+"type": "visibility",
+"value": true
+}, {
+"cue_id": "machine.work_loop",
+"socket": "work_audio",
+"type": "audio_cue"
+}],
+"field": "processing",
+"operator": "equals",
+"value": true
+}])
+layer_order = PackedStringArray("base", "variant", "environment", "activity", "condition", "critical")

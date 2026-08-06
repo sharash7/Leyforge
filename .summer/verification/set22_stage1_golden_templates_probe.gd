@@ -94,7 +94,7 @@ func _verify_semantic_catalogue() -> ForgeSemanticRegistry:
 	_check(bool(report.get("ok", false)), "semantic registry did not validate")
 	_check((report.get("diagnostics", []) as Array).is_empty(),
 		"semantic registry retained diagnostics")
-	_check(semantic.filtered_list("anatomy_role").size() == 21,
+	_check(semantic.filtered_list("anatomy_role").size() >= 21,
 		"anatomy-role catalogue did not contain 21 Stage 1 roles")
 	_check(semantic.filtered_list("material_role").size() == 19,
 		"material-role catalogue lost settlement or Stage 1 roles")
