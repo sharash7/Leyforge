@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ppuif"]
+
+[resource]
+script = ExtResource("1_ppuif")
+product_id = "runtime.catalogue.sound_event_production_magic_sustain_soft"
+source_id = "sound.event.production.magic_sustain_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_magic_sustain_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_magic_sustain_soft.tres": "68cfee2e2c1b30f6a4788a349a67ca8f7c4e440057513a25af480987277788c5"
+}
+combined_source_hash = "dd4d39af73e7cc7aa56021dfc3a4dc6e974475a0ac919d6dd37fda849e27dc1a"
+dependency_ids = PackedStringArray()

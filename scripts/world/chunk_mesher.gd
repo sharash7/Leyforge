@@ -488,6 +488,17 @@ static func _emit_connected_chute(
 		connected[i] = (connection_mask & (1 << i)) != 0
 		if connected[i]:
 			connection_count += 1
+	var forge_meshes: Dictionary = snapshot.get("forge_meshes", {})
+	var forge_mesh: Dictionary = forge_meshes.get(id, {})
+	if int(connection_profile.get("neighbor_mask", connection_mask)) == 0 \
+			and not forge_mesh.is_empty():
+		# Keep authored chute connection geometry for networks, but let a
+		# standalone chute use its promoted Forge product instead of the legacy
+		# placeholder trough.
+		_emit_forge_mesh(
+			snapshot, origin, id, facing,
+			vertices, normals, colors, uvs, uv2s, collision)
+		return
 	var straight_ns := connection_count == 2 and connected[0] and connected[2]
 	var straight_ew := connection_count == 2 and connected[1] and connected[3]
 	if (straight_ns or straight_ew) and _has_slope(slopes):

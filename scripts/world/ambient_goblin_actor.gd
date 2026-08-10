@@ -1,6 +1,7 @@
 class_name AmbientGoblinActor
 extends CharacterBody3D
 ## Lightweight local goblin created by a loaded, active MobSpawnVolume.
+## BiologyManager owns its health; this actor only retains a compatibility view.
 
 const HumanoidVisualScript = preload("res://scripts/visual/humanoid_visual.gd")
 const WALK_SPEED := 1.55
@@ -31,6 +32,18 @@ func setup_ambient(
 	roam_radius = maxf(2.0, p_roam_radius)
 	global_position = spawn_position
 	_rng.seed = absi(actor_id.hash())
+	_ensure_biology_owner()
+	var biological_actor_id := _biological_actor_id()
+	var registration := BiologyManager.register_actor_projection(
+		biological_actor_id, {
+			"health": 18.0,
+			"max_health": 18.0,
+		}, "ambient_mob_spawn", "", "", "transient")
+	if not bool(registration.get("ok", false)):
+		push_warning(
+			"AmbientGoblinActor: biological registration failed: %s" \
+			% registration)
+	_refresh_biology_projection()
 	_choose_target()
 
 
@@ -124,12 +137,52 @@ func _choose_target() -> void:
 
 func apply_combat_damage(packet: Dictionary) -> Dictionary:
 	var amount := maxf(0.0, float(packet.get("amount", 0.0)))
-	health = maxf(0.0, health - amount)
+	_ensure_biology_owner()
+	var biological_actor_id := _biological_actor_id()
+	if not BiologyManager.has_actor(biological_actor_id):
+		var registration := BiologyManager.register_actor_projection(
+			biological_actor_id, {
+				"health": health,
+				"max_health": 18.0,
+			}, "ambient_mob_compatibility", "", "", "transient")
+		if not bool(registration.get("ok", false)):
+			return registration
+	var transaction_id := str(packet.get(
+		"transaction_id", packet.get("damage_event_id", "")))
+	if transaction_id.is_empty():
+		transaction_id = "combat.ambient_damage.%s.revision_%d" % [
+			biological_actor_id,
+			int(BiologyManager.get_record(biological_actor_id).get(
+				"revision", 0)) + 1]
+	var biological := BiologyManager.apply_resolved_biological_damage({
+		"transaction_id": transaction_id,
+		"actor_id": biological_actor_id,
+		"source_actor_ref": str(packet.get("source", "player")),
+		"source_system": "document16.combat",
+		"resolved_health_damage": amount,
+		"damage_tags": [str(packet.get("damage_type", "physical"))],
+		"trauma_tags": ["impact"],
+		"impact_class": (
+			"significant" if amount >= 8.0 else "light"),
+		"injury_permitted": amount >= 8.0,
+		"biological_region_id": "region.general",
+		"minimum_health": 0.0,
+	})
+	if not bool(biological.get("ok", false)):
+		return biological
+	_refresh_biology_projection()
 	if humanoid != null:
 		humanoid.play_action("hurt", 0.25)
 	if health <= 0.0:
+		BiologyManager.release_transient_actor(biological_actor_id)
 		queue_free()
-	return {"ok": true, "health": health, "defeated": health <= 0.0}
+	return {
+		"ok": true,
+		"health": health,
+		"defeated": health <= 0.0,
+		"duplicate": bool(biological.get("duplicate", false)),
+		"biological_result_ref": str(biological.get("evidence_id", "")),
+	}
 
 
 func apply_magic_damage(packet: Dictionary) -> Dictionary:
@@ -137,4 +190,27 @@ func apply_magic_damage(packet: Dictionary) -> Dictionary:
 
 
 func is_combat_alive() -> bool:
+	_refresh_biology_projection()
 	return health > 0.0
+
+
+func _biological_actor_id() -> String:
+	return "actor.ambient.%s" % actor_id
+
+
+func _ensure_biology_owner() -> void:
+	if world == null:
+		return
+	var seed_value := world.world_seed
+	if BiologyManager.initialized and BiologyManager.world_seed == seed_value:
+		return
+	BiologyManager.initialize(
+		seed_value,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _refresh_biology_projection() -> void:
+	var biological_actor_id := _biological_actor_id()
+	if BiologyManager.initialized and BiologyManager.has_actor(
+			biological_actor_id):
+		health = BiologyManager.current_health(biological_actor_id)

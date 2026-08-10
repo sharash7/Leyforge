@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_q1ogr"]
+
+[resource]
+script = ExtResource("1_q1ogr")
+batch_id = "batch.structures.utility"
+display_name = "Structures.utility"
+studio = "structures"
+category = "utility"
+target_ids = PackedStringArray("blueprint.leyforge.utility.village_well_a", "blueprint.leyforge.utility.cistern_aqueduct_pump_a", "blueprint.leyforge.utility.sanitation_waste_system_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_utility.json")

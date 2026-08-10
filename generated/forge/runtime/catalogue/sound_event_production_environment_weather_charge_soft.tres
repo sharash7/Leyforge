@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_7i8ek"]
+
+[resource]
+script = ExtResource("1_7i8ek")
+product_id = "runtime.catalogue.sound_event_production_environment_weather_charge_soft"
+source_id = "sound.event.production.environment_weather_charge_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_environment_weather_charge_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_environment_weather_charge_soft.tres": "8c33dbdf1212896ec8fc0b6b6ad2e0dcee5b1c0ec3275b396e59a91243519d9e"
+}
+combined_source_hash = "467bbad5e8b6a45bff916def8d0a42e2650c4933c6ac6bf0254b1af92f14ec49"
+dependency_ids = PackedStringArray()

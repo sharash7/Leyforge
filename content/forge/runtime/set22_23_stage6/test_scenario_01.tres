@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_jd0wk")
-fixture_ids = PackedStringArray("presentation.profile.forest_hamlet.catalogue_001.stage6", "sound.event.forest_hamlet.catalogue_001.stage6")
+fixture_ids = PackedStringArray("presentation.profile.production.movement_contact_sustain_soft__footsteps_body_sustain_soft", "sound.event.production.footsteps_body_sustain_soft")
 action_records = Array[Dictionary]([{
 "action": "publish_contract",
 "contract_id": "event.block.mining_impact",
@@ -32,28 +32,31 @@ schema_id = "leyforge.forge.presentation-test-scenario"
 stable_id = "test.presentation.forest_hamlet.machine_dense.stage6"
 display_name = "Machine Dense Presentation Scenario"
 asset_class = "test_scenario"
-source_status = "planned_new_work"
+lifecycle = "review_ready"
+source_status = "review_ready"
 aliases = PackedStringArray()
-dependency_ids = PackedStringArray("presentation.profile.forest_hamlet.catalogue_001.stage6", "sound.event.forest_hamlet.catalogue_001.stage6")
+dependency_ids = PackedStringArray("presentation.profile.production.movement_contact_sustain_soft__footsteps_body_sustain_soft", "sound.event.production.footsteps_body_sustain_soft")
 optional_dependency_ids = PackedStringArray()
 fallback_ids = PackedStringArray()
 provenance = {
+"approval_batch_id": "test.machine_dense",
 "document_set": "23",
 "phase": "production_library",
-"status": "planned_new_work"
+"status": "review_ready"
 }
+rights_status = "not_applicable"
 review_history = Array[Dictionary]([{
 "review": "human_evidence",
 "status": "open"
 }])
 extension_fields = {
 "accessible_approved": false,
-"forge_baked": false,
+"forge_baked": true,
 "legacy_active": true,
 "legally_cleared": false,
 "migration_classification": "new_work",
-"production_ready": false,
-"replacement_strategy": "defer",
+"production_ready": true,
+"replacement_strategy": "approve_then_activate",
 "shippable": false,
 "visually_complete": false
 }

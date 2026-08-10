@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_m02lu"]
+
+[resource]
+script = ExtResource("1_m02lu")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_governance_town_hall_a"
+source_id = "blueprint.leyforge.governance.town_hall_a"
+source_type_id = "catalogue.structures"
+source_hash = "390d33841b6d5a2b653945763b6d7494c6cc5c9d62d96f1ea0e518984eb6d1cb"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_governance_town_hall_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_governance_town_hall_a.tres": "585c1163217bd828bfa66c848ab92cee0220063f326ae6c0e7ba1ddb638b0377"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

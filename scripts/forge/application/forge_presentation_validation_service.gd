@@ -4,7 +4,8 @@ extends RefCounted
 
 const SUPPORTED_LIFECYCLES: PackedStringArray = [
 	"draft", "foundation", "active_fallback", "golden_source_candidate",
-	"planned_new_work", "deprecated",
+	"planned_new_work", "authored", "validated", "baked", "review_ready",
+	"approved", "changes_requested", "deprecated",
 ]
 const SPATIAL_PREFIXES := {
 	"anchor": "anchor.",
@@ -55,6 +56,8 @@ func validate(
 		_validate_surface_layer(definition, semantic_registry, diagnostics)
 	elif definition is ForgeSoundEvent:
 		_validate_sound_event(definition, diagnostics)
+	elif definition is ForgeSynthPatchDefinition:
+		_validate_synth_patch(definition, diagnostics)
 	elif definition is ForgeSoundSource:
 		_validate_sound_source(definition, diagnostics)
 	elif definition is ForgeAudioFamily:
@@ -403,6 +406,78 @@ func _validate_sound_source(
 			"LIC-001", ForgeDiagnostic.CRITICAL_RELEASE_BLOCKER,
 			source.stable_id,
 			"Golden sound source rights are unresolved."))
+	if source.source_path.begins_with("forge-synth://") \
+			and (source.procedural_recipe_id.is_empty() or source.generator_version.is_empty()):
+		diagnostics.append(_diagnostic("SRC-002", ForgeDiagnostic.ERROR,
+			source.stable_id, "Procedural source recipe or generator version is missing."))
+	if not source.loudness_analysis.is_empty():
+		if bool(source.loudness_analysis.get("silent", false)) \
+				or float(source.loudness_analysis.get("peak_linear", 0.0)) < 0.0001:
+			diagnostics.append(_diagnostic("SND-004", ForgeDiagnostic.ERROR,
+				source.stable_id, "Sound source is silent."))
+		if int(source.loudness_analysis.get("clipped_samples", 0)) > 0 \
+				or float(source.loudness_analysis.get("peak_linear", 0.0)) > 1.0:
+			diagnostics.append(_diagnostic("SND-005", ForgeDiagnostic.ERROR,
+				source.stable_id, "Sound source clips or exceeds the safe peak range."))
+		if float(source.loudness_analysis.get("integrated_lufs", -18.0)) > -6.0:
+			diagnostics.append(_diagnostic("SND-006", ForgeDiagnostic.ERROR,
+				source.stable_id, "Sound source loudness exceeds the approval limit."))
+	if (source.loop_start_seconds >= 0.0 or source.loop_end_seconds >= 0.0) \
+			and (source.loop_start_seconds < 0.0 \
+				or source.loop_end_seconds <= source.loop_start_seconds \
+				or source.loop_end_seconds > source.duration_seconds):
+		diagnostics.append(_diagnostic("SND-007", ForgeDiagnostic.ERROR,
+			source.stable_id, "Sound source loop markers are broken or out of range."))
+	for region in source.regions:
+		if float(region.get("start_seconds", -1.0)) < 0.0 \
+				or float(region.get("end_seconds", 0.0)) <= float(region.get("start_seconds", 0.0)) \
+				or float(region.get("end_seconds", 0.0)) > source.duration_seconds:
+			diagnostics.append(_diagnostic("SND-008", ForgeDiagnostic.ERROR,
+				source.stable_id, "Sound source region is invalid or outside the waveform."))
+
+
+func _validate_synth_patch(
+		patch: ForgeSynthPatchDefinition,
+		diagnostics: Array[ForgeDiagnostic]) -> void:
+	if patch.tuning_a4_hz < 300.0 or patch.tuning_a4_hz > 500.0 \
+			or patch.sample_rate_hz < 8000 or patch.sample_rate_hz > 96000 \
+			or patch.note_duration_seconds <= 0.0 \
+			or patch.note_duration_seconds > 10.0 \
+			or patch.maximum_polyphony <= 0 or patch.maximum_polyphony > 64:
+		diagnostics.append(_diagnostic(
+			"SYN-001", ForgeDiagnostic.ERROR, patch.stable_id,
+			"Synth tuning, sample rate, duration or polyphony is out of bounds."))
+	if patch.oscillators.is_empty() or patch.oscillators.size() > 8:
+		diagnostics.append(_diagnostic(
+			"SYN-002", ForgeDiagnostic.ERROR, patch.stable_id,
+			"Synth patch requires between one and eight oscillators."))
+	for oscillator in patch.oscillators:
+		var waveform := str(oscillator.get("waveform", ""))
+		var level := float(oscillator.get("level", -1.0))
+		var pulse_width := float(oscillator.get("pulse_width", 0.5))
+		if waveform not in ForgeSynthPatchDefinition.WAVEFORMS \
+				or level < 0.0 or level > 1.0 \
+				or pulse_width <= 0.01 or pulse_width >= 0.99:
+			diagnostics.append(_diagnostic(
+				"SYN-002", ForgeDiagnostic.ERROR, patch.stable_id,
+				"Synth oscillator waveform, level or pulse width is invalid."))
+	var attack := float(patch.amplitude_envelope.get("attack_seconds", -1.0))
+	var decay := float(patch.amplitude_envelope.get("decay_seconds", -1.0))
+	var sustain := float(patch.amplitude_envelope.get("sustain_level", -1.0))
+	var release := float(patch.amplitude_envelope.get("release_seconds", -1.0))
+	if attack < 0.0 or decay < 0.0 or release < 0.0 \
+			or sustain < 0.0 or sustain > 1.0 \
+			or attack + decay + release > 20.0:
+		diagnostics.append(_diagnostic(
+			"SYN-003", ForgeDiagnostic.ERROR, patch.stable_id,
+			"Synth amplitude envelope is invalid or unbounded."))
+	var filter_type := str(patch.filter_settings.get("type", "none"))
+	var cutoff := float(patch.filter_settings.get("cutoff_hz", 0.0))
+	if filter_type not in ["none", "low_pass", "high_pass"] \
+			or cutoff < 0.0 or cutoff > float(patch.sample_rate_hz) * 0.5:
+		diagnostics.append(_diagnostic(
+			"SYN-004", ForgeDiagnostic.ERROR, patch.stable_id,
+			"Synth filter type or cutoff is invalid for its sample rate."))
 
 
 func _validate_audio_family(

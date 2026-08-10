@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_xh6fh"]
+
+[resource]
+script = ExtResource("1_xh6fh")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_goblin_cave_wisp_idle_soft"
+source_id = "vfx.effect.production.goblin_cave_wisp_idle_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "dff9b60f3edcebcbe1f29019dc622175288fbddcbcaeea766dc08603ba117887"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_goblin_cave_wisp_idle_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_goblin_cave_wisp_idle_soft.tres": "5403ba20433c2e4af55a3be25e9f912c40ee05e876d1ffb8db3ad3333cb7429a"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

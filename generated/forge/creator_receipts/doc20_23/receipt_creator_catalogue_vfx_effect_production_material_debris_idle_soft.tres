@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_2i4c0"]
+
+[resource]
+script = ExtResource("1_2i4c0")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_material_debris_idle_soft"
+source_id = "vfx.effect.production.material_debris_idle_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "c26290942eb35268fe4cf61d480e17577a1145007b1372c09399a147c7b0ac21"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_material_debris_idle_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_material_debris_idle_soft.tres": "f90c0b79e73fdd9516d1f24ba0438e20023bd2cf4f3e7eb992c5fcabc01273b6"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

@@ -1,0 +1,24 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.audio.goblin_raid.21",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "sound.event.production.goblin_raid_charge_soft",
+    "sound.source.production.goblin_raid_charge_soft_body",
+    "sound.source.production.goblin_raid_charge_soft_detail",
+    "sound.event.production.goblin_raid_close_soft",
+    "sound.source.production.goblin_raid_close_soft_body",
+    "sound.source.production.goblin_raid_close_soft_detail",
+    "sound.event.production.goblin_raid_finish_firm",
+    "sound.source.production.goblin_raid_finish_firm_body",
+    "sound.source.production.goblin_raid_finish_firm_detail",
+    "sound.event.production.goblin_raid_start_firm",
+    "sound.source.production.goblin_raid_start_firm_body",
+    "sound.source.production.goblin_raid_start_firm_detail",
+    "sound.event.production.goblin_raid_sustain_firm",
+    "sound.source.production.goblin_raid_sustain_firm_body",
+    "sound.source.production.goblin_raid_sustain_firm_detail"
+  ]
+}

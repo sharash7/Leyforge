@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_y7gha"]
+
+[resource]
+script = ExtResource("1_y7gha")
+product_id = "runtime.catalogue.vfx_effect_production_critical_telegraph_sustain_soft"
+source_id = "vfx.effect.production.critical_telegraph_sustain_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_critical_telegraph_sustain_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_critical_telegraph_sustain_soft.tres": "2f57c98b8445cb68954e67d11cf0e18b5238f1e827419440a86b88c5f073ce46"
+}
+combined_source_hash = "d6f28782d5f2a2d8d72e9e68839f51ae167167e94770f894fdcd8fbdcdf617d8"
+dependency_ids = PackedStringArray()

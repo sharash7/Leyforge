@@ -9,6 +9,7 @@ signal profile_save_failed(message: String)
 
 const WorldStructurePlannerScript = preload(
 	"res://scripts/world/world_structure_planner.gd")
+const WorldManifestScript = preload("res://scripts/world/world_manifest.gd")
 
 const WORLDS_ROOT := "user://worlds"
 const PROFILE_PATH := "user://profile.json"
@@ -24,7 +25,7 @@ const WORLD_PREVIOUS_FILE := "world.previous"
 const WORLD_BACKUP_FILE := "world.backup.json"
 const WORLD_CARD_VERSION := 1
 const PROFILE_VERSION := 1
-const CURRENT_SAVE_VERSION := 17
+const CURRENT_SAVE_VERSION := 18
 const NEW_WORLDGEN_VERSION := 5
 const NEW_PLAN_VERSION := 4
 const REGIONAL_WORLDGEN_VERSION := 4
@@ -32,7 +33,7 @@ const REGIONAL_PLAN_VERSION := 3
 const LEGACY_WORLDGEN_VERSION := 2
 const LEGACY_PLAN_VERSION := 1
 const LEGACY_PROFILE_ID := "world.profile.controlled_poc_valley"
-const PROFILE_ID := "world.profile.controlled_poc_regional"
+const PROFILE_ID := "world.profile.living_frontier_regional"
 const LEGACY_PATHS := {
 	WORLD_FILE: "user://leyforge_save.json",
 	WORLD_TEMP_FILE: "user://leyforge_save.tmp",
@@ -122,6 +123,7 @@ func validate_new_world_seed(seed_value: int) -> Dictionary:
 		"plan_id": plan.identity(),
 		"worldgen_version": NEW_WORLDGEN_VERSION,
 		"plan_version": NEW_PLAN_VERSION,
+		"profile_id": PROFILE_ID,
 		"fallback_used": plan.fallback_used,
 		"errors": errors,
 		"anchors": plan.anchors.duplicate(true),
@@ -129,6 +131,7 @@ func validate_new_world_seed(seed_value: int) -> Dictionary:
 		"site_plan_hash": plan.site_plan_hash,
 		"placement_rule_hash": plan.placement_rule_hash,
 		"regional_config_id": str(plan.save_manifest().get("config_id", "")),
+		"algorithm_id": str(plan.save_manifest().get("algorithm_id", "")),
 	}
 
 
@@ -177,6 +180,11 @@ func create_world(world_name: String, seed_entry: String,
 		"save_health": "new_world",
 		"legacy_import": false,
 	}
+	metadata["world_manifest"] = compose_world_manifest(
+		world_id, seed_value, str(seed_result["original"]),
+		str(seed_result["kind"]), validation, false)
+	metadata["world_manifest_hash"] = str(
+		metadata["world_manifest"].get("manifest_hash", ""))
 	_ensure_directory(world_directory(world_id))
 	if not _write_metadata(metadata):
 		return {"ok": false, "errors": ["metadata_write_failed"]}
@@ -278,11 +286,58 @@ func active_world_has_save_candidates() -> bool:
 func active_generation_request() -> Dictionary:
 	if active_world.is_empty():
 		return {}
-	return {
+	var request := {
 		"world_id": active_world.get("world_id", ""),
 		"name": active_world.get("name", ""),
 		"seed_original": active_world.get("seed_original", ""),
 		"resolved_seed": int(active_world.get("resolved_seed", 0)),
+		"worldgen_version": int(active_world.get(
+			"worldgen_version", LEGACY_WORLDGEN_VERSION)),
+		"plan_version": int(active_world.get(
+			"plan_version", LEGACY_PLAN_VERSION)),
+		"profile_id": str(active_world.get("profile_id", PROFILE_ID)),
+		"plan_id": str(active_world.get("plan_id", "")),
+		"starter_mode": str(active_world.get("starter_mode", "")),
+		"site_plan_hash": str(active_world.get("site_plan_hash", "")),
+		"placement_rule_hash": str(active_world.get(
+			"placement_rule_hash", "")),
+		"regional_config_id": str(active_world.get(
+			"regional_config_id", "")),
+	}
+	request["world_manifest"] = active_world_manifest()
+	return request
+
+
+func compose_world_manifest(world_id: String, resolved_seed: int,
+		seed_original: String, seed_kind: String, generation: Dictionary,
+		legacy_import := false) -> Dictionary:
+	var catalogue := get_node_or_null("/root/ProductionCatalogue")
+	var packs: Array = []
+	var catalogue_hash := "0".repeat(64)
+	if catalogue != null:
+		packs = catalogue.pack_order()
+		catalogue_hash = catalogue.catalogue_hash()
+	return WorldManifestScript.create(world_id, resolved_seed, seed_original,
+		seed_kind, generation, packs, catalogue_hash, legacy_import)
+
+
+func active_world_manifest() -> Dictionary:
+	if active_world.is_empty():
+		return {}
+	var stored: Variant = active_world.get("world_manifest", {})
+	if stored is Dictionary and not stored.is_empty():
+		return stored.duplicate(true)
+	return compose_world_manifest(
+		str(active_world.get("world_id", "")),
+		int(active_world.get("resolved_seed", 0)),
+		str(active_world.get("seed_original", "")),
+		str(active_world.get("seed_kind", "recovered")),
+		active_generation_request_legacy_view(),
+		bool(active_world.get("legacy_import", false)))
+
+
+func active_generation_request_legacy_view() -> Dictionary:
+	return {
 		"worldgen_version": int(active_world.get(
 			"worldgen_version", LEGACY_WORLDGEN_VERSION)),
 		"plan_version": int(active_world.get(
@@ -341,6 +396,17 @@ func update_active_world_after_save(save_manifest: Dictionary,
 		"placement_rule_hash", active_world.get("placement_rule_hash", "")))
 	active_world["regional_config_id"] = str(worldgen_manifest.get(
 		"config_id", active_world.get("regional_config_id", "")))
+	if not active_world.has("world_manifest") \
+			or not (active_world["world_manifest"] is Dictionary) \
+			or active_world["world_manifest"].is_empty():
+		active_world["world_manifest"] = compose_world_manifest(
+			str(active_world.get("world_id", "")),
+			int(active_world.get("resolved_seed", 0)),
+			str(active_world.get("seed_original", "")),
+			str(active_world.get("seed_kind", "recovered")),
+			worldgen_manifest, bool(active_world.get("legacy_import", false)))
+	active_world["world_manifest_hash"] = str(
+		active_world["world_manifest"].get("manifest_hash", ""))
 	active_world["save_health"] = str(health.get("status", "healthy"))
 	active_world["validation_result"] = "valid"
 	var ok := _write_metadata(active_world)

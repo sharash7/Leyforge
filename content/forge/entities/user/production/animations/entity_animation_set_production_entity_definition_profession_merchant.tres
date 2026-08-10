@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="ForgeEntityAnimationLibrary" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_animation_clip.gd" id="1_5jwbm"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_animation_event_marker.gd" id="2_ml2lc"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_animation_library.gd" id="3_uwsgu"]
+
+[sub_resource type="Resource" id="Resource_mio0u"]
+script = ExtResource("1_5jwbm")
+clip_id = "entity.animation_set.production.entity_definition_profession_merchant.idle"
+display_name = "Idle"
+duration_seconds = 1.2
+role_tracks = Array[Dictionary]([{
+"keys": [{
+"rotation": [0, 0, 0],
+"time": 0.0
+}, {
+"rotation": [0, 2, 0],
+"time": 0.5
+}, {
+"rotation": [0, 0, 0],
+"time": 1.0
+}],
+"role_id": "anatomy.role.humanoid.torso"
+}])
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_fftnu"]
+script = ExtResource("2_ml2lc")
+marker_id = "entity.animation_set.production.entity_definition_profession_merchant.walk.contact"
+event_contract_id = "event.entity.movement_contact"
+normalized_time = 0.5
+spatial_role_id = "runtime_anchor.block.mining_impact"
+contact_kind = "footstep"
+
+[sub_resource type="Resource" id="Resource_8qtre"]
+script = ExtResource("1_5jwbm")
+clip_id = "entity.animation_set.production.entity_definition_profession_merchant.walk"
+display_name = "Walk"
+semantic_action = "walk"
+duration_seconds = 0.7
+role_tracks = Array[Dictionary]([{
+"keys": [{
+"rotation": [0, 0, 0],
+"time": 0.0
+}, {
+"rotation": [0, 2, 0],
+"time": 0.5
+}, {
+"rotation": [0, 0, 0],
+"time": 1.0
+}],
+"role_id": "anatomy.role.humanoid.torso"
+}])
+event_markers = Array[ExtResource("2_ml2lc")]([SubResource("Resource_fftnu")])
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_gj030"]
+script = ExtResource("1_5jwbm")
+clip_id = "entity.animation_set.production.entity_definition_profession_merchant.interact"
+display_name = "Interact"
+semantic_action = "interact"
+duration_seconds = 0.7
+looping = false
+role_tracks = Array[Dictionary]([{
+"keys": [{
+"rotation": [0, 0, 0],
+"time": 0.0
+}, {
+"rotation": [0, 2, 0],
+"time": 0.5
+}, {
+"rotation": [0, 0, 0],
+"time": 1.0
+}],
+"role_id": "anatomy.role.humanoid.torso"
+}])
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_cjf72"]
+script = ExtResource("1_5jwbm")
+clip_id = "entity.animation_set.production.entity_definition_profession_merchant.hurt"
+display_name = "Hurt"
+semantic_action = "hurt"
+duration_seconds = 0.7
+looping = false
+role_tracks = Array[Dictionary]([{
+"keys": [{
+"rotation": [0, 0, 0],
+"time": 0.0
+}, {
+"rotation": [0, 2, 0],
+"time": 0.5
+}, {
+"rotation": [0, 0, 0],
+"time": 1.0
+}],
+"role_id": "anatomy.role.humanoid.torso"
+}])
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("3_uwsgu")
+animation_library_id = "entity.animation_set.production.entity_definition_profession_merchant"
+display_name = "Merchant Villager Animation Library"
+rig_profile_id = "entity.rig.production.entity_definition_profession_merchant"
+rig_family = "humanoid"
+clips = Array[ExtResource("1_5jwbm")]([SubResource("Resource_mio0u"), SubResource("Resource_8qtre"), SubResource("Resource_gj030"), SubResource("Resource_cjf72")])
+retarget_map_ids = PackedStringArray()
+animation_lod_levels = Array[Dictionary]([{
+"clips": ["idle", "walk", "interact", "hurt"],
+"lod": 0
+}, {
+"clips": ["idle", "walk"],
+"lod": 1
+}])
+lifecycle = "review_ready"
+source_status = "review_ready"
+dependency_ids = PackedStringArray("entity.rig.production.entity_definition_profession_merchant")
+aliases = PackedStringArray()

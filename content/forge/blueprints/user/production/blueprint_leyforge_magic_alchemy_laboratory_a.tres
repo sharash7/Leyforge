@@ -1,0 +1,398 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_6xsv4"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_5gc8x"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_me6f7"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_8wrrd"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_s1xkl"]
+
+[sub_resource type="Resource" id="Resource_7ncue"]
+script = ExtResource("1_6xsv4")
+delta_id = "blueprint.leyforge.magic.alchemy_laboratory_a.delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.alchemy_laboratory_a.element.foundation.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_fwqb1"]
+script = ExtResource("1_6xsv4")
+delta_id = "blueprint.leyforge.magic.alchemy_laboratory_a.delta.frame"
+stage_id = "frame"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.alchemy_laboratory_a.element.frame.pillar_0", "blueprint.leyforge.magic.alchemy_laboratory_a.element.frame.pillar_1", "blueprint.leyforge.magic.alchemy_laboratory_a.element.frame.pillar_2", "blueprint.leyforge.magic.alchemy_laboratory_a.element.frame.pillar_3")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_137tr"]
+script = ExtResource("1_6xsv4")
+delta_id = "blueprint.leyforge.magic.alchemy_laboratory_a.delta.shell"
+stage_id = "shell"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.alchemy_laboratory_a.element.shell.perimeter_0", "blueprint.leyforge.magic.alchemy_laboratory_a.element.shell.point_1")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("frame")
+
+[sub_resource type="Resource" id="Resource_pc3pf"]
+script = ExtResource("1_6xsv4")
+delta_id = "blueprint.leyforge.magic.alchemy_laboratory_a.delta.weatherproofing"
+stage_id = "weatherproofing"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.alchemy_laboratory_a.element.weatherproofing.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("shell")
+
+[sub_resource type="Resource" id="Resource_wy78x"]
+script = ExtResource("1_6xsv4")
+delta_id = "blueprint.leyforge.magic.alchemy_laboratory_a.delta.activation"
+stage_id = "activation"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.alchemy_laboratory_a.element.activation.point_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("weatherproofing")
+
+[sub_resource type="Resource" id="Resource_3uvc0"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.element.foundation.fill_0"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 0.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "foundation_primary"
+}
+
+[sub_resource type="Resource" id="Resource_o06rd"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.element.frame.pillar_0"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_6nyi7"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.element.frame.pillar_1"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_hm3jy"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.element.frame.pillar_2"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_flc05"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.element.frame.pillar_3"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_meljl"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.element.shell.perimeter_0"
+element_kind = "block_operation"
+material_role_id = "wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"exclude": [[-2.0, 1.0, -2.0], [-2.0, 2.0, -2.0], [-2.0, 1.0, 2.0], [-2.0, 2.0, 2.0], [2.0, 1.0, -2.0], [2.0, 2.0, -2.0], [2.0, 1.0, 2.0], [2.0, 2.0, 2.0], [0.0, 1.0, -2.0]],
+"op": "perimeter",
+"origin": [-2.0, 1.0, -2.0],
+"size": [5.0, 2.0, 5.0],
+"token": "wall_primary"
+}
+
+[sub_resource type="Resource" id="Resource_woxex"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.element.shell.point_1"
+element_kind = "block_operation"
+material_role_id = "door_basic"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 1, -2)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, -2.0],
+"token": "door_basic"
+}
+
+[sub_resource type="Resource" id="Resource_6pjun"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.element.weatherproofing.fill_0"
+element_kind = "block_operation"
+material_role_id = "roof_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "weatherproofing"
+position = Vector3i(-2, 4, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 4.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "roof_primary"
+}
+
+[sub_resource type="Resource" id="Resource_inbvo"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.element.activation.point_0"
+element_kind = "block_operation"
+material_role_id = "functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "activation"
+position = Vector3i(0, 1, 0)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, 0.0],
+"token": "functional"
+}
+
+[sub_resource type="Resource" id="Resource_lhwf2"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.marker_01"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.alchemy_bench")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -2)
+metadata = {
+"id": "marker_01",
+"position": [-2.0, 1.0, -2.0],
+"type": "alchemy_bench"
+}
+
+[sub_resource type="Resource" id="Resource_jtbgr"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.marker_02"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.heat_mana_source")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -2)
+metadata = {
+"id": "marker_02",
+"position": [-1.0, 1.0, -2.0],
+"type": "heat_mana_source"
+}
+
+[sub_resource type="Resource" id="Resource_8bs58"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.marker_03"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.water_point")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"id": "marker_03",
+"position": [0.0, 1.0, -2.0],
+"type": "water_point"
+}
+
+[sub_resource type="Resource" id="Resource_7imbl"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.marker_04"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.reagent_storage")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -2)
+metadata = {
+"id": "marker_04",
+"position": [1.0, 1.0, -2.0],
+"type": "reagent_storage"
+}
+
+[sub_resource type="Resource" id="Resource_yaaa8"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.marker_05"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.hazardous_store")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(2, 1, -2)
+metadata = {
+"id": "marker_05",
+"position": [2.0, 1.0, -2.0],
+"type": "hazardous_store"
+}
+
+[sub_resource type="Resource" id="Resource_voqoc"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.marker_06"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.ventilation")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -1)
+metadata = {
+"id": "marker_06",
+"position": [-2.0, 1.0, -1.0],
+"type": "ventilation"
+}
+
+[sub_resource type="Resource" id="Resource_oyy6g"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.marker_07"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.wash_clean_up_point")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -1)
+metadata = {
+"id": "marker_07",
+"position": [-1.0, 1.0, -1.0],
+"type": "wash_clean_up_point"
+}
+
+[sub_resource type="Resource" id="Resource_j4bpc"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.marker_08"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.output_shelf")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -1)
+metadata = {
+"id": "marker_08",
+"position": [0.0, 1.0, -1.0],
+"type": "output_shelf"
+}
+
+[sub_resource type="Resource" id="Resource_loif4"]
+script = ExtResource("2_5gc8x")
+element_id = "blueprint.leyforge.magic.alchemy_laboratory_a.marker_09"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.waste_zone_and_emergency_station")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -1)
+metadata = {
+"id": "marker_09",
+"position": [1.0, 1.0, -1.0],
+"type": "waste_zone_and_emergency_station"
+}
+
+[sub_resource type="Resource" id="Resource_ixp41"]
+script = ExtResource("3_me6f7")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_magic_alchemy_laboratory_a"
+display_name = "Alchemy Laboratory - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.wood",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_c23q5"]
+script = ExtResource("4_8wrrd")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_magic_alchemy_laboratory_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -2)
+footprint_max = Vector3i(2, 5, 2)
+max_slope = 1
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_s1xkl")
+blueprint_id = "blueprint.leyforge.magic.alchemy_laboratory_a"
+display_name = "Alchemy Laboratory - Forest Neutral"
+definition_ids = PackedStringArray("building.magic.alchemy_laboratory")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_5gc8x")]([SubResource("Resource_3uvc0"), SubResource("Resource_o06rd"), SubResource("Resource_6nyi7"), SubResource("Resource_hm3jy"), SubResource("Resource_flc05"), SubResource("Resource_meljl"), SubResource("Resource_woxex"), SubResource("Resource_6pjun"), SubResource("Resource_inbvo"), SubResource("Resource_lhwf2"), SubResource("Resource_jtbgr"), SubResource("Resource_8bs58"), SubResource("Resource_7imbl"), SubResource("Resource_yaaa8"), SubResource("Resource_voqoc"), SubResource("Resource_oyy6g"), SubResource("Resource_j4bpc"), SubResource("Resource_loif4")])
+construction_deltas = Array[ExtResource("1_6xsv4")]([SubResource("Resource_7ncue"), SubResource("Resource_fwqb1"), SubResource("Resource_137tr"), SubResource("Resource_pc3pf"), SubResource("Resource_wy78x")])
+placement_profile = SubResource("Resource_c23q5")
+material_role_set = SubResource("Resource_ixp41")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.092"

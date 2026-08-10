@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_4n6ij"]
+
+[resource]
+script = ExtResource("1_4n6ij")
+product_id = "runtime.catalogue.blueprint_leyforge_campus_hospital_university_a"
+source_id = "blueprint.leyforge.campus.hospital_university_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_campus_hospital_university_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_campus_hospital_university_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_campus_hospital_university_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_campus_hospital_university_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_campus_hospital_university_a.tres": "5e274270d75f0ca8c51e0213cfc727af7ae576ffc3cfdf2557e56ec3be322f89",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_campus_hospital_university_a_light_damage.tres": "81a39988f1878834aec024b673ff998c462e0f89395034891d5f074bebd9d6dc",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_campus_hospital_university_a_repaired.tres": "4ef82e396141cd7150c12d0acf2d42f1eff2586f2473ef962ea43294a74b6d74",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_campus_hospital_university_a_under_construction.tres": "f72c1d86e0cf0dfc142b791beb0030c0b654d21fa9c0e786179763ef15a058e9"
+}
+combined_source_hash = "6d9f4b9534c7f4ea3c2ce39807187532748ec70e91a9a9a75f3db102679d7134"
+dependency_ids = PackedStringArray()

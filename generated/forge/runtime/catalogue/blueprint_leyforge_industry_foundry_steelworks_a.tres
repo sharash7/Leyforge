@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_0aaak"]
+
+[resource]
+script = ExtResource("1_0aaak")
+product_id = "runtime.catalogue.blueprint_leyforge_industry_foundry_steelworks_a"
+source_id = "blueprint.leyforge.industry.foundry_steelworks_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_industry_foundry_steelworks_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_foundry_steelworks_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_foundry_steelworks_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_foundry_steelworks_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_industry_foundry_steelworks_a.tres": "81c8d56bdd6d13262af6a0738d673e8cb20dd93078d04154823e0b6b1fbcb93e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_foundry_steelworks_a_light_damage.tres": "de89abc6d1962164a89a4cbcf0847dee77179a2c37887d3381ece09cf16b0654",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_foundry_steelworks_a_repaired.tres": "c299e8327a51fecfb2e4306bfdaa41ab453af266454a439484e98e8da2635243",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_foundry_steelworks_a_under_construction.tres": "697ebd5b49e8a50f7389974728b42979da4317ad65611de41f1af58124c8d34f"
+}
+combined_source_hash = "fd3041133f88be47f14d69329eeea90a9a815ed25edfca4c993a0cd03274e193"
+dependency_ids = PackedStringArray()

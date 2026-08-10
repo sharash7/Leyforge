@@ -113,13 +113,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -137,8 +137,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -161,8 +161,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -352,13 +352,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -376,8 +376,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -400,8 +400,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -591,13 +591,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -615,8 +615,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -639,8 +639,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -833,13 +833,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 48
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 24
             }
           ],
@@ -857,8 +857,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 96
             },
             {
@@ -881,8 +881,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 48
             },
             {
@@ -1072,13 +1072,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 48
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 24
             }
           ],
@@ -1096,8 +1096,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 96
             },
             {
@@ -1120,8 +1120,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 48
             },
             {
@@ -1311,13 +1311,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -1335,8 +1335,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -1359,8 +1359,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -1550,13 +1550,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -1574,8 +1574,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -1598,8 +1598,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -1787,13 +1787,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -1811,8 +1811,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -1835,8 +1835,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -2027,13 +2027,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -2051,8 +2051,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -2075,8 +2075,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -2267,13 +2267,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -2291,8 +2291,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -2315,8 +2315,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -2504,13 +2504,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -2528,8 +2528,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -2552,8 +2552,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -2744,13 +2744,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -2768,8 +2768,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -2792,8 +2792,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {
@@ -2982,13 +2982,13 @@
           "prerequisites": [],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 80
             },
             {
-              "kind": "item",
-              "stable_id": "item.material.beam_oak",
+              "kind": "block",
+              "stable_id": "construction.beam.oak",
               "count": 40
             }
           ],
@@ -3006,8 +3006,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 160
             },
             {
@@ -3030,8 +3030,8 @@
           ],
           "requirements": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 80
             },
             {

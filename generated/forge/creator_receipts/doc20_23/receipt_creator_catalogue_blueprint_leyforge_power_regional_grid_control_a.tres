@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_mvxjx"]
+
+[resource]
+script = ExtResource("1_mvxjx")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_power_regional_grid_control_a"
+source_id = "blueprint.leyforge.power.regional_grid_control_a"
+source_type_id = "catalogue.structures"
+source_hash = "33a36f35b73db5f65bb71a3455ee8e5e61f616cacd6382efd6b1cd295ab91b0a"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_power_regional_grid_control_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_power_regional_grid_control_a.tres": "2c68bf7d9cdb9203fa82be266a110b8fcf3ab71c7d833e8d2643372c833f5e38"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

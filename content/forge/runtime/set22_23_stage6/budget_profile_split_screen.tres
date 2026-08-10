@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="ForgePresentationBudgetProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_presentation_budget_profile.gd" id="1_53gvg"]
+
+[resource]
+script = ExtResource("1_53gvg")
+maximum_particles = 576
+maximum_voices = 44
+maximum_lights = 18
+maximum_surface_records = 288
+maximum_updates_per_second = 400
+fallback_chain = PackedStringArray("full", "reduced", "aggregated", "critical_only", "virtualised")
+critical_reserve = {
+"lights": 2,
+"particles": 32,
+"surface_records": 8,
+"updates": 16,
+"voices": 4
+}
+schema_id = "leyforge.forge.presentation-budget-profile"
+stable_id = "budget.profile.production.split_screen"
+display_name = "Split Screen Budget"
+asset_class = "budget_profile"
+lifecycle = "review_ready"
+source_status = "review_ready"
+aliases = PackedStringArray("budget.profile.forest_hamlet_10.stage6")
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"approval_batch_id": "budget.split_screen",
+"document_set": "23",
+"phase": "production_library",
+"status": "review_ready"
+}
+rights_status = "not_applicable"
+review_history = Array[Dictionary]([{
+"review": "human_evidence",
+"status": "open"
+}])
+extension_fields = {
+"accessible_approved": false,
+"forge_baked": true,
+"legacy_active": true,
+"legally_cleared": false,
+"migration_classification": "new_work",
+"production_ready": true,
+"replacement_strategy": "approve_then_activate",
+"shippable": false,
+"visually_complete": false
+}

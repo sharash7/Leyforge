@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_v2dvm"]
+
+[resource]
+script = ExtResource("1_v2dvm")
+product_id = "runtime.catalogue.blueprint_leyforge_extraction_quarry_stone_yard_a"
+source_id = "blueprint.leyforge.extraction.quarry_stone_yard_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_quarry_stone_yard_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_quarry_stone_yard_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_quarry_stone_yard_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_quarry_stone_yard_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_quarry_stone_yard_a.tres": "0ec5aba0cde54e80b54a54c05f514860dcb5192775440f279428f072c109cc9e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_quarry_stone_yard_a_light_damage.tres": "d543f1efaa57b7f949ab7379d03571b3cfe1d0be90fcc20c9ceaec19e71a15f3",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_quarry_stone_yard_a_repaired.tres": "806fa3ddccdf5f6b63aa684b57e04e39e54ff4e0a04341a37035b486e3a785d9",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_quarry_stone_yard_a_under_construction.tres": "0aa879522298d02670f436e9d0cbdf1949e300e0672b7ce1e38da8791ff21751"
+}
+combined_source_hash = "3936d67a254a19a97e1f81dc63227883218220100d62e75f9bd7ae7f695f47dd"
+dependency_ids = PackedStringArray()

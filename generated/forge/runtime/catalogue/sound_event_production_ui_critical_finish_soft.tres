@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_k143a"]
+
+[resource]
+script = ExtResource("1_k143a")
+product_id = "runtime.catalogue.sound_event_production_ui_critical_finish_soft"
+source_id = "sound.event.production.ui_critical_finish_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_ui_critical_finish_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_ui_critical_finish_soft.tres": "0171ffafa640ebf2245e61d4b786e05324e0f76a1662b9cc46cbd4cfcb131499"
+}
+combined_source_hash = "9c8738684bd243d54c30c5f6f12fd4578b30782385a5cbb40c9be554d4e19d70"
+dependency_ids = PackedStringArray()

@@ -95,11 +95,11 @@ func _verify_project_costs() -> void:
 	var costs := SettlementContentRegistry.compile_project_costs(
 		"project.watchtower.basic")
 	var total: Dictionary = costs.get("total", {})
-	_check(int(total.get("item:item.material.stone_brick", 0)) == 48,
+	_check(int(total.get("block:construction.brick.stone", 0)) == 48,
 		"watchtower stone-brick cost drifted during migration")
-	_check(int(total.get("item:item.material.beam_oak", 0)) == 28,
+	_check(int(total.get("block:construction.beam.oak", 0)) == 28,
 		"watchtower oak-beam cost drifted during migration")
-	_check(int(total.get("item:item.material.plank_oak", 0)) == 24,
+	_check(int(total.get("block:construction.planks.oak", 0)) == 24,
 		"watchtower oak-plank cost drifted during migration")
 	_check(int(total.get("item:item.material.iron_nails", 0)) == 20,
 		"watchtower iron-nail cost drifted during migration")

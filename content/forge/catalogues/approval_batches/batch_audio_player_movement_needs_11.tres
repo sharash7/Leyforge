@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_7x66r"]
+
+[resource]
+script = ExtResource("1_7x66r")
+batch_id = "batch.audio.player_movement_needs.11"
+display_name = "Audio.player Movement Needs.11"
+studio = "audio"
+category = "player_movement_needs"
+target_ids = PackedStringArray("sound.event.production.player_movement_needs_start_soft", "sound.source.production.player_movement_needs_start_soft_body", "sound.source.production.player_movement_needs_start_soft_detail", "sound.source.production.player_movement_needs_start_soft_tail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_player_movement_needs_11.json")

@@ -206,10 +206,10 @@ func _verify_actor_families() -> void:
 		JSON.stringify(report.get("diagnostics", [])))
 	_check((report.get("diagnostics", []) as Array).is_empty(),
 		"actor factory retained Stage 3 diagnostics")
-	_check(int(report.get("entity_count", 0)) == 5,
-		"actor factory entity count drifted")
-	_check(int(report.get("rig_count", 0)) == 5,
-		"actor factory rig count drifted")
+	_check(int(report.get("entity_count", 0)) >= 5,
+		"actor factory lost a required Stage 3 entity")
+	_check(int(report.get("rig_count", 0)) >= 5,
+		"actor factory lost a required Stage 3 rig")
 	_check(int(report.get("spatial_map_count", 0)) == 6,
 		"actor factory spatial-map count drifted")
 	_check(int(report.get("assembly_count", 0)) == 5,

@@ -1,0 +1,8 @@
+Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: OS_Windows::get_system_ca_certificates (platform\windows\os_windows.cpp:2588)
+BlockRegistry: loaded 143 blocks
+ItemRegistry: loaded 169 items
+SETTLEMENT REGISTRY: 120 definitions, 120 blueprints, 120 projects, 25 packs
+FORGE_END_TO_END_PROBE {"checks":250,"deterministic_hash":"4d2137c0c0d984272f31f45ccd3ac3c603a2ecf18a325762a69b4e5830f275ad","failures":["unified Set 22/23 Forge workspace failed validation","unified Set 22/23 Forge workspace emitted diagnostics","unified Forge workspace cannot filter entity_definition","unified Forge workspace cannot filter blueprint_definition","unified Forge workspace cannot filter rig_profile","unified Forge workspace cannot filter spatial_map","unified Forge workspace cannot filter presentation_profile","unified Forge workspace cannot filter vfx_effect","unified Forge workspace cannot filter sound_event","unified Forge workspace cannot filter accessibility_profile","unified Forge workspace cannot filter test_scenario","unified Forge runtime registry did not publish atomically","end-to-end deterministic hash drifted"],"fixture_count":4,"ok":false}

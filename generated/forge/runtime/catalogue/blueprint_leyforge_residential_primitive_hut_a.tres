@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_3r0sa"]
+
+[resource]
+script = ExtResource("1_3r0sa")
+product_id = "runtime.catalogue.blueprint_leyforge_residential_primitive_hut_a"
+source_id = "blueprint.leyforge.residential.primitive_hut_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_residential_primitive_hut_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_primitive_hut_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_primitive_hut_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_primitive_hut_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_residential_primitive_hut_a.tres": "9e5b10277db23a11e907848257cd7010f6f5aae1ee7f14df3c65dbdb9480b05f",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_primitive_hut_a_light_damage.tres": "f1ef0698cfc1edfc3d8252c4f511fc3aee95fc9c9aee4769a6eb33b253a06fc3",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_primitive_hut_a_repaired.tres": "ca04cee582bec8065188db88aa7039a1e4786a9dd7cff170ac902ac874fb0a1a",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_primitive_hut_a_under_construction.tres": "26e17b62681f46f899a3a7bef4ece0eb6d283ee3a0592538b473d508e28578fd"
+}
+combined_source_hash = "f2de2d9e2abc1ac44c0e68f4d5cb89537bd0af519a2db544c11389eda79b3442"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_esdq7"]
+
+[resource]
+script = ExtResource("1_esdq7")
+product_id = "runtime.catalogue.sound_event_production_environment_weather_idle_firm"
+source_id = "sound.event.production.environment_weather_idle_firm"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_environment_weather_idle_firm.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_environment_weather_idle_firm.tres": "e7b1d6432bab10003d4f81cf721c08e6d152c04ec6e85b2f591694b02f9ebf03"
+}
+combined_source_hash = "dfb3423114dd1fa964beb32288c61763698eaa7ff238a25b424d9b4362dcc104"
+dependency_ids = PackedStringArray()

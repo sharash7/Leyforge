@@ -1,0 +1,23 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.vfx.goblin_cave_wisp",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "vfx.effect.production.goblin_cave_wisp_activate_soft",
+    "vfx.effect.production.goblin_cave_wisp_burst_soft",
+    "vfx.effect.production.goblin_cave_wisp_contact_soft",
+    "vfx.effect.production.goblin_cave_wisp_deactivate_soft",
+    "vfx.effect.production.goblin_cave_wisp_finish_soft",
+    "vfx.effect.production.goblin_cave_wisp_idle_soft",
+    "vfx.effect.production.goblin_cave_wisp_impact_soft",
+    "vfx.effect.production.goblin_cave_wisp_move_soft",
+    "vfx.effect.production.goblin_cave_wisp_pulse_soft",
+    "vfx.effect.production.goblin_cave_wisp_release_soft",
+    "vfx.effect.production.goblin_cave_wisp_start_soft",
+    "vfx.effect.production.goblin_cave_wisp_sustain_soft",
+    "vfx.effect.production.goblin_cave_wisp_trail_soft",
+    "vfx.effect.production.goblin_cave_wisp_warning_soft"
+  ]
+}

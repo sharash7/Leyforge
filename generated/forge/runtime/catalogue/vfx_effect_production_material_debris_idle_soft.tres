@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_y0v84"]
+
+[resource]
+script = ExtResource("1_y0v84")
+product_id = "runtime.catalogue.vfx_effect_production_material_debris_idle_soft"
+source_id = "vfx.effect.production.material_debris_idle_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_material_debris_idle_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_material_debris_idle_soft.tres": "74dbede3aaa2a10f9e267941758065132c54c7357b3a9e1cf8f2d836bdf755f3"
+}
+combined_source_hash = "c26290942eb35268fe4cf61d480e17577a1145007b1372c09399a147c7b0ac21"
+dependency_ids = PackedStringArray()

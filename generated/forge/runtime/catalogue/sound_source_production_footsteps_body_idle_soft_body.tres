@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_wfh74"]
+
+[resource]
+script = ExtResource("1_wfh74")
+product_id = "runtime.catalogue.sound_source_production_footsteps_body_idle_soft_body"
+source_id = "sound.source.production.footsteps_body_idle_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_footsteps_body_idle_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_footsteps_body_idle_soft_body.tres": "3c39882e90ac7426bb9444e9813dda9eeb3afc86b157a2c03753687d155c2a6b"
+}
+combined_source_hash = "b0d13b5630676aea9e1448aa81f1768157282571744c8a419a91d7d1f2351106"
+dependency_ids = PackedStringArray()

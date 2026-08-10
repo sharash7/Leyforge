@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_h2s3w"]
+
+[resource]
+script = ExtResource("1_h2s3w")
+product_id = "runtime.catalogue.vfx_form_golden_ward_warning_stage4"
+source_id = "vfx.form.golden.ward_warning.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/vfx_form_ward_warning.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/vfx_form_ward_warning.tres": "7cc967c34d4da883401ad8a9fc3d1b0d253352629cb42245c70e7e1cf952d365"
+}
+combined_source_hash = "856fa66e41e8d8eb163006180bc8a05a78cd632edc24854b3aa25e51f796e2c9"
+dependency_ids = PackedStringArray()

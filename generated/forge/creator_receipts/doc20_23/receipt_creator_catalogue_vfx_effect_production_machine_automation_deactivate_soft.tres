@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_hab2u"]
+
+[resource]
+script = ExtResource("1_hab2u")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_machine_automation_deactivate_soft"
+source_id = "vfx.effect.production.machine_automation_deactivate_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "8d6b76fe3b5e785d74dd8b24752559a7321ac65de0329802d6c5c6e4c48f5053"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_machine_automation_deactivate_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_machine_automation_deactivate_soft.tres": "69284e966e9646b6dd329c0bfbf27b4dacc1da355d0b40e487cdaf3a46f5f255"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

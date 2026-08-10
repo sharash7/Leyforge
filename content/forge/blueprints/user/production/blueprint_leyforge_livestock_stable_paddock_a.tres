@@ -1,0 +1,356 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_dhu0g"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_4wilm"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_5jfuk"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_1ppay"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_6fy36"]
+
+[sub_resource type="Resource" id="Resource_ek0k8"]
+script = ExtResource("1_dhu0g")
+delta_id = "blueprint.leyforge.livestock.stable_paddock_a.delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("blueprint.leyforge.livestock.stable_paddock_a.element.foundation.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_o6dce"]
+script = ExtResource("1_dhu0g")
+delta_id = "blueprint.leyforge.livestock.stable_paddock_a.delta.frame"
+stage_id = "frame"
+add_element_ids = PackedStringArray("blueprint.leyforge.livestock.stable_paddock_a.element.frame.pillar_0", "blueprint.leyforge.livestock.stable_paddock_a.element.frame.pillar_1", "blueprint.leyforge.livestock.stable_paddock_a.element.frame.pillar_2", "blueprint.leyforge.livestock.stable_paddock_a.element.frame.pillar_3")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_hhgyk"]
+script = ExtResource("1_dhu0g")
+delta_id = "blueprint.leyforge.livestock.stable_paddock_a.delta.shell"
+stage_id = "shell"
+add_element_ids = PackedStringArray("blueprint.leyforge.livestock.stable_paddock_a.element.shell.perimeter_0", "blueprint.leyforge.livestock.stable_paddock_a.element.shell.point_1")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("frame")
+
+[sub_resource type="Resource" id="Resource_rjh4h"]
+script = ExtResource("1_dhu0g")
+delta_id = "blueprint.leyforge.livestock.stable_paddock_a.delta.weatherproofing"
+stage_id = "weatherproofing"
+add_element_ids = PackedStringArray("blueprint.leyforge.livestock.stable_paddock_a.element.weatherproofing.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("shell")
+
+[sub_resource type="Resource" id="Resource_7fqrm"]
+script = ExtResource("1_dhu0g")
+delta_id = "blueprint.leyforge.livestock.stable_paddock_a.delta.activation"
+stage_id = "activation"
+add_element_ids = PackedStringArray("blueprint.leyforge.livestock.stable_paddock_a.element.activation.point_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("weatherproofing")
+
+[sub_resource type="Resource" id="Resource_cc16o"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.element.foundation.fill_0"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 0.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "foundation_primary"
+}
+
+[sub_resource type="Resource" id="Resource_103ku"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.element.frame.pillar_0"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_s5oes"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.element.frame.pillar_1"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_bkeiv"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.element.frame.pillar_2"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_m643t"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.element.frame.pillar_3"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_756iw"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.element.shell.perimeter_0"
+element_kind = "block_operation"
+material_role_id = "wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"exclude": [[-2.0, 1.0, -2.0], [-2.0, 2.0, -2.0], [-2.0, 1.0, 2.0], [-2.0, 2.0, 2.0], [2.0, 1.0, -2.0], [2.0, 2.0, -2.0], [2.0, 1.0, 2.0], [2.0, 2.0, 2.0], [0.0, 1.0, -2.0]],
+"op": "perimeter",
+"origin": [-2.0, 1.0, -2.0],
+"size": [5.0, 2.0, 5.0],
+"token": "wall_primary"
+}
+
+[sub_resource type="Resource" id="Resource_oy0wr"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.element.shell.point_1"
+element_kind = "block_operation"
+material_role_id = "door_basic"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 1, -2)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, -2.0],
+"token": "door_basic"
+}
+
+[sub_resource type="Resource" id="Resource_25s6s"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.element.weatherproofing.fill_0"
+element_kind = "block_operation"
+material_role_id = "roof_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "weatherproofing"
+position = Vector3i(-2, 4, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 4.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "roof_primary"
+}
+
+[sub_resource type="Resource" id="Resource_ierut"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.element.activation.point_0"
+element_kind = "block_operation"
+material_role_id = "functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "activation"
+position = Vector3i(0, 1, 0)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, 0.0],
+"token": "functional"
+}
+
+[sub_resource type="Resource" id="Resource_0w1b5"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.marker_01"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.stalls_pens")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -2)
+metadata = {
+"id": "marker_01",
+"position": [-2.0, 1.0, -2.0],
+"type": "stalls_pens"
+}
+
+[sub_resource type="Resource" id="Resource_xwige"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.marker_02"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.gates")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -2)
+metadata = {
+"id": "marker_02",
+"position": [-1.0, 1.0, -2.0],
+"type": "gates"
+}
+
+[sub_resource type="Resource" id="Resource_mdks4"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.marker_03"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.feed_water")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"id": "marker_03",
+"position": [0.0, 1.0, -2.0],
+"type": "feed_water"
+}
+
+[sub_resource type="Resource" id="Resource_b821c"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.marker_04"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.paddock_zone")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -2)
+metadata = {
+"id": "marker_04",
+"position": [1.0, 1.0, -2.0],
+"type": "paddock_zone"
+}
+
+[sub_resource type="Resource" id="Resource_7g5f2"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.marker_05"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.grooming_work_point")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(2, 1, -2)
+metadata = {
+"id": "marker_05",
+"position": [2.0, 1.0, -2.0],
+"type": "grooming_work_point"
+}
+
+[sub_resource type="Resource" id="Resource_vqws7"]
+script = ExtResource("2_4wilm")
+element_id = "blueprint.leyforge.livestock.stable_paddock_a.marker_06"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.path_road_socket_and_manure_waste_handling")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -1)
+metadata = {
+"id": "marker_06",
+"position": [-2.0, 1.0, -1.0],
+"type": "path_road_socket_and_manure_waste_handling"
+}
+
+[sub_resource type="Resource" id="Resource_bs4sx"]
+script = ExtResource("3_5jfuk")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_livestock_stable_paddock_a"
+display_name = "Stable and Paddock - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.wood",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_lxw8a"]
+script = ExtResource("4_1ppay")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_livestock_stable_paddock_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -2)
+footprint_max = Vector3i(2, 5, 2)
+max_slope = 1
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_6fy36")
+blueprint_id = "blueprint.leyforge.livestock.stable_paddock_a"
+display_name = "Stable and Paddock - Forest Neutral"
+definition_ids = PackedStringArray("building.livestock.stable_paddock")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_4wilm")]([SubResource("Resource_cc16o"), SubResource("Resource_103ku"), SubResource("Resource_s5oes"), SubResource("Resource_bkeiv"), SubResource("Resource_m643t"), SubResource("Resource_756iw"), SubResource("Resource_oy0wr"), SubResource("Resource_25s6s"), SubResource("Resource_ierut"), SubResource("Resource_0w1b5"), SubResource("Resource_xwige"), SubResource("Resource_mdks4"), SubResource("Resource_b821c"), SubResource("Resource_7g5f2"), SubResource("Resource_vqws7")])
+construction_deltas = Array[ExtResource("1_dhu0g")]([SubResource("Resource_ek0k8"), SubResource("Resource_o6dce"), SubResource("Resource_hhgyk"), SubResource("Resource_rjh4h"), SubResource("Resource_7fqrm")])
+placement_profile = SubResource("Resource_lxw8a")
+material_role_set = SubResource("Resource_bs4sx")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.019"

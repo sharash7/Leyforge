@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_iyant"]
+
+[resource]
+script = ExtResource("1_iyant")
+product_id = "runtime.catalogue.blueprint_leyforge_construction_builder_supply_yard_a"
+source_id = "blueprint.leyforge.construction.builder_supply_yard_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_construction_builder_supply_yard_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_construction_builder_supply_yard_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_construction_builder_supply_yard_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_construction_builder_supply_yard_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_construction_builder_supply_yard_a.tres": "55840cb4d98ed420dcb3bc9c3dc9286e2a1595e51d891749b4f4f0fb6b3edbf9",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_construction_builder_supply_yard_a_light_damage.tres": "48ad3124da5cc03ee4313e5f72f8080acfa3df4d649909e79948e4762727adc4",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_construction_builder_supply_yard_a_repaired.tres": "610d7ce23935ff27cebf86c065e050209bdc96cc231c09da9cbeb12d4ee80938",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_construction_builder_supply_yard_a_under_construction.tres": "a5c1c9783f8cfb45dd1ced9d5fd22dba862cd2d679cf947e80610db59714933f"
+}
+combined_source_hash = "5b4876a9efbb1917886e02d211526f879a8ed793db92c4ac694da690d053b2b4"
+dependency_ids = PackedStringArray()

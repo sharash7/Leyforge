@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_qu5cb"]
+
+[resource]
+script = ExtResource("1_qu5cb")
+product_id = "runtime.catalogue.blueprint_module_set_forest_road"
+source_id = "blueprint.module_set.forest_road"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/sets/blueprint_module_set_forest_road.tres", "res://content/forge/blueprints/user/production/rules/blueprint_ruleset_forest_road.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/rules/blueprint_ruleset_forest_road.tres": "1eb804d04b421249cd2f7389412f957be8cf56fd24520b6a754778262e3d54a6",
+"res://content/forge/blueprints/user/production/sets/blueprint_module_set_forest_road.tres": "175336ee99bcb11598f57c42bb6ec2b2023798fa58dccdc5a9856f16b07eee7b"
+}
+combined_source_hash = "aa5e59e10897095dc94cea5a4f900062ec181963d2661d056af91f7f536874de"
+dependency_ids = PackedStringArray("blueprint.module.forest_road.entrance", "blueprint.module.forest_road.straight", "blueprint.module.forest_road.turn", "blueprint.module.forest_road.junction", "blueprint.module.forest_road.encounter", "blueprint.module.forest_road.utility_puzzle", "blueprint.module.forest_road.reward_secret", "blueprint.module.forest_road.terminal_exit")

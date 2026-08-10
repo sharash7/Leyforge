@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_fp2ux"]
+
+[resource]
+script = ExtResource("1_fp2ux")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_persistent_surface_release_soft"
+source_id = "vfx.effect.production.persistent_surface_release_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "4f0bce6ba87b444d548d313fa48c10547fd7459faaeec2a221d574faa6c4e6c3"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_persistent_surface_release_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_persistent_surface_release_soft.tres": "58c0fc1fd7c6bb05d4826f817008e17dbf2200c52b060ce86ef469fd91154fd1"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

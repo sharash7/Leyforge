@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_lvadf"]
+
+[resource]
+script = ExtResource("1_lvadf")
+product_id = "runtime.catalogue.sound_event_production_furnace_automation_contact_soft"
+source_id = "sound.event.production.furnace_automation_contact_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_furnace_automation_contact_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_furnace_automation_contact_soft.tres": "41e911f86005690c94a54824c22b61867686d841e54f6212d5d881b25a143c08"
+}
+combined_source_hash = "9a7eb82c1ce1c83f19116cc5c7306dfc90395e8f01f1537c6a4077fe27c9cc50"
+dependency_ids = PackedStringArray()

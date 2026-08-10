@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_0yp8s"]
+
+[resource]
+script = ExtResource("1_0yp8s")
+batch_id = "batch.vfx.magic_rune_ward"
+display_name = "Vfx.magic Rune Ward"
+studio = "vfx"
+category = "magic_rune_ward"
+target_ids = PackedStringArray("vfx.effect.production.magic_rune_ward_activate_soft", "vfx.effect.production.magic_rune_ward_burst_soft", "vfx.effect.production.magic_rune_ward_contact_soft", "vfx.effect.production.magic_rune_ward_deactivate_soft", "vfx.effect.production.magic_rune_ward_finish_soft", "vfx.effect.production.magic_rune_ward_idle_soft", "vfx.effect.production.magic_rune_ward_impact_soft", "vfx.effect.production.magic_rune_ward_move_soft", "vfx.effect.production.magic_rune_ward_pulse_soft", "vfx.effect.production.magic_rune_ward_release_soft", "vfx.effect.production.magic_rune_ward_start_soft", "vfx.effect.production.magic_rune_ward_sustain_soft", "vfx.effect.production.magic_rune_ward_trail_soft", "vfx.effect.production.magic_rune_ward_warning_soft")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_vfx_magic_rune_ward.json")

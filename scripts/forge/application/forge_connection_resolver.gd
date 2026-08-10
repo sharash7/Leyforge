@@ -45,6 +45,7 @@ static func resolve(
 		if bool(is_connector_at.call(adjacent + Vector3i.DOWN)):
 			mask |= HORIZONTAL_BITS[index] | DOWN
 			slopes[index] = -1
+	var neighbor_mask := mask & 15
 	if (mask & 15) == 0:
 		var forward := posmod(facing, 4)
 		var backward := posmod(forward + 2, 4)
@@ -60,6 +61,7 @@ static func resolve(
 				break
 	return {
 		"mask": mask,
+		"neighbor_mask": neighbor_mask,
 		"slopes": slopes,
 		"shape": shape_for_mask(mask),
 	}

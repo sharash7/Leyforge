@@ -25,6 +25,7 @@ var _camera_target := Vector3.ZERO
 var _camera_distance := 4.5
 var _current_bounds := AABB()
 var _has_current_bounds := false
+var _creator_dependency_cache: Dictionary = {}
 
 
 func _ready() -> void:
@@ -156,6 +157,389 @@ func show_runtime_package(gameplay_id: String, instance_count := 1) -> void:
 		_fit_bounds(combined_bounds)
 	else:
 		_fit_bounds(AABB(Vector3(-1, -0.5, -0.5), Vector3(2, 1, 1)))
+
+
+func show_creator_resource(resource: Resource, open_resources := {}) -> bool:
+	if not is_instance_valid(_presentation_root):
+		return false
+	_clear_presentation()
+	if resource == null:
+		return false
+	var bounds: Array = []
+	if resource is ForgeBlueprintDefinition \
+			or resource is ForgeBlueprintModuleDefinition \
+			or resource is ForgeBlueprintModuleSet \
+			or resource is ForgeProceduralStructureRuleSet \
+			or resource is ForgeBlueprintStateDefinition:
+		_render_structure_resource(resource, open_resources, bounds)
+	elif resource is ForgeEntityDefinition \
+			or resource is ForgeBodyPlanDefinition \
+			or resource is ForgeBodyPartDefinition:
+		_render_entity_resource(resource, bounds)
+	elif resource is ForgeVfxForm \
+			or resource is ForgeVfxGraph \
+			or resource is ForgeVfxDefinition:
+		_render_vfx_resource(resource, open_resources, bounds)
+	if bounds.is_empty():
+		return false
+	var combined: AABB = bounds[0]
+	for index in range(1, bounds.size()):
+		combined = combined.merge(bounds[index])
+	_presentation_root.position = -combined.get_center()
+	_fit_bounds(combined)
+	return true
+
+
+func has_visible_presentation() -> bool:
+	return is_instance_valid(_presentation_root) \
+		and not _presentation_root.get_children().is_empty()
+
+
+func visible_presentation_node_count() -> int:
+	return _presentation_root.get_child_count() \
+		if is_instance_valid(_presentation_root) else 0
+
+
+func _render_structure_resource(
+		resource: Resource, open_resources: Dictionary, bounds: Array) -> void:
+	if resource is ForgeBlueprintDefinition:
+		_render_blueprint(resource, Vector3.ZERO, Color.WHITE, [], bounds)
+		return
+	if resource is ForgeBlueprintModuleDefinition:
+		_render_module(resource, Vector3.ZERO, Color.WHITE, [], bounds)
+		if bounds.is_empty():
+			bounds.append(_append_box(Vector3.ZERO, Vector3(4, 2.5, 4),
+				Color("#4F7486"), "EmptyModuleEnvelope", true))
+		return
+	if resource is ForgeBlueprintStateDefinition:
+		var blueprint := _resolve_creator_resource(resource.blueprint_id, open_resources)
+		var damage_tint := Color("#D78572").lerp(Color.WHITE,
+			1.0 - clampf(resource.damage_ratio, 0.0, 1.0))
+		if blueprint is ForgeBlueprintDefinition:
+			_render_blueprint(blueprint, Vector3.ZERO, damage_tint,
+				Array(resource.remove_element_ids), bounds)
+		else:
+			bounds.append(_append_box(Vector3.ZERO, Vector3(4, 3, 4),
+				damage_tint, "StateEnvelope", true))
+		return
+	if resource is ForgeBlueprintModuleSet:
+		for index in resource.module_ids.size():
+			var module := _resolve_creator_resource(resource.module_ids[index], open_resources)
+			var offset := Vector3(float(index % 3) * 5.0, 0.0,
+				float(index / 3) * 5.0)
+			if module is ForgeBlueprintModuleDefinition:
+				_render_module(module, offset, Color.WHITE, [], bounds)
+			else:
+				bounds.append(_append_box(offset, Vector3(4, 2.5, 4),
+					_preview_color(str(resource.module_ids[index])),
+					"Module_%d" % index, true))
+		return
+	if resource is ForgeProceduralStructureRuleSet:
+		var module_set := _resolve_creator_resource(resource.module_set_id, open_resources)
+		var modules := {}
+		if module_set is ForgeBlueprintModuleSet:
+			for module_id in module_set.module_ids:
+				var module := _resolve_creator_resource(str(module_id), open_resources)
+				if module is ForgeBlueprintModuleDefinition:
+					modules[module.module_id] = module
+			var generated := ForgeProceduralStructureAssembler.new().generate(
+				module_set, modules, resource)
+			if bool(generated.get("ok", false)):
+				for placement in generated.get("placements", []):
+					var offset := _variant_vector3(placement.get("position", Vector3.ZERO))
+					var module: Variant = modules.get(str(placement.get("module_id", "")))
+					if module is ForgeBlueprintModuleDefinition:
+						_render_module(module, offset, Color.WHITE, [], bounds)
+					else:
+						bounds.append(_append_box(offset, Vector3(4, 2.5, 4),
+							_preview_color(str(placement.get("module_id", "module"))),
+							"GeneratedModule", true))
+		if bounds.is_empty():
+			bounds.append(_append_box(Vector3.ZERO, Vector3(4, 2.5, 4),
+				Color("#526D7A"), "RulesEnvelope", true))
+
+
+func _render_blueprint(
+		blueprint: ForgeBlueprintDefinition, offset: Vector3, tint: Color,
+		removed_ids: Array, bounds: Array) -> void:
+	if blueprint.physical_authoring_mode == "voxel_grid" \
+			and blueprint.structure_voxel_source != null:
+		_render_structure_voxels(
+			blueprint.structure_voxel_source, offset, tint, bounds)
+		_render_blueprint_elements(_semantic_structure_elements(
+			blueprint.elements), offset, tint, removed_ids, bounds)
+	else:
+		_render_blueprint_elements(blueprint.elements, offset, tint, removed_ids, bounds)
+	if not bounds.is_empty() or blueprint.placement_profile == null:
+		return
+	var profile := blueprint.placement_profile
+	var footprint_min := Vector3(profile.footprint_min)
+	var footprint_size := Vector3(profile.footprint_max - profile.footprint_min + Vector3i.ONE)
+	footprint_size = footprint_size.max(Vector3.ONE)
+	bounds.append(_append_box(offset + footprint_min, footprint_size,
+		Color("#587A87"), "BlueprintFootprint", true))
+
+
+func _render_module(
+		module: ForgeBlueprintModuleDefinition, offset: Vector3, tint: Color,
+		removed_ids: Array, bounds: Array) -> void:
+	if module.physical_authoring_mode == "voxel_grid" \
+			and module.structure_voxel_source != null:
+		_render_structure_voxels(module.structure_voxel_source, offset, tint, bounds)
+		_render_blueprint_elements(_semantic_structure_elements(
+			module.elements), offset, tint, removed_ids, bounds)
+	else:
+		_render_blueprint_elements(module.elements, offset, tint, removed_ids, bounds)
+
+
+func _render_structure_voxels(
+		source: ForgeStructureVoxelSource, offset: Vector3, tint: Color,
+		bounds: Array) -> void:
+	for cell in source.active_cells():
+		var color := _preview_color(cell.block_id) * tint
+		bounds.append(_append_box(offset + Vector3(cell.position), Vector3.ONE,
+			color, "StructureCell_%s" % ForgeId.safe_filename(cell.cell_id)))
+
+
+func _semantic_structure_elements(elements: Array[ForgeBlueprintElement]) \
+		-> Array[ForgeBlueprintElement]:
+	var result: Array[ForgeBlueprintElement] = []
+	for element in elements:
+		if element == null:
+			continue
+		if not element.module_id.is_empty() or element.source_id.is_empty() \
+				or element.element_kind in [
+					"module", "marker", "semantic_marker", "socket",
+					"network", "child_blueprint"]:
+			result.append(element)
+	return result
+
+
+func _render_blueprint_elements(
+		elements: Array, offset: Vector3, tint: Color,
+		removed_ids: Array, bounds: Array) -> void:
+	for value in elements:
+		if not value is ForgeBlueprintElement or value.element_id in removed_ids:
+			continue
+		var element := value as ForgeBlueprintElement
+		var position := offset + Vector3(element.position)
+		if element.element_kind == "semantic_marker":
+			bounds.append(_append_box(position + Vector3(0.35, 0.35, 0.35),
+				Vector3(0.3, 0.3, 0.3), Color("#55D6C2"),
+				"Marker_%s" % ForgeId.safe_filename(element.element_id), false, true))
+			continue
+		var size := Vector3(element.size.max(Vector3i.ONE))
+		var color := _preview_color(
+			element.material_role_id if not element.material_role_id.is_empty() else element.source_id)
+		color *= tint
+		var operation := str(element.metadata.get("op", ""))
+		if operation == "perimeter" and size.x > 2.0 and size.z > 2.0:
+			bounds.append(_append_box(position, Vector3(size.x, size.y, 1.0),
+				color, "PerimeterNorth"))
+			bounds.append(_append_box(position + Vector3(0, 0, size.z - 1.0),
+				Vector3(size.x, size.y, 1.0), color, "PerimeterSouth"))
+			bounds.append(_append_box(position + Vector3(0, 0, 1.0),
+				Vector3(1.0, size.y, size.z - 2.0), color, "PerimeterWest"))
+			bounds.append(_append_box(position + Vector3(size.x - 1.0, 0, 1.0),
+				Vector3(1.0, size.y, size.z - 2.0), color, "PerimeterEast"))
+		else:
+			bounds.append(_append_box(position, size, color,
+				"Element_%s" % ForgeId.safe_filename(element.element_id)))
+
+
+func _render_entity_resource(resource: Resource, bounds: Array) -> void:
+	var plan: ForgeBodyPlanDefinition
+	var fallback_size := Vector3.ONE
+	if resource is ForgeEntityDefinition:
+		plan = resource.body_plan
+		fallback_size = resource.world_dimensions_meters.max(Vector3(0.25, 0.25, 0.25))
+	elif resource is ForgeBodyPlanDefinition:
+		plan = resource
+		fallback_size = resource.world_dimensions_meters.max(Vector3(0.25, 0.25, 0.25))
+	elif resource is ForgeBodyPartDefinition:
+		var part_plan := ForgeBodyPlanDefinition.new()
+		part_plan.root_part_id = resource.body_part_id
+		part_plan.body_parts = [resource]
+		plan = part_plan
+	if plan == null:
+		return
+	var world_positions := {}
+	var pending: Array = plan.body_parts.duplicate()
+	var passes := 0
+	while not pending.is_empty() and passes <= plan.body_parts.size():
+		passes += 1
+		var progressed := false
+		for value in pending.duplicate():
+			if not value is ForgeBodyPartDefinition:
+				pending.erase(value)
+				continue
+			var part := value as ForgeBodyPartDefinition
+			if not part.parent_part_id.is_empty() and not world_positions.has(part.parent_part_id):
+				continue
+			var position: Vector3 = world_positions.get(part.parent_part_id, Vector3.ZERO) \
+				+ part.local_position_meters
+			world_positions[part.body_part_id] = position
+			if part.voxel_source != null and part.voxel_source.occupied_count() > 0:
+				var baked := ForgeMeshBaker.bake(part.voxel_source, null)
+				if bool(baked.get("ok", false)):
+					var mesh_node := MeshInstance3D.new()
+					mesh_node.name = "BodyPart_%s" % ForgeId.safe_filename(part.body_part_id)
+					mesh_node.mesh = baked.get("mesh") as Mesh
+					mesh_node.position = position
+					mesh_node.rotation_degrees = part.local_rotation_degrees
+					mesh_node.scale = part.local_scale
+					_presentation_root.add_child(mesh_node)
+					var part_bounds: AABB = baked.get("bounds", AABB())
+					part_bounds.position += position
+					part_bounds.size *= part.local_scale.abs()
+					bounds.append(part_bounds)
+			pending.erase(part)
+			progressed = true
+		if not progressed:
+			break
+	if bounds.is_empty():
+		bounds.append(_append_box(Vector3.ZERO, fallback_size,
+			Color("#7E9CAA"), "EntityEnvelope", true))
+
+
+func _render_vfx_resource(
+		resource: Resource, open_resources: Dictionary, bounds: Array) -> void:
+	if resource is ForgeVfxForm:
+		_render_vfx_form(resource, Vector3.ZERO, bounds)
+		return
+	if resource is ForgeVfxGraph:
+		var node_count := maxi(1, resource.nodes.size())
+		for index in node_count:
+			var position := Vector3((float(index) - float(node_count - 1) * 0.5) * 0.7,
+				sin(float(index) * 0.9) * 0.25, 0.0)
+			bounds.append(_append_box(position, Vector3(0.42, 0.42, 0.42),
+				_preview_color(str(resource.nodes[index].get("type", "node")))
+				if index < resource.nodes.size() else Color("#8D62CF"),
+				"GraphNode_%d" % index, false, true))
+			if index > 0:
+				bounds.append(_append_box(position - Vector3(0.27, 0.04, -0.04),
+					Vector3(0.25, 0.08, 0.08), Color("#75C9D2"),
+					"GraphEdge_%d" % index, false, true))
+		return
+	if resource is ForgeVfxDefinition:
+		var form_offset := 0.0
+		for form_id in resource.form_ids:
+			var form := _resolve_creator_resource(str(form_id), open_resources)
+			if form is ForgeVfxForm:
+				_render_vfx_form(form, Vector3(form_offset, 0, 0), bounds)
+				form_offset += 0.5
+		if bounds.is_empty():
+			for index in clampi(resource.maximum_instances, 1, 8):
+				var position := Vector3(cos(float(index) * 2.4),
+					float(index) * 0.18, sin(float(index) * 2.4)) * 0.45
+				bounds.append(_append_box(position, Vector3(0.16, 0.16, 0.16),
+					Color("#C35CE7"), "EffectParticle_%d" % index, false, true))
+
+
+func _render_vfx_form(form: ForgeVfxForm, offset: Vector3, bounds: Array) -> void:
+	var cell_size := maxf(form.voxel_size_meters, 0.01)
+	for index in form.cell_records.size():
+		var record: Dictionary = form.cell_records[index]
+		var cell := _variant_vector3(record.get("position", Vector3.ZERO))
+		var palette_index := int(record.get("palette_index", 0))
+		bounds.append(_append_box(offset + (cell - form.pivot) * cell_size,
+			Vector3.ONE * cell_size, _preview_color("vfx_%d" % palette_index),
+			"VfxCell_%d" % index, false, true))
+	if form.cell_records.is_empty():
+		bounds.append(_append_box(offset, Vector3.ONE * cell_size,
+			Color("#C35CE7"), "EmptyVfxForm", true, true))
+
+
+func _append_box(
+		position: Vector3, requested_size: Vector3, color: Color, node_name: String,
+		transparent := false, emissive := false) -> AABB:
+	var size := requested_size.abs().max(Vector3(0.02, 0.02, 0.02))
+	var mesh := BoxMesh.new()
+	mesh.size = size
+	var material := StandardMaterial3D.new()
+	material.albedo_color = Color(color.r, color.g, color.b,
+		0.42 if transparent else maxf(color.a, 0.82))
+	material.roughness = 0.72
+	if transparent:
+		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	if emissive:
+		material.emission_enabled = true
+		material.emission = color
+		material.emission_energy_multiplier = 1.35
+	mesh.material = material
+	var node := MeshInstance3D.new()
+	node.name = "%s_%d" % [node_name, _presentation_root.get_child_count()]
+	node.mesh = mesh
+	node.position = position + size * 0.5
+	_presentation_root.add_child(node)
+	return AABB(position, size)
+
+
+func _resolve_creator_resource(source_id: String, open_resources: Dictionary) -> Resource:
+	if source_id.is_empty():
+		return null
+	var open_resource: Variant = open_resources.get(source_id)
+	if open_resource is Resource:
+		return open_resource
+	var cached: Variant = _creator_dependency_cache.get(source_id)
+	if cached is Resource:
+		return cached
+	var safe_name := ForgeId.safe_filename(source_id)
+	for root in ["res://content/forge/blueprints", "res://content/forge/entities",
+			"res://content/forge/presentation/set23"]:
+		var path := _find_creator_resource_path(root, safe_name)
+		if path.is_empty():
+			continue
+		var loaded := ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if loaded is Resource:
+			_creator_dependency_cache[source_id] = loaded
+			return loaded
+	return null
+
+
+func _find_creator_resource_path(root: String, safe_name: String) -> String:
+	var directory := DirAccess.open(root)
+	if directory == null:
+		return ""
+	directory.list_dir_begin()
+	var entry := directory.get_next()
+	while not entry.is_empty():
+		if not entry.begins_with("."):
+			var path := root.path_join(entry)
+			if directory.current_is_dir():
+				var nested := _find_creator_resource_path(path, safe_name)
+				if not nested.is_empty():
+					directory.list_dir_end()
+					return nested
+			elif entry.get_basename() == safe_name \
+					and (entry.ends_with(".tres") or entry.ends_with(".res")):
+				directory.list_dir_end()
+				return path
+		entry = directory.get_next()
+	directory.list_dir_end()
+	return ""
+
+
+func _variant_vector3(value: Variant) -> Vector3:
+	if value is Vector3:
+		return value
+	if value is Vector3i:
+		return Vector3(value)
+	if value is Array and value.size() >= 3:
+		return Vector3(float(value[0]), float(value[1]), float(value[2]))
+	return Vector3.ZERO
+
+
+func _preview_color(key: String) -> Color:
+	var lowered := key.to_lower()
+	if "stone" in lowered or "foundation" in lowered:
+		return Color("#73808A")
+	if "wood" in lowered or "beam" in lowered or "wall" in lowered:
+		return Color("#A7774F")
+	if "roof" in lowered:
+		return Color("#6D8C68")
+	var hue := float(abs(hash(key)) % 360) / 360.0
+	return Color.from_hsv(hue, 0.48, 0.88)
 
 
 func zoom_in() -> void:

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_lqc24"]
+
+[resource]
+script = ExtResource("1_lqc24")
+product_id = "runtime.catalogue.blueprint_leyforge_food_bakery_food_workshop_a"
+source_id = "blueprint.leyforge.food.bakery_food_workshop_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_food_bakery_food_workshop_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_bakery_food_workshop_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_bakery_food_workshop_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_bakery_food_workshop_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_food_bakery_food_workshop_a.tres": "846c342290d9fbf8867174dcb01fef405d29a2ccdfdda0d497e377e04e09c886",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_bakery_food_workshop_a_light_damage.tres": "827221886d6a036b19788eda6a478a2fb584092c090ae15d185b4271bb8327f0",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_bakery_food_workshop_a_repaired.tres": "0999a35ed53ee61531708eb0f54976660b8f655d7c032c3bad089fe03399cd5d",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_bakery_food_workshop_a_under_construction.tres": "32ac0b800fd38ff48f8ab2d3ac28753130bd98b070f82b53ac6204f3694b7d2d"
+}
+combined_source_hash = "22212d2853def9699355c2bde44ca1424d32b03b886ec1319ed7d9b0a9ef123d"
+dependency_ids = PackedStringArray()

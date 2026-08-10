@@ -1,0 +1,10 @@
+{
+  "batch_id": "batch.characters.incorporeal",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "entity.definition.creature.wisp"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

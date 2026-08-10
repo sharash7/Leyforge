@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_kjajb"]
+
+[resource]
+script = ExtResource("1_kjajb")
+product_id = "runtime.catalogue.entity_definition_profession_merchant"
+source_id = "entity.definition.profession.merchant"
+source_paths = PackedStringArray("res://content/forge/entities/user/production/entity_definition_profession_merchant.tres", "res://content/forge/entities/user/production/rigs/entity_rig_production_entity_definition_profession_merchant.tres", "res://content/forge/entities/user/production/animations/entity_animation_set_production_entity_definition_profession_merchant.tres", "res://content/forge/entities/user/production/variants/entity_variant_production_entity_definition_profession_merchant.tres", "res://content/forge/entities/user/production/equipment/entity_equipment_profile_production_entity_definition_profession_merchant_primary.tres")
+source_hashes = {
+"res://content/forge/entities/user/production/animations/entity_animation_set_production_entity_definition_profession_merchant.tres": "1d09b7ccb65f45e1c835eca78f0103b5cdb09eca6ad12d48e50419a7f435584d",
+"res://content/forge/entities/user/production/entity_definition_profession_merchant.tres": "c58cb63a34c300d0d0fc90c97e26228bb966a6a47248e80f9931df06d835b25b",
+"res://content/forge/entities/user/production/equipment/entity_equipment_profile_production_entity_definition_profession_merchant_primary.tres": "92484463514546ee310b92155905cbc189960b6d6bd022fa6f7863ba836634b8",
+"res://content/forge/entities/user/production/rigs/entity_rig_production_entity_definition_profession_merchant.tres": "7d5542e35b7a5231ec8cc1d815ccfc8b9a6db94c8926b1c11be14f31c576531c",
+"res://content/forge/entities/user/production/variants/entity_variant_production_entity_definition_profession_merchant.tres": "e45359a2d9affd2a94c455e48a6d64e7adad8f8d7a5c3d787ba443dd97d7c2d2"
+}
+combined_source_hash = "59515da6fff2e97577a549466b5e0aef99d713956ada163ff8b21ad0f392cb53"
+dependency_ids = PackedStringArray("entity.body_plan.production.humanoid")

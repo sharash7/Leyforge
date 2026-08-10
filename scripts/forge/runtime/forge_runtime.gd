@@ -9,6 +9,7 @@ const PACKAGE_ROOT := "res://generated/forge/packages"
 var packages: Dictionary = {}
 var gameplay_to_presentation: Dictionary = {}
 var registry_bridge := ForgeRegistryBridge.new()
+var creator_registry := ForgeCreatorRuntimeRegistry.new()
 
 
 func _ready() -> void:
@@ -22,12 +23,23 @@ func reload_packages() -> Dictionary:
 		gameplay_to_presentation[str(record["gameplay_id"])] = str(
 			record["presentation_id"])
 	_scan_packages(PACKAGE_ROOT)
+	var creator_summary := creator_registry.reload()
 	var summary := {
 		"package_count": packages.size(),
 		"gameplay_link_count": gameplay_to_presentation.size(),
+		"creator_active_count": int(creator_summary.get("active_count", 0)),
+		"creator_stale_count": int(creator_summary.get("stale_count", 0)),
 	}
 	packages_reloaded.emit(summary)
 	return summary
+
+
+func resolve_creator(source_id: String) -> Dictionary:
+	return creator_registry.resolve(source_id)
+
+
+func creator_product_for(source_id: String, index := 0) -> Resource:
+	return creator_registry.product_for(source_id, index)
 
 
 func resolve(

@@ -1,0 +1,7 @@
+Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org
+
+BlockRegistry: loaded 143 blocks
+ItemRegistry: loaded 162 items
+ProductionCatalogue: compiled 372 definitions (2b4a4da74c2b)
+SETTLEMENT REGISTRY: 120 definitions, 120 blueprints, 120 projects, 25 packs
+POLITICAL_OWNER_PROBE {"checks":64,"claim_count":0,"faction_count":1,"failures":["actor belief about a border cannot rewrite authoritative political truth","JSON-restored political graph preserves governments and treaty state","political owner round-trips without rerolling or rewriting canonical truth","restored transaction journal preserves political command idempotency","confirmed introduction supplies separate operational evidence","Hamlet permission projection reads the bounded PoliticalManager grant","canonical query proves the facade is a projection rather than permission owner","save keeps operational evidence in compatibility state and capability truth in political state"],"government_count":1,"law_count":0,"ok":false}

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_dp1ic"]
+
+[resource]
+script = ExtResource("1_dp1ic")
+product_id = "runtime.catalogue.blueprint_leyforge_food_basic_farm_plot_a"
+source_id = "blueprint.leyforge.food.basic_farm_plot_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_food_basic_farm_plot_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_basic_farm_plot_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_basic_farm_plot_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_basic_farm_plot_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_food_basic_farm_plot_a.tres": "f52e64aa23b15d39be7a645dbcdb0c4dd93bf2e92f4eef14d52b7fd57e1a6928",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_basic_farm_plot_a_light_damage.tres": "7a5f1644dd15a8347d0001325afff2d486f2bfffadb2c087b89511304d2caa18",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_basic_farm_plot_a_repaired.tres": "95ed0986a90da0f5f3fd8087901b58e95aa47911e7f54593d131a2ada39f9c98",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_basic_farm_plot_a_under_construction.tres": "c1aa4b7676c91f0b26576655629494de2d7b683c003853b8e637d37110136dbf"
+}
+combined_source_hash = "3a7b20662926c96f39a337b3e864cd1c3ea9916cd3696ecc161b2b069c614e97"
+dependency_ids = PackedStringArray()

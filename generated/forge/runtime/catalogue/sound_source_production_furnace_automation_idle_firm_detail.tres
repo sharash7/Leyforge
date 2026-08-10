@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_x54ne"]
+
+[resource]
+script = ExtResource("1_x54ne")
+product_id = "runtime.catalogue.sound_source_production_furnace_automation_idle_firm_detail"
+source_id = "sound.source.production.furnace_automation_idle_firm_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_furnace_automation_idle_firm_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_furnace_automation_idle_firm_detail.tres": "b608017a8d9f941424dee1e4bf979c4cf1fbaf212a693b0b1fa10c225b2718c2"
+}
+combined_source_hash = "76f2f59fb15ff9ba0649938eac23cd67bdb5befef0ef9c93c0e399ef6c806720"
+dependency_ids = PackedStringArray()

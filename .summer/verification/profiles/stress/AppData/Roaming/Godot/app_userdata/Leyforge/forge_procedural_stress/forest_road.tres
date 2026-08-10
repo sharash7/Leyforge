@@ -1,0 +1,114 @@
+[gd_resource type="Resource" script_class="ForgeProceduralStructureProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_procedural_structure_product.gd" id="1_emjjt"]
+
+[resource]
+script = ExtResource("1_emjjt")
+product_id = "runtime.blueprint.procedural.stress_forest_road"
+rule_set_id = "blueprint.ruleset.forest_road"
+module_set_id = "blueprint.module_set.forest_road"
+source_hash = "6809ac96b31ae4d8843d511559f6bd10af3d6cc42d78340fc7c744957fbdb2f7"
+placements = Array[Dictionary]([{
+"connected_from": "",
+"connected_from_placement": "",
+"connector_id": "",
+"depth": 0,
+"module_id": "blueprint.module.forest_road.entrance",
+"placement_id": "placement.blueprint_module_forest_road_entrance.0.0.0.0",
+"position": [0, 0, 0],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_forest_road_entrance.south",
+"connected_from_placement": "placement.blueprint_module_forest_road_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_forest_road_utility_puzzle.south",
+"depth": 1,
+"module_id": "blueprint.module.forest_road.utility_puzzle",
+"placement_id": "placement.blueprint_module_forest_road_utility_puzzle.0.0.4.1",
+"position": [0, 0, 4],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_forest_road_entrance.north",
+"connected_from_placement": "placement.blueprint_module_forest_road_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_forest_road_encounter.south",
+"depth": 1,
+"module_id": "blueprint.module.forest_road.encounter",
+"placement_id": "placement.blueprint_module_forest_road_encounter.0.0.-4.1",
+"position": [0, 0, -4],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_forest_road_encounter.north",
+"connected_from_placement": "placement.blueprint_module_forest_road_encounter.0.0.-4.1",
+"connector_id": "blueprint.connector.blueprint_module_forest_road_utility_puzzle.north",
+"depth": 2,
+"module_id": "blueprint.module.forest_road.utility_puzzle",
+"placement_id": "placement.blueprint_module_forest_road_utility_puzzle.0.0.-8.2",
+"position": [0, 0, -8],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_forest_road_utility_puzzle.north",
+"connected_from_placement": "placement.blueprint_module_forest_road_utility_puzzle.0.0.4.1",
+"connector_id": "blueprint.connector.blueprint_module_forest_road_terminal_exit.north",
+"depth": 2,
+"module_id": "blueprint.module.forest_road.terminal_exit",
+"placement_id": "placement.blueprint_module_forest_road_terminal_exit.0.0.8.2",
+"position": [0, 0, 8],
+"rotation_quarters": 0
+}])
+continuation_state = {
+"checkpoint": {
+"hash": "1965d76a8cf9b20c77ed63d6424adbbb0cdcb6de761e061c050b7c89d6763a24",
+"interval": 8,
+"placement_count": 5
+},
+"frontier": Array[Dictionary]([]),
+"module_set_id": "blueprint.module_set.forest_road",
+"placements": Array[Dictionary]([{
+"connected_from": "",
+"connected_from_placement": "",
+"connector_id": "",
+"depth": 0,
+"module_id": "blueprint.module.forest_road.entrance",
+"placement_id": "placement.blueprint_module_forest_road_entrance.0.0.0.0",
+"position": [0, 0, 0],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_forest_road_entrance.south",
+"connected_from_placement": "placement.blueprint_module_forest_road_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_forest_road_utility_puzzle.south",
+"depth": 1,
+"module_id": "blueprint.module.forest_road.utility_puzzle",
+"placement_id": "placement.blueprint_module_forest_road_utility_puzzle.0.0.4.1",
+"position": [0, 0, 4],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_forest_road_entrance.north",
+"connected_from_placement": "placement.blueprint_module_forest_road_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_forest_road_encounter.south",
+"depth": 1,
+"module_id": "blueprint.module.forest_road.encounter",
+"placement_id": "placement.blueprint_module_forest_road_encounter.0.0.-4.1",
+"position": [0, 0, -4],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_forest_road_encounter.north",
+"connected_from_placement": "placement.blueprint_module_forest_road_encounter.0.0.-4.1",
+"connector_id": "blueprint.connector.blueprint_module_forest_road_utility_puzzle.north",
+"depth": 2,
+"module_id": "blueprint.module.forest_road.utility_puzzle",
+"placement_id": "placement.blueprint_module_forest_road_utility_puzzle.0.0.-8.2",
+"position": [0, 0, -8],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_forest_road_utility_puzzle.north",
+"connected_from_placement": "placement.blueprint_module_forest_road_utility_puzzle.0.0.4.1",
+"connector_id": "blueprint.connector.blueprint_module_forest_road_terminal_exit.north",
+"depth": 2,
+"module_id": "blueprint.module.forest_road.terminal_exit",
+"placement_id": "placement.blueprint_module_forest_road_terminal_exit.0.0.8.2",
+"position": [0, 0, 8],
+"rotation_quarters": 0
+}]),
+"rng_state": 3460834034526715631,
+"rule_set_id": "blueprint.ruleset.forest_road",
+"schema": "leyforge.forge.procedural-structure-continuation"
+}

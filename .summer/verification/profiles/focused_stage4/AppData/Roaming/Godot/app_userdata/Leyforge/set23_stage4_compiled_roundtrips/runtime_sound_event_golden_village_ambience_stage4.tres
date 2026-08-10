@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ForgeCompiledSoundPlan" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_compiled_sound_plan.gd" id="1_sndcm"]
+
+[resource]
+script = ExtResource("1_sndcm")
+plan_id = "runtime.sound.event.golden.village_ambience.stage4"
+source_event_id = "sound.event.golden.village_ambience.stage4"
+source_hash = "b55eca76decac04baf8dd44dec1a105574bd4d64cbf998888a54e71f1fe0ba56"
+source_ids = PackedStringArray("sound.source.legacy.mining.stone.foundation")
+layer_records = Array[Dictionary]([{
+"gain_db": 0.0,
+"provenance_review": "open",
+"role": "legacy_active_fallback",
+"source_id": "sound.source.legacy.mining.stone.foundation"
+}])
+loop_policy = "managed_loop"
+concurrency_group = "golden.village_ambience"
+maximum_voices = 2
+spatial_audio_profile_id = "sound.spatial_profile.contact.near.foundation"
+caption_key = "caption.golden.village_ambience"
+fallback_ids = PackedStringArray("legacy.runtime.audio.village_ambience")
+product_hash = "7994658138948d2d6296be8d9c12ba00278be009dc94b100376aa4e74370edc0"

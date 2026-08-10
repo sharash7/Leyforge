@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_h4a4d"]
+
+[resource]
+script = ExtResource("1_h4a4d")
+product_id = "runtime.catalogue.vfx_effect_production_machine_automation_sustain_soft"
+source_id = "vfx.effect.production.machine_automation_sustain_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_machine_automation_sustain_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_machine_automation_sustain_soft.tres": "2e42c6ee8d923cfa82c7b1b2fae41bb304ad1c84ed92a67ec697bbad10f482b3"
+}
+combined_source_hash = "d78e4f7b5fc8cace9afe1a645438ee0b7e64e4ddb82ec804fe291df810bdf61a"
+dependency_ids = PackedStringArray()

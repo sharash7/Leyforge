@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_oytf4"]
+
+[resource]
+script = ExtResource("1_oytf4")
+batch_id = "batch.vfx.village_ambience"
+display_name = "Vfx.village Ambience"
+studio = "vfx"
+category = "village_ambience"
+target_ids = PackedStringArray("vfx.effect.production.village_ambience_finish_soft", "vfx.effect.production.village_ambience_impact_soft", "vfx.effect.production.village_ambience_release_soft", "vfx.effect.production.village_ambience_start_soft", "vfx.effect.production.village_ambience_sustain_soft", "vfx.effect.production.village_ambience_warning_soft")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_vfx_village_ambience.json")

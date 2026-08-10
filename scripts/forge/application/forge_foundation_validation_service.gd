@@ -304,14 +304,16 @@ func validate_blueprint(
 			"EFB-SCHEMA-001", ForgeDiagnostic.CRITICAL, "",
 			"Blueprint source is missing."))
 		return diagnostics
-	if blueprint.schema_version != 1:
+	if blueprint.schema_version not in [1, 2]:
 		diagnostics.append(_diagnostic(
 			"EFB-SCHEMA-001", ForgeDiagnostic.ERROR, blueprint.blueprint_id,
 			"Blueprint schema is unsupported."))
 	_validate_id(blueprint.blueprint_id, "blueprint.", diagnostics)
 	for module_id in blueprint.module_ids:
 		_validate_id(module_id, "blueprint.module.", diagnostics)
-	if not blueprint.module_ids.is_empty() and blueprint.elements.is_empty():
+	if not blueprint.module_ids.is_empty() and blueprint.elements.is_empty() \
+			and (blueprint.physical_authoring_mode != "voxel_grid" \
+			or blueprint.structure_voxel_source == null):
 		diagnostics.append(_diagnostic(
 			"EFB-BP-001", ForgeDiagnostic.ERROR, blueprint.blueprint_id,
 			"Blueprint declares modules but contains no elements."))
@@ -354,6 +356,11 @@ func validate_blueprint(
 	if blueprint.placement_profile != null:
 		diagnostics.append_array(validate_placement_profile(
 			blueprint.placement_profile, semantic_registry))
+	if blueprint.physical_authoring_mode == "voxel_grid":
+		diagnostics.append_array(ForgeStructureVoxelValidationService.new().validate(
+			blueprint.structure_voxel_source, blueprint.blueprint_id))
+	diagnostics.append_array(ForgeStructureVoxelValidationService.new().validate_deltas(
+		blueprint.construction_deltas, blueprint.blueprint_id))
 	if blueprint.material_role_set != null:
 		diagnostics.append_array(validate_material_role_set(
 			blueprint.material_role_set, semantic_registry))

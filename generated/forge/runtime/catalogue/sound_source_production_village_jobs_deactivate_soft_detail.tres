@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_f6ep2"]
+
+[resource]
+script = ExtResource("1_f6ep2")
+product_id = "runtime.catalogue.sound_source_production_village_jobs_deactivate_soft_detail"
+source_id = "sound.source.production.village_jobs_deactivate_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_village_jobs_deactivate_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_village_jobs_deactivate_soft_detail.tres": "7ce795543c556e46192b2563a4c6aed8c30f0f36a57bda3ea5e8bfbe99d1d9ac"
+}
+combined_source_hash = "8047d6bb7a4f92d172f5da599a777dab59f316b47560fb126607310e5d87ce73"
+dependency_ids = PackedStringArray()

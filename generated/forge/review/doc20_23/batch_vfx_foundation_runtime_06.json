@@ -1,0 +1,10 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.vfx.foundation_runtime_06",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "vfx.family.debris.stone"
+  ]
+}

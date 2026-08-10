@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_a0fl4"]
+
+[resource]
+script = ExtResource("1_a0fl4")
+receipt_id = "receipt.creator.catalogue.entity_definition_profession_guard"
+source_id = "entity.definition.profession.guard"
+source_type_id = "catalogue.characters"
+source_hash = "73274e6f7ca2960ca70abf591f29566a0bdc29682d69bf08ba4635ab106862d6"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/entity_definition_profession_guard.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/entity_definition_profession_guard.tres": "60bbb4ccd4bb80b284819fdb43cc8acba48eaa926bda9aa804adaa5a34b234e2"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

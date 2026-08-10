@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_rgq70"]
+
+[resource]
+script = ExtResource("1_rgq70")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_extraction_mine_entrance_a"
+source_id = "blueprint.leyforge.extraction.mine_entrance_a"
+source_type_id = "catalogue.structures"
+source_hash = "427e03a53c9981bb3c2f3f246e16f7ee98243067d27eda29bfadc458878e829e"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_extraction_mine_entrance_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_extraction_mine_entrance_a.tres": "e7b42945cfd76ffe7fc3e7925fc21409ef0c9a6877434c9871cd50d9c7b5a4c4"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

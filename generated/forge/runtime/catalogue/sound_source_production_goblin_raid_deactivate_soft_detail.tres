@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_6v58b"]
+
+[resource]
+script = ExtResource("1_6v58b")
+product_id = "runtime.catalogue.sound_source_production_goblin_raid_deactivate_soft_detail"
+source_id = "sound.source.production.goblin_raid_deactivate_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_goblin_raid_deactivate_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_goblin_raid_deactivate_soft_detail.tres": "07b23a4b5ca0356aa7600efa67e0477a43efb6e2bc9f3b2ae4ce43a3dfc1a792"
+}
+combined_source_hash = "c1fd2b8f87b0d78b4d635f14f8cbd929b8fea5b3d079a83d87e1eab0e3fadfa8"
+dependency_ids = PackedStringArray()

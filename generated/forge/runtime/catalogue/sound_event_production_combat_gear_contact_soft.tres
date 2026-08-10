@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_v7h8n"]
+
+[resource]
+script = ExtResource("1_v7h8n")
+product_id = "runtime.catalogue.sound_event_production_combat_gear_contact_soft"
+source_id = "sound.event.production.combat_gear_contact_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_combat_gear_contact_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_combat_gear_contact_soft.tres": "ea37c4846ca5b8c7e50949b145f3ed2970f1948cef3f197fd43858f4a2d7dec8"
+}
+combined_source_hash = "2ada47c677d551ca93cd6fe69a1c22da15aa055082ea6b3749d977109f8afab9"
+dependency_ids = PackedStringArray()

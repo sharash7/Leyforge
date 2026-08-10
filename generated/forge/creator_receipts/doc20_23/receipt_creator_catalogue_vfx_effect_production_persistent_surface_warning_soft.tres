@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_r3oay"]
+
+[resource]
+script = ExtResource("1_r3oay")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_persistent_surface_warning_soft"
+source_id = "vfx.effect.production.persistent_surface_warning_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "3b9203cc148a3cba1a2866bc183886bd853c0db1c1c0e29620407f12efadd9cd"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_persistent_surface_warning_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_persistent_surface_warning_soft.tres": "8b943f12f4ab50e4a3aa34fa297b85fd3fbe7328f412ae52917a6bb3c488eca6"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

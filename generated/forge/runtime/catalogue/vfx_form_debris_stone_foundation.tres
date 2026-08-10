@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_axvvm"]
+
+[resource]
+script = ExtResource("1_axvvm")
+product_id = "runtime.catalogue.vfx_form_debris_stone_foundation"
+source_id = "vfx.form.debris.stone.foundation"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/foundation/vfx_form_debris_stone_foundation.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/foundation/vfx_form_debris_stone_foundation.tres": "eddffd8ee185e9ab2fa41cc3c03b7ac420d4a2008e1310f2a7fa38c82209dc63"
+}
+combined_source_hash = "57c3e54aefcb0475fb1821ff3bd1ecf9bdad53f239aeeaace7330f11ab47fc33"
+dependency_ids = PackedStringArray()

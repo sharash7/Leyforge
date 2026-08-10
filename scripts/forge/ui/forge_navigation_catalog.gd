@@ -130,7 +130,7 @@ static var ROUTES: Array = [
 	_route("blueprint_handoff", "structures", "Inspect", "Blueprint Handoff",
 		"Blueprint Designer Handoff", "_show_blueprint_handoff", INSPECT, false, false),
 	_route("blueprint_editor", "structures", "Author", "Blueprint Composition Editor",
-		"Blueprint Composition Editor", "_show_planned_capability", PLANNED, false, false),
+		"Blueprint Composition Editor", "_show_creator_studio", AUTHOR, false, true),
 
 	_route("entity_catalogue", "characters", "Inspect", "Entity Catalogue",
 		"Entity Catalogue", "_show_entity_catalogue", INSPECT, false, false),
@@ -139,17 +139,17 @@ static var ROUTES: Array = [
 	_route("equipment_catalogue", "characters", "Inspect", "Equipment & Variants",
 		"Equipment & Variants", "_show_entity_equipment_catalogue", INSPECT, false, false),
 	_route("entity_editor", "characters", "Author", "Entity Model Editor",
-		"Entity Model Editor", "_show_planned_capability", PLANNED, false, false),
+		"Entity Model Editor", "_show_creator_studio", AUTHOR, false, true),
 
 	_route("vfx_library", "vfx", "Inspect", "Effects, Graphs & Forms",
 		"VFX Graph Authoring", "_show_presentation_vfx", INSPECT, false, false),
 	_route("vfx_editor", "vfx", "Author", "Live VFX Graph Editor",
-		"Live VFX Graph Editor", "_show_planned_capability", PLANNED, false, false),
+		"Live VFX Graph Editor", "_show_creator_studio", AUTHOR, false, true),
 
 	_route("sound_library", "audio", "Inspect", "Sound Events & Sources",
 		"Sound Event Authoring", "_show_presentation_audio", INSPECT, false, false),
 	_route("audio_editor", "audio", "Author", "Waveform & Event Editor",
-		"Waveform & Event Editor", "_show_planned_capability", PLANNED, false, false),
+		"Waveform & Event Editor", "_show_creator_studio", AUTHOR, false, false),
 
 	_route("presentation_overview", "test_delivery", "Presentation Setup",
 		"Presentation Overview", "Presentation Forge", "_show_presentation_forge",

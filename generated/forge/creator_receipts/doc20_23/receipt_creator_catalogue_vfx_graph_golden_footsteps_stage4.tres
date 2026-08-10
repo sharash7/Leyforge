@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_feyl4"]
+
+[resource]
+script = ExtResource("1_feyl4")
+receipt_id = "receipt.creator.catalogue.vfx_graph_golden_footsteps_stage4"
+source_id = "vfx.graph.golden.footsteps.stage4"
+source_type_id = "catalogue.vfx"
+source_hash = "160fba4557d4ed38558d3aa4830dad62ec7844a3499a8d0c0a68d3022fca82b2"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_graph_golden_footsteps_stage4.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_graph_golden_footsteps_stage4.tres": "5c8d10b1232aa50ed33a483e711876568a638da53e30990055b4d942da8a1d68"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

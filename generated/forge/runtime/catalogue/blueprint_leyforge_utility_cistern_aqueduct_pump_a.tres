@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_05bie"]
+
+[resource]
+script = ExtResource("1_05bie")
+product_id = "runtime.catalogue.blueprint_leyforge_utility_cistern_aqueduct_pump_a"
+source_id = "blueprint.leyforge.utility.cistern_aqueduct_pump_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_utility_cistern_aqueduct_pump_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_utility_cistern_aqueduct_pump_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_utility_cistern_aqueduct_pump_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_utility_cistern_aqueduct_pump_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_utility_cistern_aqueduct_pump_a.tres": "b12816ba9e43504995a975e280bbffbc7d8f6443bfe3aa35fe0fce3c320b55ce",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_utility_cistern_aqueduct_pump_a_light_damage.tres": "f19502aa5d96c40ebe29487d8e7c95b358151dd0b31210ce49ea7d51910ecf50",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_utility_cistern_aqueduct_pump_a_repaired.tres": "bd5466d0d2bf4f7dbf58c7d532c46502b578bc6d14a82e4e2d9df5af126b02ed",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_utility_cistern_aqueduct_pump_a_under_construction.tres": "40aa7521015102f5b668e1be88fff05b92bc108dce232d87d7902e329dd582da"
+}
+combined_source_hash = "e2eca0fadbbb8b8a4f2d245c4f75c2dfc72dc525540d5575c0a7ffda61485904"
+dependency_ids = PackedStringArray()

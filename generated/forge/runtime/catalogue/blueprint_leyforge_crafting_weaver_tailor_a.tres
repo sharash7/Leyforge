@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_2pdod"]
+
+[resource]
+script = ExtResource("1_2pdod")
+product_id = "runtime.catalogue.blueprint_leyforge_crafting_weaver_tailor_a"
+source_id = "blueprint.leyforge.crafting.weaver_tailor_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_crafting_weaver_tailor_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_crafting_weaver_tailor_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_crafting_weaver_tailor_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_crafting_weaver_tailor_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_crafting_weaver_tailor_a.tres": "f6559e2130c3f41b1d960f77d0ba031a5f93e51c489aba0a2cea0498e38718a4",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_crafting_weaver_tailor_a_light_damage.tres": "60daa5eeec9b876fcf93b185c5b098c5b08198f402250670c5021dc36d280b8e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_crafting_weaver_tailor_a_repaired.tres": "c4f0f106c956a45de6f32cde49de9be4909f58865488c442b3c4b23e4b489ad9",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_crafting_weaver_tailor_a_under_construction.tres": "82243c013f0946205d70b0d21db186fbfb34bc751fcb1c03fe88c096934745d4"
+}
+combined_source_hash = "fcdc7b558c41e7cefddaa53b4c05fb219d3c4e4f58d5697cf2ea15a34ddb4875"
+dependency_ids = PackedStringArray()

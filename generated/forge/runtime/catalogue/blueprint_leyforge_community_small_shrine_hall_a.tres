@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_0ifbh"]
+
+[resource]
+script = ExtResource("1_0ifbh")
+product_id = "runtime.catalogue.blueprint_leyforge_community_small_shrine_hall_a"
+source_id = "blueprint.leyforge.community.small_shrine_hall_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_community_small_shrine_hall_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_small_shrine_hall_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_small_shrine_hall_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_small_shrine_hall_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_community_small_shrine_hall_a.tres": "3b088004d27d61dad44f82c509e83a90b3b2e1733ae31e8b96b033849f9a511b",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_small_shrine_hall_a_light_damage.tres": "10a8b24265aaabc1c328c8966d7fa7c1c91e76a70e5de717141df579acbebd5e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_small_shrine_hall_a_repaired.tres": "6e804db8444eebb93f58bb1668c053fe1d53434d805811e45e8ae6c2caf18914",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_small_shrine_hall_a_under_construction.tres": "5fe9a749f3fde84a48c338f841a99195efa6f870294fa7a9d801248ae1d08c0f"
+}
+combined_source_hash = "9ce1fcbba645621a58b76e1b38a743597b4df1c5146abd2c3ff3a686e22b8ca5"
+dependency_ids = PackedStringArray()

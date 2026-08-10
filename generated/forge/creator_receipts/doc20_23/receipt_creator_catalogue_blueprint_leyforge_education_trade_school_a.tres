@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_1d6vp"]
+
+[resource]
+script = ExtResource("1_1d6vp")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_education_trade_school_a"
+source_id = "blueprint.leyforge.education.trade_school_a"
+source_type_id = "catalogue.structures"
+source_hash = "1491241b11eb422fc5f160c35c5d401ffbc4e450a3167bdd6817f4aefc162ea0"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_education_trade_school_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_education_trade_school_a.tres": "a1f4f4f4c33162110cc97a964219b579e414854f10bc3ace85862be3090c7905"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

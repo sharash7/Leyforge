@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_xlf5f"]
+
+[resource]
+script = ExtResource("1_xlf5f")
+batch_id = "batch.structures.magic"
+display_name = "Structures.magic"
+studio = "structures"
+category = "magic"
+target_ids = PackedStringArray("blueprint.leyforge.magic.rune_forge_a", "blueprint.leyforge.magic.mage_hut_rune_workshop_a", "blueprint.leyforge.magic.alchemy_laboratory_a", "blueprint.leyforge.magic.ward_stone_relay_a", "blueprint.leyforge.magic.mana_store_battery_a", "blueprint.leyforge.magic.ritual_circle_hall_a", "blueprint.leyforge.magic.magic_academy_tower_a", "blueprint.leyforge.magic.healing_cleansing_shrine_a", "blueprint.leyforge.magic.leyline_observatory_relay_a", "blueprint.leyforge.magic.portal_station_sanctum_a", "blueprint.leyforge.magic.dimensional_research_containment_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_magic.json")

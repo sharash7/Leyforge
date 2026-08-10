@@ -1,0 +1,370 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_bjygw"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_iyhag"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_yxw5v"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_1kga6"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_vvwli"]
+
+[sub_resource type="Resource" id="Resource_077ay"]
+script = ExtResource("1_bjygw")
+delta_id = "blueprint.leyforge.storage.automated_distribution_centre_a.delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("blueprint.leyforge.storage.automated_distribution_centre_a.element.foundation.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_yhkw8"]
+script = ExtResource("1_bjygw")
+delta_id = "blueprint.leyforge.storage.automated_distribution_centre_a.delta.frame"
+stage_id = "frame"
+add_element_ids = PackedStringArray("blueprint.leyforge.storage.automated_distribution_centre_a.element.frame.pillar_0", "blueprint.leyforge.storage.automated_distribution_centre_a.element.frame.pillar_1", "blueprint.leyforge.storage.automated_distribution_centre_a.element.frame.pillar_2", "blueprint.leyforge.storage.automated_distribution_centre_a.element.frame.pillar_3")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_hxwy6"]
+script = ExtResource("1_bjygw")
+delta_id = "blueprint.leyforge.storage.automated_distribution_centre_a.delta.shell"
+stage_id = "shell"
+add_element_ids = PackedStringArray("blueprint.leyforge.storage.automated_distribution_centre_a.element.shell.perimeter_0", "blueprint.leyforge.storage.automated_distribution_centre_a.element.shell.point_1")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("frame")
+
+[sub_resource type="Resource" id="Resource_1jtes"]
+script = ExtResource("1_bjygw")
+delta_id = "blueprint.leyforge.storage.automated_distribution_centre_a.delta.weatherproofing"
+stage_id = "weatherproofing"
+add_element_ids = PackedStringArray("blueprint.leyforge.storage.automated_distribution_centre_a.element.weatherproofing.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("shell")
+
+[sub_resource type="Resource" id="Resource_2mfhf"]
+script = ExtResource("1_bjygw")
+delta_id = "blueprint.leyforge.storage.automated_distribution_centre_a.delta.activation"
+stage_id = "activation"
+add_element_ids = PackedStringArray("blueprint.leyforge.storage.automated_distribution_centre_a.element.activation.point_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("weatherproofing")
+
+[sub_resource type="Resource" id="Resource_3s2tk"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.element.foundation.fill_0"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 0.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "foundation_primary"
+}
+
+[sub_resource type="Resource" id="Resource_qx187"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.element.frame.pillar_0"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_qwns2"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.element.frame.pillar_1"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_3rsaa"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.element.frame.pillar_2"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_c6rdg"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.element.frame.pillar_3"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_kehro"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.element.shell.perimeter_0"
+element_kind = "block_operation"
+material_role_id = "wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"exclude": [[-2.0, 1.0, -2.0], [-2.0, 2.0, -2.0], [-2.0, 1.0, 2.0], [-2.0, 2.0, 2.0], [2.0, 1.0, -2.0], [2.0, 2.0, -2.0], [2.0, 1.0, 2.0], [2.0, 2.0, 2.0], [0.0, 1.0, -2.0]],
+"op": "perimeter",
+"origin": [-2.0, 1.0, -2.0],
+"size": [5.0, 2.0, 5.0],
+"token": "wall_primary"
+}
+
+[sub_resource type="Resource" id="Resource_q8xv2"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.element.shell.point_1"
+element_kind = "block_operation"
+material_role_id = "door_basic"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 1, -2)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, -2.0],
+"token": "door_basic"
+}
+
+[sub_resource type="Resource" id="Resource_egrjg"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.element.weatherproofing.fill_0"
+element_kind = "block_operation"
+material_role_id = "roof_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "weatherproofing"
+position = Vector3i(-2, 4, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 4.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "roof_primary"
+}
+
+[sub_resource type="Resource" id="Resource_28cso"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.element.activation.point_0"
+element_kind = "block_operation"
+material_role_id = "functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "activation"
+position = Vector3i(0, 1, 0)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, 0.0],
+"token": "functional"
+}
+
+[sub_resource type="Resource" id="Resource_k52wo"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.marker_01"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.intake_and_dispatch_points")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -2)
+metadata = {
+"id": "marker_01",
+"position": [-2.0, 1.0, -2.0],
+"type": "intake_and_dispatch_points"
+}
+
+[sub_resource type="Resource" id="Resource_0l0fk"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.marker_02"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.category_buffers")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -2)
+metadata = {
+"id": "marker_02",
+"position": [-1.0, 1.0, -2.0],
+"type": "category_buffers"
+}
+
+[sub_resource type="Resource" id="Resource_dknsj"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.marker_03"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.sorter_control_stations")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"id": "marker_03",
+"position": [0.0, 1.0, -2.0],
+"type": "sorter_control_stations"
+}
+
+[sub_resource type="Resource" id="Resource_wkk3w"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.marker_04"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.staff_paths")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -2)
+metadata = {
+"id": "marker_04",
+"position": [1.0, 1.0, -2.0],
+"type": "staff_paths"
+}
+
+[sub_resource type="Resource" id="Resource_57oon"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.marker_05"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.maintenance_zones")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(2, 1, -2)
+metadata = {
+"id": "marker_05",
+"position": [2.0, 1.0, -2.0],
+"type": "maintenance_zones"
+}
+
+[sub_resource type="Resource" id="Resource_fdet1"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.marker_06"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.multiple_freight_sockets")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -1)
+metadata = {
+"id": "marker_06",
+"position": [-2.0, 1.0, -1.0],
+"type": "multiple_freight_sockets"
+}
+
+[sub_resource type="Resource" id="Resource_ao3dc"]
+script = ExtResource("2_iyhag")
+element_id = "blueprint.leyforge.storage.automated_distribution_centre_a.marker_07"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.emergency_stop_and_secure_ledger")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -1)
+metadata = {
+"id": "marker_07",
+"position": [-1.0, 1.0, -1.0],
+"type": "emergency_stop_and_secure_ledger"
+}
+
+[sub_resource type="Resource" id="Resource_elm2y"]
+script = ExtResource("3_yxw5v")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_storage_automated_distribution_centre_a"
+display_name = "Automated Distribution Centre - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.wood",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_bfuc3"]
+script = ExtResource("4_1kga6")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_storage_automated_distribution_centre_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -2)
+footprint_max = Vector3i(2, 5, 2)
+max_slope = 1
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_vvwli")
+blueprint_id = "blueprint.leyforge.storage.automated_distribution_centre_a"
+display_name = "Automated Distribution Centre - Forest Neutral"
+definition_ids = PackedStringArray("building.storage.automated_distribution_centre")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_iyhag")]([SubResource("Resource_3s2tk"), SubResource("Resource_qx187"), SubResource("Resource_qwns2"), SubResource("Resource_3rsaa"), SubResource("Resource_c6rdg"), SubResource("Resource_kehro"), SubResource("Resource_q8xv2"), SubResource("Resource_egrjg"), SubResource("Resource_28cso"), SubResource("Resource_k52wo"), SubResource("Resource_0l0fk"), SubResource("Resource_dknsj"), SubResource("Resource_wkk3w"), SubResource("Resource_57oon"), SubResource("Resource_fdet1"), SubResource("Resource_ao3dc")])
+construction_deltas = Array[ExtResource("1_bjygw")]([SubResource("Resource_077ay"), SubResource("Resource_yhkw8"), SubResource("Resource_hxwy6"), SubResource("Resource_1jtes"), SubResource("Resource_2mfhf")])
+placement_profile = SubResource("Resource_bfuc3")
+material_role_set = SubResource("Resource_elm2y")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.084"

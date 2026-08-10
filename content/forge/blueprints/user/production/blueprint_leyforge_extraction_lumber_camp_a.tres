@@ -1,0 +1,346 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_v7otg"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_23xih"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_i74c4"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_tfm6a"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_wlt0m"]
+
+[sub_resource type="Resource" id="Resource_h2265"]
+script = ExtResource("1_v7otg")
+delta_id = "blueprint.leyforge.extraction.lumber_camp_a.delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("blueprint.leyforge.extraction.lumber_camp_a.element.foundation.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_8wpi5"]
+script = ExtResource("1_v7otg")
+delta_id = "blueprint.leyforge.extraction.lumber_camp_a.delta.frame"
+stage_id = "frame"
+add_element_ids = PackedStringArray("blueprint.leyforge.extraction.lumber_camp_a.element.frame.pillar_0", "blueprint.leyforge.extraction.lumber_camp_a.element.frame.pillar_1", "blueprint.leyforge.extraction.lumber_camp_a.element.frame.pillar_2", "blueprint.leyforge.extraction.lumber_camp_a.element.frame.pillar_3")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_cv0b1"]
+script = ExtResource("1_v7otg")
+delta_id = "blueprint.leyforge.extraction.lumber_camp_a.delta.shell_weatherproofing"
+stage_id = "shell_weatherproofing"
+add_element_ids = PackedStringArray("blueprint.leyforge.extraction.lumber_camp_a.element.shell_weatherproofing.perimeter_0", "blueprint.leyforge.extraction.lumber_camp_a.element.shell_weatherproofing.point_1", "blueprint.leyforge.extraction.lumber_camp_a.element.shell_weatherproofing.fill_2")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("frame")
+
+[sub_resource type="Resource" id="Resource_e45lj"]
+script = ExtResource("1_v7otg")
+delta_id = "blueprint.leyforge.extraction.lumber_camp_a.delta.activation"
+stage_id = "activation"
+add_element_ids = PackedStringArray("blueprint.leyforge.extraction.lumber_camp_a.element.activation.point_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("shell_weatherproofing")
+
+[sub_resource type="Resource" id="Resource_otxtx"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.element.foundation.fill_0"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 0.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "foundation_primary"
+}
+
+[sub_resource type="Resource" id="Resource_4thxi"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.element.frame.pillar_0"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_bomql"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.element.frame.pillar_1"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_8pg4a"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.element.frame.pillar_2"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_inmi6"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.element.frame.pillar_3"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_x87gj"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.element.shell_weatherproofing.perimeter_0"
+element_kind = "block_operation"
+material_role_id = "wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell_weatherproofing"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"exclude": [[-2.0, 1.0, -2.0], [-2.0, 2.0, -2.0], [-2.0, 1.0, 2.0], [-2.0, 2.0, 2.0], [2.0, 1.0, -2.0], [2.0, 2.0, -2.0], [2.0, 1.0, 2.0], [2.0, 2.0, 2.0], [0.0, 1.0, -2.0]],
+"op": "perimeter",
+"origin": [-2.0, 1.0, -2.0],
+"size": [5.0, 2.0, 5.0],
+"token": "wall_primary"
+}
+
+[sub_resource type="Resource" id="Resource_yvdt1"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.element.shell_weatherproofing.point_1"
+element_kind = "block_operation"
+material_role_id = "door_basic"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell_weatherproofing"
+position = Vector3i(0, 1, -2)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, -2.0],
+"token": "door_basic"
+}
+
+[sub_resource type="Resource" id="Resource_sftmh"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.element.shell_weatherproofing.fill_2"
+element_kind = "block_operation"
+material_role_id = "roof_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell_weatherproofing"
+position = Vector3i(-2, 4, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 4.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "roof_primary"
+}
+
+[sub_resource type="Resource" id="Resource_shpxp"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.element.activation.point_0"
+element_kind = "block_operation"
+material_role_id = "functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "activation"
+position = Vector3i(0, 1, 0)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, 0.0],
+"token": "functional"
+}
+
+[sub_resource type="Resource" id="Resource_3qe1o"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.marker_01"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.job_board")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -2)
+metadata = {
+"id": "marker_01",
+"position": [-2.0, 1.0, -2.0],
+"type": "job_board"
+}
+
+[sub_resource type="Resource" id="Resource_4hycu"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.marker_02"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.tool_store")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -2)
+metadata = {
+"id": "marker_02",
+"position": [-1.0, 1.0, -2.0],
+"type": "tool_store"
+}
+
+[sub_resource type="Resource" id="Resource_htfcd"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.marker_03"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.log_staging")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"id": "marker_03",
+"position": [0.0, 1.0, -2.0],
+"type": "log_staging"
+}
+
+[sub_resource type="Resource" id="Resource_4lx8e"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.marker_04"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.worker_shelter")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -2)
+metadata = {
+"id": "marker_04",
+"position": [1.0, 1.0, -2.0],
+"type": "worker_shelter"
+}
+
+[sub_resource type="Resource" id="Resource_dcv7y"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.marker_05"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.delivery_socket")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(2, 1, -2)
+metadata = {
+"id": "marker_05",
+"position": [2.0, 1.0, -2.0],
+"type": "delivery_socket"
+}
+
+[sub_resource type="Resource" id="Resource_3creq"]
+script = ExtResource("2_23xih")
+element_id = "blueprint.leyforge.extraction.lumber_camp_a.marker_06"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.cutting_zone_anchor_and_safe_route_to_the_forest")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -1)
+metadata = {
+"id": "marker_06",
+"position": [-2.0, 1.0, -1.0],
+"type": "cutting_zone_anchor_and_safe_route_to_the_forest"
+}
+
+[sub_resource type="Resource" id="Resource_o33kw"]
+script = ExtResource("3_i74c4")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_extraction_lumber_camp_a"
+display_name = "Lumber Camp - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.wood",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_4brag"]
+script = ExtResource("4_tfm6a")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_extraction_lumber_camp_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -2)
+footprint_max = Vector3i(2, 5, 2)
+max_slope = 1
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_wlt0m")
+blueprint_id = "blueprint.leyforge.extraction.lumber_camp_a"
+display_name = "Lumber Camp - Forest Neutral"
+definition_ids = PackedStringArray("building.extraction.lumber_camp")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_23xih")]([SubResource("Resource_otxtx"), SubResource("Resource_4thxi"), SubResource("Resource_bomql"), SubResource("Resource_8pg4a"), SubResource("Resource_inmi6"), SubResource("Resource_x87gj"), SubResource("Resource_yvdt1"), SubResource("Resource_sftmh"), SubResource("Resource_shpxp"), SubResource("Resource_3qe1o"), SubResource("Resource_4hycu"), SubResource("Resource_htfcd"), SubResource("Resource_4lx8e"), SubResource("Resource_dcv7y"), SubResource("Resource_3creq")])
+construction_deltas = Array[ExtResource("1_v7otg")]([SubResource("Resource_h2265"), SubResource("Resource_8wpi5"), SubResource("Resource_cv0b1"), SubResource("Resource_e45lj")])
+placement_profile = SubResource("Resource_4brag")
+material_role_set = SubResource("Resource_o33kw")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.031"

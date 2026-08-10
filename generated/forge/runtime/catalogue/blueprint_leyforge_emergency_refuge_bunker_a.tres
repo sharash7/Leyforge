@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_17526"]
+
+[resource]
+script = ExtResource("1_17526")
+product_id = "runtime.catalogue.blueprint_leyforge_emergency_refuge_bunker_a"
+source_id = "blueprint.leyforge.emergency.refuge_bunker_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_emergency_refuge_bunker_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_refuge_bunker_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_refuge_bunker_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_refuge_bunker_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_emergency_refuge_bunker_a.tres": "e6af572c46d188e3d4e9758d22e41c42c50365ebf77c146589109cb331dcf130",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_refuge_bunker_a_light_damage.tres": "81965d57f26ba8d747db118ef66c07e4069d2f23509eecbdef7cdcc9cbbd9199",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_refuge_bunker_a_repaired.tres": "24f81c1355194133f725de5d184eef7b57109d21a1b6db8ffad3c6da8406e096",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_refuge_bunker_a_under_construction.tres": "eb583be3b8b5ae728213253e13294fe65b1705a4ac7ac0b48b38d8476c14ad28"
+}
+combined_source_hash = "76a5554376dc738212d23f1527e408058e5f8ec2440c5ec905c04e35233d35b8"
+dependency_ids = PackedStringArray()

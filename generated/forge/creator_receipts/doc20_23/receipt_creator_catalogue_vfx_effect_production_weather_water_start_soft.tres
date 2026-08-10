@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_6ivpm"]
+
+[resource]
+script = ExtResource("1_6ivpm")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_weather_water_start_soft"
+source_id = "vfx.effect.production.weather_water_start_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "bfa8b5306b0af20343db361291f53cae22e1e3a8eb065182987fb6e5cefa2360"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_weather_water_start_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_weather_water_start_soft.tres": "50a3c7dadeed26a532c717ffa88632eb34f992c8b0ebdcc499295e1736d2a9ad"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

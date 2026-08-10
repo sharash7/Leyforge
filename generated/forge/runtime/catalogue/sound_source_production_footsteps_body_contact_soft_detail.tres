@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ntdou"]
+
+[resource]
+script = ExtResource("1_ntdou")
+product_id = "runtime.catalogue.sound_source_production_footsteps_body_contact_soft_detail"
+source_id = "sound.source.production.footsteps_body_contact_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_footsteps_body_contact_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_footsteps_body_contact_soft_detail.tres": "44970e22b1d24567cda7f5de5855f04e5d020fad2fc4014173800be531cc8b50"
+}
+combined_source_hash = "0fb5c113cb8c1131ef2500734434e87906513a932ebc9168445871284572d03f"
+dependency_ids = PackedStringArray()

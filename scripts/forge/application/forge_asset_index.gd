@@ -251,6 +251,12 @@ func _index_foundation_source(
 	elif resource is ForgeBlueprintModuleDefinition:
 		resource_diagnostics = ForgeBlueprintRuntimeValidationService.new().\
 			validate_module(resource, semantic_registry)
+	elif resource is ForgeBlueprintModuleSet:
+		resource_diagnostics = ForgeModularStructureValidationService.new().\
+			validate_module_set(resource)
+	elif resource is ForgeProceduralStructureRuleSet:
+		resource_diagnostics = ForgeModularStructureValidationService.new().\
+			validate_rule_set(resource)
 	elif resource is ForgeBlueprintStateDefinition:
 		resource_diagnostics = ForgeBlueprintRuntimeValidationService.new().\
 			validate_state(resource, semantic_registry)
@@ -332,6 +338,12 @@ func _foundation_identity(resource: Resource) -> Dictionary:
 	if resource is ForgeBlueprintModuleDefinition:
 		return {"source_id": resource.module_id,
 			"kind": "blueprint_module_definition"}
+	if resource is ForgeBlueprintModuleSet:
+		return {"source_id": resource.module_set_id,
+			"kind": "blueprint_module_set"}
+	if resource is ForgeProceduralStructureRuleSet:
+		return {"source_id": resource.rule_set_id,
+			"kind": "procedural_structure_rule_set"}
 	if resource is ForgeBlueprintStateDefinition:
 		return {"source_id": resource.state_id,
 			"kind": "blueprint_state_definition"}
@@ -387,6 +399,7 @@ func _validate_foundation_dependencies(
 				ForgeEntityVariantProfile.CONTRACT_VERSION,
 				ForgeGameplayProxyProfile.CONTRACT_VERSION,
 				ForgeBlueprintModuleDefinition.CONTRACT_VERSION,
+				ForgeBlueprintModuleSet.CONTRACT_VERSION,
 				ForgeBlueprintStateDefinition.CONTRACT_VERSION,
 				ForgeBlueprintRuntimeProduct.CONTRACT_VERSION,
 				ForgePresentationLibraryManifest.CONTRACT_VERSION]:

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_c8dhk"]
+
+[resource]
+script = ExtResource("1_c8dhk")
+receipt_id = "receipt.creator.catalogue.vfx_form_production_directional_trail"
+source_id = "vfx.form.production.directional_trail"
+source_type_id = "catalogue.vfx"
+source_hash = "90e7ea2bed0778deea82687fd2ca59c90a6b991c9f3cb54b96cca69fbf8021d7"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_form_production_directional_trail.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_form_production_directional_trail.tres": "c8deecd2254ee433559ac2205bf7f6ba807d0745d7db303b556f7dbed1781a15"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

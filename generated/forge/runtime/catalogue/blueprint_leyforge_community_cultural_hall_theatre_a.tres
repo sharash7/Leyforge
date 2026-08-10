@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_jg1is"]
+
+[resource]
+script = ExtResource("1_jg1is")
+product_id = "runtime.catalogue.blueprint_leyforge_community_cultural_hall_theatre_a"
+source_id = "blueprint.leyforge.community.cultural_hall_theatre_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_community_cultural_hall_theatre_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_cultural_hall_theatre_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_cultural_hall_theatre_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_cultural_hall_theatre_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_community_cultural_hall_theatre_a.tres": "c1eb881f424244eec9d87c25c9217e37977cfaa41c2caec9568da66937ac1c9e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_cultural_hall_theatre_a_light_damage.tres": "4f839bed02b78e9dbead418872635bcca9b5cb2ec70b1ef71e504948d8f92b0d",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_cultural_hall_theatre_a_repaired.tres": "be114b840855ecfa8968fb1228d921661b7d864317d9c759adb3c26e14b34baa",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_cultural_hall_theatre_a_under_construction.tres": "597904eb4bf32c22a451dd6ac1acb6bbe55ec4a6d8183216d47e6bcfa9ad4c01"
+}
+combined_source_hash = "fa9b63f18f91a326d12111dd2c2ab0aae32429d08ae31f5242ece29a1345ac31"
+dependency_ids = PackedStringArray()

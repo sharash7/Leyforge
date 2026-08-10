@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_01hq0"]
+
+[resource]
+script = ExtResource("1_01hq0")
+product_id = "runtime.catalogue.blueprint_leyforge_automation_automated_farm_greenhouse_a"
+source_id = "blueprint.leyforge.automation.automated_farm_greenhouse_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_automation_automated_farm_greenhouse_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_automation_automated_farm_greenhouse_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_automation_automated_farm_greenhouse_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_automation_automated_farm_greenhouse_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_automation_automated_farm_greenhouse_a.tres": "9edea2878fb85d55398eed9027db4ffa5c4470120da609f94ffd1843766ef2fa",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_automation_automated_farm_greenhouse_a_light_damage.tres": "a291320c3fab66892d5bcffd0902fc48dd97d41a5822e6b8236aa46cd7327ce2",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_automation_automated_farm_greenhouse_a_repaired.tres": "9320a7c8a366d9c05aaa282b47289b2f017fcd7389d6240b7e583f12951aacf8",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_automation_automated_farm_greenhouse_a_under_construction.tres": "4c4b5cf2c9f58528c2f1da7ac9149b8cd989fc8c55269063e16e07f142cb8f8b"
+}
+combined_source_hash = "48f9ccdb83c96ebb37c25a91c567139bca2d5f076284e116a26d39876754aa5d"
+dependency_ids = PackedStringArray()

@@ -2,8 +2,8 @@ extends Node
 ## Set 22/23 Milestone 5 blueprint, acoustic and persistence gate.
 
 const ROOT := "res://content/forge/runtime/set22_23_stage5"
-const EXPECTED_CHECKS := 564
-const EXPECTED_HASH := "db51c5500c773f777ce86fdfd419395e70e19060a421f13775e9cbba4bbbae10"
+const EXPECTED_CHECKS := 565
+const EXPECTED_HASH := "0fdb0e45db609165b2bad48ce3097590f4dc408feb09e97001ba179e761740db"
 const TARGETS := {
 	"cottage": "blueprint.leyforge.residential.small_cottage_a",
 	"warehouse": "blueprint.leyforge.storage.village_warehouse_a",
@@ -68,6 +68,7 @@ func _verify_contract_registration() -> void:
 		"leyforge.forge.blueprint-state-definition",
 		"leyforge.forge.blueprint-runtime-product",
 		"leyforge.forge.blueprint-instance-snapshot",
+		"leyforge.forge.procedural-structure-product",
 		"leyforge.forge.acoustic-zone-graph",
 		"leyforge.forge.ambience-plan",
 		"leyforge.forge.persistent-surface-record",
@@ -75,7 +76,7 @@ func _verify_contract_registration() -> void:
 		"leyforge.forge.world-presentation-state",
 	]:
 		_check(schemas.has(schema_id), "Milestone 5 schema is not registered: %s" % schema_id)
-	_check(schemas.filtered_list("blueprint_runtime").size() == 4,
+	_check(schemas.filtered_list("blueprint_runtime").size() == 5,
 		"blueprint runtime schema count drifted")
 	_check(schemas.filtered_list("acoustic_runtime").size() == 2,
 		"acoustic runtime schema count drifted")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_6u8w6"]
+
+[resource]
+script = ExtResource("1_6u8w6")
+batch_id = "batch.audio.tools_crafting.08"
+display_name = "Audio.tools Crafting.08"
+studio = "audio"
+category = "tools_crafting"
+target_ids = PackedStringArray("sound.event.production.tools_crafting_finish_soft", "sound.source.production.tools_crafting_finish_soft_body", "sound.source.production.tools_crafting_finish_soft_detail", "sound.source.production.tools_crafting_finish_soft_tail", "sound.event.production.tools_crafting_impact_soft", "sound.source.production.tools_crafting_impact_soft_body", "sound.source.production.tools_crafting_impact_soft_detail", "sound.source.production.tools_crafting_impact_soft_tail", "sound.event.production.tools_crafting_start_soft", "sound.source.production.tools_crafting_start_soft_body", "sound.source.production.tools_crafting_start_soft_detail", "sound.source.production.tools_crafting_start_soft_tail", "sound.event.production.tools_crafting_sustain_soft", "sound.source.production.tools_crafting_sustain_soft_body", "sound.source.production.tools_crafting_sustain_soft_detail", "sound.source.production.tools_crafting_sustain_soft_tail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_tools_crafting_08.json")

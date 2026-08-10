@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_awnve"]
+
+[resource]
+script = ExtResource("1_awnve")
+product_id = "runtime.catalogue.vfx_form_production_expanding_ring"
+source_id = "vfx.form.production.expanding_ring"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/form_expanding_ring.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/form_expanding_ring.tres": "bba5d099446d77e7434921174c48aef02c5380c04f683297aba12d732030f529"
+}
+combined_source_hash = "0b8eaa599c43d8e4ba39c2f518f5438c39bc74757f08d4bee2c6a71aeff45cee"
+dependency_ids = PackedStringArray()

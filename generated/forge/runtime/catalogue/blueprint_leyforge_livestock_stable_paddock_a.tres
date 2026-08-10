@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_x85y4"]
+
+[resource]
+script = ExtResource("1_x85y4")
+product_id = "runtime.catalogue.blueprint_leyforge_livestock_stable_paddock_a"
+source_id = "blueprint.leyforge.livestock.stable_paddock_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_livestock_stable_paddock_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_livestock_stable_paddock_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_livestock_stable_paddock_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_livestock_stable_paddock_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_livestock_stable_paddock_a.tres": "6acd7dd3077f3697f0508441bedf591e9c6c7da7fc246cc0c2c882a075e42e49",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_livestock_stable_paddock_a_light_damage.tres": "806a33ae670dd41ce9760de34c424070cb07abcb074c02b95ebd1bceba1288ea",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_livestock_stable_paddock_a_repaired.tres": "6289eb92bc0e7d3405bb8ce0df4c4a83e6c5391a62b78f2fbe0205d2f720ff7a",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_livestock_stable_paddock_a_under_construction.tres": "f94471929fea13647574b129b471a90fcec07bbda097267775533bb19b06f211"
+}
+combined_source_hash = "e0af5321920967bc3271640096e9f3ea483dc001f332fc9c6606ba5baa19777b"
+dependency_ids = PackedStringArray()

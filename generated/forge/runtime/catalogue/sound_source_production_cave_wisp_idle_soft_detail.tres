@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_476gq"]
+
+[resource]
+script = ExtResource("1_476gq")
+product_id = "runtime.catalogue.sound_source_production_cave_wisp_idle_soft_detail"
+source_id = "sound.source.production.cave_wisp_idle_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_cave_wisp_idle_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_cave_wisp_idle_soft_detail.tres": "88f101655061c5ec1f326c9d5ea78b050241a0b2a5ad6fafcb4adaa2c7e0115d"
+}
+combined_source_hash = "c1f4888ca15dbbd3cf2af168b7595f181d25e3c1e3825f2395e05088e3845c7b"
+dependency_ids = PackedStringArray()

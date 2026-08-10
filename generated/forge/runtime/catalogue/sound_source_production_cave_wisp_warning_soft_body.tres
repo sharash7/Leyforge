@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_lluph"]
+
+[resource]
+script = ExtResource("1_lluph")
+product_id = "runtime.catalogue.sound_source_production_cave_wisp_warning_soft_body"
+source_id = "sound.source.production.cave_wisp_warning_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_cave_wisp_warning_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_cave_wisp_warning_soft_body.tres": "c6017d2839862fc662fe7d3ba9a7a3cc1e851e2d546833f52b5ceae329778a1f"
+}
+combined_source_hash = "daa89a2a2dbe384225f4844b68597caf537a6b8f7bb58e94c5cc5e849fb645cc"
+dependency_ids = PackedStringArray()

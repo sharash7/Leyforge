@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ipptk"]
+
+[resource]
+script = ExtResource("1_ipptk")
+product_id = "runtime.catalogue.sound_event_production_player_movement_needs_deactivate_soft"
+source_id = "sound.event.production.player_movement_needs_deactivate_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_player_movement_needs_deactivate_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_player_movement_needs_deactivate_soft.tres": "271d5a2d08937e84f61e9db6e727aa6b702e66b7c7644f628eba364e3691f8e0"
+}
+combined_source_hash = "05fc2a72b0b0169ea2d7a5f4ea44d1bc331e2542d338cbc8d07dd7e0d8f84cd7"
+dependency_ids = PackedStringArray()

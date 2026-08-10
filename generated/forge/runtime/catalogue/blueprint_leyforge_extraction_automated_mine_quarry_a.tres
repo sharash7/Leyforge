@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_apn5x"]
+
+[resource]
+script = ExtResource("1_apn5x")
+product_id = "runtime.catalogue.blueprint_leyforge_extraction_automated_mine_quarry_a"
+source_id = "blueprint.leyforge.extraction.automated_mine_quarry_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_automated_mine_quarry_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_automated_mine_quarry_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_automated_mine_quarry_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_automated_mine_quarry_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_automated_mine_quarry_a.tres": "bfb189b42be094753334e34fc6578065b893d18aa467a03525dff9fe3f88b13a",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_automated_mine_quarry_a_light_damage.tres": "f9a0e974c2fd9f359bdeee1b0f5b55d0f4c455051d77f9779a472c467c838e2c",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_automated_mine_quarry_a_repaired.tres": "8b274bdb4e5c6e8de1970cb5c3c3a8cde3c609107c86d713814fe9b98c7a96aa",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_automated_mine_quarry_a_under_construction.tres": "f6d2aa7f352f1944ff6dc26fce988899c879d5623b2dbcae0210f4ac5936aa1f"
+}
+combined_source_hash = "4dbfe695fb6e2b93f7e15dcbb55072a605d28e3ed1588ce430b557a31dd6502c"
+dependency_ids = PackedStringArray()

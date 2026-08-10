@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_pulaq"]
+
+[resource]
+script = ExtResource("1_pulaq")
+product_id = "runtime.catalogue.vfx_form_production_weather_sheet"
+source_id = "vfx.form.production.weather_sheet"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/form_weather_sheet.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/form_weather_sheet.tres": "6cdb2bb420352622f82e2ec4884bb6f8e5b73af7110c878550fb0e4227af3f49"
+}
+combined_source_hash = "c1a37baa7d26710ff3de46b00d6266f483823068fab312498c3df70ab22c17c7"
+dependency_ids = PackedStringArray()

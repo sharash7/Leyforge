@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_mwcuu"]
+
+[resource]
+script = ExtResource("1_mwcuu")
+product_id = "runtime.catalogue.blueprint_leyforge_power_regional_grid_control_a"
+source_id = "blueprint.leyforge.power.regional_grid_control_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_power_regional_grid_control_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_power_regional_grid_control_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_power_regional_grid_control_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_power_regional_grid_control_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_power_regional_grid_control_a.tres": "e9a65a0f543618394b7c9f2b313a7494894dddbaeae92bc6fe8a9dfeec52b0b4",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_power_regional_grid_control_a_light_damage.tres": "a2d2254b5a1072d5ec24a561f686a228715d3131e9071db7c770e469b68618f1",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_power_regional_grid_control_a_repaired.tres": "9f52a5c3838fdfcbf35b540e97db09f33929c89170a3c14ebac25d769d952cb0",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_power_regional_grid_control_a_under_construction.tres": "3fc193d351934d319c12c6863ef9ffd6881a25fc8305aeb81fee256d86441751"
+}
+combined_source_hash = "33a36f35b73db5f65bb71a3455ee8e5e61f616cacd6382efd6b1cd295ab91b0a"
+dependency_ids = PackedStringArray()

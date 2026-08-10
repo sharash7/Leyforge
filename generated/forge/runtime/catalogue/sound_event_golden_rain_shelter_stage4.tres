@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_jmn31"]
+
+[resource]
+script = ExtResource("1_jmn31")
+product_id = "runtime.catalogue.sound_event_golden_rain_shelter_stage4"
+source_id = "sound.event.golden.rain_shelter.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/sound_event_rain_shelter.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/sound_event_rain_shelter.tres": "768eaf3ca1209551599e616e7331ac28ebe4c5267a26d2edbd2a3ba249a30671"
+}
+combined_source_hash = "d824789c98755196446463b5963456e8f3699818cc248c9aa4d74363ca7adebc"
+dependency_ids = PackedStringArray()

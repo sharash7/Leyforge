@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_emu12"]
+
+[resource]
+script = ExtResource("1_emu12")
+product_id = "runtime.catalogue.vfx_effect_production_mining_block_contact_release_soft"
+source_id = "vfx.effect.production.mining_block_contact_release_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_mining_block_contact_release_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_mining_block_contact_release_soft.tres": "c6cfa5ecf1ab67bfef78291732f27b883f910c8fe4caaf78903935c29caa6bac"
+}
+combined_source_hash = "f917400ae863d954964b422ac3d7673c6f9400f6fbb08498a241f63753b5ca2b"
+dependency_ids = PackedStringArray()

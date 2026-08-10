@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_kpnp7"]
+
+[resource]
+script = ExtResource("1_kpnp7")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_magic_dimensional_research_containment_a"
+source_id = "blueprint.leyforge.magic.dimensional_research_containment_a"
+source_type_id = "catalogue.structures"
+source_hash = "4b4e7fc520a2a45fb8ae5e6d8a6ca1f8370876ca4e440e699116952209f85844"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_magic_dimensional_research_containment_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_magic_dimensional_research_containment_a.tres": "8a96043a968c6de489701360f87eac120f51d16373155539f6052acf6f8e92c4"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

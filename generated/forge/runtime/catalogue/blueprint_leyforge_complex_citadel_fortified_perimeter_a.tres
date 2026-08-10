@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_tnv71"]
+
+[resource]
+script = ExtResource("1_tnv71")
+product_id = "runtime.catalogue.blueprint_leyforge_complex_citadel_fortified_perimeter_a"
+source_id = "blueprint.leyforge.complex.citadel_fortified_perimeter_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_complex_citadel_fortified_perimeter_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_complex_citadel_fortified_perimeter_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_complex_citadel_fortified_perimeter_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_complex_citadel_fortified_perimeter_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_complex_citadel_fortified_perimeter_a.tres": "466ff435987e25319edf3a1f2961ba36b743e13e8fee5ed425b5efc41a20f3f3",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_complex_citadel_fortified_perimeter_a_light_damage.tres": "c2ab2da0d4bbf5464708334f59dacd8795a5411a5825d92b191417a566607a91",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_complex_citadel_fortified_perimeter_a_repaired.tres": "296b8225a4df1e46473bbaa5b519c4fd7a9bab660b18b6ff951c021d36cbeb2c",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_complex_citadel_fortified_perimeter_a_under_construction.tres": "1d3b6c71d7948c024e9250d29d5e1f3f842ef740da5b7a7215720184f115ecd5"
+}
+combined_source_hash = "bacfb11ca86a3e35ed8673442f6c5924ab9d2cf30b83e6c43c19a8fabab46b32"
+dependency_ids = PackedStringArray()

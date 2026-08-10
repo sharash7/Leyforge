@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_0orbn"]
+
+[resource]
+script = ExtResource("1_0orbn")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_magic_rune_ward_deactivate_soft"
+source_id = "vfx.effect.production.magic_rune_ward_deactivate_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "9ca50be8306752760e2b7177a11248887789024b805e37c25ab925f3ad9aa9d8"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_magic_rune_ward_deactivate_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_magic_rune_ward_deactivate_soft.tres": "bd96a3b5dc35c3361df2e4710da1652211e1a324f500997a740aedda687b5d71"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

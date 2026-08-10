@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_qgnvy"]
+
+[resource]
+script = ExtResource("1_qgnvy")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_magic_ritual_circle_hall_a"
+source_id = "blueprint.leyforge.magic.ritual_circle_hall_a"
+source_type_id = "catalogue.structures"
+source_hash = "cf0e2564a9a52aed7351a84f1b8f9313c70d492c38a3159f933c12e87c0ded4b"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_magic_ritual_circle_hall_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_magic_ritual_circle_hall_a.tres": "bf6842dc5ae8a78e4b1b022ef2d20f26cb698d2d387d20b1493aeab495eb63aa"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

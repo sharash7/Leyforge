@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_o7lm7"]
+
+[resource]
+script = ExtResource("1_o7lm7")
+product_id = "runtime.catalogue.blueprint_leyforge_storage_village_warehouse_a"
+source_id = "blueprint.leyforge.storage.village_warehouse_a"
+source_paths = PackedStringArray("res://content/forge/runtime/set22_23_stage5/blueprint_warehouse.tres")
+source_hashes = {
+"res://content/forge/runtime/set22_23_stage5/blueprint_warehouse.tres": "f814bdfd854155f7cefc824d11dfad19cb15c6c34362658d779798707b6a2291"
+}
+combined_source_hash = "a3be10c75b2fd3eee817bc41ef89b54215e4be4bd60280ab38c22227c62cae45"
+dependency_ids = PackedStringArray()

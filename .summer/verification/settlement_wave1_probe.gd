@@ -115,7 +115,7 @@ func _verify_near_far_simulation() -> void:
 		"near and distant simulation did not conserve equivalent outcomes")
 	var ledger: Dictionary = near.get("ledger", {})
 	_check(int(ledger.get("item.food.village_meal_pack", 0)) == 4
-			and int(ledger.get("item.resource.log_oak", 0)) == 6,
+			and int(ledger.get("natural.log.oak", 0)) == 6,
 		"Forest Hamlet production chains produced unexpected conserved totals")
 	_check(int(ledger.get("item.resource.stone_chunk", 0)) == 0
 			and int(ledger.get("item.resource.raw_iron_ore", 0)) == 0,

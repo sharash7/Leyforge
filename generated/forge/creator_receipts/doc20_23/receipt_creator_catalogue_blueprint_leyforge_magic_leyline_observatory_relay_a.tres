@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_pbjj2"]
+
+[resource]
+script = ExtResource("1_pbjj2")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_magic_leyline_observatory_relay_a"
+source_id = "blueprint.leyforge.magic.leyline_observatory_relay_a"
+source_type_id = "catalogue.structures"
+source_hash = "29c34565e51d08f23143da09a39c1a65101abf63fee1c3119364e8696c599dff"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_magic_leyline_observatory_relay_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_magic_leyline_observatory_relay_a.tres": "446551527a9b5059e564ec8444c53fed9de27647c91782e7a2faf2107821eeb6"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

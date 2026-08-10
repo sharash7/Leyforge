@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_ba7cl"]
+
+[resource]
+script = ExtResource("1_ba7cl")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_community_bathhouse_laundry_a"
+source_id = "blueprint.leyforge.community.bathhouse_laundry_a"
+source_type_id = "catalogue.structures"
+source_hash = "f0e7f3734ae4de43a0b38f2d3c97676c8dd73221b0dcd1803dc903b98e743440"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_community_bathhouse_laundry_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_community_bathhouse_laundry_a.tres": "c2e71bc5a30f9e19a78db189721bbb7850826427670f2c3f87f5e8319aa5eec9"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

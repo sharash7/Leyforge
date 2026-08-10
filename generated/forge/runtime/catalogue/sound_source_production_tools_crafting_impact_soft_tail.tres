@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_hhqeo"]
+
+[resource]
+script = ExtResource("1_hhqeo")
+product_id = "runtime.catalogue.sound_source_production_tools_crafting_impact_soft_tail"
+source_id = "sound.source.production.tools_crafting_impact_soft_tail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_tools_crafting_impact_soft_tail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_tools_crafting_impact_soft_tail.tres": "9c960b39422a7fdf766874a079532406ee15cb2a05da407486aed741a73ee5f7"
+}
+combined_source_hash = "a873963b6bdcdbfd946ae68f6fc1ff3df322beff2a84165fdc23c8c243183282"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_xg5ut"]
+
+[resource]
+script = ExtResource("1_xg5ut")
+receipt_id = "receipt.creator.catalogue.sound_event_production_goblin_raid_sustain_firm"
+source_id = "sound.event.production.goblin_raid_sustain_firm"
+source_type_id = "catalogue.audio"
+source_hash = "9b77791078071d17868f7ada93374c7dbb658a660ba0f53cc6355540610b294a"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/sound_event_production_goblin_raid_sustain_firm.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/sound_event_production_goblin_raid_sustain_firm.tres": "f48f0fb79063ac78a939d5c0f4eacc4b7dbbb63c963137f25315f6c380453262"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

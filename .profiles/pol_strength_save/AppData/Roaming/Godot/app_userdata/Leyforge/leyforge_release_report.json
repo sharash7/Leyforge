@@ -1,0 +1,44 @@
+{
+	"build": {
+		"block_count": 143,
+		"build_stage": "production_foundation",
+		"content_sha256": "4dd34bbec118d497fdba7ed659108ad3b3ae3981e8911fa76ee121e6e95bf7b0",
+		"godot_version": "4.8-dev (custom_build)",
+		"item_count": 162,
+		"project_version": "0.10.0-dev",
+		"report_version": 1,
+		"save_version": 18,
+		"worldgen_version": 5
+	},
+	"hardware": {
+		"logical_processors": 6,
+		"os": "Windows",
+		"os_version": "10.0.19045",
+		"processor": "Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz",
+		"render_height": 64,
+		"render_width": 64,
+		"rendering_method": "forward_plus",
+		"video_adapter": "",
+		"video_vendor": ""
+	},
+	"performance": {
+		"captured_utc": "2026-08-10T05:02:29",
+		"fallback_30fps_guard_met": false,
+		"fps": 1.0,
+		"frame_max_ms": 144.502000000003,
+		"frame_p95_ms": 144.502000000003,
+		"node_count": 0,
+		"physics_ms": 0.0,
+		"process_ms": 164.669,
+		"profile": "balanced",
+		"sample_count": 1,
+		"static_memory_bytes": 139617425,
+		"systems": {},
+		"target_60fps_guard_met": false
+	},
+	"save_health": {},
+	"session": {
+		"started_unix": 1786338138,
+		"unclean_previous_session_detected": false
+	}
+}

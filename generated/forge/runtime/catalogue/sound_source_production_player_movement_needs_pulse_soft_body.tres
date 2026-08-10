@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_r36hn"]
+
+[resource]
+script = ExtResource("1_r36hn")
+product_id = "runtime.catalogue.sound_source_production_player_movement_needs_pulse_soft_body"
+source_id = "sound.source.production.player_movement_needs_pulse_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_player_movement_needs_pulse_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_player_movement_needs_pulse_soft_body.tres": "4a8d1e392da527c9863b264fe91c0d22c3c60561a904122844ae98890650d14f"
+}
+combined_source_hash = "aeb4b5f60633b80464597102827cdd1f44b7b3e994f5d05a2eafa5028e480feb"
+dependency_ids = PackedStringArray()

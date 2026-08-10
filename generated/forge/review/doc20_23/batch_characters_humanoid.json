@@ -1,0 +1,19 @@
+{
+  "batch_id": "batch.characters.humanoid",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "entity.definition.npc.humanoid",
+    "entity.definition.player.humanoid",
+    "entity.definition.profession.builder",
+    "entity.definition.profession.elder",
+    "entity.definition.profession.farmer",
+    "entity.definition.profession.guard",
+    "entity.definition.profession.lumberjack",
+    "entity.definition.profession.mage",
+    "entity.definition.profession.merchant",
+    "entity.definition.profession.miner"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

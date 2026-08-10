@@ -1,0 +1,55 @@
+{
+  "schema": "leyforge.production.registry-fixture",
+  "schema_version": 1,
+  "schemas": [
+    {
+      "id": "leyforge.production.block",
+      "version": 1,
+      "facet_ids": ["facet.gameplay", "facet.presentation"]
+    },
+    {
+      "id": "leyforge.production.ui-binding",
+      "version": 1,
+      "facet_ids": ["facet.presentation"]
+    }
+  ],
+  "packs": [
+    {
+      "pack_id": "pack.ui.frontier",
+      "version": "1.0.0",
+      "dependencies": ["pack.core"],
+      "optional": true
+    },
+    {
+      "pack_id": "pack.core",
+      "version": "1.0.0",
+      "dependencies": [],
+      "optional": false
+    }
+  ],
+  "definitions": [
+    {
+      "qualified_id": "block.core.stone",
+      "owner_pack": "pack.core",
+      "schema_id": "leyforge.production.block",
+      "schema_version": 1,
+      "facets": {
+        "facet.gameplay": {"solid": true},
+        "facet.presentation": {"display_name": "Stone"}
+      },
+      "payload": {"hardness": 3},
+      "references": []
+    },
+    {
+      "qualified_id": "ui.inventory.stone_tile",
+      "owner_pack": "pack.ui.frontier",
+      "schema_id": "leyforge.production.ui-binding",
+      "schema_version": 1,
+      "facets": {
+        "facet.presentation": {"label": "Stone", "icon_role": "block"}
+      },
+      "payload": {"block_id": "block.core.stone"},
+      "references": ["block.core.stone"]
+    }
+  ]
+}

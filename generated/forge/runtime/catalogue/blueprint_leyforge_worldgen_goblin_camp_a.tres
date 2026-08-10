@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ecgqj"]
+
+[resource]
+script = ExtResource("1_ecgqj")
+product_id = "runtime.catalogue.blueprint_leyforge_worldgen_goblin_camp_a"
+source_id = "blueprint.leyforge.worldgen.goblin_camp_a"
+source_paths = PackedStringArray("res://content/forge/runtime/set22_23_stage5/blueprint_goblin_camp.tres")
+source_hashes = {
+"res://content/forge/runtime/set22_23_stage5/blueprint_goblin_camp.tres": "e09f155f8706fa2ce894f63e3edc6e363132033fbc14eeb7b973285421a55a48"
+}
+combined_source_hash = "cdc49c7fa514473d22c85347ca0f5d7ee6ad672b4a0d53ff8db4d5043e33aa96"
+dependency_ids = PackedStringArray()

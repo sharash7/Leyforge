@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintStateDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_state_definition.gd" id="1_je8eb"]
+
+[resource]
+script = ExtResource("1_je8eb")
+state_id = "blueprint.state.blueprint_leyforge_governance_blueprint_construction_office_a.repaired"
+blueprint_id = "blueprint.leyforge.governance.blueprint_construction_office_a"
+state_kind = "repaired"
+parent_state_id = "blueprint.state.blueprint_leyforge_governance_blueprint_construction_office_a.light_damage"
+add_element_ids = PackedStringArray()
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+enable_network_role_ids = PackedStringArray()
+disable_network_role_ids = PackedStringArray()
+surface_layer_ids = PackedStringArray()
+repair_resource_ids = PackedStringArray()
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("blueprint.leyforge.governance.blueprint_construction_office_a")
+lifecycle = "review_ready"

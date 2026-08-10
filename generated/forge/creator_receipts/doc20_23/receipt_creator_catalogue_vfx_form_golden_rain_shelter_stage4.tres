@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_2g1j1"]
+
+[resource]
+script = ExtResource("1_2g1j1")
+receipt_id = "receipt.creator.catalogue.vfx_form_golden_rain_shelter_stage4"
+source_id = "vfx.form.golden.rain_shelter.stage4"
+source_type_id = "catalogue.vfx"
+source_hash = "9fcf8ae6d8be74d23f2ddf9e91d2064b50dc22726d92a3cf18856fbab17b7744"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_form_golden_rain_shelter_stage4.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_form_golden_rain_shelter_stage4.tres": "5ec8cb352498ab89a21e225eda555fadfc774f2e22ba42e921bdab9f9ad9ff04"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

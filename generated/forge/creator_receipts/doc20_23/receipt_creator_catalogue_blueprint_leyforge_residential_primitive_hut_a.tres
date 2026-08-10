@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_jqyn1"]
+
+[resource]
+script = ExtResource("1_jqyn1")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_residential_primitive_hut_a"
+source_id = "blueprint.leyforge.residential.primitive_hut_a"
+source_type_id = "catalogue.structures"
+source_hash = "f2de2d9e2abc1ac44c0e68f4d5cb89537bd0af519a2db544c11389eda79b3442"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_residential_primitive_hut_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_residential_primitive_hut_a.tres": "b119281ca07363c6bfbfcd76ad32d6a5847eaaed711f06d4538942278c7b8a29"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

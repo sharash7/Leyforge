@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_lvfen"]
+
+[resource]
+script = ExtResource("1_lvfen")
+receipt_id = "receipt.creator.catalogue.sound_event_production_combat_gear_idle_soft"
+source_id = "sound.event.production.combat_gear_idle_soft"
+source_type_id = "catalogue.audio"
+source_hash = "287ef66574ec0648dcabfff232864744e176f97110a29dd20543b60527099695"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/sound_event_production_combat_gear_idle_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/sound_event_production_combat_gear_idle_soft.tres": "5110a9f69e49dfb34984698599c314e7cc47b69d500c061caa897e3c83a75f06"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

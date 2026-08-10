@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_connector_definition.gd" id="1_bkteu"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_duc41"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="3_ry4q5"]
+
+[sub_resource type="Resource" id="Resource_8a2af"]
+script = ExtResource("1_bkteu")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_junction.north"
+display_name = "Cave Junction connection"
+owner_module_id = "blueprint.module.cave_nest.junction"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(0, 1, -2)
+direction = Vector3i(0, 0, 1)
+connection_tags = PackedStringArray("cave", "junction")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.cave"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "carve"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_5wv4c"]
+script = ExtResource("1_bkteu")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_junction.south"
+display_name = "Cave Junction connection"
+owner_module_id = "blueprint.module.cave_nest.junction"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(0, 1, 2)
+connection_tags = PackedStringArray("cave", "junction")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.cave"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "carve"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_43dlr"]
+script = ExtResource("1_bkteu")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_junction.west"
+display_name = "Cave Junction connection"
+owner_module_id = "blueprint.module.cave_nest.junction"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(-2, 1, 0)
+direction = Vector3i(-1, 0, 0)
+connection_tags = PackedStringArray("cave", "junction")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.cave"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "carve"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_o535l"]
+script = ExtResource("1_bkteu")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_junction.east"
+display_name = "Cave Junction connection"
+owner_module_id = "blueprint.module.cave_nest.junction"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(2, 1, 0)
+direction = Vector3i(1, 0, 0)
+connection_tags = PackedStringArray("cave", "junction")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.cave"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "carve"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_kxw8o"]
+script = ExtResource("2_duc41")
+element_id = "blueprint.module.cave_nest.junction.floor"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "construction.brick.stone"
+metadata = {
+"family": "cave",
+"operation": "fill",
+"role": "junction",
+"terrain_policy": "carve_and_fit"
+}
+
+[resource]
+script = ExtResource("3_ry4q5")
+module_id = "blueprint.module.cave_nest.junction"
+display_name = "Cave Nest Junction"
+module_kind = "junction"
+elements = Array[ExtResource("2_duc41")]([SubResource("Resource_kxw8o")])
+connectors = Array[ExtResource("1_bkteu")]([SubResource("Resource_8a2af"), SubResource("Resource_5wv4c"), SubResource("Resource_43dlr"), SubResource("Resource_o535l")])
+aliases = PackedStringArray("module.production.blueprint_module_cave_nest_junction")
+dependency_ids = PackedStringArray()
+lifecycle = "review_ready"

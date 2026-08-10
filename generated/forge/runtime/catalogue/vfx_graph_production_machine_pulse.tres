@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_kwdtu"]
+
+[resource]
+script = ExtResource("1_kwdtu")
+product_id = "runtime.catalogue.vfx_graph_production_machine_pulse"
+source_id = "vfx.graph.production.machine_pulse"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/graph_machine_pulse.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/graph_machine_pulse.tres": "73626f633f066fd20969dc3d5291dabb31496b074cc5c82a85174c02b43dd32d"
+}
+combined_source_hash = "4688646dd67abf3f0afa419ee6a10c89a99db21b720cc5f0a752c969d8386db2"
+dependency_ids = PackedStringArray()

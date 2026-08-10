@@ -37,10 +37,10 @@ func _register_stage3_recipes() -> void:
 	# Two deliberate bootstrap recipes fill gaps in the planning table. They
 	# have reduced yield so the authored workbench recipes remain preferable.
 	_add("recipe.hand.bootstrap.rough_oak_plank", "Rough Oak Planks", "hand", [
-		_ref("item", "item.resource.log_oak"),
-	], _ref("item", "item.material.plank_oak", 2), true)
+		_ref("block", "natural.log.oak"),
+	], _ref("block", "construction.planks.oak", 2), true)
 	_add("recipe.hand.bootstrap.stick", "Carved Sticks", "hand", [
-		_ref("item", "item.material.plank_oak"),
+		_ref("block", "construction.planks.oak"),
 	], _ref("item", "item.resource.stick", 2), true)
 	_add("recipe.hand.tool.crude_pickaxe", "Crude Pickaxe", "hand", [
 		_ref("item", "item.resource.stick", 2),
@@ -54,33 +54,33 @@ func _register_stage3_recipes() -> void:
 	], _ref("item", "item.tool.crude_axe"), true)
 	_add("recipe.hand.material.cobblestone", "Cobblestone Bundle", "hand", [
 		_ref("item", "item.resource.stone_chunk", 4),
-	], _ref("item", "item.material.cobblestone"), true)
+	], _ref("block", "construction.cobble.stone"), true)
 	_add("recipe.workbench.block.workbench_basic", "Workbench", "hand", [
-		_ref("item", "item.material.plank_oak", 4),
+		_ref("block", "construction.planks.oak", 4),
 		_ref("item", "item.resource.stick", 2),
 	], _ref("block", "functional.workbench.basic"), true)
 
 	_add("recipe.workbench.material.oak_plank", "Oak Planks", "workbench", [
-		_ref("item", "item.resource.log_oak"),
-	], _ref("item", "item.material.plank_oak", 4))
+		_ref("block", "natural.log.oak"),
+	], _ref("block", "construction.planks.oak", 4))
 	_add("recipe.workbench.material.oak_beam", "Oak Beams", "workbench", [
-		_ref("item", "item.resource.log_oak", 2),
-	], _ref("item", "item.material.beam_oak", 4))
+		_ref("block", "natural.log.oak", 2),
+	], _ref("block", "construction.beam.oak", 4))
 	_add("recipe.workbench.block.oak_slab", "Oak Slabs", "workbench", [
-		_ref("item", "item.material.plank_oak", 6),
+		_ref("block", "construction.planks.oak", 6),
 	], _ref("block", "construction.slab.oak", 6))
 	_add("recipe.workbench.block.oak_stair", "Oak Stairs", "workbench", [
-		_ref("item", "item.material.plank_oak", 6),
+		_ref("block", "construction.planks.oak", 6),
 	], _ref("block", "construction.stair.oak", 4))
 	_add("recipe.workbench.material.stone_brick", "Stone Bricks", "workbench", [
 		_ref("item", "item.resource.stone_chunk", 4),
-	], _ref("item", "item.material.stone_brick", 4))
+	], _ref("block", "construction.brick.stone", 4))
 	_add("recipe.workbench.block.fence_oak", "Oak Fence", "workbench", [
 		_ref("item", "item.resource.stick", 4),
-		_ref("item", "item.material.plank_oak", 2),
+		_ref("block", "construction.planks.oak", 2),
 	], _ref("block", "construction.fence.oak", 3))
 	_add("recipe.workbench.block.chest_wood", "Wooden Chest", "workbench", [
-		_ref("item", "item.material.plank_oak", 8),
+		_ref("block", "construction.planks.oak", 8),
 	], _ref("block", "storage.chest.wood"))
 	_add("recipe.workbench.tool.stone_pickaxe", "Stone Pickaxe", "workbench", [
 		_ref("item", "item.resource.stone_chunk", 3),
@@ -94,7 +94,7 @@ func _register_stage3_recipes() -> void:
 	], _ref("item", "item.tool.stone_axe"))
 	_add("recipe.workbench.block.furnace_stone", "Stone Furnace", "workbench", [
 		_ref("item", "item.component.furnace_core_stone"),
-		_ref("item", "item.material.cobblestone", 6),
+		_ref("block", "construction.cobble.stone", 6),
 		_ref("item", "item.material.clay_brick", 2),
 	], _ref("block", "functional.furnace.stone"))
 	# The full design places these behind a hammer/forge. Stage 4 needs the
@@ -126,8 +126,8 @@ func _register_stage3_recipes() -> void:
 		_ref("item", "item.material.copper_wire"),
 	], _ref("item", "item.component.gear_copper", 2))
 	_add("recipe.workbench.component.machine_frame_wood", "Wooden Machine Frame", "workbench", [
-		_ref("item", "item.material.plank_oak", 6),
-		_ref("item", "item.material.beam_oak", 2),
+		_ref("block", "construction.planks.oak", 6),
+		_ref("block", "construction.beam.oak", 2),
 		_ref("item", "item.material.copper_wire", 2),
 	], _ref("item", "item.component.machine_frame_wood"))
 	_add("recipe.workbench.component.machine_frame_copper", "Copper Machine Frame", "workbench", [
@@ -141,7 +141,7 @@ func _register_stage3_recipes() -> void:
 		_ref("item", "item.material.iron_rod"),
 	], _ref("item", "item.component.machine_core_basic"))
 	_add("recipe.workbench.component.chute_segment", "Item Chute Segments", "workbench", [
-		_ref("item", "item.material.plank_oak", 4),
+		_ref("block", "construction.planks.oak", 4),
 		_ref("item", "item.material.copper_plate", 2),
 		_ref("item", "item.material.iron_nails", 2),
 	], _ref("item", "item.component.chute_segment", 4))
@@ -160,11 +160,11 @@ func _register_stage3_recipes() -> void:
 		_ref("item", "item.material.iron_rod"),
 	], _ref("item", "item.tool.wrench_basic"))
 	_add("recipe.workbench.block.crate_wood", "Wooden Crate", "workbench", [
-		_ref("item", "item.material.plank_oak", 6),
-		_ref("item", "item.material.beam_oak", 2),
+		_ref("block", "construction.planks.oak", 6),
+		_ref("block", "construction.beam.oak", 2),
 	], _ref("block", "storage.crate.wood"))
 	_add("recipe.workbench.block.manual_crank", "Manual Crank", "workbench", [
-		_ref("item", "item.material.beam_oak", 2),
+		_ref("block", "construction.beam.oak", 2),
 		_ref("item", "item.component.gear_copper"),
 		_ref("item", "item.material.iron_rod"),
 	], _ref("block", "power.crank.basic"))
@@ -182,11 +182,11 @@ func _register_stage3_recipes() -> void:
 	# Stage 6 entry magic. The normal workbench makes physical station shells;
 	# rune inscriptions and charged cores remain exclusive to the Rune Table.
 	_add("recipe.workbench.material.blank_rune_stone", "Blank Rune Stone", "workbench", [
-		_ref("item", "item.material.stone_brick"),
+		_ref("block", "construction.brick.stone"),
 		_ref("item", "item.material.glass_piece"),
 	], _ref("item", "item.material.blank_rune_stone", 2))
 	_add("recipe.workbench.block.rune_table", "Rune Table", "workbench", [
-		_ref("item", "item.material.stone_brick", 4),
+		_ref("block", "construction.brick.stone", 4),
 		_ref("item", "item.material.copper_wire", 2),
 		_ref("item", "item.material.glass_piece"),
 	], _ref("block", "magic.rune_table.basic"))
@@ -243,10 +243,10 @@ func _register_stage3_recipes() -> void:
 		_ref("item", "item.resource.clay_lump"),
 	], _ref("item", "item.material.clay_brick"), false, 10.0)
 	_add("recipe.furnace.material.glass_piece", "Glass Piece", "furnace", [
-		_ref("item", "item.resource.sand"),
+		_ref("block", "terrain.sand.basic"),
 	], _ref("item", "item.material.glass_piece"), false, 12.0)
 	_add("recipe.furnace.component.stone_furnace_core", "Stone Furnace Core", "furnace", [
-		_ref("item", "item.material.stone_brick", 8),
+		_ref("block", "construction.brick.stone", 8),
 		_ref("item", "item.material.clay_brick", 2),
 		_ref("item", "item.resource.coal_chunk"),
 	], _ref("item", "item.component.furnace_core_stone"), false, 20.0)
@@ -313,27 +313,27 @@ func _register_crafting_patterns() -> void:
 		_cell(0, 1, "item", "item.resource.stick", 2),
 	])
 	_set_pattern("recipe.workbench.block.workbench_basic", 2, 2, [
-		_cell(0, 0, "item", "item.material.plank_oak", 2),
-		_cell(1, 0, "item", "item.material.plank_oak", 2),
+		_cell(0, 0, "block", "construction.planks.oak", 2),
+		_cell(1, 0, "block", "construction.planks.oak", 2),
 		_cell(0, 1, "item", "item.resource.stick"),
 		_cell(1, 1, "item", "item.resource.stick"),
 	])
 	_set_pattern("recipe.workbench.material.oak_beam", 1, 2, [
-		_cell(0, 0, "item", "item.resource.log_oak"),
-		_cell(0, 1, "item", "item.resource.log_oak"),
+		_cell(0, 0, "block", "natural.log.oak"),
+		_cell(0, 1, "block", "natural.log.oak"),
 	])
 	_set_pattern("recipe.workbench.block.oak_slab", 3, 1, [
-		_cell(0, 0, "item", "item.material.plank_oak", 2),
-		_cell(1, 0, "item", "item.material.plank_oak", 2),
-		_cell(2, 0, "item", "item.material.plank_oak", 2),
+		_cell(0, 0, "block", "construction.planks.oak", 2),
+		_cell(1, 0, "block", "construction.planks.oak", 2),
+		_cell(2, 0, "block", "construction.planks.oak", 2),
 	])
 	_set_pattern("recipe.workbench.block.oak_stair", 3, 3, [
-		_cell(0, 0, "item", "item.material.plank_oak"),
-		_cell(0, 1, "item", "item.material.plank_oak"),
-		_cell(1, 1, "item", "item.material.plank_oak"),
-		_cell(0, 2, "item", "item.material.plank_oak"),
-		_cell(1, 2, "item", "item.material.plank_oak"),
-		_cell(2, 2, "item", "item.material.plank_oak"),
+		_cell(0, 0, "block", "construction.planks.oak"),
+		_cell(0, 1, "block", "construction.planks.oak"),
+		_cell(1, 1, "block", "construction.planks.oak"),
+		_cell(0, 2, "block", "construction.planks.oak"),
+		_cell(1, 2, "block", "construction.planks.oak"),
+		_cell(2, 2, "block", "construction.planks.oak"),
 	])
 	_set_pattern("recipe.workbench.material.stone_brick", 2, 2, [
 		_cell(0, 0, "item", "item.resource.stone_chunk"),
@@ -343,17 +343,17 @@ func _register_crafting_patterns() -> void:
 	])
 	_set_pattern("recipe.workbench.block.fence_oak", 3, 2, [
 		_cell(0, 0, "item", "item.resource.stick"),
-		_cell(1, 0, "item", "item.material.plank_oak"),
+		_cell(1, 0, "block", "construction.planks.oak"),
 		_cell(2, 0, "item", "item.resource.stick"),
 		_cell(0, 1, "item", "item.resource.stick"),
-		_cell(1, 1, "item", "item.material.plank_oak"),
+		_cell(1, 1, "block", "construction.planks.oak"),
 		_cell(2, 1, "item", "item.resource.stick"),
 	])
 	var chest_cells: Array = []
 	for y in 3:
 		for x in 3:
 			if x != 1 or y != 1:
-				chest_cells.append(_cell(x, y, "item", "item.material.plank_oak"))
+				chest_cells.append(_cell(x, y, "block", "construction.planks.oak"))
 	_set_pattern("recipe.workbench.block.chest_wood", 3, 3, chest_cells)
 	_set_pattern("recipe.workbench.tool.stone_pickaxe", 3, 3, [
 		_cell(0, 0, "item", "item.resource.stone_chunk"),
@@ -372,15 +372,15 @@ func _register_crafting_patterns() -> void:
 		_cell(2, 2, "item", "item.resource.plant_fibre"),
 	])
 	_set_pattern("recipe.workbench.block.furnace_stone", 3, 3, [
-		_cell(0, 0, "item", "item.material.cobblestone"),
+		_cell(0, 0, "block", "construction.cobble.stone"),
 		_cell(1, 0, "item", "item.material.clay_brick"),
-		_cell(2, 0, "item", "item.material.cobblestone"),
-		_cell(0, 1, "item", "item.material.cobblestone"),
+		_cell(2, 0, "block", "construction.cobble.stone"),
+		_cell(0, 1, "block", "construction.cobble.stone"),
 		_cell(1, 1, "item", "item.component.furnace_core_stone"),
-		_cell(2, 1, "item", "item.material.cobblestone"),
-		_cell(0, 2, "item", "item.material.cobblestone"),
+		_cell(2, 1, "block", "construction.cobble.stone"),
+		_cell(0, 2, "block", "construction.cobble.stone"),
 		_cell(1, 2, "item", "item.material.clay_brick"),
-		_cell(2, 2, "item", "item.material.cobblestone"),
+		_cell(2, 2, "block", "construction.cobble.stone"),
 	])
 	_set_pattern("recipe.workbench.material.iron_rod", 1, 2, [
 		_cell(0, 0, "item", "item.material.iron_ingot"),
@@ -406,15 +406,15 @@ func _register_crafting_patterns() -> void:
 		_cell(2, 0, "item", "item.material.copper_plate"),
 	])
 	_set_pattern("recipe.workbench.component.machine_frame_wood", 3, 3, [
-		_cell(0, 0, "item", "item.material.plank_oak"),
-		_cell(1, 0, "item", "item.material.plank_oak"),
-		_cell(2, 0, "item", "item.material.plank_oak"),
-		_cell(0, 1, "item", "item.material.beam_oak"),
+		_cell(0, 0, "block", "construction.planks.oak"),
+		_cell(1, 0, "block", "construction.planks.oak"),
+		_cell(2, 0, "block", "construction.planks.oak"),
+		_cell(0, 1, "block", "construction.beam.oak"),
 		_cell(1, 1, "item", "item.material.copper_wire", 2),
-		_cell(2, 1, "item", "item.material.beam_oak"),
-		_cell(0, 2, "item", "item.material.plank_oak"),
-		_cell(1, 2, "item", "item.material.plank_oak"),
-		_cell(2, 2, "item", "item.material.plank_oak"),
+		_cell(2, 1, "block", "construction.beam.oak"),
+		_cell(0, 2, "block", "construction.planks.oak"),
+		_cell(1, 2, "block", "construction.planks.oak"),
+		_cell(2, 2, "block", "construction.planks.oak"),
 	])
 	_set_pattern("recipe.workbench.component.machine_frame_copper", 3, 3, [
 		_cell(0, 0, "item", "item.material.copper_plate"),
@@ -433,13 +433,13 @@ func _register_crafting_patterns() -> void:
 		_cell(1, 2, "item", "item.component.gear_copper"),
 	])
 	_set_pattern("recipe.workbench.component.chute_segment", 3, 3, [
-		_cell(0, 0, "item", "item.material.plank_oak"),
-		_cell(2, 0, "item", "item.material.plank_oak"),
+		_cell(0, 0, "block", "construction.planks.oak"),
+		_cell(2, 0, "block", "construction.planks.oak"),
 		_cell(0, 1, "item", "item.material.copper_plate"),
 		_cell(1, 1, "item", "item.material.iron_nails", 2),
 		_cell(2, 1, "item", "item.material.copper_plate"),
-		_cell(0, 2, "item", "item.material.plank_oak"),
-		_cell(2, 2, "item", "item.material.plank_oak"),
+		_cell(0, 2, "block", "construction.planks.oak"),
+		_cell(2, 2, "block", "construction.planks.oak"),
 	])
 	_set_pattern("recipe.workbench.block.item_chute_basic", 3, 1, [
 		_cell(0, 0, "item", "item.component.chute_segment"),
@@ -461,18 +461,18 @@ func _register_crafting_patterns() -> void:
 		_cell(1, 2, "item", "item.material.iron_rod"),
 	])
 	_set_pattern("recipe.workbench.block.crate_wood", 3, 3, [
-		_cell(0, 0, "item", "item.material.plank_oak"),
-		_cell(1, 0, "item", "item.material.plank_oak"),
-		_cell(2, 0, "item", "item.material.plank_oak"),
-		_cell(0, 1, "item", "item.material.beam_oak"),
-		_cell(2, 1, "item", "item.material.beam_oak"),
-		_cell(0, 2, "item", "item.material.plank_oak"),
-		_cell(1, 2, "item", "item.material.plank_oak"),
-		_cell(2, 2, "item", "item.material.plank_oak"),
+		_cell(0, 0, "block", "construction.planks.oak"),
+		_cell(1, 0, "block", "construction.planks.oak"),
+		_cell(2, 0, "block", "construction.planks.oak"),
+		_cell(0, 1, "block", "construction.beam.oak"),
+		_cell(2, 1, "block", "construction.beam.oak"),
+		_cell(0, 2, "block", "construction.planks.oak"),
+		_cell(1, 2, "block", "construction.planks.oak"),
+		_cell(2, 2, "block", "construction.planks.oak"),
 	])
 	_set_pattern("recipe.workbench.block.manual_crank", 3, 3, [
-		_cell(0, 0, "item", "item.material.beam_oak"),
-		_cell(2, 0, "item", "item.material.beam_oak"),
+		_cell(0, 0, "block", "construction.beam.oak"),
+		_cell(2, 0, "block", "construction.beam.oak"),
 		_cell(1, 1, "item", "item.component.gear_copper"),
 		_cell(1, 2, "item", "item.material.iron_rod"),
 	])
@@ -494,12 +494,12 @@ func _register_crafting_patterns() -> void:
 	])
 	_set_shapeless("recipe.workbench.material.blank_rune_stone")
 	_set_pattern("recipe.workbench.block.rune_table", 3, 3, [
-		_cell(0, 0, "item", "item.material.stone_brick"),
+		_cell(0, 0, "block", "construction.brick.stone"),
 		_cell(1, 0, "item", "item.material.copper_wire"),
-		_cell(2, 0, "item", "item.material.stone_brick"),
-		_cell(0, 1, "item", "item.material.stone_brick"),
+		_cell(2, 0, "block", "construction.brick.stone"),
+		_cell(0, 1, "block", "construction.brick.stone"),
 		_cell(1, 1, "item", "item.material.glass_piece"),
-		_cell(2, 1, "item", "item.material.stone_brick"),
+		_cell(2, 1, "block", "construction.brick.stone"),
 		_cell(1, 2, "item", "item.material.copper_wire"),
 	])
 	_set_pattern("recipe.workbench.block.mana_furnace", 3, 3, [

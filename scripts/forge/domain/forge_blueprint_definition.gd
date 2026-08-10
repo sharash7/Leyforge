@@ -9,6 +9,8 @@ extends Resource
 @export var module_ids: PackedStringArray = []
 @export var elements: Array[ForgeBlueprintElement] = []
 @export var construction_deltas: Array[ForgeConstructionDelta] = []
+@export_enum("elements", "voxel_grid") var physical_authoring_mode := "elements"
+@export var structure_voxel_source: ForgeStructureVoxelSource
 @export var placement_profile: ForgePlacementProfile
 @export var material_role_set: ForgeBlueprintMaterialRoleSet
 @export var contract_ids: PackedStringArray = []
@@ -33,7 +35,7 @@ func to_record() -> Dictionary:
 	for delta in construction_deltas:
 		if delta != null:
 			delta_records.append(delta.to_record())
-	return {
+	var record := {
 		"schema": "leyforge.forge.blueprint-definition",
 		"schema_version": schema_version,
 		"blueprint_id": blueprint_id,
@@ -58,6 +60,14 @@ func to_record() -> Dictionary:
 		"dependency_ids": Array(dependency_ids),
 		"legacy_fallback": legacy_fallback,
 	}
+	# Schema-v1 sources retain their historical canonical hash until a creator
+	# explicitly opts into the visual voxel-grid authoring source.
+	if schema_version >= 2 or physical_authoring_mode != "elements" \
+			or structure_voxel_source != null:
+		record["physical_authoring_mode"] = physical_authoring_mode
+		record["structure_voxel_source"] = structure_voxel_source.to_record() \
+			if structure_voxel_source != null else {}
+	return record
 
 
 func canonical_hash() -> String:

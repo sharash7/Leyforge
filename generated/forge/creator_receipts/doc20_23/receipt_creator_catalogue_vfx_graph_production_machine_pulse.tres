@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_phjtf"]
+
+[resource]
+script = ExtResource("1_phjtf")
+receipt_id = "receipt.creator.catalogue.vfx_graph_production_machine_pulse"
+source_id = "vfx.graph.production.machine_pulse"
+source_type_id = "catalogue.vfx"
+source_hash = "4688646dd67abf3f0afa419ee6a10c89a99db21b720cc5f0a752c969d8386db2"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_graph_production_machine_pulse.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_graph_production_machine_pulse.tres": "65c5351f4e7587c50981b020f7ff2db0a448d7a1c26761f620c239fc6326b0f1"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

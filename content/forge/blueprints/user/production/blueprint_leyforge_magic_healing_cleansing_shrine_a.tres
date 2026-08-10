@@ -1,0 +1,384 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_ud05j"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_7d1r5"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_yl7q1"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_f8hej"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_1t0ew"]
+
+[sub_resource type="Resource" id="Resource_fmxwx"]
+script = ExtResource("1_ud05j")
+delta_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.healing_cleansing_shrine_a.element.foundation.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_dcpx2"]
+script = ExtResource("1_ud05j")
+delta_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.delta.frame"
+stage_id = "frame"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.healing_cleansing_shrine_a.element.frame.pillar_0", "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.frame.pillar_1", "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.frame.pillar_2", "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.frame.pillar_3")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_yp7q8"]
+script = ExtResource("1_ud05j")
+delta_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.delta.shell"
+stage_id = "shell"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.healing_cleansing_shrine_a.element.shell.perimeter_0", "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.shell.point_1")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("frame")
+
+[sub_resource type="Resource" id="Resource_tkr30"]
+script = ExtResource("1_ud05j")
+delta_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.delta.weatherproofing"
+stage_id = "weatherproofing"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.healing_cleansing_shrine_a.element.weatherproofing.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("shell")
+
+[sub_resource type="Resource" id="Resource_hnn8r"]
+script = ExtResource("1_ud05j")
+delta_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.delta.activation"
+stage_id = "activation"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.healing_cleansing_shrine_a.element.activation.point_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("weatherproofing")
+
+[sub_resource type="Resource" id="Resource_xte1j"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.foundation.fill_0"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 0.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "foundation_primary"
+}
+
+[sub_resource type="Resource" id="Resource_jeahv"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.frame.pillar_0"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_5nk3g"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.frame.pillar_1"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_mc4le"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.frame.pillar_2"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_57s31"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.frame.pillar_3"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_u325f"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.shell.perimeter_0"
+element_kind = "block_operation"
+material_role_id = "wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"exclude": [[-2.0, 1.0, -2.0], [-2.0, 2.0, -2.0], [-2.0, 1.0, 2.0], [-2.0, 2.0, 2.0], [2.0, 1.0, -2.0], [2.0, 2.0, -2.0], [2.0, 1.0, 2.0], [2.0, 2.0, 2.0], [0.0, 1.0, -2.0]],
+"op": "perimeter",
+"origin": [-2.0, 1.0, -2.0],
+"size": [5.0, 2.0, 5.0],
+"token": "wall_primary"
+}
+
+[sub_resource type="Resource" id="Resource_lxats"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.shell.point_1"
+element_kind = "block_operation"
+material_role_id = "door_basic"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 1, -2)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, -2.0],
+"token": "door_basic"
+}
+
+[sub_resource type="Resource" id="Resource_h7si0"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.weatherproofing.fill_0"
+element_kind = "block_operation"
+material_role_id = "roof_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "weatherproofing"
+position = Vector3i(-2, 4, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 4.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "roof_primary"
+}
+
+[sub_resource type="Resource" id="Resource_hcf71"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.element.activation.point_0"
+element_kind = "block_operation"
+material_role_id = "functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "activation"
+position = Vector3i(0, 1, 0)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, 0.0],
+"token": "functional"
+}
+
+[sub_resource type="Resource" id="Resource_8jdla"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.marker_01"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.treatment_recovery_points")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -2)
+metadata = {
+"id": "marker_01",
+"position": [-2.0, 1.0, -2.0],
+"type": "treatment_recovery_points"
+}
+
+[sub_resource type="Resource" id="Resource_18ylf"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.marker_02"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.cleansing_circle")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -2)
+metadata = {
+"id": "marker_02",
+"position": [-1.0, 1.0, -2.0],
+"type": "cleansing_circle"
+}
+
+[sub_resource type="Resource" id="Resource_2btx4"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.marker_03"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.mana_input")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"id": "marker_03",
+"position": [0.0, 1.0, -2.0],
+"type": "mana_input"
+}
+
+[sub_resource type="Resource" id="Resource_lp0nw"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.marker_04"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.clean_store")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -2)
+metadata = {
+"id": "marker_04",
+"position": [1.0, 1.0, -2.0],
+"type": "clean_store"
+}
+
+[sub_resource type="Resource" id="Resource_rav8v"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.marker_05"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.contaminated_intake")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(2, 1, -2)
+metadata = {
+"id": "marker_05",
+"position": [2.0, 1.0, -2.0],
+"type": "contaminated_intake"
+}
+
+[sub_resource type="Resource" id="Resource_nk1q0"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.marker_06"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.practitioner_station")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -1)
+metadata = {
+"id": "marker_06",
+"position": [-2.0, 1.0, -1.0],
+"type": "practitioner_station"
+}
+
+[sub_resource type="Resource" id="Resource_fkl5f"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.marker_07"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.public_waiting")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -1)
+metadata = {
+"id": "marker_07",
+"position": [-1.0, 1.0, -1.0],
+"type": "public_waiting"
+}
+
+[sub_resource type="Resource" id="Resource_wftf2"]
+script = ExtResource("2_7d1r5")
+element_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a.marker_08"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.isolation_and_waste_ritual_disposal")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -1)
+metadata = {
+"id": "marker_08",
+"position": [0.0, 1.0, -1.0],
+"type": "isolation_and_waste_ritual_disposal"
+}
+
+[sub_resource type="Resource" id="Resource_7vyc7"]
+script = ExtResource("3_yl7q1")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_magic_healing_cleansing_shrine_a"
+display_name = "Healing or Cleansing Shrine - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.wood",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_41ri8"]
+script = ExtResource("4_f8hej")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_magic_healing_cleansing_shrine_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -2)
+footprint_max = Vector3i(2, 5, 2)
+max_slope = 1
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_1t0ew")
+blueprint_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a"
+display_name = "Healing or Cleansing Shrine - Forest Neutral"
+definition_ids = PackedStringArray("building.magic.healing_cleansing_shrine")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_7d1r5")]([SubResource("Resource_xte1j"), SubResource("Resource_jeahv"), SubResource("Resource_5nk3g"), SubResource("Resource_mc4le"), SubResource("Resource_57s31"), SubResource("Resource_u325f"), SubResource("Resource_lxats"), SubResource("Resource_h7si0"), SubResource("Resource_hcf71"), SubResource("Resource_8jdla"), SubResource("Resource_18ylf"), SubResource("Resource_2btx4"), SubResource("Resource_lp0nw"), SubResource("Resource_rav8v"), SubResource("Resource_nk1q0"), SubResource("Resource_fkl5f"), SubResource("Resource_wftf2")])
+construction_deltas = Array[ExtResource("1_ud05j")]([SubResource("Resource_fmxwx"), SubResource("Resource_dcpx2"), SubResource("Resource_yp7q8"), SubResource("Resource_tkr30"), SubResource("Resource_hnn8r")])
+placement_profile = SubResource("Resource_41ri8")
+material_role_set = SubResource("Resource_7vyc7")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.097"

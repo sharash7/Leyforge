@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_maow7"]
+
+[resource]
+script = ExtResource("1_maow7")
+product_id = "runtime.catalogue.blueprint_leyforge_food_preserving_house_a"
+source_id = "blueprint.leyforge.food.preserving_house_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_food_preserving_house_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_preserving_house_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_preserving_house_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_preserving_house_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_food_preserving_house_a.tres": "3c45ddbb78fa627c25fdbf07338e0e89152776b05bd56e688d2f07b8e8809732",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_preserving_house_a_light_damage.tres": "acc745c8b4cba0b2cf97ba8853b354b0c38ec904fed5bb3949574d915e3e7dca",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_preserving_house_a_repaired.tres": "a3cacffefcb762362fd2ecf35b24f34cbf82879f22438fe4ce7f992c62f5afe8",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_preserving_house_a_under_construction.tres": "94ed4c4d0616a4db1af248ecffdda20bc1574ef47471dd2ac14e63464e36d198"
+}
+combined_source_hash = "fba1d82769eecca75e4b6ab2f36a4f321be4fc144d892531913db09a0d1755cd"
+dependency_ids = PackedStringArray()

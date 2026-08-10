@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_v3bqg"]
+
+[resource]
+script = ExtResource("1_v3bqg")
+product_id = "runtime.catalogue.vfx_effect_production_goblin_cave_wisp_burst_soft"
+source_id = "vfx.effect.production.goblin_cave_wisp_burst_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_goblin_cave_wisp_burst_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_goblin_cave_wisp_burst_soft.tres": "b5edaf79fa0f659781a44321d1b4ce927e199212ec08bf755c25a9e214efcfc7"
+}
+combined_source_hash = "b75f5d446c55bde187da8e8ea6869929a9cd4b19891f1c059e0c32a4702e5d47"
+dependency_ids = PackedStringArray()

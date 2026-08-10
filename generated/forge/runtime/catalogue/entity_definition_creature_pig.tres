@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_c30v8"]
+
+[resource]
+script = ExtResource("1_c30v8")
+product_id = "runtime.catalogue.entity_definition_creature_pig"
+source_id = "entity.definition.creature.pig"
+source_paths = PackedStringArray("res://content/forge/entities/user/production/entity_definition_creature_pig.tres", "res://content/forge/entities/user/production/rigs/entity_rig_production_entity_definition_creature_pig.tres", "res://content/forge/entities/user/production/animations/entity_animation_set_production_entity_definition_creature_pig.tres", "res://content/forge/entities/user/production/variants/entity_variant_production_entity_definition_creature_pig.tres")
+source_hashes = {
+"res://content/forge/entities/user/production/animations/entity_animation_set_production_entity_definition_creature_pig.tres": "c779b96da92f0e1e28c185f5cbda08a37c14da0f478c412d99726038dfa25308",
+"res://content/forge/entities/user/production/entity_definition_creature_pig.tres": "54fc44f2e94c788da386bae438afbc8f75ae26d142a04698bc6d2571633db872",
+"res://content/forge/entities/user/production/rigs/entity_rig_production_entity_definition_creature_pig.tres": "e57b784a247cd8616af235f05877a013923ba57952911c9c2c3f4072b6b77d05",
+"res://content/forge/entities/user/production/variants/entity_variant_production_entity_definition_creature_pig.tres": "bbb12baa69e2837c690da10fb743edf5d43ae4c6c0308863b8365550944b5a16"
+}
+combined_source_hash = "d017577b8490cced9191c90c50960f01763826ea92e93c007677632d71ea78bb"
+dependency_ids = PackedStringArray("entity.body_plan.production.quadruped")

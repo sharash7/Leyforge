@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_4dp04"]
+
+[resource]
+script = ExtResource("1_4dp04")
+product_id = "runtime.catalogue.blueprint_leyforge_temporary_campfire_site_a"
+source_id = "blueprint.leyforge.temporary.campfire_site_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_temporary_campfire_site_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_temporary_campfire_site_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_temporary_campfire_site_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_temporary_campfire_site_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_temporary_campfire_site_a.tres": "407cdb9c9603c28d008c60a6c3f52d3dbdf849265b9624697b3bb0694ea1563c",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_temporary_campfire_site_a_light_damage.tres": "cea2ea2b7da74243a45b36606fe433e76c6fedb04b1538374bd94f65ce48ee58",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_temporary_campfire_site_a_repaired.tres": "2830f4826dbef9816df6411131108824b14e25707eab735e95549415b86f95a1",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_temporary_campfire_site_a_under_construction.tres": "c51c08b04394bbff454900872b23ff745d937e2bfbc498e07b60622354e6a216"
+}
+combined_source_hash = "7cc134790720894dbf06419399537c52e309dfe7af5fd373eb210699c7d8b0ac"
+dependency_ids = PackedStringArray()

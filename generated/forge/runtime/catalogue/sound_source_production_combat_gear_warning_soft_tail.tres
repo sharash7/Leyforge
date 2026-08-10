@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_qadex"]
+
+[resource]
+script = ExtResource("1_qadex")
+product_id = "runtime.catalogue.sound_source_production_combat_gear_warning_soft_tail"
+source_id = "sound.source.production.combat_gear_warning_soft_tail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_combat_gear_warning_soft_tail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_combat_gear_warning_soft_tail.tres": "96bc51c5581c5ca158fbeee5df662fb8f6b369cac7e7ae721c050b125eafa1e6"
+}
+combined_source_hash = "1a957deab43af73cb45081e11996a791bf17d87617ef7a1d48e413ff20e17225"
+dependency_ids = PackedStringArray()

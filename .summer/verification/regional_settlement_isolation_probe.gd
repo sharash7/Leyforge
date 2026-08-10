@@ -1,6 +1,6 @@
 extends Node
 ## Proves that two generated v4 hamlets retain independent runtime identities,
-## settlement state, raid state, far simulation, and save-v17 collection data.
+## settlement state, raid state, far simulation, and save-v18 owner data.
 
 var failures: Array[String] = []
 var checks := 0
@@ -61,6 +61,18 @@ func _run() -> void:
 	_check(
 		_records_are_separated(first_record, second_record),
 		"generated settlement anchors are not regionally separated")
+	_check(PoliticalManager.government_ids(first_id).size() == 1 \
+			and PoliticalManager.government_ids(second_id).size() == 1 \
+			and PoliticalManager.government_ids(first_id) \
+				!= PoliticalManager.government_ids(second_id) \
+			and not (first_record.get(
+				"movement_owner_refs", {}) as Dictionary).is_empty() \
+			and not (second_record.get(
+				"movement_owner_refs", {}) as Dictionary).is_empty() \
+			and _keys_are_disjoint(
+				first_record.get("movement_owner_refs", {}),
+				second_record.get("movement_owner_refs", {})),
+		"generated settlements did not receive independent political and movement identities")
 	_check(
 		not (first_record.get("linked_camp_ids", []) as Array).is_empty()
 			and not (second_record.get("linked_camp_ids", []) as Array).is_empty(),
@@ -90,7 +102,14 @@ func _run() -> void:
 	_check(
 		SettlementManager.focus_settlement(first_id),
 		"first settlement could not receive focus")
-	HamletState.reputation_points = 73
+	SocialManager.apply_reputation_event({
+		"transaction_id": "regional.isolation.first.reputation",
+		"scope_ref": first_id,
+		"target_ref": SocialManager.PLAYER_ACTOR_ID,
+		"delta": 73,
+		"source_event_id": "event.regional.isolation.first",
+	})
+	HamletState.refresh_social_projection()
 	HamletState.project["stage_progress"] = 0.37
 	HamletState.warehouse_add_stack(Inventory.make_stack_from_ref({
 		"kind": "block",
@@ -115,7 +134,14 @@ func _run() -> void:
 	_check(
 		is_zero_approx(float(HamletState.project.get("stage_progress", 0.0))),
 		"project progress leaked between settlements")
-	HamletState.reputation_points = 11
+	SocialManager.apply_reputation_event({
+		"transaction_id": "regional.isolation.second.reputation",
+		"scope_ref": second_id,
+		"target_ref": SocialManager.PLAYER_ACTOR_ID,
+		"delta": 11,
+		"source_event_id": "event.regional.isolation.second",
+	})
+	HamletState.refresh_social_projection()
 	var second_clock_before := HamletState.clock_minutes
 	SettlementManager.get_settlement(second_id)
 	_check(
@@ -149,18 +175,27 @@ func _run() -> void:
 		"distant settlement did not advance through record simulation")
 
 	var serialized := SettlementManager.serialize_state()
+	var serialized_social := SocialManager.serialize_state()
+	var serialized_political := PoliticalManager.serialize_state()
+	var serialized_movement := MovementManager.serialize_state()
 	_check(
 		(serialized.get("settlements", {}) as Dictionary).size() == 2,
 		"settlement collection serialization omitted a materialized settlement")
 	SettlementManager.reset()
+	SocialManager.reset()
+	PoliticalManager.reset()
+	MovementManager.reset()
 	HamletState.initialized = false
 	CombatState.initialized = false
 	_check(
 		SettlementManager.initialize_world(seed_value, planner),
 		"fresh regional settlement collection could not be prepared for reload")
 	_check(
-		SettlementManager.restore_state(serialized, seed_value),
-		"settlement collection did not restore")
+		SocialManager.restore_state(serialized_social, seed_value) \
+			and PoliticalManager.restore_state(serialized_political, seed_value) \
+			and MovementManager.restore_state(serialized_movement, seed_value) \
+			and SettlementManager.restore_state(serialized, seed_value),
+		"social, political, movement and settlement owners did not restore")
 	_check(
 		SettlementManager.settlements.size() == 2,
 		"settlement collection reload changed its record count")
@@ -206,6 +241,8 @@ func _finish() -> void:
 	}
 	print("REGIONAL_SETTLEMENT_ISOLATION_PROBE %s" % JSON.stringify(report))
 	SettlementManager.reset()
+	SocialManager.reset()
+	PoliticalManager.reset()
 	HamletState.initialized = false
 	CombatState.initialized = false
 	get_tree().quit(0 if failures.is_empty() else 1)

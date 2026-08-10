@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_unvl3"]
+
+[resource]
+script = ExtResource("1_unvl3")
+product_id = "runtime.catalogue.vfx_effect_production_village_ambience_finish_soft"
+source_id = "vfx.effect.production.village_ambience_finish_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_village_ambience_finish_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_village_ambience_finish_soft.tres": "687429024986ecbee2d413614a21bf523f08a5f1cbd4806a00ce4a922f52eef2"
+}
+combined_source_hash = "bf4b16a6e36d03c94507656ec9c862c6c27f297cd9c5e533dc6c2a2a71086581"
+dependency_ids = PackedStringArray()

@@ -25,6 +25,8 @@ var random_palette_indices := PackedInt32Array()
 var _stroke_button := 0
 var _last_stroke_cell := Vector2i(-1, -1)
 var _stroke_sequence := 0
+var _randomizer_rng := RandomNumberGenerator.new()
+var _randomizer_seeded := false
 
 
 func _ready() -> void:
@@ -156,12 +158,11 @@ func _apply_tool_between(from_cell: Vector2i, to_cell: Vector2i) -> void:
 			and randomizer_enabled and not random_palette_indices.is_empty():
 		_stroke_sequence += 1
 		var values := {}
+		var palette_bag: Array[int] = []
 		for position in positions:
-			var key := "%d|%d|%d|%d" % [
-				position.x, position.y, position.z, _stroke_sequence]
-			var random_index := posmod(
-				hash(key), random_palette_indices.size())
-			var random_value := int(random_palette_indices[random_index])
+			if palette_bag.is_empty():
+				palette_bag = _shuffled_random_palette()
+			var random_value: int = palette_bag.pop_back()
 			values[position] = random_value
 			voxel_edit_requested.emit(position, random_value)
 		voxel_values_edit_requested.emit(values)
@@ -248,10 +249,26 @@ func _plane_dimensions() -> Vector2i:
 func _position_for(x: int, y: int) -> Vector3i:
 	match slice_axis:
 		0:
-			return Vector3i(slice_index, y, x)
+			return Vector3i(
+				slice_index, volume.dimensions.y - 1 - y, x)
 		1:
 			return Vector3i(x, slice_index, y)
-	return Vector3i(x, y, slice_index)
+	return Vector3i(x, volume.dimensions.y - 1 - y, slice_index)
+
+
+func _shuffled_random_palette() -> Array[int]:
+	if not _randomizer_seeded:
+		_randomizer_rng.seed = Time.get_ticks_usec() ^ get_instance_id()
+		_randomizer_seeded = true
+	var bag: Array[int] = []
+	for palette_index in random_palette_indices:
+		bag.append(int(palette_index))
+	for index in range(bag.size() - 1, 0, -1):
+		var swap_index := _randomizer_rng.randi_range(0, index)
+		var temporary := bag[index]
+		bag[index] = bag[swap_index]
+		bag[swap_index] = temporary
+	return bag
 
 
 func _is_valid_plane_cell(cell: Vector2i) -> bool:

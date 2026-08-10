@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_klgdc"]
+
+[resource]
+script = ExtResource("1_klgdc")
+product_id = "runtime.catalogue.sound_event_production_magic_move_soft"
+source_id = "sound.event.production.magic_move_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_magic_move_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_magic_move_soft.tres": "4c87b8e371d8fee36cc6c2590fdc1fdf4ad85ce5941d85dbbdaf072763d70390"
+}
+combined_source_hash = "ac5059d73236772c0ad468850981b435f446d20858cf63cd4a805af4d573cedc"
+dependency_ids = PackedStringArray()

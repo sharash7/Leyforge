@@ -143,8 +143,8 @@ func _verify_block_material_equivalence() -> void:
 	_clear_inventory()
 	Inventory.set_crafting_station("workbench")
 	var item_log := Inventory.make_stack_from_ref({
-		"kind": "item",
-		"stable_id": "item.resource.log_oak",
+		"kind": "block",
+		"stable_id": "natural.log.oak",
 		"count": 1,
 	})
 	Inventory.set_craft_slot(0, item_log)
@@ -177,18 +177,18 @@ func _verify_request_delivery_equivalence() -> void:
 	})
 	Inventory.add_stack(block_planks)
 	for content_ref in HamletState.get_project_stage_definition(2)["requirements"]:
-		if str(content_ref["stable_id"]) != "item.material.plank_oak":
+		if str(content_ref["stable_id"]) != "construction.planks.oak":
 			Inventory.add_stack(Inventory.make_stack_from_ref(content_ref))
 	var delivery := HamletState.deliver_request("request.watchtower.stage.frame")
 	var plank_ref := {
-		"kind": "item",
-		"stable_id": "item.material.plank_oak",
+		"kind": "block",
+		"stable_id": "construction.planks.oak",
 		"count": 12,
 	}
 	_check(
 		int(delivery.get("moved", 0)) == 40
 			and int(HamletState.project.get("reserved", {}).get(
-				"item.material.plank_oak", 0)) == 12,
+				"construction.planks.oak", 0)) == 12,
 		"stage request did not accept and reserve Oak Planks from a block stack")
 	_check(
 		Inventory.count_ref(plank_ref) == 52,

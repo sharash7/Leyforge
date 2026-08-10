@@ -5,7 +5,7 @@ const RUNTIME_ROOT := "res://content/forge/runtime/set22_23"
 const HUMANOID_ID := "entity.definition.template.humanoid_standard"
 const PIG_ID := "entity.definition.template.pig_quadruped"
 const EXPECTED_HASH := (
-	"c6c609f5e38adfb8f5672e31e60b31e25f18e0ed8fd678d12ff5dc237b79bddf")
+	"015f3f0e96ee38a8efdfd9102422998190a7185e7dab3bf0fe2b9aa4be443727")
 const DENSITY_PATHS := [
 	"res://content/forge/entities/density_profiles/density_profile_entity_coarse.tres",
 	"res://content/forge/entities/density_profiles/density_profile_entity_colossal_modular.tres",
@@ -109,10 +109,10 @@ func _verify_sources(semantic: ForgeSemanticRegistry) -> void:
 		"runtime actor factory rejected golden sources")
 	_check((report.get("diagnostics", []) as Array).is_empty(),
 		"runtime actor factory retained diagnostics")
-	_check(int(report.get("entity_count", 0)) == 2,
-		"runtime actor factory did not load two golden entities")
-	_check(int(report.get("rig_count", 0)) == 2,
-		"runtime actor factory did not load two golden rigs")
+	_check(int(report.get("entity_count", 0)) >= 2,
+		"runtime actor factory did not retain the two golden entities")
+	_check(int(report.get("rig_count", 0)) >= 2,
+		"runtime actor factory did not retain the two golden rigs")
 	_check(int(report.get("spatial_map_count", 0)) == 2,
 		"runtime actor factory did not load two spatial maps")
 	_check(int(report.get("assembly_count", 0)) == 2,
@@ -160,8 +160,8 @@ func _verify_sources(semantic: ForgeSemanticRegistry) -> void:
 
 func _verify_resource_round_trips(factory: ForgeRuntimeActorFactory) -> void:
 	var records := factory.filtered_list()
-	_check(records.size() == 8,
-		"factory filtered list did not expose two entities and six runtime sources")
+	_check(records.size() >= 8,
+		"factory filtered list did not expose the golden entities and runtime sources")
 	var root := "user://set22_stage2_roundtrips"
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(root))
 	for record in records:

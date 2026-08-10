@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_tu6aw"]
+
+[resource]
+script = ExtResource("1_tu6aw")
+product_id = "runtime.catalogue.sound_source_production_combat_gear_warning_soft_detail"
+source_id = "sound.source.production.combat_gear_warning_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_combat_gear_warning_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_combat_gear_warning_soft_detail.tres": "122d4cc7dfadd97dabbe9cf3144cae5c79794aa13c1f083a44e39fa469cd5897"
+}
+combined_source_hash = "e879cf1d181fa1cfbe978be7275bcf62ff06602a30046c4f1d71a5a3c6b6c942"
+dependency_ids = PackedStringArray()

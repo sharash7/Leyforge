@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_qy3ec"]
+
+[resource]
+script = ExtResource("1_qy3ec")
+batch_id = "batch.structures.extraction"
+display_name = "Structures.extraction"
+studio = "structures"
+category = "extraction"
+target_ids = PackedStringArray("blueprint.leyforge.extraction.lumber_camp_a", "blueprint.leyforge.extraction.sawmill_a", "blueprint.leyforge.extraction.quarry_stone_yard_a", "blueprint.leyforge.extraction.clay_sand_works_a", "blueprint.leyforge.extraction.mine_entrance_a", "blueprint.leyforge.extraction.deep_mine_complex_a", "blueprint.leyforge.extraction.ore_sorting_yard_a", "blueprint.leyforge.extraction.charcoal_fuel_yard_a", "blueprint.leyforge.extraction.mana_crystal_site_a", "blueprint.leyforge.extraction.automated_mine_quarry_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_extraction.json")

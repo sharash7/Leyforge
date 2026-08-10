@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ljuxj"]
+
+[resource]
+script = ExtResource("1_ljuxj")
+product_id = "runtime.catalogue.vfx_effect_production_weather_water_move_soft"
+source_id = "vfx.effect.production.weather_water_move_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_weather_water_move_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_weather_water_move_soft.tres": "7f0815f2291279032d12848b310bfb24d9bd93c6712b3d3c0cdd46195da118ed"
+}
+combined_source_hash = "1fa545e648125b1e50e115d6ae51debbf7a04c832dcd52a301ff37149d163b95"
+dependency_ids = PackedStringArray()

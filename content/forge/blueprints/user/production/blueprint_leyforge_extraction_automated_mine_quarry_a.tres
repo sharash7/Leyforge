@@ -1,0 +1,398 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_otgvc"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_hucoc"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_36kcv"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_x1v4y"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_xmif6"]
+
+[sub_resource type="Resource" id="Resource_ds43x"]
+script = ExtResource("1_otgvc")
+delta_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("blueprint.leyforge.extraction.automated_mine_quarry_a.element.foundation.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_p57ds"]
+script = ExtResource("1_otgvc")
+delta_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.delta.frame"
+stage_id = "frame"
+add_element_ids = PackedStringArray("blueprint.leyforge.extraction.automated_mine_quarry_a.element.frame.pillar_0", "blueprint.leyforge.extraction.automated_mine_quarry_a.element.frame.pillar_1", "blueprint.leyforge.extraction.automated_mine_quarry_a.element.frame.pillar_2", "blueprint.leyforge.extraction.automated_mine_quarry_a.element.frame.pillar_3")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_1b6w5"]
+script = ExtResource("1_otgvc")
+delta_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.delta.shell"
+stage_id = "shell"
+add_element_ids = PackedStringArray("blueprint.leyforge.extraction.automated_mine_quarry_a.element.shell.perimeter_0", "blueprint.leyforge.extraction.automated_mine_quarry_a.element.shell.point_1")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("frame")
+
+[sub_resource type="Resource" id="Resource_dsfiq"]
+script = ExtResource("1_otgvc")
+delta_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.delta.weatherproofing"
+stage_id = "weatherproofing"
+add_element_ids = PackedStringArray("blueprint.leyforge.extraction.automated_mine_quarry_a.element.weatherproofing.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("shell")
+
+[sub_resource type="Resource" id="Resource_naymv"]
+script = ExtResource("1_otgvc")
+delta_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.delta.activation"
+stage_id = "activation"
+add_element_ids = PackedStringArray("blueprint.leyforge.extraction.automated_mine_quarry_a.element.activation.point_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("weatherproofing")
+
+[sub_resource type="Resource" id="Resource_hf4xn"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.element.foundation.fill_0"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 0.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "foundation_primary"
+}
+
+[sub_resource type="Resource" id="Resource_qrwad"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.element.frame.pillar_0"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_vt12c"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.element.frame.pillar_1"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_cuit5"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.element.frame.pillar_2"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_vutp1"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.element.frame.pillar_3"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_0q3eu"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.element.shell.perimeter_0"
+element_kind = "block_operation"
+material_role_id = "wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"exclude": [[-2.0, 1.0, -2.0], [-2.0, 2.0, -2.0], [-2.0, 1.0, 2.0], [-2.0, 2.0, 2.0], [2.0, 1.0, -2.0], [2.0, 2.0, -2.0], [2.0, 1.0, 2.0], [2.0, 2.0, 2.0], [0.0, 1.0, -2.0]],
+"op": "perimeter",
+"origin": [-2.0, 1.0, -2.0],
+"size": [5.0, 2.0, 5.0],
+"token": "wall_primary"
+}
+
+[sub_resource type="Resource" id="Resource_0wnmd"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.element.shell.point_1"
+element_kind = "block_operation"
+material_role_id = "door_basic"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 1, -2)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, -2.0],
+"token": "door_basic"
+}
+
+[sub_resource type="Resource" id="Resource_57xn2"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.element.weatherproofing.fill_0"
+element_kind = "block_operation"
+material_role_id = "roof_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "weatherproofing"
+position = Vector3i(-2, 4, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 4.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "roof_primary"
+}
+
+[sub_resource type="Resource" id="Resource_v1v7w"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.element.activation.point_0"
+element_kind = "block_operation"
+material_role_id = "functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "activation"
+position = Vector3i(0, 1, 0)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, 0.0],
+"token": "functional"
+}
+
+[sub_resource type="Resource" id="Resource_peyme"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.marker_01"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.deposit_binding")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -2)
+metadata = {
+"id": "marker_01",
+"position": [-2.0, 1.0, -2.0],
+"type": "deposit_binding"
+}
+
+[sub_resource type="Resource" id="Resource_3d8s8"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.marker_02"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.extraction_modules")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -2)
+metadata = {
+"id": "marker_02",
+"position": [-1.0, 1.0, -2.0],
+"type": "extraction_modules"
+}
+
+[sub_resource type="Resource" id="Resource_6b5tr"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.marker_03"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.machine_clearance")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"id": "marker_03",
+"position": [0.0, 1.0, -2.0],
+"type": "machine_clearance"
+}
+
+[sub_resource type="Resource" id="Resource_fjlyi"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.marker_04"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.power_input")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -2)
+metadata = {
+"id": "marker_04",
+"position": [1.0, 1.0, -2.0],
+"type": "power_input"
+}
+
+[sub_resource type="Resource" id="Resource_a4e1p"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.marker_05"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.control_station")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(2, 1, -2)
+metadata = {
+"id": "marker_05",
+"position": [2.0, 1.0, -2.0],
+"type": "control_station"
+}
+
+[sub_resource type="Resource" id="Resource_qdfua"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.marker_06"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.maintenance_bay")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -1)
+metadata = {
+"id": "marker_06",
+"position": [-2.0, 1.0, -1.0],
+"type": "maintenance_bay"
+}
+
+[sub_resource type="Resource" id="Resource_y1a0j"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.marker_07"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.input_output_buffers")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -1)
+metadata = {
+"id": "marker_07",
+"position": [-1.0, 1.0, -1.0],
+"type": "input_output_buffers"
+}
+
+[sub_resource type="Resource" id="Resource_0hjaf"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.marker_08"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.waste_zone")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -1)
+metadata = {
+"id": "marker_08",
+"position": [0.0, 1.0, -1.0],
+"type": "waste_zone"
+}
+
+[sub_resource type="Resource" id="Resource_wd35f"]
+script = ExtResource("2_hucoc")
+element_id = "blueprint.leyforge.extraction.automated_mine_quarry_a.marker_09"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.loading_network_and_emergency_shutdown")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -1)
+metadata = {
+"id": "marker_09",
+"position": [1.0, 1.0, -1.0],
+"type": "loading_network_and_emergency_shutdown"
+}
+
+[sub_resource type="Resource" id="Resource_i4v2r"]
+script = ExtResource("3_36kcv")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_extraction_automated_mine_quarry_a"
+display_name = "Automated Mine or Quarry Site - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.wood",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_1lp11"]
+script = ExtResource("4_x1v4y")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_extraction_automated_mine_quarry_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -2)
+footprint_max = Vector3i(2, 5, 2)
+max_slope = 1
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_xmif6")
+blueprint_id = "blueprint.leyforge.extraction.automated_mine_quarry_a"
+display_name = "Automated Mine or Quarry Site - Forest Neutral"
+definition_ids = PackedStringArray("building.extraction.automated_mine_quarry")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_hucoc")]([SubResource("Resource_hf4xn"), SubResource("Resource_qrwad"), SubResource("Resource_vt12c"), SubResource("Resource_cuit5"), SubResource("Resource_vutp1"), SubResource("Resource_0q3eu"), SubResource("Resource_0wnmd"), SubResource("Resource_57xn2"), SubResource("Resource_v1v7w"), SubResource("Resource_peyme"), SubResource("Resource_3d8s8"), SubResource("Resource_6b5tr"), SubResource("Resource_fjlyi"), SubResource("Resource_a4e1p"), SubResource("Resource_qdfua"), SubResource("Resource_y1a0j"), SubResource("Resource_0hjaf"), SubResource("Resource_wd35f")])
+construction_deltas = Array[ExtResource("1_otgvc")]([SubResource("Resource_ds43x"), SubResource("Resource_p57ds"), SubResource("Resource_1b6w5"), SubResource("Resource_dsfiq"), SubResource("Resource_naymv")])
+placement_profile = SubResource("Resource_1lp11")
+material_role_set = SubResource("Resource_i4v2r")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.040"

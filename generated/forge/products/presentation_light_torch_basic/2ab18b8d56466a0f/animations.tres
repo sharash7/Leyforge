@@ -1,11 +1,11 @@
-[gd_resource type="AnimationLibrary" format=3 uid="uid://bu1c4n3adyjsp"]
+[gd_resource type="AnimationLibrary" format=3]
 
-[ext_resource type="ArrayMesh" uid="uid://d4anebblkjkdh" path="res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_1/frame_000.res" id="1_ay6qf"]
-[ext_resource type="ArrayMesh" uid="uid://bpt0fvtx27v31" path="res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_1/frame_001.res" id="2_7t2dj"]
-[ext_resource type="ArrayMesh" uid="uid://dagdhklvk44tt" path="res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_2/frame_000.res" id="3_u78ht"]
-[ext_resource type="ArrayMesh" uid="uid://biwp6ejb2n1c" path="res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_2/frame_001.res" id="4_0en60"]
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_1/frame_000.res" id="1_ay6qf"]
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_1/frame_001.res" id="2_7t2dj"]
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_2/frame_000.res" id="3_u78ht"]
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_2/frame_001.res" id="4_0en60"]
 
-[sub_resource type="Animation" id="Animation_g6ake"]
+[sub_resource type="Animation" id="Animation_ay6qf"]
 length = 0.3
 loop_mode = 1
 tracks/0/type = "value"
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ExtResource("1_ay6qf"), ExtResource("2_7t2dj")]
 }
 
-[sub_resource type="Animation" id="Animation_s48cv"]
+[sub_resource type="Animation" id="Animation_7t2dj"]
 length = 0.3
 loop_mode = 1
 tracks/0/type = "value"
@@ -39,6 +39,6 @@ tracks/0/keys = {
 
 [resource]
 _data = {
-&"voxel_effect_1": SubResource("Animation_g6ake"),
-&"voxel_effect_2": SubResource("Animation_s48cv")
+&"voxel_effect_1": SubResource("Animation_ay6qf"),
+&"voxel_effect_2": SubResource("Animation_7t2dj")
 }

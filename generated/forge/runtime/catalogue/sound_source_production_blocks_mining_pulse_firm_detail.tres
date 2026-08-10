@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_fblub"]
+
+[resource]
+script = ExtResource("1_fblub")
+product_id = "runtime.catalogue.sound_source_production_blocks_mining_pulse_firm_detail"
+source_id = "sound.source.production.blocks_mining_pulse_firm_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_blocks_mining_pulse_firm_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_blocks_mining_pulse_firm_detail.tres": "3653176d907f58cf55f9ab406bb7ef2d6f695049666870d5eb5b38328479a545"
+}
+combined_source_hash = "605a20542a9eaa7c5eac72b8bf74b7999f901eaf049f45baf3f212cb4f545242"
+dependency_ids = PackedStringArray()

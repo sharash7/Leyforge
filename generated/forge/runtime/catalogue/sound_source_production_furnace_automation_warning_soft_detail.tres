@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ge3bs"]
+
+[resource]
+script = ExtResource("1_ge3bs")
+product_id = "runtime.catalogue.sound_source_production_furnace_automation_warning_soft_detail"
+source_id = "sound.source.production.furnace_automation_warning_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_furnace_automation_warning_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_furnace_automation_warning_soft_detail.tres": "fa653d7dc6bb42c7aeb17410753c3b5fb9fccf0810bcb95dd5139312077cdc32"
+}
+combined_source_hash = "0afdd5f00fa132c3fb9b3c0af9025aa8014158524d5b630a408bbbedbaf49475"
+dependency_ids = PackedStringArray()

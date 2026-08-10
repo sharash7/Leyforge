@@ -1,0 +1,17 @@
+{
+  "batch_id": "batch.structures.residential",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.residential.small_cottage_a",
+    "blueprint.leyforge.residential.small_tent_a",
+    "blueprint.leyforge.residential.worker_refugee_shelter_a",
+    "blueprint.leyforge.residential.primitive_hut_a",
+    "blueprint.leyforge.residential.farmhouse_a",
+    "blueprint.leyforge.residential.communal_longhouse_a",
+    "blueprint.leyforge.residential.townhouse_shop_house_a",
+    "blueprint.leyforge.residential.apartment_house_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

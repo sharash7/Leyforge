@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_jnnhc"]
+
+[resource]
+script = ExtResource("1_jnnhc")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_safety_wooden_watchtower_a"
+source_id = "blueprint.leyforge.safety.wooden_watchtower_a"
+source_type_id = "catalogue.structures"
+source_hash = "b4a44e1f0e7a36d4c0228dc1f8ac7f66752122d69f2d27c91358a816b010fd2f"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_wooden_watchtower_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_wooden_watchtower_a.tres": "6ea579e607bb3e9cbfa1f95e3141d80095104bb952aeaefd4e20abd3f9e832f0"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

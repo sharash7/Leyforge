@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_qencx"]
+
+[resource]
+script = ExtResource("1_qencx")
+product_id = "runtime.catalogue.blueprint_module_set_mine_tunnel"
+source_id = "blueprint.module_set.mine_tunnel"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/sets/blueprint_module_set_mine_tunnel.tres", "res://content/forge/blueprints/user/production/rules/blueprint_ruleset_mine_tunnel.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/rules/blueprint_ruleset_mine_tunnel.tres": "aeb92f6e45654d1df6b5257b4e7ef8fc706e54b5d00e1fb6967c9679f7d4feb8",
+"res://content/forge/blueprints/user/production/sets/blueprint_module_set_mine_tunnel.tres": "e9a3c9629ff492f9d0655727b526c884a5538744acc3d4aeddc2df078e2b4135"
+}
+combined_source_hash = "b895b7b9c8e7e0d42918146a843faa7058ed0cfc16aeb93a55d38d760f2a7665"
+dependency_ids = PackedStringArray("blueprint.module.mine_tunnel.entrance", "blueprint.module.mine_tunnel.straight", "blueprint.module.mine_tunnel.turn", "blueprint.module.mine_tunnel.junction", "blueprint.module.mine_tunnel.encounter", "blueprint.module.mine_tunnel.utility_puzzle", "blueprint.module.mine_tunnel.reward_secret", "blueprint.module.mine_tunnel.terminal_exit")

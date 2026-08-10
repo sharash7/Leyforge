@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_uyl6u"]
+
+[resource]
+script = ExtResource("1_uyl6u")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_health_clinic_infirmary_a"
+source_id = "blueprint.leyforge.health.clinic_infirmary_a"
+source_type_id = "catalogue.structures"
+source_hash = "8716f83d356bd236775aa0c0dddbb9c6226a5b97a3dcfbbf3540372f53b73699"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_health_clinic_infirmary_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_health_clinic_infirmary_a.tres": "49c1425551be4c6627c1e3db1a872f7ca319884a19f1dff9be24ea8cac9ce6ab"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

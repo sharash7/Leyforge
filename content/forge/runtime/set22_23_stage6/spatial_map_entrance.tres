@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="ForgeSpatialMap" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_spatial_reference.gd" id="1_ftwx2"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_spatial_map.gd" id="2_6hky4"]
+
+[sub_resource type="Resource" id="Resource_xd2v8"]
+script = ExtResource("1_ftwx2")
+owner_asset_id = "presentation.spatial.template.production.entrance"
+semantic_role_id = "anchor.presentation.center"
+local_position = Vector3(0, 0.1, 0)
+required_status = "required"
+schema_id = "leyforge.forge.spatial-reference"
+stable_id = "spatial.reference.production.entrance"
+display_name = "Entrance Spatial Reference"
+asset_class = "spatial_reference"
+lifecycle = "review_ready"
+source_status = "review_ready"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"approval_batch_id": "presentation.production",
+"document_set": "23",
+"phase": "production_library",
+"status": "review_ready"
+}
+rights_status = "not_applicable"
+review_history = Array[Dictionary]([{
+"review": "human_evidence",
+"status": "open"
+}])
+extension_fields = {
+"accessible_approved": false,
+"forge_baked": true,
+"legacy_active": true,
+"legally_cleared": false,
+"migration_classification": "new_work",
+"production_ready": true,
+"replacement_strategy": "approve_then_activate",
+"shippable": false,
+"visually_complete": false
+}
+
+[resource]
+script = ExtResource("2_6hky4")
+spatial_map_id = "spatial.map.presentation.production.entrance"
+display_name = "Entrance Spatial Template"
+owner_asset_id = "presentation.spatial.template.production.entrance"
+references = Array[ExtResource("1_ftwx2")]([SubResource("Resource_xd2v8")])
+required_role_ids = PackedStringArray("anchor.presentation.center")
+supported_variant_ids = PackedStringArray("base")
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+aliases = PackedStringArray()
+legacy_fallback = "legacy.scene_transform.forest_hamlet_02"

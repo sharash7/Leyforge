@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_iakm2"]
+
+[resource]
+script = ExtResource("1_iakm2")
+product_id = "runtime.catalogue.blueprint_leyforge_safety_barracks_training_yard_a"
+source_id = "blueprint.leyforge.safety.barracks_training_yard_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_safety_barracks_training_yard_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_barracks_training_yard_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_barracks_training_yard_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_barracks_training_yard_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_safety_barracks_training_yard_a.tres": "07b5f610143de669d78d7462b67072ae32dfb78ed99f6a9d38dd35dde08c9325",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_barracks_training_yard_a_light_damage.tres": "73bd488b4f58a40adca5c4cb831d6b68aaceea4197bcdf6b8be81c3235e96a0b",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_barracks_training_yard_a_repaired.tres": "6c4e891efdbfee846a72bb9839ae23fe66dd1de7400bb0039724bffe844ce2dc",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_barracks_training_yard_a_under_construction.tres": "6fd96595e9b23e71167f11dddcf332219122d096f229c120fc735ba5ed516191"
+}
+combined_source_hash = "75d4cc4f68270d72877df099378bccb5c13b3197aa7404936c07cae7606defb6"
+dependency_ids = PackedStringArray()

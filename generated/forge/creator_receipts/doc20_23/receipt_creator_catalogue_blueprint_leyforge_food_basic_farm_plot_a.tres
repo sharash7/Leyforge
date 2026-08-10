@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_rkmm1"]
+
+[resource]
+script = ExtResource("1_rkmm1")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_food_basic_farm_plot_a"
+source_id = "blueprint.leyforge.food.basic_farm_plot_a"
+source_type_id = "catalogue.structures"
+source_hash = "3a7b20662926c96f39a337b3e864cd1c3ea9916cd3696ecc161b2b069c614e97"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_food_basic_farm_plot_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_food_basic_farm_plot_a.tres": "13524790d269e161b53352391f86d26f189e61c9c78b1727392b492850cab829"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

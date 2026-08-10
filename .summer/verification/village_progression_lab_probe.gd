@@ -48,13 +48,16 @@ func _run() -> void:
 		lab_player.get_node_or_null("PlayerHumanoid") != null,
 		"lab player does not contain the full production humanoid")
 	var lab_hud: Hud = lab.get("hud")
+	var active_catalogue_size: int = (
+		BlockRegistry.get_all_ids().size() + ItemRegistry.get_all_ids().size())
 	_check(
 		lab_hud is Hud and lab_hud.player == lab_player,
 		"lab does not wire the production HUD to its player")
 	_check(
 		lab_hud.get("_creative_entries") is Array
-			and (lab_hud.get("_creative_entries") as Array).size() == 312,
-		"lab creative catalogue is not the complete block/item catalogue")
+			and (lab_hud.get("_creative_entries") as Array).size() \
+				== active_catalogue_size,
+		"lab creative catalogue is not the complete active block/item catalogue")
 	var lab_hamlet_runtime: HamletRuntime = lab.get("hamlet_runtime")
 	_check(
 		lab_hamlet_runtime != null and lab_hamlet_runtime.configured

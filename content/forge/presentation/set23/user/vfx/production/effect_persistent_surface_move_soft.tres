@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="ForgeVfxDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_vfx_definition.gd" id="1_v4lyn"]
+
+[resource]
+script = ExtResource("1_v4lyn")
+graph_id = "vfx.graph.production.directional_trail"
+form_ids = PackedStringArray("vfx.form.production.directional_trail")
+material_ids = PackedStringArray("material.presentation.response.production.stone")
+maximum_instances = 27
+lod_tiers = Array[Dictionary]([{
+"spawn_scale": 1.0,
+"tier": "near"
+}, {
+"spawn_scale": 0.5,
+"tier": "mid"
+}, {
+"spawn_scale": 0.2,
+"tier": "far"
+}, {
+"spawn_scale": 0.0,
+"tier": "hidden",
+"virtualise": true
+}])
+budget_profile_id = "budget.profile.presentation.foundation"
+accessibility_profile_id = "access.profile.presentation.foundation"
+schema_id = "leyforge.forge.vfx-definition"
+stable_id = "vfx.effect.production.persistent_surface_move_soft"
+display_name = "Persistent Surface Move Soft"
+asset_class = "vfx_effect"
+lifecycle = "review_ready"
+source_status = "review_ready"
+aliases = PackedStringArray("vfx.effect.forest_hamlet.catalogue_113.stage6")
+dependency_ids = PackedStringArray("vfx.graph.production.directional_trail", "vfx.form.production.directional_trail", "budget.profile.presentation.foundation", "access.profile.presentation.foundation")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray("legacy.runtime.vfx.forest_hamlet_113")
+provenance = {
+"approval_batch_id": "vfx.production.persistent_surface_move_soft",
+"document_set": "23",
+"phase": "production_library",
+"status": "review_ready"
+}
+rights_status = "not_applicable"
+review_history = Array[Dictionary]([{
+"review": "human_evidence",
+"status": "open"
+}])
+extension_fields = {
+"accessible_approved": false,
+"forge_baked": true,
+"legacy_active": true,
+"legally_cleared": false,
+"migration_classification": "new_work",
+"production_ready": true,
+"replacement_strategy": "approve_then_activate",
+"shippable": false,
+"visually_complete": false
+}

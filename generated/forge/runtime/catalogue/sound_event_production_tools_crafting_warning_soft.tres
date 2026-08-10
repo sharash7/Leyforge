@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_o3btd"]
+
+[resource]
+script = ExtResource("1_o3btd")
+product_id = "runtime.catalogue.sound_event_production_tools_crafting_warning_soft"
+source_id = "sound.event.production.tools_crafting_warning_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_tools_crafting_warning_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_tools_crafting_warning_soft.tres": "6e35533d4fbc591a2a2847285f3de61fb5502e6b0e97c3aa3f090f0d33cc02fc"
+}
+combined_source_hash = "28ad0f73371b703873212a07c7e2d1744acf03b661ad6335309de26de84295bb"
+dependency_ids = PackedStringArray()

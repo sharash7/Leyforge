@@ -10,14 +10,24 @@ const SUPPORTED := {
 	"leyforge.forge.body-plan": {"version": 1, "domain": "entity"},
 	"leyforge.forge.body-part": {"version": 1, "domain": "entity"},
 	"leyforge.forge.density-profile": {"version": 1, "domain": "entity"},
-	"leyforge.forge.blueprint-definition": {"version": 1, "domain": "blueprint"},
+	"leyforge.forge.blueprint-definition": {"version": 2, "domain": "blueprint"},
 	"leyforge.forge.blueprint-element": {"version": 1, "domain": "blueprint"},
-	"leyforge.forge.construction-delta": {"version": 1, "domain": "blueprint"},
+	"leyforge.forge.construction-delta": {"version": 2, "domain": "blueprint"},
+	"leyforge.forge.structure-voxel-source": {
+		"version": 1, "domain": "blueprint_authoring"},
+	"leyforge.forge.structure-voxel-cell": {
+		"version": 1, "domain": "blueprint_authoring"},
 	"leyforge.forge.placement-profile": {"version": 1, "domain": "blueprint"},
 	"leyforge.forge.blueprint-material-role-set": {
 		"version": 1, "domain": "blueprint"},
 	"leyforge.forge.blueprint-module-definition": {
-		"version": 1, "domain": "blueprint_runtime"},
+		"version": 2, "domain": "blueprint_runtime"},
+	"leyforge.forge.blueprint-connector-definition": {
+		"version": 1, "domain": "blueprint_authoring"},
+	"leyforge.forge.blueprint-module-set": {
+		"version": 1, "domain": "blueprint_authoring"},
+	"leyforge.forge.procedural-structure-rule-set": {
+		"version": 1, "domain": "blueprint_authoring"},
 	"leyforge.forge.blueprint-state-definition": {
 		"version": 1, "domain": "blueprint_runtime"},
 	"leyforge.forge.blueprint-runtime-product": {
@@ -53,6 +63,8 @@ const SUPPORTED := {
 	"leyforge.forge.sound-event": {
 		"version": 1, "domain": "presentation"},
 	"leyforge.forge.sound-source": {
+		"version": 1, "domain": "presentation"},
+	"leyforge.forge.synth-patch": {
 		"version": 1, "domain": "presentation"},
 	"leyforge.forge.audio-family": {
 		"version": 1, "domain": "presentation"},
@@ -120,6 +132,12 @@ const SUPPORTED := {
 		"version": 1, "domain": "presentation_production"},
 	"leyforge.forge.runtime-registry-generation": {
 		"version": 1, "domain": "presentation_runtime_registry"},
+	"leyforge.forge.creator-bake-receipt": {
+		"version": 1, "domain": "creator_runtime"},
+	"leyforge.forge.procedural-structure-product": {
+		"version": 1, "domain": "blueprint_runtime"},
+	"leyforge.forge.approval-batch-manifest": {
+		"version": 1, "domain": "production_governance"},
 }
 
 var _records: Dictionary = {}

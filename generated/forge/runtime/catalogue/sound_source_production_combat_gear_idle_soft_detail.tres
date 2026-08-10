@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_dbwkt"]
+
+[resource]
+script = ExtResource("1_dbwkt")
+product_id = "runtime.catalogue.sound_source_production_combat_gear_idle_soft_detail"
+source_id = "sound.source.production.combat_gear_idle_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_combat_gear_idle_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_combat_gear_idle_soft_detail.tres": "537651fcb7d7323aa3ea3e5b4c6ed17df85c9caf2c60fc0f37d988d89d61d781"
+}
+combined_source_hash = "478fbd3f098e4ff33f413e224ae03b08b4437ceb6b3cd0bbae1783c648363826"
+dependency_ids = PackedStringArray()

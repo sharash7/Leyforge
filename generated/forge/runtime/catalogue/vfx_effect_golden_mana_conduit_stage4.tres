@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_7oi2w"]
+
+[resource]
+script = ExtResource("1_7oi2w")
+product_id = "runtime.catalogue.vfx_effect_golden_mana_conduit_stage4"
+source_id = "vfx.effect.golden.mana_conduit.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/vfx_effect_mana_conduit.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/vfx_effect_mana_conduit.tres": "5637fdcbc751155fcfc49ed193bc90d113c9c2ccb99f630b8cb2034d2d0ddb64"
+}
+combined_source_hash = "d5de0e4a2b7b2a52342187ccf124806f07fcc6b603cc0f0c82948322b17eeb81"
+dependency_ids = PackedStringArray()

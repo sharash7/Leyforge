@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_myw5f"]
+
+[resource]
+script = ExtResource("1_myw5f")
+receipt_id = "receipt.creator.catalogue.vfx_form_debris_stone_foundation"
+source_id = "vfx.form.debris.stone.foundation"
+source_type_id = "catalogue.vfx"
+source_hash = "57c3e54aefcb0475fb1821ff3bd1ecf9bdad53f239aeeaace7330f11ab47fc33"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_form_debris_stone_foundation.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_form_debris_stone_foundation.tres": "3995070fd2de5d2fea8942306045760243889fbfe593070c3f2af48fa438f1a5"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

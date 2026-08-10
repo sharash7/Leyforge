@@ -1,0 +1,128 @@
+[gd_resource type="Resource" script_class="ForgeRigProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_joint_definition.gd" id="1_a7kat"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_role_binding.gd" id="2_mse40"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_profile.gd" id="3_njhjj"]
+
+[sub_resource type="Resource" id="Resource_16w5p"]
+script = ExtResource("1_a7kat")
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_head"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.head"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_q6nm0"]
+script = ExtResource("1_a7kat")
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_arm_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.arm.left"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_kg4ox"]
+script = ExtResource("1_a7kat")
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_arm_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.arm.right"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_ebh1x"]
+script = ExtResource("1_a7kat")
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_leg_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.leg.left"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_7x4hw"]
+script = ExtResource("1_a7kat")
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_leg_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.leg.right"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_kf7f5"]
+script = ExtResource("2_mse40")
+role_id = "anatomy.role.humanoid.torso"
+body_part_id = "entity.body_part.production.humanoid.torso"
+
+[sub_resource type="Resource" id="Resource_ecpii"]
+script = ExtResource("2_mse40")
+role_id = "anatomy.role.humanoid.head"
+body_part_id = "entity.body_part.production.humanoid.head"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_head"
+
+[sub_resource type="Resource" id="Resource_yj2cc"]
+script = ExtResource("2_mse40")
+role_id = "anatomy.role.humanoid.arm.left"
+body_part_id = "entity.body_part.production.humanoid.arm_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_arm_left"
+
+[sub_resource type="Resource" id="Resource_gxul6"]
+script = ExtResource("2_mse40")
+role_id = "anatomy.role.humanoid.arm.right"
+body_part_id = "entity.body_part.production.humanoid.arm_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_arm_right"
+
+[sub_resource type="Resource" id="Resource_2vx2i"]
+script = ExtResource("2_mse40")
+role_id = "anatomy.role.humanoid.leg.left"
+body_part_id = "entity.body_part.production.humanoid.leg_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_leg_left"
+
+[sub_resource type="Resource" id="Resource_vy7p7"]
+script = ExtResource("2_mse40")
+role_id = "anatomy.role.humanoid.leg.right"
+body_part_id = "entity.body_part.production.humanoid.leg_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_player_humanoid.joint.entity_body_part_production_humanoid_leg_right"
+
+[resource]
+script = ExtResource("3_njhjj")
+rig_profile_id = "entity.rig.production.entity_definition_player_humanoid"
+display_name = "Player Humanoid Rig"
+entity_definition_id = "entity.definition.player.humanoid"
+body_plan_id = "entity.body_plan.production.humanoid"
+root_role_id = "anatomy.role.humanoid.torso"
+role_bindings = Array[ExtResource("2_mse40")]([SubResource("Resource_kf7f5"), SubResource("Resource_ecpii"), SubResource("Resource_yj2cc"), SubResource("Resource_gxul6"), SubResource("Resource_2vx2i"), SubResource("Resource_vy7p7")])
+joints = Array[ExtResource("1_a7kat")]([SubResource("Resource_16w5p"), SubResource("Resource_q6nm0"), SubResource("Resource_kg4ox"), SubResource("Resource_ebh1x"), SubResource("Resource_7x4hw")])
+socket_reference_ids = PackedStringArray()
+rig_lod_levels = Array[Dictionary]([{
+"lod": 0,
+"roles": ["anatomy.role.humanoid.torso", "anatomy.role.humanoid.head", "anatomy.role.humanoid.arm.left", "anatomy.role.humanoid.arm.right", "anatomy.role.humanoid.leg.left", "anatomy.role.humanoid.leg.right"]
+}, {
+"lod": 1,
+"roles": ["anatomy.role.humanoid.torso"]
+}, {
+"lod": 2,
+"roles": ["anatomy.role.humanoid.torso"]
+}])
+motion_profiles = {
+"idle": {
+"blend_seconds": 0.2
+},
+"walk": {
+"blend_seconds": 0.12
+}
+}
+lifecycle = "review_ready"
+source_status = "review_ready"
+dependency_ids = PackedStringArray("entity.definition.player.humanoid", "entity.body_plan.production.humanoid")
+aliases = PackedStringArray()

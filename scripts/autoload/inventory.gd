@@ -17,23 +17,10 @@ const BACKPACK_SIZE := 27
 const CRAFT_SIZE := 9
 const MAX_STACK := 64
 
-# Placeable blocks and their carried material-item forms represent the same
-# conserved content for crafting, furnace inputs, and village deliveries.
-# They remain distinct stack namespaces so placement and item metadata are not
-# lost, but matching a recipe/request uses this canonical identity.
+# Genuinely transformed resources may match their originating Block for
+# recipes. Recoverable Blocks do not appear here: they remain Block Inventory
+# Projections and legacy proxy IDs are resolved by BlockRegistry.
 const CONTENT_EQUIVALENCES := {
-	"block:natural.log.oak": "content.wood.log_oak",
-	"item:item.resource.log_oak": "content.wood.log_oak",
-	"block:construction.planks.oak": "content.wood.plank_oak",
-	"item:item.material.plank_oak": "content.wood.plank_oak",
-	"block:construction.beam.oak": "content.wood.beam_oak",
-	"item:item.material.beam_oak": "content.wood.beam_oak",
-	"block:construction.cobble.stone": "content.stone.cobblestone",
-	"item:item.material.cobblestone": "content.stone.cobblestone",
-	"block:construction.brick.stone": "content.stone.stone_brick",
-	"item:item.material.stone_brick": "content.stone.stone_brick",
-	"block:terrain.sand.basic": "content.resource.sand",
-	"item:item.resource.sand": "content.resource.sand",
 	"block:terrain.clay.basic": "content.resource.clay",
 	"item:item.resource.clay_lump": "content.resource.clay",
 	"block:ore.coal.basic": "content.resource.coal",
@@ -136,14 +123,18 @@ func stack_matches_ref(stack: Dictionary, content_ref: Dictionary) -> bool:
 
 
 func _canonical_content_key(kind: String, stable_id: String) -> String:
-	var exact := "%s:%s" % [kind, stable_id]
+	var canonical := BlockRegistry.canonical_content_ref(kind, stable_id)
+	var exact := "%s:%s" % [canonical["kind"], canonical["stable_id"]]
 	return str(CONTENT_EQUIVALENCES.get(exact, exact))
 
 
 func make_stack_from_ref(content_ref: Dictionary) -> Dictionary:
-	var kind := str(content_ref.get("kind", "item"))
-	var stable_id := str(content_ref.get("stable_id", ""))
 	var count := maxi(1, int(content_ref.get("count", 1)))
+	var canonical := BlockRegistry.canonical_content_ref(
+		str(content_ref.get("kind", "item")),
+		str(content_ref.get("stable_id", "")), count)
+	var kind := str(canonical["kind"])
+	var stable_id := str(canonical["stable_id"])
 	if kind == "block":
 		var block_id := BlockRegistry.get_id_by_stable_id(stable_id)
 		return {"kind": "block", "id": block_id, "count": count} \
@@ -163,7 +154,11 @@ func _normalise_stack(value: Dictionary) -> Dictionary:
 	var id := int(value.get("id", -1))
 	if kind == "item":
 		if not ItemRegistry.has_item(id):
-			return {}
+			var projection := ItemRegistry.resolve_legacy_block_projection(id)
+			if projection.is_empty():
+				return {}
+			kind = "block"
+			id = int(projection["id"])
 	else:
 		kind = "block"
 		if not BlockRegistry.has_block(id):
@@ -171,6 +166,8 @@ func _normalise_stack(value: Dictionary) -> Dictionary:
 	var out := value.duplicate(true)
 	out["kind"] = kind
 	out["id"] = id
+	if kind == "block":
+		out.erase("instance")
 	out["count"] = clampi(int(value.get("count", 0)), 0, stack_max_count(out))
 	if int(out["count"]) <= 0:
 		return {}
@@ -707,8 +704,17 @@ func deserialize_stack(value: Variant) -> Dictionary:
 	var raw: Dictionary = value
 	var stack := {}
 	if raw.has("item_id"):
-		var item_id := ItemRegistry.resolve_serialized_id(raw["item_id"])
-		if item_id >= 0:
+		var projection := ItemRegistry.resolve_legacy_block_projection(raw["item_id"])
+		if not projection.is_empty():
+			stack = {
+				"kind": "block",
+				"id": int(projection["id"]),
+				"count": int(raw.get("count", 0)),
+			}
+		else:
+			var item_id := ItemRegistry.resolve_serialized_id(raw["item_id"])
+			if item_id < 0:
+				return {}
 			stack = {"kind": "item", "id": item_id, "count": int(raw.get("count", 0))}
 			if raw.get("instance", {}) is Dictionary and not raw.get("instance", {}).is_empty():
 				stack["instance"] = raw["instance"].duplicate(true)

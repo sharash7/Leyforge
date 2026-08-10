@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_otahl"]
+
+[resource]
+script = ExtResource("1_otahl")
+product_id = "runtime.catalogue.sound_source_production_ui_critical_warning_soft_body"
+source_id = "sound.source.production.ui_critical_warning_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_ui_critical_warning_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_ui_critical_warning_soft_body.tres": "31e8232966f874faf53516798c5d753d1dcdaa0be642184dff283ba045fc57ce"
+}
+combined_source_hash = "8c6d0223fb68a292c3f2a348d92dc276443c2f66d9164fd6f0d8fdecaeee3f69"
+dependency_ids = PackedStringArray()

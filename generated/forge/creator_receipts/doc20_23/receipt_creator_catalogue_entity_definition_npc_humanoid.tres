@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_4tq5e"]
+
+[resource]
+script = ExtResource("1_4tq5e")
+receipt_id = "receipt.creator.catalogue.entity_definition_npc_humanoid"
+source_id = "entity.definition.npc.humanoid"
+source_type_id = "catalogue.characters"
+source_hash = "71f0bc21bb42b74c6522164309db3953bf701b19a8d3628dc18abe5e83980e81"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/entity_definition_npc_humanoid.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/entity_definition_npc_humanoid.tres": "009822676523793fae49cfb678b40d10fda71c136e51809aadb8eaf2b603372b"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

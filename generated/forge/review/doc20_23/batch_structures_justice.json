@@ -1,0 +1,10 @@
+{
+  "batch_id": "batch.structures.justice",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.justice.courthouse_magistrate_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

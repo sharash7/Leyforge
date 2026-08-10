@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_teq5i"]
+
+[resource]
+script = ExtResource("1_teq5i")
+product_id = "runtime.catalogue.sound_source_production_environment_weather_break_soft_body"
+source_id = "sound.source.production.environment_weather_break_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_environment_weather_break_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_environment_weather_break_soft_body.tres": "466993e1bc1361c9fd2a1d990775e196c85afb8e7e87eba695c10e8b4f3aa64c"
+}
+combined_source_hash = "e406eac6bcfc1dfef1afc65ac0d03ec798473e091e35aa2594034a66a4ede976"
+dependency_ids = PackedStringArray()

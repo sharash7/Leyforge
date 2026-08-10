@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_r5fjq"]
+
+[resource]
+script = ExtResource("1_r5fjq")
+product_id = "runtime.catalogue.vfx_graph_production_surface_scatter"
+source_id = "vfx.graph.production.surface_scatter"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/graph_surface_scatter.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/graph_surface_scatter.tres": "48decc74023f24ce74c8778a62f2adb6c2e8b939be5222354191c3c99613285d"
+}
+combined_source_hash = "30545b35bcbe653a21bd7289c2719d9e2a49d1295e327968e23a3121eacaa7ba"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_qngni"]
+
+[resource]
+script = ExtResource("1_qngni")
+product_id = "runtime.catalogue.sound_event_production_player_movement_needs_finish_soft"
+source_id = "sound.event.production.player_movement_needs_finish_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_player_movement_needs_finish_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_player_movement_needs_finish_soft.tres": "aa8dfe0339df773bee3935ae292fcfb928161a3da4b237670d6362522e3ef595"
+}
+combined_source_hash = "fd09e59bf96cc3b2d0717ed067d2a90134bbcf9e275782c428be7f10e7c4d8af"
+dependency_ids = PackedStringArray()

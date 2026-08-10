@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_nikpb"]
+
+[resource]
+script = ExtResource("1_nikpb")
+receipt_id = "receipt.creator.catalogue.vfx_form_production_warning_beacon"
+source_id = "vfx.form.production.warning_beacon"
+source_type_id = "catalogue.vfx"
+source_hash = "1231fa9a03acdbb82e8bb51eca2cc1c19c286bb3db6822088fd798373cc04081"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_form_production_warning_beacon.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_form_production_warning_beacon.tres": "b0ee4c50b05df074633a837134a34c74bc8d14ecbc36799def23115958bd38d2"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

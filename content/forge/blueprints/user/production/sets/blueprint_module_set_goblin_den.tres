@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleSet" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_set.gd" id="1_sb4j6"]
+
+[resource]
+script = ExtResource("1_sb4j6")
+module_set_id = "blueprint.module_set.goblin_den"
+display_name = "Goblin Den Structure Set"
+module_ids = PackedStringArray("blueprint.module.goblin_den.entrance", "blueprint.module.goblin_den.straight", "blueprint.module.goblin_den.turn", "blueprint.module.goblin_den.junction", "blueprint.module.goblin_den.encounter", "blueprint.module.goblin_den.utility_puzzle", "blueprint.module.goblin_den.reward_secret", "blueprint.module.goblin_den.terminal_exit")
+start_module_ids = PackedStringArray("blueprint.module.goblin_den.entrance")
+end_module_ids = PackedStringArray("blueprint.module.goblin_den.terminal_exit")
+module_weights = {
+"blueprint.module.goblin_den.encounter": 1.0,
+"blueprint.module.goblin_den.entrance": 1.0,
+"blueprint.module.goblin_den.junction": 1.0,
+"blueprint.module.goblin_den.reward_secret": 1.0,
+"blueprint.module.goblin_den.straight": 1.0,
+"blueprint.module.goblin_den.terminal_exit": 1.0,
+"blueprint.module.goblin_den.turn": 1.0,
+"blueprint.module.goblin_den.utility_puzzle": 1.0
+}
+required_tags = PackedStringArray("goblin")
+continuation_policy = "continuing"
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("blueprint.module.goblin_den.entrance", "blueprint.module.goblin_den.straight", "blueprint.module.goblin_den.turn", "blueprint.module.goblin_den.junction", "blueprint.module.goblin_den.encounter", "blueprint.module.goblin_den.utility_puzzle", "blueprint.module.goblin_den.reward_secret", "blueprint.module.goblin_den.terminal_exit")

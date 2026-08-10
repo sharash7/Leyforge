@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_pc21i"]
+
+[resource]
+script = ExtResource("1_pc21i")
+product_id = "runtime.catalogue.sound_source_production_furnace_automation_deactivate_soft_body"
+source_id = "sound.source.production.furnace_automation_deactivate_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_furnace_automation_deactivate_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_furnace_automation_deactivate_soft_body.tres": "958bb8831d5e96698b6eaeedba204937413b75f230aa04be49d7be033f4ca98a"
+}
+combined_source_hash = "006399df6a5c5085a4bab93b5edfa2a68980ce498089ecae5a8359b2daaead5c"
+dependency_ids = PackedStringArray()

@@ -25,6 +25,8 @@ const PREFIXES: PackedStringArray = [
 	"entity.foot_placement.", "entity.variant.",
 	"entity.gameplay_proxy.",
 	"blueprint.leyforge.", "blueprint.module.",
+	"blueprint.connector.", "blueprint.module_set.",
+	"blueprint.ruleset.",
 	"blueprint.material_role_set.", "blueprint.construction_profile.",
 	"blueprint.placement_profile.", "blueprint.state.",
 	"marker.role.", "zone.role.",

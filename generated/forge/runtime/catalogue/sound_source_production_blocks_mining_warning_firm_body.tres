@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_s0huu"]
+
+[resource]
+script = ExtResource("1_s0huu")
+product_id = "runtime.catalogue.sound_source_production_blocks_mining_warning_firm_body"
+source_id = "sound.source.production.blocks_mining_warning_firm_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_blocks_mining_warning_firm_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_blocks_mining_warning_firm_body.tres": "9d312dbee12991dcb03e0a1c5e488681ea1730e387ae0ce00280acfa2e607d04"
+}
+combined_source_hash = "3cc4141a62dfc73505757b0c3100d6e79aec5650753819d0a12fbb3b0d3377c3"
+dependency_ids = PackedStringArray()

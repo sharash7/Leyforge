@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_7nm3x"]
+
+[resource]
+script = ExtResource("1_7nm3x")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_food_preserving_house_a"
+source_id = "blueprint.leyforge.food.preserving_house_a"
+source_type_id = "catalogue.structures"
+source_hash = "fba1d82769eecca75e4b6ab2f36a4f321be4fc144d892531913db09a0d1755cd"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_food_preserving_house_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_food_preserving_house_a.tres": "faae99e93b723a5aac312b9d0a7faf760b9a382a9fcc1dd1e0cfca814121619f"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_gjarj"]
+
+[resource]
+script = ExtResource("1_gjarj")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_automation_hand_crank_workshop_a"
+source_id = "blueprint.leyforge.automation.hand_crank_workshop_a"
+source_type_id = "catalogue.structures"
+source_hash = "902662931f0b8c2773663318326aab8ea2bcb68c5399ea0867891ac69eb5f587"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_automation_hand_crank_workshop_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_automation_hand_crank_workshop_a.tres": "ff4968aa7467eee8db9b5bc30a31c3298e34e05d0c1d8554cfc4389a842e2566"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

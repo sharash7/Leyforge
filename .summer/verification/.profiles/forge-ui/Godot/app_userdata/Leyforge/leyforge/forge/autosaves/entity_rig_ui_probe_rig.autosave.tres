@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ForgeRigProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_joint_definition.gd" id="1_hxxp7"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_role_binding.gd" id="2_gn1um"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_profile.gd" id="3_nhwcy"]
+
+[sub_resource type="Resource" id="Resource_gn1um"]
+script = ExtResource("1_hxxp7")
+joint_id = "entity.rig.ui_probe_rig.joint.joint_1"
+parent_role_id = "entity_role.custom.role_1"
+child_role_id = "entity_role.custom.role_2"
+
+[sub_resource type="Resource" id="Resource_gcjdj"]
+script = ExtResource("2_gn1um")
+role_id = "entity_role.custom.role_1"
+body_part_id = "entity.body_part.unassigned_1"
+
+[sub_resource type="Resource" id="Resource_hxxp7"]
+script = ExtResource("2_gn1um")
+role_id = "entity_role.custom.role_2"
+body_part_id = "entity.body_part.unassigned_2"
+parent_role_id = "entity_role.custom.role_1"
+joint_id = "entity.rig.ui_probe_rig.joint.joint_1"
+
+[resource]
+script = ExtResource("3_nhwcy")
+rig_profile_id = "entity.rig.ui_probe_rig"
+display_name = "UI Probe Rig"
+root_role_id = "entity_role.custom.role_1"
+role_bindings = Array[ExtResource("2_gn1um")]([SubResource("Resource_gcjdj"), SubResource("Resource_hxxp7")])
+joints = Array[ExtResource("1_hxxp7")]([SubResource("Resource_gn1um")])
+socket_reference_ids = PackedStringArray()
+dependency_ids = PackedStringArray()
+aliases = PackedStringArray()

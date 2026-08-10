@@ -1,0 +1,21 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.audio.ui_critical.41",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "sound.event.production.ui_critical_burst_soft",
+    "sound.source.production.ui_critical_burst_soft_body",
+    "sound.source.production.ui_critical_burst_soft_detail",
+    "sound.event.production.ui_critical_deactivate_soft",
+    "sound.source.production.ui_critical_deactivate_soft_body",
+    "sound.source.production.ui_critical_deactivate_soft_detail",
+    "sound.event.production.ui_critical_pulse_soft",
+    "sound.source.production.ui_critical_pulse_soft_body",
+    "sound.source.production.ui_critical_pulse_soft_detail",
+    "sound.event.production.ui_critical_trail_soft",
+    "sound.source.production.ui_critical_trail_soft_body",
+    "sound.source.production.ui_critical_trail_soft_detail"
+  ]
+}

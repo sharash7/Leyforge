@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_215pa"]
+
+[resource]
+script = ExtResource("1_215pa")
+product_id = "runtime.catalogue.sound_source_production_goblin_raid_charge_soft_body"
+source_id = "sound.source.production.goblin_raid_charge_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_goblin_raid_charge_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_goblin_raid_charge_soft_body.tres": "b8b4ea96499afdd617e34126d932f9964756e6ee432a9bf0ee9604ba04f4fe2d"
+}
+combined_source_hash = "ec6c8116f2bc87a0723c149e8ef513d3707ef33c90464ea5a18857afd0db8046"
+dependency_ids = PackedStringArray()

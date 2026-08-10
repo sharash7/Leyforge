@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_te1cy"]
+
+[resource]
+script = ExtResource("1_te1cy")
+product_id = "runtime.catalogue.blueprint_leyforge_safety_fort_keep_a"
+source_id = "blueprint.leyforge.safety.fort_keep_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_safety_fort_keep_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_fort_keep_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_fort_keep_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_fort_keep_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_safety_fort_keep_a.tres": "6e033cf64c9865a1dfcf7f930228f5737ec1dfe575bc546a59210f625273bb53",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_fort_keep_a_light_damage.tres": "747516d2d585cb580f781f03192109a606593342bcc31119a375f97cf1dc7161",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_fort_keep_a_repaired.tres": "149f9031ca259a8af02099a4a775e60ec8c9e147ba6f4ae26437dd1fe006b93c",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_fort_keep_a_under_construction.tres": "fd854eaf7c4927ce330e1fca6037b429f06ff97c7a7d940a6c78dd3debe8ecba"
+}
+combined_source_hash = "df8c2c59110c5332c1a025b99f001edccbacaef6914f5d81cd532200c2ae82e9"
+dependency_ids = PackedStringArray()

@@ -41,6 +41,7 @@ var _head_mount: Node3D
 var _held_identity := ""
 var _left_click_combat := false
 var _sprint_toggled := false
+var _movement_snapshot_accumulator := 0.0
 
 
 func _ready() -> void:
@@ -249,6 +250,11 @@ func _physics_process(delta: float) -> void:
 				velocity.y = JUMP_VELOCITY
 
 	var speed := SPEED
+	if MovementManager.initialized \
+			and MovementManager.has_mover(BiologyManager.PLAYER_ACTOR_ID):
+		var speed_query := MovementManager.max_speed(BiologyManager.PLAYER_ACTOR_ID)
+		if bool(speed_query.get("ok", false)):
+			speed = float(speed_query.get("achievable_speed", SPEED))
 	var sprint_active := Input.is_action_pressed("sprint")
 	if UIState.setting_bool("toggle_sprint"):
 		sprint_active = _sprint_toggled
@@ -267,6 +273,57 @@ func _physics_process(delta: float) -> void:
 	_update_highlight()
 	_update_safe_recovery(delta)
 	_update_player_visuals(delta)
+	_movement_snapshot_accumulator += delta
+	if _movement_snapshot_accumulator >= 0.25:
+		_movement_snapshot_accumulator = 0.0
+		publish_movement_snapshot(false)
+
+
+func publish_movement_snapshot(force_safe: bool = false) -> Dictionary:
+	if not MovementManager.initialized:
+		return {"ok": false, "error": "movement.owner_not_initialized"}
+	var entity_ref := BiologyManager.PLAYER_ACTOR_ID
+	var swimming := _is_in_water()
+	var mode := "Aquatic" if swimming else "Ground" if is_on_floor() else "Airborne"
+	var state := "SurfaceSupported" if swimming else "Airborne" \
+		if not is_on_floor() else "Sprint" \
+		if Input.is_action_pressed("sprint") and not controls_locked else "Walk" \
+		if Vector2(velocity.x, velocity.z).length() > 0.05 else "Idle"
+	if not MovementManager.has_mover(entity_ref):
+		var registered := MovementManager.register_mover({
+			"transaction_id": "movement.player.register.%s" % entity_ref,
+			"entity_ref": entity_ref,
+			"mover_profile_ref": "mover_profile.humanoid.standard",
+			"position": global_position,
+			"rotation": rotation,
+			"velocity": velocity,
+			"movement_mode": mode,
+			"movement_state": state,
+			"movement_provider_ref": "set26.aquatic" if swimming else "",
+			"lod_state": "active_player",
+			"semantic_location": {
+				"kind": "exact_transform",
+				"ref": "player.current_position",
+				"position": global_position,
+			},
+		})
+		if not bool(registered.get("ok", false)):
+			return registered
+	return MovementManager.commit_physical_snapshot({
+		"entity_ref": entity_ref,
+		"position": global_position,
+		"rotation": rotation,
+		"velocity": velocity,
+		"movement_mode": mode,
+		"movement_state": state,
+		"movement_provider_ref": "set26.aquatic" if swimming else "",
+		"safe_position": force_safe or is_on_floor(),
+		"semantic_location": {
+			"kind": "exact_transform",
+			"ref": "player.current_position",
+			"position": global_position,
+		},
+	})
 
 
 func _update_player_visuals(delta: float) -> void:

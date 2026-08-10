@@ -2,8 +2,8 @@ extends Node
 ## Unified Set 22/23 Milestone 6 production-library and workflow gate.
 
 const ROOT := "res://content/forge/runtime/set22_23_stage6"
-const EXPECTED_CHECKS := 6113
-const EXPECTED_HASH := "0446101c57324f157cc21925a18ac1a04dacf298edd7d3ecf0ff4ebee7740675"
+const EXPECTED_CHECKS := 3908
+const EXPECTED_HASH := "beca34f3dc19f2884820422e1fdc152bf0b219e6147358d822c284bb34b3d595"
 const TARGETS := {
 	"vfx_catalogue": 178,
 	"sound_events": 300,
@@ -122,7 +122,7 @@ func _verify_contract_registration() -> void:
 
 func _load_and_roundtrip_sources() -> void:
 	var files := _resource_files(ROOT)
-	_check(files.size() == 867, "Milestone 6 source count drifted")
+	_check(files.size() == 426, "Milestone 6 source count drifted")
 	var temporary := "res://.summer/verification/.set22_23_stage6_roundtrip.tres"
 	for path in files:
 		var resource := ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)

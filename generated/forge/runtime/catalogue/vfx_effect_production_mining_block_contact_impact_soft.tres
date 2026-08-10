@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_raeee"]
+
+[resource]
+script = ExtResource("1_raeee")
+product_id = "runtime.catalogue.vfx_effect_production_mining_block_contact_impact_soft"
+source_id = "vfx.effect.production.mining_block_contact_impact_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_mining_block_contact_impact_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_mining_block_contact_impact_soft.tres": "407842c44fd0bf8fe66ce614158957f4a4d9cfe2b7027877ede561654dba2c58"
+}
+combined_source_hash = "09b5212e4c5ee1eef9a102a3d03ac5056f976ffeaeb526af0da18c941f5b5f5a"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ut0l0"]
+
+[resource]
+script = ExtResource("1_ut0l0")
+product_id = "runtime.catalogue.sound_event_production_magic_charge_soft"
+source_id = "sound.event.production.magic_charge_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_magic_charge_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_magic_charge_soft.tres": "e6bbc59322c9461979be19a80d63161a99d60b537b9e195e1e152c0d695a4bd3"
+}
+combined_source_hash = "fed8e3ba54df0a7f281514055a063f0c3e1ba17b6d69457745e29544b8487bf9"
+dependency_ids = PackedStringArray()

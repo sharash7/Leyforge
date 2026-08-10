@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_208yr"]
+
+[resource]
+script = ExtResource("1_208yr")
+product_id = "runtime.catalogue.vfx_effect_production_critical_telegraph_impact_soft"
+source_id = "vfx.effect.production.critical_telegraph_impact_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_critical_telegraph_impact_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_critical_telegraph_impact_soft.tres": "41ba93ee76e5462d8d3e62dd4a1877102df6eafda049224e221550a32efaf886"
+}
+combined_source_hash = "b8b6b88ebbbce14b1bccbc6d95be19012ca478a9ed6ad1c1934b8d11bc4070ef"
+dependency_ids = PackedStringArray()

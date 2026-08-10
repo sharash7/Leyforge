@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_wdrxg"]
+
+[resource]
+script = ExtResource("1_wdrxg")
+receipt_id = "receipt.creator.catalogue.vfx_form_production_weather_sheet"
+source_id = "vfx.form.production.weather_sheet"
+source_type_id = "catalogue.vfx"
+source_hash = "c1a37baa7d26710ff3de46b00d6266f483823068fab312498c3df70ab22c17c7"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_form_production_weather_sheet.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_form_production_weather_sheet.tres": "ab21130c9c6481e6b47a282aad97aa705f11a1ac92baea6f15e2f3e85252e817"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

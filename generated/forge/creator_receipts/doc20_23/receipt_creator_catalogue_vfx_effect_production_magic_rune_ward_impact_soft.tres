@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_3hpd0"]
+
+[resource]
+script = ExtResource("1_3hpd0")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_magic_rune_ward_impact_soft"
+source_id = "vfx.effect.production.magic_rune_ward_impact_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "c5695bf1215f50a12c8cf17ca70cbd40285974e7db1ea335c01de8c30fbfc46e"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_magic_rune_ward_impact_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_magic_rune_ward_impact_soft.tres": "1caa4b3b586c90a7e4adbb3419ff916ef9ec809b1795a51e73139fe2ad01aa80"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_bpwnt"]
+
+[resource]
+script = ExtResource("1_bpwnt")
+receipt_id = "receipt.creator.catalogue.vfx_form_production_rune_orbit"
+source_id = "vfx.form.production.rune_orbit"
+source_type_id = "catalogue.vfx"
+source_hash = "a45dfbf11e4845ca293f75c5fb157e8a351e22d005e8c359092c3fe1e2384b7c"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_form_production_rune_orbit.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_form_production_rune_orbit.tres": "3485c395ba7f93b146e771bacdf71a9e09542e229c48c470f96cfdf95440868f"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

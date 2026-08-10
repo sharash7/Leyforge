@@ -6,7 +6,9 @@ extends Node
 const ForgeHostScene = preload("res://forge_runtime_host.tscn")
 
 const EXPECTED_CHECKS := 250
-const EXPECTED_HASH := "1b2d507444d3caa0f29e5135521ec5ba1f0475d513f5225b5ee3bbf64370f01c"
+# Updated when the common manifest gained the creator schemas for structures,
+# characters, VFX, procedural audio and receipt-verified runtime products.
+const EXPECTED_HASH := "bd3ce4ca6dce60a0773edd9ca60a451253947dfc6dc9664f9140010f5a07f21a"
 const USER_ROOT := "user://forge_end_to_end"
 const ACCEPTANCE_ROOT := "res://content/forge/assets/acceptance"
 const GUIDE_PATH := "res://development/FORGE_USER_AND_DEVELOPER_GUIDE.md"
@@ -180,8 +182,8 @@ func _test_index_sources_contracts_and_products() -> Array[ForgeAssetDefinition]
 	var assets: Array[ForgeAssetDefinition] = []
 	var index := ForgeAssetIndex.new()
 	var summary := index.rebuild()
-	_check(int(summary.get("asset_count", 0)) == 316,
-		"asset index did not include 312 gameplay records and four fixtures")
+	_check(int(summary.get("asset_count", 0)) == 309,
+		"asset index did not include 305 gameplay records and four fixtures")
 	_check((summary.get("diagnostics", []) as Array).is_empty(),
 		"asset index emitted source diagnostics")
 	var results := index.search("Forge Acceptance")
@@ -261,7 +263,7 @@ func _test_index_sources_contracts_and_products() -> Array[ForgeAssetDefinition]
 func _test_pack_override_and_registry_boundary() -> void:
 	var bridge := ForgeRegistryBridge.new()
 	var records := bridge.all_gameplay_records()
-	_check(records.size() == 312,
+	_check(records.size() == 305,
 		"acceptance fixtures changed the gameplay registry boundary")
 	var block_count := 0
 	var item_count := 0
@@ -270,10 +272,10 @@ func _test_pack_override_and_registry_boundary() -> void:
 			block_count += 1
 		elif str(record.get("kind", "")) == "item":
 			item_count += 1
-	_check(block_count == 143 and item_count == 169,
+	_check(block_count == 143 and item_count == 162,
 		"acceptance fixtures entered the block or item registries")
-	_check(WorldManager.CURRENT_SAVE_VERSION == 17,
-		"Forge acceptance work changed save schema v17")
+	_check(WorldManager.CURRENT_SAVE_VERSION == 18,
+		"Forge acceptance work changed save schema v18")
 	var pack := ResourceLoader.load(
 		"res://content/forge/packs/pack_test_forge_acceptance.tres",
 		"", ResourceLoader.CACHE_MODE_IGNORE)
@@ -467,6 +469,17 @@ func _test_workspace_discovery() -> void:
 func _test_unified_foundation_workspace() -> void:
 	var workspace := ForgePresentationWorkspaceService.new()
 	var report := workspace.load_and_validate()
+	if not bool(report.get("ok", false)):
+		var diagnostic_summary := {}
+		for value in report.get("diagnostics", []):
+			if not value is Dictionary:
+				continue
+			var diagnostic: Dictionary = value
+			var key := "%s | %s | %s" % [str(diagnostic.get("code", "")),
+				str(diagnostic.get("target_id", diagnostic.get("asset_id", ""))),
+				str(diagnostic.get("message", ""))]
+			diagnostic_summary[key] = int(diagnostic_summary.get(key, 0)) + 1
+		print("FORGE_WORKSPACE_DIAGNOSTICS %s" % JSON.stringify(diagnostic_summary))
 	_check(bool(report.get("ok", false)),
 		"unified Set 22/23 Forge workspace failed validation")
 	_check((report.get("diagnostics", []) as Array).is_empty(),

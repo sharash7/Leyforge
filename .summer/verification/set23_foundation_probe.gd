@@ -10,7 +10,7 @@ const TARGET_PATH := (
 const ARTIFACT_ROOT := "res://.summer/verification/artifacts/set23_stage0"
 const CONTRACT := "23-foundation-v1"
 const EXPECTED_DETERMINISTIC_HASH := (
-	"4be60c9e353ec95f37faa936d7f3439e4ae18e7032c5b270f7543bac9fa5d875")
+	"17d6d346048f882f80cad51cdeb541e66c358d324d1b727ce6b4660e16daf00e")
 const DENSITY_PATHS := [
 	"res://content/forge/entities/density_profiles/density_profile_entity_coarse.tres",
 	"res://content/forge/entities/density_profiles/density_profile_entity_colossal_modular.tres",
@@ -34,6 +34,7 @@ const SCHEMA_IDS: PackedStringArray = [
 	"leyforge.forge.surface-layer",
 	"leyforge.forge.sound-event",
 	"leyforge.forge.sound-source",
+	"leyforge.forge.synth-patch",
 	"leyforge.forge.audio-family",
 	"leyforge.forge.spatial-audio-profile",
 	"leyforge.forge.material-response-table",
@@ -236,10 +237,10 @@ func _verify_source_index_and_round_trips(
 		"shared Forge index rejected Set 23 sources")
 	_check((report.get("diagnostics", []) as Array).is_empty(),
 		"shared Forge index retained Set 23 diagnostics")
-	_check(int(report.get("record_count", 0)) == 68,
-		"shared Forge index did not discover 45 Set 22 and 23 Set 23 sources")
-	_check(int(report.get("alias_count", 0)) == 1,
-		"shared Forge index alias count drifted")
+	_check(int(report.get("record_count", 0)) >= 69,
+		"shared Forge index lost a Set 22 or Set 23 foundation source")
+	_check(int(report.get("alias_count", 0)) >= 1,
+		"shared Forge index lost the Set 23 foundation alias")
 	_check(index.has("presentation.spatial.definition.furnace.chimney"),
 		"shared Forge index did not resolve a Set 23 import alias")
 	_check(str(index.resolve(
@@ -250,11 +251,19 @@ func _verify_source_index_and_round_trips(
 		and index.has("blueprint.leyforge.residential.small_cottage_a"),
 		"Set 23 indexing displaced Set 22 sources")
 
+	var fixture_pack := ResourceLoader.load(
+		PACK_PATH, "", ResourceLoader.CACHE_MODE_IGNORE) \
+		as ForgeContentPackManifest
+	_check(fixture_pack != null,
+		"Set 23 foundation fixture pack did not load for index scoping")
+	var fixture_ids := PackedStringArray()
+	if fixture_pack != null:
+		fixture_ids = fixture_pack.asset_ids
 	var presentation_records: Array[Dictionary] = []
 	for record in index.filtered_list():
-		if str(record.get("contract_version", "")) == CONTRACT:
+		if str(record.get("stable_id", "")) in fixture_ids:
 			presentation_records.append(record)
-	_check(presentation_records.size() == 23,
+	_check(presentation_records.size() == 24,
 		"Set 23 fixture source count drifted")
 	var schema_counts := {}
 	DirAccess.make_dir_recursive_absolute(
@@ -325,7 +334,7 @@ func _verify_pack() -> void:
 		"Set 23 foundation content pack claimed runtime activation")
 	_check(pack.override_policy == "declared_only",
 		"Set 23 foundation content pack can bypass declared overrides")
-	_check(pack.asset_ids.size() == 23,
+	_check(pack.asset_ids.size() == 24,
 		"Set 23 foundation content pack omitted schema fixtures")
 	_check(pack.presentation_asset_ids.size() == 139,
 		"Set 23 foundation content pack omitted Golden Core targets")

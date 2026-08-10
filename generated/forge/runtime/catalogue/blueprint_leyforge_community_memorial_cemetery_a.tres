@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_wlte3"]
+
+[resource]
+script = ExtResource("1_wlte3")
+product_id = "runtime.catalogue.blueprint_leyforge_community_memorial_cemetery_a"
+source_id = "blueprint.leyforge.community.memorial_cemetery_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_community_memorial_cemetery_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_memorial_cemetery_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_memorial_cemetery_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_memorial_cemetery_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_community_memorial_cemetery_a.tres": "89926462752144f4323460c55cd9b1147bea453398b4a4b9ab81cd9c316abe57",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_memorial_cemetery_a_light_damage.tres": "7988c1851a50c4ff3fbde4465ebac7348e9ca98a1f3dc31b3ac1bd10c79aa1af",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_memorial_cemetery_a_repaired.tres": "679884297bfc0a60dbe1d405def478e6a5da497f8ac2d4eea82a575823986727",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_memorial_cemetery_a_under_construction.tres": "46e5d0e447c88e8a335405e16191e8ed5a36a7e82e2a977761d15ec4b3cb1363"
+}
+combined_source_hash = "712985f5a2cbd6463663f3795a917710a9422267075e6edf0b3c517fd16537cc"
+dependency_ids = PackedStringArray()

@@ -10,11 +10,20 @@ const ValleyPlanScript = preload("res://scripts/world/valley_plan.gd")
 
 const VERSION := 4
 const LEGACY_VERSION := 3
-const PROFILE_ID := "world.profile.controlled_poc_regional"
+const PROFILE_ID := "world.profile.living_frontier_regional"
+const LEGACY_REGIONAL_PROFILE_ID := "world.profile.controlled_poc_regional"
 const ALGORITHM_ID := "worldgen.regional_random_spread.v2"
 const LEGACY_ALGORITHM_ID := "worldgen.regional_random_spread.v1"
 const STARTER_MODE := "nearby_discovery"
 const RULES_PATH := "res://data/worldgen/structure_placement.json"
+const LEGACY_CONTENT_TEMPLATES := {
+	"hamlet": "world.structure.hamlet.poc_start",
+	"goblin_camp": "world.structure.goblin_camp.poc",
+	"rune_ruin": "world.structure.rune_ruin.poc",
+	"cave_entrance": "world.structure.cave_entrance.poc",
+	"mana_pocket": "world.structure.mana_pocket.poc",
+	"resource_field": "world.structure.resource_field.poc",
+}
 const CHUNK_SIZE := 16
 const MAX_STARTER_ATTEMPTS := 256
 const SPATIAL_BUCKET_BLOCKS := 128
@@ -150,6 +159,11 @@ func _load_rules() -> void:
 			continue
 		var rule: Dictionary = value.duplicate(true)
 		var type_id := str(rule.get("type_id", ""))
+		# Plan v3 hashes are immutable save identity. Reconstruct its archived
+		# content-template aliases in memory while plan v4 reads only production
+		# Living Frontier identities from the canonical rules file.
+		if plan_version == LEGACY_VERSION and LEGACY_CONTENT_TEMPLATES.has(type_id):
+			rule["content_template"] = LEGACY_CONTENT_TEMPLATES[type_id]
 		var spacing := int(rule.get("spacing_chunks", 0))
 		var separation := int(rule.get("separation_chunks", 0))
 		if type_id.is_empty() \
@@ -643,14 +657,18 @@ func relation_graph() -> Dictionary:
 func identity() -> String:
 	# plan_version, rather than the current constant, is critical here: a
 	# worldgen-v4/plan-v3 save must retain its original identity forever.
-	return "%s:v%d:%s" % [PROFILE_ID, plan_version, _starter_hash()]
+	return "%s:v%d:%s" % [_profile_id(), plan_version, _starter_hash()]
+
+
+func _profile_id() -> String:
+	return LEGACY_REGIONAL_PROFILE_ID if plan_version == LEGACY_VERSION else PROFILE_ID
 
 
 func save_manifest() -> Dictionary:
 	var algorithm_id := (
 		ALGORITHM_ID if plan_version == VERSION else LEGACY_ALGORITHM_ID)
 	return {
-		"profile_id": PROFILE_ID,
+		"profile_id": _profile_id(),
 		"version": plan_version,
 		"algorithm_id": algorithm_id,
 		"config_id": "%s:%s:%s" % [

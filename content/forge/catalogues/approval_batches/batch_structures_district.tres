@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_qw0ku"]
+
+[resource]
+script = ExtResource("1_qw0ku")
+batch_id = "batch.structures.district"
+display_name = "Structures.district"
+studio = "structures"
+category = "district"
+target_ids = PackedStringArray("blueprint.leyforge.district.artisan_industrial_a", "blueprint.leyforge.district.residential_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_district.json")

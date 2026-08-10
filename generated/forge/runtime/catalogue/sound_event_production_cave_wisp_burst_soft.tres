@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_l5t5e"]
+
+[resource]
+script = ExtResource("1_l5t5e")
+product_id = "runtime.catalogue.sound_event_production_cave_wisp_burst_soft"
+source_id = "sound.event.production.cave_wisp_burst_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_cave_wisp_burst_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_cave_wisp_burst_soft.tres": "1326ca3c4d424746b08bcfb9bf5fe1dd242d0c0d7a694adf1164f265ba8f6ec6"
+}
+combined_source_hash = "3ebabe683eda4d6bb39ccf2812f9be972837bc924e560a12bda8372fb631058f"
+dependency_ids = PackedStringArray()

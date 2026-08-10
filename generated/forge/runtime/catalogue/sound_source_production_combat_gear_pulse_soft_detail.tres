@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_1364a"]
+
+[resource]
+script = ExtResource("1_1364a")
+product_id = "runtime.catalogue.sound_source_production_combat_gear_pulse_soft_detail"
+source_id = "sound.source.production.combat_gear_pulse_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_combat_gear_pulse_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_combat_gear_pulse_soft_detail.tres": "ed72953ee7f5ec7978fcee9bf0883b506fdacfd665426c77298f9a1bb3728766"
+}
+combined_source_hash = "87de3804aee4f58d7d2571f27321c7870810be8663bec1bc8798227ecd085b0f"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_vqhkr"]
+
+[resource]
+script = ExtResource("1_vqhkr")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_material_debris_start_soft"
+source_id = "vfx.effect.production.material_debris_start_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "382cc8936e02f1e5f04d0706fa63b68ac48bae632e8d63df0141faf743cb9d32"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_material_debris_start_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_material_debris_start_soft.tres": "ee4e959675408925c3a301fc1de69e048c95ad1e6acd9b53d6d8a83175258313"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

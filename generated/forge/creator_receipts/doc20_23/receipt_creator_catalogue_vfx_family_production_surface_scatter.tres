@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_5ovpj"]
+
+[resource]
+script = ExtResource("1_5ovpj")
+receipt_id = "receipt.creator.catalogue.vfx_family_production_surface_scatter"
+source_id = "vfx.family.production.surface_scatter"
+source_type_id = "catalogue.vfx"
+source_hash = "97f20f04cf51f84d2e4dec67670fc328962e6efcdaceb96822daac7f6b1d47e7"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_family_production_surface_scatter.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_family_production_surface_scatter.tres": "e1da6b7d4668df4f7fcc8228213eea827077700fa685069b6f6515229477bdbc"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

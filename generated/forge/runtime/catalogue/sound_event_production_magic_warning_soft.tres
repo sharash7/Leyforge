@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_vvg62"]
+
+[resource]
+script = ExtResource("1_vvg62")
+product_id = "runtime.catalogue.sound_event_production_magic_warning_soft"
+source_id = "sound.event.production.magic_warning_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_magic_warning_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_magic_warning_soft.tres": "f5ff731e3846728bad1fbbf5e49b77fb03b0fa61fc11d87f343be539d4a481c8"
+}
+combined_source_hash = "72502d7e05a9784c3603e2f6404a97e1d1b86b63a1f62848dbc76fa83961f3de"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_s03yu"]
+
+[resource]
+script = ExtResource("1_s03yu")
+product_id = "runtime.catalogue.sound_event_production_blocks_mining_deactivate_soft"
+source_id = "sound.event.production.blocks_mining_deactivate_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_blocks_mining_deactivate_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_blocks_mining_deactivate_soft.tres": "2d22f39006f1d8971cad19de75530035d9de267f0b0122a814600f1ca905720e"
+}
+combined_source_hash = "16f12f22c09a71329279f94926592178858c9dce393e05b5bb582528acd4de68"
+dependency_ids = PackedStringArray()

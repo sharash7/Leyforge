@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_pq6fj"]
+
+[resource]
+script = ExtResource("1_pq6fj")
+batch_id = "batch.audio.village_jobs.35"
+display_name = "Audio.village Jobs.35"
+studio = "audio"
+category = "village_jobs"
+target_ids = PackedStringArray("sound.event.production.village_jobs_charge_soft", "sound.source.production.village_jobs_charge_soft_body", "sound.source.production.village_jobs_charge_soft_detail", "sound.event.production.village_jobs_close_soft", "sound.source.production.village_jobs_close_soft_body", "sound.source.production.village_jobs_close_soft_detail", "sound.event.production.village_jobs_start_firm", "sound.source.production.village_jobs_start_firm_body", "sound.source.production.village_jobs_start_firm_detail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_village_jobs_35.json")

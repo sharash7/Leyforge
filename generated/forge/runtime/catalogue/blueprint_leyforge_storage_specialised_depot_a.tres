@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ircc3"]
+
+[resource]
+script = ExtResource("1_ircc3")
+product_id = "runtime.catalogue.blueprint_leyforge_storage_specialised_depot_a"
+source_id = "blueprint.leyforge.storage.specialised_depot_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_storage_specialised_depot_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_specialised_depot_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_specialised_depot_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_specialised_depot_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_storage_specialised_depot_a.tres": "45b570ab9aac9cb36419e762d130bc7b3a0796c5a13afb177b0489a5ccc20c57",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_specialised_depot_a_light_damage.tres": "b0c003ec4f480165cc45fa0d5d0b74d8693e590df9179086e72be4c5e4c86831",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_specialised_depot_a_repaired.tres": "e1e439fc64228e4a0565aba04af4f5df2d9793542947bf0bbc1cda8f5a25e340",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_specialised_depot_a_under_construction.tres": "529c435a5f3e945a1113b1b837ccb472797829984cebad890ab60421a507d217"
+}
+combined_source_hash = "0cf61060e3abe75c83579ea4826b49d775654facaf4832866c3f5041078f8717"
+dependency_ids = PackedStringArray()

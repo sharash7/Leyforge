@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_gxjrx"]
+
+[resource]
+script = ExtResource("1_gxjrx")
+product_id = "runtime.catalogue.vfx_effect_production_magic_rune_ward_impact_soft"
+source_id = "vfx.effect.production.magic_rune_ward_impact_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_magic_rune_ward_impact_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_magic_rune_ward_impact_soft.tres": "5e140e7067c0e7cf14aeebbcf8057ed6c299bd2e27f4f1379a609bb8dd814431"
+}
+combined_source_hash = "c5695bf1215f50a12c8cf17ca70cbd40285974e7db1ea335c01de8c30fbfc46e"
+dependency_ids = PackedStringArray()

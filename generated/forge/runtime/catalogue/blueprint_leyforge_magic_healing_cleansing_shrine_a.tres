@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_eukty"]
+
+[resource]
+script = ExtResource("1_eukty")
+product_id = "runtime.catalogue.blueprint_leyforge_magic_healing_cleansing_shrine_a"
+source_id = "blueprint.leyforge.magic.healing_cleansing_shrine_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_magic_healing_cleansing_shrine_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_healing_cleansing_shrine_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_healing_cleansing_shrine_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_healing_cleansing_shrine_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_magic_healing_cleansing_shrine_a.tres": "aa673c12557a92bf4e0322e86903e51178747799930ebf3840edde33806a4e0c",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_healing_cleansing_shrine_a_light_damage.tres": "368ad7407edd00e95720d57ceaeeeb0688464d52b2decd6bec8882dee7b9a610",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_healing_cleansing_shrine_a_repaired.tres": "8cf942559a9fb4073de02c41f0af713eca8b56ac5fd394d178fae4d320040ae4",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_healing_cleansing_shrine_a_under_construction.tres": "c9e6f3cd8b1ec1eb4cb21224de27400771e32fe81fe03c2639391291c5e60877"
+}
+combined_source_hash = "5667fecce61eb8933509d5d04e0ab0d1b69ca4cdfa55d4652cc5dbe3fa799d62"
+dependency_ids = PackedStringArray()

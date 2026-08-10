@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_ljjda"]
+
+[resource]
+script = ExtResource("1_ljjda")
+asset_id = "forge_asset.item.component.chute_segment"
+presentation_id = "presentation.item.component.chute_segment"
+source_revision = 1
+source_hash = "0ed814f2cee246feb040b08b8518a99960e11f6605fd5db0bb26ac5f6c90fc3e"
+engine_version = "4.6.1-stable (custom_build)"
+baker_version = "forge-pipeline-v7"
+products = Array[Dictionary]([{
+"hash": "42ff2bd91e301a643f371cafb4edc14a9ed005dd123635f59064c5eaedbeff8a",
+"path": "res://generated/forge/products/presentation_item_component_chute_segment/c355f90b59a39007/presentation_mesh.res",
+"type": "mesh"
+}, {
+"hash": "2eb394bdae8f0016aeba5ab4555a7d088c523b94b6a4cf2a8d6d55d349a722a7",
+"path": "res://generated/forge/products/presentation_item_component_chute_segment/c355f90b59a39007/icon.png",
+"type": "icon"
+}, {
+"hash": "6bd1b2d6107b04c1ca1e3c0d3ab64f8c71c031b316c0780e190acea276f576bd",
+"path": "res://generated/forge/products/presentation_item_component_chute_segment/c355f90b59a39007/collision.tres",
+"type": "collision"
+}, {
+"hash": "781ccfefaa851ec9b45ce8922ff73fd0a3ea0b065823703c3f7df604faa930cd",
+"path": "res://generated/forge/products/presentation_item_component_chute_segment/c355f90b59a39007/presentation.tscn",
+"type": "scene"
+}, {
+"hash": "fea23c26ca3ae074ba2ecea4b4efdf7064d78b1ea071239d329c9c0de950d9a1",
+"path": "res://generated/forge/packages/presentation_item_component_chute_segment.tres",
+"type": "runtime_package"
+}])
+diagnostics_summary = {
+"blocker": 0,
+"critical": 0,
+"critical_release_blocker": 0,
+"error": 0,
+"info": 0,
+"warning": 0
+}
+approved_status = "approved"

@@ -1,0 +1,308 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_ko1wj"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_cdg2j"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_ueyqc"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_7y74b"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_546bh"]
+
+[sub_resource type="Resource" id="Resource_uyhx7"]
+script = ExtResource("1_ko1wj")
+delta_id = "blueprint.leyforge.food.basic_farm_plot_a.delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("blueprint.leyforge.food.basic_farm_plot_a.element.foundation.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_5di16"]
+script = ExtResource("1_ko1wj")
+delta_id = "blueprint.leyforge.food.basic_farm_plot_a.delta.structure"
+stage_id = "structure"
+add_element_ids = PackedStringArray("blueprint.leyforge.food.basic_farm_plot_a.element.structure.pillar_0", "blueprint.leyforge.food.basic_farm_plot_a.element.structure.pillar_1", "blueprint.leyforge.food.basic_farm_plot_a.element.structure.pillar_2", "blueprint.leyforge.food.basic_farm_plot_a.element.structure.pillar_3", "blueprint.leyforge.food.basic_farm_plot_a.element.structure.perimeter_4", "blueprint.leyforge.food.basic_farm_plot_a.element.structure.point_5", "blueprint.leyforge.food.basic_farm_plot_a.element.structure.fill_6")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_igxp3"]
+script = ExtResource("1_ko1wj")
+delta_id = "blueprint.leyforge.food.basic_farm_plot_a.delta.activation"
+stage_id = "activation"
+add_element_ids = PackedStringArray("blueprint.leyforge.food.basic_farm_plot_a.element.activation.point_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("structure")
+
+[sub_resource type="Resource" id="Resource_3m7v7"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.element.foundation.fill_0"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 0.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "foundation_primary"
+}
+
+[sub_resource type="Resource" id="Resource_di8rt"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.element.structure.pillar_0"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "structure"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_tiaeb"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.element.structure.pillar_1"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "structure"
+position = Vector3i(2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_u7buo"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.element.structure.pillar_2"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "structure"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_s1rg1"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.element.structure.pillar_3"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "structure"
+position = Vector3i(2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_04wl6"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.element.structure.perimeter_4"
+element_kind = "block_operation"
+material_role_id = "wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "structure"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"exclude": [[-2.0, 1.0, -2.0], [-2.0, 2.0, -2.0], [-2.0, 1.0, 2.0], [-2.0, 2.0, 2.0], [2.0, 1.0, -2.0], [2.0, 2.0, -2.0], [2.0, 1.0, 2.0], [2.0, 2.0, 2.0], [0.0, 1.0, -2.0]],
+"op": "perimeter",
+"origin": [-2.0, 1.0, -2.0],
+"size": [5.0, 2.0, 5.0],
+"token": "wall_primary"
+}
+
+[sub_resource type="Resource" id="Resource_00i3j"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.element.structure.point_5"
+element_kind = "block_operation"
+material_role_id = "door_basic"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "structure"
+position = Vector3i(0, 1, -2)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, -2.0],
+"token": "door_basic"
+}
+
+[sub_resource type="Resource" id="Resource_etcgl"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.element.structure.fill_6"
+element_kind = "block_operation"
+material_role_id = "roof_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "structure"
+position = Vector3i(-2, 4, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 4.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "roof_primary"
+}
+
+[sub_resource type="Resource" id="Resource_4dd4f"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.element.activation.point_0"
+element_kind = "block_operation"
+material_role_id = "functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "activation"
+position = Vector3i(0, 1, 0)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, 0.0],
+"token": "functional"
+}
+
+[sub_resource type="Resource" id="Resource_dant6"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.marker_01"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.crop_rows_or_planting_cells")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -2)
+metadata = {
+"id": "marker_01",
+"position": [-2.0, 1.0, -2.0],
+"type": "crop_rows_or_planting_cells"
+}
+
+[sub_resource type="Resource" id="Resource_hgxbp"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.marker_02"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.access_lane")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -2)
+metadata = {
+"id": "marker_02",
+"position": [-1.0, 1.0, -2.0],
+"type": "access_lane"
+}
+
+[sub_resource type="Resource" id="Resource_vqpt7"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.marker_03"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.tool_work_point")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"id": "marker_03",
+"position": [0.0, 1.0, -2.0],
+"type": "tool_work_point"
+}
+
+[sub_resource type="Resource" id="Resource_nk3rb"]
+script = ExtResource("2_cdg2j")
+element_id = "blueprint.leyforge.food.basic_farm_plot_a.marker_04"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.harvest_zone_and_optional_water_socket")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -2)
+metadata = {
+"id": "marker_04",
+"position": [1.0, 1.0, -2.0],
+"type": "harvest_zone_and_optional_water_socket"
+}
+
+[sub_resource type="Resource" id="Resource_bui86"]
+script = ExtResource("3_ueyqc")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_food_basic_farm_plot_a"
+display_name = "Basic Farm Plot - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.wood",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_1cxqi"]
+script = ExtResource("4_7y74b")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_food_basic_farm_plot_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -2)
+footprint_max = Vector3i(2, 5, 2)
+max_slope = 1
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_546bh")
+blueprint_id = "blueprint.leyforge.food.basic_farm_plot_a"
+display_name = "Basic Farm Plot - Forest Neutral"
+definition_ids = PackedStringArray("building.food.basic_farm_plot")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_cdg2j")]([SubResource("Resource_3m7v7"), SubResource("Resource_di8rt"), SubResource("Resource_tiaeb"), SubResource("Resource_u7buo"), SubResource("Resource_s1rg1"), SubResource("Resource_04wl6"), SubResource("Resource_00i3j"), SubResource("Resource_etcgl"), SubResource("Resource_4dd4f"), SubResource("Resource_dant6"), SubResource("Resource_hgxbp"), SubResource("Resource_vqpt7"), SubResource("Resource_nk3rb")])
+construction_deltas = Array[ExtResource("1_ko1wj")]([SubResource("Resource_uyhx7"), SubResource("Resource_5di16"), SubResource("Resource_igxp3")])
+placement_profile = SubResource("Resource_1cxqi")
+material_role_set = SubResource("Resource_bui86")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.011"

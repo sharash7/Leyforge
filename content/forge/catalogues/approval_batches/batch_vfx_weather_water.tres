@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_iyvt6"]
+
+[resource]
+script = ExtResource("1_iyvt6")
+batch_id = "batch.vfx.weather_water"
+display_name = "Vfx.weather Water"
+studio = "vfx"
+category = "weather_water"
+target_ids = PackedStringArray("vfx.effect.production.weather_water_activate_soft", "vfx.effect.production.weather_water_contact_soft", "vfx.effect.production.weather_water_finish_soft", "vfx.effect.production.weather_water_idle_soft", "vfx.effect.production.weather_water_impact_soft", "vfx.effect.production.weather_water_move_soft", "vfx.effect.production.weather_water_release_soft", "vfx.effect.production.weather_water_start_soft", "vfx.effect.production.weather_water_sustain_soft", "vfx.effect.production.weather_water_warning_soft")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_vfx_weather_water.json")

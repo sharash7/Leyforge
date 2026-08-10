@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_typ47"]
+
+[resource]
+script = ExtResource("1_typ47")
+product_id = "runtime.catalogue.sound_source_production_magic_idle_soft_detail"
+source_id = "sound.source.production.magic_idle_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_magic_idle_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_magic_idle_soft_detail.tres": "e6b5f162d9e9d6ca0664353559c70ff09365347c9276d0142f98f2e2693f37b8"
+}
+combined_source_hash = "396dc4c6464fe373ff272a1c30184aa3e2336b38ebf3b1514740506370216889"
+dependency_ids = PackedStringArray()

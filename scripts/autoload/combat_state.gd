@@ -1,7 +1,8 @@
 extends Node
-## Authoritative Stage 7 player-combat and Forest Hamlet raid state.
-## Local goblin actors are presentation; enemy health, preparation, aftermath,
-## structure damage, and settings survive actor streaming and save/load.
+## Authoritative Stage 7 attack resolution, defeat decisions and Forest Hamlet
+## raid state. BiologyManager owns player/enemy health and injury truth; local
+## actors are presentation. Preparation, aftermath, structure damage and combat
+## decisions survive actor streaming and save/load.
 
 signal state_changed
 signal raid_phase_changed(phase: String)
@@ -11,6 +12,8 @@ signal player_health_changed
 const RAID_WARNING_SECONDS := 8.0
 const RAID_ASSAULT_SECONDS := 45.0
 const DEFAULT_CAMP_PRESSURE := 55
+const STRUCTURE_DAMAGE_PER_VOXEL := 0.1
+const PLAYER_BIOLOGICAL_ACTOR_ID := "actor.player.local"
 
 var initialized := false
 var world_seed := 0
@@ -27,6 +30,7 @@ var outcome: Dictionary = {}
 var event_history: Array[Dictionary] = []
 var damage_records: Array[Dictionary] = []
 var stolen_stacks: Array[Dictionary] = []
+var raid_serial := 0
 var player_health := 100.0
 var player_max_health := 100.0
 var settings := {
@@ -47,10 +51,25 @@ func initialize(
 	target_settlement_id = settlement_id
 	anchors = _normalise_anchors(world_anchors)
 	event_history.clear()
+	raid_serial = 0
 	_initialize_camp_state()
 	initialized = true
 	reset_raid()
-	player_health = player_max_health
+	_ensure_biology_owner()
+	if not BiologyManager.has_actor(PLAYER_BIOLOGICAL_ACTOR_ID):
+		player_max_health = 100.0
+		player_health = player_max_health
+		var player_registration := BiologyManager.register_actor_projection(
+			PLAYER_BIOLOGICAL_ACTOR_ID, {
+				"health": player_max_health,
+				"max_health": player_max_health,
+				"needs": {"food": 0.8},
+			}, "player_combat", "", "", "persistent")
+		if not bool(player_registration.get("ok", false)):
+			push_warning(
+				"CombatState: player biological registration failed: %s" \
+				% player_registration)
+	_refresh_player_biology_projection()
 
 
 func _normalise_anchors(values: Dictionary) -> Dictionary:
@@ -187,6 +206,7 @@ func begin_raid(preparation_snapshot: Dictionary) -> Dictionary:
 	_refresh_camp_pressure()
 	preparation = preparation_snapshot.duplicate(true)
 	preparation["raid_source"] = camp_state.duplicate(true)
+	raid_serial += 1
 	phase = "warning"
 	phase_seconds = RAID_WARNING_SECONDS
 	assault_seconds = 0.0
@@ -246,8 +266,10 @@ func _create_enemy_force() -> void:
 		var spawn_position := Vector2(float(point[0]), float(point[2]))
 		var spawn_distance := Vector2(hamlet).distance_to(spawn_position)
 		var id := str(definition[0])
-		enemy_records[id] = {
+		var biological_actor_id := _enemy_biological_actor_id(id, {})
+		var record := {
 			"id": id,
+			"biological_actor_id": biological_actor_id,
 			"name": str(definition[1]),
 			"role": str(definition[2]),
 			"health": float(definition[3]),
@@ -279,6 +301,23 @@ func _create_enemy_force() -> void:
 				spawn_position.y,
 			],
 		}
+		_ensure_biology_owner()
+		var biological := BiologyManager.reset_actor_for_spawn(
+			biological_actor_id, {
+				"health": float(definition[3]),
+				"max_health": float(definition[3]),
+				"source_kind": "combat_raid_spawn",
+				"settlement_ref": target_settlement_id,
+				"persistence_class": "conditional",
+			}, "combat.raid_spawn.%s.%d.%s" % [
+				target_settlement_id, raid_serial, id])
+		if not bool(biological.get("ok", false)):
+			push_warning(
+				"CombatState: enemy biological spawn failed: %s" % biological)
+		else:
+			record = BiologyManager.compatibility_actor_view(
+				biological_actor_id, record)
+		enemy_records[id] = record
 
 
 func _anchor(key: String) -> Vector2i:
@@ -311,7 +350,13 @@ func is_assault_active() -> bool:
 
 
 func get_enemy_record(enemy_id: String) -> Dictionary:
-	return enemy_records.get(enemy_id, {}).duplicate(true)
+	var record: Dictionary = enemy_records.get(enemy_id, {}).duplicate(true)
+	var biological_actor_id := _enemy_biological_actor_id(enemy_id, record)
+	if BiologyManager.initialized and BiologyManager.has_actor(
+			biological_actor_id):
+		record = BiologyManager.compatibility_actor_view(
+			biological_actor_id, record)
+	return record
 
 
 func get_enemy_ids() -> Array[String]:
@@ -333,13 +378,50 @@ func update_enemy_position(enemy_id: String, position: Vector3) -> void:
 func damage_enemy(enemy_id: String, packet: Dictionary) -> Dictionary:
 	if phase != "assault" or not enemy_records.has(enemy_id):
 		return {"ok": false}
-	var record: Dictionary = enemy_records[enemy_id]
+	var record: Dictionary = get_enemy_record(enemy_id)
 	if not bool(record.get("alive", false)):
 		return {"ok": false}
 	var amount := maxf(0.0, float(packet.get("amount", 0.0)))
-	record["health"] = maxf(0.0, float(record.get("health", 0.0)) - amount)
+	var biological_actor_id := _enemy_biological_actor_id(enemy_id, record)
+	_ensure_biology_owner()
+	if not BiologyManager.has_actor(biological_actor_id):
+		var registration := BiologyManager.register_actor_projection(
+			biological_actor_id, record, "combat_enemy_compatibility", "",
+			target_settlement_id, "conditional")
+		if not bool(registration.get("ok", false)):
+			return registration
+	var transaction_id := str(packet.get(
+		"transaction_id", packet.get("damage_event_id", "")))
+	if transaction_id.is_empty():
+		transaction_id = "combat.enemy_damage.%s.revision_%d" % [
+			biological_actor_id,
+			int(BiologyManager.get_record(biological_actor_id).get(
+				"revision", 0)) + 1]
+	var biological := BiologyManager.apply_resolved_biological_damage({
+		"transaction_id": transaction_id,
+		"actor_id": biological_actor_id,
+		"source_actor_ref": str(packet.get("source", "player")),
+		"source_system": "document16.combat",
+		"resolved_health_damage": amount,
+		"damage_tags": [str(packet.get("damage_type", "physical"))],
+		"trauma_tags": ["impact"],
+		"impact_class": (
+			"heavy" if amount >= 20.0 else
+			"significant" if amount >= 8.0 else "light"),
+		"injury_permitted": amount >= 8.0,
+		"biological_region_id": str(packet.get(
+			"biological_region_id", "region.general")),
+		"minimum_health": 0.0,
+		"world_time": ProductionKernel.world_time_reference(),
+	})
+	if not bool(biological.get("ok", false)):
+		return biological
+	record = BiologyManager.compatibility_actor_view(
+		biological_actor_id, record)
 	record["last_damage_type"] = str(packet.get("damage_type", "physical"))
 	record["last_damage_source"] = str(packet.get("source", "player"))
+	record["last_biological_result_ref"] = str(biological.get(
+		"evidence_id", ""))
 	if float(record["health"]) <= 0.0:
 		record["alive"] = false
 		record["morale"] = 0.0
@@ -362,6 +444,8 @@ func damage_enemy(enemy_id: String, packet: Dictionary) -> Dictionary:
 		"ok": true,
 		"health": float(record["health"]),
 		"defeated": not bool(record["alive"]),
+		"duplicate": bool(biological.get("duplicate", false)),
+		"biological_result_ref": str(biological.get("evidence_id", "")),
 	}
 
 
@@ -476,12 +560,22 @@ func _apply_aftermath() -> void:
 	stolen_stacks = HamletState.apply_raid_aftermath(
 		str(outcome.get("id", "partial_loss")), injured,
 		int(outcome.get("theft_limit", 0)),
-		int(outcome.get("reputation_delta", 0)))
+		int(outcome.get("reputation_delta", 0)),
+		"combat_raid.%s.%d" % [target_settlement_id, raid_serial])
 	_aftermath_applied = true
 
 
 func _build_damage_plan(count: int) -> void:
 	damage_records.clear()
+	var settlement_id := target_settlement_id \
+		if not target_settlement_id.is_empty() \
+		else HamletState.active_village_id
+	var structure_instance_id := StructureManager.find_structure_for_anchor(
+		settlement_id, "warehouse")
+	if structure_instance_id.is_empty():
+		push_warning(
+			"CombatState: no owned warehouse StructureInstance accepts raid damage")
+		return
 	var offsets := [
 		Vector3i(-3, 0, 0),
 		Vector3i(3, 0, 0),
@@ -491,11 +585,14 @@ func _build_damage_plan(count: int) -> void:
 	]
 	for index in mini(count, offsets.size()):
 		damage_records.append({
-			"id": "raid.damage.%d" % index,
+			"id": "raid.damage.%d.%d" % [raid_serial, index],
 			"target": "warehouse",
+			"structure_instance_id": structure_instance_id,
 			"offset": [offsets[index].x, offsets[index].y, offsets[index].z],
 			"position": [],
 			"original_block": "",
+			"condition_delta": STRUCTURE_DAMAGE_PER_VOXEL,
+			"structure_evidence_id": "",
 			"repaired": false,
 		})
 
@@ -509,6 +606,15 @@ func materialize_damage(world: Object) -> void:
 		if bool(record.get("repaired", false)) \
 				or not record.get("position", []).is_empty():
 			continue
+		var instance_id := str(record.get("structure_instance_id", ""))
+		var consequence_id := str(record.get("id", ""))
+		var damage_amount := maxf(
+			0.0001, float(record.get(
+				"condition_delta", STRUCTURE_DAMAGE_PER_VOXEL)))
+		var preflight := StructureManager.can_accept_consequence(
+			instance_id, "damage", consequence_id, damage_amount)
+		if not bool(preflight.get("ok", false)):
+			continue
 		var offset: Array = record.get("offset", [0, 0, 0])
 		var position := center + Vector3i(
 			int(offset[0]), int(offset[1]), int(offset[2]))
@@ -519,8 +625,23 @@ func materialize_damage(world: Object) -> void:
 			continue
 		var stable_id := BlockRegistry.get_stable_id(block_id)
 		if world.set_block_global(position, BlockRegistry.AIR):
+			var consequence := StructureManager.record_damage(
+				instance_id, damage_amount, {
+					"consequence_id": consequence_id,
+					"source_owner": "combat",
+					"source_event_id": str(outcome.get("id", "raid")),
+					"position": [position.x, position.y, position.z],
+					"material_ref": stable_id,
+					"day": HamletState.day,
+					"clock_minutes": HamletState.clock_minutes,
+				})
+			if not bool(consequence.get("ok", false)):
+				world.set_block_global(position, block_id)
+				continue
 			record["position"] = [position.x, position.y, position.z]
 			record["original_block"] = stable_id
+			record["structure_evidence_id"] = str(
+				consequence.get("evidence_id", ""))
 			damage_records[index] = record
 	state_changed.emit()
 
@@ -536,9 +657,23 @@ func repair_next_damage(world: Object) -> Dictionary:
 		var original := str(record.get("original_block", ""))
 		if position_value.size() < 3 or original.is_empty():
 			continue
+		var instance_id := str(record.get("structure_instance_id", ""))
+		var damage_id := str(record.get("id", ""))
+		var repair_id := "%s.repair" % damage_id
+		var repair_amount := maxf(
+			0.0001, float(record.get(
+				"condition_delta", STRUCTURE_DAMAGE_PER_VOXEL)))
+		var preflight := StructureManager.can_accept_consequence(
+			instance_id, "repair", repair_id, repair_amount)
+		if not bool(preflight.get("ok", false)):
+			return {
+				"ok": false,
+				"message": "The structure owner rejected this repair consequence.",
+				"reason": preflight.get("error", "structure_owner_rejected"),
+			}
 		var repair_ref := {
-			"kind": "item",
-			"stable_id": "item.material.beam_oak",
+			"kind": "block",
+			"stable_id": "construction.beam.oak",
 			"count": 1,
 		}
 		if Inventory.count_ref(repair_ref) < 1:
@@ -556,7 +691,26 @@ func repair_next_damage(world: Object) -> Dictionary:
 		if not Inventory.remove_ref(repair_ref, 1):
 			world.set_block_global(position, BlockRegistry.AIR)
 			return {"ok": false, "message": "The repair transaction was rolled back."}
+		var consequence := StructureManager.record_repair(
+			instance_id, repair_amount, {
+				"consequence_id": repair_id,
+				"source_owner": "combat",
+				"source_event_id": damage_id,
+				"position": position_value.duplicate(),
+				"material_ref": original,
+				"day": HamletState.day,
+				"clock_minutes": HamletState.clock_minutes,
+			})
+		if not bool(consequence.get("ok", false)):
+			Inventory.add_stack(Inventory.make_stack_from_ref(repair_ref))
+			world.set_block_global(position, BlockRegistry.AIR)
+			return {
+				"ok": false,
+				"message": "The structure-owner repair commit was rolled back.",
+			}
 		record["repaired"] = true
+		record["structure_repair_evidence_id"] = str(
+			consequence.get("evidence_id", ""))
 		damage_records[index] = record
 		state_changed.emit()
 		return {
@@ -575,10 +729,45 @@ func unresolved_damage_count() -> int:
 	return count
 
 
-func damage_player(amount: float, source: String = "") -> Dictionary:
+func damage_player(
+		amount: float,
+		source: String = "",
+		damage_event_id: String = "") -> Dictionary:
 	if amount <= 0.0:
 		return {"ok": false}
-	player_health = maxf(0.0, player_health - amount)
+	_ensure_biology_owner()
+	if not BiologyManager.has_actor(PLAYER_BIOLOGICAL_ACTOR_ID):
+		var registration := BiologyManager.register_actor_projection(
+			PLAYER_BIOLOGICAL_ACTOR_ID, {
+				"health": player_health,
+				"max_health": player_max_health,
+			}, "player_combat_compatibility", "", "", "persistent")
+		if not bool(registration.get("ok", false)):
+			return registration
+	var transaction_id := damage_event_id
+	if transaction_id.is_empty():
+		transaction_id = "combat.player_damage.revision_%d" % [
+			int(BiologyManager.get_record(PLAYER_BIOLOGICAL_ACTOR_ID).get(
+				"revision", 0)) + 1]
+	var biological := BiologyManager.apply_resolved_biological_damage({
+		"transaction_id": transaction_id,
+		"actor_id": PLAYER_BIOLOGICAL_ACTOR_ID,
+		"source_actor_ref": source,
+		"source_system": "document16.combat",
+		"resolved_health_damage": amount,
+		"damage_tags": ["physical.combat"],
+		"trauma_tags": ["impact"],
+		"impact_class": (
+			"heavy" if amount >= 20.0 else
+			"significant" if amount >= 8.0 else "light"),
+		"injury_permitted": amount >= 8.0,
+		"biological_region_id": "region.general",
+		"minimum_health": 0.0,
+		"world_time": ProductionKernel.world_time_reference(),
+	})
+	if not bool(biological.get("ok", false)):
+		return biological
+	_refresh_player_biology_projection()
 	player_health_changed.emit()
 	state_changed.emit()
 	return {
@@ -586,11 +775,31 @@ func damage_player(amount: float, source: String = "") -> Dictionary:
 		"health": player_health,
 		"downed": player_health <= 0.0,
 		"source": source,
+		"duplicate": bool(biological.get("duplicate", false)),
+		"biological_result_ref": str(biological.get("evidence_id", "")),
 	}
 
 
 func recover_player() -> void:
-	player_health = player_max_health
+	_ensure_biology_owner()
+	if not BiologyManager.has_actor(PLAYER_BIOLOGICAL_ACTOR_ID):
+		return
+	var record := BiologyManager.get_record(PLAYER_BIOLOGICAL_ACTOR_ID)
+	var healing := BiologyManager.submit_biological_healing_request({
+		"transaction_id": "combat.player_recovery.revision_%d" % [
+			int(record.get("revision", 0)) + 1],
+		"actor_id": PLAYER_BIOLOGICAL_ACTOR_ID,
+		"healing_amount": BiologyManager.max_health(
+			PLAYER_BIOLOGICAL_ACTOR_ID),
+		"allowed_ceiling": BiologyManager.max_health(
+			PLAYER_BIOLOGICAL_ACTOR_ID),
+		"allow_recovery_from_zero": true,
+		"external_lifecycle_authority": "document16.combat_respawn",
+	})
+	if not bool(healing.get("ok", false)):
+		push_warning("CombatState: player recovery handoff failed: %s" % healing)
+		return
+	_refresh_player_biology_projection()
 	player_health_changed.emit()
 	state_changed.emit()
 
@@ -618,7 +827,72 @@ func _record_event(kind: String, facts: Dictionary) -> void:
 		event_history.pop_front()
 
 
+func _ensure_biology_owner() -> void:
+	if BiologyManager.initialized and BiologyManager.world_seed == world_seed:
+		return
+	BiologyManager.initialize(
+		world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _enemy_biological_actor_id(
+		enemy_id: String, record: Dictionary) -> String:
+	var existing := str(record.get("biological_actor_id", ""))
+	if not existing.is_empty():
+		return existing
+	var settlement_token := target_settlement_id \
+		if not target_settlement_id.is_empty() else "legacy"
+	return "actor.combat.%s.raid_%03d.%s" % [
+		settlement_token, raid_serial, enemy_id]
+
+
+func _refresh_player_biology_projection() -> void:
+	if not BiologyManager.initialized \
+			or not BiologyManager.has_actor(PLAYER_BIOLOGICAL_ACTOR_ID):
+		return
+	player_health = BiologyManager.current_health(PLAYER_BIOLOGICAL_ACTOR_ID)
+	player_max_health = BiologyManager.max_health(PLAYER_BIOLOGICAL_ACTOR_ID)
+
+
+func _apply_enemy_biology_projections() -> void:
+	if not BiologyManager.initialized:
+		return
+	for enemy_id in get_enemy_ids():
+		var record: Dictionary = enemy_records[enemy_id]
+		var biological_actor_id := _enemy_biological_actor_id(enemy_id, record)
+		record["biological_actor_id"] = biological_actor_id
+		if BiologyManager.has_actor(biological_actor_id):
+			record = BiologyManager.compatibility_actor_view(
+				biological_actor_id, record)
+		enemy_records[enemy_id] = record
+
+
+func _restore_enemy_biology_projections() -> bool:
+	_ensure_biology_owner()
+	for enemy_id in get_enemy_ids():
+		var record: Dictionary = enemy_records[enemy_id]
+		var biological_actor_id := _enemy_biological_actor_id(enemy_id, record)
+		record["biological_actor_id"] = biological_actor_id
+		if not BiologyManager.has_actor(biological_actor_id):
+			var registration := BiologyManager.register_actor_projection(
+				biological_actor_id, record, "combat_restore_compatibility", "",
+				target_settlement_id, "conditional")
+			if not bool(registration.get("ok", false)):
+				push_warning(
+					"CombatState: enemy biological restore failed: %s" \
+					% registration)
+				return false
+		record = BiologyManager.compatibility_actor_view(
+			biological_actor_id, record)
+		if float(record.get("health", 0.0)) <= 0.0:
+			record["alive"] = false
+		enemy_records[enemy_id] = record
+	return true
+
+
 func serialize_state() -> Dictionary:
+	_refresh_player_biology_projection()
+	_apply_enemy_biology_projections()
 	var saved_stolen: Array = []
 	for stack in stolen_stacks:
 		saved_stolen.append(Inventory.serialize_stack(stack))
@@ -637,6 +911,7 @@ func serialize_state() -> Dictionary:
 		"outcome": outcome.duplicate(true),
 		"event_history": event_history.duplicate(true),
 		"damage_records": damage_records.duplicate(true),
+		"raid_serial": raid_serial,
 		"stolen_stacks": saved_stolen,
 		"player_health": player_health,
 		"player_max_health": player_max_health,
@@ -683,6 +958,9 @@ func restore_state(
 	for damage_value in data.get("damage_records", []):
 		if damage_value is Dictionary:
 			damage_records.append(damage_value.duplicate(true))
+	raid_serial = maxi(0, int(data.get("raid_serial", 0)))
+	if raid_serial == 0 and phase in ["warning", "assault", "resolved"]:
+		raid_serial = 1
 	stolen_stacks.clear()
 	for stack_value in data.get("stolen_stacks", []):
 		var stack := Inventory.deserialize_stack(stack_value)
@@ -691,6 +969,28 @@ func restore_state(
 	player_max_health = maxf(1.0, float(data.get("player_max_health", 100.0)))
 	player_health = clampf(
 		float(data.get("player_health", player_max_health)), 0.0, player_max_health)
+	_ensure_biology_owner()
+	if not BiologyManager.has_actor(PLAYER_BIOLOGICAL_ACTOR_ID):
+		var player_registration := BiologyManager.register_actor_projection(
+			PLAYER_BIOLOGICAL_ACTOR_ID, {
+				"health": player_health,
+				"max_health": player_max_health,
+			}, "combat_restore_compatibility", "", "", "persistent")
+		if not bool(player_registration.get("ok", false)):
+			return false
+	elif not BiologyManager.restored_from_state \
+			and int(BiologyManager.get_record(
+				PLAYER_BIOLOGICAL_ACTOR_ID).get("revision", 0)) <= 1:
+		var migrated_player := BiologyManager.migrate_legacy_projection(
+			PLAYER_BIOLOGICAL_ACTOR_ID, {
+				"health": player_health,
+				"max_health": player_max_health,
+			}, "biology.legacy_combat_player.%d" % expected_seed)
+		if not bool(migrated_player.get("ok", false)):
+			return false
+	if not _restore_enemy_biology_projections():
+		return false
+	_refresh_player_biology_projection()
 	settings.merge(data.get("settings", {}), true)
 	_aftermath_applied = bool(data.get("aftermath_applied", phase == "resolved"))
 	initialized = true

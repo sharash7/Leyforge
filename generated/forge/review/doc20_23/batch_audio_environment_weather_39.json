@@ -1,0 +1,21 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.audio.environment_weather.39",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "sound.event.production.environment_weather_contact_firm",
+    "sound.source.production.environment_weather_contact_firm_body",
+    "sound.source.production.environment_weather_contact_firm_detail",
+    "sound.event.production.environment_weather_idle_firm",
+    "sound.source.production.environment_weather_idle_firm_body",
+    "sound.source.production.environment_weather_idle_firm_detail",
+    "sound.event.production.environment_weather_move_firm",
+    "sound.source.production.environment_weather_move_firm_body",
+    "sound.source.production.environment_weather_move_firm_detail",
+    "sound.event.production.environment_weather_warning_firm",
+    "sound.source.production.environment_weather_warning_firm_body",
+    "sound.source.production.environment_weather_warning_firm_detail"
+  ]
+}

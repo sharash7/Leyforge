@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_t3lb2"]
+
+[resource]
+script = ExtResource("1_t3lb2")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_safety_barracks_training_yard_a"
+source_id = "blueprint.leyforge.safety.barracks_training_yard_a"
+source_type_id = "catalogue.structures"
+source_hash = "75d4cc4f68270d72877df099378bccb5c13b3197aa7404936c07cae7606defb6"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_barracks_training_yard_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_barracks_training_yard_a.tres": "556b32f6360354c662bafa706e4486d5d6ff72902127f936a9699f8622d4766f"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

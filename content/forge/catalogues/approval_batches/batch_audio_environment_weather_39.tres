@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_lyijc"]
+
+[resource]
+script = ExtResource("1_lyijc")
+batch_id = "batch.audio.environment_weather.39"
+display_name = "Audio.environment Weather.39"
+studio = "audio"
+category = "environment_weather"
+target_ids = PackedStringArray("sound.event.production.environment_weather_contact_firm", "sound.source.production.environment_weather_contact_firm_body", "sound.source.production.environment_weather_contact_firm_detail", "sound.event.production.environment_weather_idle_firm", "sound.source.production.environment_weather_idle_firm_body", "sound.source.production.environment_weather_idle_firm_detail", "sound.event.production.environment_weather_move_firm", "sound.source.production.environment_weather_move_firm_body", "sound.source.production.environment_weather_move_firm_detail", "sound.event.production.environment_weather_warning_firm", "sound.source.production.environment_weather_warning_firm_body", "sound.source.production.environment_weather_warning_firm_detail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_environment_weather_39.json")

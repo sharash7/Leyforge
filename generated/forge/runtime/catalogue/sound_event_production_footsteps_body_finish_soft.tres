@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_g87lv"]
+
+[resource]
+script = ExtResource("1_g87lv")
+product_id = "runtime.catalogue.sound_event_production_footsteps_body_finish_soft"
+source_id = "sound.event.production.footsteps_body_finish_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_footsteps_body_finish_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_footsteps_body_finish_soft.tres": "0e879c2d5b31737f8bb278347e006af6a8409693fd313b3242962d41e70e2d68"
+}
+combined_source_hash = "8669e5d938aaa45dec8ae26df152c16c30a57dbad0bf27b8c4f66560b104ebb8"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeEquipmentFitProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_equipment_fit_profile.gd" id="1_jgwh7"]
+
+[resource]
+script = ExtResource("1_jgwh7")
+equipment_profile_id = "entity.equipment_profile.production.entity_definition_profession_miner.primary"
+display_name = "Miner Villager Primary Equipment Fit"
+equipment_asset_id = "forge_asset.item.tool.crude_pickaxe"
+compatible_rig_profile_ids = PackedStringArray("entity.rig.production.entity_definition_profession_miner")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("entity.rig.production.entity_definition_profession_miner")

@@ -514,7 +514,7 @@ func _verify_evidence_artifacts() -> void:
 			all_present = false
 	_check(all_present, "dependency snapshot contains a missing source")
 	var baseline := _load_json("%s/contract_baseline.json" % ARTIFACT_ROOT)
-	_check(int(baseline.get("save_version", 0)) == 17
+	_check(int(baseline.get("save_version", 0)) == 18
 			and int(baseline.get("settlement_schema_version", 0)) == 2,
 		"contract baseline changed the save or settlement schema version")
 	_check(str(baseline.get("manual_visual_approval", "")) == "open",
@@ -526,8 +526,8 @@ func _verify_evidence_artifacts() -> void:
 
 
 func _verify_v17_legacy_restore() -> void:
-	_check(WorldManager.CURRENT_SAVE_VERSION == 17,
-		"Set 20/22 foundation changed save version 17")
+	_check(WorldManager.CURRENT_SAVE_VERSION == 18,
+		"Set 20/22 foundation changed save version 18")
 	var seed := 220022
 	var anchors := {
 		"hamlet": [0, 0],

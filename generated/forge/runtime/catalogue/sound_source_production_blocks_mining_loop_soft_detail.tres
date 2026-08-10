@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_x36r6"]
+
+[resource]
+script = ExtResource("1_x36r6")
+product_id = "runtime.catalogue.sound_source_production_blocks_mining_loop_soft_detail"
+source_id = "sound.source.production.blocks_mining_loop_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_blocks_mining_loop_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_blocks_mining_loop_soft_detail.tres": "5fae7b3690cbf36dd3cd4e53bc67f1b88d5b6a3656bd295bbe37dba37ae392d9"
+}
+combined_source_hash = "7563243e447dc7c064fc8f91f0e5889b7c8ea191e7aad8deb5b673503162a8ac"
+dependency_ids = PackedStringArray()

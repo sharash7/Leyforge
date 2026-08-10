@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="ForgeSoundSource" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_sound_source.gd" id="1_ijnsp"]
+
+[resource]
+script = ExtResource("1_ijnsp")
+source_path = "forge-synth://sound.source.synth.production.blocks_mining_activate_firm_detail"
+source_hash = "835fe7cf28edb5a3912127ea6a149f84bc614c1b5fd9fe3d756b6e44339f2fbf"
+duration_seconds = 0.89
+transformation_history = Array[Dictionary]([{
+"generator_version": "forge-audio-v1",
+"operation": "procedural_synthesis",
+"patch_id": "sound.source.synth.production.blocks_mining_activate_firm_detail",
+"seed": 230169
+}])
+procedural_recipe_id = "sound.source.synth.production.blocks_mining_activate_firm_detail"
+procedural_seed = 230169
+generator_version = "forge-audio-v1"
+waveform_preview = PackedFloat32Array(0, 0.20028694, 0.36539742, 0.47129405, 0.5035, 0.45905265, 0.3466591, 0.18507527, 5.8415654e-17, 0.18000472, 0.32792076, 0.42232844, 0.4505, 0.41008702, 0.30918244, 0.16479306, 1.0385005e-16, 0.15972249, 0.2904441, 0.3733628, 0.3975, 0.36112142, 0.27170578, 0.14451084, 1.3630319e-16, 0.13944027, 0.25296745, 0.3243972, 0.3445, 0.31215578, 0.23422912, 0.12422861, 1.5577508e-16, 0.11915805, 0.21549079, 0.27543157, 0.2915, 0.26319018, 0.19675246, 0.10394639, 1.622657e-16, 0.098875836, 0.17801413, 0.22646597, 0.2385, 0.21422456, 0.1592758, 0.083664164, 1.5577508e-16, 0.07859361, 0.14053747, 0.17750035, 0.1855, 0.16525894, 0.12179914, 0.06338194, 1.3630319e-16, 0.058311388, 0.10306081, 0.12853473, 0.1325, 0.11629333, 0.08432248, 0.04309972)
+regions = Array[Dictionary]([{
+"end_seconds": 0.89,
+"region_id": "body",
+"start_seconds": 0.0
+}])
+processing_settings = {
+"fade_in_seconds": 0.005,
+"fade_out_seconds": 0.02,
+"non_destructive": true,
+"trim_end_seconds": 0.89,
+"trim_start_seconds": 0.0
+}
+loudness_analysis = {
+"clipped_samples": 0,
+"integrated_lufs": -17.0,
+"peak_db": -2.85,
+"peak_linear": 0.72,
+"silent": false
+}
+schema_id = "leyforge.forge.sound-source"
+stable_id = "sound.source.production.blocks_mining_activate_firm_detail"
+display_name = "Blocks Mining Activate Firm Detail Procedural Source"
+asset_class = "sound_source"
+lifecycle = "review_ready"
+source_status = "review_ready"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("sound.source.synth.production.blocks_mining_activate_firm_detail")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"approval_batch_id": "audio.procedural_source.blocks_mining_activate_firm",
+"document_set": "23",
+"file_upload_required": false,
+"generator_version": "forge-audio-v1",
+"origin": "audio_forge_synth",
+"phase": "production_library",
+"seed": 230169,
+"source_patch_id": "sound.source.synth.production.blocks_mining_activate_firm_detail",
+"status": "review_ready"
+}
+rights_status = "owned"
+review_history = Array[Dictionary]([{
+"review": "human_evidence",
+"status": "open"
+}])
+extension_fields = {
+"accessible_approved": false,
+"forge_baked": true,
+"legacy_active": true,
+"legally_cleared": false,
+"migration_classification": "new_work",
+"production_ready": true,
+"replacement_strategy": "approve_then_activate",
+"shippable": false,
+"visually_complete": false
+}

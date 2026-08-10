@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ipr4j"]
+
+[resource]
+script = ExtResource("1_ipr4j")
+product_id = "runtime.catalogue.sound_source_production_village_jobs_impact_soft_body"
+source_id = "sound.source.production.village_jobs_impact_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_village_jobs_impact_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_village_jobs_impact_soft_body.tres": "7e2b8e1bb224b925b3ad115904cdd457fa9ab148807f8c4823799ac3fec36eda"
+}
+combined_source_hash = "ee00f1504f0e538c4b74c49b63250f8ea21393d611fb734c87cbfa9967ff9843"
+dependency_ids = PackedStringArray()

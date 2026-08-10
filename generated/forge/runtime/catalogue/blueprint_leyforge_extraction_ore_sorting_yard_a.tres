@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ghc2d"]
+
+[resource]
+script = ExtResource("1_ghc2d")
+product_id = "runtime.catalogue.blueprint_leyforge_extraction_ore_sorting_yard_a"
+source_id = "blueprint.leyforge.extraction.ore_sorting_yard_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_ore_sorting_yard_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_ore_sorting_yard_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_ore_sorting_yard_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_ore_sorting_yard_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_ore_sorting_yard_a.tres": "7289a262d9d5becb5d3a2dcb06fe7ae3eca2042820e780fd7140323316eef820",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_ore_sorting_yard_a_light_damage.tres": "7b7daefc737e76e1a72aa200be2318f937176e24320b8684456254abb6240ffe",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_ore_sorting_yard_a_repaired.tres": "c010762c07e193efdbb98810ac253437110cbb2e7d9fb7b51287ed4ceb0a3d44",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_ore_sorting_yard_a_under_construction.tres": "6f2210ae0c00bd0579c5da52786197f109088086cc2ec147d0045c58372db5f8"
+}
+combined_source_hash = "a6539b99379cb8a6d24d4cbc6eeefbd2bda272923dd5676806b62ffe6d3d7f5a"
+dependency_ids = PackedStringArray()

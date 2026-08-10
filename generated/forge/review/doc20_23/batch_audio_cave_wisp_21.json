@@ -1,0 +1,15 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.audio.cave_wisp.21",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "sound.event.production.cave_wisp_start_soft",
+    "sound.source.production.cave_wisp_start_soft_body",
+    "sound.source.production.cave_wisp_start_soft_detail",
+    "sound.event.production.cave_wisp_sustain_soft",
+    "sound.source.production.cave_wisp_sustain_soft_body",
+    "sound.source.production.cave_wisp_sustain_soft_detail"
+  ]
+}

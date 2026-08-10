@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_e3i77"]
+
+[resource]
+script = ExtResource("1_e3i77")
+batch_id = "batch.structures.safety"
+display_name = "Structures.safety"
+studio = "structures"
+category = "safety"
+target_ids = PackedStringArray("blueprint.leyforge.safety.wooden_watchtower_a", "blueprint.leyforge.safety.guard_post_a", "blueprint.leyforge.safety.village_gate_a", "blueprint.leyforge.safety.barracks_training_yard_a", "blueprint.leyforge.safety.armoury_a", "blueprint.leyforge.safety.fort_keep_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_safety.json")

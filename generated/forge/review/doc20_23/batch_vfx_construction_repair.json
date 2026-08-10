@@ -1,0 +1,17 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.vfx.construction_repair",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "vfx.effect.production.construction_repair_finish_soft",
+    "vfx.effect.production.construction_repair_idle_soft",
+    "vfx.effect.production.construction_repair_impact_soft",
+    "vfx.effect.production.construction_repair_move_soft",
+    "vfx.effect.production.construction_repair_release_soft",
+    "vfx.effect.production.construction_repair_start_soft",
+    "vfx.effect.production.construction_repair_sustain_soft",
+    "vfx.effect.production.construction_repair_warning_soft"
+  ]
+}

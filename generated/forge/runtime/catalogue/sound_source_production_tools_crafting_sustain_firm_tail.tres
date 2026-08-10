@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ctkqd"]
+
+[resource]
+script = ExtResource("1_ctkqd")
+product_id = "runtime.catalogue.sound_source_production_tools_crafting_sustain_firm_tail"
+source_id = "sound.source.production.tools_crafting_sustain_firm_tail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_tools_crafting_sustain_firm_tail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_tools_crafting_sustain_firm_tail.tres": "bd0c45f6652df60de67e73ac8ef29bd21fadad9ec85032d733a097cd8d37ccbc"
+}
+combined_source_hash = "a938c3f0c83c0519b6303aed13ccb2bfa5870f6f4f52f5052189389a36c8cbd4"
+dependency_ids = PackedStringArray()

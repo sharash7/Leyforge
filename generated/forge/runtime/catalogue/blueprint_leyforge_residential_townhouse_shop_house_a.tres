@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_yc5yh"]
+
+[resource]
+script = ExtResource("1_yc5yh")
+product_id = "runtime.catalogue.blueprint_leyforge_residential_townhouse_shop_house_a"
+source_id = "blueprint.leyforge.residential.townhouse_shop_house_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_residential_townhouse_shop_house_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_townhouse_shop_house_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_townhouse_shop_house_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_townhouse_shop_house_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_residential_townhouse_shop_house_a.tres": "3746b02b964277f44b41e90207fa7803f6feb5be780d4e4bc0b695cf852d678e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_townhouse_shop_house_a_light_damage.tres": "324f946f2e80ea7f8a2f5c1757a7060d5694016ef85aa99f1604e9296999758f",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_townhouse_shop_house_a_repaired.tres": "80708e44ef0627986d1575a610eb388df8216ce7923c96427acdbc61460df782",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_residential_townhouse_shop_house_a_under_construction.tres": "dfcbdf66fd6b6c580d05b5f8dd90ca98e6553797f57483c34db306056b7345be"
+}
+combined_source_hash = "a26db13de01917cdba7b6773cbf1b3c0793f01db0ef28c3c5d6f5d4d67631af3"
+dependency_ids = PackedStringArray()

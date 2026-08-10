@@ -13,7 +13,7 @@
       "terrain": {"dry": true, "maximum_slope": 4},
       "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
       "variants": ["crossroads", "fork", "ring", "spine"],
-      "content_template": "world.structure.hamlet.poc_start",
+      "content_template": "world.structure.settlement.frontier_start",
       "priority": 100
     },
     {
@@ -26,7 +26,7 @@
       "terrain": {"dry": true, "maximum_slope": 6},
       "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
       "variants": ["palisade", "tents", "supply_ring"],
-      "content_template": "world.structure.goblin_camp.poc",
+      "content_template": "world.structure.raider_camp.frontier",
       "priority": 80
     },
     {
@@ -39,7 +39,7 @@
       "terrain": {"dry": true, "maximum_slope": 7},
       "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
       "variants": ["broken_gate", "four_pillars", "sunken_frame"],
-      "content_template": "world.structure.rune_ruin.poc",
+      "content_template": "world.structure.rune_ruin.frontier",
       "priority": 70
     },
     {
@@ -52,7 +52,7 @@
       "terrain": {"dry": true, "maximum_slope": 10},
       "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
       "variants": ["arch", "cut", "sink"],
-      "content_template": "world.structure.cave_entrance.poc",
+      "content_template": "world.structure.cave_entrance.frontier",
       "priority": 60
     },
     {
@@ -65,7 +65,7 @@
       "terrain": {"dry": true, "maximum_slope": 8},
       "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
       "variants": ["surface_crystals", "shallow_seam", "stone_circle"],
-      "content_template": "world.structure.mana_pocket.poc",
+      "content_template": "world.structure.mana_pocket.frontier",
       "priority": 50
     },
     {
@@ -78,7 +78,7 @@
       "terrain": {"dry": false, "maximum_slope": 12},
       "exclusions": ["hamlet", "goblin_camp", "rune_ruin", "cave_entrance", "mana_pocket", "resource_field"],
       "variants": ["coal", "copper", "iron", "mixed"],
-      "content_template": "world.structure.resource_field.poc",
+      "content_template": "world.structure.resource_field.frontier",
       "priority": 40
     }
   ]

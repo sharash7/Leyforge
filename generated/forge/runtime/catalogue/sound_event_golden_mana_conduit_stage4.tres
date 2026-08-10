@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_2mn2u"]
+
+[resource]
+script = ExtResource("1_2mn2u")
+product_id = "runtime.catalogue.sound_event_golden_mana_conduit_stage4"
+source_id = "sound.event.golden.mana_conduit.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/sound_event_mana_conduit.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/sound_event_mana_conduit.tres": "94e9c5b22542f76eb02714e3f1f62c08a917051df2e72657f29ecd4b02444589"
+}
+combined_source_hash = "8f07f3d3f1ebc3649f50c28c00309c5d5dd63a7787f7446bee05eae00b1f276b"
+dependency_ids = PackedStringArray()

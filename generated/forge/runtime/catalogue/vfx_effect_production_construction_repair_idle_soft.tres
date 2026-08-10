@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_83pb5"]
+
+[resource]
+script = ExtResource("1_83pb5")
+product_id = "runtime.catalogue.vfx_effect_production_construction_repair_idle_soft"
+source_id = "vfx.effect.production.construction_repair_idle_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_construction_repair_idle_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_construction_repair_idle_soft.tres": "145d89b0e007ea66afb6a175de672be11613b7434aae9da5b5a871ab43320048"
+}
+combined_source_hash = "a6f96aeeb013dc8fe78fc9b3cefebd3740916d713ba7dcf90883d24f0b742636"
+dependency_ids = PackedStringArray()

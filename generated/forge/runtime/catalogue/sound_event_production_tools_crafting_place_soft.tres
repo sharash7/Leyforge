@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_di4qa"]
+
+[resource]
+script = ExtResource("1_di4qa")
+product_id = "runtime.catalogue.sound_event_production_tools_crafting_place_soft"
+source_id = "sound.event.production.tools_crafting_place_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_tools_crafting_place_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_tools_crafting_place_soft.tres": "5025eda6d94d3bda27671b62522c89c0c47589a0b863ccc1d6951f2b4ec70c73"
+}
+combined_source_hash = "cf39981a230fad610a283cdf22a1ec3112eacbe33263ab2f2cdcecafa7c32b64"
+dependency_ids = PackedStringArray()

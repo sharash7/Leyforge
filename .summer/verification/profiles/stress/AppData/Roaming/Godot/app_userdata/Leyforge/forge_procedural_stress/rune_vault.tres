@@ -1,0 +1,200 @@
+[gd_resource type="Resource" script_class="ForgeProceduralStructureProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_connector_definition.gd" id="1_v5mo8"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_procedural_structure_product.gd" id="2_26brt"]
+
+[sub_resource type="Resource" id="Resource_7ed20"]
+script = ExtResource("1_v5mo8")
+connector_id = "blueprint.connector.blueprint_module_rune_vault_reward_secret.north"
+display_name = "Rune Reward Secret connection"
+owner_module_id = "blueprint.module.rune_vault.reward_secret"
+socket_role_id = "socket.role.structure.rune"
+position = Vector3i(0, 1, -2)
+direction = Vector3i(0, 0, 1)
+connection_tags = PackedStringArray("rune", "reward_secret")
+blocked_tags = PackedStringArray()
+clearance = Vector3i(3, 3, 2)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[resource]
+script = ExtResource("2_26brt")
+product_id = "runtime.blueprint.procedural.stress_rune_vault"
+rule_set_id = "blueprint.ruleset.rune_vault"
+module_set_id = "blueprint.module_set.rune_vault"
+source_hash = "82c0c1b6a6600dc70cbb38b0c94de7d0c0e6607491836d371a657cce196f3949"
+placements = Array[Dictionary]([{
+"connected_from": "",
+"connected_from_placement": "",
+"connector_id": "",
+"depth": 0,
+"module_id": "blueprint.module.rune_vault.entrance",
+"placement_id": "placement.blueprint_module_rune_vault_entrance.0.0.0.0",
+"position": [0, 0, 0],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_entrance.north",
+"connected_from_placement": "placement.blueprint_module_rune_vault_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_straight.north",
+"depth": 1,
+"module_id": "blueprint.module.rune_vault.straight",
+"placement_id": "placement.blueprint_module_rune_vault_straight.0.0.-4.1",
+"position": [0, 0, -4],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_entrance.south",
+"connected_from_placement": "placement.blueprint_module_rune_vault_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_encounter.north",
+"depth": 1,
+"module_id": "blueprint.module.rune_vault.encounter",
+"placement_id": "placement.blueprint_module_rune_vault_encounter.0.0.4.1",
+"position": [0, 0, 4],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_encounter.south",
+"connected_from_placement": "placement.blueprint_module_rune_vault_encounter.0.0.4.1",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_utility_puzzle.north",
+"depth": 2,
+"module_id": "blueprint.module.rune_vault.utility_puzzle",
+"placement_id": "placement.blueprint_module_rune_vault_utility_puzzle.0.0.8.2",
+"position": [0, 0, 8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_utility_puzzle.south",
+"connected_from_placement": "placement.blueprint_module_rune_vault_utility_puzzle.0.0.8.2",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_terminal_exit.north",
+"depth": 3,
+"module_id": "blueprint.module.rune_vault.terminal_exit",
+"placement_id": "placement.blueprint_module_rune_vault_terminal_exit.0.0.12.3",
+"position": [0, 0, 12],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_straight.south",
+"connected_from_placement": "placement.blueprint_module_rune_vault_straight.0.0.-4.1",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_utility_puzzle.south",
+"depth": 2,
+"module_id": "blueprint.module.rune_vault.utility_puzzle",
+"placement_id": "placement.blueprint_module_rune_vault_utility_puzzle.0.0.-8.2",
+"position": [0, 0, -8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_utility_puzzle.north",
+"connected_from_placement": "placement.blueprint_module_rune_vault_utility_puzzle.0.0.-8.2",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_reward_secret.south",
+"depth": 3,
+"module_id": "blueprint.module.rune_vault.reward_secret",
+"placement_id": "placement.blueprint_module_rune_vault_reward_secret.0.0.-12.3",
+"position": [0, 0, -12],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_reward_secret.north",
+"connected_from_placement": "placement.blueprint_module_rune_vault_reward_secret.0.0.-12.3",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_reward_secret.south",
+"depth": 4,
+"module_id": "blueprint.module.rune_vault.reward_secret",
+"placement_id": "placement.blueprint_module_rune_vault_reward_secret.0.0.-16.4",
+"position": [0, 0, -16],
+"rotation_quarters": 0
+}])
+open_connectors = Array[Dictionary]([{
+"connector": SubResource("Resource_7ed20"),
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_reward_secret.north",
+"depth": 4,
+"module_id": "blueprint.module.rune_vault.reward_secret",
+"owner_placement_id": "placement.blueprint_module_rune_vault_reward_secret.0.0.-16.4",
+"world_direction": Vector3i(0, 0, 1),
+"world_position": Vector3i(0, 1, -18)
+}])
+continuation_state = {
+"checkpoint": {
+"hash": "7ba1b309664b46d866e7ea5b1703ad2e6788576ff8dd12235dae883d4d350d41",
+"interval": 8,
+"placement_count": 8
+},
+"frontier": Array[Dictionary]([{
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_reward_secret.north",
+"depth": 4,
+"module_id": "blueprint.module.rune_vault.reward_secret",
+"owner_placement_id": "placement.blueprint_module_rune_vault_reward_secret.0.0.-16.4",
+"world_direction": [0, 0, 1],
+"world_position": [0, 1, -18]
+}]),
+"module_set_id": "blueprint.module_set.rune_vault",
+"placements": Array[Dictionary]([{
+"connected_from": "",
+"connected_from_placement": "",
+"connector_id": "",
+"depth": 0,
+"module_id": "blueprint.module.rune_vault.entrance",
+"placement_id": "placement.blueprint_module_rune_vault_entrance.0.0.0.0",
+"position": [0, 0, 0],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_entrance.north",
+"connected_from_placement": "placement.blueprint_module_rune_vault_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_straight.north",
+"depth": 1,
+"module_id": "blueprint.module.rune_vault.straight",
+"placement_id": "placement.blueprint_module_rune_vault_straight.0.0.-4.1",
+"position": [0, 0, -4],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_entrance.south",
+"connected_from_placement": "placement.blueprint_module_rune_vault_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_encounter.north",
+"depth": 1,
+"module_id": "blueprint.module.rune_vault.encounter",
+"placement_id": "placement.blueprint_module_rune_vault_encounter.0.0.4.1",
+"position": [0, 0, 4],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_encounter.south",
+"connected_from_placement": "placement.blueprint_module_rune_vault_encounter.0.0.4.1",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_utility_puzzle.north",
+"depth": 2,
+"module_id": "blueprint.module.rune_vault.utility_puzzle",
+"placement_id": "placement.blueprint_module_rune_vault_utility_puzzle.0.0.8.2",
+"position": [0, 0, 8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_utility_puzzle.south",
+"connected_from_placement": "placement.blueprint_module_rune_vault_utility_puzzle.0.0.8.2",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_terminal_exit.north",
+"depth": 3,
+"module_id": "blueprint.module.rune_vault.terminal_exit",
+"placement_id": "placement.blueprint_module_rune_vault_terminal_exit.0.0.12.3",
+"position": [0, 0, 12],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_straight.south",
+"connected_from_placement": "placement.blueprint_module_rune_vault_straight.0.0.-4.1",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_utility_puzzle.south",
+"depth": 2,
+"module_id": "blueprint.module.rune_vault.utility_puzzle",
+"placement_id": "placement.blueprint_module_rune_vault_utility_puzzle.0.0.-8.2",
+"position": [0, 0, -8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_utility_puzzle.north",
+"connected_from_placement": "placement.blueprint_module_rune_vault_utility_puzzle.0.0.-8.2",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_reward_secret.south",
+"depth": 3,
+"module_id": "blueprint.module.rune_vault.reward_secret",
+"placement_id": "placement.blueprint_module_rune_vault_reward_secret.0.0.-12.3",
+"position": [0, 0, -12],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_rune_vault_reward_secret.north",
+"connected_from_placement": "placement.blueprint_module_rune_vault_reward_secret.0.0.-12.3",
+"connector_id": "blueprint.connector.blueprint_module_rune_vault_reward_secret.south",
+"depth": 4,
+"module_id": "blueprint.module.rune_vault.reward_secret",
+"placement_id": "placement.blueprint_module_rune_vault_reward_secret.0.0.-16.4",
+"position": [0, 0, -16],
+"rotation_quarters": 0
+}]),
+"rng_state": 2534287700934700469,
+"rule_set_id": "blueprint.ruleset.rune_vault",
+"schema": "leyforge.forge.procedural-structure-continuation"
+}

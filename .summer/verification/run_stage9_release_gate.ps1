@@ -12,7 +12,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$expectedChecks = 489
+$expectedChecks = 491
 
 . (Join-Path $PSScriptRoot 'godot_runner.ps1')
 $GodotConsole = Resolve-LeyforgeGodotConsole -GodotConsole $GodotConsole

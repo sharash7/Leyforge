@@ -1,0 +1,10 @@
+Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Identifier "ForgeCanonicalRuntimeProduct" not declared in the current scope.
+   at: GDScript::reload (res://scripts/forge/tools/finalize_doc20_23_catalogue_evidence.gd:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "product" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/forge/tools/finalize_doc20_23_catalogue_evidence.gd:46)
+SCRIPT ERROR: Parse Error: Could not find type "ForgeCanonicalRuntimeProduct" in the current scope.
+   at: GDScript::reload (res://scripts/forge/tools/finalize_doc20_23_catalogue_evidence.gd:58)
+ERROR: Failed to load script "res://scripts/forge/tools/finalize_doc20_23_catalogue_evidence.gd" with error "Parse error".
+   at: ResourceFormatLoaderGDScript::load (modules\gdscript\gdscript_resource_format.cpp:50)

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_7cvmk"]
+
+[resource]
+script = ExtResource("1_7cvmk")
+product_id = "runtime.catalogue.blueprint_leyforge_health_hospital_complex_a"
+source_id = "blueprint.leyforge.health.hospital_complex_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_health_hospital_complex_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_hospital_complex_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_hospital_complex_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_hospital_complex_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_health_hospital_complex_a.tres": "145507991b0ad4580531a900772b56b2bfc5b19cda9de915975f736c5453a759",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_hospital_complex_a_light_damage.tres": "74785a6d893dfdef2decb5325627a42e5e88b8b095d7b7b1f1389121df6849a1",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_hospital_complex_a_repaired.tres": "37de7d64168c75965777694b0c5199f7ab2687fb3e9f97f7ceae6943451921eb",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_hospital_complex_a_under_construction.tres": "7226c7d9bf493c4f5be7362f7ace75ba68a964e432648971863b37a12706eb18"
+}
+combined_source_hash = "b593ef3861ee95906dcedb41bf68b53f997872c57723a0c87166ead2d8e982d0"
+dependency_ids = PackedStringArray()

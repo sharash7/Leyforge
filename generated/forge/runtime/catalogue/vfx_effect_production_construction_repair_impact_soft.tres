@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_j30ww"]
+
+[resource]
+script = ExtResource("1_j30ww")
+product_id = "runtime.catalogue.vfx_effect_production_construction_repair_impact_soft"
+source_id = "vfx.effect.production.construction_repair_impact_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_construction_repair_impact_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_construction_repair_impact_soft.tres": "c2fdbbceabda58251f63420611f88cb4e9bff17edc141ca1ce91af18b0218fdb"
+}
+combined_source_hash = "773a7eee464d86f3416cf0e3a6e453a83c44e7ee974c24108b419734d89d74a6"
+dependency_ids = PackedStringArray()

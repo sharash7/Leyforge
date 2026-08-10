@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_8gwpq"]
+
+[resource]
+script = ExtResource("1_8gwpq")
+product_id = "runtime.catalogue.blueprint_leyforge_extraction_mine_entrance_a"
+source_id = "blueprint.leyforge.extraction.mine_entrance_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_mine_entrance_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_mine_entrance_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_mine_entrance_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_mine_entrance_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_mine_entrance_a.tres": "d3c745e856ff8ed9a2af733264545b60cf01a7c5714d133c2c62ffbcd5279495",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_mine_entrance_a_light_damage.tres": "229210942096cd47207d675be617e9e07310a849186e687b73a8815aae4cedd5",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_mine_entrance_a_repaired.tres": "ba92fc5ed017a6c44cf9dcddcfd37bb15c258367c34a7b7aa0e00adda5d37de6",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_mine_entrance_a_under_construction.tres": "a529598399e20c59b08d03d8d166f6a4c9018e9e3eeef458cafa320a28fe1e60"
+}
+combined_source_hash = "427e03a53c9981bb3c2f3f246e16f7ee98243067d27eda29bfadc458878e829e"
+dependency_ids = PackedStringArray()

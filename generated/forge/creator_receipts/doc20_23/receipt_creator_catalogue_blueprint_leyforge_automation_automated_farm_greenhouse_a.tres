@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_j5tbb"]
+
+[resource]
+script = ExtResource("1_j5tbb")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_automation_automated_farm_greenhouse_a"
+source_id = "blueprint.leyforge.automation.automated_farm_greenhouse_a"
+source_type_id = "catalogue.structures"
+source_hash = "48f9ccdb83c96ebb37c25a91c567139bca2d5f076284e116a26d39876754aa5d"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_automation_automated_farm_greenhouse_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_automation_automated_farm_greenhouse_a.tres": "9203b69448ae38d131ddbce1ad7c7e0c85fe32f880ebb5443918d4d4a7be3047"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

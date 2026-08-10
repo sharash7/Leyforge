@@ -21,15 +21,17 @@ if (-not (Test-Path -LiteralPath $docsRoot -PathType Container)) {
 }
 
 $files = @(
-    Get-ChildItem -LiteralPath $docsRoot -File |
+    Get-ChildItem -LiteralPath $docsRoot -Recurse -File |
         Where-Object {
+            $relativePath = $_.FullName.Substring($docsRoot.Length).
+                TrimStart('\', '/')
+            $segments = @($relativePath -split '[\\/]')
             $_.Name -ne 'SHA256SUMS.txt' -and
-            $_.Extension -in @('.md', '.json')
+            $_.Extension.ToLowerInvariant() -in @('.md', '.txt', '.json') -and
+            -not ($segments | Where-Object {
+                $_.Equals('OLD', [StringComparison]::OrdinalIgnoreCase)
+            })
         }
-    Get-ChildItem -LiteralPath (Join-Path $docsRoot '20-A-H') `
-        -File -Filter '*.md'
-    Get-ChildItem -LiteralPath (Join-Path $docsRoot 'docx') `
-        -File -Filter '*.docx'
 )
 
 $baseUri = [Uri]::new(($docsRoot.TrimEnd('\') + '\'))

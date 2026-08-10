@@ -26,15 +26,50 @@ if ([string]::IsNullOrWhiteSpace($ProjectPath)) {
 & (Join-Path $ProjectPath (
     '.summer\tools\generate_requirement_ledger.ps1'
 )) -ProjectPath $ProjectPath -Check
-if ($LASTEXITCODE -notin @(0, $null)) {
+if (-not $?) {
     throw 'Requirement-ledger validation failed'
+}
+
+& (Join-Path $ProjectPath (
+    '.summer\tools\update_implementation_coverage.ps1'
+)) -ProjectPath $ProjectPath -Check
+if (-not $?) {
+    throw 'Implementation-coverage validation failed'
+}
+
+& (Join-Path $ProjectPath (
+    '.summer\tools\update_production_roadmap.ps1'
+)) -ProjectPath $ProjectPath -Check
+if (-not $?) {
+    throw 'Production-roadmap validation failed'
 }
 
 & (Join-Path $ProjectPath (
     '.summer\tools\update_document_checksums.ps1'
 )) -ProjectPath $ProjectPath -Check
-if ($LASTEXITCODE -notin @(0, $null)) {
+if (-not $?) {
     throw 'Document-checksum validation failed'
+}
+
+& (Join-Path $ProjectPath (
+    '.summer\verification\document_governance_probe.ps1'
+)) -ProjectPath $ProjectPath
+if (-not $?) {
+    throw 'Document-governance validation failed'
+}
+
+& (Join-Path $ProjectPath (
+    '.summer\verification\poc_archive_isolation_probe.ps1'
+)) -ProjectPath $ProjectPath
+if (-not $?) {
+    throw 'POC archive-isolation validation failed'
+}
+
+& (Join-Path $ProjectPath (
+    '.summer\verification\canonical_block_inventory_projection_probe.ps1'
+)) -ProjectPath $ProjectPath
+if (-not $?) {
+    throw 'Canonical Block Inventory Projection validation failed'
 }
 
 & (Join-Path $ProjectPath (
@@ -43,13 +78,17 @@ if ($LASTEXITCODE -notin @(0, $null)) {
     -ProjectPath $ProjectPath `
     -ProfileRoot $ProfileRoot `
     -ExtendedWorldgenSeeds $ExtendedWorldgenSeeds
-if ($LASTEXITCODE -notin @(0, $null)) {
+if (-not $?) {
     throw 'Current regression gate failed'
 }
 
 if (Test-Path -LiteralPath (Join-Path $ProjectPath '.git')) {
+    $previousErrorAction = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
     $diffCheck = & git -C $ProjectPath diff --check 2>&1
-    if ($LASTEXITCODE -ne 0) {
+    $diffExit = $LASTEXITCODE
+    $ErrorActionPreference = $previousErrorAction
+    if ($diffExit -ne 0) {
         $diffCheck | ForEach-Object { Write-Host $_ }
         throw 'git diff --check failed'
     }

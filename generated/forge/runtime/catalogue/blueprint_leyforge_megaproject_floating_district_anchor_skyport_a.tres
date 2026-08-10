@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_sp0nc"]
+
+[resource]
+script = ExtResource("1_sp0nc")
+product_id = "runtime.catalogue.blueprint_leyforge_megaproject_floating_district_anchor_skyport_a"
+source_id = "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_megaproject_floating_district_anchor_skyport_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_megaproject_floating_district_anchor_skyport_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_megaproject_floating_district_anchor_skyport_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_megaproject_floating_district_anchor_skyport_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_megaproject_floating_district_anchor_skyport_a.tres": "71c78adc6b7b775b0e43ba10c059f3c6b3b2fd2069371ce29ce3e7f966a7bdb4",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_megaproject_floating_district_anchor_skyport_a_light_damage.tres": "b8f58fcb00270ea441b196d8b1979e980233c1b611359a677df2ed4c6fdf426e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_megaproject_floating_district_anchor_skyport_a_repaired.tres": "df226636ed0364997a6886926ce25ae74921c19a81a903e436f5416006cbacc0",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_megaproject_floating_district_anchor_skyport_a_under_construction.tres": "908861247af81714e423aa2f5535639e77d657f5e04f75774162447e9fe7c56d"
+}
+combined_source_hash = "e28ccf198d155c2bf6350cd2fcf17e7a349669c7125082c9011b7c3b94fe423f"
+dependency_ids = PackedStringArray()

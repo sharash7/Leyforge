@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_aoxye"]
+
+[resource]
+script = ExtResource("1_aoxye")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_food_granary_a"
+source_id = "blueprint.leyforge.food.granary_a"
+source_type_id = "catalogue.structures"
+source_hash = "b58c9f4987ae1958df16e33f28cfd5c4dc0d0da46c4ad4fbcaf8343d63e09734"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_food_granary_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_food_granary_a.tres": "971f8687f62ea155813b1538dcdaeffe52dbebe704b527b324c7372e24b5a8a9"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

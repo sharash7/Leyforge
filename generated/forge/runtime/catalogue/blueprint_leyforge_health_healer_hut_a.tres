@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_eo3kq"]
+
+[resource]
+script = ExtResource("1_eo3kq")
+product_id = "runtime.catalogue.blueprint_leyforge_health_healer_hut_a"
+source_id = "blueprint.leyforge.health.healer_hut_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_health_healer_hut_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_healer_hut_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_healer_hut_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_healer_hut_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_health_healer_hut_a.tres": "6ec69650499a92e8a3346982a68591a7e311d0c850872318cafd692f341be940",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_healer_hut_a_light_damage.tres": "51ec7aaf28f48b8636bd16173995144c874c0852312f81d5b4721818b3745b25",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_healer_hut_a_repaired.tres": "e6c711c447632d55aa4c6607770a8d4e1b9a2eb304bfcb0293c45d402d03280c",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_health_healer_hut_a_under_construction.tres": "5d4a1f5c2ca1a6e18aab56cc40ebfbccb2931dbfe4d2b1863e15a48cca3a5b8f"
+}
+combined_source_hash = "da30abcee96353e4d41c123c68ca8c542eab76827c990dbcb1bd0a64ff0aa7c3"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_xqhyv"]
+
+[resource]
+script = ExtResource("1_xqhyv")
+presentation_id = "presentation.item.component.chute_segment"
+root_scene_path = "res://generated/forge/products/presentation_item_component_chute_segment/c355f90b59a39007/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_item_component_chute_segment/c355f90b59a39007/presentation_mesh.res"
+material_paths = PackedStringArray()
+collision_path = "res://generated/forge/products/presentation_item_component_chute_segment/c355f90b59a39007/collision.tres"
+icon_path = "res://generated/forge/products/presentation_item_component_chute_segment/c355f90b59a39007/icon.png"
+bounds = AABB(0.0625, 0.1875, 0.21875, 0.875, 0.15625, 0.5625)
+lod_profile = {
+"far": "iconic",
+"mid": "static",
+"near": "full"
+}
+variant_compatibility = PackedStringArray()
+runtime_metadata = {
+"asset_kind": "item_model",
+"authoring_profile": "voxel.standard.item_long",
+"connection_rules": {},
+"face_colors": {},
+"footprint": {
+"allowed_placement_faces": ["floor"],
+"allowed_rotations": [0, 1, 2, 3],
+"anchor_cell": [0, 0, 0],
+"clearance_cells": [],
+"footprint_profile_id": "footprint.presentation.item.component.chute_segment",
+"occupied_cells": [[0, 0, 0]],
+"schema_version": 1,
+"support_required": true
+},
+"gameplay_links": ["item.component.chute_segment"],
+"metrics": {
+"baker_version": "forge-mesh-v2",
+"exposed_faces": 1660,
+"hidden_face_removal": true,
+"occupied_cells": 1860,
+"triangles": 3320,
+"vertices": 6640
+},
+"representation_profiles": {},
+"runtime_remeshing": false,
+"source_revision": 1,
+"voxel_frame_clips": {}
+}
+product_hash = "978bf85879a5ffe4e1cf5fb366514bf2d06b33de5d45df2c4087513154ee9ac2"

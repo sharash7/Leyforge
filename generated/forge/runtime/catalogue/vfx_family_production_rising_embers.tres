@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_pjv1w"]
+
+[resource]
+script = ExtResource("1_pjv1w")
+product_id = "runtime.catalogue.vfx_family_production_rising_embers"
+source_id = "vfx.family.production.rising_embers"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/family_rising_embers.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/family_rising_embers.tres": "b3557cef76d9398a11fe393379dfa97bfc062047dbae79ab41343816b2e40655"
+}
+combined_source_hash = "8f9d93cc6e54145d0354a86058545d9fa5ba47319db8c1a772c61b4b61514f55"
+dependency_ids = PackedStringArray()

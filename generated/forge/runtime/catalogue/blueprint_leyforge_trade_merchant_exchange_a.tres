@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_hjrri"]
+
+[resource]
+script = ExtResource("1_hjrri")
+product_id = "runtime.catalogue.blueprint_leyforge_trade_merchant_exchange_a"
+source_id = "blueprint.leyforge.trade.merchant_exchange_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_trade_merchant_exchange_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_merchant_exchange_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_merchant_exchange_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_merchant_exchange_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_trade_merchant_exchange_a.tres": "1ffa544e3e9a107adc2e48cba72cf73bfc6382b984c142412e4af99b89487812",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_merchant_exchange_a_light_damage.tres": "cca0b2a4f38bff164da454da3f1caff90125bbadca53a5d3784bc075a9999ebd",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_merchant_exchange_a_repaired.tres": "ae936ce8ce09677acc62fa86d13ded44a5cfbc90e7425f605cad4b704151d693",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_merchant_exchange_a_under_construction.tres": "62ab16f88d8ae50614b84a7532466ab893e38a149497f45fc4af7270a78a9247"
+}
+combined_source_hash = "5f2ea02c9e709ebe71edcc1456bf25750e11a362cf2f19554eea222382455cb3"
+dependency_ids = PackedStringArray()

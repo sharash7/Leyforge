@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_4s1x1"]
+
+[resource]
+script = ExtResource("1_4s1x1")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_health_healer_hut_a"
+source_id = "blueprint.leyforge.health.healer_hut_a"
+source_type_id = "catalogue.structures"
+source_hash = "da30abcee96353e4d41c123c68ca8c542eab76827c990dbcb1bd0a64ff0aa7c3"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_health_healer_hut_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_health_healer_hut_a.tres": "263c2d76b5b22921d0f4e1bdfe0f83bb9fda4029adc497545953bf24acc69f76"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

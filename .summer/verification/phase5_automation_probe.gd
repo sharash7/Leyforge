@@ -43,10 +43,23 @@ func _run() -> void:
 	world.start(1337)
 	HamletState.initialized = false
 	HamletState.initialize(1337, world.get_valley_anchors())
-	HamletState.reputation_points = 16
-	HamletState._refresh_reputation_state()
-	_check(HamletState.permission_enabled("automation_import"),
-		"Trusted Supplier did not unlock automation import")
+	var social_trust := SocialManager.apply_reputation_event({
+		"transaction_id": "phase5.automation.social_trust",
+		"scope_ref": HamletState.active_village_id,
+		"target_ref": SocialManager.PLAYER_ACTOR_ID,
+		"delta": 16,
+		"source_event_id": "event.phase5.automation.social_trust",
+	})
+	HamletState.refresh_social_projection()
+	var trust_did_not_grant_import := not HamletState.permission_enabled(
+		"automation_import")
+	var operational_access := HamletState._commit_operational_access_delta(
+		16, "phase5.automation.confirmed_operational_access")
+	_check(bool(social_trust.get("ok", false)) \
+			and trust_did_not_grant_import \
+			and operational_access \
+			and HamletState.permission_enabled("automation_import"),
+		"automation import did not separate social trust from operational evidence")
 
 	var miner_id := BlockRegistry.get_id_by_stable_id("automation.machine.basic_miner")
 	var chute_id := BlockRegistry.get_id_by_stable_id("automation.transport.chute")

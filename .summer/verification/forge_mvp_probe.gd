@@ -66,7 +66,7 @@ func _test_access_and_identity() -> void:
 	ForgeAccessPolicy.test_override = true
 	var bridge := ForgeRegistryBridge.new()
 	var records := bridge.all_gameplay_records()
-	_check(records.size() == 312, "Forge bridge did not index 312 registry records")
+	_check(records.size() == 305, "Forge bridge did not index 305 active gameplay records")
 	var block_count := 0
 	var item_count := 0
 	var stable_ids := {}
@@ -79,10 +79,10 @@ func _test_access_and_identity() -> void:
 		_check(not stable_ids.has(stable_id), "Forge bridge duplicated %s" % stable_id)
 		stable_ids[stable_id] = true
 	_check(block_count == 143, "Forge changed the 143-block registry boundary")
-	_check(item_count == 169, "Forge changed the 169-item registry boundary")
+	_check(item_count == 162, "Forge changed the 162-item registry boundary")
 	_check(
-		WorldManager.CURRENT_SAVE_VERSION == 17,
-		"Forge unexpectedly changed save schema v17")
+		WorldManager.CURRENT_SAVE_VERSION == 18,
+		"Forge unexpectedly changed save schema v18")
 	_check(
 		bridge.record_for("automation.transport.chute").get(
 			"authoring_mode", "") == "voxel",
@@ -145,7 +145,7 @@ func _test_access_and_identity() -> void:
 func _test_asset_index_and_sources() -> void:
 	var index := ForgeAssetIndex.new()
 	var summary := index.rebuild()
-	_check(int(summary["asset_count"]) == 316,
+	_check(int(summary["asset_count"]) == 309,
 		"asset index lost registry or acceptance-fixture coverage")
 	_check(
 		int(summary["status_counts"].get("approved", 0)) \
@@ -153,7 +153,7 @@ func _test_asset_index_and_sources() -> void:
 		"asset index lost the seven MVP source presentations")
 	_check(
 		int(summary["status_counts"].get("legacy_wrapper", 0)) \
-			== 316 \
+			== 309 \
 				- int(summary["status_counts"].get("approved", 0)) \
 				- int(summary["status_counts"].get("draft", 0)),
 		"asset index status counts no longer cover every presentation once")
@@ -436,6 +436,10 @@ func _test_domain_and_bakers() -> void:
 	slice_volume.ensure_storage()
 	var voxel_canvas := ForgeVoxelSliceCanvas.new()
 	voxel_canvas.configure(slice_volume, palette)
+	_check(
+		voxel_canvas._position_for(0, 0) == Vector3i(0, 4, 0) \
+			and voxel_canvas._position_for(4, 4) == Vector3i(4, 0, 0),
+		"voxel canvas screen-up did not map to model-up")
 	voxel_canvas.tool_mode = ForgeVoxelSliceCanvas.TOOL_CIRCLE
 	voxel_canvas.brush_size = 1
 	_check(
@@ -530,6 +534,24 @@ func _test_domain_and_bakers() -> void:
 	_check(
 		icon_a.get_data() == icon_b.get_data(),
 		"headless icon bake was not deterministic")
+	var textured_icon_faces: Array[Dictionary] = []
+	ForgeIconBaker._append_surface_faces(
+		textured_icon_faces, surface, palette)
+	_check(
+		textured_icon_faces.size() > 3,
+		"surface block icon collapsed textured faces to single colours")
+	var tall_icon_asset := ForgeAssetDefinition.new()
+	tall_icon_asset.authoring_profile = "voxel.standard.block"
+	tall_icon_asset.voxel_volume = ForgeVoxelVolume.new()
+	tall_icon_asset.voxel_volume.dimensions = Vector3i(1, 4, 1)
+	tall_icon_asset.voxel_volume.ensure_storage()
+	for icon_y in 4:
+		tall_icon_asset.voxel_volume.set_cell(Vector3i(0, icon_y, 0), 0)
+	var tall_icon := ForgeIconBaker.bake(tall_icon_asset, palette)
+	var tall_icon_rect := tall_icon.get_used_rect()
+	_check(
+		tall_icon_rect.size.y > tall_icon_rect.size.x * 2,
+		"item/icon bake did not preserve the live voxel model silhouette")
 	var frame_a := ForgeVoxelVolume.new()
 	frame_a.dimensions = Vector3i(2, 2, 2)
 	frame_a.ensure_storage()
@@ -942,6 +964,30 @@ func _test_runtime_packages_and_consumers() -> void:
 	_check(
 		world.forge_mesh_arrays.has(conduit_id),
 		"VoxelWorld did not snapshot custom mesh arrays")
+	var torch_id := BlockRegistry.get_id_by_stable_id("light.torch.basic")
+	_check(
+		int(world.block_shapes[torch_id]) == 9 \
+			and world.forge_mesh_arrays.has(torch_id),
+		"baked torch did not replace its legacy post presentation")
+	var baked_chute_id := BlockRegistry.get_id_by_stable_id(
+		"automation.transport.chute")
+	var chute_snapshot := _empty_chunk_snapshot(world)
+	chute_snapshot["blocks"][_chunk_index(8, 8, 8)] = baked_chute_id
+	var chute_geometry := ChunkMesherScript.build(chute_snapshot)
+	var chute_mesh: Dictionary = world.forge_mesh_arrays.get(
+		baked_chute_id, {})
+	var chute_indices: PackedInt32Array = chute_mesh.get(
+		"indices", PackedInt32Array())
+	_check(
+		int(world.block_shapes[baked_chute_id]) == 5 \
+			and not chute_indices.is_empty() \
+			and chute_geometry["opaque_vertices"].size() == chute_indices.size(),
+		("standalone chute did not use its baked mesh while retaining connections "
+		+ "(shape=%d, mesh=%s, vertices=%d, indices=%d)" % [
+			int(world.block_shapes[baked_chute_id]),
+			str(world.forge_mesh_arrays.has(baked_chute_id)),
+			chute_geometry["opaque_vertices"].size(), chute_indices.size(),
+		]))
 	var conduit_snapshot := _empty_chunk_snapshot(world)
 	conduit_snapshot["blocks"][_chunk_index(8, 8, 8)] = conduit_id
 	var conduit_geometry := ChunkMesherScript.build(conduit_snapshot)
@@ -1260,15 +1306,15 @@ func _test_workspace_and_persistence() -> void:
 	workspace._apply_responsive_layout()
 	workspace.open_section("vfx")
 	await get_tree().process_frame
-	var planned_vfx_button := workspace.find_child(
+	var creator_vfx_button := workspace.find_child(
 		"Route_vfx_editor", true, false)
 	_check(
 		workspace._page_title.text == "VFX" \
 			and not workspace._preview_panel.visible \
-			and planned_vfx_button is Button \
-			and planned_vfx_button.disabled \
-			and "Planned" in planned_vfx_button.tooltip_text,
-		"VFX hub wastes preview space or misrepresents its planned editor")
+			and creator_vfx_button is Button \
+			and not creator_vfx_button.disabled \
+			and "Author" in creator_vfx_button.tooltip_text,
+		"VFX hub wastes preview space or does not expose its creator editor")
 	workspace.open_section("home")
 	await get_tree().process_frame
 	host._sync_runtime_rect()
@@ -1279,7 +1325,7 @@ func _test_workspace_and_persistence() -> void:
 		FileAccess.file_exists(ForgeWorkspace.LAYOUT_PREFERENCES_PATH),
 		"Leyforge Forge layout preferences were not stored outside project assets")
 	_check(
-		workspace.asset_index.summary()["asset_count"] == 316,
+		workspace.asset_index.summary()["asset_count"] == 309,
 		"runtime workspace did not index the registry plus acceptance fixtures")
 	var grass_record := workspace.asset_index.record_for_source_id(
 		"forge_asset.terrain.grass.basic")
@@ -1422,6 +1468,7 @@ func _test_workspace_and_persistence() -> void:
 		voxel_draft.active_authoring_mode() == "voxel" \
 			and "Copy current layer" in voxel_control_texts \
 			and "Paste onto current layer" in voxel_control_texts \
+			and "Flip model vertically" in voxel_control_texts \
 			and "Save current layer pattern" in voxel_control_texts,
 		"voxel editor lacks explicit mode, layer clipboard, or pattern saving")
 	workspace._show_collision_placement_editor()

@@ -1,0 +1,398 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_4qyw4"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_472md"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_lgmak"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_tpb3n"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_24xi8"]
+
+[sub_resource type="Resource" id="Resource_fhnj8"]
+script = ExtResource("1_4qyw4")
+delta_id = "blueprint.leyforge.crafting.village_blacksmith_a.delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("blueprint.leyforge.crafting.village_blacksmith_a.element.foundation.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_jltsu"]
+script = ExtResource("1_4qyw4")
+delta_id = "blueprint.leyforge.crafting.village_blacksmith_a.delta.frame"
+stage_id = "frame"
+add_element_ids = PackedStringArray("blueprint.leyforge.crafting.village_blacksmith_a.element.frame.pillar_0", "blueprint.leyforge.crafting.village_blacksmith_a.element.frame.pillar_1", "blueprint.leyforge.crafting.village_blacksmith_a.element.frame.pillar_2", "blueprint.leyforge.crafting.village_blacksmith_a.element.frame.pillar_3")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_6r1lu"]
+script = ExtResource("1_4qyw4")
+delta_id = "blueprint.leyforge.crafting.village_blacksmith_a.delta.shell"
+stage_id = "shell"
+add_element_ids = PackedStringArray("blueprint.leyforge.crafting.village_blacksmith_a.element.shell.perimeter_0", "blueprint.leyforge.crafting.village_blacksmith_a.element.shell.point_1")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("frame")
+
+[sub_resource type="Resource" id="Resource_i6hgx"]
+script = ExtResource("1_4qyw4")
+delta_id = "blueprint.leyforge.crafting.village_blacksmith_a.delta.weatherproofing"
+stage_id = "weatherproofing"
+add_element_ids = PackedStringArray("blueprint.leyforge.crafting.village_blacksmith_a.element.weatherproofing.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("shell")
+
+[sub_resource type="Resource" id="Resource_5l5qe"]
+script = ExtResource("1_4qyw4")
+delta_id = "blueprint.leyforge.crafting.village_blacksmith_a.delta.activation"
+stage_id = "activation"
+add_element_ids = PackedStringArray("blueprint.leyforge.crafting.village_blacksmith_a.element.activation.point_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("weatherproofing")
+
+[sub_resource type="Resource" id="Resource_rhisb"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.element.foundation.fill_0"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 0.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "foundation_primary"
+}
+
+[sub_resource type="Resource" id="Resource_7ghuu"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.element.frame.pillar_0"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_uxp3h"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.element.frame.pillar_1"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_fwhjg"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.element.frame.pillar_2"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_13vls"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.element.frame.pillar_3"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_vruww"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.element.shell.perimeter_0"
+element_kind = "block_operation"
+material_role_id = "wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"exclude": [[-2.0, 1.0, -2.0], [-2.0, 2.0, -2.0], [-2.0, 1.0, 2.0], [-2.0, 2.0, 2.0], [2.0, 1.0, -2.0], [2.0, 2.0, -2.0], [2.0, 1.0, 2.0], [2.0, 2.0, 2.0], [0.0, 1.0, -2.0]],
+"op": "perimeter",
+"origin": [-2.0, 1.0, -2.0],
+"size": [5.0, 2.0, 5.0],
+"token": "wall_primary"
+}
+
+[sub_resource type="Resource" id="Resource_go5va"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.element.shell.point_1"
+element_kind = "block_operation"
+material_role_id = "door_basic"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 1, -2)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, -2.0],
+"token": "door_basic"
+}
+
+[sub_resource type="Resource" id="Resource_l5j7y"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.element.weatherproofing.fill_0"
+element_kind = "block_operation"
+material_role_id = "roof_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "weatherproofing"
+position = Vector3i(-2, 4, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 4.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "roof_primary"
+}
+
+[sub_resource type="Resource" id="Resource_htwr4"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.element.activation.point_0"
+element_kind = "block_operation"
+material_role_id = "functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "activation"
+position = Vector3i(0, 1, 0)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, 0.0],
+"token": "functional"
+}
+
+[sub_resource type="Resource" id="Resource_0ftij"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.marker_01"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.forge")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -2)
+metadata = {
+"id": "marker_01",
+"position": [-2.0, 1.0, -2.0],
+"type": "forge"
+}
+
+[sub_resource type="Resource" id="Resource_8aaaj"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.marker_02"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.anvil")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -2)
+metadata = {
+"id": "marker_02",
+"position": [-1.0, 1.0, -2.0],
+"type": "anvil"
+}
+
+[sub_resource type="Resource" id="Resource_jof32"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.marker_03"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.quench")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"id": "marker_03",
+"position": [0.0, 1.0, -2.0],
+"type": "quench"
+}
+
+[sub_resource type="Resource" id="Resource_bjjk5"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.marker_04"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.fuel_store")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -2)
+metadata = {
+"id": "marker_04",
+"position": [1.0, 1.0, -2.0],
+"type": "fuel_store"
+}
+
+[sub_resource type="Resource" id="Resource_07xlo"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.marker_05"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.metal_intake")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(2, 1, -2)
+metadata = {
+"id": "marker_05",
+"position": [2.0, 1.0, -2.0],
+"type": "metal_intake"
+}
+
+[sub_resource type="Resource" id="Resource_sre2a"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.marker_06"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.tool_rack")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -1)
+metadata = {
+"id": "marker_06",
+"position": [-2.0, 1.0, -1.0],
+"type": "tool_rack"
+}
+
+[sub_resource type="Resource" id="Resource_1a68j"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.marker_07"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.output_rack")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -1)
+metadata = {
+"id": "marker_07",
+"position": [-1.0, 1.0, -1.0],
+"type": "output_rack"
+}
+
+[sub_resource type="Resource" id="Resource_klkts"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.marker_08"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.chimney_or_ventilation")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -1)
+metadata = {
+"id": "marker_08",
+"position": [0.0, 1.0, -1.0],
+"type": "chimney_or_ventilation"
+}
+
+[sub_resource type="Resource" id="Resource_lgrip"]
+script = ExtResource("2_472md")
+element_id = "blueprint.leyforge.crafting.village_blacksmith_a.marker_09"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.firebreak_and_service_counter")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -1)
+metadata = {
+"id": "marker_09",
+"position": [1.0, 1.0, -1.0],
+"type": "firebreak_and_service_counter"
+}
+
+[sub_resource type="Resource" id="Resource_jp40e"]
+script = ExtResource("3_lgmak")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_crafting_village_blacksmith_a"
+display_name = "Village Blacksmith - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.stone",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_aalq5"]
+script = ExtResource("4_tpb3n")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_crafting_village_blacksmith_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -2)
+footprint_max = Vector3i(2, 5, 2)
+max_slope = 1
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_24xi8")
+blueprint_id = "blueprint.leyforge.crafting.village_blacksmith_a"
+display_name = "Village Blacksmith - Forest Neutral"
+definition_ids = PackedStringArray("building.crafting.village_blacksmith")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_472md")]([SubResource("Resource_rhisb"), SubResource("Resource_7ghuu"), SubResource("Resource_uxp3h"), SubResource("Resource_fwhjg"), SubResource("Resource_13vls"), SubResource("Resource_vruww"), SubResource("Resource_go5va"), SubResource("Resource_l5j7y"), SubResource("Resource_htwr4"), SubResource("Resource_0ftij"), SubResource("Resource_8aaaj"), SubResource("Resource_jof32"), SubResource("Resource_bjjk5"), SubResource("Resource_07xlo"), SubResource("Resource_sre2a"), SubResource("Resource_1a68j"), SubResource("Resource_klkts"), SubResource("Resource_lgrip")])
+construction_deltas = Array[ExtResource("1_4qyw4")]([SubResource("Resource_fhnj8"), SubResource("Resource_jltsu"), SubResource("Resource_6r1lu"), SubResource("Resource_i6hgx"), SubResource("Resource_5l5qe")])
+placement_profile = SubResource("Resource_aalq5")
+material_role_set = SubResource("Resource_jp40e")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.043"

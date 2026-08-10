@@ -9,6 +9,9 @@ extends ForgePresentationDefinition
 @export var accessibility_modes: PackedStringArray = []
 @export var duration_seconds := 0.0
 @export var manual_review_status := "open"
+## Preview-only positions keyed by fixture ID. Excluded from the canonical
+## record so moving cards never changes deterministic capture identity.
+@export var editor_layout: Dictionary = {}
 
 
 func _init() -> void:

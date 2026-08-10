@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_1eslv"]
+
+[resource]
+script = ExtResource("1_1eslv")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_fire_smoke_heat_idle_soft"
+source_id = "vfx.effect.production.fire_smoke_heat_idle_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "ce75c558afd8da46d6eff3cf41047306cd448e5cde9a09337bc7786d4832d916"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_fire_smoke_heat_idle_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_fire_smoke_heat_idle_soft.tres": "f88e8a89f253e342726b176aeb2e1234b2ad8ad0c94b4c96ba62cba6ed41e693"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

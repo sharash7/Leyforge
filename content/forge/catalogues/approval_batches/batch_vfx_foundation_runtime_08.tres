@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_glri4"]
+
+[resource]
+script = ExtResource("1_glri4")
+batch_id = "batch.vfx.foundation_runtime_08"
+display_name = "Vfx.foundation Runtime 08"
+studio = "vfx"
+category = "foundation_runtime_08"
+target_ids = PackedStringArray("vfx.graph.golden.furnace_lifecycle.stage4", "vfx.graph.golden.goblin_raid.stage4", "vfx.graph.golden.mana_conduit.stage4", "vfx.graph.golden.mining.stage4", "vfx.graph.golden.rain_shelter.stage4", "vfx.graph.golden.village_ambience.stage4", "vfx.graph.golden.ward_warning.stage4", "vfx.graph.template.burst.foundation")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_vfx_foundation_runtime_08.json")

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_d34n3"]
+
+[resource]
+script = ExtResource("1_d34n3")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_safety_fort_keep_a"
+source_id = "blueprint.leyforge.safety.fort_keep_a"
+source_type_id = "catalogue.structures"
+source_hash = "df8c2c59110c5332c1a025b99f001edccbacaef6914f5d81cd532200c2ae82e9"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_fort_keep_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_fort_keep_a.tres": "8c5f3c5a26fc70e899483644bcca23756d74fd07ffcee2b641413cd6f5e09003"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

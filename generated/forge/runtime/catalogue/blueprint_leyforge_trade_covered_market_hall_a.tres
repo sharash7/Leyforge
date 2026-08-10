@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_iluog"]
+
+[resource]
+script = ExtResource("1_iluog")
+product_id = "runtime.catalogue.blueprint_leyforge_trade_covered_market_hall_a"
+source_id = "blueprint.leyforge.trade.covered_market_hall_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_trade_covered_market_hall_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_covered_market_hall_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_covered_market_hall_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_covered_market_hall_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_trade_covered_market_hall_a.tres": "170372261ef7091030e3358b024a68ae685b5836a952e75bf92269f79474f993",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_covered_market_hall_a_light_damage.tres": "9ece75e356286415fd13ddd8e9bab04891b7de0fe30f2479de9f90c40714d5ab",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_covered_market_hall_a_repaired.tres": "9b006ef455de1d562b34a26633826f4b5816a870ee7928121a338f4448340731",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_covered_market_hall_a_under_construction.tres": "47d68af45cab8ce4aba4634c3dc0d893cb83619728f3534e88911f886bfc37c6"
+}
+combined_source_hash = "df0194187127575837ef623d296d65515963522120ee842e527b29d481ba494d"
+dependency_ids = PackedStringArray()

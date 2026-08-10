@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_yb5lf"]
+
+[resource]
+script = ExtResource("1_yb5lf")
+product_id = "runtime.catalogue.blueprint_leyforge_food_fishery_fishing_dock_a"
+source_id = "blueprint.leyforge.food.fishery_fishing_dock_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_food_fishery_fishing_dock_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_fishery_fishing_dock_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_fishery_fishing_dock_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_fishery_fishing_dock_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_food_fishery_fishing_dock_a.tres": "aa8b5c76b0fc32baa866a442356ff08596a9bc0964d30e46f5f1ebac542d32ec",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_fishery_fishing_dock_a_light_damage.tres": "698b9c82b96420be701b4fc6aa037e0658b44b5d99fbf2b01f626bc0e6802278",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_fishery_fishing_dock_a_repaired.tres": "5549886a4c4fab6d93c99438894a971b1cbc67b8e6c372a35744aec611ac7562",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_fishery_fishing_dock_a_under_construction.tres": "5b4b8373b532882aa96d680e860a8541bcd2841478c2477b484015bc7077976c"
+}
+combined_source_hash = "735b2b7ae3ae518b3bf0b50aa1931b28dd7bbf83a28e758d0612bf99b815e6c7"
+dependency_ids = PackedStringArray()

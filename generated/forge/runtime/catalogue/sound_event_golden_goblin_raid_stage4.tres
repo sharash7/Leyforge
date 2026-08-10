@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_umokb"]
+
+[resource]
+script = ExtResource("1_umokb")
+product_id = "runtime.catalogue.sound_event_golden_goblin_raid_stage4"
+source_id = "sound.event.golden.goblin_raid.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/sound_event_goblin_raid.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/sound_event_goblin_raid.tres": "2e9aaa5cb8cc787a1189a8bfbc7eed5db1fa35d8d6906479fe4005d9d915309f"
+}
+combined_source_hash = "09dca4deb54f6a8bef697b8e95e0a50cecb4e8d7ab6d48cee0b0ef26187cff60"
+dependency_ids = PackedStringArray()

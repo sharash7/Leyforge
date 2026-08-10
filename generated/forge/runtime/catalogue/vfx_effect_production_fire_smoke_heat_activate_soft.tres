@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_1pxwj"]
+
+[resource]
+script = ExtResource("1_1pxwj")
+product_id = "runtime.catalogue.vfx_effect_production_fire_smoke_heat_activate_soft"
+source_id = "vfx.effect.production.fire_smoke_heat_activate_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_fire_smoke_heat_activate_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_fire_smoke_heat_activate_soft.tres": "d9846bd536e1cfc177f61c3c875cd93f2c4c178cf9900b91015906c709fba7f7"
+}
+combined_source_hash = "c590ccd3f747e471d5306adc69916678475622c315aa1c7a1521252c49175d52"
+dependency_ids = PackedStringArray()

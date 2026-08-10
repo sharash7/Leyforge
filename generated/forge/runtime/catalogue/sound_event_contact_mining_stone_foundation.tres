@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_8xppl"]
+
+[resource]
+script = ExtResource("1_8xppl")
+product_id = "runtime.catalogue.sound_event_contact_mining_stone_foundation"
+source_id = "sound.event.contact.mining.stone.foundation"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/foundation/sound_event_contact_mining_stone_foundation.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/foundation/sound_event_contact_mining_stone_foundation.tres": "0e4277c26aea1e2f5a62826247f2120052e77e857e7effd2dc7d8e67b1eb865c"
+}
+combined_source_hash = "e934328e013bb8f08ca4e16649e2e89ba8241d3c3339eaa4846c06bafe9c1d1b"
+dependency_ids = PackedStringArray()

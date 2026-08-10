@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ForgeVfxForm" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_vfx_form.gd" id="1_lcvqs"]
+
+[resource]
+script = ExtResource("1_lcvqs")
+form_kind = "voxel_cluster"
+cell_records = Array[Dictionary]([{
+"palette_role": "stone_primary",
+"position": [0, 0, 0]
+}, {
+"palette_role": "stone_accent",
+"position": [1, 0, 0]
+}])
+palette_role_ids = PackedStringArray("material_role.foundation_primary")
+maximum_cells = 16
+schema_id = "leyforge.forge.vfx-form"
+stable_id = "vfx.form.debris.stone.foundation"
+display_name = "Stone Debris Foundation Form"
+asset_class = "vfx_form"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"manual_review": "open",
+"production_status": "foundation_only"
+}
+rights_status = "not_applicable"

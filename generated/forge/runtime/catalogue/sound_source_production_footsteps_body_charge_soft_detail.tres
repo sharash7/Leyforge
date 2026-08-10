@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_lu560"]
+
+[resource]
+script = ExtResource("1_lu560")
+product_id = "runtime.catalogue.sound_source_production_footsteps_body_charge_soft_detail"
+source_id = "sound.source.production.footsteps_body_charge_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_footsteps_body_charge_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_footsteps_body_charge_soft_detail.tres": "c2f8f47abfb2663a13243d8401447fb58aaf12a9aac1fd4a0b75ff733bd11602"
+}
+combined_source_hash = "497e21462ae59b6e55c6289fdf447d579ef362977096599487c4aee1d806f5e9"
+dependency_ids = PackedStringArray()

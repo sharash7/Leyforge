@@ -11,6 +11,9 @@ signal asset_baked(presentation_id: String)
 const MATERIAL_ROOT := "res://content/forge/materials"
 const PATTERN_ROOT := "res://content/forge/patterns"
 const LAYOUT_PREFERENCES_PATH := "user://leyforge_forge_ui.cfg"
+const SCENARIO_COMPOSER_SCRIPT := preload(
+	"res://scripts/forge/ui/forge_scenario_composer.gd")
+const USER_SCENARIO_ROOT := "user://leyforge/forge/test_scenarios"
 const WIDE_LAYOUT_MINIMUM := 1500.0
 
 var asset_index := ForgeAssetIndex.new()
@@ -22,11 +25,14 @@ var bake_service := ForgeBakeService.new()
 var registry_bridge := ForgeRegistryBridge.new()
 var presentation_workspace := ForgePresentationWorkspaceService.new()
 var presentation_laboratory := ForgePresentationTestLaboratory.new()
+var creator_session := ForgeAuthoringSession.new()
 
 var current_asset: ForgeAssetDefinition
 var current_record: Dictionary = {}
 var current_diagnostics: Array[ForgeDiagnostic] = []
 var current_preview_override: ForgeOverrideDefinition
+var current_creator_resource: Resource
+var current_creator_descriptor: ForgeAuthoringTypeDescriptor
 
 var _page_title: Label
 var _page: VBoxContainer
@@ -44,9 +50,19 @@ var _approve_button: Button
 var _navigation_toggle_button: Button
 var _preview_toggle_button: Button
 var _search_entry: LineEdit
-var _browser_results: VBoxContainer
+var _browser_results: Container
+var _library_kind_filter: OptionButton
+var _library_category_filter: OptionButton
+var _library_status_filter: OptionButton
+var _library_collection := "all"
+var _library_favourites := PackedStringArray()
+var _library_recents := PackedStringArray()
+var _capture_a_id := ""
+var _capture_b_id := ""
+var _capture_comparison_label: Label
 var _surface_canvas: ForgePixelCanvas
 var _voxel_canvas: ForgeVoxelSliceCanvas
+var _creator_panel: ForgeCreatorStudioPanel
 var _columns: HSplitContainer
 var _centre_and_preview: HSplitContainer
 var _navigation_host: Control
@@ -66,6 +82,10 @@ var _route_buttons := {}
 var _active_section_id := "home"
 var _active_route_id := "home_dashboard"
 var _active_accent := Color("#D9A441")
+var _guide_mode := ForgeSectionGuides.BASIC
+var _guide_step_indices: Dictionary = {}
+var _guide_confirmed_steps: Dictionary = {}
+var _guide_evaluator := ForgeGuideStateEvaluator.new()
 var _secondary_user_collapsed := false
 var _preview_user_visible := true
 var _current_route_allows_preview := false
@@ -145,11 +165,11 @@ func _build_toolbar() -> Control:
 	_save_button.tooltip_text = (
 		"Save Draft (Ctrl+S). Open or create an editable asset before saving.")
 	bar.add_child(_save_button)
-	_undo_button = _toolbar_button("Undo", command_service.undo)
+	_undo_button = _toolbar_button("Undo", _undo_current)
 	_undo_button.disabled = true
 	_undo_button.tooltip_text = "Undo (Ctrl+Z). No undo command is available."
 	bar.add_child(_undo_button)
-	_redo_button = _toolbar_button("Redo", command_service.redo)
+	_redo_button = _toolbar_button("Redo", _redo_current)
 	_redo_button.disabled = true
 	_redo_button.tooltip_text = "Redo (Ctrl+Y). No redo command is available."
 	bar.add_child(_redo_button)
@@ -173,6 +193,8 @@ func _build_toolbar() -> Control:
 	bar.add_child(_navigation_toggle_button)
 	_preview_toggle_button = _toolbar_button("Preview Panel", func() -> void:
 		_preview_user_visible = not _preview_user_visible
+		if _preview_user_visible:
+			_refresh_creator_live_preview()
 		_save_layout_preferences()
 		_apply_preview_visibility())
 	_preview_toggle_button.tooltip_text = (
@@ -567,6 +589,21 @@ func _refresh_context_ribbon() -> void:
 	_section_context_label.text = "◆  %s" % section_label
 	_section_context_label.add_theme_color_override("font_color", _active_accent)
 	_breadcrumb_context_label.text = "%s  ›  %s" % [section_label, route_label]
+	if current_creator_resource != null and current_creator_descriptor != null:
+		var creator_id := current_creator_descriptor.identity(current_creator_resource)
+		_asset_context_label.text = "%s  •  %s" % [
+			current_creator_descriptor.title(current_creator_resource), creator_id]
+		var creator_lifecycle := "draft"
+		if not current_creator_descriptor.lifecycle_property.is_empty():
+			creator_lifecycle = str(current_creator_resource.get(
+				current_creator_descriptor.lifecycle_property))
+		var dirty_label := "UNSAVED" if creator_session.is_dirty(creator_id) else "SAVED"
+		_lifecycle_context_label.text = "◆ SOURCE: %s  •  DOCUMENT: %s  •  TYPE: %s" % [
+			creator_lifecycle.to_upper(), dirty_label,
+			current_creator_descriptor.display_name.to_upper()]
+		_lifecycle_context_label.add_theme_color_override(
+			"font_color", _active_accent.lightened(0.2))
+		return
 	if current_asset == null:
 		_asset_context_label.text = "No asset open"
 		_lifecycle_context_label.text = "◇ SOURCE: NONE  •  VALIDATION: NOT RUN"
@@ -603,6 +640,14 @@ func _load_layout_preferences() -> void:
 		"layout", "secondary_collapsed", false))
 	_preview_user_visible = bool(config.get_value(
 		"layout", "preview_visible", true))
+	_guide_mode = str(config.get_value(
+		"guides", "mode", ForgeSectionGuides.BASIC))
+	_library_favourites = PackedStringArray(config.get_value(
+		"library", "favourites", PackedStringArray()))
+	_library_recents = PackedStringArray(config.get_value(
+		"library", "recents", PackedStringArray()))
+	if _guide_mode not in [ForgeSectionGuides.BASIC, ForgeSectionGuides.IN_DEPTH]:
+		_guide_mode = ForgeSectionGuides.BASIC
 
 
 func _save_layout_preferences() -> void:
@@ -610,6 +655,9 @@ func _save_layout_preferences() -> void:
 	config.set_value("layout", "active_section", _active_section_id)
 	config.set_value("layout", "secondary_collapsed", _secondary_user_collapsed)
 	config.set_value("layout", "preview_visible", _preview_user_visible)
+	config.set_value("guides", "mode", _guide_mode)
+	config.set_value("library", "favourites", _library_favourites)
+	config.set_value("library", "recents", _library_recents)
 	config.save(LAYOUT_PREFERENCES_PATH)
 
 
@@ -771,11 +819,12 @@ func _fit_shell_splits() -> void:
 
 
 func _add_inline_guide(page_title: String) -> void:
-	var steps := ForgeSectionGuides.steps_for_page(page_title)
-	if steps.is_empty() and not _active_route_id.is_empty():
+	var records := ForgeSectionGuides.records_for_page(page_title, _guide_mode)
+	if records.is_empty() and not _active_route_id.is_empty():
 		var route := ForgeNavigationCatalog.route(_active_route_id)
-		steps = ForgeSectionGuides.steps_for_page(str(route.get("help_key", "")))
-	if steps.is_empty():
+		records = ForgeSectionGuides.records_for_page(
+			str(route.get("help_key", "")), _guide_mode)
+	if records.is_empty():
 		return
 	var panel := PanelContainer.new()
 	panel.name = "SectionGuide"
@@ -785,8 +834,11 @@ func _add_inline_guide(page_title: String) -> void:
 	var stack := VBoxContainer.new()
 	stack.add_theme_constant_override("separation", 6)
 	panel.add_child(stack)
+	stack.add_child(_guide_mode_control())
 	var toggle := Button.new()
-	toggle.text = "How to use this section — %d steps" % steps.size()
+	toggle.text = "%s guide — %d steps" % [
+		"In-depth" if _guide_mode == ForgeSectionGuides.IN_DEPTH else "Basic",
+		records.size()]
 	toggle.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	toggle.toggle_mode = true
 	ForgeVisualTheme.apply_button(toggle, _active_accent)
@@ -794,14 +846,119 @@ func _add_inline_guide(page_title: String) -> void:
 	var details := VBoxContainer.new()
 	details.visible = false
 	stack.add_child(details)
-	for index in steps.size():
-		var label := Label.new()
-		label.text = "%d. %s" % [index + 1, str(steps[index])]
-		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		details.add_child(label)
+	var guide_key := "%s:%s" % [page_title, _guide_mode]
+	var step_index := clampi(int(_guide_step_indices.get(guide_key, 0)), 0, records.size() - 1)
+	var record: Dictionary = records[step_index]
+	var heading := Label.new()
+	heading.text = "%s  |  %d of %d" % [str(record.get("title", "Guide step")), step_index + 1, records.size()]
+	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	heading.add_theme_font_size_override("font_size", 16)
+	details.add_child(heading)
+	var instruction := Label.new()
+	instruction.text = ForgeSectionGuides.format_record(record, _guide_mode == ForgeSectionGuides.BASIC)
+	instruction.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	instruction.set_meta("accessible_label", "Guide step instructions")
+	details.add_child(instruction)
+	var state_label := Label.new()
+	state_label.name = "GuideStepState"
+	state_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	details.add_child(state_label)
+	var observed := CheckButton.new()
+	observed.text = "I can see the expected result"
+	observed.tooltip_text = "Use this only when the result requires visual or listening confirmation."
+	observed.button_pressed = bool(_guide_confirmed_steps.get(str(record.get("step_id", "")), false))
+	observed.toggled.connect(func(value: bool) -> void:
+		_guide_confirmed_steps[str(record.get("step_id", ""))] = value
+		_update_guide_step_state(state_label, record))
+	details.add_child(observed)
+	var actions := HBoxContainer.new()
+	for action_record in [["Previous", -1], ["Next", 1]]:
+		var button := Button.new()
+		button.text = str(action_record[0])
+		button.disabled = step_index + int(action_record[1]) < 0 or step_index + int(action_record[1]) >= records.size()
+		button.pressed.connect(func() -> void:
+			_guide_step_indices[guide_key] = clampi(step_index + int(action_record[1]), 0, records.size() - 1)
+			open_route(_active_route_id))
+		actions.add_child(button)
+	var show_button := Button.new()
+	show_button.text = "Show me"
+	show_button.tooltip_text = "Move keyboard focus to the named control without changing its value."
+	show_button.pressed.connect(func() -> void:
+		if not _guide_evaluator.focus_target(record, self):
+			state_label.text = "TARGET NOT AVAILABLE | Open the page or source type named by this step, then press Retry.")
+	actions.add_child(show_button)
+	var retry_button := Button.new()
+	retry_button.text = "Retry"
+	retry_button.pressed.connect(_update_guide_step_state.bind(state_label, record))
+	actions.add_child(retry_button)
+	var reset_button := Button.new()
+	reset_button.text = "Reset example"
+	reset_button.tooltip_text = "Reset guide progress only. The open source is never overwritten or deleted."
+	reset_button.pressed.connect(func() -> void:
+		_guide_step_indices[guide_key] = 0
+		_guide_confirmed_steps.clear()
+		open_route(_active_route_id))
+	actions.add_child(reset_button)
+	var exit_button := Button.new()
+	exit_button.text = "Exit guide"
+	exit_button.pressed.connect(func() -> void:
+		toggle.button_pressed = false
+		details.visible = false)
+	actions.add_child(exit_button)
+	details.add_child(actions)
+	_update_guide_step_state(state_label, record)
 	toggle.toggled.connect(func(expanded: bool) -> void:
 		details.visible = expanded)
 	_page.add_child(panel)
+
+
+func _update_guide_step_state(label: Label, record: Dictionary) -> void:
+	var context := {"current_resource": creator_session.active_resource(),
+		"dirty": creator_session.is_dirty(),
+		"validation_clear": is_instance_valid(_creator_panel) and "VALID" in _creator_panel._state_label.text,
+		"preview_available": is_instance_valid(_creator_panel) and not _creator_panel._preview_output.text.strip_edges().is_empty(),
+		"confirmed_steps": _guide_confirmed_steps}
+	var result := _guide_evaluator.evaluate(record, self, context)
+	label.text = "%s | %s" % ["COMPLETE" if bool(result.complete) else ("TARGET MISSING" if not bool(result.reachable) else "IN PROGRESS"), str(result.message)]
+	label.tooltip_text = "Guide status is written in text and is not conveyed by colour alone."
+
+
+func _guide_mode_control() -> Control:
+	var row := HBoxContainer.new()
+	row.name = "GuideModeControl"
+	var label := Label.new()
+	label.text = "Guide detail"
+	row.add_child(label)
+	var selector := OptionButton.new()
+	selector.name = "GuideModeSelector"
+	selector.tooltip_text = (
+		"Basic is a concise checklist. In-depth explains why each step happens now "
+		+ "and includes complete creator capstones.")
+	selector.set_meta("accessible_label", "Guide detail mode")
+	for record in [
+		["Basic guide", ForgeSectionGuides.BASIC],
+		["In-depth guide", ForgeSectionGuides.IN_DEPTH],
+	]:
+		selector.add_item(str(record[0]))
+		selector.set_item_metadata(selector.item_count - 1, str(record[1]))
+		if str(record[1]) == _guide_mode:
+			selector.select(selector.item_count - 1)
+	selector.item_selected.connect(func(index: int) -> void:
+		_set_guide_mode(str(selector.get_item_metadata(index))))
+	row.add_child(selector)
+	return row
+
+
+func _set_guide_mode(mode: String) -> void:
+	if mode not in [ForgeSectionGuides.BASIC, ForgeSectionGuides.IN_DEPTH] \
+			or mode == _guide_mode:
+		return
+	_guide_mode = mode
+	_save_layout_preferences()
+	if not _active_route_id.is_empty():
+		open_route(_active_route_id)
+	else:
+		open_section(_active_section_id)
 
 
 func _show_guide() -> void:
@@ -814,9 +971,8 @@ func _show_guide() -> void:
 	_add_body(
 		"Home resumes and recovers work. Library & Create finds canonical IDs and "
 		+ "starts sources. Items & Blocks owns voxel, surface and shared material "
-		+ "authoring. Structures & Buildings and Characters & Creatures expose their "
-		+ "current shared catalogues without pretending unfinished specialist editors "
-		+ "are complete. VFX and Audio inspect their production records. Test & "
+		+ "authoring. Structures & Buildings, Characters & Creatures, VFX and Audio "
+		+ "each provide source creation, editing, validation, preview and approval. Test & "
 		+ "Delivery owns shared contracts, evidence, validation and publication.")
 	_add_body(
 		"The normal path is Home -> Library & Create -> a specialist studio -> "
@@ -848,7 +1004,7 @@ func _show_guide() -> void:
 	_add_section("Page-by-page lessons")
 	for title in ForgeSectionGuides.page_titles():
 		_add_section(str(title))
-		var steps := ForgeSectionGuides.steps_for_page(str(title))
+		var steps := ForgeSectionGuides.steps_for_page(str(title), _guide_mode)
 		for index in steps.size():
 			_add_body("%d. %s" % [index + 1, str(steps[index])])
 
@@ -996,8 +1152,8 @@ func _show_items_hub() -> void:
 func _show_structures_hub() -> void:
 	_clear_page("Structures & Buildings")
 	_add_hub_banner("structures", "Mason's Drafting Table",
-		"Inspect the unified blueprint foundation and construction handoff. The "
-		+ "specialist composition editor remains plainly marked as planned.")
+		"Compose buildings, reusable rooms, connection points, structure sets and "
+		+ "bounded finite or continuing procedural layouts on the shared blueprint foundation.")
 	_ensure_presentation_workspace()
 	_add_stat_card("Blueprint definitions",
 		presentation_workspace.filtered_list("blueprint_definition").size())
@@ -1010,8 +1166,8 @@ func _show_structures_hub() -> void:
 func _show_characters_hub() -> void:
 	_clear_page("Characters & Creatures")
 	_add_hub_banner("characters", "Bestiary Gallery",
-		"Browse canonical entities, anatomy, rigs, appearance, animation and equipment "
-		+ "records. The dedicated entity modeller is not yet an authoring claim.")
+		"Create and edit canonical entities, voxel body parts, anatomy, rigs, appearance, "
+		+ "animation and equipment using the shared source lifecycle.")
 	_ensure_presentation_workspace()
 	_add_stat_card("Entity definitions",
 		presentation_workspace.filtered_list("entity_definition").size())
@@ -1025,8 +1181,8 @@ func _show_characters_hub() -> void:
 func _show_vfx_hub() -> void:
 	_clear_page("VFX")
 	_add_hub_banner("vfx", "Arcane Laboratory",
-		"Inspect bounded effects, voxel forms, graph sources and budgets on a static "
-		+ "rune grid. The live graph editor remains planned.")
+		"Create bounded effects, voxel forms and graph sources; preview limits and "
+		+ "validation before a source can be approved.")
 	_ensure_presentation_workspace()
 	_add_stat_card("VFX definitions", presentation_workspace.filtered_list("vfx_effect").size())
 	_add_stat_card("Voxel forms", presentation_workspace.filtered_list("vfx_form").size())
@@ -1037,8 +1193,8 @@ func _show_vfx_hub() -> void:
 func _show_audio_hub() -> void:
 	_clear_page("Audio")
 	_add_hub_banner("audio", "Resonance Chamber",
-		"Inspect Sound Events, sources, families, ambience and acoustics. Nothing on "
-		+ "this landing page autoplays, and the waveform editor remains planned.")
+		"Create Sound Events, sources and spatial profiles, or design sound from scratch "
+		+ "with a tunable virtual instrument. Nothing autoplays on this landing page.")
 	_ensure_presentation_workspace()
 	_add_stat_card("Sound Events", presentation_workspace.filtered_list("sound_event").size())
 	_add_stat_card("Sound sources", presentation_workspace.filtered_list("sound_source").size())
@@ -1069,14 +1225,40 @@ func _migration_record_count() -> int:
 func _show_asset_browser() -> void:
 	_clear_page("Asset Browser")
 	_add_body(
-		"Every registry entry appears once. Legacy wrappers remain playable until "
-		+ "an approved Forge presentation exists.")
+		"Every registry entry appears once as a visual catalogue card. Names, type, "
+		+ "category, source state and canonical IDs stay searchable; legacy wrappers "
+		+ "remain playable until an approved Forge presentation exists.")
+	var collections := HBoxContainer.new()
+	for definition in [["All sources", "all"], ["Favourites", "favourites"],
+			["Recent", "recent"]]:
+		var button := Button.new()
+		button.text = str(definition[0])
+		button.toggle_mode = true
+		button.button_pressed = _library_collection == str(definition[1])
+		button.pressed.connect(func() -> void:
+			_library_collection = str(definition[1])
+			_show_asset_browser())
+		ForgeVisualTheme.apply_button(button, _active_accent)
+		collections.add_child(button)
+	_page.add_child(collections)
 	_search_entry = LineEdit.new()
 	_search_entry.placeholder_text = "Search stable ID, name, category or status"
 	_search_entry.text_changed.connect(_refresh_browser_results)
 	_page.add_child(_search_entry)
-	_browser_results = VBoxContainer.new()
-	_browser_results.add_theme_constant_override("separation", 5)
+	var filters := HBoxContainer.new()
+	_library_kind_filter = _catalogue_filter("All types", "asset_kind")
+	_library_category_filter = _catalogue_filter("All categories", "category")
+	_library_status_filter = _catalogue_filter("All source states", "source_status")
+	for control in [_library_kind_filter, _library_category_filter,
+			_library_status_filter]:
+		control.item_selected.connect(func(_index: int) -> void:
+			_refresh_browser_results(_search_entry.text))
+		filters.add_child(control)
+	_page.add_child(filters)
+	_browser_results = GridContainer.new()
+	(_browser_results as GridContainer).columns = 3
+	_browser_results.add_theme_constant_override("h_separation", 9)
+	_browser_results.add_theme_constant_override("v_separation", 9)
 	_page.add_child(_browser_results)
 	_refresh_browser_results("")
 
@@ -1085,26 +1267,125 @@ func _refresh_browser_results(query: String) -> void:
 	if not is_instance_valid(_browser_results):
 		return
 	for child in _browser_results.get_children():
+		_browser_results.remove_child(child)
 		child.queue_free()
-	var records := asset_index.search(query)
+	var filters := {}
+	for definition in [[_library_kind_filter, "asset_kind"],
+			[_library_category_filter, "category"],
+			[_library_status_filter, "source_status"]]:
+		var option := definition[0] as OptionButton
+		var value := str(option.get_item_metadata(option.selected))
+		if not value.is_empty():
+			filters[str(definition[1])] = value
+	var records := asset_index.search(query, filters)
+	if _library_collection == "favourites":
+		records = records.filter(func(record: Dictionary) -> bool:
+			return str(record.get("gameplay_id", "")) in _library_favourites)
+	elif _library_collection == "recent":
+		var by_id := {}
+		for record in records:
+			by_id[str(record.get("gameplay_id", ""))] = record
+		var recent_records: Array[Dictionary] = []
+		for gameplay_id in _library_recents:
+			if by_id.has(gameplay_id):
+				recent_records.append(by_id[gameplay_id])
+		records = recent_records
 	for record in records.slice(0, mini(records.size(), 120)):
-		var button := Button.new()
-		button.text = "%s  |  %s  |  %s" % [
-			str(record.get("display_name", "")),
-			str(record.get("gameplay_id", "")),
-			str(record.get("source_status", "legacy_wrapper")),
-		]
-		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		button.tooltip_text = "Open presentation without changing its gameplay ID"
-		button.pressed.connect(_open_record.bind(record))
-		_browser_results.add_child(button)
+		_browser_results.add_child(_catalogue_card(record))
 	if records.size() > 120:
 		_add_child_note(
 			_browser_results,
 			"Showing 120 of %d matches; refine the search." % records.size())
 
 
+func _catalogue_filter(all_label: String, property_name: String) -> OptionButton:
+	var option := OptionButton.new()
+	option.custom_minimum_size = Vector2(190, 38)
+	option.add_item(all_label)
+	option.set_item_metadata(0, "")
+	var values := PackedStringArray()
+	for record in asset_index.all_records():
+		var value := str(record.get(property_name, ""))
+		if not value.is_empty() and value not in values:
+			values.append(value)
+	values.sort()
+	for value in values:
+		option.add_item(value.replace("_", " ").capitalize())
+		option.set_item_metadata(option.item_count - 1, value)
+	return option
+
+
+func _catalogue_card(record: Dictionary) -> Control:
+	var panel := PanelContainer.new()
+	panel.custom_minimum_size = Vector2(270, 205)
+	panel.add_theme_stylebox_override("panel", ForgeVisualTheme.panel_style(
+		ForgeVisualTheme.RAISED, _active_accent.darkened(0.48), 1))
+	var stack := VBoxContainer.new()
+	stack.add_theme_constant_override("separation", 6)
+	panel.add_child(stack)
+	var thumbnail := ColorRect.new()
+	thumbnail.custom_minimum_size = Vector2(0, 56)
+	thumbnail.color = _catalogue_color(str(record.get("gameplay_id", "")))
+	thumbnail.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_child(thumbnail)
+	var title := Label.new()
+	title.text = str(record.get("display_name", "Unnamed source"))
+	title.add_theme_font_size_override("font_size", 17)
+	title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	stack.add_child(title)
+	var details := Label.new()
+	details.text = "%s\n%s  |  %s\nSOURCE %s  |  DEPENDENCY AVAILABLE" % [
+		str(record.get("gameplay_id", "")),
+		str(record.get("asset_kind", "source")).replace("_", " ").to_upper(),
+		str(record.get("category", "uncategorised")),
+		str(record.get("source_status", "legacy_wrapper")).replace("_", " ").to_upper()]
+	details.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	details.add_theme_color_override("font_color", ForgeVisualTheme.MUTED)
+	stack.add_child(details)
+	var actions := HBoxContainer.new()
+	var open := Button.new()
+	open.text = "Open / Create"
+	open.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	open.tooltip_text = "Open this presentation without changing its canonical gameplay ID."
+	open.pressed.connect(_open_record.bind(record))
+	actions.add_child(open)
+	var gameplay_id := str(record.get("gameplay_id", ""))
+	var favourite := Button.new()
+	favourite.text = "Unfavourite" if gameplay_id in _library_favourites else "Favourite"
+	favourite.tooltip_text = "Store this catalogue preference locally; source data is unchanged."
+	favourite.pressed.connect(_toggle_library_favourite.bind(gameplay_id))
+	actions.add_child(favourite)
+	stack.add_child(actions)
+	return panel
+
+
+func _catalogue_color(stable_id: String) -> Color:
+	var value: int = absi(hash(stable_id))
+	return Color.from_hsv(float(value % 360) / 360.0, 0.34, 0.42, 1.0)
+
+
+func _toggle_library_favourite(gameplay_id: String) -> void:
+	if gameplay_id in _library_favourites:
+		_library_favourites.remove_at(_library_favourites.find(gameplay_id))
+	else:
+		_library_favourites.append(gameplay_id)
+	_save_layout_preferences()
+	_refresh_browser_results(_search_entry.text)
+
+
+func _remember_library_recent(gameplay_id: String) -> void:
+	if gameplay_id.is_empty():
+		return
+	if gameplay_id in _library_recents:
+		_library_recents.remove_at(_library_recents.find(gameplay_id))
+	_library_recents.insert(0, gameplay_id)
+	while _library_recents.size() > 24:
+		_library_recents.remove_at(_library_recents.size() - 1)
+	_save_layout_preferences()
+
+
 func _open_record(record: Dictionary) -> void:
+	_remember_library_recent(str(record.get("gameplay_id", "")))
 	current_record = record.duplicate(true)
 	var source_id := str(record.get("forge_asset_id", ""))
 	var source_path := asset_index.path_for_source_id(source_id)
@@ -1586,6 +1867,12 @@ func _show_voxel_editor() -> void:
 		_voxel_canvas.mirror_x = enabled
 		_voxel_canvas.queue_redraw())
 	controls.add_child(mirror)
+	var flip_vertical := Button.new()
+	flip_vertical.text = "Flip model vertically"
+	flip_vertical.tooltip_text = (
+		"Correct a model authored before screen-up mapped to model-up.")
+	flip_vertical.pressed.connect(_flip_voxel_volume_y)
+	controls.add_child(flip_vertical)
 	controls.add_child(_palette_selector(palette, func(index: int) -> void:
 		_selected_palette_index = index
 		_voxel_canvas.active_palette_index = index))
@@ -1637,7 +1924,9 @@ func _show_voxel_editor() -> void:
 	_add_body(
 		"Hold and drag left-click to add or paint microvoxels; right-drag "
 		+ "removes them. Shape size is a slice-cell radius. Mirror X applies "
-		+ "the same batched command across the live symmetry plane.")
+		+ "the same batched command across the live symmetry plane. The top "
+		+ "of a vertical slice is model-up; use Flip model vertically once for "
+		+ "a draft drawn before that mapping was corrected.")
 
 
 func _add_authoring_mode_switcher() -> void:
@@ -1708,6 +1997,37 @@ func _copy_voxel_layer(axis: int, slice_index: int) -> void:
 	_voxel_layer_clipboard_source = "%s %s layer %d" % [
 		current_asset.display_name, ["X", "Y", "Z"][axis], slice_index]
 	_set_status("Copied %s." % _voxel_layer_clipboard_source, false)
+
+
+func _flip_voxel_volume_y() -> void:
+	var volume := _editable_volume()
+	if volume == null:
+		return
+	volume.ensure_storage()
+	var previous_cells: PackedByteArray = volume.cells.duplicate()
+	var previous_flags: PackedByteArray = volume.helper_flags.duplicate()
+	var flipped_cells: PackedByteArray = previous_cells.duplicate()
+	var flipped_flags: PackedByteArray = previous_flags.duplicate()
+	for z in volume.dimensions.z:
+		for y in volume.dimensions.y:
+			for x in volume.dimensions.x:
+				var source := Vector3i(x, y, z)
+				var target := Vector3i(
+					x, volume.dimensions.y - 1 - y, z)
+				flipped_cells[volume.index_of(target)] = \
+					previous_cells[volume.index_of(source)]
+				flipped_flags[volume.index_of(target)] = \
+					previous_flags[volume.index_of(source)]
+	command_service.execute(
+		"Flip voxel model vertically",
+		func() -> void:
+			volume.cells = flipped_cells.duplicate()
+			volume.helper_flags = flipped_flags.duplicate()
+			_after_edit(),
+		func() -> void:
+			volume.cells = previous_cells.duplicate()
+			volume.helper_flags = previous_flags.duplicate()
+			_after_edit())
 
 
 func _paste_voxel_layer(axis: int, slice_index: int) -> void:
@@ -2811,6 +3131,27 @@ func _show_planned_capability() -> void:
 		+ "source editor, undo contract and validation coverage are complete.")
 
 
+func _show_creator_studio() -> void:
+	var route := ForgeNavigationCatalog.route(_active_route_id)
+	var title := str(route.get("page_title", "Creator Studio"))
+	_clear_page(title)
+	_add_body(
+		"Create or open canonical editable sources. Every studio uses the same stable-ID, "
+		+ "undo, draft, autosave, validation, preview and approval lifecycle; generated "
+		+ "products remain separate from source documents.")
+	_creator_panel = ForgeCreatorStudioPanel.new()
+	_creator_panel.name = "ForgeCreatorStudio_%s" % _active_section_id
+	_creator_panel.configure(_active_section_id, creator_session)
+	_creator_panel.source_activated.connect(_on_creator_source_activated)
+	_creator_panel.source_changed.connect(_on_creator_source_changed)
+	_creator_panel.status_changed.connect(_set_status)
+	_creator_panel.history_changed.connect(_on_creator_history_changed)
+	_page.add_child(_creator_panel)
+	if _creator_panel.has_source():
+		_on_creator_source_activated(
+			_creator_panel.current_resource, _creator_panel.current_descriptor)
+
+
 func _show_blueprint_handoff() -> void:
 	_clear_page("Blueprint Designer Handoff")
 	_add_body(
@@ -2871,7 +3212,7 @@ func _show_recovery() -> void:
 		var actions := HBoxContainer.new()
 		var recover := Button.new()
 		recover.text = "Recover"
-		recover.pressed.connect(_recover_autosave.bind(str(candidate["path"])))
+		recover.pressed.connect(_recover_any_autosave.bind(str(candidate["path"])))
 		actions.add_child(recover)
 		var discard := Button.new()
 		discard.text = "Discard autosave"
@@ -3050,7 +3391,88 @@ func _show_presentation_test_laboratory() -> void:
 			scenarios[0].stable_id)
 		_add_stat_card("First scenario matrix cells",
 			int(matrix.get("cell_count", 0)))
-	_add_presentation_records("test_scenario", 20)
+	var capture_row := HBoxContainer.new()
+	var scenario_selector := OptionButton.new()
+	for scenario in scenarios:
+		scenario_selector.add_item(scenario.display_name)
+		scenario_selector.set_item_metadata(
+			scenario_selector.item_count - 1, scenario.stable_id)
+	capture_row.add_child(_labeled("Comparison scenario", scenario_selector))
+	var capture_a := Button.new()
+	capture_a.text = "Capture A"
+	capture_a.pressed.connect(func() -> void:
+		_capture_test_slot(scenario_selector, "a"))
+	capture_row.add_child(capture_a)
+	var capture_b := Button.new()
+	capture_b.text = "Capture B"
+	capture_b.pressed.connect(func() -> void:
+		_capture_test_slot(scenario_selector, "b"))
+	capture_row.add_child(capture_b)
+	var compare := Button.new()
+	compare.text = "Compare side by side"
+	compare.pressed.connect(_compare_test_captures)
+	capture_row.add_child(compare)
+	_page.add_child(capture_row)
+	_capture_comparison_label = Label.new()
+	_capture_comparison_label.text = "Capture A: none  |  Capture B: none  |  Human review remains open."
+	_capture_comparison_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_page.add_child(_capture_comparison_label)
+	var composer: Control = SCENARIO_COMPOSER_SCRIPT.new()
+	composer.name = "VisualScenarioComposer"
+	composer.configure(scenarios, presentation_workspace.filtered_list())
+	composer.status_changed.connect(_set_status)
+	composer.scenario_saved.connect(_on_visual_scenario_saved)
+	_page.add_child(composer)
+
+
+func _capture_test_slot(selector: OptionButton, slot: String) -> void:
+	if selector.item_count == 0 or selector.selected < 0:
+		_set_status("No scenario is available for capture.", true)
+		return
+	var scenario_id := str(selector.get_item_metadata(selector.selected))
+	var generation := presentation_workspace.registry_publisher.current_generation()
+	var options := {"quality": "full" if slot == "a" else "reduced",
+		"accessibility": "default" if slot == "a" else "reduced_motion"}
+	var result := presentation_laboratory.capture(scenario_id,
+		str(generation.get("generation_id", "registry.presentation.preview")),
+		23006, options)
+	if not bool(result.get("ok", false)):
+		_set_status("Scenario capture failed.", true)
+		return
+	if slot == "a":
+		_capture_a_id = str(result.get("capture_id", ""))
+	else:
+		_capture_b_id = str(result.get("capture_id", ""))
+	if is_instance_valid(_capture_comparison_label):
+		_capture_comparison_label.text = "Capture A: %s\nCapture B: %s\nHuman visual, listening and accessibility review remains open." % [
+			_capture_a_id if not _capture_a_id.is_empty() else "none",
+			_capture_b_id if not _capture_b_id.is_empty() else "none"]
+	_set_status("Captured scenario variant %s." % slot.to_upper(), false)
+
+
+func _compare_test_captures() -> void:
+	if _capture_a_id.is_empty() or _capture_b_id.is_empty():
+		_set_status("Capture both A and B before comparing them.", true)
+		return
+	var result := presentation_laboratory.compare(_capture_a_id, _capture_b_id)
+	if not bool(result.get("ok", false)):
+		_set_status("Scenario comparison failed.", true)
+		return
+	if is_instance_valid(_capture_comparison_label):
+		_capture_comparison_label.text = (
+			"SIDE-BY-SIDE TRACE COMPARISON\nA: %s\nB: %s\nSame deterministic trace: %s\n"
+			+ "Automated comparison complete; publication and human review remain explicit.") % [
+			str(result.get("left_trace_hash", "")),
+			str(result.get("right_trace_hash", "")),
+			"YES" if bool(result.get("same_trace", false)) else "NO"]
+	_set_status("Compared capture variants; human approval is still required.", false)
+
+
+func _on_visual_scenario_saved(_scenario: ForgePresentationTestScenario) -> void:
+	var scenarios := _load_presentation_scenarios()
+	var report := presentation_laboratory.load_and_validate(scenarios)
+	_set_status("Saved and reloaded isolated scenario (%d available)." % int(
+		report.get("scenario_count", 0)), not bool(report.get("ok", false)))
 
 
 func _show_presentation_hot_reload() -> void:
@@ -3115,6 +3537,20 @@ func _load_presentation_scenarios() -> Array[ForgePresentationTestScenario]:
 			path, "", ResourceLoader.CACHE_MODE_IGNORE)
 		if resource is ForgePresentationTestScenario:
 			scenarios.append(resource)
+	var user_root := USER_SCENARIO_ROOT
+	var user_directory := DirAccess.open(user_root)
+	if user_directory != null:
+		user_directory.list_dir_begin()
+		var entry := user_directory.get_next()
+		while not entry.is_empty():
+			if not user_directory.current_is_dir() \
+					and (entry.ends_with(".tres") or entry.ends_with(".res")):
+				var resource := ResourceLoader.load(user_root.path_join(entry), "",
+					ResourceLoader.CACHE_MODE_IGNORE)
+				if resource is ForgePresentationTestScenario:
+					scenarios.append(resource)
+			entry = user_directory.get_next()
+		user_directory.list_dir_end()
 	scenarios.sort_custom(func(a: ForgePresentationTestScenario,
 			b: ForgePresentationTestScenario) -> bool:
 		return a.stable_id < b.stable_id)
@@ -3137,7 +3573,42 @@ func _recover_autosave(path: String) -> void:
 	_set_status("Recovered autosave; Save Draft to promote it.", false)
 
 
+func _recover_any_autosave(path: String) -> void:
+	var loaded := autosave_service.load_candidate(path)
+	if not bool(loaded.get("ok", false)):
+		_set_status("Recovery source could not be read.", true)
+		return
+	var resource: Resource = loaded.get("resource")
+	if resource is ForgeAssetDefinition:
+		_recover_autosave(path)
+		return
+	var descriptor: ForgeAuthoringTypeDescriptor = (
+		ForgeAuthoringTypeRegistry.new().for_resource(resource))
+	if descriptor == null:
+		_set_status("Recovery source type is not registered.", true)
+		return
+	creator_session.register_recovery({
+		"ok": true,
+		"resource": resource,
+		"recovery_for_path": descriptor.default_path(resource),
+	})
+	var route_id: String = {
+		"structures": "blueprint_editor",
+		"characters": "entity_editor",
+		"vfx": "vfx_editor",
+		"audio": "audio_editor",
+	}.get(descriptor.domain, "")
+	if route_id.is_empty():
+		_set_status("Recovery source studio is unavailable.", true)
+		return
+	open_route(route_id)
+	_set_status("Recovered creator autosave; Save Draft to promote it.", false)
+
+
 func _save_current() -> void:
+	if current_creator_resource != null and is_instance_valid(_creator_panel):
+		_creator_panel.save_current()
+		return
 	if not _require_asset():
 		return
 	var result := document_service.save_draft(current_asset)
@@ -3153,6 +3624,9 @@ func _save_current() -> void:
 
 
 func _validate_current(show_page := true) -> void:
+	if current_creator_resource != null and is_instance_valid(_creator_panel):
+		_creator_panel.validate_current()
+		return
 	if not _require_asset():
 		return
 	var contract := _load_contract(current_asset.presentation_contract_id)
@@ -3167,16 +3641,34 @@ func _validate_current(show_page := true) -> void:
 
 
 func _bake_preview() -> void:
+	if current_creator_resource != null and is_instance_valid(_creator_panel):
+		var result := _creator_panel.preview_current()
+		if bool(result.get("ok", false)) and _current_route_allows_preview:
+			_preview_user_visible = true
+			_refresh_creator_live_preview()
+			_save_layout_preferences()
+			_apply_preview_visibility()
+		return
 	_bake(false)
 
 
 func _approve_and_bake() -> void:
+	if current_creator_resource != null and is_instance_valid(_creator_panel):
+		var result := _creator_panel.approve_current()
+		if bool(result.get("ok", false)):
+			if has_node("/root/ForgeRuntime"):
+				ForgeRuntime.reload_packages()
+			asset_baked.emit(current_creator_descriptor.identity(
+				current_creator_resource))
+		return
 	_bake(true)
 
 
 func _bake(approve: bool) -> void:
 	if not _require_asset():
 		return
+	var refresh_item_preview := is_instance_valid(_page_title) \
+		and _page_title.text == "Item, Held, Drop & Icon Preview"
 	var result := bake_service.bake(
 		current_asset,
 		_load_contract(current_asset.presentation_contract_id),
@@ -3194,6 +3686,8 @@ func _bake(approve: bool) -> void:
 	asset_baked.emit(current_asset.presentation_id)
 	_set_status(
 		"%s bake ready." % ("Approved" if approve else "Preview"), false)
+	if refresh_item_preview:
+		call_deferred("_show_item_preview")
 
 
 func _load_contract(contract_id: String) -> ForgePresentationContract:
@@ -3209,6 +3703,8 @@ func _load_contract(contract_id: String) -> ForgePresentationContract:
 
 
 func _after_open_asset() -> void:
+	current_creator_resource = null
+	current_creator_descriptor = null
 	command_service.clear()
 	current_diagnostics.clear()
 	_asset_heading.text = "%s\n%s\n%s" % [
@@ -3375,6 +3871,8 @@ func _offer_recovery() -> void:
 
 
 func _on_history_changed(can_undo: bool, can_redo: bool) -> void:
+	if current_creator_resource != null:
+		return
 	if is_instance_valid(_undo_button):
 		_undo_button.disabled = not can_undo
 	if is_instance_valid(_redo_button):
@@ -3387,6 +3885,59 @@ func _on_document_saved(_asset_id: String, _path: String) -> void:
 
 func _on_bake_completed(_result: Dictionary) -> void:
 	pass
+
+
+func _on_creator_source_activated(
+		resource: Resource, descriptor: ForgeAuthoringTypeDescriptor) -> void:
+	current_creator_resource = resource
+	current_creator_descriptor = descriptor
+	current_diagnostics.clear()
+	if is_instance_valid(_asset_heading):
+		_asset_heading.text = "%s\n%s\n%s" % [
+			descriptor.title(resource), descriptor.identity(resource), descriptor.display_name]
+	if is_instance_valid(_save_button):
+		_save_button.disabled = false
+		_validate_button.disabled = false
+		_bake_preview_button.disabled = false
+		_approve_button.disabled = false
+	_rebuild_navigation()
+	_refresh_context_ribbon()
+	_refresh_creator_live_preview()
+	_set_status("Opened creator source %s." % descriptor.title(resource), false)
+
+
+func _on_creator_source_changed(_resource: Resource) -> void:
+	_refresh_context_ribbon()
+	_refresh_creator_live_preview()
+	_set_status("Creator source has unsaved changes.", false)
+
+
+func _refresh_creator_live_preview() -> void:
+	if current_creator_resource == null or not _current_route_allows_preview \
+			or not is_instance_valid(_preview):
+		return
+	_preview.show_creator_resource(current_creator_resource, creator_session.resources)
+
+
+func _on_creator_history_changed(can_undo: bool, can_redo: bool) -> void:
+	if is_instance_valid(_undo_button):
+		_undo_button.disabled = not can_undo
+	if is_instance_valid(_redo_button):
+		_redo_button.disabled = not can_redo
+
+
+func _undo_current() -> void:
+	if current_creator_resource != null and is_instance_valid(_creator_panel):
+		_creator_panel.undo()
+	else:
+		command_service.undo()
+
+
+func _redo_current() -> void:
+	if current_creator_resource != null and is_instance_valid(_creator_panel):
+		_creator_panel.redo()
+	else:
+		command_service.redo()
 
 
 func _set_status(message: String, is_error: bool) -> void:

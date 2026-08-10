@@ -1,7 +1,8 @@
 extends Node
-## Multi-world isolation, save-v17, plan replay, and global-profile probe.
+## Multi-world isolation, save-v18, manifest replay, and global-profile probe.
 
 const MainScene := preload("res://main.tscn")
+const WorldManifestScript := preload("res://scripts/world/world_manifest.gd")
 
 var failures: Array[String] = []
 var checks := 0
@@ -79,7 +80,14 @@ func _run() -> void:
 		"kind": "block", "id": edit_id, "count": 11})
 	ProgressionState.record_harvest("natural.log.oak", 3)
 	MagicState.unlock_poc_magic("knowledge.magic.basic_rune")
-	HamletState.reputation_points = 37
+	SocialManager.apply_reputation_event({
+		"transaction_id": "world.lifecycle.first.reputation",
+		"scope_ref": HamletState.active_village_id,
+		"target_ref": SocialManager.PLAYER_ACTOR_ID,
+		"delta": 37,
+		"source_event_id": "event.world.lifecycle.first",
+	})
+	HamletState.refresh_social_projection()
 	CombatState.phase = "resolved"
 	CombatState.outcome = {"result": "probe_first_world"}
 	UIState.discover_anchor("rune_ruin")
@@ -115,7 +123,14 @@ func _run() -> void:
 		str(UIState.settings.get("quality_profile", "")) == "performance",
 		"global performance profile did not persist")
 	ProgressionState.record_harvest("terrain.stone.basic", 9)
-	HamletState.reputation_points = 2
+	SocialManager.apply_reputation_event({
+		"transaction_id": "world.lifecycle.second.reputation",
+		"scope_ref": HamletState.active_village_id,
+		"target_ref": SocialManager.PLAYER_ACTOR_ID,
+		"delta": 2,
+		"source_event_id": "event.world.lifecycle.second",
+	})
+	HamletState.refresh_social_projection()
 	_check(second_session.request_manual_save(), "second world save failed")
 	_check(FileAccess.file_exists(second_paths["final"]), "second final save is missing")
 	second_session.queue_free()
@@ -150,18 +165,32 @@ func _run() -> void:
 	_check(UIState.setting_bool("high_contrast"), "global profile changed on reload")
 	var save_data: Variant = JSON.parse_string(FileAccess.get_file_as_string(
 		WorldManager.active_world_paths()["final"]))
-	_check(save_data is Dictionary, "save-v17 file did not parse")
+	_check(save_data is Dictionary, "save-v18 file did not parse")
 	if save_data is Dictionary:
-		_check(int(save_data.get("version", 0)) == 17, "save version is not 17")
+		_check(int(save_data.get("version", 0)) == 18, "save version is not 18")
 		_check(
-			not (save_data.get("settlements", {}) as Dictionary).is_empty(),
-			"save v17 omitted the settlement collection")
+			not (save_data.get("settlements", {}) as Dictionary).is_empty() \
+				and str((save_data.get("social", {}) as Dictionary).get(
+					"schema", "")) == "leyforge.social-state" \
+				and str((save_data.get("political", {}) as Dictionary).get(
+					"schema", "")) == PoliticalManager.STATE_SCHEMA \
+				and str((save_data.get("movement", {}) as Dictionary).get(
+					"schema", "")) == MovementManager.STATE_SCHEMA,
+			"save v18 omitted the settlement, social, political or movement owner")
 		_check(
 			str(save_data.get("world_id", "")) == str(first["world_id"]),
 			"save manifest cannot reconstruct its world ID")
 		_check(
 			not (save_data.get("ui", {}) as Dictionary).has("settings"),
 			"global settings leaked into per-world save state")
+		var saved_world_manifest: Dictionary = save_data.get("world_manifest", {})
+		_check(not saved_world_manifest.is_empty(),
+			"save v18 omitted the persistent world manifest")
+		_check(bool(WorldManifestScript.validate(saved_world_manifest).get(
+			"ok", false)), "saved world manifest failed validation")
+		_check(saved_world_manifest.get("manifest_hash") \
+			== first.get("world_manifest_hash"),
+			"save changed the world's locked manifest identity")
 	replay.queue_free()
 	await get_tree().process_frame
 	_finish()

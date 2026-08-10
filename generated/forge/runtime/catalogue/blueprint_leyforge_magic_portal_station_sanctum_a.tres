@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ck6rj"]
+
+[resource]
+script = ExtResource("1_ck6rj")
+product_id = "runtime.catalogue.blueprint_leyforge_magic_portal_station_sanctum_a"
+source_id = "blueprint.leyforge.magic.portal_station_sanctum_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_magic_portal_station_sanctum_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_portal_station_sanctum_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_portal_station_sanctum_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_portal_station_sanctum_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_magic_portal_station_sanctum_a.tres": "1fe593ecdf91c0b15823491e9d9667fe548de003cbe34dee2d40579467d44023",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_portal_station_sanctum_a_light_damage.tres": "e2f7419d1f5b2b15d22160b964414a6eefc2376cb3017b83ddbbfd64956f468e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_portal_station_sanctum_a_repaired.tres": "e7ccae2c129dda27f988d3ebdc4674f490eb8cb7e426c01b3ff3432549a7bc49",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_portal_station_sanctum_a_under_construction.tres": "c9043edccb1a65fa421cfd9974ede6b8d39a3a479e9d08416f28f2ce11ce8b1f"
+}
+combined_source_hash = "7a3b661d034cae2906a8ab4e5f1ef10ed4d56250334bbcd79b1b4d7ceb6f6dbb"
+dependency_ids = PackedStringArray()

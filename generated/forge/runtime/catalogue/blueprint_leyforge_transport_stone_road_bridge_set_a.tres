@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_2ttxw"]
+
+[resource]
+script = ExtResource("1_2ttxw")
+product_id = "runtime.catalogue.blueprint_leyforge_transport_stone_road_bridge_set_a"
+source_id = "blueprint.leyforge.transport.stone_road_bridge_set_a"
+source_paths = PackedStringArray("res://content/forge/runtime/set22_23_stage5/blueprint_bridge.tres")
+source_hashes = {
+"res://content/forge/runtime/set22_23_stage5/blueprint_bridge.tres": "d3e2da6758640242ffa51f9be114257275c9c53dbb08ffccc9233cb8ac53fe91"
+}
+combined_source_hash = "8b214ee37e2e5d9c1ffb7f4ce1192a5f3af671b9ba015c1fbb69b25c99e7870b"
+dependency_ids = PackedStringArray()

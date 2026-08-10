@@ -1,0 +1,15 @@
+{
+  "batch_id": "batch.structures.safety",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.safety.wooden_watchtower_a",
+    "blueprint.leyforge.safety.guard_post_a",
+    "blueprint.leyforge.safety.village_gate_a",
+    "blueprint.leyforge.safety.barracks_training_yard_a",
+    "blueprint.leyforge.safety.armoury_a",
+    "blueprint.leyforge.safety.fort_keep_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

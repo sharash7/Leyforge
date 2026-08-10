@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ForgeBodyPartDefinition" format=4]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_haef7"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_pqit4"]
+
+[sub_resource type="Resource" id="Resource_tju4e"]
+script = ExtResource("2_pqit4")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[resource]
+script = ExtResource("1_haef7")
+body_part_id = "entity.body_part.production.arachnid.leg_2_right"
+display_name = "Leg 2 Right"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.leg.right.2"
+voxel_source = SubResource("Resource_tju4e")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.leg_2_right"
+side_token = "right"
+rig_role = "rig.role.leg_2_right"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_2_right")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")

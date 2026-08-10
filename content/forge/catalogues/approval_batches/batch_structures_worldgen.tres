@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_dl6ck"]
+
+[resource]
+script = ExtResource("1_dl6ck")
+batch_id = "batch.structures.worldgen"
+display_name = "Structures.worldgen"
+studio = "structures"
+category = "worldgen"
+target_ids = PackedStringArray("blueprint.leyforge.worldgen.goblin_camp_a", "blueprint.leyforge.worldgen.rune_ruin_a", "blueprint.module.farm.pen_basic_a", "blueprint.module.road.forest_path_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_worldgen.json")

@@ -1,0 +1,25 @@
+[gd_scene format=4]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq86n"]
+resource_name = "ForgePaletteVertexMaterial"
+vertex_color_use_as_albedo = true
+roughness = 0.82
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b8hw5"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1, 1, 1),
+"attribute_data": PackedByteArray("p4dW/wAAAAAAAIA/p4dW/wAAAAAAAAAAp4dW/wAAgD8AAAAAp4dW/wAAgD8AAIA/p4dW/wAAAAAAAIA/p4dW/wAAAAAAAAAAp4dW/wAAgD8AAAAAp4dW/wAAgD8AAIA/I0dW/wAAAAAAAIA/I0dW/wAAAAAAAAAAI0dW/wAAgD8AAAAAI0dW/wAAgD8AAIA/x5ha/wAAAAAAAIA/x5ha/wAAAAAAAAAAx5ha/wAAgD8AAAAAx5ha/wAAgD8AAIA/p4dW/wAAAAAAAIA/p4dW/wAAAAAAAAAAp4dW/wAAgD8AAAAAp4dW/wAAgD8AAIA/p4dW/wAAAAAAAIA/p4dW/wAAAAAAAAAAp4dW/wAAgD8AAAAAp4dW/wAAgD8AAIA/"),
+"format": 34359742495,
+"index_count": 36,
+"index_data": PackedByteArray("AAACAAEAAAADAAIABAAGAAUABAAHAAYACAAKAAkACAALAAoADAAOAA0ADAAPAA4AEAASABEAEAATABIAFAAWABUAFAAXABYA"),
+"material": SubResource("StandardMaterial3D_dq86n"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAIA/AACAPwAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAAAAAAAAA//8AgP9//7///wCA/3//v///AID/f/+///8AgP9//78AAACA/3//vwAAAID/f/+/AAAAgP9//78AAACA/3//vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCA//8AAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+/AIAAAAAA/7//f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgP//////fwCA//////9/AID//////38AgP//////fwCA")
+}]
+
+[node name="ForgePresentation" type="Node3D" unique_id=1664349238]
+
+[node name="StaticGeometry" type="MeshInstance3D" parent="." unique_id=500404733]
+mesh = SubResource("ArrayMesh_b8hw5")

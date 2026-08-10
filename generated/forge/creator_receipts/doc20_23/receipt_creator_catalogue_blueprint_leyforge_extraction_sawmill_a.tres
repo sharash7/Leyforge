@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_r03iv"]
+
+[resource]
+script = ExtResource("1_r03iv")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_extraction_sawmill_a"
+source_id = "blueprint.leyforge.extraction.sawmill_a"
+source_type_id = "catalogue.structures"
+source_hash = "0b17a0af781b5ff2d2af0ae047b1e055c0e3c78b068c5e321a429d18f4df6943"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_extraction_sawmill_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_extraction_sawmill_a.tres": "a44ba3adeeb1c90d5338fd05ab84f0e5f12f99218a0777fcae22440c0000604f"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

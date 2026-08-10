@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_lrl4u"]
+
+[resource]
+script = ExtResource("1_lrl4u")
+receipt_id = "receipt.creator.catalogue.sound_event_production_village_jobs_start_soft"
+source_id = "sound.event.production.village_jobs_start_soft"
+source_type_id = "catalogue.audio"
+source_hash = "a33c3eef5e8d0b277becdcc6f6cc9e7bdf7473425bbdc438712d96b3d323ce07"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/sound_event_production_village_jobs_start_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/sound_event_production_village_jobs_start_soft.tres": "d20de3cd3ffdfefcac383a9100fe124e047a57cf514e337533d7cc33fb0274b0"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

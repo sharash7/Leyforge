@@ -58,7 +58,7 @@ func _build_shell() -> void:
 	title.add_theme_color_override("font_color", Color("#f3d38a"))
 	navigation.add_child(title)
 	var subtitle := Label.new()
-	subtitle.text = "Controlled POC Valley"
+	subtitle.text = "Seeded Living Frontier"
 	subtitle.add_theme_font_size_override("font_size", 17)
 	subtitle.add_theme_color_override("font_color", Color("#9fb8c6"))
 	navigation.add_child(subtitle)

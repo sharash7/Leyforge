@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_ppo77"]
+
+[resource]
+script = ExtResource("1_ppo77")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_megaproject_city_ward_portal_nexus_a"
+source_id = "blueprint.leyforge.megaproject.city_ward_portal_nexus_a"
+source_type_id = "catalogue.structures"
+source_hash = "e0e2976306a9dbbbc8b13be8e83b225c76a0b9c7e6787e8d2620167a13fbbf4b"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_megaproject_city_ward_portal_nexus_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_megaproject_city_ward_portal_nexus_a.tres": "56c3377043457c881bfb2f43423225aa3115ca2b2016a4f54a220587b9d7f4bf"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

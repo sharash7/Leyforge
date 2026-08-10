@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_47vbp"]
+
+[resource]
+script = ExtResource("1_47vbp")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_residential_apartment_house_a"
+source_id = "blueprint.leyforge.residential.apartment_house_a"
+source_type_id = "catalogue.structures"
+source_hash = "16e0a0013a9d0ab9dee592ef79ce40e2f17220f5cf97a6aeabc0aa20e0fa89f6"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_residential_apartment_house_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_residential_apartment_house_a.tres": "ace848e07b9dec7f30d3c4eee66134afeb9806e3aaa08d2b479f4565848dd1c0"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

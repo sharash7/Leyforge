@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_1hho4"]
+
+[resource]
+script = ExtResource("1_1hho4")
+product_id = "runtime.catalogue.blueprint_leyforge_food_irrigated_terraced_farm_a"
+source_id = "blueprint.leyforge.food.irrigated_terraced_farm_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_food_irrigated_terraced_farm_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_irrigated_terraced_farm_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_irrigated_terraced_farm_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_irrigated_terraced_farm_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_food_irrigated_terraced_farm_a.tres": "2d5ed36432dbaa45aa303607088e55fb1be7406535305ac6b4a91c3e88a7be1c",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_irrigated_terraced_farm_a_light_damage.tres": "2879895c330f246f87801f9288653ef6ec717f914a1b8e4109961e28b090601e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_irrigated_terraced_farm_a_repaired.tres": "6f1136f8035a714d4eb9d3815e93b1ba2a77e75eae63e498c44e8b757ca8966d",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_food_irrigated_terraced_farm_a_under_construction.tres": "c30f92203d2b6d2c9b555c267f5482007329bb546f0c925d7874e2ad0762f4c9"
+}
+combined_source_hash = "b8f2be30333375dd5f6716e77771721d31501a7aa1657bd20ef51aad1ecee63f"
+dependency_ids = PackedStringArray()

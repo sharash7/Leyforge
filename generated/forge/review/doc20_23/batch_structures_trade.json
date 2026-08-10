@@ -1,0 +1,14 @@
+{
+  "batch_id": "batch.structures.trade",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.trade.market_stalls_a",
+    "blueprint.leyforge.trade.trading_post_a",
+    "blueprint.leyforge.trade.covered_market_hall_a",
+    "blueprint.leyforge.trade.caravanserai_coach_inn_a",
+    "blueprint.leyforge.trade.merchant_exchange_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

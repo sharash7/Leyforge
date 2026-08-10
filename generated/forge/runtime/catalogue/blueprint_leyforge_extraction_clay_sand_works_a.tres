@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_j8daj"]
+
+[resource]
+script = ExtResource("1_j8daj")
+product_id = "runtime.catalogue.blueprint_leyforge_extraction_clay_sand_works_a"
+source_id = "blueprint.leyforge.extraction.clay_sand_works_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_clay_sand_works_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_clay_sand_works_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_clay_sand_works_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_clay_sand_works_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_clay_sand_works_a.tres": "f79a160bc8f2e21449dd3a8b268af471cc020d9650eba93cfea5d3da822f3f48",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_clay_sand_works_a_light_damage.tres": "50b46f98ca56b1329c40219ad78b751ae3cd5c626d23caf34dd8ed031b0a7cab",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_clay_sand_works_a_repaired.tres": "60c278a80c68d9dff865bf0df47bdd7c98b0f03987d98817b6284312a895d965",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_clay_sand_works_a_under_construction.tres": "16115b5e8f167bc24b4be2265d7de819f10b087b52341dbc9eaa05011086eec3"
+}
+combined_source_hash = "5602c3e883e66d08ad5fb38354a975bdededfb370791990581d599882f73e981"
+dependency_ids = PackedStringArray()

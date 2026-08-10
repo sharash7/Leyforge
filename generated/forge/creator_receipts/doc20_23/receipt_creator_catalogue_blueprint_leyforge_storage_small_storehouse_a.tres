@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_mofbd"]
+
+[resource]
+script = ExtResource("1_mofbd")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_storage_small_storehouse_a"
+source_id = "blueprint.leyforge.storage.small_storehouse_a"
+source_type_id = "catalogue.structures"
+source_hash = "19d2449871a74ccce150baa944f6c7ee49945f9d94ae1e574a75e243986cfa12"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_storage_small_storehouse_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_storage_small_storehouse_a.tres": "efcc6a9e7ea5c7967e041b6a98ec38b9755c84e103ab0212d38d57fe4947c1d1"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

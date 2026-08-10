@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_connector_definition.gd" id="1_1017b"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_gyw7f"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="3_bvam1"]
+
+[sub_resource type="Resource" id="Resource_uhndk"]
+script = ExtResource("1_1017b")
+connector_id = "blueprint.connector.blueprint_module_forest_road_terminal_exit.north"
+display_name = "Road Terminal Exit connection"
+owner_module_id = "blueprint.module.forest_road.terminal_exit"
+socket_role_id = "socket.role.structure.road"
+position = Vector3i(0, 1, -2)
+direction = Vector3i(0, 0, 1)
+connection_tags = PackedStringArray("road", "terminal_exit")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.road"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "surface_fit"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_8bfw1"]
+script = ExtResource("2_gyw7f")
+element_id = "blueprint.module.forest_road.terminal_exit.floor"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "road.path.dirt"
+metadata = {
+"family": "road",
+"operation": "fill",
+"role": "terminal_exit",
+"terrain_policy": "surface_fit"
+}
+
+[resource]
+script = ExtResource("3_bvam1")
+module_id = "blueprint.module.forest_road.terminal_exit"
+display_name = "Forest Road Terminal Exit"
+module_kind = "terminal_exit"
+elements = Array[ExtResource("2_gyw7f")]([SubResource("Resource_8bfw1")])
+connectors = Array[ExtResource("1_1017b")]([SubResource("Resource_uhndk")])
+aliases = PackedStringArray("module.production.blueprint_module_forest_road_terminal_exit")
+dependency_ids = PackedStringArray()
+lifecycle = "review_ready"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_3sari"]
+
+[resource]
+script = ExtResource("1_3sari")
+receipt_id = "receipt.creator.catalogue.entity_definition_creature_spider"
+source_id = "entity.definition.creature.spider"
+source_type_id = "catalogue.characters"
+source_hash = "ca33ffcd0c27e5fec3873fa628ebbeba3ccb76a3f7bb8ffae9dda945ec239c34"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/entity_definition_creature_spider.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/entity_definition_creature_spider.tres": "bf309db372e7900d01e5a374c162926ce9434fefa8deefe2aa01907f2bd02d2b"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

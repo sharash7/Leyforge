@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_0f7un"]
+
+[resource]
+script = ExtResource("1_0f7un")
+product_id = "runtime.catalogue.sound_source_production_footsteps_body_warning_soft_detail"
+source_id = "sound.source.production.footsteps_body_warning_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_footsteps_body_warning_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_footsteps_body_warning_soft_detail.tres": "1e8817eaf0a8c493d022037ffe15460eac7470e9375346f4b100912994dbe77c"
+}
+combined_source_hash = "233153033c3f8f5da2154ce829c401cbc771fa247c4ff169bcfb69b960ced798"
+dependency_ids = PackedStringArray()

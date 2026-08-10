@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_k1blh"]
+
+[resource]
+script = ExtResource("1_k1blh")
+product_id = "runtime.catalogue.sound_event_production_goblin_raid_sustain_firm"
+source_id = "sound.event.production.goblin_raid_sustain_firm"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_goblin_raid_sustain_firm.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_goblin_raid_sustain_firm.tres": "9603ec203bffbe8d6bcafc2d397d72e5f77523abc4251553216fbc3c6e3e18f5"
+}
+combined_source_hash = "9b77791078071d17868f7ada93374c7dbb658a660ba0f53cc6355540610b294a"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintStateDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_state_definition.gd" id="1_ku7ra"]
+
+[resource]
+script = ExtResource("1_ku7ra")
+state_id = "blueprint.state.blueprint_leyforge_governance_records_planning_office_a.under_construction"
+blueprint_id = "blueprint.leyforge.governance.records_planning_office_a"
+state_kind = "under_construction"
+add_element_ids = PackedStringArray()
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+enable_network_role_ids = PackedStringArray()
+disable_network_role_ids = PackedStringArray()
+surface_layer_ids = PackedStringArray()
+repair_resource_ids = PackedStringArray()
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("blueprint.leyforge.governance.records_planning_office_a")
+lifecycle = "review_ready"

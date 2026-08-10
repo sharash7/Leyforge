@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_connector_definition.gd" id="1_uq6vq"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_oew5l"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="3_jrru4"]
+
+[sub_resource type="Resource" id="Resource_wjth4"]
+script = ExtResource("1_uq6vq")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_turn.north"
+display_name = "Cave Turn connection"
+owner_module_id = "blueprint.module.cave_nest.turn"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(0, 1, -2)
+direction = Vector3i(0, 0, 1)
+connection_tags = PackedStringArray("cave", "turn")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.cave"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "carve"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_0nqd7"]
+script = ExtResource("1_uq6vq")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_turn.south"
+display_name = "Cave Turn connection"
+owner_module_id = "blueprint.module.cave_nest.turn"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(0, 1, 2)
+connection_tags = PackedStringArray("cave", "turn")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.cave"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "carve"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_dw8od"]
+script = ExtResource("2_oew5l")
+element_id = "blueprint.module.cave_nest.turn.floor"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "construction.brick.stone"
+metadata = {
+"family": "cave",
+"operation": "fill",
+"role": "turn",
+"terrain_policy": "carve_and_fit"
+}
+
+[resource]
+script = ExtResource("3_jrru4")
+module_id = "blueprint.module.cave_nest.turn"
+display_name = "Cave Nest Turn"
+module_kind = "turn"
+elements = Array[ExtResource("2_oew5l")]([SubResource("Resource_dw8od")])
+connectors = Array[ExtResource("1_uq6vq")]([SubResource("Resource_wjth4"), SubResource("Resource_0nqd7")])
+aliases = PackedStringArray("module.production.blueprint_module_cave_nest_turn")
+dependency_ids = PackedStringArray()
+lifecycle = "review_ready"

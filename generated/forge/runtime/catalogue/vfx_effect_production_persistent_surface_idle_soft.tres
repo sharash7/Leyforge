@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_bvmu1"]
+
+[resource]
+script = ExtResource("1_bvmu1")
+product_id = "runtime.catalogue.vfx_effect_production_persistent_surface_idle_soft"
+source_id = "vfx.effect.production.persistent_surface_idle_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_persistent_surface_idle_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_persistent_surface_idle_soft.tres": "8d03f36fb49e051040499ccaa655bf9b2d2e0d3a95dc78702e82c8863bd667b1"
+}
+combined_source_hash = "e5662ff16728989d6d69f333e8d85b99396097cd5f72f8994047b90195427036"
+dependency_ids = PackedStringArray()

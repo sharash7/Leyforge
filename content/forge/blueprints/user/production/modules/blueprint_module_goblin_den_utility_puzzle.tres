@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_connector_definition.gd" id="1_sakor"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_5tipg"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="3_vptan"]
+
+[sub_resource type="Resource" id="Resource_vkqi0"]
+script = ExtResource("1_sakor")
+connector_id = "blueprint.connector.blueprint_module_goblin_den_utility_puzzle.north"
+display_name = "Goblin Utility Puzzle connection"
+owner_module_id = "blueprint.module.goblin_den.utility_puzzle"
+socket_role_id = "socket.role.structure.goblin"
+position = Vector3i(0, 1, -2)
+direction = Vector3i(0, 0, 1)
+connection_tags = PackedStringArray("goblin", "utility_puzzle")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.goblin"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "surface_fit"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_p5pf2"]
+script = ExtResource("1_sakor")
+connector_id = "blueprint.connector.blueprint_module_goblin_den_utility_puzzle.south"
+display_name = "Goblin Utility Puzzle connection"
+owner_module_id = "blueprint.module.goblin_den.utility_puzzle"
+socket_role_id = "socket.role.structure.goblin"
+position = Vector3i(0, 1, 2)
+connection_tags = PackedStringArray("goblin", "utility_puzzle")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.goblin"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "surface_fit"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_ocqaw"]
+script = ExtResource("2_5tipg")
+element_id = "blueprint.module.goblin_den.utility_puzzle.floor"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "road.path.dirt"
+metadata = {
+"family": "goblin",
+"operation": "fill",
+"role": "utility_puzzle",
+"terrain_policy": "surface_fit"
+}
+
+[resource]
+script = ExtResource("3_vptan")
+module_id = "blueprint.module.goblin_den.utility_puzzle"
+display_name = "Goblin Den Utility Puzzle"
+module_kind = "utility_puzzle"
+elements = Array[ExtResource("2_5tipg")]([SubResource("Resource_ocqaw")])
+connectors = Array[ExtResource("1_sakor")]([SubResource("Resource_vkqi0"), SubResource("Resource_p5pf2")])
+aliases = PackedStringArray("module.production.blueprint_module_goblin_den_utility_puzzle")
+dependency_ids = PackedStringArray()
+lifecycle = "review_ready"

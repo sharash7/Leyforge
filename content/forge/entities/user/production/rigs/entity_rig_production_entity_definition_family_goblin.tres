@@ -1,0 +1,128 @@
+[gd_resource type="Resource" script_class="ForgeRigProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_joint_definition.gd" id="1_grlr8"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_role_binding.gd" id="2_awqp3"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_rig_profile.gd" id="3_wx1us"]
+
+[sub_resource type="Resource" id="Resource_pr62u"]
+script = ExtResource("1_grlr8")
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_head"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.head"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_85v7m"]
+script = ExtResource("1_grlr8")
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_arm_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.arm.left"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_lt8m7"]
+script = ExtResource("1_grlr8")
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_arm_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.arm.right"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_yh8n8"]
+script = ExtResource("1_grlr8")
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_leg_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.leg.left"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_216jf"]
+script = ExtResource("1_grlr8")
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_leg_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+child_role_id = "anatomy.role.humanoid.leg.right"
+joint_type = "ball"
+minimum_angles_degrees = Vector3(-45, -30, -45)
+maximum_angles_degrees = Vector3(45, 30, 45)
+lifecycle = "review_ready"
+
+[sub_resource type="Resource" id="Resource_iivkx"]
+script = ExtResource("2_awqp3")
+role_id = "anatomy.role.humanoid.torso"
+body_part_id = "entity.body_part.production.goblin.torso"
+
+[sub_resource type="Resource" id="Resource_3k7qg"]
+script = ExtResource("2_awqp3")
+role_id = "anatomy.role.humanoid.head"
+body_part_id = "entity.body_part.production.goblin.head"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_head"
+
+[sub_resource type="Resource" id="Resource_42dif"]
+script = ExtResource("2_awqp3")
+role_id = "anatomy.role.humanoid.arm.left"
+body_part_id = "entity.body_part.production.goblin.arm_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_arm_left"
+
+[sub_resource type="Resource" id="Resource_2kqgs"]
+script = ExtResource("2_awqp3")
+role_id = "anatomy.role.humanoid.arm.right"
+body_part_id = "entity.body_part.production.goblin.arm_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_arm_right"
+
+[sub_resource type="Resource" id="Resource_yyddh"]
+script = ExtResource("2_awqp3")
+role_id = "anatomy.role.humanoid.leg.left"
+body_part_id = "entity.body_part.production.goblin.leg_left"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_leg_left"
+
+[sub_resource type="Resource" id="Resource_2ow3d"]
+script = ExtResource("2_awqp3")
+role_id = "anatomy.role.humanoid.leg.right"
+body_part_id = "entity.body_part.production.goblin.leg_right"
+parent_role_id = "anatomy.role.humanoid.torso"
+joint_id = "entity.rig.production.entity_definition_family_goblin.joint.entity_body_part_production_goblin_leg_right"
+
+[resource]
+script = ExtResource("3_wx1us")
+rig_profile_id = "entity.rig.production.entity_definition_family_goblin"
+display_name = "Goblin Raider Family Rig"
+entity_definition_id = "entity.definition.family.goblin"
+body_plan_id = "entity.body_plan.production.goblin"
+root_role_id = "anatomy.role.humanoid.torso"
+role_bindings = Array[ExtResource("2_awqp3")]([SubResource("Resource_iivkx"), SubResource("Resource_3k7qg"), SubResource("Resource_42dif"), SubResource("Resource_2kqgs"), SubResource("Resource_yyddh"), SubResource("Resource_2ow3d")])
+joints = Array[ExtResource("1_grlr8")]([SubResource("Resource_pr62u"), SubResource("Resource_85v7m"), SubResource("Resource_lt8m7"), SubResource("Resource_yh8n8"), SubResource("Resource_216jf")])
+socket_reference_ids = PackedStringArray()
+rig_lod_levels = Array[Dictionary]([{
+"lod": 0,
+"roles": ["anatomy.role.humanoid.torso", "anatomy.role.humanoid.head", "anatomy.role.humanoid.arm.left", "anatomy.role.humanoid.arm.right", "anatomy.role.humanoid.leg.left", "anatomy.role.humanoid.leg.right"]
+}, {
+"lod": 1,
+"roles": ["anatomy.role.humanoid.torso"]
+}, {
+"lod": 2,
+"roles": ["anatomy.role.humanoid.torso"]
+}])
+motion_profiles = {
+"idle": {
+"blend_seconds": 0.2
+},
+"walk": {
+"blend_seconds": 0.12
+}
+}
+lifecycle = "review_ready"
+source_status = "review_ready"
+dependency_ids = PackedStringArray("entity.definition.family.goblin", "entity.body_plan.production.goblin")
+aliases = PackedStringArray()

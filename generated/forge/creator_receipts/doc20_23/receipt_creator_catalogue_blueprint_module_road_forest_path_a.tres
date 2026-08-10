@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_ck87h"]
+
+[resource]
+script = ExtResource("1_ck87h")
+receipt_id = "receipt.creator.catalogue.blueprint_module_road_forest_path_a"
+source_id = "blueprint.module.road.forest_path_a"
+source_type_id = "catalogue.structures"
+source_hash = "cdbe029f3d84b172ae0893f554c43bb3f7ada9abdd9f03ebcfe797c286f9d43f"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_module_road_forest_path_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_module_road_forest_path_a.tres": "500b32e1dcb892b027f9c3f573008227257fd2394eabd9e20eeb9dc55ad19e32"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

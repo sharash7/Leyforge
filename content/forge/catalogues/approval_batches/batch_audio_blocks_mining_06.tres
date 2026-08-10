@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_e6ii4"]
+
+[resource]
+script = ExtResource("1_e6ii4")
+batch_id = "batch.audio.blocks_mining.06"
+display_name = "Audio.blocks Mining.06"
+studio = "audio"
+category = "blocks_mining"
+target_ids = PackedStringArray("sound.event.production.blocks_mining_break_soft", "sound.source.production.blocks_mining_break_soft_body", "sound.source.production.blocks_mining_break_soft_detail", "sound.source.production.blocks_mining_break_soft_tail", "sound.event.production.blocks_mining_charge_soft", "sound.source.production.blocks_mining_charge_soft_body", "sound.source.production.blocks_mining_charge_soft_detail", "sound.source.production.blocks_mining_charge_soft_tail", "sound.event.production.blocks_mining_close_soft", "sound.source.production.blocks_mining_close_soft_body", "sound.source.production.blocks_mining_close_soft_detail", "sound.source.production.blocks_mining_close_soft_tail", "sound.event.production.blocks_mining_open_soft", "sound.source.production.blocks_mining_open_soft_body", "sound.source.production.blocks_mining_open_soft_detail", "sound.source.production.blocks_mining_open_soft_tail", "sound.event.production.blocks_mining_place_soft", "sound.source.production.blocks_mining_place_soft_body", "sound.source.production.blocks_mining_place_soft_detail", "sound.source.production.blocks_mining_place_soft_tail", "sound.event.production.blocks_mining_start_firm", "sound.source.production.blocks_mining_start_firm_body", "sound.source.production.blocks_mining_start_firm_detail", "sound.source.production.blocks_mining_start_firm_tail", "sound.event.production.blocks_mining_sustain_firm", "sound.source.production.blocks_mining_sustain_firm_body", "sound.source.production.blocks_mining_sustain_firm_detail", "sound.source.production.blocks_mining_sustain_firm_tail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_blocks_mining_06.json")

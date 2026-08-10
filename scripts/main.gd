@@ -8,6 +8,7 @@ extends Node3D
 
 const Stage9BenchmarkScript = preload(
 	"res://scripts/release/stage9_packaged_benchmark.gd")
+const SaveCoordinatorScript = preload("res://scripts/core/save_coordinator.gd")
 
 const SAVE_PATH := "user://leyforge_save.json"
 const SAVE_TEMP_PATH := "user://leyforge_save.tmp"
@@ -15,8 +16,8 @@ const SAVE_PREVIOUS_PATH := "user://leyforge_save.previous"
 const SAVE_BACKUP_PATH := "user://leyforge_save.backup.json"
 signal save_status_changed(status: String, message: String)
 
-const SAVE_VERSION := 17
-const SAVE_FORMAT := "leyforge.poc.save"
+const SAVE_VERSION := 18
+const SAVE_FORMAT := "leyforge.world.save"
 const INTEGRITY_VERSION := 1
 const MAX_SAVE_BYTES := 64 * 1024 * 1024
 
@@ -30,6 +31,7 @@ var _save_health := {
 	"rejected_candidates": [],
 }
 var _forge_world_presentation_state := ForgeWorldPresentationStateService.new()
+var _save_coordinator: SaveCoordinator = SaveCoordinatorScript.new()
 
 @onready var world: VoxelWorld = $VoxelWorld
 @onready var player: Player = $Player
@@ -74,6 +76,27 @@ func _ready() -> void:
 
 	_reset_world_autoloads()
 	world.start(seed_value, generation_request)
+	StructureManager.initialize(
+		world.world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+	SimulationLodManager.initialize(
+		world.world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+	PeopleManager.initialize(
+		world.world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+	BiologyManager.initialize(
+		world.world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+	SocialManager.initialize(
+		world.world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+	PoliticalManager.initialize(
+		world.world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+	MovementManager.initialize(
+		world.world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
 	if not WorldManager.active_world.is_empty() \
 			and world.is_regional_worldgen():
 		var runtime_worldgen_errors := world.validate_worldgen()
@@ -98,6 +121,12 @@ func _ready() -> void:
 		CombatState.initialize(world.world_seed, world.get_valley_anchors())
 		SettlementManager.initialize_legacy(world.world_seed)
 		SettlementManager.bind_world(world)
+	SettlementManager.refresh_people_owner()
+	SettlementManager.refresh_biology_owner()
+	SettlementManager.refresh_social_owner()
+	SettlementManager.refresh_political_owner()
+	SettlementManager.refresh_movement_owner()
+	SettlementManager.refresh_lod_subjects()
 
 	if not data.is_empty() \
 			and int(data.get("seed", seed_value)) == world.world_seed \
@@ -107,6 +136,9 @@ func _ready() -> void:
 		if not data.is_empty():
 			push_warning("MAIN: save seed or world-generation manifest differs, starting fresh")
 		player.global_position = world.find_spawn()
+	var movement_sync := _reconcile_player_movement(true)
+	if not bool(movement_sync.get("ok", false)):
+		push_warning("MAIN: player movement-owner handoff failed: %s" % movement_sync)
 	hamlet_runtime.configure(world, player)
 	raid_runtime.configure(world, player)
 	hud.raid_runtime = raid_runtime
@@ -160,6 +192,34 @@ func _return_unrecoverable_world_to_menu() -> void:
 
 func _save_game() -> bool:
 	save_status_changed.emit("saving", "Saving world...")
+	hamlet_runtime.prepare_for_save()
+	# LOD refresh captures the focused facade before reconciling every owner.
+	# Refreshing individual owners first can project an older settlement record
+	# back over runtime NPC state before that state reaches the save envelope.
+	SettlementManager.refresh_lod_subjects()
+	var player_movement := player.publish_movement_snapshot(true)
+	if not bool(player_movement.get("ok", false)):
+		push_warning("MAIN: player movement snapshot blocked save: %s" % player_movement)
+		save_status_changed.emit(
+			"failed",
+			"Player movement state is inconsistent. The previous save remains unchanged.")
+		return false
+	var political_validation := PoliticalManager.validate_state()
+	if not bool(political_validation.get("ok", false)):
+		push_warning("MAIN: political owner validation blocked save: %s" %
+			political_validation)
+		save_status_changed.emit(
+			"failed",
+			"Political world state is inconsistent. The previous save remains unchanged.")
+		return false
+	var movement_validation := MovementManager.validate_state()
+	if not bool(movement_validation.get("ok", false)):
+		push_warning("MAIN: movement owner validation blocked save: %s" %
+			movement_validation)
+		save_status_changed.emit(
+			"failed",
+			"Movement world state is inconsistent. The previous save remains unchanged.")
+		return false
 	var pos := player.global_position
 	var data := {
 		"version": SAVE_VERSION,
@@ -177,9 +237,19 @@ func _save_game() -> bool:
 		"settlements": SettlementManager.serialize_state(),
 		"hamlet": HamletState.serialize_state(),
 		"combat": CombatState.serialize_state(),
+		"production_kernel": ProductionKernel.serialize_state(),
+		"structures": StructureManager.serialize_state(),
+		"simulation_lod": SimulationLodManager.serialize_state(),
+		"people": PeopleManager.serialize_state(),
+		"biology": BiologyManager.serialize_state(),
+		"social": SocialManager.serialize_state(),
+		"political": PoliticalManager.serialize_state(),
+		"movement": MovementManager.serialize_state(),
+		"registry_state": ProductionCatalogue.serialize_registry_state(),
 		"ui": UIState.serialize_world_state(),
 		"forge_presentation": _forge_world_presentation_state.serialize_state(),
 		"worldgen": world.get_worldgen_manifest(),
+		"world_manifest": WorldManager.active_world_manifest(),
 		"save_manifest": {
 			"format": SAVE_FORMAT,
 			"save_version": SAVE_VERSION,
@@ -198,6 +268,9 @@ func _save_game() -> bool:
 		data["save_manifest"]["created_unix"] = int(active.get("created_unix", 0))
 		data["save_manifest"]["playtime_seconds"] = (
 			WorldManager.active_playtime_seconds())
+	data["save_manifest"]["restore_order"] = _save_coordinator.restore_order()
+	data["save_manifest"]["storage_contract"] = (
+		_save_coordinator.make_storage_contract(data))
 	data = _attach_integrity(data)
 	if not _write_verified_temp(data):
 		push_warning("MAIN: save temp write or validation failed; previous save preserved")
@@ -249,6 +322,14 @@ func _reset_world_autoloads() -> void:
 	HamletState.active_village_id = HamletState.VILLAGE_ID
 	SettlementManager.reset()
 	CombatState.initialized = false
+	ProductionKernel.reset_for_verification()
+	StructureManager.reset()
+	SimulationLodManager.reset()
+	PeopleManager.reset()
+	BiologyManager.reset()
+	SocialManager.reset()
+	PoliticalManager.reset()
+	MovementManager.reset()
 	UIState.reset_world_state()
 	_forge_world_presentation_state.reset()
 	_forge_world_presentation_state.load_project_sources()
@@ -354,9 +435,16 @@ func _commit_temp_save() -> bool:
 func _read_save() -> Dictionary:
 	var rejected: Array[String] = []
 	var found_candidate := false
-	for path in [
-		_save_path, _save_previous_path, _save_backup_path, _save_temp_path,
-	]:
+	var candidate_paths := {
+		"final": _save_path,
+		"previous": _save_previous_path,
+		"backup": _save_backup_path,
+		"temporary": _save_temp_path,
+	}
+	for role in _save_coordinator.recovery_candidate_roles():
+		var path := str(candidate_paths.get(role, ""))
+		if path.is_empty():
+			continue
 		if not FileAccess.file_exists(path):
 			continue
 		found_candidate = true
@@ -373,6 +461,7 @@ func _read_save() -> Dictionary:
 				"rejected_candidates": rejected.duplicate(),
 				"integrity": str(migrated.get("integrity", {}).get(
 					"payload_sha256", "")).left(16),
+				"migration": _save_coordinator.last_report(),
 			}
 			if path != _save_path:
 				push_warning("MAIN: recovered save state from %s" % path)
@@ -417,85 +506,38 @@ func _read_save_file(path: String) -> Dictionary:
 
 func _migrate_save(data: Dictionary) -> Dictionary:
 	var version := int(data.get("version", 0))
-	if version == SAVE_VERSION and validate_save_integrity(data):
-		return data
 	if version >= 13 and not _validate_integrity_record(data):
 		push_warning("MAIN: rejected legacy save with invalid integrity record")
 		return {}
-	if version in [
-		2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
-	]:
-		# v2 used raw numeric block ids; v3 introduced stable content identities;
-		# v4 added the Controlled POC Valley manifest. All upgrade in place to the
-		# unified item/progression/functional-block/automation state on the next
-		# save. v7 already has physical world drops and needs no structural
-		# rewrite beyond the version marker. v8 adds automation; v9 adds
-		# player magic and magic-network state under existing block entities.
-		# v10 adds authoritative combat/raid state. v11 adds saved abilities,
-		# block orientation, assembled two-cell doors, and camp-source state.
-		# v12 adds persistent Stage 8 UI, learning, map, accessibility, and
-		# remappable-input state. v13 adds a bounded save manifest and SHA-256
-		# payload integrity record for release-candidate recovery decisions.
-		# v14 migrates settlement projects to canonical registry identities and
-		# typed runtime records; HamletState preserves the existing completion,
-		# reservation, damage, NPC, warehouse, and raid payloads in place.
-		# v15 adds per-world identity/recovery fields and moves player-wide
-		# settings and bindings to profile.json.
-		# v16 adds regional placement identity and an ID-scoped settlement
-		# collection. The legacy hamlet payload is retained as a compatibility
-		# view and is adopted into the collection during load.
-		# v17 persists living-settlement residents, households, inventories,
-		# routes, surveys, work packages, edit provenance, and door state. v16
-		# terrain is never restamped during this migration.
-		var legacy_inventory: Dictionary
-		if version == 2:
-			legacy_inventory = {
-				"hotbar": data.get("hotbar", []),
-				"craft_grid": [],
-				"selected_slot": int(data.get("selected_slot", 0)),
-			}
-		else:
-			var stored_inventory: Variant = data.get("inventory", {})
-			legacy_inventory = stored_inventory if stored_inventory is Dictionary else {}
-		var migrated := {
-			"version": SAVE_VERSION,
-			"seed": int(data.get("seed", world.world_seed)),
-			"player_position": data.get("player_position", []),
-			"player_yaw": float(data.get("player_yaw", 0.0)),
-			"player_pitch": float(data.get("player_pitch", 0.0)),
-			"inventory": legacy_inventory,
-			"edits": data.get("edits", {}),
-			"edit_provenance": data.get("edit_provenance", {}),
-			"block_entities": data.get("block_entities", {}),
-			"item_drops": data.get("item_drops", []),
-			"progression": data.get("progression", {}),
-			"magic_player": data.get("magic_player", {}),
-			"settlements": data.get("settlements", {}),
-			"hamlet": data.get("hamlet", {}),
-			"combat": data.get("combat", {}),
-			"ui": data.get("ui", {}),
-			"forge_presentation": data.get("forge_presentation", {}),
-			"worldgen": data.get("worldgen", {}) if version >= 4 else {},
-			"world_id": str(data.get("world_id", WorldManager.active_world.get(
-				"world_id", ""))),
-			"save_manifest": {
-				"format": SAVE_FORMAT,
-				"save_version": SAVE_VERSION,
-				"written_unix": int(Time.get_unix_time_from_system()),
-				"build": ReleaseQuality.build_metadata(),
-				"migrated_from": version,
-				"world_id": str(data.get("world_id", WorldManager.active_world.get(
-					"world_id", ""))),
-				"world_name": str(WorldManager.active_world.get(
-					"name", "Legacy World")),
-				"seed_original": str(WorldManager.active_world.get(
-					"seed_original", data.get("seed", ""))),
-				"resolved_seed": int(data.get("seed", world.world_seed)),
-			},
-		}
-		return _attach_integrity(migrated)
-	push_warning("MAIN: unsupported save version v%d" % version)
-	return {}
+	var prepared := _save_coordinator.prepare_for_load(
+		data, _save_coordinator_context())
+	if not bool(prepared.get("ok", false)):
+		var rejection_detail: Variant = prepared.get(
+			"storage", prepared.get("registry", {}))
+		push_warning("MAIN: save coordinator rejected v%d state: %s %s" % [
+			version, prepared.get("error", "unknown_error"),
+			JSON.stringify(rejection_detail)])
+		return {}
+	var migrated: Dictionary = prepared.get("data", {})
+	if version == SAVE_VERSION:
+		return migrated
+	return _attach_integrity(migrated)
+
+
+func _save_coordinator_context() -> Dictionary:
+	return {
+		"seed_default": world.world_seed,
+		"world_id": str(WorldManager.active_world.get("world_id", "")),
+		"world_name": str(WorldManager.active_world.get("name", "Legacy World")),
+		"seed_original": str(WorldManager.active_world.get(
+			"seed_original", world.world_seed)),
+		"world_manifest": WorldManager.active_world_manifest(),
+		"build": ReleaseQuality.build_metadata(),
+		"written_unix": int(Time.get_unix_time_from_system()),
+		"current_pack_ids": ProductionCatalogue.pack_order(),
+		"current_catalogue_hash": ProductionCatalogue.catalogue_hash(),
+		"current_registry_state": ProductionCatalogue.serialize_registry_state(),
+	}
 
 
 func save_health_report() -> Dictionary:
@@ -547,7 +589,9 @@ func _validate_save_shape(data: Dictionary) -> bool:
 	for dictionary_key in [
 		"inventory", "edits", "block_entities", "progression", "magic_player",
 		"edit_provenance", "settlements", "hamlet", "combat", "ui", "worldgen",
-		"forge_presentation",
+		"world_manifest", "forge_presentation", "production_kernel", "structures",
+		"simulation_lod", "people", "biology", "social", "political", "movement",
+		"registry_state",
 	]:
 		if data.has(dictionary_key) and not (data[dictionary_key] is Dictionary):
 			return false
@@ -609,6 +653,123 @@ func _save_source_label(path: String) -> String:
 
 
 func _apply_save(data: Dictionary) -> void:
+	## Restore shared evidence before owner state. Legacy saves without the
+	## StructureInstance and simulation-LOD domains deliberately rebuild only
+	## derivable records, then reconcile saved owner projections below.
+	var production_kernel_data: Variant = data.get("production_kernel", {})
+	if production_kernel_data is Dictionary \
+			and not production_kernel_data.is_empty():
+		if not ProductionKernel.restore_state(production_kernel_data):
+			push_warning("MAIN: rejected incompatible production-kernel state")
+	else:
+		ProductionKernel.reset_for_verification()
+	var structures_data: Variant = data.get("structures", {})
+	var reseed_structure_base: bool = not (
+		structures_data is Dictionary and not structures_data.is_empty())
+	if not reseed_structure_base:
+		if not StructureManager.restore_state(
+				structures_data,
+				world.world_seed,
+				str(WorldManager.active_world.get("world_id", ""))):
+			push_warning(
+				"MAIN: rejected incompatible structure owner state; rebuilding derivable base")
+			reseed_structure_base = true
+	if reseed_structure_base:
+		StructureManager.reset()
+		StructureManager.initialize(
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+	var simulation_lod_data: Variant = data.get("simulation_lod", {})
+	var restored_simulation_lod := false
+	if simulation_lod_data is Dictionary \
+			and not simulation_lod_data.is_empty():
+		restored_simulation_lod = SimulationLodManager.restore_state(
+			simulation_lod_data,
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+		if not restored_simulation_lod:
+			push_warning(
+				"MAIN: rejected incompatible simulation-LOD state; rebuilding owner projections")
+	if not restored_simulation_lod:
+		SimulationLodManager.reset()
+		SimulationLodManager.initialize(
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+	var people_data: Variant = data.get("people", {})
+	var restored_people := false
+	if people_data is Dictionary and not people_data.is_empty():
+		restored_people = PeopleManager.restore_state(
+			people_data,
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+		if not restored_people:
+			push_warning(
+				"MAIN: rejected incompatible people-owner state; rebuilding compatibility projections")
+	if not restored_people:
+		PeopleManager.reset()
+		PeopleManager.initialize(
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+	var biology_data: Variant = data.get("biology", {})
+	var restored_biology := false
+	if biology_data is Dictionary and not biology_data.is_empty():
+		restored_biology = BiologyManager.restore_state(
+			biology_data,
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+		if not restored_biology:
+			push_warning(
+				"MAIN: rejected incompatible biological state; rebuilding compatibility projections")
+	if not restored_biology:
+		BiologyManager.reset()
+		BiologyManager.initialize(
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+	var social_data: Variant = data.get("social", {})
+	var restored_social := false
+	if social_data is Dictionary and not social_data.is_empty():
+		restored_social = SocialManager.restore_state(
+			social_data,
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+		if not restored_social:
+			push_warning(
+				"MAIN: rejected incompatible social state; rebuilding compatibility projections")
+	if not restored_social:
+		SocialManager.reset()
+		SocialManager.initialize(
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+	var political_data: Variant = data.get("political", {})
+	var restored_political := false
+	if political_data is Dictionary and not political_data.is_empty():
+		restored_political = PoliticalManager.restore_state(
+			political_data,
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+		if not restored_political:
+			push_warning(
+				"MAIN: rejected incompatible political state; rebuilding compatibility projections")
+	if not restored_political:
+		PoliticalManager.reset()
+		PoliticalManager.initialize(
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+	var movement_data: Variant = data.get("movement", {})
+	var restored_movement := false
+	if movement_data is Dictionary and not movement_data.is_empty():
+		restored_movement = MovementManager.restore_state(
+			movement_data,
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
+		if not restored_movement:
+			push_warning(
+				"MAIN: rejected incompatible movement state; rebuilding compatibility projections")
+	if not restored_movement:
+		MovementManager.reset()
+		MovementManager.initialize(
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
 	world.apply_edits(data.get("edits", {}))
 	world.apply_edit_provenance(data.get("edit_provenance", {}))
 	world.apply_block_entities(data.get("block_entities", {}))
@@ -639,10 +800,18 @@ func _apply_save(data: Dictionary) -> void:
 					"MAIN: rejected incompatible hamlet state; using fresh valley state")
 			else:
 				SettlementManager.initialize_legacy(world.world_seed)
+	SettlementManager.refresh_people_owner()
+	SettlementManager.refresh_biology_owner()
+	SettlementManager.refresh_social_owner()
+	SettlementManager.refresh_political_owner()
+	SettlementManager.refresh_movement_owner()
 	var combat_data: Variant = data.get("combat", {})
 	if combat_data is Dictionary and not combat_data.is_empty():
 		if not CombatState.restore_state(combat_data, world.world_seed):
 			push_warning("MAIN: rejected incompatible combat state; using a fresh raid state")
+	SettlementManager.refresh_lod_subjects()
+	if reseed_structure_base:
+		HamletState.ensure_seeded_structure_owner()
 	var ui_data: Variant = data.get("ui", {})
 	if ui_data is Dictionary and not ui_data.is_empty():
 		UIState.restore_world_state(ui_data)
@@ -664,6 +833,24 @@ func _apply_save(data: Dictionary) -> void:
 	world.restore_item_drops(data.get("item_drops", []))
 	if data.has("player_yaw"):
 		player.restore_view(float(data["player_yaw"]), float(data.get("player_pitch", 0.0)))
+	var movement_result := _reconcile_player_movement(true)
+	if not bool(movement_result.get("ok", false)):
+		push_warning("MAIN: player movement restore handoff failed: %s" % movement_result)
+
+
+func _reconcile_player_movement(force_safe: bool) -> Dictionary:
+	var entity_ref := BiologyManager.PLAYER_ACTOR_ID
+	if MovementManager.has_mover(entity_ref):
+		var record := MovementManager.mover_record(entity_ref)
+		var saved_position: Array = record.get("position", [])
+		if saved_position.size() == 3:
+			var canonical_position := Vector3(
+				float(saved_position[0]),
+				float(saved_position[1]),
+				float(saved_position[2]))
+			if canonical_position.is_equal_approx(player.global_position):
+				return {"ok": true, "duplicate": true}
+	return player.publish_movement_snapshot(force_safe)
 
 
 func forge_world_presentation_state() -> ForgeWorldPresentationStateService:

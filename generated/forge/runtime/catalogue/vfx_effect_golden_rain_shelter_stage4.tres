@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_suxj3"]
+
+[resource]
+script = ExtResource("1_suxj3")
+product_id = "runtime.catalogue.vfx_effect_golden_rain_shelter_stage4"
+source_id = "vfx.effect.golden.rain_shelter.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/vfx_effect_rain_shelter.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/vfx_effect_rain_shelter.tres": "12620418ec9911b9ff4cab70c82968ba575f342b2995683b6b8b81de70e024dd"
+}
+combined_source_hash = "467e1e22156e8641dae3e8f63fc281d4947c1e5e88f8f15502d2c189487ad659"
+dependency_ids = PackedStringArray()

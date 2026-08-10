@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeProceduralStructureRuleSet" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_procedural_structure_rule_set.gd" id="1_jeg2g"]
+
+[resource]
+script = ExtResource("1_jeg2g")
+rule_set_id = "blueprint.ruleset.forest_road"
+display_name = "Forest Road Finite and Continuing Rules"
+module_set_id = "blueprint.module_set.forest_road"
+maximum_modules = 128
+maximum_depth = 48
+maximum_open_connectors = 24
+termination_chance = 0.18
+continuing = true
+seed = 2387177502
+collision_policy = "occupied_bounds_and_clearance"
+required_module_tags = PackedStringArray("entrance", "encounter", "terminal_exit")
+forbidden_module_tags = PackedStringArray()
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("blueprint.module_set.forest_road")

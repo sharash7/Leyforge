@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_2m6ek"]
+
+[resource]
+script = ExtResource("1_2m6ek")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_emergency_fire_rescue_station_a"
+source_id = "blueprint.leyforge.emergency.fire_rescue_station_a"
+source_type_id = "catalogue.structures"
+source_hash = "c7f62fcb88054ba2564d5f5bb6e1ebeccd59c9ddc9e30f2fb83952ddeddffbc2"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_emergency_fire_rescue_station_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_emergency_fire_rescue_station_a.tres": "4bb64eaa624707c99052cfca89a67fab5af8e20ff818c8e744a65664380ddd95"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

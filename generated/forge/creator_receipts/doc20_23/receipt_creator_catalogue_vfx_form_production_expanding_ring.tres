@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_olcpg"]
+
+[resource]
+script = ExtResource("1_olcpg")
+receipt_id = "receipt.creator.catalogue.vfx_form_production_expanding_ring"
+source_id = "vfx.form.production.expanding_ring"
+source_type_id = "catalogue.vfx"
+source_hash = "0b8eaa599c43d8e4ba39c2f518f5438c39bc74757f08d4bee2c6a71aeff45cee"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_form_production_expanding_ring.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_form_production_expanding_ring.tres": "af491c512374a156d6c5dd9122d999afba8110c4525958dcdc6a80bd42f36b92"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

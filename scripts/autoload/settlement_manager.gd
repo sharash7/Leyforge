@@ -1,7 +1,14 @@
 extends Node
-## Authoritative collection of independent settlement records.
+## Authoritative collection of independent settlement-operation records.
 ##
-## HamletState remains the compatibility facade for the focused settlement.
+## PeopleManager owns persistent people, households, ordinary jobs and broad
+## schedules. BiologyManager owns health, stamina, fatigue, nourishment and
+## injury truth. SocialManager owns relationships, knowledge, dialogue evidence
+## and companion agreements. PoliticalManager owns government, law, territory,
+## citizenship, office and permission truth. MovementManager owns mover,
+## path, route, journey and arrival truth. HamletState remains the compatibility
+## facade for the focused settlement, while this manager projects those owners
+## into regional records.
 ## This manager snapshots the facade before focus changes and restores the
 ## destination record, keeping legacy gameplay code ID-scoped without sharing
 ## storage, NPCs, projects, reputation, or simulation state.
@@ -62,6 +69,11 @@ func bind_world(world: VoxelWorld) -> void:
 
 func initialize_world(seed_value: int, planner: RefCounted) -> bool:
 	reset()
+	_ensure_people_owner(seed_value)
+	_ensure_biology_owner(seed_value)
+	_ensure_social_owner(seed_value)
+	_ensure_political_owner(seed_value)
+	_ensure_movement_owner(seed_value)
 	if planner == null or not planner.has_method("settlement_layout"):
 		return false
 	world_seed = seed_value
@@ -85,6 +97,11 @@ func initialize_sites(
 		planner: RefCounted,
 		sites: Array[Dictionary]) -> bool:
 	reset()
+	_ensure_people_owner(seed_value)
+	_ensure_biology_owner(seed_value)
+	_ensure_social_owner(seed_value)
+	_ensure_political_owner(seed_value)
+	_ensure_movement_owner(seed_value)
 	if planner == null or not planner.has_method("settlement_layout") \
 			or sites.is_empty():
 		return false
@@ -108,6 +125,11 @@ func initialize_sites(
 
 func initialize_legacy(seed_value: int) -> bool:
 	reset()
+	_ensure_people_owner(seed_value)
+	_ensure_biology_owner(seed_value)
+	_ensure_social_owner(seed_value)
+	_ensure_political_owner(seed_value)
+	_ensure_movement_owner(seed_value)
 	if not HamletState.initialized or HamletState.world_seed != seed_value:
 		return false
 	world_seed = seed_value
@@ -119,6 +141,11 @@ func initialize_legacy(seed_value: int) -> bool:
 	var record := _record_from_hamlet_state(
 		settlement_id, "site.legacy.forest_hamlet", state, true,
 		combat_state)
+	record = _sync_people_owner_record(record, false)
+	record = _sync_biology_owner_record(record, false)
+	record = _sync_social_owner_record(record, false)
+	record = _sync_political_owner_record(record, false)
+	record = _sync_movement_owner_record(record, false)
 	settlements[settlement_id] = record
 	focused_settlement_id = settlement_id
 	initialized = true
@@ -204,6 +231,11 @@ func materialize_site(site_or_id: Variant) -> Dictionary:
 	var camp_site_id := str(anchors.get("goblin_camp_site_id", ""))
 	if not camp_site_id.is_empty():
 		record["linked_camp_ids"] = [camp_site_id]
+	record = _sync_people_owner_record(record, false)
+	record = _sync_biology_owner_record(record, false)
+	record = _sync_social_owner_record(record, false)
+	record = _sync_political_owner_record(record, false)
+	record = _sync_movement_owner_record(record, false)
 	settlements[settlement_id] = record
 	if previous_state.is_empty():
 		focused_settlement_id = settlement_id
@@ -235,10 +267,15 @@ func get_focused_settlement() -> Dictionary:
 func focus_settlement(settlement_id: String) -> bool:
 	if not settlements.has(settlement_id):
 		return false
+	_ensure_settlement_lod_subject(settlement_id)
+	if not _reconcile_settlement_for_promotion(settlement_id):
+		return false
 	if settlement_id == focused_settlement_id \
 			and HamletState.initialized \
 			and HamletState.active_village_id == settlement_id:
+		_transition_settlement_lod(settlement_id, "local")
 		return true
+	var previous_settlement_id := focused_settlement_id
 	_capture_focused_facade()
 	var record: Dictionary = settlements[settlement_id]
 	var state: Dictionary = record.get("hamlet_state", {})
@@ -246,6 +283,11 @@ func focus_settlement(settlement_id: String) -> bool:
 	HamletState.initialized = false
 	if not HamletState.restore_state(state, world_seed, settlement_id):
 		return false
+	record = _sync_people_owner_record(record, false)
+	record = _sync_biology_owner_record(record, false)
+	record = _sync_social_owner_record(record, false)
+	record = _sync_political_owner_record(record, false)
+	record = _sync_movement_owner_record(record, false)
 	CombatState.initialized = false
 	var expected_combat_owner := (
 		"" if _is_legacy_record(record) else settlement_id)
@@ -253,7 +295,13 @@ func focus_settlement(settlement_id: String) -> bool:
 			combat_state, world_seed, expected_combat_owner):
 		return false
 	focused_settlement_id = settlement_id
+	if not previous_settlement_id.is_empty() \
+			and previous_settlement_id != settlement_id:
+		_transition_settlement_lod(previous_settlement_id, "distant")
+	_transition_settlement_lod(settlement_id, "local")
 	record["last_focus_unix"] = int(Time.get_unix_time_from_system())
+	record["simulation_mode"] = "near"
+	record["lod_mode"] = "local"
 	record["dirty"] = true
 	settlements[settlement_id] = record
 	focused_settlement_changed.emit(settlement_id)
@@ -330,37 +378,344 @@ func advance_far_simulation(elapsed_minutes: float) -> void:
 	if elapsed_minutes <= 0.0:
 		return
 	_capture_focused_facade()
-	for settlement_id in settlements:
+	refresh_lod_subjects(false)
+	var settlement_ids: Array = settlements.keys()
+	settlement_ids.sort()
+	for settlement_value in settlement_ids:
+		var settlement_id := str(settlement_value)
 		if settlement_id == focused_settlement_id:
 			continue
-		var record: Dictionary = settlements[settlement_id]
-		var state: Dictionary = record.get("hamlet_state", {})
+		if not SimulationLodManager.initialized:
+			_simulate_far_without_lod(settlement_id, elapsed_minutes)
+			continue
+		_ensure_settlement_lod_subject(settlement_id)
+		SimulationLodManager.queue_catchup(settlement_id, elapsed_minutes)
+		_execute_settlement_catchup_plan(settlement_id, false)
+
+
+func settlement_lod_snapshot(settlement_id: String) -> Dictionary:
+	if settlement_id == focused_settlement_id:
+		_capture_focused_facade()
+	if not settlements.has(settlement_id):
+		return {}
+	return _settlement_lod_snapshot_from_record(settlements[settlement_id])
+
+
+func refresh_lod_subjects(capture_focused: bool = true) -> void:
+	if not initialized or not SimulationLodManager.initialized:
+		return
+	if capture_focused:
+		_capture_focused_facade()
+	var settlement_ids: Array = settlements.keys()
+	settlement_ids.sort()
+	for settlement_value in settlement_ids:
+		_ensure_settlement_lod_subject(str(settlement_value))
+
+
+func _ensure_settlement_lod_subject(settlement_id: String) -> bool:
+	if not SimulationLodManager.initialized or not settlements.has(settlement_id):
+		return false
+	var snapshot := _settlement_lod_snapshot_from_record(
+		settlements[settlement_id])
+	if snapshot.is_empty():
+		return false
+	if not SimulationLodManager.has_subject(settlement_id):
+		var initial_mode := (
+			"local" if settlement_id == focused_settlement_id else "distant")
+		return bool(SimulationLodManager.register_subject(
+			settlement_id, "settlement", settlement_id, settlement_id,
+			initial_mode, snapshot).get("ok", false))
+	return bool(SimulationLodManager.refresh_subject(
+		settlement_id, snapshot, settlement_id).get("ok", false))
+
+
+func _transition_settlement_lod(
+		settlement_id: String, target_mode: String) -> bool:
+	if not SimulationLodManager.initialized:
+		return true
+	if not _ensure_settlement_lod_subject(settlement_id):
+		return false
+	var lod_record := SimulationLodManager.subject_record(settlement_id)
+	var before: Dictionary = lod_record.get("snapshot", {})
+	var after := before.duplicate(true)
+	var state: Dictionary = after.get("state", {})
+	state["representation"] = target_mode
+	after["state"] = state
+	if str(lod_record.get("lod_mode", "")) == target_mode:
+		return bool(SimulationLodManager.refresh_subject(
+			settlement_id, after, settlement_id).get("ok", false))
+	return bool(SimulationLodManager.transition_subject(
+		settlement_id, target_mode, before, after, "",
+		{"owner_id": settlement_id}).get("ok", false))
+
+
+func _reconcile_settlement_for_promotion(settlement_id: String) -> bool:
+	if not SimulationLodManager.initialized:
+		return true
+	if not _ensure_settlement_lod_subject(settlement_id):
+		return false
+	if SimulationLodManager.is_reconciled(settlement_id):
+		return true
+	_execute_settlement_catchup_plan(settlement_id, true)
+	return SimulationLodManager.is_reconciled(settlement_id)
+
+
+func _execute_settlement_catchup_plan(
+		settlement_id: String, include_partial: bool) -> bool:
+	var planned := SimulationLodManager.plan_catchup(
+		settlement_id, -1, include_partial)
+	if not bool(planned.get("ok", false)):
+		return str(planned.get("error", "")) in [
+			"no_catchup_pending", "catchup_below_cadence",
+		]
+	var plan: Dictionary = planned.get("plan", {})
+	var candidate: Dictionary = settlements[settlement_id].duplicate(true)
+	var state: Dictionary = candidate.get("hamlet_state", {}).duplicate(true)
+	var ledger: Dictionary = candidate.get("resource_ledger", {}).duplicate(true)
+	var transaction_batches: Array[Dictionary] = []
+	for step_value in plan.get("steps", []):
+		var step_minutes := float(step_value)
 		var buildings: Array = []
 		for building_value in (state.get(
 				"runtime_buildings", {}) as Dictionary).values():
 			if building_value is Dictionary:
 				buildings.append(building_value)
-		var ledger: Dictionary = record.get("resource_ledger", {})
 		var result := SettlementSimulationEngine.simulate(
-			buildings, ledger, elapsed_minutes,
+			buildings, ledger, step_minutes,
 			SettlementSimulationEngine.MODE_FAR)
-		record["resource_ledger"] = result.get("ledger", {})
+		if not SettlementSimulationEngine.validate_transaction_result(result):
+			SimulationLodManager.cancel_catchup(
+				str(plan.get("plan_id", "")), settlement_id)
+			return false
+		ledger = (result.get("ledger", {}) as Dictionary).duplicate(true)
 		var rebuilt := {}
-		for building in result.get("buildings", []):
-			rebuilt[str(building.get("instance_id", ""))] = building
+		for building_value in result.get("buildings", []):
+			if building_value is Dictionary:
+				var building: Dictionary = building_value
+				rebuilt[str(building.get("instance_id", ""))] = building
 		state["runtime_buildings"] = rebuilt
-		state["clock_minutes"] = fmod(
-			float(state.get("clock_minutes", 480.0)) + elapsed_minutes,
-			1440.0)
-		record["hamlet_state"] = state
-		record["simulation_mode"] = "far"
-		record["last_simulation_unix"] = int(Time.get_unix_time_from_system())
-		record["dirty"] = true
-		settlements[settlement_id] = record
+		var total_minutes := float(state.get("clock_minutes", 480.0)) \
+			+ step_minutes
+		var advanced_days := floori(total_minutes / 1440.0)
+		state["clock_minutes"] = fmod(total_minutes, 1440.0)
+		state["day"] = maxi(1, int(state.get("day", 1)) + advanced_days)
+		transaction_batches.append({
+			"minutes": step_minutes,
+			"before": result.get("before", {}),
+			"transactions": result.get("transactions", []),
+			"ledger": ledger.duplicate(true),
+		})
+	candidate["resource_ledger"] = ledger
+	candidate["hamlet_state"] = state
+	candidate["simulation_mode"] = "far"
+	candidate["lod_mode"] = str(plan.get("lod_mode", "distant"))
+	candidate["last_simulation_tick"] = int(
+		ProductionKernel.world_time_reference().get("world_tick", 0))
+	candidate["last_simulation_unix"] = int(Time.get_unix_time_from_system())
+	candidate["dirty"] = true
+	var owner_snapshot := _settlement_lod_snapshot_from_record(candidate)
+	var committed := SimulationLodManager.commit_catchup(
+		str(plan.get("plan_id", "")),
+		float(plan.get("planned_minutes", 0.0)),
+		owner_snapshot,
+		{
+			"owner_id": settlement_id,
+			"owner_commit_validated": true,
+			"transaction_hash": _lod_hash_value(transaction_batches),
+		})
+	if not bool(committed.get("ok", false)):
+		SimulationLodManager.cancel_catchup(
+			str(plan.get("plan_id", "")), settlement_id)
+		return false
+	settlements[settlement_id] = candidate
+	return true
+
+
+func _simulate_far_without_lod(
+		settlement_id: String, elapsed_minutes: float) -> void:
+	var record: Dictionary = settlements[settlement_id]
+	var state: Dictionary = record.get("hamlet_state", {})
+	var buildings: Array = []
+	for building_value in (state.get(
+			"runtime_buildings", {}) as Dictionary).values():
+		if building_value is Dictionary:
+			buildings.append(building_value)
+	var result := SettlementSimulationEngine.simulate(
+		buildings, record.get("resource_ledger", {}), elapsed_minutes,
+		SettlementSimulationEngine.MODE_FAR)
+	if not SettlementSimulationEngine.validate_transaction_result(result):
+		return
+	record["resource_ledger"] = result.get("ledger", {})
+	var rebuilt := {}
+	for building_value in result.get("buildings", []):
+		if building_value is Dictionary:
+			var building: Dictionary = building_value
+			rebuilt[str(building.get("instance_id", ""))] = building
+	state["runtime_buildings"] = rebuilt
+	var total_minutes := float(state.get("clock_minutes", 480.0)) \
+		+ elapsed_minutes
+	state["day"] = maxi(
+		1, int(state.get("day", 1)) + floori(total_minutes / 1440.0))
+	state["clock_minutes"] = fmod(total_minutes, 1440.0)
+	record["hamlet_state"] = state
+	record["simulation_mode"] = "far"
+	record["lod_mode"] = "distant"
+	record["last_simulation_unix"] = int(Time.get_unix_time_from_system())
+	record["dirty"] = true
+	settlements[settlement_id] = record
+
+
+func _settlement_lod_snapshot_from_record(record: Dictionary) -> Dictionary:
+	if record.is_empty():
+		return {}
+	var settlement_id := str(record.get("settlement_id", ""))
+	var state: Dictionary = record.get("hamlet_state", {})
+	var npc_records: Dictionary = state.get("npc_records", {})
+	var resident_quantities := {}
+	var resident_history := {}
+	var resident_irreversible := {}
+	var resident_social_history := {}
+	var resident_social_irreversible := {}
+	var resident_social_state := {}
+	var resident_movement_history := {}
+	var resident_movement_irreversible := {}
+	var resident_movement_state := {}
+	var resident_ids: Array = npc_records.keys()
+	resident_ids.sort()
+	for resident_value in resident_ids:
+		var resident_id := str(resident_value)
+		var resident: Dictionary = npc_records[resident_value]
+		if BiologyManager.initialized and BiologyManager.has_actor(resident_id):
+			resident = BiologyManager.compatibility_actor_view(
+				resident_id, resident)
+		if SocialManager.initialized and SocialManager.has_profile(resident_id):
+			resident = SocialManager.compatibility_person_view(
+				resident_id, resident)
+		var biological_snapshot: Dictionary = BiologyManager.lod_snapshot(
+			resident_id) if BiologyManager.has_actor(resident_id) else {}
+		var social_snapshot: Dictionary = SocialManager.lod_snapshot(
+			resident_id) if SocialManager.has_profile(resident_id) else {}
+		var movement_snapshot: Dictionary = MovementManager.lod_snapshot(
+			resident_id) if MovementManager.has_mover(resident_id) else {}
+		resident_quantities[resident_id] = {
+			"health": float(resident.get("health", 0.0)),
+			"max_health": float(resident.get("max_health", 0.0)),
+			"biological_owner": (
+				biological_snapshot.get("quantities", {}) as Dictionary
+			).duplicate(true),
+			"needs": (resident.get("needs", {}) as Dictionary).duplicate(true),
+			"personal_inventory": (
+				resident.get("personal_inventory", []) as Array).duplicate(true),
+			"equipment": (
+				resident.get("equipment", {}) as Dictionary).duplicate(true),
+			"carried_stack": (
+				resident.get("carried_stack", {}) as Dictionary).duplicate(true),
+		}
+		resident_history[resident_id] = (
+			resident.get("transaction_history", []) as Array).duplicate(true)
+		resident_irreversible[resident_id] = {
+			"alive": bool(resident.get("alive", true)),
+			"resident_id": str(resident.get("resident_id", resident_id)),
+		}
+		resident_social_history[resident_id] = (
+			social_snapshot.get("history", {}) as Dictionary).duplicate(true)
+		resident_social_irreversible[resident_id] = (
+			social_snapshot.get("irreversible", {}) as Dictionary).duplicate(true)
+		resident_social_state[resident_id] = (
+			social_snapshot.get("state", {}) as Dictionary).duplicate(true)
+		resident_movement_history[resident_id] = (
+			movement_snapshot.get("history", {}) as Dictionary).duplicate(true)
+		resident_movement_irreversible[resident_id] = (
+			movement_snapshot.get("irreversible", {}) as Dictionary).duplicate(true)
+		resident_movement_state[resident_id] = (
+			movement_snapshot.get("state", {}) as Dictionary).duplicate(true)
+	var completed_projects := {}
+	for project_value in (state.get(
+			"runtime_projects", {}) as Dictionary).values():
+		if project_value is Dictionary:
+			var project: Dictionary = project_value
+			if bool(project.get("complete", false)):
+				completed_projects[str(project.get("instance_id", ""))] = true
+	var combat_state: Dictionary = record.get("combat_state", {})
+	var political_snapshot: Dictionary = PoliticalManager.lod_snapshot(
+		settlement_id) if PoliticalManager.initialized else {}
+	return {
+		"identity": {
+			"record_type": "Settlement",
+			"settlement_id": settlement_id,
+			"site_id": str(record.get("site_id", "")),
+			"world_seed": int(record.get("world_seed", world_seed)),
+		},
+		"ownership": {
+			"owner_id": settlement_id,
+			"world_seed": int(record.get("world_seed", world_seed)),
+			"political_owner": (
+				political_snapshot.get("ownership", {}) as Dictionary).duplicate(true),
+			"movement_owner": MovementManager.settlement_movement_summary(
+				settlement_id) if MovementManager.initialized else {},
+		},
+		"quantities": {
+			"resource_ledger": (
+				record.get("resource_ledger", {}) as Dictionary).duplicate(true),
+			"warehouse": (state.get("warehouse", []) as Array).duplicate(true),
+			"residents": resident_quantities,
+			"population_health_summary": BiologyManager.population_health_summary(
+				settlement_id) if BiologyManager.initialized else {},
+			"runtime_projects": (
+				state.get("runtime_projects", {}) as Dictionary).duplicate(true),
+			"runtime_buildings": (
+				state.get("runtime_buildings", {}) as Dictionary).duplicate(true),
+		},
+		"history": {
+			"deliveries": (
+				state.get("delivery_ledger", []) as Array).duplicate(true),
+			"residents": resident_history,
+			"social_owner": resident_social_history,
+			"political_owner": (
+				political_snapshot.get("history", {}) as Dictionary).duplicate(true),
+			"movement_owner": resident_movement_history,
+			"combat_damage": (
+				combat_state.get("damage_records", []) as Array).duplicate(true),
+		},
+		"irreversible": {
+			"residents": resident_irreversible,
+			"social_owner": resident_social_irreversible,
+			"political_owner": (
+				political_snapshot.get("irreversible", {}) as Dictionary).duplicate(true),
+			"movement_owner": resident_movement_irreversible,
+			"completed_projects": completed_projects,
+		},
+		"state": {
+			"anchor": (record.get("anchor", []) as Array).duplicate(true),
+			"clock_minutes": float(state.get("clock_minutes", 480.0)),
+			"day": int(state.get("day", 1)),
+			"stage": str(record.get("stage", "camp")),
+			"capability": (
+				record.get("capability", {}) as Dictionary).duplicate(true),
+			"social_owner": resident_social_state,
+			"social_summary": SocialManager.settlement_social_summary(
+				settlement_id) if SocialManager.initialized else {},
+			"political_owner": (
+				political_snapshot.get("state", {}) as Dictionary).duplicate(true),
+			"political_summary": PoliticalManager.settlement_political_summary(
+				settlement_id) if PoliticalManager.initialized else {},
+			"movement_owner": resident_movement_state,
+			"movement_summary": MovementManager.settlement_movement_summary(
+				settlement_id) if MovementManager.initialized else {},
+			"representation": str(record.get(
+				"lod_mode",
+				"local" if settlement_id == focused_settlement_id else "distant")),
+		},
+	}
 
 
 func serialize_state() -> Dictionary:
 	_capture_focused_facade()
+	refresh_people_owner()
+	refresh_biology_owner()
+	refresh_social_owner()
+	refresh_political_owner()
+	refresh_movement_owner()
 	return {
 		"version": STATE_VERSION,
 		"world_seed": world_seed,
@@ -390,6 +745,25 @@ func restore_state(value: Variant, expected_seed: int) -> bool:
 			record, state_version < STATE_VERSION)
 	world_seed = expected_seed
 	settlements = restored
+	_ensure_people_owner(expected_seed)
+	_ensure_biology_owner(expected_seed)
+	_ensure_social_owner(expected_seed)
+	_ensure_political_owner(expected_seed)
+	_ensure_movement_owner(expected_seed)
+	var settlement_ids: Array = settlements.keys()
+	settlement_ids.sort()
+	for settlement_value in settlement_ids:
+		var settlement_id := str(settlement_value)
+		settlements[settlement_id] = _sync_people_owner_record(
+			settlements[settlement_id], false)
+		settlements[settlement_id] = _sync_biology_owner_record(
+			settlements[settlement_id], false)
+		settlements[settlement_id] = _sync_social_owner_record(
+			settlements[settlement_id], false)
+		settlements[settlement_id] = _sync_political_owner_record(
+			settlements[settlement_id], false)
+		settlements[settlement_id] = _sync_movement_owner_record(
+			settlements[settlement_id], false)
 	focused_settlement_id = str(data.get("focused_settlement_id", ""))
 	if focused_settlement_id.is_empty() or not settlements.has(
 			focused_settlement_id):
@@ -432,7 +806,446 @@ func _capture_focused_facade() -> void:
 		HamletState.runtime_buildings.values())
 	record["last_simulation_unix"] = int(Time.get_unix_time_from_system())
 	record["dirty"] = true
+	record = _sync_people_owner_record(record, false)
+	record = _sync_biology_owner_record(record, false)
+	record = _sync_social_owner_record(record, false)
+	record = _sync_political_owner_record(record, false)
+	record = _sync_movement_owner_record(record, false)
 	settlements[focused_settlement_id] = record
+	if PeopleManager.initialized or BiologyManager.initialized \
+			or SocialManager.initialized or PoliticalManager.initialized \
+			or MovementManager.initialized:
+		var projected_state: Dictionary = record.get("hamlet_state", {})
+		HamletState.npc_records = (
+			projected_state.get("npc_records", HamletState.npc_records) \
+			as Dictionary).duplicate(true)
+
+
+func refresh_people_owner() -> Dictionary:
+	if not initialized:
+		return {"ok": false, "error": "settlements_not_initialized"}
+	_ensure_people_owner(world_seed)
+	var ids: Array = settlements.keys()
+	ids.sort()
+	var failures: Array[Dictionary] = []
+	for settlement_value in ids:
+		var settlement_id := str(settlement_value)
+		var before: Dictionary = settlements[settlement_id]
+		var synced := _sync_people_owner_record(before, false)
+		if bool(synced.get("people_owner_sync_failed", false)):
+			failures.append({
+				"settlement_id": settlement_id,
+				"error": synced.get("people_owner_error", "unknown"),
+			})
+		else:
+			if BiologyManager.initialized:
+				synced = _sync_biology_owner_record(synced, false)
+			settlements[settlement_id] = synced
+	if not focused_settlement_id.is_empty() \
+			and settlements.has(focused_settlement_id) \
+			and HamletState.initialized:
+		var state: Dictionary = settlements[focused_settlement_id].get(
+			"hamlet_state", {})
+		HamletState.npc_records = (
+			state.get("npc_records", HamletState.npc_records) \
+			as Dictionary).duplicate(true)
+	return {
+		"ok": failures.is_empty(),
+		"settlement_count": ids.size(),
+		"person_count": PeopleManager.person_count(),
+		"failures": failures,
+	}
+
+
+func refresh_biology_owner() -> Dictionary:
+	if not initialized:
+		return {"ok": false, "error": "settlements_not_initialized"}
+	_ensure_biology_owner(world_seed)
+	var ids: Array = settlements.keys()
+	ids.sort()
+	var failures: Array[Dictionary] = []
+	for settlement_value in ids:
+		var settlement_id := str(settlement_value)
+		var synced := _sync_biology_owner_record(
+			settlements[settlement_id], false)
+		if bool(synced.get("biology_owner_sync_failed", false)):
+			failures.append({
+				"settlement_id": settlement_id,
+				"error": synced.get("biology_owner_error", "unknown"),
+			})
+		else:
+			settlements[settlement_id] = synced
+	if not focused_settlement_id.is_empty() \
+			and settlements.has(focused_settlement_id) \
+			and HamletState.initialized:
+		var state: Dictionary = settlements[focused_settlement_id].get(
+			"hamlet_state", {})
+		HamletState.npc_records = (
+			state.get("npc_records", HamletState.npc_records) \
+			as Dictionary).duplicate(true)
+	return {
+		"ok": failures.is_empty(),
+		"settlement_count": ids.size(),
+		"biological_record_count": BiologyManager.actor_count("persistent"),
+		"failures": failures,
+	}
+
+
+func refresh_social_owner() -> Dictionary:
+	if not initialized:
+		return {"ok": false, "error": "settlements_not_initialized"}
+	_ensure_social_owner(world_seed)
+	var ids: Array = settlements.keys()
+	ids.sort()
+	var failures: Array[Dictionary] = []
+	for settlement_value in ids:
+		var settlement_id := str(settlement_value)
+		var synced := _sync_social_owner_record(
+			settlements[settlement_id], false)
+		if bool(synced.get("social_owner_sync_failed", false)):
+			failures.append({
+				"settlement_id": settlement_id,
+				"error": synced.get("social_owner_error", "unknown"),
+			})
+		else:
+			settlements[settlement_id] = synced
+	if not focused_settlement_id.is_empty() \
+			and settlements.has(focused_settlement_id) \
+			and HamletState.initialized:
+		var state: Dictionary = settlements[focused_settlement_id].get(
+			"hamlet_state", {})
+		HamletState.npc_records = (
+			state.get("npc_records", HamletState.npc_records) \
+			as Dictionary).duplicate(true)
+		HamletState.refresh_social_projection()
+	return {
+		"ok": failures.is_empty(),
+		"settlement_count": ids.size(),
+		"social_profile_count": SocialManager.profile_ids().size(),
+		"failures": failures,
+	}
+
+
+func refresh_political_owner() -> Dictionary:
+	if not initialized:
+		return {"ok": false, "error": "settlements_not_initialized"}
+	_ensure_political_owner(world_seed)
+	var ids: Array = settlements.keys()
+	ids.sort()
+	var failures: Array[Dictionary] = []
+	for settlement_value in ids:
+		var settlement_id := str(settlement_value)
+		var synced := _sync_political_owner_record(
+			settlements[settlement_id], false)
+		if bool(synced.get("political_owner_sync_failed", false)):
+			failures.append({
+				"settlement_id": settlement_id,
+				"error": synced.get("political_owner_error", "unknown"),
+			})
+		else:
+			settlements[settlement_id] = synced
+	if not focused_settlement_id.is_empty() \
+			and settlements.has(focused_settlement_id) \
+			and HamletState.initialized:
+		HamletState.refresh_political_projection()
+	return {
+		"ok": failures.is_empty(),
+		"settlement_count": ids.size(),
+		"government_count": PoliticalManager.government_ids().size(),
+		"failures": failures,
+	}
+
+
+func refresh_movement_owner() -> Dictionary:
+	if not initialized:
+		return {"ok": false, "error": "settlements_not_initialized"}
+	_ensure_movement_owner(world_seed)
+	var ids: Array = settlements.keys()
+	ids.sort()
+	var failures: Array[Dictionary] = []
+	for settlement_value in ids:
+		var settlement_id := str(settlement_value)
+		var synced := _sync_movement_owner_record(
+			settlements[settlement_id], false)
+		if bool(synced.get("movement_owner_sync_failed", false)):
+			failures.append({
+				"settlement_id": settlement_id,
+				"error": synced.get("movement_owner_error", "unknown"),
+			})
+		else:
+			settlements[settlement_id] = synced
+	if not focused_settlement_id.is_empty() \
+			and settlements.has(focused_settlement_id) \
+			and HamletState.initialized:
+		HamletState.refresh_movement_projection()
+	return {
+		"ok": failures.is_empty(),
+		"settlement_count": ids.size(),
+		"mover_count": MovementManager.mover_ids().size(),
+		"failures": failures,
+	}
+
+
+func _sync_people_owner_record(
+		record_value: Dictionary,
+		allow_existing_updates: bool) -> Dictionary:
+	var record := record_value.duplicate(true)
+	var settlement_id := str(record.get("settlement_id", ""))
+	var state: Dictionary = record.get("hamlet_state", {}).duplicate(true)
+	var residents: Dictionary = state.get("npc_records", {})
+	var households: Dictionary = record.get("households", {})
+	var job_slots: Dictionary = record.get("job_slots", {})
+	var result := PeopleManager.reconcile_settlement_projection(
+		settlement_id,
+		residents,
+		households,
+		job_slots,
+		"settlement_manager",
+		allow_existing_updates)
+	if not bool(result.get("ok", false)):
+		record["people_owner_sync_failed"] = true
+		record["people_owner_error"] = str(result.get("error", "unknown"))
+		push_warning("SettlementManager: people-owner sync failed: %s" % result)
+		return record
+	state["npc_records"] = (
+		result.get("resident_records", residents) as Dictionary).duplicate(true)
+	record["hamlet_state"] = state
+	record["households"] = (
+		result.get("households", households) as Dictionary).duplicate(true)
+	record["job_slots"] = (
+		result.get("job_slots", job_slots) as Dictionary).duplicate(true)
+	record.erase("people_owner_sync_failed")
+	record.erase("people_owner_error")
+	return record
+
+
+func _sync_biology_owner_record(
+		record_value: Dictionary,
+		allow_existing_updates: bool) -> Dictionary:
+	var record := record_value.duplicate(true)
+	var settlement_id := str(record.get("settlement_id", ""))
+	var state: Dictionary = record.get("hamlet_state", {}).duplicate(true)
+	var residents: Dictionary = state.get("npc_records", {})
+	var result := BiologyManager.reconcile_settlement_projection(
+		settlement_id, residents, allow_existing_updates)
+	if not bool(result.get("ok", false)):
+		record["biology_owner_sync_failed"] = true
+		record["biology_owner_error"] = str(result.get("error", "unknown"))
+		push_warning(
+			"SettlementManager: biological-owner sync failed: %s" % result)
+		return record
+	state["npc_records"] = (
+		result.get("resident_records", residents) as Dictionary).duplicate(true)
+	record["hamlet_state"] = state
+	record["population_health_summary"] = (
+		result.get("population_health_summary", {}) as Dictionary).duplicate(true)
+	record.erase("biology_owner_sync_failed")
+	record.erase("biology_owner_error")
+	return record
+
+
+func _sync_social_owner_record(
+		record_value: Dictionary,
+		allow_existing_updates: bool) -> Dictionary:
+	var record := record_value.duplicate(true)
+	var settlement_id := str(record.get("settlement_id", ""))
+	var state: Dictionary = record.get("hamlet_state", {}).duplicate(true)
+	var residents: Dictionary = state.get("npc_records", {})
+	var result := SocialManager.reconcile_settlement_projection(
+		settlement_id, residents, allow_existing_updates)
+	if not bool(result.get("ok", false)):
+		record["social_owner_sync_failed"] = true
+		record["social_owner_error"] = str(result.get("error", "unknown"))
+		push_warning("SettlementManager: social-owner sync failed: %s" % result)
+		return record
+	state["npc_records"] = (
+		result.get("resident_records", residents) as Dictionary).duplicate(true)
+	record["hamlet_state"] = state
+	record["social_summary"] = (
+		result.get("social_summary", {}) as Dictionary).duplicate(true)
+	record.erase("social_owner_sync_failed")
+	record.erase("social_owner_error")
+	return record
+
+
+func _sync_political_owner_record(
+		record_value: Dictionary,
+		allow_existing_updates: bool) -> Dictionary:
+	var record := record_value.duplicate(true)
+	var settlement_id := str(record.get("settlement_id", ""))
+	var state: Dictionary = record.get("hamlet_state", {}).duplicate(true)
+	var projection := state.duplicate(true)
+	projection["site_id"] = str(record.get("site_id", ""))
+	projection["government_profile_ref"] = str(record.get(
+		"government_profile_ref", "government.communal_council"))
+	projection["governing_faction_archetype_ref"] = str(record.get(
+		"governing_faction_archetype_ref", "faction.local_council"))
+	var result := PoliticalManager.reconcile_settlement_projection(
+		settlement_id, projection, allow_existing_updates)
+	if not bool(result.get("ok", false)):
+		record["political_owner_sync_failed"] = true
+		record["political_owner_error"] = str(result.get("error", "unknown"))
+		push_warning("SettlementManager: political-owner sync failed: %s" % result)
+		return record
+	record["political_summary"] = (
+		result.get("political_summary", {}) as Dictionary).duplicate(true)
+	record["political_owner_refs"] = {
+		"government_id": str(result.get("government_id", "")),
+	}
+	record.erase("political_owner_sync_failed")
+	record.erase("political_owner_error")
+	return record
+
+
+func _sync_movement_owner_record(
+		record_value: Dictionary,
+		allow_existing_updates: bool) -> Dictionary:
+	var record := record_value.duplicate(true)
+	var settlement_id := str(record.get("settlement_id", ""))
+	var route_result := _publish_movement_routes(record)
+	if not bool(route_result.get("ok", false)):
+		record["movement_owner_sync_failed"] = true
+		record["movement_owner_error"] = str(route_result.get("error", "unknown"))
+		return record
+	var state: Dictionary = record.get("hamlet_state", {}).duplicate(true)
+	var residents: Dictionary = state.get("npc_records", {}).duplicate(true)
+	var refs := {}
+	var resident_ids: Array = residents.keys()
+	resident_ids.sort()
+	for resident_value in resident_ids:
+		var resident_id := str(resident_value)
+		var resident: Dictionary = residents[resident_value]
+		var position_value: Variant = resident.get("position", [])
+		var position: Array = position_value.duplicate(true) \
+			if position_value is Array else []
+		if position.size() != 3:
+			var home: Array = resident.get("home", [])
+			position = [float(home[0]) + 0.5, 0.0, float(home[1]) + 0.5] \
+				if home.size() >= 2 else [0.0, 0.0, 0.0]
+		var result := MovementManager.register_mover({
+			"transaction_id": "movement.settlement.register.%s" % resident_id,
+			"entity_ref": resident_id,
+			"mover_profile_ref": "mover_profile.humanoid.npc",
+			"position": position,
+			"movement_mode": "Ground",
+			"movement_state": str(resident.get("activity", "Idle")).capitalize(),
+			"lod_state": "local" if settlement_id == focused_settlement_id \
+				else "distant",
+			"semantic_location": {
+				"kind": "settlement",
+				"ref": settlement_id,
+				"settlement_ref": settlement_id,
+				"position": position,
+			},
+		})
+		if not bool(result.get("ok", false)):
+			record["movement_owner_sync_failed"] = true
+			record["movement_owner_error"] = str(result.get("error", "unknown"))
+			push_warning("SettlementManager: movement-owner sync failed: %s" % result)
+			return record
+		if allow_existing_updates and not MovementManager.restored_from_state:
+			MovementManager.commit_physical_snapshot({
+				"entity_ref": resident_id,
+				"position": position,
+				"movement_mode": "Ground",
+				"movement_state": str(resident.get("activity", "Idle")).capitalize(),
+				"semantic_location": {
+					"kind": "settlement",
+					"ref": settlement_id,
+					"settlement_ref": settlement_id,
+					"position": position,
+				},
+			})
+		var mover := MovementManager.mover_record(resident_id)
+		resident["position"] = (mover.get("position", position) as Array).duplicate(true)
+		resident["movement_record_ref"] = str(mover.get("movement_record_ref", ""))
+		resident["movement_revision"] = int(mover.get("movement_revision", 0))
+		residents[resident_id] = resident
+		refs[resident_id] = str(mover.get("movement_record_ref", ""))
+	state["npc_records"] = residents
+	record["hamlet_state"] = state
+	record["movement_summary"] = MovementManager.settlement_movement_summary(
+		settlement_id)
+	record["movement_owner_refs"] = refs
+	record.erase("movement_owner_sync_failed")
+	record.erase("movement_owner_error")
+	return record
+
+
+func _publish_movement_routes(record: Dictionary) -> Dictionary:
+	var settlement_id := str(record.get("settlement_id", ""))
+	for route_value in record.get("routes", []):
+		if not (route_value is Dictionary):
+			continue
+		var route: Dictionary = route_value
+		var route_id := str(route.get("route_id", route.get("id", "")))
+		if route_id.is_empty():
+			continue
+		var valid := bool(route.get("valid", false))
+		var result := MovementManager.record_route_observation({
+			"transaction_id": "movement.settlement_route.%s.%s" % [
+				route_id, _lod_hash_value(route).substr(0, 16)],
+			"route_segment_id": route_id,
+			"source_owner": "document19.settlement_infrastructure",
+			"source_revision": maxi(1, int(route.get("revision", 1))),
+			"route_class": str(route.get("route_class", "settlement_access")),
+			"surface": str(route.get("surface", "dirt")),
+			"quality": str(route.get("quality", "ordinary")),
+			"width": maxf(1.0, float(route.get("width", 1.0))),
+			"vertical_clearance": maxf(2.0, float(route.get(
+				"vertical_clearance", 2.0))),
+			"grade": float(route.get("grade", 0.0)),
+			"supported_transport_classes": ["humanoid"],
+			"condition": "passable" if valid else str(route.get(
+				"failure", "route_validation_failed")),
+			"closure": not valid,
+			"capacity_band": "single_lane",
+			"settlement_ref": settlement_id,
+		})
+		if not bool(result.get("ok", false)):
+			push_warning("SettlementManager: route-truth handoff failed: %s" % result)
+			return result
+	return {"ok": true}
+
+
+func _ensure_people_owner(seed_value: int) -> void:
+	if PeopleManager.initialized and PeopleManager.world_seed == seed_value:
+		return
+	PeopleManager.initialize(
+		seed_value,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _ensure_biology_owner(seed_value: int) -> void:
+	if BiologyManager.initialized and BiologyManager.world_seed == seed_value:
+		return
+	BiologyManager.initialize(
+		seed_value,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _ensure_social_owner(seed_value: int) -> void:
+	if SocialManager.initialized and SocialManager.world_seed == seed_value:
+		return
+	SocialManager.initialize(
+		seed_value,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _ensure_political_owner(seed_value: int) -> void:
+	if PoliticalManager.initialized and PoliticalManager.world_seed == seed_value:
+		return
+	PoliticalManager.initialize(
+		seed_value,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _ensure_movement_owner(seed_value: int) -> void:
+	if MovementManager.initialized and MovementManager.world_seed == seed_value:
+		return
+	MovementManager.initialize(
+		seed_value,
+		str(WorldManager.active_world.get("world_id", "")))
 
 
 func _is_legacy_record(record: Dictionary) -> bool:
@@ -809,6 +1622,9 @@ func get_population_report(settlement_id: String) -> Dictionary:
 	var job_slots: Dictionary = record.get("job_slots", {})
 	var adults := 0
 	var children := 0
+	var available_adults := 0
+	var biologically_unavailable_adults := 0
+	var socially_unavailable_adults := 0
 	var displaced := 0
 	var assigned_beds := {}
 	var assigned_jobs := {}
@@ -819,6 +1635,26 @@ func get_population_report(settlement_id: String) -> Dictionary:
 		var age_band := str(resident_value.get("age_band", "adult"))
 		if age_band == "adult":
 			adults += 1
+			var resident_id := str(resident_value.get(
+				"resident_id", resident_value.get("id", "")))
+			var availability: Dictionary = (
+				BiologyManager.assignment_availability(resident_id)
+				if BiologyManager.initialized \
+					and BiologyManager.has_actor(resident_id)
+				else {"ok": true, "available": true})
+			var social_willingness: Dictionary = (
+				SocialManager.assignment_willingness(resident_id, {
+					"task_type": "settlement_population_availability",
+				}) if SocialManager.initialized \
+					and SocialManager.has_profile(resident_id) \
+				else {"ok": true, "available": true})
+			if bool(availability.get("available", true)) \
+					and bool(social_willingness.get("available", true)):
+				available_adults += 1
+			if not bool(availability.get("available", true)):
+				biologically_unavailable_adults += 1
+			if not bool(social_willingness.get("available", true)):
+				socially_unavailable_adults += 1
 		else:
 			children += 1
 		var bed_id := str(resident_value.get("bed_id", ""))
@@ -875,6 +1711,12 @@ func get_population_report(settlement_id: String) -> Dictionary:
 		"population": population,
 		"adults": adults,
 		"children": children,
+		"available_adults": available_adults,
+		"biologically_unavailable_adults": biologically_unavailable_adults,
+		"socially_unavailable_adults": socially_unavailable_adults,
+		"population_health_summary": (
+			record.get("population_health_summary", {}) as Dictionary
+		).duplicate(true),
 		"displaced": displaced,
 		"valid_beds": valid_beds,
 		"permanent_beds": permanent_beds,
@@ -1123,6 +1965,23 @@ func assign_resident_task(
 	if not focus_settlement(settlement_id) \
 			or HamletState.get_npc_record(resident_id).is_empty():
 		return {"ok": false, "reason": "unknown_resident"}
+	if BiologyManager.initialized and BiologyManager.has_actor(resident_id):
+		var availability := BiologyManager.assignment_availability(resident_id)
+		if not bool(availability.get("available", false)):
+			return {
+				"ok": false,
+				"reason": "biological_assignment_unavailable",
+				"biological_availability": availability,
+			}
+	if SocialManager.initialized and SocialManager.has_profile(resident_id):
+		var willingness := SocialManager.assignment_willingness(resident_id, task)
+		if not bool(willingness.get("ok", false)) \
+				or not bool(willingness.get("available", false)):
+			return {
+				"ok": false,
+				"reason": "social_assignment_unavailable",
+				"social_willingness": willingness,
+			}
 	var record := task.duplicate(true)
 	record["record_type"] = "NpcTask"
 	record["version"] = 1
@@ -1156,6 +2015,28 @@ func advance_project_work(
 		return {"ok": false, "reason": "unknown_project"}
 	if HamletState.get_npc_record(resident_id).is_empty():
 		return {"ok": false, "reason": "unknown_resident"}
+	if BiologyManager.initialized and BiologyManager.has_actor(resident_id):
+		var availability := BiologyManager.assignment_availability(resident_id)
+		if not bool(availability.get("available", false)):
+			return {
+				"ok": false,
+				"reason": "biological_assignment_unavailable",
+				"progress_consumed": false,
+				"biological_availability": availability,
+			}
+	if SocialManager.initialized and SocialManager.has_profile(resident_id):
+		var willingness := SocialManager.assignment_willingness(resident_id, {
+			"task_type": "settlement_project_work",
+			"project_instance_id": project_instance_id,
+		})
+		if not bool(willingness.get("ok", false)) \
+				or not bool(willingness.get("available", false)):
+			return {
+				"ok": false,
+				"reason": "social_assignment_unavailable",
+				"progress_consumed": false,
+				"social_willingness": willingness,
+			}
 	if not HamletState.activate_project_instance(project_instance_id):
 		return {"ok": false, "reason": "project_activation_failed"}
 	var project: Dictionary = HamletState.runtime_projects[project_instance_id]
@@ -2145,6 +3026,16 @@ func _form_household(
 	var household_id := "%s.household.partnership.%03d" % [
 		settlement_id, (record.get("households", {}) as Dictionary).size()]
 	var households: Dictionary = record.get("households", {})
+	# A persistent person belongs to one operational household. Remove stale
+	# compatibility memberships before creating the replacement household.
+	for existing_household_value in households.keys():
+		var existing_household_id := str(existing_household_value)
+		var existing_household: Dictionary = households[existing_household_value]
+		for resident_id in [adults[0], adults[1]]:
+			(existing_household.get("resident_ids", []) as Array).erase(resident_id)
+			(existing_household.get("partnership_ids", []) as Array).erase(
+				resident_id)
+		households[existing_household_id] = existing_household
 	households[household_id] = {
 		"record_type": "Household",
 		"version": 1,
@@ -2321,6 +3212,17 @@ func _resident_needs_are_stable() -> bool:
 		var resident := HamletState.get_npc_record(resident_id)
 		if not bool(resident.get("alive", true)):
 			continue
+		if BiologyManager.initialized and BiologyManager.has_actor(resident_id):
+			var availability := BiologyManager.assignment_availability(resident_id)
+			if not bool(availability.get("available", false)):
+				return false
+		if SocialManager.initialized and SocialManager.has_profile(resident_id):
+			var willingness := SocialManager.assignment_willingness(resident_id, {
+				"task_type": "settlement_needs_stability",
+			})
+			if not bool(willingness.get("ok", false)) \
+					or not bool(willingness.get("available", false)):
+				return false
 		var needs: Dictionary = resident.get("needs", {})
 		if float(needs.get("food", 0.0)) < 0.55 \
 				or float(needs.get("shelter", 0.0)) < 0.65 \
@@ -2431,3 +3333,33 @@ func _proposal_need_score(need_id: String, report: Dictionary) -> int:
 	if need_id in ["access", "transport"]:
 		return int(report.get("route_failures", 0)) * 90
 	return 20
+
+
+func _lod_hash_value(value: Variant) -> String:
+	var context := HashingContext.new()
+	context.start(HashingContext.HASH_SHA256)
+	context.update(_lod_canonical_json(value).to_utf8_buffer())
+	return context.finish().hex_encode()
+
+
+func _lod_canonical_json(value: Variant) -> String:
+	if value is Dictionary:
+		var dictionary: Dictionary = value
+		var keys: Array = dictionary.keys()
+		keys.sort_custom(func(a: Variant, b: Variant) -> bool:
+			return str(a) < str(b))
+		var entries: Array[String] = []
+		for key in keys:
+			entries.append("%s:%s" % [
+				JSON.stringify(str(key)),
+				_lod_canonical_json(dictionary[key]),
+			])
+		return "{%s}" % ",".join(entries)
+	if value is Array:
+		var entries: Array[String] = []
+		for entry in value:
+			entries.append(_lod_canonical_json(entry))
+		return "[%s]" % ",".join(entries)
+	if value is int or value is float:
+		return String.num(float(value), 15)
+	return JSON.stringify(value)

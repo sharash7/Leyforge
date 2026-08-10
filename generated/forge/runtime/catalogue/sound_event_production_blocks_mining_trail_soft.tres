@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_btkkd"]
+
+[resource]
+script = ExtResource("1_btkkd")
+product_id = "runtime.catalogue.sound_event_production_blocks_mining_trail_soft"
+source_id = "sound.event.production.blocks_mining_trail_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_blocks_mining_trail_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_blocks_mining_trail_soft.tres": "c43101a05ee865fba0282ad71f4044c9c5603ae6806b8415804717c18f1ead83"
+}
+combined_source_hash = "bb7916ae5df35120f6b351420dac68d6bae360da0c89bac1695d1501d4a3f94f"
+dependency_ids = PackedStringArray()

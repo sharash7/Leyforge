@@ -9,7 +9,7 @@ func validate_module(module: ForgeBlueprintModuleDefinition,
 	if module == null:
 		return [_diag("EFB-SCHEMA-001", ForgeDiagnostic.CRITICAL, "",
 			"Blueprint module source is missing.")]
-	if module.schema_version != 1 \
+	if module.schema_version not in [1, 2] \
 			or not ForgeId.is_valid(module.module_id, "blueprint.module."):
 		diagnostics.append(_diag("EFB-SCHEMA-001", ForgeDiagnostic.ERROR,
 			module.module_id, "Blueprint module contract is invalid."))
@@ -25,6 +25,11 @@ func validate_module(module: ForgeBlueprintModuleDefinition,
 			diagnostics.append(_diag("EFB-BP-010", ForgeDiagnostic.ERROR,
 				module.module_id, "Nested module sources must be flattened by the owning blueprint."))
 		_validate_element_roles(element, module.module_id, semantic_registry, diagnostics)
+	diagnostics.append_array(
+		ForgeModularStructureValidationService.new().validate_module_connectors(module))
+	if module.physical_authoring_mode == "voxel_grid":
+		diagnostics.append_array(ForgeStructureVoxelValidationService.new().validate(
+			module.structure_voxel_source, module.module_id))
 	return diagnostics
 
 

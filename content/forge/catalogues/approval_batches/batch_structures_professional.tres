@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_nf8tt"]
+
+[resource]
+script = ExtResource("1_nf8tt")
+batch_id = "batch.structures.professional"
+display_name = "Structures.professional"
+studio = "structures"
+category = "professional"
+target_ids = PackedStringArray("blueprint.leyforge.professional.guild_hall_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_professional.json")

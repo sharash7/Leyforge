@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_khidr"]
+
+[resource]
+script = ExtResource("1_khidr")
+product_id = "runtime.catalogue.sound_source_production_goblin_raid_impact_soft_body"
+source_id = "sound.source.production.goblin_raid_impact_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_goblin_raid_impact_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_goblin_raid_impact_soft_body.tres": "1ea4cd76a333dc048b783003cdb8bc2944b1dae3172ca93de0241d364f5f246e"
+}
+combined_source_hash = "3b0f0d0e4feee0028ea4ccaec35810f2b16127fd953f16c1e48527cfa6292c0c"
+dependency_ids = PackedStringArray()

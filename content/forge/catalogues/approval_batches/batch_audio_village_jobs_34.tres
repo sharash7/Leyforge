@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_hp2x8"]
+
+[resource]
+script = ExtResource("1_hp2x8")
+batch_id = "batch.audio.village_jobs.34"
+display_name = "Audio.village Jobs.34"
+studio = "audio"
+category = "village_jobs"
+target_ids = PackedStringArray("sound.event.production.village_jobs_break_soft", "sound.source.production.village_jobs_break_soft_body", "sound.source.production.village_jobs_break_soft_detail", "sound.event.production.village_jobs_burst_soft", "sound.source.production.village_jobs_burst_soft_body", "sound.source.production.village_jobs_burst_soft_detail", "sound.event.production.village_jobs_loop_soft", "sound.source.production.village_jobs_loop_soft_body", "sound.source.production.village_jobs_loop_soft_detail", "sound.event.production.village_jobs_open_soft", "sound.source.production.village_jobs_open_soft_body", "sound.source.production.village_jobs_open_soft_detail", "sound.event.production.village_jobs_place_soft", "sound.source.production.village_jobs_place_soft_body", "sound.source.production.village_jobs_place_soft_detail", "sound.event.production.village_jobs_pulse_soft", "sound.source.production.village_jobs_pulse_soft_body", "sound.source.production.village_jobs_pulse_soft_detail", "sound.event.production.village_jobs_trail_soft", "sound.source.production.village_jobs_trail_soft_body", "sound.source.production.village_jobs_trail_soft_detail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_village_jobs_34.json")

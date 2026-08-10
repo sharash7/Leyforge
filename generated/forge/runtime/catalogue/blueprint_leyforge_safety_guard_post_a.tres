@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_7qgpl"]
+
+[resource]
+script = ExtResource("1_7qgpl")
+product_id = "runtime.catalogue.blueprint_leyforge_safety_guard_post_a"
+source_id = "blueprint.leyforge.safety.guard_post_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_safety_guard_post_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_guard_post_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_guard_post_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_guard_post_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_safety_guard_post_a.tres": "e412f37ea4a006cc2839a243134d55f13b7908c12ef7709ea1ffb476306207fb",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_guard_post_a_light_damage.tres": "dcdb9229000aae650c7084fd776ef91006e85429d5d5ba8b4b0d29fb73442a6a",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_guard_post_a_repaired.tres": "fceb25ede3c809dd8f7ef07c624edd8773c99f2cbe543a46f6f03ddc4af84fed",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_safety_guard_post_a_under_construction.tres": "19fb16aa33fd2f922ceac09e82f0de7c5de146a2bc5c6a54eb867a22d3696eb7"
+}
+combined_source_hash = "378018017062d6296a7bbe3b59a334f2680e18dd4f7190201f4e93b0782b1aea"
+dependency_ids = PackedStringArray()

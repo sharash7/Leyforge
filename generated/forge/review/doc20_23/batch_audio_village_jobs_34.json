@@ -1,0 +1,30 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.audio.village_jobs.34",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "sound.event.production.village_jobs_break_soft",
+    "sound.source.production.village_jobs_break_soft_body",
+    "sound.source.production.village_jobs_break_soft_detail",
+    "sound.event.production.village_jobs_burst_soft",
+    "sound.source.production.village_jobs_burst_soft_body",
+    "sound.source.production.village_jobs_burst_soft_detail",
+    "sound.event.production.village_jobs_loop_soft",
+    "sound.source.production.village_jobs_loop_soft_body",
+    "sound.source.production.village_jobs_loop_soft_detail",
+    "sound.event.production.village_jobs_open_soft",
+    "sound.source.production.village_jobs_open_soft_body",
+    "sound.source.production.village_jobs_open_soft_detail",
+    "sound.event.production.village_jobs_place_soft",
+    "sound.source.production.village_jobs_place_soft_body",
+    "sound.source.production.village_jobs_place_soft_detail",
+    "sound.event.production.village_jobs_pulse_soft",
+    "sound.source.production.village_jobs_pulse_soft_body",
+    "sound.source.production.village_jobs_pulse_soft_detail",
+    "sound.event.production.village_jobs_trail_soft",
+    "sound.source.production.village_jobs_trail_soft_body",
+    "sound.source.production.village_jobs_trail_soft_detail"
+  ]
+}

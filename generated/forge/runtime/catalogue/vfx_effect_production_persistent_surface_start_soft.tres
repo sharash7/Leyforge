@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_prkv6"]
+
+[resource]
+script = ExtResource("1_prkv6")
+product_id = "runtime.catalogue.vfx_effect_production_persistent_surface_start_soft"
+source_id = "vfx.effect.production.persistent_surface_start_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_persistent_surface_start_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_persistent_surface_start_soft.tres": "7c315e7d122c8480e4a8cf73f804f5a122774a9b4c2bef6694b9356824730423"
+}
+combined_source_hash = "6c6865f802edabc05665b121a4603f5bc82480914df28a9c5c0f771406dbeec5"
+dependency_ids = PackedStringArray()

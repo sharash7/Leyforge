@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_uaspm"]
+
+[resource]
+script = ExtResource("1_uaspm")
+product_id = "runtime.catalogue.sound_event_production_environment_weather_warning_firm"
+source_id = "sound.event.production.environment_weather_warning_firm"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_environment_weather_warning_firm.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_environment_weather_warning_firm.tres": "aeeb51a87e2c08c3d5c0b021be577a15a168807542da4c1dcfd3e410429ec5a6"
+}
+combined_source_hash = "6a7630089e11ad81d054c712efdfdde1defad3ebbea5b321cfdfb19b9ece1ee5"
+dependency_ids = PackedStringArray()

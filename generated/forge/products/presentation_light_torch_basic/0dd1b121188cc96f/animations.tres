@@ -1,0 +1,44 @@
+[gd_resource type="AnimationLibrary" format=3]
+
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_1/frame_000.res" id="1_c8ltl"]
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_1/frame_001.res" id="2_504ul"]
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_2/frame_000.res" id="3_r5rur"]
+[ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_2/frame_001.res" id="4_3kghx"]
+
+[sub_resource type="Animation" id="Animation_c8ltl"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrameGeometry:mesh")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [ExtResource("1_c8ltl"), ExtResource("2_504ul")]
+}
+
+[sub_resource type="Animation" id="Animation_504ul"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrameGeometry:mesh")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [ExtResource("3_r5rur"), ExtResource("4_3kghx")]
+}
+
+[resource]
+_data = {
+&"voxel_effect_1": SubResource("Animation_c8ltl"),
+&"voxel_effect_2": SubResource("Animation_504ul")
+}

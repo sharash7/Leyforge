@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_xavy1"]
+
+[resource]
+script = ExtResource("1_xavy1")
+product_id = "runtime.catalogue.blueprint_leyforge_transport_dock_harbour_a"
+source_id = "blueprint.leyforge.transport.dock_harbour_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_transport_dock_harbour_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_transport_dock_harbour_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_transport_dock_harbour_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_transport_dock_harbour_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_transport_dock_harbour_a.tres": "7219a05bfc650b3016e3f39c718637b521ceed1881c3c276e1afb842262463cf",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_transport_dock_harbour_a_light_damage.tres": "8a588a995669aa86925136c9c70ff389958adf67c34ce889a5f0ec2f10bc2025",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_transport_dock_harbour_a_repaired.tres": "0670950663ff752344ec5d5c956c00e87ccb9f1d617b1eb5c2bc652955f809c2",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_transport_dock_harbour_a_under_construction.tres": "bb9f987dfa7f44edd8e184e30797b42b7f9e359270816ca5675554fc6af55524"
+}
+combined_source_hash = "17c14aa64444bc573fa5339f63235690d13e403b8bb1543ea07a62635cde4e0d"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ForgeBodyPartDefinition" format=4]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_kqy1u"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_lj0y8"]
+
+[sub_resource type="Resource" id="Resource_cxjdr"]
+script = ExtResource("2_lj0y8")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[resource]
+script = ExtResource("1_kqy1u")
+body_part_id = "entity.body_part.production.humanoid.leg_right"
+display_name = "Leg Right"
+parent_part_id = "entity.body_part.production.humanoid.torso"
+anatomy_role_id = "anatomy.role.humanoid.leg.right"
+voxel_source = SubResource("Resource_cxjdr")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.humanoid.leg_right"
+side_token = "right"
+rig_role = "rig.role.leg_right"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_right")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")

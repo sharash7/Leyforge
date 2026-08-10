@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_connector_definition.gd" id="1_chljb"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_7t0ix"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="3_7le5g"]
+
+[sub_resource type="Resource" id="Resource_dlhpl"]
+script = ExtResource("1_chljb")
+connector_id = "blueprint.connector.blueprint_module_goblin_den_junction.north"
+display_name = "Goblin Junction connection"
+owner_module_id = "blueprint.module.goblin_den.junction"
+socket_role_id = "socket.role.structure.goblin"
+position = Vector3i(0, 1, -2)
+direction = Vector3i(0, 0, 1)
+connection_tags = PackedStringArray("goblin", "junction")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.goblin"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "surface_fit"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_mhjq1"]
+script = ExtResource("1_chljb")
+connector_id = "blueprint.connector.blueprint_module_goblin_den_junction.south"
+display_name = "Goblin Junction connection"
+owner_module_id = "blueprint.module.goblin_den.junction"
+socket_role_id = "socket.role.structure.goblin"
+position = Vector3i(0, 1, 2)
+connection_tags = PackedStringArray("goblin", "junction")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.goblin"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "surface_fit"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_r5hlm"]
+script = ExtResource("1_chljb")
+connector_id = "blueprint.connector.blueprint_module_goblin_den_junction.west"
+display_name = "Goblin Junction connection"
+owner_module_id = "blueprint.module.goblin_den.junction"
+socket_role_id = "socket.role.structure.goblin"
+position = Vector3i(-2, 1, 0)
+direction = Vector3i(-1, 0, 0)
+connection_tags = PackedStringArray("goblin", "junction")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.goblin"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "surface_fit"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_rxqng"]
+script = ExtResource("1_chljb")
+connector_id = "blueprint.connector.blueprint_module_goblin_den_junction.east"
+display_name = "Goblin Junction connection"
+owner_module_id = "blueprint.module.goblin_den.junction"
+socket_role_id = "socket.role.structure.goblin"
+position = Vector3i(2, 1, 0)
+direction = Vector3i(1, 0, 0)
+connection_tags = PackedStringArray("goblin", "junction")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.goblin"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "surface_fit"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_0ht1c"]
+script = ExtResource("2_7t0ix")
+element_id = "blueprint.module.goblin_den.junction.floor"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "road.path.dirt"
+metadata = {
+"family": "goblin",
+"operation": "fill",
+"role": "junction",
+"terrain_policy": "surface_fit"
+}
+
+[resource]
+script = ExtResource("3_7le5g")
+module_id = "blueprint.module.goblin_den.junction"
+display_name = "Goblin Den Junction"
+module_kind = "junction"
+elements = Array[ExtResource("2_7t0ix")]([SubResource("Resource_0ht1c")])
+connectors = Array[ExtResource("1_chljb")]([SubResource("Resource_dlhpl"), SubResource("Resource_mhjq1"), SubResource("Resource_r5hlm"), SubResource("Resource_rxqng")])
+aliases = PackedStringArray("module.production.blueprint_module_goblin_den_junction")
+dependency_ids = PackedStringArray()
+lifecycle = "review_ready"

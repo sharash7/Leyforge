@@ -1,0 +1,17 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.vfx.movement_contact",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "vfx.effect.production.movement_contact_finish_soft",
+    "vfx.effect.production.movement_contact_idle_soft",
+    "vfx.effect.production.movement_contact_impact_soft",
+    "vfx.effect.production.movement_contact_move_soft",
+    "vfx.effect.production.movement_contact_release_soft",
+    "vfx.effect.production.movement_contact_start_soft",
+    "vfx.effect.production.movement_contact_sustain_soft",
+    "vfx.effect.production.movement_contact_warning_soft"
+  ]
+}

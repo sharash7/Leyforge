@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_1iphc"]
+
+[resource]
+script = ExtResource("1_1iphc")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_automation_mechanical_processing_mill_a"
+source_id = "blueprint.leyforge.automation.mechanical_processing_mill_a"
+source_type_id = "catalogue.structures"
+source_hash = "9ec80c55f41af4f29ed45a7a147895b0eee2fa274e0661b86f2003eddab45633"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_automation_mechanical_processing_mill_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_automation_mechanical_processing_mill_a.tres": "14398f3e3ac3add96570b45c8c6ed68f8053ff83d0d864ba7a8f869484003cde"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

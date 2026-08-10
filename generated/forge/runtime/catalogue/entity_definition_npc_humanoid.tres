@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_twhjj"]
+
+[resource]
+script = ExtResource("1_twhjj")
+product_id = "runtime.catalogue.entity_definition_npc_humanoid"
+source_id = "entity.definition.npc.humanoid"
+source_paths = PackedStringArray("res://content/forge/entities/user/production/entity_definition_npc_humanoid.tres", "res://content/forge/entities/user/production/rigs/entity_rig_production_entity_definition_npc_humanoid.tres", "res://content/forge/entities/user/production/animations/entity_animation_set_production_entity_definition_npc_humanoid.tres", "res://content/forge/entities/user/production/variants/entity_variant_production_entity_definition_npc_humanoid.tres", "res://content/forge/entities/user/production/equipment/entity_equipment_profile_production_entity_definition_npc_humanoid_primary.tres")
+source_hashes = {
+"res://content/forge/entities/user/production/animations/entity_animation_set_production_entity_definition_npc_humanoid.tres": "064491e645df2efaa589fdeaf0a2bc690999a1334c047f2dd94bff3d5faaec8d",
+"res://content/forge/entities/user/production/entity_definition_npc_humanoid.tres": "9723e0d5f6efa16401562f9158295d78d00e587e4fdfa673a49f79539914d8f8",
+"res://content/forge/entities/user/production/equipment/entity_equipment_profile_production_entity_definition_npc_humanoid_primary.tres": "64d8153b1a8c416f0ae6333f1ef86055e282a500acaf621063da7826ac561d0e",
+"res://content/forge/entities/user/production/rigs/entity_rig_production_entity_definition_npc_humanoid.tres": "c0e3fe659f7f22e4246827dee6dffa24908ed4cd80509e4fd2d1b9397f6134a0",
+"res://content/forge/entities/user/production/variants/entity_variant_production_entity_definition_npc_humanoid.tres": "4f3a333066a48a315273de941fee0cb879bc00b914b2a37dce6f92bd56627441"
+}
+combined_source_hash = "71f0bc21bb42b74c6522164309db3953bf701b19a8d3628dc18abe5e83980e81"
+dependency_ids = PackedStringArray("entity.body_plan.production.humanoid")

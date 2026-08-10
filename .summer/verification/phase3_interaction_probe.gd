@@ -34,11 +34,11 @@ func _run() -> void:
 	_clear_inventory()
 
 	# Hand grid: one log may be placed anywhere in the active 2x2 area.
-	Inventory.set_craft_slot(3, _stack("item", "item.resource.log_oak", 1))
+	Inventory.set_craft_slot(3, _stack("block", "natural.log.oak", 1))
 	_check(Inventory.active_craft_recipe_id == "recipe.hand.bootstrap.rough_oak_plank",
 		"hand grid did not match the rough plank recipe")
 	var rough_result := Inventory.take_craft_output()
-	_check(Inventory.stack_stable_id(rough_result) == "item.material.plank_oak"
+	_check(Inventory.stack_stable_id(rough_result) == "construction.planks.oak"
 			and int(rough_result.get("count", 0)) == 2,
 		"hand-grid output was not preserved and delivered")
 	_check(Inventory.craft_grid[3].is_empty(), "hand-grid ingredient was not consumed")
@@ -47,7 +47,7 @@ func _run() -> void:
 	_clear_inventory()
 	ProgressionState.discover_station("functional.workbench.basic")
 	Inventory.set_crafting_station("workbench")
-	var plank := _stack("item", "item.material.plank_oak", 1)
+	var plank := _stack("block", "construction.planks.oak", 1)
 	for index in [0, 1, 2, 3, 5, 6, 7, 8]:
 		Inventory.set_craft_slot(index, plank)
 	_check(Inventory.active_craft_recipe_id == "recipe.workbench.block.chest_wood",

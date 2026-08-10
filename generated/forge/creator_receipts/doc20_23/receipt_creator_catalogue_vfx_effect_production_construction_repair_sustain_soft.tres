@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_q6034"]
+
+[resource]
+script = ExtResource("1_q6034")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_construction_repair_sustain_soft"
+source_id = "vfx.effect.production.construction_repair_sustain_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "79a7a284043b2bd827cfa961314bf5c10b6b896e96f1f9569146b026bb0b2197"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_construction_repair_sustain_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_construction_repair_sustain_soft.tres": "ef739f0be4cc579ce4ec6edfbf8d0ec11734687c8ed190a14efa71a95641d86b"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

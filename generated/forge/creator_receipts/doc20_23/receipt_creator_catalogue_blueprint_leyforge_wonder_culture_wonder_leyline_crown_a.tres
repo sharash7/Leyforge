@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_dp4gh"]
+
+[resource]
+script = ExtResource("1_dp4gh")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_wonder_culture_wonder_leyline_crown_a"
+source_id = "blueprint.leyforge.wonder.culture_wonder_leyline_crown_a"
+source_type_id = "catalogue.structures"
+source_hash = "883a1c102b8e45ba0abefc0d64f78c31800ed99e815df23dfb239be87a765bab"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_wonder_culture_wonder_leyline_crown_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_wonder_culture_wonder_leyline_crown_a.tres": "d6534ec5ff9cf12522c87a45170c4a1391895fca9268d0b92b85a33f250c999e"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

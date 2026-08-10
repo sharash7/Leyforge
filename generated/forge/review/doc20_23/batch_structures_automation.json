@@ -1,0 +1,13 @@
+{
+  "batch_id": "batch.structures.automation",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.automation.hand_crank_workshop_a",
+    "blueprint.leyforge.automation.mechanical_processing_mill_a",
+    "blueprint.leyforge.automation.automated_farm_greenhouse_a",
+    "blueprint.leyforge.automation.golem_workshop_labour_centre_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

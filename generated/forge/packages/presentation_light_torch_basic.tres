@@ -1,18 +1,18 @@
-[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3 uid="uid://wgake45m0tws"]
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3]
 
-[ext_resource type="Script" uid="uid://c7yeo1mi5snq6" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_xfgq3"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_xfgq3"]
 
 [resource]
 script = ExtResource("1_xfgq3")
 presentation_id = "presentation.light.torch.basic"
-root_scene_path = "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/presentation.tscn"
-mesh_path = "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/presentation_mesh.res"
+root_scene_path = "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/presentation_mesh.res"
 material_paths = PackedStringArray()
-collision_path = "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/collision.tres"
-animation_library_path = "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/animations.tres"
-state_binding_path = "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/state_binding.tres"
-icon_path = "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/icon.png"
-bounds = AABB(0.4375, 0.46875, 0.4375, 0.125, 0.53125, 0.125)
+collision_path = "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/collision.tres"
+animation_library_path = "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/animations.tres"
+state_binding_path = "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/state_binding.tres"
+icon_path = "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/icon.png"
+bounds = AABB(0.4375, 0, 0.4375, 0.125, 0.53125, 0.125)
 socket_map = {
 "light": {
 "contract_required": false,
@@ -71,7 +71,7 @@ runtime_metadata = {
 "voxel_frame_clips": {
 "voxel_effect_1": {
 "frame_durations": [0.12, 0.18],
-"frame_paths": ["res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_1/frame_000.res", "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_1/frame_001.res"],
+"frame_paths": ["res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_1/frame_000.res", "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_1/frame_001.res"],
 "lod_policy": {
 "far": "static_reduced_motion_frame",
 "mid": "reduced_rate",
@@ -80,12 +80,12 @@ runtime_metadata = {
 "loop": true,
 "onion_skin_authored": true,
 "reduced_motion_frame": 0,
-"reduced_motion_mesh": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_1/frame_000.res",
+"reduced_motion_mesh": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_1/frame_000.res",
 "runtime_remeshing": false
 },
 "voxel_effect_2": {
 "frame_durations": [0.12, 0.18],
-"frame_paths": ["res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_2/frame_000.res", "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_2/frame_001.res"],
+"frame_paths": ["res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_2/frame_000.res", "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_2/frame_001.res"],
 "lod_policy": {
 "far": "static_reduced_motion_frame",
 "mid": "reduced_rate",
@@ -94,9 +94,9 @@ runtime_metadata = {
 "loop": true,
 "onion_skin_authored": true,
 "reduced_motion_frame": 0,
-"reduced_motion_mesh": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_2/frame_000.res",
+"reduced_motion_mesh": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_2/frame_000.res",
 "runtime_remeshing": false
 }
 }
 }
-product_hash = "9ad4819dca18beebdfc37a199d008a18d45f94bd1919c85364784d0094014d7a"
+product_hash = "da8bc73de474cb61d0eb6289528dc45368d2569111a5e5e474dd1af594238bd4"

@@ -10,6 +10,9 @@ extends ForgePresentationDefinition
 @export var maximum_lifetime_seconds := 30.0
 @export var cycles_allowed := false
 @export var backend_hint := "cpu_multimesh"
+## Editor-only positions keyed by stable node ID. Deliberately excluded from
+## to_record()/canonical_hash() so arranging a graph never changes runtime data.
+@export var editor_layout: Dictionary = {}
 
 
 func _init() -> void:

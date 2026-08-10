@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_rdxgx"]
+
+[resource]
+script = ExtResource("1_rdxgx")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_safety_guard_post_a"
+source_id = "blueprint.leyforge.safety.guard_post_a"
+source_type_id = "catalogue.structures"
+source_hash = "378018017062d6296a7bbe3b59a334f2680e18dd4f7190201f4e93b0782b1aea"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_guard_post_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_guard_post_a.tres": "2b24f542d94facd6241ff5eb74ac5f087378d9c26815ff205f87b2ae2c003e89"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

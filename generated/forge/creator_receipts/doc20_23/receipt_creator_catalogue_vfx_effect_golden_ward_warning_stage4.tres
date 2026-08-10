@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_c12ja"]
+
+[resource]
+script = ExtResource("1_c12ja")
+receipt_id = "receipt.creator.catalogue.vfx_effect_golden_ward_warning_stage4"
+source_id = "vfx.effect.golden.ward_warning.stage4"
+source_type_id = "catalogue.vfx"
+source_hash = "b67d6dace8848a96c0e0b0da79e26d2823fa7c2e038a0c7f91ea1533b2d584dd"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_golden_ward_warning_stage4.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_golden_ward_warning_stage4.tres": "b48e6fcca644666aeea2d9ac3d1ca63f73d0360dbad29e4d755239b29a5a1a3e"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

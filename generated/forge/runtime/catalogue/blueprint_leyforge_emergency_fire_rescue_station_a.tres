@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_vh6yd"]
+
+[resource]
+script = ExtResource("1_vh6yd")
+product_id = "runtime.catalogue.blueprint_leyforge_emergency_fire_rescue_station_a"
+source_id = "blueprint.leyforge.emergency.fire_rescue_station_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_emergency_fire_rescue_station_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_fire_rescue_station_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_fire_rescue_station_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_fire_rescue_station_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_emergency_fire_rescue_station_a.tres": "99758ed5717b75ada78b4ab9e5f535eb351b32f3a45985aeb3457babd06bfb29",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_fire_rescue_station_a_light_damage.tres": "a0e93f48b12ea567e9bdc11a581e27034554a5ef11b686d5a09d780c7070348e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_fire_rescue_station_a_repaired.tres": "a636f7d39ad86ca110d0ee94dceeb8f0dc46202db51517a8dbe5e3992e6c1102",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_emergency_fire_rescue_station_a_under_construction.tres": "69e1cad539ea0cd7d07a59ed4bef23c5a2a3b3e733ae2c282d5ce2e201ee1fab"
+}
+combined_source_hash = "c7f62fcb88054ba2564d5f5bb6e1ebeccd59c9ddc9e30f2fb83952ddeddffbc2"
+dependency_ids = PackedStringArray()

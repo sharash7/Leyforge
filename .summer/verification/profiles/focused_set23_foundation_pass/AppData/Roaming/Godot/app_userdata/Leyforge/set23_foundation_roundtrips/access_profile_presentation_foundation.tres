@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ForgeAccessibilityProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_accessibility_profile.gd" id="1_1hj30"]
+
+[resource]
+script = ExtResource("1_1hj30")
+caption_key = "presentation.caption.mining_impact"
+directional_indicator_id = "ui.indicator.contact"
+equivalent_feedback = {
+"audio_muted": "ui.indicator.contact",
+"reduced_flash": "vfx.effect.contact.mining.stone.foundation",
+"reduced_motion": "vfx.effect.contact.mining.stone.foundation"
+}
+critical_event_ids = PackedStringArray("event.block.mining_impact")
+schema_id = "leyforge.forge.accessibility-profile"
+stable_id = "access.profile.presentation.foundation"
+display_name = "Presentation Foundation Accessibility"
+asset_class = "accessibility_profile"
+lifecycle = "foundation"
+source_status = "validated_foundation_contract"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray()
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"document_set": "23",
+"manual_review": "open",
+"production_status": "foundation_only"
+}
+rights_status = "not_applicable"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_tbtqi"]
+
+[resource]
+script = ExtResource("1_tbtqi")
+product_id = "runtime.catalogue.vfx_effect_production_magic_rune_ward_start_soft"
+source_id = "vfx.effect.production.magic_rune_ward_start_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_magic_rune_ward_start_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_magic_rune_ward_start_soft.tres": "7eec4f29d07f2671029890bb06c96e085ce730049785ee26875094a2edd97a4a"
+}
+combined_source_hash = "a7784187e84d1c0e56cd0ed640ba3682c0a8f154ae8a80669e171e930550dfa7"
+dependency_ids = PackedStringArray()

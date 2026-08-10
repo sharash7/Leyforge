@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintModuleDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_connector_definition.gd" id="1_1litt"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_ka51d"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_module_definition.gd" id="3_16xkh"]
+
+[sub_resource type="Resource" id="Resource_rrhmx"]
+script = ExtResource("1_1litt")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_encounter.north"
+display_name = "Cave Encounter connection"
+owner_module_id = "blueprint.module.cave_nest.encounter"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(0, 1, -2)
+direction = Vector3i(0, 0, 1)
+connection_tags = PackedStringArray("cave", "encounter")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.cave"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "carve"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_hoci1"]
+script = ExtResource("1_1litt")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_encounter.south"
+display_name = "Cave Encounter connection"
+owner_module_id = "blueprint.module.cave_nest.encounter"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(0, 1, 2)
+connection_tags = PackedStringArray("cave", "encounter")
+blocked_tags = PackedStringArray()
+compatibility_group = "structure.cave"
+opening_size = Vector3i(3, 3, 1)
+clearance = Vector3i(3, 3, 2)
+terrain_policy = "carve"
+allowed_rotations = PackedInt32Array(0, 1, 2, 3)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_0h64q"]
+script = ExtResource("2_ka51d")
+element_id = "blueprint.module.cave_nest.encounter.floor"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "construction.brick.stone"
+metadata = {
+"family": "cave",
+"operation": "fill",
+"role": "encounter",
+"terrain_policy": "carve_and_fit"
+}
+
+[resource]
+script = ExtResource("3_16xkh")
+module_id = "blueprint.module.cave_nest.encounter"
+display_name = "Cave Nest Encounter"
+module_kind = "encounter"
+elements = Array[ExtResource("2_ka51d")]([SubResource("Resource_0h64q")])
+connectors = Array[ExtResource("1_1litt")]([SubResource("Resource_rrhmx"), SubResource("Resource_hoci1")])
+aliases = PackedStringArray("module.production.blueprint_module_cave_nest_encounter")
+dependency_ids = PackedStringArray()
+lifecycle = "review_ready"

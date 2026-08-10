@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_narfq"]
+
+[resource]
+script = ExtResource("1_narfq")
+receipt_id = "receipt.creator.catalogue.sound_event_golden_footsteps_stage4"
+source_id = "sound.event.golden.footsteps.stage4"
+source_type_id = "catalogue.audio"
+source_hash = "6243ca81cbfde1c1f099378ddf3ba000921c7cb5607d0f47af0f9a9fab11c7a4"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/sound_event_golden_footsteps_stage4.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/sound_event_golden_footsteps_stage4.tres": "2352f27a2bf48898cb8d03c02c17e8b3e5e6fdfaec20fb2be4cd9e98541f6c1f"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

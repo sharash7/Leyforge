@@ -10,20 +10,11 @@ const REGISTRY_PATH := "res://data/registry/voxel_registry.json"
 const AIR := 0
 const AIR_STABLE_ID := "core.block.air"
 
-# Stage 1 saves were written before block/item separation. These item ids could
-# leak into block inventories/world edits through duplicate display names.
-const LEGACY_NUMERIC_ALIASES := {
-	142: "natural.log.oak",
-	167: "construction.planks.oak",
-	168: "construction.beam.oak",
-	169: "construction.cobble.stone",
-	170: "construction.brick.stone",
-	224: "construction.roof.tile_clay",
-}
-
 var _blocks: Dictionary = {}  # numeric_id (int) -> resolved immutable definition
 var _name_to_id: Dictionary = {}
 var _stable_to_id: Dictionary = {}
+var _legacy_item_to_block: Dictionary = {}
+var _legacy_numeric_to_block: Dictionary = {}
 
 
 func _ready() -> void:
@@ -34,6 +25,8 @@ func _load_registry() -> void:
 	_blocks.clear()
 	_name_to_id.clear()
 	_stable_to_id.clear()
+	_legacy_item_to_block.clear()
+	_legacy_numeric_to_block.clear()
 	if not FileAccess.file_exists(REGISTRY_PATH):
 		push_error("BlockRegistry: registry file not found at %s" % REGISTRY_PATH)
 		_load_fallback()
@@ -90,6 +83,21 @@ func _load_registry() -> void:
 			push_warning("BlockRegistry: duplicate block display name %s" % _blocks[nid]["name"])
 		else:
 			_name_to_id[display_key] = nid
+	for entry in entries:
+		if not (entry is Dictionary) or str(entry.get("type", "")) != "alias" \
+				or str(entry.get("replacement_kind", "")) != "block":
+			continue
+		var legacy_stable_id := str(entry.get("original_id", ""))
+		var replacement_stable_id := str(entry.get("replacement_stable_id", ""))
+		var legacy_numeric_id := int(entry.get("numeric_id", -1))
+		if legacy_stable_id.is_empty() or replacement_stable_id.is_empty() \
+				or legacy_numeric_id <= 0 \
+				or not _stable_to_id.has(replacement_stable_id):
+			push_error("BlockRegistry: invalid retired alias %s / %d" % [
+				legacy_stable_id, legacy_numeric_id])
+			continue
+		_legacy_item_to_block[legacy_stable_id] = replacement_stable_id
+		_legacy_numeric_to_block[legacy_numeric_id] = replacement_stable_id
 	if _blocks.is_empty():
 		_load_fallback()
 	print("BlockRegistry: loaded %d blocks" % _blocks.size())
@@ -181,6 +189,10 @@ func get_color(id: int) -> Color:
 
 func get_shape(id: int) -> String:
 	var stable_id := get_stable_id(id)
+	var forge_runtime := get_node_or_null("/root/ForgeRuntime")
+	if forge_runtime != null \
+			and forge_runtime.uses_custom_chunk_geometry(stable_id):
+		return "forge"
 	if ".slab." in stable_id:
 		return "slab"
 	if ".stair." in stable_id:
@@ -200,10 +212,6 @@ func get_shape(id: int) -> String:
 		"power.crank.basic",
 	]:
 		return "post"
-	var forge_runtime := get_node_or_null("/root/ForgeRuntime")
-	if forge_runtime != null \
-			and forge_runtime.uses_custom_chunk_geometry(stable_id):
-		return "forge"
 	return "cube"
 
 
@@ -242,23 +250,23 @@ func get_harvest_profile(id: int) -> Dictionary:
 		"drop_count": 1,
 	}
 	var mappings := {
-		"natural.log.oak": ["axe", 0, "item.resource.log_oak", 1, 1.2],
+		"natural.log.oak": ["axe", 0, "natural.log.oak", 1, 1.2, "block"],
 		"natural.leaves.oak": ["axe", 0, "item.resource.plant_fibre", 1, 0.2],
 		"terrain.grass.basic": ["shovel", 0, "terrain.grass.basic", 1, 0.35, "block"],
 		"terrain.dirt.basic": ["shovel", 0, "terrain.dirt.basic", 1, 0.45, "block"],
 		"terrain.stone.basic": ["pickaxe", 0, "item.resource.stone_chunk", 1, 1.8],
 		"terrain.clay.basic": ["shovel", 1, "item.resource.clay_lump", 1, 0.8],
-		"terrain.sand.basic": ["shovel", 0, "item.resource.sand", 1, 0.5],
+		"terrain.sand.basic": ["shovel", 0, "terrain.sand.basic", 1, 0.5, "block"],
 		"terrain.gravel.basic": ["shovel", 0, "terrain.gravel.basic", 1, 0.65, "block"],
 		"terrain.snow.basic": ["shovel", 0, "terrain.snow.basic", 1, 0.25, "block"],
 		"ore.coal.basic": ["pickaxe", 0, "item.resource.coal_chunk", 1, 2.0],
 		"ore.copper.basic": ["pickaxe", 1, "item.resource.raw_copper_ore", 1, 2.5],
 		"ore.iron.basic": ["pickaxe", 1, "item.resource.raw_iron_ore", 1, 3.0],
 		"ore.mana_crystal.basic": ["pickaxe", 2, "item.resource.raw_mana_crystal", 1, 4.0],
-		"construction.planks.oak": ["axe", 0, "item.material.plank_oak", 1, 0.9],
-		"construction.beam.oak": ["axe", 0, "item.material.beam_oak", 1, 1.1],
-		"construction.cobble.stone": ["pickaxe", 0, "item.material.cobblestone", 1, 1.5],
-		"construction.brick.stone": ["pickaxe", 0, "item.material.stone_brick", 1, 1.6],
+		"construction.planks.oak": ["axe", 0, "construction.planks.oak", 1, 0.9, "block"],
+		"construction.beam.oak": ["axe", 0, "construction.beam.oak", 1, 1.1, "block"],
+		"construction.cobble.stone": ["pickaxe", 0, "construction.cobble.stone", 1, 1.5, "block"],
+		"construction.brick.stone": ["pickaxe", 0, "construction.brick.stone", 1, 1.6, "block"],
 	}
 	if mappings.has(stable_id):
 		var values: Array = mappings[stable_id]
@@ -292,13 +300,41 @@ func get_stable_id(id: int) -> String:
 func resolve_serialized_id(value: Variant) -> int:
 	## Resolves current stable ids and the numeric ids used by legacy v2 saves.
 	if value is String:
-		return get_id_by_stable_id(value)
+		var stable_id := str(value)
+		if _legacy_item_to_block.has(stable_id):
+			stable_id = str(_legacy_item_to_block[stable_id])
+		return get_id_by_stable_id(stable_id)
 	if value is int or value is float:
 		var legacy_id := int(value)
-		if LEGACY_NUMERIC_ALIASES.has(legacy_id):
-			return get_id_by_stable_id(LEGACY_NUMERIC_ALIASES[legacy_id])
+		if _legacy_numeric_to_block.has(legacy_id):
+			return get_id_by_stable_id(str(_legacy_numeric_to_block[legacy_id]))
 		return legacy_id if legacy_id == AIR or _blocks.has(legacy_id) else -1
 	return -1
+
+
+func canonical_content_ref(kind: String, stable_id: String, count: int = 1) -> Dictionary:
+	if kind == "item" and _legacy_item_to_block.has(stable_id):
+		return {
+			"kind": "block",
+			"stable_id": str(_legacy_item_to_block[stable_id]),
+			"count": count,
+		}
+	return {"kind": kind, "stable_id": stable_id, "count": count}
+
+
+func legacy_item_projection(value: Variant) -> Dictionary:
+	var replacement := ""
+	if value is String:
+		replacement = str(_legacy_item_to_block.get(str(value), ""))
+	elif value is int or value is float:
+		replacement = str(_legacy_numeric_to_block.get(int(value), ""))
+	if replacement.is_empty():
+		return {}
+	return {
+		"kind": "block",
+		"stable_id": replacement,
+		"id": get_id_by_stable_id(replacement),
+	}
 
 
 func get_definition(id: int) -> Dictionary:

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_llb6s"]
+
+[resource]
+script = ExtResource("1_llb6s")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_safety_village_gate_a"
+source_id = "blueprint.leyforge.safety.village_gate_a"
+source_type_id = "catalogue.structures"
+source_hash = "4548c9a913492440888de91ae6ee4fa78e4daaa2fd8ee775d1d417ec87b10aea"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_village_gate_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_safety_village_gate_a.tres": "e3f19287467abbc2f04ec50c4bc1b3b411d3692e94ee713b9d4a8ebfe45f563e"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

@@ -1,62 +1,64 @@
-[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3 uid="uid://bcdo8rxqdphjt"]
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3]
 
-[ext_resource type="Script" uid="uid://cfvrxyd74eqwx" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_wipwa"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_wipwa"]
 
 [resource]
 script = ExtResource("1_wipwa")
 asset_id = "forge_asset.light.torch.basic"
 presentation_id = "presentation.light.torch.basic"
 source_revision = 1
-source_hash = "d7682bb1aeb57084c510af1ec7cb2941a421ae7295794b1b0d5b46cab87f8ac3"
+source_hash = "35dfdaf6d00ee4bdd053c0e241588bd9ea57bfd27509b6273aea74f97df4ccd9"
 engine_version = "4.6.1-stable (custom_build)"
 baker_version = "forge-pipeline-v7"
 products = Array[Dictionary]([{
-"hash": "a4e7ce5881b0d9e3328c160aa55b3f037183561e3296a2922e0c2fa6a18e6aba",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/presentation_mesh.res",
+"hash": "d2d5f7cdc54207e628b95f250b45eda8f84f84193ceb381f5f084d8b7f3d62d3",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/presentation_mesh.res",
 "type": "mesh"
 }, {
-"hash": "04f9581b8571387749a14e698739981b440f4516f8d353136a449a3f1a3780de",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/icon.png",
+"hash": "289ee2d348c3589ba2105613c244b1681853fb3f948201f4274cc5098513dc6b",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/icon.png",
 "type": "icon"
 }, {
-"hash": "5ebd98cf75b3edf683189e16c8c8e6b39e6fa305cac451fb25cd95756477ddd1",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/collision.tres",
+"hash": "32073b86ce58ff48d31cbe32c83de21567d7fe3cb73d1c7df1ac15b9b53c5849",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/collision.tres",
 "type": "collision"
 }, {
-"hash": "30c283e145988cb2c39e8a5c6670721be601d4564eb13635166765038728f370",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/state_binding.tres",
+"hash": "402b56aa9e2ad44b695b9cd033e6e59ab8ba4e7ce0673be9b1bb41b8e40b5414",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/state_binding.tres",
 "type": "state_binding"
 }, {
-"hash": "c479733a1e17a07258a9ea07b123e6da434aafe0ae2e06bf55a806e6f931694e",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_1/frame_000.res",
+"hash": "ab7f52bdb229b0dc39c3e4cc2099fb65855be4da3133b2e390e648bf22e9cc66",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_1/frame_000.res",
 "type": "voxel_frame_mesh"
 }, {
-"hash": "6ac79d5187936beaedb097971955dc696f3323276209b6cc6380ac8fba3c08d6",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_1/frame_001.res",
+"hash": "a6dded69c28b71031a04eac9b673c96b460efc49ea715fbce636d549c2e118c8",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_1/frame_001.res",
 "type": "voxel_frame_mesh"
 }, {
-"hash": "595ba4f1f7261b84c115f937295109e5443a68ade746eb9a396d86b0178f9260",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_2/frame_000.res",
+"hash": "303644dd5982e5fcb79ef514b7435ae0a89c9fdf795fdff65722517d3f8a9c76",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_2/frame_000.res",
 "type": "voxel_frame_mesh"
 }, {
-"hash": "deef9f6fd7e259adb7c1a2a7508c3ef3adca07efb8c712128ca3a89ad1ce6fdd",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/frames_voxel_effect_2/frame_001.res",
+"hash": "9a14bccf4ee38c5216e1229f3bd21b6c9af53b46169722e5ffdf1f921fe8d532",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/frames_voxel_effect_2/frame_001.res",
 "type": "voxel_frame_mesh"
 }, {
-"hash": "48593d07ba4bd3678d1ef053b895899052ffec41f5f14e8428f962724d28d887",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/animations.tres",
+"hash": "b738482d016836b7d16de87e469f17c529f622dcfbb47562cfa980b069f1fad4",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/animations.tres",
 "type": "animation_library"
 }, {
-"hash": "7d67ab7ac046c0958e5c8395ea92dcae598e1a36c6967a07fbc924f4ffc1136c",
-"path": "res://generated/forge/products/presentation_light_torch_basic/2ab18b8d56466a0f/presentation.tscn",
+"hash": "650b8ed061c2f2f0653fe34401a3b0a664bd3d481791872a6b0960de123806bb",
+"path": "res://generated/forge/products/presentation_light_torch_basic/0dd1b121188cc96f/presentation.tscn",
 "type": "scene"
 }, {
-"hash": "958297c7eea4a68516031caae372743783ed31529007d0b6ff0b188650ab4965",
+"hash": "bd76d2eb06b4ac9b36fc13d4e31b5c11b3b3aee77d799036794ac253dab25c59",
 "path": "res://generated/forge/packages/presentation_light_torch_basic.tres",
 "type": "runtime_package"
 }])
 diagnostics_summary = {
+"blocker": 0,
 "critical": 0,
+"critical_release_blocker": 0,
 "error": 0,
 "info": 0,
 "warning": 0

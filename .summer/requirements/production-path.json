@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "roadmap_version": 2,
+  "updated": "2026-08-10",
+  "source_scope": "Leyforge Documents 00-30 governed specification",
+  "strategy": "core_first",
+  "completion_scope": ["Core Production", "Early Access", "Full Release"],
+  "non_blocking_tiers": ["Later Expansion", "Tooling Research", "Archived Validation"],
+  "current_phase": "P0",
+  "baseline": {
+    "save_version": 18,
+    "worldgen_version": 5,
+    "coverage": {"implemented": 0, "partial": 26, "stub": 3, "missing": 3},
+    "regression_scenes": 53,
+    "regression_checks": 19656,
+    "worldgen_seeds": 256,
+    "forge_structure_seeds": 10000
+  },
+  "status_vocabulary": ["completed", "in_progress", "planned", "blocked", "deferred"],
+  "phases": [
+    {
+      "id": "P0",
+      "name": "Governance and Production Reset",
+      "status": "in_progress",
+      "gate": "G0-G1",
+      "outcome": "A reproducible Documents 00-30 baseline, production backlog, and archive-safe development profile.",
+      "exit_gate": ["Core requirements have a package and owner", "production profiles contain no active POC identity", "Phase 0 and current regression gates pass"],
+      "packages": [
+        {"id": "GOV-001", "title": "Canonical document and coverage baseline", "status": "completed", "documents": ["00", "18", "25"], "depends_on": [], "deliverables": ["137-document manifest", "requirements ledger", "32-subsystem coverage register"], "acceptance": ["document governance passes", "coverage is evidence-derived"]},
+        {"id": "GOV-002", "title": "Requirements-to-package disposition", "status": "in_progress", "documents": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "20A-20H", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"], "depends_on": ["GOV-001"], "deliverables": ["machine-readable production packages", "tier and dependency mapping"], "acceptance": ["every accepted requirement resolves to one governed package before implementation"]},
+        {"id": "GOV-003", "title": "POC archive isolation", "status": "in_progress", "documents": ["00", "01", "07", "11", "15", "18", "24", "25"], "depends_on": ["GOV-001"], "deliverables": ["production-safe profile and save labels", "legacy identity aliases", "leakage probe"], "acceptance": ["new worlds do not use retired POC identities", "legacy fixtures remain loadable"]},
+        {"id": "GOV-004", "title": "Safe build and verification baseline", "status": "completed", "documents": ["18", "25"], "depends_on": ["GOV-001"], "deliverables": ["fixed Godot runner", "isolated verification profiles", "teardown blocking policy"], "acceptance": ["current regression gate passes without release-blocking output"]}
+      ]
+    },
+    {
+      "id": "P1",
+      "name": "Technical and Registry Kernel",
+      "status": "in_progress",
+      "gate": "G2-G3",
+      "outcome": "One authoritative command, evidence, registry, pack, and transaction substrate proven by a representative vertical.",
+      "exit_gate": ["shared kernel contracts pass", "representative fixture compiles and round-trips", "rollback is deterministic"],
+      "packages": [
+        {"id": "KRN-001", "title": "World time, presence, authority and evidence envelope", "status": "completed", "documents": ["07", "15", "18", "25", "27", "28", "29", "30"], "depends_on": ["GOV-002"], "deliverables": ["WorldTimeReference", "ActorPresenceState", "AuthorityContext", "CrossSetEvidenceEnvelope"], "acceptance": ["persistent consequences are idempotent", "conflicting evidence is rejected"]},
+        {"id": "KRN-002", "title": "Command, event, transaction and scheduler foundation", "status": "completed", "documents": ["18", "25"], "depends_on": ["KRN-001"], "deliverables": ["validated command envelope", "event journal", "transaction lifecycle", "bounded scheduler"], "acceptance": ["unauthorised mutation is rejected", "replay cannot duplicate a commit"]},
+        {"id": "REG-001", "title": "Qualified IDs, schemas, facets, packs and compiler", "status": "completed", "documents": ["03", "04", "05", "06", "18", "25"], "depends_on": ["GOV-002"], "deliverables": ["definition envelope", "schema registry", "pack manifest and lockfile", "compiled Godot resources"], "acceptance": ["duplicate owners and unresolved references fail", "compiled output is deterministic"]},
+        {"id": "REG-002", "title": "Representative cross-domain registry fixture", "status": "completed", "documents": ["03", "04", "05", "06", "12", "17", "25"], "depends_on": ["KRN-002", "REG-001"], "deliverables": ["Block-to-UI fixture", "optional-pack fixture", "save and rollback evidence"], "acceptance": ["fixture loads, saves, migrates and rolls back losslessly"]}
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "Canonical Data, World and Persistence",
+      "status": "in_progress",
+      "gate": "G4-G5",
+      "outcome": "Canonical physical content and deterministic generated worlds persist independently of presentation and POC fixtures.",
+      "exit_gate": ["approved Core catalogues resolve", "multiple generated regions require no POC fallback", "save recovery and migration pass"],
+      "packages": [
+        {"id": "DATA-001", "title": "Core Blocks, Items, Recipes and Resources", "status": "in_progress", "documents": ["03", "04", "05", "06", "25"], "depends_on": ["REG-002"], "deliverables": ["catalogue batches", "provenance and conservation rules", "capability graph"], "acceptance": ["no recoverable-Block duplicate Item", "all physical chains conserve quantities"]},
+        {"id": "WLD-001", "title": "Seed world topology and biome assembly", "status": "completed", "documents": ["11", "24"], "depends_on": ["REG-002"], "deliverables": ["world manifest", "regional generation", "deterministic repair"], "acceptance": ["seed corpus is deterministic", "normal generation has no archived-profile dependency"]},
+        {"id": "STR-001", "title": "Persistent StructureInstance owner", "status": "completed", "documents": ["12", "16", "20", "22", "24"], "depends_on": ["REG-002", "WLD-001"], "deliverables": ["StructureInstance record", "damage and repair history", "LOD views"], "acceptance": ["ConstructionProject hands completion to Structure owner", "combat cannot materialise structure truth directly"]},
+        {"id": "SAVE-001", "title": "Save coordinator, migration and recovery", "status": "completed", "documents": ["18", "25"], "depends_on": ["KRN-002", "REG-002"], "deliverables": ["ordered migrations", "generated-base plus delta", "missing-pack quarantine", "atomic recovery"], "acceptance": ["supported v2-v18 fixtures migrate", "failed writes preserve the previous good save"]},
+        {"id": "LOD-001", "title": "Time, presence and simulation LOD", "status": "completed", "documents": ["07", "10", "11", "18", "25"], "depends_on": ["KRN-002", "SAVE-001"], "deliverables": ["promotion and demotion", "bounded catch-up", "workload budgets"], "acceptance": ["identity, ownership and quantities agree across LOD transitions"]}
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "Persistent Simulation and Ownership Reconciliation",
+      "status": "in_progress",
+      "gate": "G6-foundation",
+      "outcome": "Specialist systems own their state and communicate through the final reconciled Sets 27-30 contracts.",
+      "exit_gate": ["owner boundaries are enforced", "near and far simulation reconcile", "save/load preserves specialist state"],
+      "packages": [
+        {"id": "NPC-001", "title": "Persistent people and household owner extraction", "status": "completed", "documents": ["07"], "depends_on": ["LOD-001"], "deliverables": ["resident, household, job and schedule interfaces"], "acceptance": ["resident identity survives materialisation changes"]},
+        {"id": "BIO-001", "title": "Biological and survival state owner", "status": "completed", "documents": ["16", "29", "30"], "depends_on": ["KRN-002", "NPC-001"], "deliverables": ["biological records", "impact and exertion decisions", "mobility modifiers"], "acceptance": ["combat and actors request rather than write biological truth"]},
+        {"id": "SOC-001", "title": "Social, dialogue and knowledge state owner", "status": "completed", "documents": ["07", "13", "15", "28"], "depends_on": ["KRN-002", "NPC-001"], "deliverables": ["relationship and knowledge records", "dialogue evidence", "companion agreements"], "acceptance": ["social trust cannot directly grant political or economic authority"]},
+        {"id": "POL-001", "title": "Government, law and territory owner", "status": "completed", "documents": ["13", "27", "28"], "depends_on": ["KRN-002", "NPC-001"], "deliverables": ["political authority", "territory and law records", "permission queries"], "acceptance": ["political permissions have one owner"]},
+        {"id": "MOV-001", "title": "Universal Movement facade and journey records", "status": "completed", "documents": ["07", "19", "26", "28", "29", "30"], "depends_on": ["BIO-001", "SOC-001", "STR-001"], "deliverables": ["movement request API", "journey records", "route truth", "specialist provider boundary"], "acceptance": ["settlement schedules issue movement intent", "Set 26E remains aquatic provider"]},
+        {"id": "EVT-001", "title": "Quest, event and world-history evidence owner", "status": "planned", "documents": ["15", "24"], "depends_on": ["KRN-002", "SAVE-001"], "deliverables": ["event journal", "quest graph state", "world consequence references"], "acceptance": ["events bind existing identities and remain idempotent"]}
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "Living Frontier Gameplay Integration",
+      "status": "planned",
+      "gate": "G6",
+      "outcome": "A complete generated gather, build, settle, trade, travel, adventure and recovery loop across connected settlements.",
+      "exit_gate": ["Living Frontier vertical passes", "progression is capability-driven", "persistent consequences survive LOD and reload"],
+      "packages": [
+        {"id": "SET-001", "title": "Settlement services, construction and growth", "status": "planned", "documents": ["07", "19", "20", "20A-20H"], "depends_on": ["NPC-001", "MOV-001", "STR-001"], "deliverables": ["need-driven projects", "service activation", "district growth"], "acceptance": ["projects conserve resources and produce owned structures"]},
+        {"id": "ECO-001", "title": "Economy, markets, contracts and trade", "status": "planned", "documents": ["27"], "depends_on": ["BIO-001", "SOC-001", "POL-001", "MOV-001", "SET-001"], "deliverables": ["stock-backed markets", "contracts and wages", "transport missions", "public finance"], "acceptance": ["no invisible stock, money or completed journeys"]},
+        {"id": "SYS-001", "title": "Automation, magic and infrastructure integration", "status": "planned", "documents": ["08", "09", "20"], "depends_on": ["DATA-001", "SET-001", "ECO-001"], "deliverables": ["network graphs", "machines", "mana and wards", "facility transactions"], "acceptance": ["networks conserve inputs and use owner-neutral settlement transactions"]},
+        {"id": "ECOLOGY-001", "title": "Creature, ecology and threat runtime", "status": "planned", "documents": ["10", "11", "24", "29", "30"], "depends_on": ["BIO-001", "MOV-001", "WLD-001"], "deliverables": ["persistent creatures", "bounded ecology", "Atlas-driven threats"], "acceptance": ["fixed goblin scheduling is not production authority"]},
+        {"id": "COMBAT-001", "title": "Combat and aftermath reconciliation", "status": "planned", "documents": ["12", "15", "16", "29", "30"], "depends_on": ["BIO-001", "MOV-001", "STR-001", "EVT-001", "ECOLOGY-001"], "deliverables": ["resolved impact events", "structure consequences", "persistent aftermath"], "acceptance": ["each consequence commits once through its owner"]},
+        {"id": "CORE-001", "title": "Generated Living Frontier identity slice", "status": "planned", "documents": ["00", "01", "02", "06", "07", "15", "17", "24"], "depends_on": ["SET-001", "ECO-001", "SYS-001", "COMBAT-001"], "deliverables": ["connected generated settlements", "capability progression", "travel, quest and recovery loop"], "acceptance": ["slice does not require Forest Hamlet, fixed residents or fixed coordinates"]}
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "Core Production Completion",
+      "status": "planned",
+      "gate": "G7-G8",
+      "outcome": "The solo-first Living Frontier Network is a complete, accessible, presented production milestone.",
+      "exit_gate": ["Core pack lock is frozen", "packaged performance and accessibility pass", "human milestone approval is recorded"],
+      "packages": [
+        {"id": "FORGE-001", "title": "Approved Core Forge and Atlas migration", "status": "planned", "documents": ["21", "22", "23", "24", "25"], "depends_on": ["REG-002", "STR-001", "CORE-001"], "deliverables": ["approved editable sources", "deterministic runtime products", "coverage ledger"], "acceptance": ["generated products never become editable authority"]},
+        {"id": "REALM-001", "title": "Core realm foundation", "status": "planned", "documents": ["09", "14", "24"], "depends_on": ["SAVE-001", "MOV-001", "EVT-001"], "deliverables": ["RealmInstance", "transition transaction", "Verdant Covenant", "Ancestral Veil safe-return teaser"], "acceptance": ["realm identity and return persist atomically"]},
+        {"id": "BPW-001", "title": "Restricted player Blueprint Workshop", "status": "planned", "documents": ["17", "19", "21", "22"], "depends_on": ["REG-002", "STR-001", "FORGE-001"], "deliverables": ["player blueprint source", "validation and submission", "non-destructive editing"], "acceptance": ["players cannot mutate developer registry authority"]},
+        {"id": "UI-001", "title": "Owner-neutral UI, accessibility and recovery", "status": "planned", "documents": ["17", "18", "23"], "depends_on": ["CORE-001", "REALM-001"], "deliverables": ["read models", "command bridge", "guidance", "settings and recovery UI"], "acceptance": ["UI labels come from focused world state", "accessibility suite passes"]},
+        {"id": "CORE-ACCEPT-001", "title": "Core production acceptance", "status": "planned", "documents": ["00", "18", "25"], "depends_on": ["FORGE-001", "REALM-001", "BPW-001", "UI-001"], "deliverables": ["packaged evidence", "manual test matrix", "owner decision"], "acceptance": ["G7-G8 evidence is frozen and approved"]}
+      ]
+    },
+    {
+      "id": "P6",
+      "name": "Early Access and Full Release Breadth",
+      "status": "planned",
+      "gate": "G7-G9 expansion",
+      "outcome": "Every accepted release-tier package across Documents 00-30 is integrated with complete dependencies and evidence.",
+      "exit_gate": ["accepted release packages are Integrated or Released", "full maritime closure passes", "no accepted requirement remains partial or unverified"],
+      "packages": [
+        {"id": "BREADTH-001", "title": "Accepted world and civilisation breadth", "status": "planned", "documents": ["10", "11", "12", "13", "15", "20", "20A-20H", "24", "25"], "depends_on": ["CORE-ACCEPT-001"], "deliverables": ["release-tier biomes, cultures, settlements, sites, creatures, threats and histories"], "acceptance": ["each package passes completeness and reachability contracts"]},
+        {"id": "REALM-002", "title": "Accepted Full Release realms", "status": "planned", "documents": ["09", "14", "24"], "depends_on": ["REALM-001", "BREADTH-001"], "deliverables": ["complete admitted realm packages"], "acceptance": ["each realm has progression, persistence and safe return"]},
+        {"id": "MAR-001", "title": "Full Set 26 maritime integration", "status": "planned", "documents": ["26"], "depends_on": ["BIO-001", "ECO-001", "MOV-001", "REALM-001", "BREADTH-001"], "deliverables": ["marine fields", "aquatic provider", "vessels", "ports", "maritime economy, combat, events and UI"], "acceptance": ["G9 passes", "aquatic locomotion has one provider"]},
+        {"id": "RELEASE-SCOPE-001", "title": "Accepted-scope closure", "status": "planned", "documents": ["00", "25"], "depends_on": ["BREADTH-001", "REALM-002", "MAR-001"], "deliverables": ["terminal requirement dispositions", "deferred-tier register"], "acceptance": ["Core, Early Access and Full Release scope has no incomplete row"]}
+      ]
+    },
+    {
+      "id": "P7",
+      "name": "Multiplayer Hardening",
+      "status": "planned",
+      "gate": "G9-network",
+      "outcome": "Solo, split-screen and network play share one authoritative persistent ruleset.",
+      "exit_gate": ["replication and reconnect pass", "content handshake and permissions pass", "soak tests preserve conservation"],
+      "packages": [
+        {"id": "NET-001", "title": "Replication, prediction and authority", "status": "planned", "documents": ["18", "26", "27", "28", "29", "30"], "depends_on": ["RELEASE-SCOPE-001", "KRN-002"], "deliverables": ["replication", "prediction", "permission validation", "content handshake"], "acceptance": ["clients cannot author persistent truth"]},
+        {"id": "NET-002", "title": "Reconnect, split-screen and soak", "status": "planned", "documents": ["17", "18", "26", "30"], "depends_on": ["NET-001"], "deliverables": ["late join", "reconnect", "host recovery", "shared-screen support", "soak evidence"], "acceptance": ["replay cannot duplicate goods, money, injuries, journeys or projects"]}
+      ]
+    },
+    {
+      "id": "P8",
+      "name": "Release Qualification",
+      "status": "planned",
+      "gate": "G10",
+      "outcome": "A reproducible release candidate with frozen evidence and explicit human approval.",
+      "exit_gate": ["all selected gates pass", "evidence bundle is frozen", "release authority approves"],
+      "packages": [
+        {"id": "QUAL-001", "title": "Seed, performance and accessibility qualification", "status": "planned", "documents": ["17", "18", "25"], "depends_on": ["NET-002"], "deliverables": ["seed corpus", "packaged profiles", "accessibility review", "human playtests"], "acceptance": ["release budgets and player-trust gates pass"]},
+        {"id": "QUAL-002", "title": "Migration and recovery qualification", "status": "planned", "documents": ["18", "25"], "depends_on": ["RELEASE-SCOPE-001", "NET-002"], "deliverables": ["migration matrix", "missing-pack recovery", "rollback evidence"], "acceptance": ["supported saves migrate without loss"]},
+        {"id": "QUAL-003", "title": "Evidence freeze and release decision", "status": "planned", "documents": ["00", "18", "25"], "depends_on": ["QUAL-001", "QUAL-002"], "deliverables": ["frozen pack locks", "checksums", "benchmarks", "known deferrals", "rollback instructions"], "acceptance": ["G10 passes with explicit human approval"]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_tadpw"]
+
+[resource]
+script = ExtResource("1_tadpw")
+product_id = "runtime.catalogue.sound_event_production_goblin_raid_trail_soft"
+source_id = "sound.event.production.goblin_raid_trail_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_goblin_raid_trail_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_goblin_raid_trail_soft.tres": "5d34e70498e6142a8078dbac41aacbbc1b24dffbb36f9b5cdf986521e76872e8"
+}
+combined_source_hash = "46b6671a947cebc628c1ac30e13ab049cf54068215b2f7783620237cb7f411a0"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_nqokv"]
+
+[resource]
+script = ExtResource("1_nqokv")
+product_id = "runtime.catalogue.sound_source_production_player_movement_needs_move_soft_body"
+source_id = "sound.source.production.player_movement_needs_move_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_player_movement_needs_move_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_player_movement_needs_move_soft_body.tres": "c28e3ceee251f8a67ac472ca802b6bf9fe769ebe336133dce1771c4645a376c7"
+}
+combined_source_hash = "4cc3ea7be7feac3a6d1585898176e2d7ef31b59e156b841aa936a25c19d07bb3"
+dependency_ids = PackedStringArray()

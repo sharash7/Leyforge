@@ -1,0 +1,12 @@
+{
+  "batch_id": "batch.structures.health",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.health.healer_hut_a",
+    "blueprint.leyforge.health.clinic_infirmary_a",
+    "blueprint.leyforge.health.hospital_complex_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

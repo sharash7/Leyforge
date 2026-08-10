@@ -1,0 +1,15 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.vfx.village_ambience",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "vfx.effect.production.village_ambience_finish_soft",
+    "vfx.effect.production.village_ambience_impact_soft",
+    "vfx.effect.production.village_ambience_release_soft",
+    "vfx.effect.production.village_ambience_start_soft",
+    "vfx.effect.production.village_ambience_sustain_soft",
+    "vfx.effect.production.village_ambience_warning_soft"
+  ]
+}

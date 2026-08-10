@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_s2bid"]
+
+[resource]
+script = ExtResource("1_s2bid")
+product_id = "runtime.catalogue.sound_source_production_cave_wisp_activate_soft_body"
+source_id = "sound.source.production.cave_wisp_activate_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_cave_wisp_activate_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_cave_wisp_activate_soft_body.tres": "12f1bdc3877489a4d2b308d7a52ea6e5b0ec0e23ee505f32939e65eecd45f42e"
+}
+combined_source_hash = "8464074e7a1668864e9cd4e460eaa8277726e11f01bd96b168984a0882dfe95b"
+dependency_ids = PackedStringArray()

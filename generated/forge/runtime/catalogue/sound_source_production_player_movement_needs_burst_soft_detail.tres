@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_cagub"]
+
+[resource]
+script = ExtResource("1_cagub")
+product_id = "runtime.catalogue.sound_source_production_player_movement_needs_burst_soft_detail"
+source_id = "sound.source.production.player_movement_needs_burst_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_player_movement_needs_burst_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_player_movement_needs_burst_soft_detail.tres": "f6f0efc740ae8fc782856d2516aa342dd7c0db7efedc807ddb3b66c4cbf37526"
+}
+combined_source_hash = "e39d1309f761243fd95f78b1ab751cb28db3e4675be4e60385c22359b50aaed5"
+dependency_ids = PackedStringArray()

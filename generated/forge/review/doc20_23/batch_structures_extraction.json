@@ -1,0 +1,19 @@
+{
+  "batch_id": "batch.structures.extraction",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.extraction.lumber_camp_a",
+    "blueprint.leyforge.extraction.sawmill_a",
+    "blueprint.leyforge.extraction.quarry_stone_yard_a",
+    "blueprint.leyforge.extraction.clay_sand_works_a",
+    "blueprint.leyforge.extraction.mine_entrance_a",
+    "blueprint.leyforge.extraction.deep_mine_complex_a",
+    "blueprint.leyforge.extraction.ore_sorting_yard_a",
+    "blueprint.leyforge.extraction.charcoal_fuel_yard_a",
+    "blueprint.leyforge.extraction.mana_crystal_site_a",
+    "blueprint.leyforge.extraction.automated_mine_quarry_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_k78o4"]
+
+[resource]
+script = ExtResource("1_k78o4")
+product_id = "runtime.catalogue.vfx_form_production_contact_burst"
+source_id = "vfx.form.production.contact_burst"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/form_contact_burst.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/form_contact_burst.tres": "d50fa5e12ee0be5ead95b97dc4a0ff8f719c5213fa55b3b68f4acebe9bbc2956"
+}
+combined_source_hash = "1559848c109adea19e6df193e1323ecba7179ec70bde790e43ce2263e0b49883"
+dependency_ids = PackedStringArray()

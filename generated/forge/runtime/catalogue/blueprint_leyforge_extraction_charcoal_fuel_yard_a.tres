@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_vnyjg"]
+
+[resource]
+script = ExtResource("1_vnyjg")
+product_id = "runtime.catalogue.blueprint_leyforge_extraction_charcoal_fuel_yard_a"
+source_id = "blueprint.leyforge.extraction.charcoal_fuel_yard_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_charcoal_fuel_yard_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_charcoal_fuel_yard_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_charcoal_fuel_yard_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_charcoal_fuel_yard_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_extraction_charcoal_fuel_yard_a.tres": "cf7e8aa3db838dc7b241242440cea9d07977b7cdbc1fc1990271e8e3fd60cfc3",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_charcoal_fuel_yard_a_light_damage.tres": "d93b24607bf39925f1b4bb1c8c7f61765f93555654926b743ed68e255c79ce95",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_charcoal_fuel_yard_a_repaired.tres": "7ed09522ecfa654a0c773f7b25bcf508f9509706599d0d2b95cc06d46d74eedc",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_extraction_charcoal_fuel_yard_a_under_construction.tres": "41b84f3cd27e7df58d9bf2a2074b1044519157d3e2d4e1c0645994d07e070e11"
+}
+combined_source_hash = "6d929d950db2667043577a76f16373c133ef9b9f9342f472f761758fa236bab6"
+dependency_ids = PackedStringArray()

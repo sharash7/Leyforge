@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_afm7b"]
+
+[resource]
+script = ExtResource("1_afm7b")
+product_id = "runtime.catalogue.sound_event_production_combat_gear_impact_firm"
+source_id = "sound.event.production.combat_gear_impact_firm"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_combat_gear_impact_firm.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_combat_gear_impact_firm.tres": "a6bab8377afef634e12d99dc5e031a8f40316463f0c57c727d30f875236e7d99"
+}
+combined_source_hash = "ec88166dad68d5dbd13874e8932bc75ab787f2188721e702312946396c73a41b"
+dependency_ids = PackedStringArray()

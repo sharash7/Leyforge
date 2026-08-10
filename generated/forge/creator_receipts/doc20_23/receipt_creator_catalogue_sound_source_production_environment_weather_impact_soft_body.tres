@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_n2ses"]
+
+[resource]
+script = ExtResource("1_n2ses")
+receipt_id = "receipt.creator.catalogue.sound_source_production_environment_weather_impact_soft_body"
+source_id = "sound.source.production.environment_weather_impact_soft_body"
+source_type_id = "catalogue.audio"
+source_hash = "6bcde9f5026c12efbeb966cfb90cc3c9cc04a57b2d69a10d2a0ac1d605dad2da"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/sound_source_production_environment_weather_impact_soft_body.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/sound_source_production_environment_weather_impact_soft_body.tres": "37fa23d6301f0cf4dbe0ea0b8eabfd519e9d2c4a327cd7d8245f10a5e55945df"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

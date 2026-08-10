@@ -1,0 +1,8 @@
+Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: OS_Windows::get_system_ca_certificates (platform\windows\os_windows.cpp:2588)
+BlockRegistry: loaded 143 blocks
+ItemRegistry: loaded 169 items
+SETTLEMENT REGISTRY: 120 definitions, 120 blueprints, 120 projects, 25 packs
+FORGE_END_TO_END_PROBE {"checks":250,"deterministic_hash":"06078dafa4192cd87c1407d7607f516851f83a307e5bd7527ab0c0d510eb18e8","failures":["end-to-end deterministic hash drifted"],"fixture_count":4,"ok":false}

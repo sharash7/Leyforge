@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_xaddk"]
+
+[resource]
+script = ExtResource("1_xaddk")
+product_id = "runtime.catalogue.vfx_graph_template_burst_foundation"
+source_id = "vfx.graph.template.burst.foundation"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/foundation/vfx_graph_template_burst_foundation.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/foundation/vfx_graph_template_burst_foundation.tres": "fef396e13484b83889fffb9f96af2f288a161a9e65902e543130fa1c2bd8398a"
+}
+combined_source_hash = "c4deb7a09e5294681d086db5f2bc719917388b62e596e2861f28e4c627edaf9a"
+dependency_ids = PackedStringArray()

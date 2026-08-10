@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_k241x"]
+
+[resource]
+script = ExtResource("1_k241x")
+product_id = "runtime.catalogue.blueprint_leyforge_cluster_market_civic_centre_a"
+source_id = "blueprint.leyforge.cluster.market_civic_centre_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_cluster_market_civic_centre_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_cluster_market_civic_centre_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_cluster_market_civic_centre_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_cluster_market_civic_centre_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_cluster_market_civic_centre_a.tres": "ba9381c0f3b9c45c86857040bc6bd99cd4f770645c78edd1b3ea49d11a9dacc5",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_cluster_market_civic_centre_a_light_damage.tres": "46f5e05c834fe1e5d9971f325982716319e47c33a1d65583530f6ae4bd0dfd8a",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_cluster_market_civic_centre_a_repaired.tres": "fe7780c6f54512fc3c5dfae5fe35abc97b38b7b0714b7f3e5f914d0fb86d6c8a",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_cluster_market_civic_centre_a_under_construction.tres": "775887d18e6d7043d0d0c1b5c48193bde21d89201e15236363e973f3831b4b2e"
+}
+combined_source_hash = "0e0e7b3d23d561c3a616de417818c685b8a7e25aa05511ad1735faf71a1a1b4c"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_12srb"]
+
+[resource]
+script = ExtResource("1_12srb")
+product_id = "runtime.catalogue.sound_source_production_magic_burst_soft_detail"
+source_id = "sound.source.production.magic_burst_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_magic_burst_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_magic_burst_soft_detail.tres": "7632fe5bdf5fc7541a10b36bd72a889ed338891420fcdecfe40d0918b933a124"
+}
+combined_source_hash = "56ea106de986458ea5db94d4f76b9d28872f08284368fd795fb295d441dc8174"
+dependency_ids = PackedStringArray()

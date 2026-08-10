@@ -1,9 +1,15 @@
 extends Node
-## Authoritative Stage 4 state for the Controlled POC Forest Hamlet.
+## Compatibility facade for the focused settlement and historical POC slice.
 ##
-## Nearby NPC actors are only views of these records. Warehouse contents,
-## request delivery, reputation, permissions, schedules, and project progress
-## remain here when actors or voxel chunks are unloaded.
+## Nearby NPC actors are views of persistent records. PeopleManager owns stable
+## person, household, ordinary job and schedule truth. BiologyManager owns
+## Health, nourishment and persistent injury truth. SocialManager owns
+## relationships, knowledge, dialogue evidence, companion agreements and the
+## canonical social-reputation record. PoliticalManager owns government,
+## jurisdiction, law, office, citizenship and permission truth. MovementManager
+## owns mover location, route/path, journey and authoritative arrival truth;
+## this facade retains settlement, inventory, specialist-compatibility and
+## project fields.
 
 signal state_changed
 signal warehouse_changed
@@ -119,6 +125,10 @@ var requests: Dictionary = {}
 var request_order: Array[String] = []
 var reputation_points := 0
 var reputation_state := REP_STRANGER
+# Settlement-operation compatibility evidence. These points are earned from
+# confirmed delivery/defence/project evidence, never social trust. PoliticalManager
+# converts the evidence into explicit capabilities and remains the permission owner.
+var operational_access_points := 0
 var permissions: Dictionary = {}
 var project: Dictionary = {}
 var runtime_projects: Dictionary = {}
@@ -127,6 +137,7 @@ var runtime_plans: Dictionary = {}
 var active_project_instance_id := DEFAULT_PROJECT_INSTANCE_ID
 var delivery_ledger: Array[Dictionary] = []
 var _automation_correlations: Dictionary = {}
+var _operational_access_evidence: Dictionary = {}
 var _needs_accumulator := 0.0
 
 
@@ -151,6 +162,8 @@ func _reset_collections() -> void:
 	request_order.clear()
 	delivery_ledger.clear()
 	_automation_correlations.clear()
+	operational_access_points = 0
+	_operational_access_evidence.clear()
 	runtime_projects.clear()
 	runtime_buildings.clear()
 	runtime_plans.clear()
@@ -253,8 +266,15 @@ func initialize(
 	reputation_points = 0
 	reputation_state = REP_STRANGER
 	_reset_collections()
+	_register_seeded_warehouse_structure()
 	_create_roster()
+	reconcile_people_owner(false)
+	reconcile_biology_owner(false)
+	reconcile_social_owner(false)
+	reconcile_political_owner(false)
+	reconcile_movement_owner(false)
 	_create_requests()
+	_refresh_social_reputation_projection()
 	_refresh_permissions()
 	state_changed.emit()
 
@@ -266,6 +286,33 @@ func _anchor_from(anchors: Dictionary, key: String) -> Vector2i:
 	if value is Array and value.size() >= 2:
 		return Vector2i(int(value[0]), int(value[1]))
 	return Vector2i.ZERO
+
+
+func _register_seeded_warehouse_structure() -> void:
+	## Generated settlement assembly, rather than combat, hands the physical
+	## warehouse or starter cache to the persistent StructureInstance owner.
+	var definition_id := (
+		"building.storage.small_storehouse"
+		if roster_mode == ROSTER_MODE_CAMP
+		else "building.storage.village_warehouse")
+	var result := StructureManager.register_seeded_structure({
+		"world_seed": world_seed,
+		"settlement_id": active_village_id,
+		"owner_id": active_village_id,
+		"anchor_id": "warehouse",
+		"definition_id": definition_id,
+		"position": [warehouse_anchor.x, warehouse_anchor.y],
+		"generation_evidence": "seed:%d:settlement:%s:warehouse" % [
+			world_seed, active_village_id],
+	})
+	if not bool(result.get("ok", false)):
+		push_warning("HamletState: warehouse StructureInstance handoff failed: %s" \
+			% result)
+
+
+func ensure_seeded_structure_owner() -> void:
+	if initialized:
+		_register_seeded_warehouse_structure()
 
 
 func _create_roster() -> void:
@@ -381,7 +428,34 @@ func add_resident(record_value: Dictionary) -> bool:
 	record["carried_stack"] = record.get("carried_stack", {}).duplicate(true)
 	record["transaction_history"] = record.get(
 		"transaction_history", []).duplicate(true)
-	npc_records[resident_id] = record
+	_ensure_people_owner()
+	var registration := PeopleManager.register_person_projection(
+		active_village_id, record, "settlement_population")
+	if not bool(registration.get("ok", false)):
+		push_warning("HamletState: persistent person handoff failed: %s" \
+			% registration)
+		return false
+	var person_view := PeopleManager.compatibility_person_view(
+		resident_id, record)
+	_ensure_biology_owner()
+	var biological := BiologyManager.register_actor_projection(
+		resident_id, person_view, "settlement_population", resident_id,
+		active_village_id, "persistent")
+	if not bool(biological.get("ok", false)):
+		push_warning("HamletState: biological owner handoff failed: %s" \
+			% biological)
+		return false
+	var resident_view := BiologyManager.compatibility_actor_view(
+		resident_id, person_view)
+	_ensure_social_owner()
+	var social := SocialManager.register_profile(
+		resident_id, resident_view, "settlement_population", resident_id,
+		active_village_id, "person")
+	if not bool(social.get("ok", false)):
+		push_warning("HamletState: social owner handoff failed: %s" % social)
+		return false
+	npc_records[resident_id] = SocialManager.compatibility_person_view(
+		resident_id, resident_view)
 	npc_changed.emit(resident_id)
 	state_changed.emit()
 	return true
@@ -391,15 +465,41 @@ func update_resident_runtime(resident_id: String, changes: Dictionary) -> bool:
 	if not npc_records.has(resident_id):
 		return false
 	var record: Dictionary = npc_records[resident_id]
+	var owner_fields := [
+		"residence_id", "bed_id", "household_id", "displaced",
+		"age_days", "age_band", "job_id", "job", "job_assignment_id",
+		"work", "home", "schedule_state", "schedule_profile_ref",
+		"schedule_target_ref", "current_task", "current_task_intent_ref",
+		"existence_state",
+	]
 	for field in [
 		"personal_inventory", "equipment", "current_task", "carried_stack",
 		"source_storage_id", "destination", "transaction_history",
 		"residence_id", "bed_id", "household_id", "displaced",
 		"age_days", "age_band", "job_id", "job", "job_assignment_id",
-		"work", "home",
+		"work", "home", "schedule_state", "schedule_profile_ref",
+		"schedule_target_ref", "current_task_intent_ref", "existence_state",
 	]:
 		if changes.has(field):
 			record[field] = changes[field]
+	var mutates_people_owner := false
+	for field in owner_fields:
+		if changes.has(field):
+			mutates_people_owner = true
+			break
+	if mutates_people_owner:
+		_ensure_people_owner()
+		var updated := PeopleManager.update_person_projection(
+			resident_id, record, "hamlet_compatibility_mutation")
+		if not bool(updated.get("ok", false)):
+			push_warning("HamletState: rejected persistent person mutation: %s" \
+				% updated)
+			return false
+		record = PeopleManager.compatibility_person_view(resident_id, record)
+	if BiologyManager.initialized and BiologyManager.has_actor(resident_id):
+		record = BiologyManager.compatibility_actor_view(resident_id, record)
+	if SocialManager.initialized and SocialManager.has_profile(resident_id):
+		record = SocialManager.compatibility_person_view(resident_id, record)
 	npc_records[resident_id] = record
 	npc_changed.emit(resident_id)
 	state_changed.emit()
@@ -551,7 +651,18 @@ func advance_time(delta: float) -> void:
 	for npc_id in npc_records:
 		var record: Dictionary = npc_records[npc_id]
 		if str(record.get("schedule_state", "")) != current_schedule:
-			record["schedule_state"] = current_schedule
+			_ensure_people_owner()
+			var schedule_result := PeopleManager.set_schedule_intent(
+				str(npc_id), current_schedule, "",
+				"hamlet_clock.day_%d.minute_%d" % [day, int(clock_minutes)])
+			if not bool(schedule_result.get("ok", false)):
+				push_warning("HamletState: rejected schedule intent: %s" \
+					% schedule_result)
+				continue
+			record = PeopleManager.compatibility_person_view(str(npc_id), record)
+			if BiologyManager.initialized and BiologyManager.has_actor(str(npc_id)):
+				record = BiologyManager.compatibility_actor_view(
+					str(npc_id), record)
 			npc_records[npc_id] = record
 			npc_changed.emit(str(npc_id))
 			schedule_changed = true
@@ -567,27 +678,71 @@ func _consume_daily_food() -> void:
 		_ref("item", "item.food.cooked_meat", 1),
 		_ref("item", "item.food.wild_berries", 1),
 	]
-	var meals := 0
-	for _npc_id in get_npc_ids():
+	_ensure_biology_owner()
+	for npc_id in get_npc_ids():
+		var consumed_ref: Dictionary = {}
 		for food_ref in food_refs:
 			if warehouse_remove_ref(food_ref, 1):
-				meals += 1
+				consumed_ref = food_ref.duplicate(true)
 				break
-	for npc_id in npc_records:
-		var record: Dictionary = npc_records[npc_id]
-		var needs: Dictionary = record["needs"]
-		if meals >= npc_records.size():
-			needs["food"] = minf(1.0, float(needs.get("food", 0.8)) + 0.08)
+		var result: Dictionary
+		if not consumed_ref.is_empty():
+			var stable_id := str(consumed_ref.get("stable_id", ""))
+			result = BiologyManager.apply_consumed_serving({
+				"transaction_id": "settlement_meal.%s.day_%d.%s" % [
+					active_village_id, day, npc_id],
+				"actor_id": npc_id,
+				"source_item_ref": stable_id,
+				"serving_count": 1,
+				"resource_commit_status": "committed",
+				"resource_commit_reference": "warehouse.%s.day_%d" % [
+					active_village_id, day],
+				"biological_payload": _legacy_food_biological_payload(stable_id),
+			})
 		else:
-			needs["food"] = maxf(0.0, float(needs.get("food", 0.8)) - 0.12)
-		record["needs"] = needs
-		npc_records[npc_id] = record
+			result = BiologyManager.apply_nourishment_pressure({
+				"transaction_id": "settlement_missed_meal.%s.day_%d.%s" % [
+					active_village_id, day, npc_id],
+				"actor_id": npc_id,
+				"hunger_delta": 12.0,
+				"elapsed_hours": 24.0,
+				"source": "settlement_daily_provisions",
+			})
+		if not bool(result.get("ok", false)):
+			push_warning("HamletState: biological meal handoff failed: %s" % result)
+		var record: Dictionary = npc_records.get(npc_id, {}).duplicate(true)
+		npc_records[npc_id] = BiologyManager.compatibility_actor_view(
+			npc_id, record)
+
+
+func _legacy_food_biological_payload(stable_id: String) -> Dictionary:
+	## Compatibility traits supplied by the current settlement meal adapter.
+	## Canonical item/recipe facets replace this table when their Set-29
+	## biological payloads are admitted to the production registry.
+	var groups: Array = {
+		"item.food.village_meal_pack": [2.0, 2.0, 2.0],
+		"item.food.simple_stew": [2.0, 2.0, 2.0],
+		"item.food.bread": [2.0, 1.0, 0.5],
+		"item.food.cooked_meat": [2.0, 3.0, 0.0],
+		"item.food.wild_berries": [1.0, 0.5, 3.0],
+	}.get(stable_id, [1.0, 1.0, 1.0])
+	return {
+		"source_definition_id": stable_id,
+		"satiety_points": 8.0,
+		"hydration_points": 0.0,
+		"nutrition_energy_units": float(groups[0]),
+		"nutrition_protein_units": float(groups[1]),
+		"nutrition_produce_units": float(groups[2]),
+		"food_family_tags": [stable_id.get_slice(".", 2)],
+		"diet_tags": [],
+		"safety_profile_id": "safety.food.compatibility",
+	}
 
 
 func _refresh_needs() -> void:
 	var tower_complete := bool(project.get("complete", false))
 	for npc_id in npc_records:
-		var record: Dictionary = npc_records[npc_id]
+		var record: Dictionary = get_npc_record(str(npc_id))
 		var needs: Dictionary = record["needs"]
 		needs["safety"] = move_toward(
 			float(needs.get("safety", 0.7)), 0.94 if tower_complete else 0.70, 0.01)
@@ -641,15 +796,131 @@ func get_npc_ids() -> Array[String]:
 
 
 func get_npc_record(npc_id: String) -> Dictionary:
-	return npc_records.get(npc_id, {}).duplicate(true)
+	var compatibility: Dictionary = npc_records.get(npc_id, {}).duplicate(true)
+	if PeopleManager.initialized and PeopleManager.has_person(npc_id):
+		compatibility = PeopleManager.compatibility_person_view(
+			npc_id, compatibility)
+	if BiologyManager.initialized and BiologyManager.has_actor(npc_id):
+		compatibility = BiologyManager.compatibility_actor_view(
+			npc_id, compatibility)
+	if SocialManager.initialized and SocialManager.has_profile(npc_id):
+		compatibility = SocialManager.compatibility_person_view(
+			npc_id, compatibility)
+	return compatibility
 
 
-func update_npc_position(npc_id: String, position: Vector3) -> void:
+func npc_lod_snapshot(npc_id: String) -> Dictionary:
+	## Owner-supplied partition used by SimulationLodManager. Presentation may
+	## change across LOD, while these identity, ownership, quantity, history and
+	## irreversible partitions must survive the transition exactly.
+	if not npc_records.has(npc_id):
+		return {}
+	var record := get_npc_record(npc_id)
+	var biological_snapshot: Dictionary = BiologyManager.lod_snapshot(npc_id) \
+		if BiologyManager.has_actor(npc_id) else {}
+	var social_snapshot: Dictionary = SocialManager.lod_snapshot(npc_id) \
+		if SocialManager.has_profile(npc_id) else {}
+	var movement_snapshot: Dictionary = MovementManager.lod_snapshot(npc_id) \
+		if MovementManager.has_mover(npc_id) else {}
+	return {
+		"identity": {
+			"record_type": str(record.get("record_type", "Resident")),
+			"version": int(record.get("version", 1)),
+			"resident_id": str(record.get("resident_id", npc_id)),
+			"name": str(record.get("name", "")),
+			"social_profile_ref": str(record.get("social_profile_ref", "")),
+		},
+		"ownership": {
+			"settlement_id": active_village_id,
+			"household_id": str(record.get("household_id", "")),
+			"residence_id": str(record.get("residence_id", "")),
+			"bed_id": str(record.get("bed_id", "")),
+			"job_id": str(record.get("job_id", "")),
+			"job_assignment_id": str(record.get("job_assignment_id", "")),
+			"home": (record.get("home", []) as Array).duplicate(true),
+			"work": (record.get("work", []) as Array).duplicate(true),
+			"movement_record_ref": str(movement_snapshot.get(
+				"identity", {}).get("movement_record_ref", "")),
+			"movement_owner": (
+				movement_snapshot.get("ownership", {}) as Dictionary).duplicate(true),
+		},
+		"quantities": {
+			"health": float(record.get("health", 0.0)),
+			"max_health": float(record.get("max_health", 0.0)),
+			"biological_owner": (
+				biological_snapshot.get("quantities", {}) as Dictionary
+			).duplicate(true),
+			"needs": (record.get("needs", {}) as Dictionary).duplicate(true),
+			"personal_inventory": (
+				record.get("personal_inventory", []) as Array).duplicate(true),
+			"equipment": (
+				record.get("equipment", {}) as Dictionary).duplicate(true),
+			"carried_stack": (
+				record.get("carried_stack", {}) as Dictionary).duplicate(true),
+		},
+		"history": (
+			record.get("transaction_history", []) as Array).duplicate(true),
+		"irreversible": {
+			"alive": bool(record.get("alive", true)),
+			"resident_id": str(record.get("resident_id", npc_id)),
+			"social_owner": (
+				social_snapshot.get("irreversible", {}) as Dictionary).duplicate(true),
+			"movement_owner": (
+				movement_snapshot.get("irreversible", {}) as Dictionary).duplicate(true),
+		},
+		"state": {
+			"position": (record.get("position", []) as Array).duplicate(true),
+			"activity": str(record.get("activity", "")),
+			"schedule_state": str(record.get("schedule_state", "")),
+			"current_task": (
+				record.get("current_task", {}) as Dictionary).duplicate(true),
+			"source_storage_id": str(record.get("source_storage_id", "")),
+			"destination": (
+				record.get("destination", []) as Array).duplicate(true),
+			"displaced": bool(record.get("displaced", false)),
+			"social_owner_history": (
+				social_snapshot.get("history", {}) as Dictionary).duplicate(true),
+			"social_owner_state": (
+				social_snapshot.get("state", {}) as Dictionary).duplicate(true),
+			"movement_owner_state": (
+				movement_snapshot.get("state", {}) as Dictionary).duplicate(true),
+			"representation": "record",
+		},
+	}
+
+
+func update_npc_position(
+		npc_id: String,
+		position: Vector3,
+		movement_velocity: Vector3 = Vector3.ZERO,
+		movement_state: String = "",
+		movement_mode: String = "") -> void:
 	if not npc_records.has(npc_id):
 		return
 	var record: Dictionary = npc_records[npc_id]
 	record["position"] = [position.x, position.y, position.z]
 	npc_records[npc_id] = record
+	if MovementManager.initialized and MovementManager.has_mover(npc_id):
+		var current := MovementManager.current_movement_mode(npc_id)
+		var result := MovementManager.commit_physical_snapshot({
+			"entity_ref": npc_id,
+			"position": position,
+			"velocity": movement_velocity,
+			"movement_mode": movement_mode if not movement_mode.is_empty() \
+				else str(current.get("movement_mode", "Ground")),
+			"movement_provider_ref": str(current.get(
+				"movement_provider_ref", "")),
+			"movement_state": movement_state if not movement_state.is_empty() \
+				else str(record.get("activity", "Idle")).capitalize(),
+			"semantic_location": {
+				"kind": "settlement",
+				"ref": active_village_id,
+				"settlement_ref": active_village_id,
+				"position": position,
+			},
+		})
+		if not bool(result.get("ok", false)):
+			push_warning("HamletState: movement snapshot rejected: %s" % result)
 
 
 func update_npc_activity(npc_id: String, activity: String) -> void:
@@ -668,22 +939,57 @@ func apply_npc_damage(
 		allow_death: bool = false) -> Dictionary:
 	if not npc_records.has(npc_id) or amount <= 0.0:
 		return {"ok": false}
-	var record: Dictionary = npc_records[npc_id]
+	var record: Dictionary = get_npc_record(npc_id)
 	if not bool(record.get("alive", true)):
 		return {"ok": false}
-	var maximum := maxf(1.0, float(record.get("max_health", 30.0)))
-	var health := maxf(0.0, float(record.get("health", maximum)) - amount)
-	if health <= 0.0 and not allow_death:
-		health = 1.0
-		record["injured"] = true
-		record["injury"] = "Severe raid injury"
+	_ensure_biology_owner()
+	if not BiologyManager.has_actor(npc_id):
+		var registration := BiologyManager.register_actor_projection(
+			npc_id, record, "hamlet_damage_compatibility", npc_id,
+			active_village_id, "persistent")
+		if not bool(registration.get("ok", false)):
+			return registration
+	var current_before := BiologyManager.current_health(npc_id)
+	var would_deplete := current_before - amount <= 0.0
+	var source_token := source if not source.is_empty() else "unknown"
+	var transaction_id := "combat_damage.%s.%s.revision_%d" % [
+		npc_id, source_token, int(BiologyManager.get_record(npc_id).get(
+			"revision", 0)) + 1]
+	var biological := BiologyManager.apply_resolved_biological_damage({
+		"transaction_id": transaction_id,
+		"actor_id": npc_id,
+		"source_actor_ref": source,
+		"source_system": "document16.combat",
+		"resolved_health_damage": amount,
+		"damage_tags": ["physical.combat"],
+		"trauma_tags": ["impact"],
+		"impact_class": (
+			"heavy" if amount >= 20.0 else
+			"significant" if amount >= 8.0 else "light"),
+		"injury_permitted": amount >= 8.0 or would_deplete,
+		"minimum_injury_severity": (
+			"severe" if would_deplete and not allow_death else ""),
+		"biological_region_id": "region.general",
+		"minimum_health": 0.0 if allow_death else 1.0,
+		"world_time": ProductionKernel.world_time_reference(),
+	})
+	if not bool(biological.get("ok", false)):
+		return biological
+	var health := float(biological.get("current_health", current_before))
 	if health <= 0.0 and allow_death:
-		record["alive"] = false
+		_ensure_people_owner()
+		var lifecycle := PeopleManager.set_existence_state(
+			npc_id, "dead", "%s.death_decision" % transaction_id)
+		if not bool(lifecycle.get("ok", false)):
+			return {"ok": false, "reason": lifecycle.get(
+				"error", "people_owner_rejected")}
 		record["activity"] = "fallen"
 	else:
 		record["activity"] = "hurt"
-	record["health"] = health
 	record["last_damage_source"] = source
+	record = PeopleManager.compatibility_person_view(npc_id, record) \
+		if PeopleManager.has_person(npc_id) else record
+	record = BiologyManager.compatibility_actor_view(npc_id, record)
 	npc_records[npc_id] = record
 	npc_changed.emit(npc_id)
 	state_changed.emit()
@@ -692,24 +998,55 @@ func apply_npc_damage(
 		"health": health,
 		"alive": bool(record.get("alive", true)),
 		"injured": bool(record.get("injured", false)),
+		"biological_result_ref": str(biological.get("evidence_id", "")),
 	}
 
 
 func apply_raid_aftermath(
 		outcome_id: String, injured_ids: Array[String],
-		theft_limit: int, reputation_delta: int) -> Array[Dictionary]:
+		theft_limit: int, reputation_delta: int,
+		raid_event_ref: String = "") -> Array[Dictionary]:
+	var stable_event_ref := raid_event_ref if not raid_event_ref.is_empty() \
+		else "%s.%s.day_%d" % [active_village_id, outcome_id, day]
 	var injuries := {}
 	for injured_id in injured_ids:
 		injuries[injured_id] = true
 	for npc_id in npc_records:
 		var record: Dictionary = npc_records[npc_id]
 		if injuries.has(str(npc_id)):
-			record["injured"] = true
-			record["injury"] = "Recovering after the goblin raid"
-			record["health"] = minf(
-				float(record.get("health", 30.0)),
-				maxf(1.0, float(record.get("max_health", 30.0)) * 0.45))
-		record["last_raid_outcome"] = outcome_id
+			_ensure_biology_owner()
+			if not BiologyManager.has_actor(str(npc_id)):
+				var registration := BiologyManager.register_actor_projection(
+					str(npc_id), record, "raid_aftermath", str(npc_id),
+					active_village_id, "persistent")
+				if not bool(registration.get("ok", false)):
+					push_warning(
+						"HamletState: raid biology registration failed: %s" \
+						% registration)
+					continue
+			var current := BiologyManager.current_health(str(npc_id))
+			var maximum := maxf(1.0, BiologyManager.max_health(str(npc_id)))
+			var target := maxf(1.0, maximum * 0.45)
+			var biological := BiologyManager.apply_resolved_biological_damage({
+				"transaction_id": "raid_aftermath.%s.%s" % [
+					stable_event_ref, str(npc_id)],
+				"actor_id": str(npc_id),
+				"source_system": "document16.raid_resolution",
+				"source_actor_ref": "raid.%s" % outcome_id,
+				"resolved_health_damage": maxf(0.0, current - target),
+				"damage_tags": ["physical.raid"],
+				"trauma_tags": ["impact"],
+				"impact_class": "heavy",
+				"injury_permitted": true,
+				"minimum_injury_severity": "moderate",
+				"biological_region_id": "region.general",
+				"minimum_health": 1.0,
+			})
+			if not bool(biological.get("ok", false)):
+				push_warning("HamletState: raid biology handoff failed: %s" \
+					% biological)
+			record = BiologyManager.compatibility_actor_view(str(npc_id), record)
+			record["last_raid_outcome"] = outcome_id
 		var needs: Dictionary = record.get("needs", {})
 		needs["safety"] = clampf(
 			float(needs.get("safety", 0.7))
@@ -732,8 +1069,12 @@ func apply_raid_aftermath(
 		stack["count"] = int(stack.get("count", 0)) - taken
 		warehouse_slots[index] = {} if int(stack["count"]) <= 0 else stack
 		remaining -= taken
-	reputation_points = maxi(0, reputation_points + reputation_delta)
-	_refresh_reputation_state()
+	var raid_reputation_event := "raid_aftermath:%s" % stable_event_ref
+	_commit_social_reputation_delta(
+		reputation_delta,
+		raid_reputation_event,
+		"social.hamlet.raid_reputation.%s" % stable_event_ref)
+	_commit_operational_access_delta(reputation_delta, raid_reputation_event)
 	warehouse_changed.emit()
 	for injured_id in injured_ids:
 		npc_changed.emit(injured_id)
@@ -837,82 +1178,255 @@ func get_dialogue(npc_id: String) -> String:
 	var record := get_npc_record(npc_id)
 	if record.is_empty():
 		return "The villager has nothing to say."
-	var job_id := str(record["job_id"])
-	if job_id == "job.leader.elder":
-		if reputation_state == REP_STRANGER:
+	_ensure_social_owner()
+	if not SocialManager.has_profile(npc_id):
+		reconcile_social_owner(false)
+	var social_reputation := SocialManager.social_reputation(
+		active_village_id, SocialManager.PLAYER_ACTOR_ID)
+	var preview := SocialManager.dialogue_preview(
+		npc_id,
+		SocialManager.PLAYER_ACTOR_ID,
+		{
+			"job_id": str(record.get("job_id", "")),
+			"reputation_band": str(social_reputation.get("band", "stranger")),
+			"project_complete": bool(project.get("complete", false)),
+			"awaiting_supplies": bool(project.get("awaiting_supplies", true)),
+			"basic_magic_known": ProgressionState.has_basic_magic_knowledge(),
+			"combat_phase": CombatState.phase,
+		})
+	if not bool(preview.get("available", false)):
+		return "They are in no condition for a conversation right now."
+	var semantic_line_id := str(preview.get(
+		"semantic_line_id", "dialogue.hamlet.resident.default"))
+	match semantic_line_id:
+		"dialogue.hamlet.elder.introduction":
 			return "Welcome to Hearthplain. Goblins have been scouting us, and a watchtower would buy us time."
-		if bool(project.get("complete", false)):
+		"dialogue.hamlet.elder.project_complete":
 			return "You helped give this hamlet a future. The guard can see danger before it reaches our homes."
-		return "The request board shows what the watchtower still needs. Every honest delivery earns trust."
-	if job_id == "job.builder.basic":
-		if bool(project.get("complete", false)):
+		"dialogue.hamlet.elder.requests":
+			return "The request board shows what the watchtower still needs. Every honest delivery earns trust."
+		"dialogue.hamlet.builder.project_complete":
 			return "The watchtower is complete. Every supplied stage became a real part of the hamlet."
-		var definition := get_project_stage_definition()
-		if bool(project.get("awaiting_supplies", true)):
+		"dialogue.hamlet.builder.awaiting_supplies":
+			var definition := get_project_stage_definition()
 			return "The next job is %s. Deliver only this stage's supplies and I can begin." % [
 				str(definition.get("name", "the next stage"))]
-		return "I am placing the %s blocks one at a time. This stage is at %d%%." % [
-			str(definition.get("name", "current stage")),
-			roundi(float(project.get("stage_progress", 0.0)) * 100.0)]
-	if job_id == "job.farmer.basic":
-		return "Work goes easier when the pantry is steady. The board lists what we are short of."
-	if job_id == "job.guard.militia":
-		if CombatState.phase == "warning":
+		"dialogue.hamlet.builder.building":
+			var definition := get_project_stage_definition()
+			return "I am placing the %s blocks one at a time. This stage is at %d%%." % [
+				str(definition.get("name", "current stage")),
+				roundi(float(project.get("stage_progress", 0.0)) * 100.0)]
+		"dialogue.hamlet.farmer.pantry":
+			return "Work goes easier when the pantry is steady. The board lists what we are short of."
+		"dialogue.hamlet.guard.warning":
 			return "The horn is sounded. Take position; the goblins are on the raid road."
-		if CombatState.phase == "assault":
+		"dialogue.hamlet.guard.assault":
 			return "Hearthplain is under attack. Use LMB with the item bar, or press Q, select Spark Bolt on the skill bar, and use LMB."
-		if CombatState.phase == "resolved":
+		"dialogue.hamlet.guard.resolved":
 			return "The raid ended as %s. %d damaged voxel%s still need Oak Beams." % [
 				str(CombatState.outcome.get("title", "an uncertain outcome")),
 				CombatState.unresolved_damage_count(),
 				"" if CombatState.unresolved_damage_count() == 1 else "s",
 			]
-		return "A completed watchtower will improve our warning time. Until then, I patrol the road."
-	if job_id == "job.merchant.basic":
-		return "Trust opens doors here. Help the hamlet first; better trade can follow."
-	if job_id == "job.mage.apprentice":
-		if reputation_state == REP_STRANGER:
+		"dialogue.hamlet.guard.patrol":
+			return "A completed watchtower will improve our warning time. Until then, I patrol the road."
+		"dialogue.hamlet.merchant.trust":
+			return "Trust opens doors here. Help the hamlet first; better trade can follow."
+		"dialogue.hamlet.mage.introduction":
 			return "There is mana in this valley, but trust and the hamlet's safety come before deeper study."
-		if ProgressionState.has_basic_magic_knowledge():
+		"dialogue.hamlet.mage.known_rune":
 			return "The Basic Rune links crystal, conduit, furnace, and ward. Keep the source visible and heed every fault."
-		return "You have helped Hearthplain. I can teach the Basic Rune, Stone Sense, and Spark Bolt."
-	if job_id == "job.miner.basic":
-		return "Stone is plentiful near the cave. Good tools turn it into a proper foundation."
+		"dialogue.hamlet.mage.teaching_offer":
+			return "You have helped Hearthplain. I can teach the Basic Rune, Stone Sense, and Spark Bolt."
+		"dialogue.hamlet.miner.stone":
+			return "Stone is plentiful near the cave. Good tools turn it into a proper foundation."
 	return "Oak from the forest will make a strong frame. Replace what you take when you can."
 
 
 func accept_introduction() -> bool:
+	_refresh_social_reputation_projection()
 	if reputation_state != REP_STRANGER:
 		return false
-	reputation_points = maxi(reputation_points, 1)
-	reputation_state = REP_HELPFUL
-	_refresh_permissions()
-	reputation_changed.emit()
+	_ensure_social_owner()
+	if not reconcile_social_owner(false):
+		return false
+	var elder_id := "npc.poc.forest_hamlet.elder_rowan" if active_village_id == VILLAGE_ID \
+		else "%s.npc.elder" % active_village_id
+	if not SocialManager.has_profile(elder_id):
+		var resident_ids := get_npc_ids()
+		if resident_ids.is_empty():
+			return false
+		elder_id = resident_ids[0]
+	var session_id := "conversation.%s.player_introduction" % active_village_id
+	var begin := SocialManager.begin_conversation({
+		"transaction_id": "social.hamlet.introduction.begin.%s" % active_village_id,
+		"session_id": session_id,
+		"template_id": "dialogue.hamlet.elder.introduction",
+		"participant_ids": [elder_id, SocialManager.PLAYER_ACTOR_ID],
+		"initiator_id": SocialManager.PLAYER_ACTOR_ID,
+		"primary_addressee_id": elder_id,
+		"candidate_choice_ids": ["choice.introduce_self"],
+		"context_snapshot": {"settlement_ref": active_village_id},
+		"save_policy": "consequential",
+	})
+	if not bool(begin.get("ok", false)):
+		push_warning("HamletState: introduction conversation failed: %s" % begin)
+		return false
+	var commit := SocialManager.commit_dialogue_choice({
+		"transaction_id": "social.hamlet.introduction.commit.%s" % active_village_id,
+		"session_id": session_id,
+		"choice_id": "choice.introduce_self",
+		"chooser_id": SocialManager.PLAYER_ACTOR_ID,
+		"semantic_action_id": "social.introduction.accepted",
+		"semantic_claims": [{
+			"predicate": "person.introduced_to_settlement",
+			"subject_ref": SocialManager.PLAYER_ACTOR_ID,
+			"object_ref": active_village_id,
+		}],
+		"expected_revision": int(begin.get("result_revision", 1)),
+		"close_after_commit": true,
+		"end_reason": "introduction_accepted",
+	})
+	if not bool(commit.get("ok", false)):
+		push_warning("HamletState: introduction choice failed: %s" % commit)
+		return false
+	var relationship := SocialManager.apply_relationship_event({
+		"transaction_id": "social.hamlet.introduction.relationship.%s" % active_village_id,
+		"subject_id": elder_id,
+		"target_id": SocialManager.PLAYER_ACTOR_ID,
+		"source_event_id": str(commit.get("evidence_id", "")),
+		"event_family": "introduction",
+		"dimension_deltas": {
+			"trust": 1.0,
+			"familiarity": 12.0,
+			"gratitude": 1.0,
+		},
+	})
+	if not bool(relationship.get("ok", false)):
+		push_warning("HamletState: introduction relationship failed: %s" % relationship)
+		return false
+	if not _commit_social_reputation_delta(
+			1, str(commit.get("evidence_id", "")),
+			"social.hamlet.introduction.reputation.%s" % active_village_id):
+		return false
+	_commit_operational_access_delta(
+		1, "hamlet.introduction.accepted.%s" % active_village_id)
 	state_changed.emit()
 	return true
 
 
 func _refresh_reputation_state() -> void:
 	var previous := reputation_state
-	if reputation_points >= 35 or bool(project.get("complete", false)):
-		reputation_state = REP_ALLY
-	elif reputation_points >= 16:
-		reputation_state = REP_SUPPLIER
-	elif reputation_points >= 1:
-		reputation_state = REP_HELPFUL
-	else:
-		reputation_state = REP_STRANGER
+	_refresh_social_reputation_projection()
 	_refresh_permissions()
 	if reputation_state != previous:
 		reputation_changed.emit()
 
 
 func _refresh_permissions() -> void:
-	permissions["request_delivery"] = reputation_state != REP_STRANGER
-	permissions["warehouse_deposit"] = reputation_state in [REP_SUPPLIER, REP_ALLY]
-	permissions["warehouse_view"] = reputation_state in [REP_SUPPLIER, REP_ALLY]
-	permissions["warehouse_withdraw"] = reputation_state == REP_ALLY
-	permissions["automation_import"] = reputation_state in [REP_SUPPLIER, REP_ALLY]
+	# The compatibility ledger supplies evidence only. PoliticalManager commits
+	# and answers the capability facts; social reputation never grants access.
+	if not _sync_operational_access_authority():
+		for permission_id in permissions:
+			permissions[permission_id] = false
+		return
+	var government := PoliticalManager.government_for_settlement(active_village_id)
+	var government_ref := str(government.get("government_id", ""))
+	var jurisdiction_refs: Array = government.get("jurisdiction_refs", [])
+	var jurisdiction_ref := str(jurisdiction_refs.front()) \
+		if not jurisdiction_refs.is_empty() else ""
+	var capability_map := {
+		"request_delivery": "settlement.request_delivery",
+		"warehouse_deposit": "settlement.warehouse.deposit",
+		"warehouse_view": "settlement.warehouse.view",
+		"warehouse_withdraw": "settlement.warehouse.withdraw",
+		"automation_import": "settlement.automation.import",
+	}
+	for permission_id in capability_map:
+		var decision := PoliticalManager.permission_query({
+			"actor_ref": SocialManager.PLAYER_ACTOR_ID,
+			"capability_id": capability_map[permission_id],
+			"government_ref": government_ref,
+			"jurisdiction_ref": jurisdiction_ref,
+			"subject_ref": active_village_id,
+		})
+		permissions[permission_id] = bool(decision.get("allowed", false))
+
+
+func _refresh_social_reputation_projection() -> void:
+	_ensure_social_owner()
+	var view := SocialManager.social_reputation(
+		active_village_id, SocialManager.PLAYER_ACTOR_ID)
+	var score := float(view.get("score", 0.0))
+	# Legacy UI exposed only non-negative helpfulness points. The canonical
+	# social record may retain a negative score and projects it as Stranger here.
+	reputation_points = maxi(0, roundi(score))
+	match str(view.get("band", "stranger")):
+		"trusted_ally":
+			reputation_state = REP_ALLY
+		"trusted_supplier":
+			reputation_state = REP_SUPPLIER
+		"helpful_outsider":
+			reputation_state = REP_HELPFUL
+		_:
+			reputation_state = REP_STRANGER
+
+
+func _commit_social_reputation_delta(
+		delta: int,
+		source_event_id: String,
+		transaction_id: String) -> bool:
+	if source_event_id.is_empty() or transaction_id.is_empty():
+		return false
+	_ensure_social_owner()
+	var result := SocialManager.apply_reputation_event({
+		"transaction_id": transaction_id,
+		"scope_ref": active_village_id,
+		"target_ref": SocialManager.PLAYER_ACTOR_ID,
+		"dimension": "community_helpfulness",
+		"delta": delta,
+		"source_event_id": source_event_id,
+		"reason_code": "social.reputation.confirmed_settlement_action",
+	})
+	if not bool(result.get("ok", false)):
+		push_warning("HamletState: social-reputation handoff failed: %s" % result)
+		return false
+	_refresh_social_reputation_projection()
+	return true
+
+
+func _commit_operational_access_delta(delta: int, evidence_ref: String) -> bool:
+	if evidence_ref.is_empty():
+		return false
+	if _operational_access_evidence.has(evidence_ref):
+		return true
+	_operational_access_evidence[evidence_ref] = delta
+	operational_access_points = maxi(0, operational_access_points + delta)
+	_refresh_permissions()
+	return bool(permissions.get("request_delivery", false)) \
+		or operational_access_points == 0
+
+
+func _sync_operational_access_authority() -> bool:
+	if not initialized:
+		return false
+	_ensure_political_owner()
+	if PoliticalManager.government_for_settlement(active_village_id).is_empty() \
+			and not reconcile_political_owner(false):
+		return false
+	var result := PoliticalManager.reconcile_operational_access({
+		"world_seed": world_seed,
+		"world_id": str(WorldManager.active_world.get("world_id", "")),
+		"settlement_ref": active_village_id,
+		"actor_ref": SocialManager.PLAYER_ACTOR_ID,
+		"access_points": operational_access_points,
+		"project_complete": bool(project.get("complete", false)),
+		"evidence_refs": _operational_access_evidence.keys(),
+	})
+	if not bool(result.get("ok", false)):
+		push_warning("HamletState: political access reconciliation failed: %s" % result)
+		return false
+	return true
 
 
 func reputation_name() -> String:
@@ -998,8 +1512,14 @@ func deliver_request(request_id: String) -> Dictionary:
 	request["complete"] = _request_is_complete(request)
 	requests[request_id] = request
 	if bool(request["complete"]):
-		reputation_points += int(request["reward_reputation"])
-		_refresh_reputation_state()
+		var completion_event := "settlement_request_complete:%s:%s" % [
+			active_village_id, request_id]
+		_commit_social_reputation_delta(
+			int(request["reward_reputation"]), completion_event,
+			"social.hamlet.request_reputation.%s.%s" % [
+				active_village_id, request_id])
+		_commit_operational_access_delta(
+			int(request["reward_reputation"]), completion_event)
 	_try_reserve_current_stage()
 	requests_changed.emit()
 	state_changed.emit()
@@ -1099,8 +1619,13 @@ func _complete_current_project_stage() -> void:
 			"definition_id": str(project.get("definition_id", "")),
 		})
 		_activate_project_building()
-		reputation_points += 12
-		_refresh_reputation_state()
+		var completion_event := "settlement_project_complete:%s:%s" % [
+			active_village_id, str(project.get("instance_id", ""))]
+		_commit_social_reputation_delta(
+			12, completion_event,
+			"social.hamlet.project_reputation.%s.%s" % [
+				active_village_id, str(project.get("instance_id", ""))])
+		_commit_operational_access_delta(12, completion_event)
 	else:
 		var next := get_project_stage_definition(current_index + 1)
 		project["stage_index"] = current_index + 1
@@ -1141,6 +1666,17 @@ func _activate_project_building() -> void:
 		project.get("instance_id", active_project_instance_id)).trim_prefix(
 			"project_instance.")
 	var existing: Dictionary = runtime_buildings.get(instance_id, {})
+	var handoff := StructureManager.handoff_completed_project(project, {
+		"structure_instance_id": instance_id,
+		"world_seed": world_seed,
+		"settlement_id": str(project.get("owner_id", active_village_id)),
+		"day": day,
+		"clock_minutes": clock_minutes,
+	})
+	if not bool(handoff.get("ok", false)):
+		push_error("HamletState: completed project StructureInstance handoff failed: %s" \
+			% handoff)
+		return
 	var record := {
 		"instance_id": instance_id,
 		"definition_id": definition_id,
@@ -1159,6 +1695,7 @@ func _activate_project_building() -> void:
 		"history": existing.get("history", []).duplicate(true),
 		"lod_state": str(existing.get("lod_state", "record")),
 	}
+	record = StructureManager.compatibility_building_view(instance_id, record)
 	runtime_buildings[instance_id] = record
 
 
@@ -1292,9 +1829,25 @@ func apply_building_damage(
 	if not runtime_buildings.has(instance_id) or amount <= 0.0:
 		return {"ok": false}
 	var record: Dictionary = runtime_buildings[instance_id]
-	record["condition"] = clampf(
-		float(record.get("condition", 1.0)) - amount, 0.0, 1.0)
-	record["active"] = float(record["condition"]) > 0.0
+	if not StructureManager.has_structure(instance_id):
+		StructureManager.adopt_legacy_building(record, {
+			"world_seed": world_seed,
+			"settlement_id": active_village_id,
+			"migration_id": "runtime.compatibility.damage",
+		})
+	var canonical := StructureManager.get_structure(instance_id)
+	var consequence_id := "settlement.damage.%s.%d" % [
+		instance_id, (canonical.get("damage_history", []) as Array).size()]
+	var consequence := StructureManager.record_damage(instance_id, amount, {
+		"consequence_id": consequence_id,
+		"source_owner": "settlement",
+		"source_event_id": source,
+		"day": day,
+		"clock_minutes": clock_minutes,
+	})
+	if not bool(consequence.get("ok", false)):
+		return consequence
+	record = StructureManager.compatibility_building_view(instance_id, record)
 	var history: Array = record.get("history", [])
 	history.append({
 		"event": "damaged",
@@ -1302,31 +1855,57 @@ func apply_building_damage(
 		"amount": amount,
 		"day": day,
 		"clock_minutes": clock_minutes,
+		"evidence_id": str(consequence.get("evidence_id", "")),
 	})
 	record["history"] = history
 	runtime_buildings[instance_id] = record
 	state_changed.emit()
-	return {"ok": true, "condition": record["condition"]}
+	return {
+		"ok": true,
+		"condition": record["condition"],
+		"evidence_id": consequence.get("evidence_id", ""),
+	}
 
 
 func repair_building(instance_id: String, amount: float) -> Dictionary:
 	if not runtime_buildings.has(instance_id) or amount <= 0.0:
 		return {"ok": false}
 	var record: Dictionary = runtime_buildings[instance_id]
-	record["condition"] = clampf(
-		float(record.get("condition", 1.0)) + amount, 0.0, 1.0)
-	record["active"] = true
+	if not StructureManager.has_structure(instance_id):
+		StructureManager.adopt_legacy_building(record, {
+			"world_seed": world_seed,
+			"settlement_id": active_village_id,
+			"migration_id": "runtime.compatibility.repair",
+		})
+	var canonical := StructureManager.get_structure(instance_id)
+	var consequence_id := "settlement.repair.%s.%d" % [
+		instance_id, (canonical.get("repair_history", []) as Array).size()]
+	var consequence := StructureManager.record_repair(instance_id, amount, {
+		"consequence_id": consequence_id,
+		"source_owner": "settlement",
+		"source_event_id": consequence_id,
+		"day": day,
+		"clock_minutes": clock_minutes,
+	})
+	if not bool(consequence.get("ok", false)):
+		return consequence
+	record = StructureManager.compatibility_building_view(instance_id, record)
 	var history: Array = record.get("history", [])
 	history.append({
 		"event": "repaired",
 		"amount": amount,
 		"day": day,
 		"clock_minutes": clock_minutes,
+		"evidence_id": str(consequence.get("evidence_id", "")),
 	})
 	record["history"] = history
 	runtime_buildings[instance_id] = record
 	state_changed.emit()
-	return {"ok": true, "condition": record["condition"]}
+	return {
+		"ok": true,
+		"condition": record["condition"],
+		"evidence_id": consequence.get("evidence_id", ""),
+	}
 
 
 func aggregate_settlement_needs(
@@ -1703,8 +2282,14 @@ func automation_import_stack(value: Dictionary, mode: String, source: String,
 		request["complete"] = _request_is_complete(request)
 		requests[request_id] = request
 		if bool(request["complete"]) and not was_complete:
-			reputation_points += int(request["reward_reputation"])
-			_refresh_reputation_state()
+			var completion_event := "settlement_request_complete:%s:%s" % [
+				active_village_id, request_id]
+			_commit_social_reputation_delta(
+				int(request["reward_reputation"]), completion_event,
+				"social.hamlet.request_reputation.%s.%s" % [
+					active_village_id, request_id])
+			_commit_operational_access_delta(
+				int(request["reward_reputation"]), completion_event)
 		reservation_destination = str(project.get("id", ""))
 		_try_reserve_current_stage()
 		requests_changed.emit()
@@ -1757,6 +2342,13 @@ func get_recent_automation_deliveries(limit: int = 5) -> Array[Dictionary]:
 
 
 func serialize_state() -> Dictionary:
+	apply_people_owner_projection()
+	apply_biology_owner_projection()
+	apply_social_owner_projection()
+	apply_political_owner_projection()
+	apply_movement_owner_projection()
+	_refresh_social_reputation_projection()
+	_refresh_permissions()
 	var saved_warehouse: Array = []
 	for stack in warehouse_slots:
 		saved_warehouse.append(Inventory.serialize_stack(stack))
@@ -1779,6 +2371,8 @@ func serialize_state() -> Dictionary:
 		"request_order": request_order.duplicate(),
 		"reputation_points": reputation_points,
 		"reputation_state": reputation_state,
+		"operational_access_points": operational_access_points,
+		"operational_access_evidence_refs": _operational_access_evidence.keys(),
 		"permissions": permissions.duplicate(true),
 		"project": project.duplicate(true),
 		"active_project_instance_id": active_project_instance_id,
@@ -1827,8 +2421,9 @@ func restore_state(
 		for npc_id in npc_records.keys():
 			if npc_value.has(npc_id) and npc_value[npc_id] is Dictionary:
 				var restored: Dictionary = npc_value[npc_id].duplicate(true)
-				# Authored identity/job data remains authoritative across saves.
-				for field in ["id", "name", "job_id", "job", "color", "home", "work", "need_profile"]:
+				# Fixed-source visual identity stays authored. Mutable residence and
+				# ordinary job assignment restore through the persistent person owner.
+				for field in ["id", "name", "color", "need_profile"]:
 					restored[field] = npc_records[npc_id][field]
 				for field in [
 					"alive", "health", "max_health", "injured", "injury",
@@ -1880,8 +2475,24 @@ func restore_state(
 				for field in ["id", "name", "description", "requirements", "reward_reputation"]:
 					restored_request[field] = requests[request_id][field]
 				requests[request_id] = restored_request
-	reputation_points = maxi(0, int(data.get("reputation_points", 0)))
-	reputation_state = str(data.get("reputation_state", REP_STRANGER))
+	var legacy_reputation_points := maxi(0, int(data.get("reputation_points", 0)))
+	var legacy_reputation_state := str(data.get(
+		"reputation_state", REP_STRANGER))
+	reputation_points = legacy_reputation_points
+	reputation_state = legacy_reputation_state
+	operational_access_points = maxi(0, int(data.get(
+		"operational_access_points", legacy_reputation_points)))
+	_operational_access_evidence.clear()
+	var access_evidence_value: Variant = data.get(
+		"operational_access_evidence_refs", [])
+	if access_evidence_value is Array:
+		for evidence_value in access_evidence_value:
+			var evidence_ref := str(evidence_value)
+			if not evidence_ref.is_empty():
+				_operational_access_evidence[evidence_ref] = true
+	if not data.has("operational_access_points") and operational_access_points > 0:
+		_operational_access_evidence[
+			"legacy.hamlet.operational_access.%s" % active_village_id] = true
 	delivery_ledger.clear()
 	_automation_correlations.clear()
 	var correlations_value: Variant = data.get("automation_correlations", [])
@@ -1945,6 +2556,37 @@ func restore_state(
 	runtime_projects[active_project_instance_id] = project
 	if bool(project.get("complete", false)):
 		_activate_project_building()
+	var allow_legacy_people_update := not PeopleManager.restored_from_state
+	if not reconcile_people_owner(allow_legacy_people_update):
+		return false
+	var allow_legacy_biology_update := not BiologyManager.restored_from_state
+	if not reconcile_biology_owner(allow_legacy_biology_update):
+		return false
+	if not reconcile_social_owner(false):
+		return false
+	if not reconcile_political_owner(false):
+		return false
+	if not reconcile_movement_owner(not MovementManager.restored_from_state):
+		return false
+	apply_movement_owner_projection()
+	if not SocialManager.restored_from_state:
+		var migration_points := legacy_reputation_points
+		match legacy_reputation_state:
+			REP_ALLY:
+				migration_points = maxi(migration_points, 35)
+			REP_SUPPLIER:
+				migration_points = maxi(migration_points, 16)
+			REP_HELPFUL:
+				migration_points = maxi(migration_points, 1)
+		var migrated := SocialManager.migrate_legacy_reputation(
+			active_village_id,
+			SocialManager.PLAYER_ACTOR_ID,
+			migration_points,
+			legacy_reputation_state,
+			"social.hamlet.legacy_reputation.%s" % active_village_id)
+		if not bool(migrated.get("ok", false)):
+			push_warning("HamletState: legacy social migration failed: %s" % migrated)
+			return false
 	_refresh_reputation_state()
 	initialized = true
 	warehouse_changed.emit()
@@ -1953,6 +2595,220 @@ func restore_state(
 	delivery_ledger_changed.emit()
 	state_changed.emit()
 	return true
+
+
+func reconcile_people_owner(allow_existing_updates: bool = false) -> bool:
+	_ensure_people_owner()
+	var result := PeopleManager.reconcile_settlement_projection(
+		active_village_id,
+		npc_records,
+		{},
+		{},
+		"hamlet_facade",
+		allow_existing_updates)
+	if not bool(result.get("ok", false)):
+		push_warning("HamletState: people-owner reconciliation failed: %s" % result)
+		return false
+	npc_records = (result.get("resident_records", npc_records) \
+		as Dictionary).duplicate(true)
+	return true
+
+
+func apply_people_owner_projection() -> void:
+	if not initialized or not PeopleManager.initialized:
+		return
+	var result := PeopleManager.reconcile_settlement_projection(
+		active_village_id, npc_records, {}, {}, "hamlet_projection", false)
+	if bool(result.get("ok", false)):
+		npc_records = (result.get("resident_records", npc_records) \
+			as Dictionary).duplicate(true)
+
+
+func reconcile_biology_owner(allow_existing_updates: bool = false) -> bool:
+	_ensure_biology_owner()
+	var result := BiologyManager.reconcile_settlement_projection(
+		active_village_id, npc_records, allow_existing_updates)
+	if not bool(result.get("ok", false)):
+		push_warning("HamletState: biological-owner reconciliation failed: %s" \
+			% result)
+		return false
+	npc_records = (result.get("resident_records", npc_records) \
+		as Dictionary).duplicate(true)
+	return true
+
+
+func apply_biology_owner_projection() -> void:
+	if not initialized or not BiologyManager.initialized:
+		return
+	var result := BiologyManager.reconcile_settlement_projection(
+		active_village_id, npc_records, false)
+	if bool(result.get("ok", false)):
+		npc_records = (result.get("resident_records", npc_records) \
+			as Dictionary).duplicate(true)
+
+
+func reconcile_social_owner(allow_existing_updates: bool = false) -> bool:
+	_ensure_social_owner()
+	var result := SocialManager.reconcile_settlement_projection(
+		active_village_id, npc_records, allow_existing_updates)
+	if not bool(result.get("ok", false)):
+		push_warning("HamletState: social-owner reconciliation failed: %s" % result)
+		return false
+	npc_records = (result.get("resident_records", npc_records) \
+		as Dictionary).duplicate(true)
+	return true
+
+
+func apply_social_owner_projection() -> void:
+	if not initialized or not SocialManager.initialized:
+		return
+	var result := SocialManager.reconcile_settlement_projection(
+		active_village_id, npc_records, false)
+	if bool(result.get("ok", false)):
+		npc_records = (result.get("resident_records", npc_records) \
+			as Dictionary).duplicate(true)
+
+
+func refresh_social_projection() -> void:
+	apply_social_owner_projection()
+	_refresh_social_reputation_projection()
+	_refresh_permissions()
+
+
+func reconcile_political_owner(allow_existing_updates: bool = false) -> bool:
+	_ensure_political_owner()
+	var projection := {
+		"npc_records": npc_records.duplicate(true),
+		"site_id": "hamlet_facade.%s" % active_village_id,
+		"government_profile_ref": "government.communal_council",
+		"governing_faction_archetype_ref": "faction.local_council",
+	}
+	var result := PoliticalManager.reconcile_settlement_projection(
+		active_village_id, projection, allow_existing_updates)
+	if not bool(result.get("ok", false)):
+		push_warning("HamletState: political-owner reconciliation failed: %s" % result)
+		return false
+	return true
+
+
+func apply_political_owner_projection() -> void:
+	if not initialized or not PoliticalManager.initialized:
+		return
+	if PoliticalManager.government_for_settlement(active_village_id).is_empty():
+		reconcile_political_owner(false)
+
+
+func refresh_political_projection() -> void:
+	apply_political_owner_projection()
+	_refresh_permissions()
+
+
+func reconcile_movement_owner(allow_existing_updates: bool = false) -> bool:
+	_ensure_movement_owner()
+	for npc_id in get_npc_ids():
+		var record: Dictionary = npc_records[npc_id]
+		var position_value: Variant = record.get("position", [])
+		var position: Array = position_value.duplicate(true) \
+			if position_value is Array else []
+		if position.size() != 3:
+			var home: Array = record.get("home", [])
+			position = [float(home[0]) + 0.5, 0.0, float(home[1]) + 0.5] \
+				if home.size() >= 2 else [0.0, 0.0, 0.0]
+		var result := MovementManager.register_mover({
+			"transaction_id": "movement.hamlet.register.%s" % npc_id,
+			"entity_ref": npc_id,
+			"mover_profile_ref": "mover_profile.humanoid.npc",
+			"position": position,
+			"movement_mode": "Ground",
+			"movement_state": str(record.get("activity", "Idle")).capitalize(),
+			"lod_state": "local" if active_village_id \
+				== SettlementManager.focused_settlement_id else "distant",
+			"semantic_location": {
+				"kind": "settlement",
+				"ref": active_village_id,
+				"settlement_ref": active_village_id,
+				"position": position,
+			},
+		})
+		if not bool(result.get("ok", false)):
+			push_warning("HamletState: movement-owner reconciliation failed: %s" \
+				% result)
+			return false
+		if allow_existing_updates and MovementManager.has_mover(npc_id):
+			MovementManager.commit_physical_snapshot({
+				"entity_ref": npc_id,
+				"position": position,
+				"movement_mode": "Ground",
+				"movement_state": str(record.get("activity", "Idle")).capitalize(),
+				"semantic_location": {
+					"kind": "settlement",
+					"ref": active_village_id,
+					"settlement_ref": active_village_id,
+					"position": position,
+				},
+			})
+	return true
+
+
+func apply_movement_owner_projection() -> void:
+	if not initialized or not MovementManager.initialized:
+		return
+	for npc_id in get_npc_ids():
+		if not MovementManager.has_mover(npc_id):
+			continue
+		var mover := MovementManager.mover_record(npc_id)
+		var position: Array = mover.get("position", [])
+		if position.size() != 3:
+			continue
+		var record: Dictionary = npc_records[npc_id]
+		record["position"] = position.duplicate(true)
+		record["movement_record_ref"] = str(mover.get("movement_record_ref", ""))
+		record["movement_revision"] = int(mover.get("movement_revision", 0))
+		npc_records[npc_id] = record
+
+
+func refresh_movement_projection() -> void:
+	apply_movement_owner_projection()
+
+
+func _ensure_people_owner() -> void:
+	if PeopleManager.initialized and PeopleManager.world_seed == world_seed:
+		return
+	PeopleManager.initialize(
+		world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _ensure_biology_owner() -> void:
+	if BiologyManager.initialized and BiologyManager.world_seed == world_seed:
+		return
+	BiologyManager.initialize(
+		world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _ensure_social_owner() -> void:
+	if SocialManager.initialized and SocialManager.world_seed == world_seed:
+		return
+	SocialManager.initialize(
+		world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _ensure_political_owner() -> void:
+	if PoliticalManager.initialized and PoliticalManager.world_seed == world_seed:
+		return
+	PoliticalManager.initialize(
+		world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
+
+
+func _ensure_movement_owner() -> void:
+	if MovementManager.initialized and MovementManager.world_seed == world_seed:
+		return
+	MovementManager.initialize(
+		world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
 
 
 func _restore_runtime_records(data: Dictionary) -> void:
@@ -1997,6 +2853,15 @@ func _restore_runtime_records(data: Dictionary) -> void:
 			record["instance_id"] = instance_id
 			record["condition"] = clampf(
 				float(record.get("condition", 1.0)), 0.0, 1.0)
+			var adoption := StructureManager.adopt_legacy_building(record, {
+				"world_seed": world_seed,
+				"settlement_id": str(record.get(
+					"owner_id", active_village_id)),
+				"migration_id": "save.v18.structure_owner",
+			})
+			if bool(adoption.get("ok", false)):
+				record = StructureManager.compatibility_building_view(
+					instance_id, record)
 			runtime_buildings[instance_id] = record
 	var saved_plans: Variant = data.get("runtime_plans", {})
 	if saved_plans is Dictionary:

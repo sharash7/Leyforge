@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_lpn5k"]
+
+[resource]
+script = ExtResource("1_lpn5k")
+product_id = "runtime.catalogue.sound_source_production_magic_deactivate_soft_detail"
+source_id = "sound.source.production.magic_deactivate_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_magic_deactivate_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_magic_deactivate_soft_detail.tres": "2d32c349c7622dbe48287a145256a654337d0b5c5c8b080502ae0c751047f720"
+}
+combined_source_hash = "cd3117e45410ccc31cb4e6ab05b2c270b471988a09be8087b6a11452a49d3be9"
+dependency_ids = PackedStringArray()

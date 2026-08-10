@@ -22,7 +22,7 @@ func _run() -> void:
 		WorldStructurePlanner.VERSION == 4,
 		"new regional plans are not version 4")
 	_check(
-		WorldManager.CURRENT_SAVE_VERSION == 17,
+		WorldManager.CURRENT_SAVE_VERSION == 18,
 		"runtime save version is not v17")
 	_check(
 		WorldManager.NEW_WORLDGEN_VERSION == 5

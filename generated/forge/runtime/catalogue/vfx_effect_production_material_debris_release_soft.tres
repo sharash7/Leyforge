@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_mp8rr"]
+
+[resource]
+script = ExtResource("1_mp8rr")
+product_id = "runtime.catalogue.vfx_effect_production_material_debris_release_soft"
+source_id = "vfx.effect.production.material_debris_release_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_material_debris_release_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_material_debris_release_soft.tres": "27ff8f4ff441e90b74fc6740e0e6281eaab16513c53fd23949207b4533591a6c"
+}
+combined_source_hash = "2f5a303121f91b91eab6a7bca20d736fbe322219f83def1e11c31a36d2c0072b"
+dependency_ids = PackedStringArray()

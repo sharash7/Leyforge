@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ospg2"]
+
+[resource]
+script = ExtResource("1_ospg2")
+product_id = "runtime.catalogue.sound_event_production_combat_gear_start_firm"
+source_id = "sound.event.production.combat_gear_start_firm"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_combat_gear_start_firm.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_combat_gear_start_firm.tres": "499b2781dbbe02869b01d26d5531759a70964a25d8e010272aa9a94532204f69"
+}
+combined_source_hash = "369af638b701100af6094219fc298a1e99e80592c0da98fca5a0d7c61cc263a6"
+dependency_ids = PackedStringArray()

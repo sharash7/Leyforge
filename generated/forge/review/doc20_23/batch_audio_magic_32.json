@@ -1,0 +1,18 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.audio.magic.32",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "sound.event.production.magic_impact_firm",
+    "sound.source.production.magic_impact_firm_body",
+    "sound.source.production.magic_impact_firm_detail",
+    "sound.event.production.magic_release_firm",
+    "sound.source.production.magic_release_firm_body",
+    "sound.source.production.magic_release_firm_detail",
+    "sound.event.production.magic_warning_firm",
+    "sound.source.production.magic_warning_firm_body",
+    "sound.source.production.magic_warning_firm_detail"
+  ]
+}

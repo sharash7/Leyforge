@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_bfqql"]
+
+[resource]
+script = ExtResource("1_bfqql")
+product_id = "runtime.catalogue.blueprint_leyforge_magic_mana_store_battery_a"
+source_id = "blueprint.leyforge.magic.mana_store_battery_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_magic_mana_store_battery_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_mana_store_battery_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_mana_store_battery_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_mana_store_battery_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_magic_mana_store_battery_a.tres": "c81acce9227b7d00690ded88b28885cfcac4fcc8e162b43ed1a7836e27083853",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_mana_store_battery_a_light_damage.tres": "ebc337e92a1a0959bdfac07dac677e833d03827c21d431a09bf85d9dabc2c48a",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_mana_store_battery_a_repaired.tres": "fcef9aeda3dae9f13e0976c82a61c5e6c3664074b4a6720a77f357a714652112",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_magic_mana_store_battery_a_under_construction.tres": "426dad8e26b2eb23795623999cb182593194f96bfac9fd786bace15bbd3b166d"
+}
+combined_source_hash = "4a04d8a8e11352ac3f0a99de4b9ba5b685de7407f56b37b1a04cfdeb23861d2e"
+dependency_ids = PackedStringArray()

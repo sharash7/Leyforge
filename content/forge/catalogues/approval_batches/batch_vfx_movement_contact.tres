@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_126ks"]
+
+[resource]
+script = ExtResource("1_126ks")
+batch_id = "batch.vfx.movement_contact"
+display_name = "Vfx.movement Contact"
+studio = "vfx"
+category = "movement_contact"
+target_ids = PackedStringArray("vfx.effect.production.movement_contact_finish_soft", "vfx.effect.production.movement_contact_idle_soft", "vfx.effect.production.movement_contact_impact_soft", "vfx.effect.production.movement_contact_move_soft", "vfx.effect.production.movement_contact_release_soft", "vfx.effect.production.movement_contact_start_soft", "vfx.effect.production.movement_contact_sustain_soft", "vfx.effect.production.movement_contact_warning_soft")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_vfx_movement_contact.json")

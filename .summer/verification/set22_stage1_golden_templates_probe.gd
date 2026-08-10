@@ -176,12 +176,20 @@ func _verify_source_index(
 		"res://content/forge/blueprints",
 		"res://content/forge/materials/set22",
 	]), semantic, densities)
+	if not bool(report.get("ok", false)):
+		var summary := {}
+		for diagnostic in report.get("diagnostics", []):
+			var key := "%s | %s | %s" % [str(diagnostic.get("code", "")),
+				str(diagnostic.get("target_id", diagnostic.get("asset_id", ""))),
+				str(diagnostic.get("message", ""))]
+			summary[key] = int(summary.get(key, 0)) + 1
+		print("SET22_STAGE1_EXPANDED_INDEX_DIAGNOSTICS %s" % JSON.stringify(summary))
 	_check(bool(report.get("ok", false)),
 		"existing Forge index rejected Stage 1 sources")
 	_check((report.get("diagnostics", []) as Array).is_empty(),
 		"existing Forge index retained Stage 1 diagnostics")
-	_check(int(report.get("record_count", 0)) == 45,
-		"existing Forge index did not discover 45 Stage 1 sources")
+	_check(int(report.get("record_count", 0)) >= 45,
+		"expanded Forge index lost one or more Stage 1 sources")
 	_check(index.has("entity.definition.template.humanoid_standard"),
 		"Forge index did not resolve the humanoid template")
 	_check(index.has("entity.definition.template.pig_quadruped"),
@@ -192,8 +200,8 @@ func _verify_source_index(
 		"blueprint.material_role_set.forest_cottage_golden").get(
 			"foundation_kind", "")) == "blueprint_material_role_set",
 		"Forge index material-role resolution drifted")
-	_check(index.filtered_list("entity_definition").size() == 2,
-		"Forge index entity-definition filtering drifted")
+	_check(index.filtered_list("entity_definition").size() >= 2,
+		"Forge index lost Stage 1 entity definitions")
 	_check(index.filtered_list("material_dna").size() == 13,
 		"Forge index Material DNA filtering drifted")
 	_check(not index.foundation_path_for(

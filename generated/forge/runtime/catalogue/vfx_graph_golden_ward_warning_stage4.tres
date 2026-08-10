@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_1olad"]
+
+[resource]
+script = ExtResource("1_1olad")
+product_id = "runtime.catalogue.vfx_graph_golden_ward_warning_stage4"
+source_id = "vfx.graph.golden.ward_warning.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/vfx_graph_ward_warning.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/vfx_graph_ward_warning.tres": "36cdc63363bdbb5b2754888f5583ebb4ae0b19b9291c77f35eb924c67f427efa"
+}
+combined_source_hash = "78d1d7ebaef045df2e2c23b1641238123b906a7466b0dc8c6d2db02594962375"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_rr20y"]
+
+[resource]
+script = ExtResource("1_rr20y")
+product_id = "runtime.catalogue.vfx_effect_production_magic_rune_ward_trail_soft"
+source_id = "vfx.effect.production.magic_rune_ward_trail_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_magic_rune_ward_trail_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_magic_rune_ward_trail_soft.tres": "973f09ff3f20ee34a9edc0375d1dee941e04e7440867b3758b4e4216d9d02fa1"
+}
+combined_source_hash = "19f2e7b737b6b408575fcacfd7f47649bd42c780305fbafd723cce7b464e6af7"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_i6b37"]
+
+[resource]
+script = ExtResource("1_i6b37")
+asset_id = "forge_asset.test.forge.block.acceptance_surface"
+presentation_id = "presentation.test.forge.block.acceptance_surface"
+source_revision = 1
+source_hash = "a296a6dad0759e7c5ad404529abc35a1a70ca6bfe2748ad127f784d5b4161239"
+engine_version = "4.8-dev (custom_build)"
+baker_version = "forge-pipeline-v7"
+products = Array[Dictionary]([{
+"hash": "e93dda6dea7db8a4182ddda5315b214e66baf133de9dce5ba5e609bda15eadeb",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/presentation_mesh.res",
+"type": "mesh"
+}, {
+"hash": "8a8a827021325c9070476493e818ebfbc0a0054b92be698aa3aa1c3800e2edfa",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/top.png",
+"type": "surface"
+}, {
+"hash": "eb7784a8b74a82705160bc85cd63fee723b1864276482cc2155cddfa492e66cf",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/bottom.png",
+"type": "surface"
+}, {
+"hash": "5728cac8fb4a0ff302fec0ff8b0c3e672177eb99e5fa2a78a3a4da663de790e7",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/north.png",
+"type": "surface"
+}, {
+"hash": "5728cac8fb4a0ff302fec0ff8b0c3e672177eb99e5fa2a78a3a4da663de790e7",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/south.png",
+"type": "surface"
+}, {
+"hash": "5728cac8fb4a0ff302fec0ff8b0c3e672177eb99e5fa2a78a3a4da663de790e7",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/east.png",
+"type": "surface"
+}, {
+"hash": "5728cac8fb4a0ff302fec0ff8b0c3e672177eb99e5fa2a78a3a4da663de790e7",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/west.png",
+"type": "surface"
+}, {
+"hash": "d34d410e533d6cd0c46f7f167d867080b75235aef83217397838092de1f5ad98",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/icon.png",
+"type": "icon"
+}, {
+"hash": "e2b14d4b02d2486edfcc4ca10788e4e91dc636e657e4e8959b8b7832845817a0",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/collision.tres",
+"type": "collision"
+}, {
+"hash": "340fb309bbb17f5722ef9a13e4e606808c7d9f9d1469760f6b98c766f0f38fbd",
+"path": "user://forge_end_to_end/bakes/products/presentation_test_forge_block_acceptance_surface/34c54f380cc1bc03/presentation.tscn",
+"type": "scene"
+}, {
+"hash": "17412bcd02142a6fc5b268346aea456873d59dec4becf85d4f4c4875cef468c5",
+"path": "user://forge_end_to_end/bakes/packages/presentation_test_forge_block_acceptance_surface.tres",
+"type": "runtime_package"
+}])
+diagnostics_summary = {
+"blocker": 0,
+"critical": 0,
+"critical_release_blocker": 0,
+"error": 0,
+"info": 0,
+"warning": 0
+}
+approved_status = "approved"

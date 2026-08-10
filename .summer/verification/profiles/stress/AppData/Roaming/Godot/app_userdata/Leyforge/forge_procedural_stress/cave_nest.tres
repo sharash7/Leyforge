@@ -1,0 +1,318 @@
+[gd_resource type="Resource" script_class="ForgeProceduralStructureProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_connector_definition.gd" id="1_00c02"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_procedural_structure_product.gd" id="2_ni7wm"]
+
+[sub_resource type="Resource" id="Resource_5wv4c"]
+script = ExtResource("1_00c02")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_junction.south"
+display_name = "Cave Junction connection"
+owner_module_id = "blueprint.module.cave_nest.junction"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(0, 1, 2)
+connection_tags = PackedStringArray("cave", "junction")
+blocked_tags = PackedStringArray()
+clearance = Vector3i(3, 3, 2)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_43dlr"]
+script = ExtResource("1_00c02")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_junction.west"
+display_name = "Cave Junction connection"
+owner_module_id = "blueprint.module.cave_nest.junction"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(-2, 1, 0)
+direction = Vector3i(-1, 0, 0)
+connection_tags = PackedStringArray("cave", "junction")
+blocked_tags = PackedStringArray()
+clearance = Vector3i(3, 3, 2)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_8a2af"]
+script = ExtResource("1_00c02")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_junction.north"
+display_name = "Cave Junction connection"
+owner_module_id = "blueprint.module.cave_nest.junction"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(0, 1, -2)
+direction = Vector3i(0, 0, 1)
+connection_tags = PackedStringArray("cave", "junction")
+blocked_tags = PackedStringArray()
+clearance = Vector3i(3, 3, 2)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_o535l"]
+script = ExtResource("1_00c02")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_junction.east"
+display_name = "Cave Junction connection"
+owner_module_id = "blueprint.module.cave_nest.junction"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(2, 1, 0)
+direction = Vector3i(1, 0, 0)
+connection_tags = PackedStringArray("cave", "junction")
+blocked_tags = PackedStringArray()
+clearance = Vector3i(3, 3, 2)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_0nqd7"]
+script = ExtResource("1_00c02")
+connector_id = "blueprint.connector.blueprint_module_cave_nest_turn.south"
+display_name = "Cave Turn connection"
+owner_module_id = "blueprint.module.cave_nest.turn"
+socket_role_id = "socket.role.structure.cave"
+position = Vector3i(0, 1, 2)
+connection_tags = PackedStringArray("cave", "turn")
+blocked_tags = PackedStringArray()
+clearance = Vector3i(3, 3, 2)
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[resource]
+script = ExtResource("2_ni7wm")
+product_id = "runtime.blueprint.procedural.stress_cave_nest"
+rule_set_id = "blueprint.ruleset.cave_nest"
+module_set_id = "blueprint.module_set.cave_nest"
+source_hash = "dbebb9e239ae33057c485d97fb20bf68a9aaaa0bfe7ac64288bd67a29697f8e3"
+placements = Array[Dictionary]([{
+"connected_from": "",
+"connected_from_placement": "",
+"connector_id": "",
+"depth": 0,
+"module_id": "blueprint.module.cave_nest.entrance",
+"placement_id": "placement.blueprint_module_cave_nest_entrance.0.0.0.0",
+"position": [0, 0, 0],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_entrance.north",
+"connected_from_placement": "placement.blueprint_module_cave_nest_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_straight.north",
+"depth": 1,
+"module_id": "blueprint.module.cave_nest.straight",
+"placement_id": "placement.blueprint_module_cave_nest_straight.0.0.-4.1",
+"position": [0, 0, -4],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_entrance.south",
+"connected_from_placement": "placement.blueprint_module_cave_nest_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_encounter.south",
+"depth": 1,
+"module_id": "blueprint.module.cave_nest.encounter",
+"placement_id": "placement.blueprint_module_cave_nest_encounter.0.0.4.1",
+"position": [0, 0, 4],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_straight.south",
+"connected_from_placement": "placement.blueprint_module_cave_nest_straight.0.0.-4.1",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_utility_puzzle.south",
+"depth": 2,
+"module_id": "blueprint.module.cave_nest.utility_puzzle",
+"placement_id": "placement.blueprint_module_cave_nest_utility_puzzle.0.0.-8.2",
+"position": [0, 0, -8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_utility_puzzle.north",
+"connected_from_placement": "placement.blueprint_module_cave_nest_utility_puzzle.0.0.-8.2",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_terminal_exit.north",
+"depth": 3,
+"module_id": "blueprint.module.cave_nest.terminal_exit",
+"placement_id": "placement.blueprint_module_cave_nest_terminal_exit.0.0.-12.3",
+"position": [0, 0, -12],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_encounter.north",
+"connected_from_placement": "placement.blueprint_module_cave_nest_encounter.0.0.4.1",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.north",
+"depth": 2,
+"module_id": "blueprint.module.cave_nest.junction",
+"placement_id": "placement.blueprint_module_cave_nest_junction.0.0.8.2",
+"position": [0, 0, 8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_junction.east",
+"connected_from_placement": "placement.blueprint_module_cave_nest_junction.0.0.8.2",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.west",
+"depth": 3,
+"module_id": "blueprint.module.cave_nest.junction",
+"placement_id": "placement.blueprint_module_cave_nest_junction.4.0.8.3",
+"position": [4, 0, 8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_junction.south",
+"connected_from_placement": "placement.blueprint_module_cave_nest_junction.4.0.8.3",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_turn.north",
+"depth": 4,
+"module_id": "blueprint.module.cave_nest.turn",
+"placement_id": "placement.blueprint_module_cave_nest_turn.4.0.12.4",
+"position": [4, 0, 12],
+"rotation_quarters": 0
+}])
+open_connectors = Array[Dictionary]([{
+"connector": SubResource("Resource_5wv4c"),
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.south",
+"depth": 2,
+"module_id": "blueprint.module.cave_nest.junction",
+"owner_placement_id": "placement.blueprint_module_cave_nest_junction.0.0.8.2",
+"world_direction": Vector3i(0, 0, -1),
+"world_position": Vector3i(0, 1, 10)
+}, {
+"connector": SubResource("Resource_43dlr"),
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.west",
+"depth": 2,
+"module_id": "blueprint.module.cave_nest.junction",
+"owner_placement_id": "placement.blueprint_module_cave_nest_junction.0.0.8.2",
+"world_direction": Vector3i(-1, 0, 0),
+"world_position": Vector3i(-2, 1, 8)
+}, {
+"connector": SubResource("Resource_8a2af"),
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.north",
+"depth": 3,
+"module_id": "blueprint.module.cave_nest.junction",
+"owner_placement_id": "placement.blueprint_module_cave_nest_junction.4.0.8.3",
+"world_direction": Vector3i(0, 0, 1),
+"world_position": Vector3i(4, 1, 6)
+}, {
+"connector": SubResource("Resource_o535l"),
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.east",
+"depth": 3,
+"module_id": "blueprint.module.cave_nest.junction",
+"owner_placement_id": "placement.blueprint_module_cave_nest_junction.4.0.8.3",
+"world_direction": Vector3i(1, 0, 0),
+"world_position": Vector3i(6, 1, 8)
+}, {
+"connector": SubResource("Resource_0nqd7"),
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_turn.south",
+"depth": 4,
+"module_id": "blueprint.module.cave_nest.turn",
+"owner_placement_id": "placement.blueprint_module_cave_nest_turn.4.0.12.4",
+"world_direction": Vector3i(0, 0, -1),
+"world_position": Vector3i(4, 1, 14)
+}])
+continuation_state = {
+"checkpoint": {
+"hash": "ff1dea1db445545ffcf1827f563a2093e6fcf55b163b9db1ded7d32d99c86ee4",
+"interval": 8,
+"placement_count": 8
+},
+"frontier": Array[Dictionary]([{
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.south",
+"depth": 2,
+"module_id": "blueprint.module.cave_nest.junction",
+"owner_placement_id": "placement.blueprint_module_cave_nest_junction.0.0.8.2",
+"world_direction": [0, 0, -1],
+"world_position": [0, 1, 10]
+}, {
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.west",
+"depth": 2,
+"module_id": "blueprint.module.cave_nest.junction",
+"owner_placement_id": "placement.blueprint_module_cave_nest_junction.0.0.8.2",
+"world_direction": [-1, 0, 0],
+"world_position": [-2, 1, 8]
+}, {
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.north",
+"depth": 3,
+"module_id": "blueprint.module.cave_nest.junction",
+"owner_placement_id": "placement.blueprint_module_cave_nest_junction.4.0.8.3",
+"world_direction": [0, 0, 1],
+"world_position": [4, 1, 6]
+}, {
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.east",
+"depth": 3,
+"module_id": "blueprint.module.cave_nest.junction",
+"owner_placement_id": "placement.blueprint_module_cave_nest_junction.4.0.8.3",
+"world_direction": [1, 0, 0],
+"world_position": [6, 1, 8]
+}, {
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_turn.south",
+"depth": 4,
+"module_id": "blueprint.module.cave_nest.turn",
+"owner_placement_id": "placement.blueprint_module_cave_nest_turn.4.0.12.4",
+"world_direction": [0, 0, -1],
+"world_position": [4, 1, 14]
+}]),
+"module_set_id": "blueprint.module_set.cave_nest",
+"placements": Array[Dictionary]([{
+"connected_from": "",
+"connected_from_placement": "",
+"connector_id": "",
+"depth": 0,
+"module_id": "blueprint.module.cave_nest.entrance",
+"placement_id": "placement.blueprint_module_cave_nest_entrance.0.0.0.0",
+"position": [0, 0, 0],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_entrance.north",
+"connected_from_placement": "placement.blueprint_module_cave_nest_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_straight.north",
+"depth": 1,
+"module_id": "blueprint.module.cave_nest.straight",
+"placement_id": "placement.blueprint_module_cave_nest_straight.0.0.-4.1",
+"position": [0, 0, -4],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_entrance.south",
+"connected_from_placement": "placement.blueprint_module_cave_nest_entrance.0.0.0.0",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_encounter.south",
+"depth": 1,
+"module_id": "blueprint.module.cave_nest.encounter",
+"placement_id": "placement.blueprint_module_cave_nest_encounter.0.0.4.1",
+"position": [0, 0, 4],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_straight.south",
+"connected_from_placement": "placement.blueprint_module_cave_nest_straight.0.0.-4.1",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_utility_puzzle.south",
+"depth": 2,
+"module_id": "blueprint.module.cave_nest.utility_puzzle",
+"placement_id": "placement.blueprint_module_cave_nest_utility_puzzle.0.0.-8.2",
+"position": [0, 0, -8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_utility_puzzle.north",
+"connected_from_placement": "placement.blueprint_module_cave_nest_utility_puzzle.0.0.-8.2",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_terminal_exit.north",
+"depth": 3,
+"module_id": "blueprint.module.cave_nest.terminal_exit",
+"placement_id": "placement.blueprint_module_cave_nest_terminal_exit.0.0.-12.3",
+"position": [0, 0, -12],
+"rotation_quarters": 2
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_encounter.north",
+"connected_from_placement": "placement.blueprint_module_cave_nest_encounter.0.0.4.1",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.north",
+"depth": 2,
+"module_id": "blueprint.module.cave_nest.junction",
+"placement_id": "placement.blueprint_module_cave_nest_junction.0.0.8.2",
+"position": [0, 0, 8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_junction.east",
+"connected_from_placement": "placement.blueprint_module_cave_nest_junction.0.0.8.2",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_junction.west",
+"depth": 3,
+"module_id": "blueprint.module.cave_nest.junction",
+"placement_id": "placement.blueprint_module_cave_nest_junction.4.0.8.3",
+"position": [4, 0, 8],
+"rotation_quarters": 0
+}, {
+"connected_from": "blueprint.connector.blueprint_module_cave_nest_junction.south",
+"connected_from_placement": "placement.blueprint_module_cave_nest_junction.4.0.8.3",
+"connector_id": "blueprint.connector.blueprint_module_cave_nest_turn.north",
+"depth": 4,
+"module_id": "blueprint.module.cave_nest.turn",
+"placement_id": "placement.blueprint_module_cave_nest_turn.4.0.12.4",
+"position": [4, 0, 12],
+"rotation_quarters": 0
+}]),
+"rng_state": 3141446428620957845,
+"rule_set_id": "blueprint.ruleset.cave_nest",
+"schema": "leyforge.forge.procedural-structure-continuation"
+}

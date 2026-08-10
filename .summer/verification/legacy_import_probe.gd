@@ -95,7 +95,7 @@ func _run() -> void:
 	var imported: Variant = JSON.parse_string(FileAccess.get_file_as_string(
 		WorldManager.active_world_paths()["final"]))
 	_check(
-		imported is Dictionary and int(imported.get("version", 0)) == 17,
+		imported is Dictionary and int(imported.get("version", 0)) == 18,
 		"imported world did not advance to save v17")
 	var original: Variant = JSON.parse_string(FileAccess.get_file_as_string(
 		"user://leyforge_save.json"))

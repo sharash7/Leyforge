@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_cdige"]
+
+[resource]
+script = ExtResource("1_cdige")
+product_id = "runtime.catalogue.sound_source_production_tools_crafting_loop_soft_tail"
+source_id = "sound.source.production.tools_crafting_loop_soft_tail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_tools_crafting_loop_soft_tail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_tools_crafting_loop_soft_tail.tres": "4a56eaf0a7fd917d5e122cd0584403c1b7ce1d68783b6d5501117d5340e86060"
+}
+combined_source_hash = "65e02d86ea0fb7400b0c0dca27f6b776de2d21471a9ccb2611a1064ea8f7d0aa"
+dependency_ids = PackedStringArray()

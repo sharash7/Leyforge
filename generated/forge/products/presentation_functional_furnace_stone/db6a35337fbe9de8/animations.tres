@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_001.res" id="2_1cm3o"]
 [ext_resource type="ArrayMesh" path="res://generated/forge/products/presentation_functional_furnace_stone/db6a35337fbe9de8/frames_magical_flame/frame_002.res" id="3_1ce1s"]
 
-[sub_resource type="Animation" id="Animation_ai7io"]
+[sub_resource type="Animation" id="Animation_2iux3"]
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [0.6, 2.2, 0.6]
 }
 
-[sub_resource type="Animation" id="Animation_3vhf4"]
+[sub_resource type="Animation" id="Animation_1cm3o"]
 length = 0.35
 tracks/0/type = "scale_3d"
 tracks/0/imported = false
@@ -30,7 +30,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0.1, 0.1, 0.1, 0.35, 1, 1, 1, 1)
 
-[sub_resource type="Animation" id="Animation_romwf"]
+[sub_resource type="Animation" id="Animation_1ce1s"]
 length = 0.42000002
 loop_mode = 1
 tracks/0/type = "value"
@@ -46,7 +46,7 @@ tracks/0/keys = {
 "values": [ExtResource("1_2iux3"), ExtResource("2_1cm3o"), ExtResource("3_1ce1s")]
 }
 
-[sub_resource type="Animation" id="Animation_tjo5s"]
+[sub_resource type="Animation" id="Animation_ai7io"]
 loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
@@ -58,8 +58,8 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, 0, 0, 0.7071068, 0
 
 [resource]
 _data = {
-&"heat_pulse": SubResource("Animation_ai7io"),
-&"ignite": SubResource("Animation_3vhf4"),
-&"magical_flame": SubResource("Animation_romwf"),
-&"work_cycle": SubResource("Animation_tjo5s")
+&"heat_pulse": SubResource("Animation_2iux3"),
+&"ignite": SubResource("Animation_1cm3o"),
+&"magical_flame": SubResource("Animation_1ce1s"),
+&"work_cycle": SubResource("Animation_ai7io")
 }

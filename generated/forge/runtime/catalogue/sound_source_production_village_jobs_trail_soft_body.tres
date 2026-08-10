@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_qd4ui"]
+
+[resource]
+script = ExtResource("1_qd4ui")
+product_id = "runtime.catalogue.sound_source_production_village_jobs_trail_soft_body"
+source_id = "sound.source.production.village_jobs_trail_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_village_jobs_trail_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_village_jobs_trail_soft_body.tres": "1fa105d9851d5b06eb04056a976a9630dbbc983dba14c2ee20222567ee1751ba"
+}
+combined_source_hash = "4fff2eb5a143127c29dd9273da8841703988f7d8d3a57409e90664f2dd54664e"
+dependency_ids = PackedStringArray()

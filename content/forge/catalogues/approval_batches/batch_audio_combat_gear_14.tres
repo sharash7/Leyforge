@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_wa71v"]
+
+[resource]
+script = ExtResource("1_wa71v")
+batch_id = "batch.audio.combat_gear.14"
+display_name = "Audio.combat Gear.14"
+studio = "audio"
+category = "combat_gear"
+target_ids = PackedStringArray("sound.event.production.combat_gear_finish_soft", "sound.source.production.combat_gear_finish_soft_body", "sound.source.production.combat_gear_finish_soft_detail", "sound.source.production.combat_gear_finish_soft_tail", "sound.event.production.combat_gear_impact_soft", "sound.source.production.combat_gear_impact_soft_body", "sound.source.production.combat_gear_impact_soft_detail", "sound.source.production.combat_gear_impact_soft_tail", "sound.event.production.combat_gear_start_soft", "sound.source.production.combat_gear_start_soft_body", "sound.source.production.combat_gear_start_soft_detail", "sound.source.production.combat_gear_start_soft_tail", "sound.event.production.combat_gear_sustain_soft", "sound.source.production.combat_gear_sustain_soft_body", "sound.source.production.combat_gear_sustain_soft_detail", "sound.source.production.combat_gear_sustain_soft_tail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_combat_gear_14.json")

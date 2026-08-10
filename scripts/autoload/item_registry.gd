@@ -134,19 +134,10 @@ func create_instance_stack(id: int) -> Dictionary:
 	return stack
 
 
-func get_place_block_id(id: int) -> int:
-	## Explicit stable relationships prevent duplicate display names from
-	## conflating item and block identities.
-	var item_to_block := {
-		"item.resource.log_oak": "natural.log.oak",
-		"item.resource.sand": "terrain.sand.basic",
-		"item.material.plank_oak": "construction.planks.oak",
-		"item.material.beam_oak": "construction.beam.oak",
-		"item.material.cobblestone": "construction.cobble.stone",
-		"item.material.stone_brick": "construction.brick.stone",
-	}
-	var block_stable: String = item_to_block.get(get_stable_id(id), "")
-	return BlockRegistry.get_id_by_stable_id(block_stable) if not block_stable.is_empty() else -1
+func get_place_block_id(_id: int) -> int:
+	## Active Items are distinct portable/component identities. Recoverable
+	## placed Blocks travel as Block Inventory Projections instead.
+	return -1
 
 
 func resolve_serialized_id(value: Variant) -> int:
@@ -156,6 +147,10 @@ func resolve_serialized_id(value: Variant) -> int:
 		var numeric_id := int(value)
 		return numeric_id if has_item(numeric_id) else -1
 	return -1
+
+
+func resolve_legacy_block_projection(value: Variant) -> Dictionary:
+	return BlockRegistry.legacy_item_projection(value)
 
 
 func get_ids_by_name(display_name: String) -> Array:

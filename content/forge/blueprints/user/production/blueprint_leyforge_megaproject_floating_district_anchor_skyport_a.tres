@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_lkcwk"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_14eni"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_w0dqw"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_bkj03"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_fnf84"]
+
+[sub_resource type="Resource" id="Resource_xam0c"]
+script = ExtResource("1_lkcwk")
+delta_id = "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a.delta.route"
+stage_id = "route"
+add_element_ids = PackedStringArray("blueprint.leyforge.megaproject.floating_district_anchor_skyport_a.element.route.line_0", "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a.element.route.line_1")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_6wcq3"]
+script = ExtResource("2_14eni")
+element_id = "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a.element.route.line_0"
+element_kind = "block_operation"
+material_role_id = "path_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "route"
+position = Vector3i(-3, 0, 0)
+source_id = "material.mvp.stone"
+metadata = {
+"axis": "x",
+"length": 7.0,
+"op": "line",
+"origin": [-3.0, 0.0, 0.0],
+"token": "path_primary"
+}
+
+[sub_resource type="Resource" id="Resource_iifv0"]
+script = ExtResource("2_14eni")
+element_id = "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a.element.route.line_1"
+element_kind = "block_operation"
+material_role_id = "path_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "route"
+position = Vector3i(0, 0, -3)
+source_id = "material.mvp.stone"
+metadata = {
+"axis": "z",
+"length": 7.0,
+"op": "line",
+"origin": [0.0, 0.0, -3.0],
+"token": "path_primary"
+}
+
+[sub_resource type="Resource" id="Resource_uu5m4"]
+script = ExtResource("2_14eni")
+element_id = "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a.marker_service"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.service_point")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, 0)
+metadata = {
+"id": "marker_service",
+"position": [0.0, 1.0, 0.0],
+"type": "service_point"
+}
+
+[sub_resource type="Resource" id="Resource_tp0sl"]
+script = ExtResource("3_w0dqw")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_megaproject_floating_district_anchor_skyport_a"
+display_name = "Floating District Anchor or Skyport - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.wood",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_cjdsa"]
+script = ExtResource("4_bkj03")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_megaproject_floating_district_anchor_skyport_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-3, 0, -3)
+footprint_max = Vector3i(3, 5, 3)
+max_slope = 2
+terrain_mode = "network_fit"
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_fnf84")
+blueprint_id = "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a"
+display_name = "Floating District Anchor or Skyport - Forest Neutral"
+definition_ids = PackedStringArray("project.megaproject.floating_district_anchor_skyport")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_14eni")]([SubResource("Resource_6wcq3"), SubResource("Resource_iifv0"), SubResource("Resource_uu5m4")])
+construction_deltas = Array[ExtResource("1_lkcwk")]([SubResource("Resource_xam0c")])
+placement_profile = SubResource("Resource_cjdsa")
+material_role_set = SubResource("Resource_tp0sl")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.119"

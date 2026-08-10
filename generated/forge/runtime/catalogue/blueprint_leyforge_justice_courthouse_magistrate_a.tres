@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ffxkk"]
+
+[resource]
+script = ExtResource("1_ffxkk")
+product_id = "runtime.catalogue.blueprint_leyforge_justice_courthouse_magistrate_a"
+source_id = "blueprint.leyforge.justice.courthouse_magistrate_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_justice_courthouse_magistrate_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_justice_courthouse_magistrate_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_justice_courthouse_magistrate_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_justice_courthouse_magistrate_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_justice_courthouse_magistrate_a.tres": "ec3d5ce151cc738ba9d853326a26579894cef661eb0cd650a99c0eb430abee7e",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_justice_courthouse_magistrate_a_light_damage.tres": "c5cca458a1fc15c9344bd2bf22b94e5fa32568bdd24031759676f26f3d6c50cc",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_justice_courthouse_magistrate_a_repaired.tres": "b10776ed9024e41ea13c11bc61f8b709395b5ae1bcb7252631e0fdb64637066f",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_justice_courthouse_magistrate_a_under_construction.tres": "931f898699f22bfe44d07ad67a84c62e597d32f114fb6d56b51963a110b2fd11"
+}
+combined_source_hash = "39ba373ec54031d6362f4ff9486f35a29503776908832231432a67774b194828"
+dependency_ids = PackedStringArray()

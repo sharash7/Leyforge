@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_382pk"]
+
+[resource]
+script = ExtResource("1_382pk")
+product_id = "runtime.catalogue.blueprint_leyforge_storage_automated_distribution_centre_a"
+source_id = "blueprint.leyforge.storage.automated_distribution_centre_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_storage_automated_distribution_centre_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_automated_distribution_centre_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_automated_distribution_centre_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_automated_distribution_centre_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_storage_automated_distribution_centre_a.tres": "23787f821b961caf4e8d18d835eed80da13cc348fa26109e054c83c38a5952da",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_automated_distribution_centre_a_light_damage.tres": "88b9cbec99e6c98d817223a699234c4d0cf07c142fc7d48948ef39e04f4912fd",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_automated_distribution_centre_a_repaired.tres": "e8ae863a83ce7e3224c3bf2dbbc53a788f1a2f7ecabb320a63fa79b50b0bf357",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_storage_automated_distribution_centre_a_under_construction.tres": "94530ce771ee38f6c8b4afd9a723b4651d4d98f710048ac9487d665b87d5e814"
+}
+combined_source_hash = "e9d5bd3dc6ac99d8c3608c0b9121e94aac1d3476df4168e4bf85a6f83b380959"
+dependency_ids = PackedStringArray()

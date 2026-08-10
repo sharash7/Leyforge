@@ -2399,8 +2399,8 @@
           "inputs": [],
           "outputs": [
             {
-              "kind": "item",
-              "stable_id": "item.resource.log_oak",
+              "kind": "block",
+              "stable_id": "natural.log.oak",
               "count": 2
             }
           ],
@@ -2504,8 +2504,8 @@
           "inputs": [],
           "outputs": [
             {
-              "kind": "item",
-              "stable_id": "item.resource.log_oak",
+              "kind": "block",
+              "stable_id": "natural.log.oak",
               "count": 3
             }
           ],
@@ -3401,15 +3401,15 @@
           "cycle_minutes": 180,
           "inputs": [
             {
-              "kind": "item",
-              "stable_id": "item.resource.log_oak",
+              "kind": "block",
+              "stable_id": "natural.log.oak",
               "count": 1
             }
           ],
           "outputs": [
             {
-              "kind": "item",
-              "stable_id": "item.material.plank_oak",
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
               "count": 4
             }
           ],
@@ -3529,8 +3529,8 @@
           ],
           "outputs": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 1
             }
           ],
@@ -4079,8 +4079,8 @@
           ],
           "outputs": [
             {
-              "kind": "item",
-              "stable_id": "item.material.stone_brick",
+              "kind": "block",
+              "stable_id": "construction.brick.stone",
               "count": 2
             }
           ],

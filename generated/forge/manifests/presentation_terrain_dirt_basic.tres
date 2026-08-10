@@ -1,62 +1,64 @@
-[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3 uid="uid://bphbet15nkn1p"]
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3]
 
-[ext_resource type="Script" uid="uid://cfvrxyd74eqwx" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_vev45"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_vev45"]
 
 [resource]
 script = ExtResource("1_vev45")
 asset_id = "forge_asset.terrain.dirt.basic"
 presentation_id = "presentation.terrain.dirt.basic"
 source_revision = 1
-source_hash = "e1c6fdc0f6e02932f1c90a3657fec0450b81779646bd8fb8a6f5fdd9f53b34e2"
+source_hash = "3039608ec75229f54cf81585293e90a8a33ebd9e5cae88a07bf8b7e132a26b37"
 engine_version = "4.6.1-stable (custom_build)"
 baker_version = "forge-pipeline-v7"
 products = Array[Dictionary]([{
-"hash": "b75ce6aafbd45519880da70dd816a7466d294ea416d5f51486de5c7c5645b8bb",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/presentation_mesh.res",
+"hash": "1fa5ad35da293cf2c4c9cd386f8e75e7009b3409821c175760846807461526ff",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/presentation_mesh.res",
 "type": "mesh"
 }, {
-"hash": "3bdd4437f31a8babbd3081f01dca6b19cb138088d92a2c0d0e042886003e6be4",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/top.png",
+"hash": "2bcde443e7607b5194e1394c65ece32f3f5ad81ddd7279643e3be591789edcbd",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/top.png",
 "type": "surface"
 }, {
-"hash": "3bdd4437f31a8babbd3081f01dca6b19cb138088d92a2c0d0e042886003e6be4",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/bottom.png",
+"hash": "2bcde443e7607b5194e1394c65ece32f3f5ad81ddd7279643e3be591789edcbd",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/bottom.png",
 "type": "surface"
 }, {
-"hash": "3bdd4437f31a8babbd3081f01dca6b19cb138088d92a2c0d0e042886003e6be4",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/north.png",
+"hash": "2bcde443e7607b5194e1394c65ece32f3f5ad81ddd7279643e3be591789edcbd",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/north.png",
 "type": "surface"
 }, {
-"hash": "3bdd4437f31a8babbd3081f01dca6b19cb138088d92a2c0d0e042886003e6be4",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/south.png",
+"hash": "2bcde443e7607b5194e1394c65ece32f3f5ad81ddd7279643e3be591789edcbd",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/south.png",
 "type": "surface"
 }, {
-"hash": "3bdd4437f31a8babbd3081f01dca6b19cb138088d92a2c0d0e042886003e6be4",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/east.png",
+"hash": "2bcde443e7607b5194e1394c65ece32f3f5ad81ddd7279643e3be591789edcbd",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/east.png",
 "type": "surface"
 }, {
-"hash": "3bdd4437f31a8babbd3081f01dca6b19cb138088d92a2c0d0e042886003e6be4",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/west.png",
+"hash": "2bcde443e7607b5194e1394c65ece32f3f5ad81ddd7279643e3be591789edcbd",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/west.png",
 "type": "surface"
 }, {
-"hash": "553d42caea0b709e2485a7a193ca0080b142a4381480a21378b8097e33518f8a",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/icon.png",
+"hash": "896d7b5069d141d110b485c04af08ec618c109f2f94d1d636d6ec1ac3aa39e13",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/icon.png",
 "type": "icon"
 }, {
-"hash": "5bc4bfdd9f50c043059ab61dd4b903284a20a251013397f13732428d8a413a44",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/collision.tres",
+"hash": "fd27e1fc60357bfacff03dfd475bbf15ffdfa6eb4ebc9cbce328e0132a364d7c",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/collision.tres",
 "type": "collision"
 }, {
-"hash": "deeb86f82cd90c32f50afa69bbddee1daa04b74ee35e97dc676a4075146d4505",
-"path": "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/presentation.tscn",
+"hash": "bf2ede8297d3e4378ee413807c47ce1f93a0be727ce7b77178c1886a89987edd",
+"path": "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/presentation.tscn",
 "type": "scene"
 }, {
-"hash": "3961d0483ee017a8aaf78b45b840ea2bd1ac36bcb885f5b916dd23bd2403b381",
+"hash": "c2d77acec34bd538161a57f2d8cf6f192d29ec5f285445918974d8e95da39fee",
 "path": "res://generated/forge/packages/presentation_terrain_dirt_basic.tres",
 "type": "runtime_package"
 }])
 diagnostics_summary = {
+"blocker": 0,
 "critical": 0,
+"critical_release_blocker": 0,
 "error": 0,
 "info": 0,
 "warning": 0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_1urbx"]
+
+[resource]
+script = ExtResource("1_1urbx")
+product_id = "runtime.catalogue.sound_event_production_environment_weather_loop_soft"
+source_id = "sound.event.production.environment_weather_loop_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_environment_weather_loop_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_environment_weather_loop_soft.tres": "c2abbf4fd05392d5a20ab88689c04e6a32b9475c30470c28c4b7dbff7afb74b8"
+}
+combined_source_hash = "bbf6e9830051d0476a477e14b04e4ebae350289865cbcacff363097965bc9c31"
+dependency_ids = PackedStringArray()

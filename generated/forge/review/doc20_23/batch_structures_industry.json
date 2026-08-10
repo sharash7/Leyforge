@@ -1,0 +1,13 @@
+{
+  "batch_id": "batch.structures.industry",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.industry.foundry_steelworks_a",
+    "blueprint.leyforge.industry.machine_workshop_a",
+    "blueprint.leyforge.industry.furnace_mana_furnace_a",
+    "blueprint.leyforge.industry.automated_factory_assembly_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

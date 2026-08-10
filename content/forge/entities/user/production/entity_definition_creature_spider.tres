@@ -1,0 +1,301 @@
+[gd_resource type="Resource" script_class="ForgeEntityDefinition" format=4]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_emtur"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_hn0lu"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_plan_definition.gd" id="3_e0u2q"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_definition.gd" id="4_jfbst"]
+
+[sub_resource type="Resource" id="Resource_cdjqk"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(8, 9, 6)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_wb48e"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.abdomen"
+display_name = "Abdomen"
+anatomy_role_id = "anatomy.role.arthropod.core"
+voxel_source = SubResource("Resource_cdjqk")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.abdomen"
+rig_role = "rig.role.abdomen"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray()
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_hnegr"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(6, 6, 6)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_xnumt"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.head"
+display_name = "Head"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.head"
+voxel_source = SubResource("Resource_hnegr")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.head"
+rig_role = "rig.role.head"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray()
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_v4jqu"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_dv3bw"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.leg_1_left"
+display_name = "Leg 1 Left"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.leg.left.1"
+voxel_source = SubResource("Resource_v4jqu")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.leg_1_left"
+side_token = "left"
+rig_role = "rig.role.leg_1_left"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_1_left")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_gkklh"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_i8l4l"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.leg_1_right"
+display_name = "Leg 1 Right"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.leg.right.1"
+voxel_source = SubResource("Resource_gkklh")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.leg_1_right"
+side_token = "right"
+rig_role = "rig.role.leg_1_right"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_1_right")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_ycwx0"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_ulqg1"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.leg_2_left"
+display_name = "Leg 2 Left"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.leg.left.2"
+voxel_source = SubResource("Resource_ycwx0")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.leg_2_left"
+side_token = "left"
+rig_role = "rig.role.leg_2_left"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_2_left")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_tju4e"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_qagay"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.leg_2_right"
+display_name = "Leg 2 Right"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.leg.right.2"
+voxel_source = SubResource("Resource_tju4e")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.leg_2_right"
+side_token = "right"
+rig_role = "rig.role.leg_2_right"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_2_right")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_41dll"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_bet05"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.leg_3_left"
+display_name = "Leg 3 Left"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.leg.left.3"
+voxel_source = SubResource("Resource_41dll")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.leg_3_left"
+side_token = "left"
+rig_role = "rig.role.leg_3_left"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_3_left")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_udkuq"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_4vf52"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.leg_3_right"
+display_name = "Leg 3 Right"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.leg.right.3"
+voxel_source = SubResource("Resource_udkuq")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.leg_3_right"
+side_token = "right"
+rig_role = "rig.role.leg_3_right"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_3_right")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_u6pvc"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_6rkk8"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.leg_4_left"
+display_name = "Leg 4 Left"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.leg.left.4"
+voxel_source = SubResource("Resource_u6pvc")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.leg_4_left"
+side_token = "left"
+rig_role = "rig.role.leg_4_left"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_4_left")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_wojty"]
+script = ExtResource("2_hn0lu")
+dimensions = Vector3i(3, 8, 3)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_wvcr8"]
+script = ExtResource("1_emtur")
+body_part_id = "entity.body_part.production.arachnid.leg_4_right"
+display_name = "Leg 4 Right"
+parent_part_id = "entity.body_part.production.arachnid.abdomen"
+anatomy_role_id = "anatomy.role.arthropod.leg.right.4"
+voxel_source = SubResource("Resource_wojty")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.arachnid.leg_4_right"
+side_token = "right"
+rig_role = "rig.role.leg_4_right"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+contact_marker_ids = PackedStringArray("contact.leg_4_right")
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_5kjjb"]
+script = ExtResource("3_e0u2q")
+body_plan_id = "entity.body_plan.production.arachnid"
+display_name = "Arachnid Shared Body Plan"
+family = "arachnid"
+world_dimensions_meters = Vector3(1.4, 0.45, 1.4)
+root_part_id = "entity.body_part.production.arachnid.abdomen"
+body_parts = Array[ExtResource("1_emtur")]([SubResource("Resource_wb48e"), SubResource("Resource_xnumt"), SubResource("Resource_dv3bw"), SubResource("Resource_i8l4l"), SubResource("Resource_ulqg1"), SubResource("Resource_qagay"), SubResource("Resource_bet05"), SubResource("Resource_4vf52"), SubResource("Resource_6rkk8"), SubResource("Resource_wvcr8")])
+required_entity_roles = PackedStringArray("anatomy.role.arthropod.core", "anatomy.role.arthropod.head", "anatomy.role.arthropod.leg.left.1", "anatomy.role.arthropod.leg.right.1", "anatomy.role.arthropod.leg.left.2", "anatomy.role.arthropod.leg.right.2", "anatomy.role.arthropod.leg.left.3", "anatomy.role.arthropod.leg.right.3", "anatomy.role.arthropod.leg.left.4", "anatomy.role.arthropod.leg.right.4")
+symmetry_groups = Array[Dictionary]([{
+"axis": "x",
+"id": "left_right",
+"roles": ["anatomy.role.arthropod.core", "anatomy.role.arthropod.head", "anatomy.role.arthropod.leg.left.1", "anatomy.role.arthropod.leg.right.1", "anatomy.role.arthropod.leg.left.2", "anatomy.role.arthropod.leg.right.2", "anatomy.role.arthropod.leg.left.3", "anatomy.role.arthropod.leg.right.3", "anatomy.role.arthropod.leg.left.4", "anatomy.role.arthropod.leg.right.4"]
+}])
+contact_sets = Array[Dictionary]([{
+"id": "ground",
+"markers": ["contact.leg_1_left", "contact.leg_1_right", "contact.leg_2_left", "contact.leg_2_right", "contact.leg_3_left", "contact.leg_3_right", "contact.leg_4_left", "contact.leg_4_right"]
+}])
+extension_points = PackedStringArray()
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("entity.body_part.production.arachnid.abdomen", "entity.body_part.production.arachnid.head", "entity.body_part.production.arachnid.leg_1_left", "entity.body_part.production.arachnid.leg_1_right", "entity.body_part.production.arachnid.leg_2_left", "entity.body_part.production.arachnid.leg_2_right", "entity.body_part.production.arachnid.leg_3_left", "entity.body_part.production.arachnid.leg_3_right", "entity.body_part.production.arachnid.leg_4_left", "entity.body_part.production.arachnid.leg_4_right")
+
+[resource]
+script = ExtResource("4_jfbst")
+entity_definition_id = "entity.definition.creature.spider"
+display_name = "Spider"
+body_family = "arachnid"
+body_plan = SubResource("Resource_5kjjb")
+material_dna_ids = PackedStringArray("material.dna.entity.skin_tones")
+entity_role_ids = PackedStringArray("entity_role.spider")
+world_dimensions_meters = Vector3(1.4, 0.45, 1.4)
+gameplay_definition_ids = PackedStringArray("gameplay.entity.creature.spider")
+extension_points = PackedStringArray("rig", "animation", "variant", "equipment", "lod_proxy", "collision")
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("entity.body_plan.production.arachnid")
+legacy_fallback = "legacy.entity_definition_creature_spider"

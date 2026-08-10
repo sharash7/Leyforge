@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_b3g1a"]
+
+[resource]
+script = ExtResource("1_b3g1a")
+receipt_id = "receipt.creator.catalogue.vfx_graph_template_burst_foundation"
+source_id = "vfx.graph.template.burst.foundation"
+source_type_id = "catalogue.vfx"
+source_hash = "c4deb7a09e5294681d086db5f2bc719917388b62e596e2861f28e4c627edaf9a"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_graph_template_burst_foundation.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_graph_template_burst_foundation.tres": "1c8a211576b62f8c838b83d64b3b49c574b2aebc94db67be70a222f40c1425f0"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_bh4qe"]
+
+[resource]
+script = ExtResource("1_bh4qe")
+product_id = "runtime.catalogue.vfx_effect_golden_mining_stage4"
+source_id = "vfx.effect.golden.mining.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/vfx_effect_mining.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/vfx_effect_mining.tres": "b844e6ea030edf7d97cf467d3a1c38bc3743a7e6aa4f82e3c03c3b6530d2c348"
+}
+combined_source_hash = "89bd9090532a516ce27cf1e17c8384d7a0e1fc1fff50b149b7ff70aa5205260d"
+dependency_ids = PackedStringArray()

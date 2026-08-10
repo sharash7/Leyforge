@@ -1,0 +1,11 @@
+{
+  "batch_id": "batch.structures.megaproject",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.megaproject.city_ward_portal_nexus_a",
+    "blueprint.leyforge.megaproject.floating_district_anchor_skyport_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

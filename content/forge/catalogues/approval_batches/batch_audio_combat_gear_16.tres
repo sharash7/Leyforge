@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_ux847"]
+
+[resource]
+script = ExtResource("1_ux847")
+batch_id = "batch.audio.combat_gear.16"
+display_name = "Audio.combat Gear.16"
+studio = "audio"
+category = "combat_gear"
+target_ids = PackedStringArray("sound.event.production.combat_gear_break_soft", "sound.source.production.combat_gear_break_soft_body", "sound.source.production.combat_gear_break_soft_detail", "sound.source.production.combat_gear_break_soft_tail", "sound.event.production.combat_gear_burst_soft", "sound.source.production.combat_gear_burst_soft_body", "sound.source.production.combat_gear_burst_soft_detail", "sound.source.production.combat_gear_burst_soft_tail", "sound.event.production.combat_gear_loop_soft", "sound.source.production.combat_gear_loop_soft_body", "sound.source.production.combat_gear_loop_soft_detail", "sound.source.production.combat_gear_loop_soft_tail", "sound.event.production.combat_gear_open_soft", "sound.source.production.combat_gear_open_soft_body", "sound.source.production.combat_gear_open_soft_detail", "sound.event.production.combat_gear_place_soft", "sound.source.production.combat_gear_place_soft_body", "sound.source.production.combat_gear_place_soft_detail", "sound.source.production.combat_gear_place_soft_tail", "sound.event.production.combat_gear_pulse_soft", "sound.source.production.combat_gear_pulse_soft_body", "sound.source.production.combat_gear_pulse_soft_detail", "sound.source.production.combat_gear_pulse_soft_tail", "sound.event.production.combat_gear_trail_soft", "sound.source.production.combat_gear_trail_soft_body", "sound.source.production.combat_gear_trail_soft_detail", "sound.source.production.combat_gear_trail_soft_tail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_combat_gear_16.json")

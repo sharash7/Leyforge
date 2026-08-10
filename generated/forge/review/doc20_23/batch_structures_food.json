@@ -1,0 +1,18 @@
+{
+  "batch_id": "batch.structures.food",
+  "status": "review_ready",
+  "automated_validation": "pending_gate",
+  "human_review": "open",
+  "target_ids": [
+    "blueprint.leyforge.food.basic_farm_plot_a",
+    "blueprint.leyforge.food.irrigated_terraced_farm_a",
+    "blueprint.leyforge.food.barn_a",
+    "blueprint.leyforge.food.granary_a",
+    "blueprint.leyforge.food.communal_kitchen_a",
+    "blueprint.leyforge.food.grain_millhouse_a",
+    "blueprint.leyforge.food.bakery_food_workshop_a",
+    "blueprint.leyforge.food.preserving_house_a",
+    "blueprint.leyforge.food.fishery_fishing_dock_a"
+  ],
+  "instructions": "Review visual contact sheets or audio auditions in Forge, then approve or request changes."
+}

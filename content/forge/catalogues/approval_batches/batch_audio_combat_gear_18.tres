@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_o2lbi"]
+
+[resource]
+script = ExtResource("1_o2lbi")
+batch_id = "batch.audio.combat_gear.18"
+display_name = "Audio.combat Gear.18"
+studio = "audio"
+category = "combat_gear"
+target_ids = PackedStringArray("sound.event.production.combat_gear_idle_firm", "sound.source.production.combat_gear_idle_firm_body", "sound.source.production.combat_gear_idle_firm_detail", "sound.event.production.combat_gear_move_firm", "sound.source.production.combat_gear_move_firm_body", "sound.source.production.combat_gear_move_firm_detail", "sound.event.production.combat_gear_warning_firm", "sound.source.production.combat_gear_warning_firm_body", "sound.source.production.combat_gear_warning_firm_detail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_combat_gear_18.json")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ywdhp"]
+
+[resource]
+script = ExtResource("1_ywdhp")
+product_id = "runtime.catalogue.sound_source_production_ui_critical_deactivate_soft_body"
+source_id = "sound.source.production.ui_critical_deactivate_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_ui_critical_deactivate_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_ui_critical_deactivate_soft_body.tres": "82e8ea5dd646e43bad8c8d7bd93e384cb311deb78c06f274fa31ab68c57990d0"
+}
+combined_source_hash = "028b4b4b167e9f251002011ce651adcc3c1332ebee8013bbec16c765c180f906"
+dependency_ids = PackedStringArray()

@@ -32,6 +32,7 @@ var _last_safe_route_node := Vector3.ZERO
 var _last_route_failure := ""
 var _opened_door_base := Vector3i.ZERO
 var _has_opened_door := false
+var _movement_intent_id := ""
 
 
 func setup(p_world: VoxelWorld, p_npc_id: String) -> void:
@@ -149,11 +150,107 @@ func _rebuild_navigation() -> void:
 			HamletState.active_village_id, global_position, destination)
 	if _navigation_path.is_empty():
 		_last_route_failure = "no_safe_route"
+		_report_movement_waiting("navigation.no_path")
 		return
 	while _navigation_index < _navigation_path.size() \
 			and global_position.distance_to(
 				_navigation_path[_navigation_index]) < 0.45:
 		_navigation_index += 1
+	_publish_movement_path(destination)
+
+
+func _publish_movement_path(destination: Vector3) -> void:
+	if not MovementManager.initialized or not MovementManager.has_mover(npc_id):
+		return
+	var intent := PeopleManager.movement_intent_for_person(npc_id)
+	if not bool(intent.get("ok", false)):
+		return
+	var schedule_target := HamletState.get_npc_target(npc_id)
+	var goal_position := [
+		schedule_target.x,
+		float(world.surface_height_at(
+			floori(schedule_target.x), floori(schedule_target.y))) + 1.05,
+		schedule_target.y,
+	]
+	intent["goal_position"] = goal_position
+	intent["movement_intent_id"] = "%s.%s" % [
+		str(intent.get("movement_intent_id", "movement_intent.%s" % npc_id)),
+		_movement_goal_token(str(intent.get("goal_ref_or_region", "")),
+			goal_position),
+	]
+	intent["allowed_movement_modes"] = ["Ground", "Airborne", "Traverse"]
+	intent["wait_policy"] = "wait_and_replan"
+	intent["replan_policy"] = "on_blocker"
+	intent["failure_policy"] = "report_failure"
+	var previous_intent_id := str(MovementManager.mover_record(npc_id).get(
+		"movement_goal_ref", ""))
+	var accepted := MovementManager.submit_external_movement_intent(intent)
+	if not bool(accepted.get("ok", false)):
+		push_warning("HamletNpcActor: movement intent rejected: %s" % accepted)
+		return
+	_movement_intent_id = str(intent.get("movement_intent_id", ""))
+	if not previous_intent_id.is_empty() \
+			and previous_intent_id != _movement_intent_id:
+		MovementManager.report_intent_status(previous_intent_id, "Cancelled", {
+			"transaction_id": "movement.hamlet.cancel.%s.for.%s" % [
+				previous_intent_id, _movement_intent_id],
+			"failure_reason_codes": ["schedule.goal_changed"],
+		})
+	var status: Dictionary = accepted.get("status", {})
+	if str(status.get("movement_status", "")) in [
+		"Arrived", "Failed", "Cancelled"]:
+		return
+	var path_transaction := "movement.hamlet.path.%s.%d" % [
+		_movement_intent_id, _waypoint_index]
+	var published := MovementManager.publish_local_path(_movement_intent_id, {
+		"request_id": path_transaction,
+		"transaction_id": path_transaction,
+		"ordered_path_points_or_cells": _navigation_path,
+		"estimated_local_time": maxf(0.1,
+			global_position.distance_to(destination) / WALK_SPEED),
+		"navigation_revision": _waypoint_index,
+		"profile_revision": 1,
+		"confidence": 900,
+	})
+	if not bool(published.get("ok", false)):
+		push_warning("HamletNpcActor: local path rejected: %s" % published)
+		return
+	MovementManager.report_intent_status(_movement_intent_id, "Moving", {
+		"transaction_id": "%s.moving" % path_transaction,
+	})
+
+
+func _movement_goal_token(goal_ref: String, goal_position: Array) -> String:
+	var context := HashingContext.new()
+	context.start(HashingContext.HASH_SHA256)
+	context.update(("%s|%.3f|%.3f|%.3f" % [
+		goal_ref,
+		float(goal_position[0]),
+		float(goal_position[1]),
+		float(goal_position[2]),
+	]).to_utf8_buffer())
+	return context.finish().hex_encode().substr(0, 12)
+
+
+func _report_movement_waiting(reason_code: String) -> void:
+	if _movement_intent_id.is_empty() or not MovementManager.initialized:
+		return
+	MovementManager.report_intent_status(_movement_intent_id, "Waiting", {
+		"transaction_id": "movement.hamlet.waiting.%s.%d" % [
+			_movement_intent_id, _waypoint_index],
+		"waiting_reason": reason_code,
+		"failure_reason_codes": [reason_code],
+		"replan_state": "requested",
+	})
+
+
+func _report_movement_arrival() -> void:
+	if _movement_intent_id.is_empty() or not MovementManager.initialized:
+		return
+	MovementManager.report_intent_status(_movement_intent_id, "Arrived", {
+		"transaction_id": "movement.hamlet.arrival.%s" % _movement_intent_id,
+		"position": global_position,
+	})
 
 
 func _navigation_target() -> Vector3:
@@ -171,6 +268,9 @@ func _advance_navigation_if_reached() -> void:
 			break
 		_last_safe_route_node = target
 		_navigation_index += 1
+	if not _navigation_path.is_empty() \
+			and _navigation_index >= _navigation_path.size():
+		_report_movement_arrival()
 
 
 func _next_cell_is_safe(target: Vector3) -> bool:
@@ -266,6 +366,15 @@ func _recover_to_last_safe_node() -> void:
 		_last_route_failure if not _last_route_failure.is_empty()
 		else "navigation_failed")
 	HamletState.update_npc_activity(npc_id, "blocked")
+	if not _movement_intent_id.is_empty() and MovementManager.initialized:
+		MovementManager.report_intent_status(_movement_intent_id, "Replanning", {
+			"transaction_id": "movement.hamlet.replan.%s.%d" % [
+				_movement_intent_id, _waypoint_index],
+			"failure_reason_codes": [
+				_last_route_failure if not _last_route_failure.is_empty() \
+				else "navigation.failed"],
+			"replan_state": "requested",
+		})
 	_rebuild_navigation()
 
 
@@ -310,7 +419,14 @@ func _physics_process(delta: float) -> void:
 				floori(global_position.x), floori(global_position.z))
 			if target_ground == current_ground + 1 and is_on_floor():
 				velocity.y = JUMP_VELOCITY
-	var walk_speed := minf(WALK_SPEED, maxf(0.35, distance_to_target * 1.5))
+	var achievable_speed := WALK_SPEED
+	if MovementManager.initialized and MovementManager.has_mover(npc_id):
+		var speed_query := MovementManager.max_speed(npc_id)
+		if bool(speed_query.get("ok", false)):
+			achievable_speed = float(speed_query.get(
+				"achievable_speed", WALK_SPEED))
+	var walk_speed := minf(
+		achievable_speed, maxf(0.35, distance_to_target * 1.5))
 	velocity.x = direction.x * walk_speed
 	velocity.z = direction.z * walk_speed
 	if not is_on_floor():
@@ -379,10 +495,13 @@ func _physics_process(delta: float) -> void:
 	_record_accumulator += delta
 	if _record_accumulator >= 1.0:
 		_record_accumulator = 0.0
-		HamletState.update_npc_position(npc_id, global_position)
-		HamletState.update_npc_activity(
-			npc_id, persistent_action if not persistent_action.is_empty() else (
-				"walking" if direction.length_squared() > 0.01 else "idle"))
+		var movement_activity := persistent_action \
+			if not persistent_action.is_empty() else (
+				"walking" if direction.length_squared() > 0.01 else "idle")
+		HamletState.update_npc_activity(npc_id, movement_activity)
+		HamletState.update_npc_position(
+			npc_id, global_position, velocity, movement_activity.capitalize(),
+			"Ground" if is_on_floor() else "Airborne")
 
 
 func _job_action(job_id: String) -> String:

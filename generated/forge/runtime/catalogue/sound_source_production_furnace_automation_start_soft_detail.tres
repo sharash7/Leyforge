@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_7crud"]
+
+[resource]
+script = ExtResource("1_7crud")
+product_id = "runtime.catalogue.sound_source_production_furnace_automation_start_soft_detail"
+source_id = "sound.source.production.furnace_automation_start_soft_detail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_furnace_automation_start_soft_detail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_furnace_automation_start_soft_detail.tres": "104ca6f17b7689132c8bacf9c410d79c527d72bc6f4620e1120eae5c19c5fc1e"
+}
+combined_source_hash = "2bd57e129ea960388ea4eb17c0ca74fa948192c43dfefc9817351139fa9a82f5"
+dependency_ids = PackedStringArray()

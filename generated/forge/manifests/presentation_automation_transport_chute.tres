@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3 uid="uid://dualkdpl2lvap"]
+[gd_resource type="Resource" script_class="ForgeBakeManifest" format=3]
 
-[ext_resource type="Script" uid="uid://cfvrxyd74eqwx" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_5c0ce"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_bake_manifest.gd" id="1_5c0ce"]
 
 [resource]
 script = ExtResource("1_5c0ce")
@@ -11,32 +11,34 @@ source_hash = "58c901579a61161e97bbb99a6a2f7864d4f5b1a3bd7104352e64a84544ff91f5"
 engine_version = "4.6.1-stable (custom_build)"
 baker_version = "forge-pipeline-v7"
 products = Array[Dictionary]([{
-"hash": "1220aee1e5c507bd468557a56f9d85a62f0f5bc8600f3242dac71993f7e9b81e",
+"hash": "1f3cb263405ff1117ae75dc431cfa9794e961c292746a9caa530fea58f1b5e9d",
 "path": "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/presentation_mesh.res",
 "type": "mesh"
 }, {
-"hash": "55219b428daa7d60fe77fd5b9c92958a542c77f16697fbc6c12b3a4b03940976",
+"hash": "f355e7cdb720db430c53338d98b130b1f79de51f4581983dece74b5bbe46925f",
 "path": "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/icon.png",
 "type": "icon"
 }, {
-"hash": "bb595d215a259c2362dfcd04c5d3b796e7562675995f0879f1c5d4add33e03d9",
+"hash": "eb9697c4f1beb2fbb5e6b434cfce2d52d6df7371916e2e2a36ee515dad7a6df2",
 "path": "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/collision.tres",
 "type": "collision"
 }, {
-"hash": "98586daaebdf7d14eba9885c76139e9e5b7d970efe03301de0384b3e4f89bbc6",
+"hash": "79a6f88015c0726bdc22206463d306607d78b237ac182d50fde22702d44ca73a",
 "path": "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/state_binding.tres",
 "type": "state_binding"
 }, {
-"hash": "4f8fc7f8641540e65543340d42e10bf3fa5a25c5140c4c9da6a81ce5f6b264b4",
+"hash": "889d4b444d8e2e50adb9bbccde35c56fdcf15b32afa2713ffaceb440ed31c100",
 "path": "res://generated/forge/products/presentation_automation_transport_chute/273c3d70a8a5bb3d/presentation.tscn",
 "type": "scene"
 }, {
-"hash": "81b34c3e46c2fbcf6136ce4f984e949e1c48a4a45dd609e3897562c098f6716c",
+"hash": "afa24a00308772a502956a239fde04764e19846a59604b2e216e912cb5996305",
 "path": "res://generated/forge/packages/presentation_automation_transport_chute.tres",
 "type": "runtime_package"
 }])
 diagnostics_summary = {
+"blocker": 0,
 "critical": 0,
+"critical_release_blocker": 0,
 "error": 0,
 "info": 0,
 "warning": 0

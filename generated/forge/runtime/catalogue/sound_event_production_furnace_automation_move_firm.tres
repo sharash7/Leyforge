@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_pev81"]
+
+[resource]
+script = ExtResource("1_pev81")
+product_id = "runtime.catalogue.sound_event_production_furnace_automation_move_firm"
+source_id = "sound.event.production.furnace_automation_move_firm"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_furnace_automation_move_firm.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_furnace_automation_move_firm.tres": "7a74960f3a8cb0c12fae0d39249fa617286f1c014063b42b9dfbc412afdcd923"
+}
+combined_source_hash = "43e2552db8c20bcd5a784ddd8b0bdef5a3eff71b03516012f18032dd29542d26"
+dependency_ids = PackedStringArray()

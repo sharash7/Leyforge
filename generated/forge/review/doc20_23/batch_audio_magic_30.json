@@ -1,0 +1,30 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.audio.magic.30",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "sound.event.production.magic_activate_soft",
+    "sound.source.production.magic_activate_soft_body",
+    "sound.source.production.magic_activate_soft_detail",
+    "sound.event.production.magic_break_soft",
+    "sound.source.production.magic_break_soft_body",
+    "sound.source.production.magic_break_soft_detail",
+    "sound.event.production.magic_burst_soft",
+    "sound.source.production.magic_burst_soft_body",
+    "sound.source.production.magic_burst_soft_detail",
+    "sound.event.production.magic_deactivate_soft",
+    "sound.source.production.magic_deactivate_soft_body",
+    "sound.source.production.magic_deactivate_soft_detail",
+    "sound.event.production.magic_loop_soft",
+    "sound.source.production.magic_loop_soft_body",
+    "sound.source.production.magic_loop_soft_detail",
+    "sound.event.production.magic_pulse_soft",
+    "sound.source.production.magic_pulse_soft_body",
+    "sound.source.production.magic_pulse_soft_detail",
+    "sound.event.production.magic_trail_soft",
+    "sound.source.production.magic_trail_soft_body",
+    "sound.source.production.magic_trail_soft_detail"
+  ]
+}

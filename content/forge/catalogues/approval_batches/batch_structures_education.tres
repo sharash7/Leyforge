@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_tjy2x"]
+
+[resource]
+script = ExtResource("1_tjy2x")
+batch_id = "batch.structures.education"
+display_name = "Structures.education"
+studio = "structures"
+category = "education"
+target_ids = PackedStringArray("blueprint.leyforge.education.small_school_a", "blueprint.leyforge.education.trade_school_a", "blueprint.leyforge.education.library_archive_a", "blueprint.leyforge.education.academy_university_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_education.json")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_uax7w"]
+
+[resource]
+script = ExtResource("1_uax7w")
+product_id = "runtime.catalogue.vfx_family_production_directional_trail"
+source_id = "vfx.family.production.directional_trail"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/family_directional_trail.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/family_directional_trail.tres": "a745c8856820b28b2e162fe76c2cedfb30b1076dae0e988eda6dde8982ed72a9"
+}
+combined_source_hash = "ec8327fca666970924af784500933570efdbf1fa301decabda4260c0f643f505"
+dependency_ids = PackedStringArray()

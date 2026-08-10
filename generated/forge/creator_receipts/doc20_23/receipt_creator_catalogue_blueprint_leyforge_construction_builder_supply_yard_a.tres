@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_dlhdo"]
+
+[resource]
+script = ExtResource("1_dlhdo")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_construction_builder_supply_yard_a"
+source_id = "blueprint.leyforge.construction.builder_supply_yard_a"
+source_type_id = "catalogue.structures"
+source_hash = "5b4876a9efbb1917886e02d211526f879a8ed793db92c4ac694da690d053b2b4"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_construction_builder_supply_yard_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_construction_builder_supply_yard_a.tres": "412aebf7a204e7c5b34006ffc82f949697202814c5f7cc87e4458825cfeac9dc"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

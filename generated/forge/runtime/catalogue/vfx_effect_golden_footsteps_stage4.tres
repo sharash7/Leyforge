@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_rtkv8"]
+
+[resource]
+script = ExtResource("1_rtkv8")
+product_id = "runtime.catalogue.vfx_effect_golden_footsteps_stage4"
+source_id = "vfx.effect.golden.footsteps.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/vfx_effect_footsteps.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/vfx_effect_footsteps.tres": "85cb12869a9a52e7502f89725ba0834ab5a330f4f75ac79370fb30298ad9c824"
+}
+combined_source_hash = "b4b0e9c8adbbd6705c3f5d5e0ebbf2e3120371111c369d585f325b177611f5d7"
+dependency_ids = PackedStringArray()

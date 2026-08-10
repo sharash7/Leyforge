@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_xb2ek"]
+
+[resource]
+script = ExtResource("1_xb2ek")
+batch_id = "batch.audio.environment_weather.38"
+display_name = "Audio.environment Weather.38"
+studio = "audio"
+category = "environment_weather"
+target_ids = PackedStringArray("sound.event.production.environment_weather_charge_soft", "sound.source.production.environment_weather_charge_soft_body", "sound.source.production.environment_weather_charge_soft_detail", "sound.event.production.environment_weather_close_soft", "sound.source.production.environment_weather_close_soft_body", "sound.source.production.environment_weather_close_soft_detail", "sound.event.production.environment_weather_finish_firm", "sound.source.production.environment_weather_finish_firm_body", "sound.source.production.environment_weather_finish_firm_detail", "sound.event.production.environment_weather_impact_firm", "sound.source.production.environment_weather_impact_firm_body", "sound.source.production.environment_weather_impact_firm_detail", "sound.event.production.environment_weather_release_firm", "sound.source.production.environment_weather_release_firm_body", "sound.source.production.environment_weather_release_firm_detail", "sound.event.production.environment_weather_start_firm", "sound.source.production.environment_weather_start_firm_body", "sound.source.production.environment_weather_start_firm_detail", "sound.event.production.environment_weather_sustain_firm", "sound.source.production.environment_weather_sustain_firm_body", "sound.source.production.environment_weather_sustain_firm_detail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_environment_weather_38.json")

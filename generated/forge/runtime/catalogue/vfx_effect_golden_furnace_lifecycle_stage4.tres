@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_nr3p7"]
+
+[resource]
+script = ExtResource("1_nr3p7")
+product_id = "runtime.catalogue.vfx_effect_golden_furnace_lifecycle_stage4"
+source_id = "vfx.effect.golden.furnace_lifecycle.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/vfx_effect_furnace_lifecycle.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/vfx_effect_furnace_lifecycle.tres": "19f607c88ab590941f78b2af62415828c71ba1bc084561d02fc51103f331e642"
+}
+combined_source_hash = "5aa1b53183a4fe5d7531da8e3444fbaf7361dc53aa0b18a49c4838e1cc63fc66"
+dependency_ids = PackedStringArray()

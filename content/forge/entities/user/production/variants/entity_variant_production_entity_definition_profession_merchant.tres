@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeEntityVariantProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_variant_profile.gd" id="1_fnaxb"]
+
+[resource]
+script = ExtResource("1_fnaxb")
+variant_profile_id = "entity.variant.production.entity_definition_profession_merchant"
+display_name = "Merchant Villager Deterministic Variants"
+entity_definition_id = "entity.definition.profession.merchant"
+entity_role_ids = PackedStringArray("entity_role.merchant")
+material_variant_ids = PackedStringArray("material.variant.natural", "material.variant.weathered", "material.variant.regional")
+equipment_profile_ids = PackedStringArray()
+seed_channels = PackedStringArray("body", "materials", "equipment", "markings")
+lifecycle = "review_ready"
+source_status = "review_ready"
+dependency_ids = PackedStringArray("entity.definition.profession.merchant")
+aliases = PackedStringArray()

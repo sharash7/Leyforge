@@ -1,0 +1,23 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.vfx.mining_block_contact",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "vfx.effect.production.mining_block_contact_activate_soft",
+    "vfx.effect.production.mining_block_contact_burst_soft",
+    "vfx.effect.production.mining_block_contact_contact_soft",
+    "vfx.effect.production.mining_block_contact_deactivate_soft",
+    "vfx.effect.production.mining_block_contact_finish_soft",
+    "vfx.effect.production.mining_block_contact_idle_soft",
+    "vfx.effect.production.mining_block_contact_impact_soft",
+    "vfx.effect.production.mining_block_contact_move_soft",
+    "vfx.effect.production.mining_block_contact_pulse_soft",
+    "vfx.effect.production.mining_block_contact_release_soft",
+    "vfx.effect.production.mining_block_contact_start_soft",
+    "vfx.effect.production.mining_block_contact_sustain_soft",
+    "vfx.effect.production.mining_block_contact_trail_soft",
+    "vfx.effect.production.mining_block_contact_warning_soft"
+  ]
+}

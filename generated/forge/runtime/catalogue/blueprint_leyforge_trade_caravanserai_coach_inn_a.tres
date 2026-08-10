@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_nm28r"]
+
+[resource]
+script = ExtResource("1_nm28r")
+product_id = "runtime.catalogue.blueprint_leyforge_trade_caravanserai_coach_inn_a"
+source_id = "blueprint.leyforge.trade.caravanserai_coach_inn_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_trade_caravanserai_coach_inn_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_caravanserai_coach_inn_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_caravanserai_coach_inn_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_caravanserai_coach_inn_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_trade_caravanserai_coach_inn_a.tres": "02cd61f21bd2495d010e7c9dafe9407774bee9dd8e194637071426b7b63e4bf8",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_caravanserai_coach_inn_a_light_damage.tres": "e5119aea8d27fd961bc2571ac2e23268d1d031a1e54d3d0a838944dff8084679",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_caravanserai_coach_inn_a_repaired.tres": "383ab2e10afc2faceaf23802787395833fd64288f5d84ef6e3f0c569f1d4d365",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_trade_caravanserai_coach_inn_a_under_construction.tres": "691a07902fa05ee857375e198bb2e751b8c5129d438cd929d9d5fa6d569d1600"
+}
+combined_source_hash = "0cce4b3491b610564ccbdabc3eada920aa483e6f232e8e90fea501d40e473dd3"
+dependency_ids = PackedStringArray()

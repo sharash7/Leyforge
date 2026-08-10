@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_sy62i"]
+
+[resource]
+script = ExtResource("1_sy62i")
+product_id = "runtime.catalogue.sound_event_production_blocks_mining_charge_soft"
+source_id = "sound.event.production.blocks_mining_charge_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/event_blocks_mining_charge_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/event_blocks_mining_charge_soft.tres": "faa753584d6e597eda08c5d5ab1013ed24be84595c02e827211a1971095cffe2"
+}
+combined_source_hash = "3d7459d2c03c17ad3a80b25e89032441bcb79d6ab2e3be09c58e00a2ab2a2347"
+dependency_ids = PackedStringArray()

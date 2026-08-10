@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="ForgeEntityDefinition" format=4]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_part_definition.gd" id="1_6ll4i"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_voxel_volume.gd" id="2_mjah3"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_body_plan_definition.gd" id="3_j2xt7"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_entity_definition.gd" id="4_vhhoj"]
+
+[sub_resource type="Resource" id="Resource_rr4pl"]
+script = ExtResource("2_mjah3")
+dimensions = Vector3i(6, 6, 6)
+density_profile = "density.profile.entity.standard"
+cells = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB")
+helper_flags = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+[sub_resource type="Resource" id="Resource_cqhcd"]
+script = ExtResource("1_6ll4i")
+body_part_id = "entity.body_part.production.incorporeal.core"
+display_name = "Core"
+anatomy_role_id = "anatomy.role.wisp.core"
+voxel_source = SubResource("Resource_rr4pl")
+material_dna_id = "material.dna.entity.skin_tones"
+pivot_id = "pivot.incorporeal.core"
+rig_role = "rig.role.core"
+region_ids = PackedStringArray()
+socket_role_ids = PackedStringArray("socket.equipment.primary")
+contact_marker_ids = PackedStringArray()
+visibility_rules = PackedStringArray()
+planning_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("density.profile.entity.standard", "material.dna.entity.skin_tones")
+
+[sub_resource type="Resource" id="Resource_j7jny"]
+script = ExtResource("3_j2xt7")
+body_plan_id = "entity.body_plan.production.incorporeal"
+display_name = "Incorporeal Shared Body Plan"
+family = "incorporeal"
+world_dimensions_meters = Vector3(0.65, 0.8, 0.65)
+root_part_id = "entity.body_part.production.incorporeal.core"
+body_parts = Array[ExtResource("1_6ll4i")]([SubResource("Resource_cqhcd")])
+required_entity_roles = PackedStringArray("anatomy.role.wisp.core")
+symmetry_groups = Array[Dictionary]([{
+"axis": "x",
+"id": "left_right",
+"roles": ["anatomy.role.wisp.core"]
+}])
+contact_sets = Array[Dictionary]([{
+"id": "ground",
+"markers": []
+}])
+extension_points = PackedStringArray()
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("entity.body_part.production.incorporeal.core")
+
+[resource]
+script = ExtResource("4_vhhoj")
+entity_definition_id = "entity.definition.creature.wisp"
+display_name = "Wisp"
+body_family = "incorporeal"
+body_plan = SubResource("Resource_j7jny")
+material_dna_ids = PackedStringArray("material.dna.entity.skin_tones")
+entity_role_ids = PackedStringArray("entity_role.wisp")
+world_dimensions_meters = Vector3(0.65, 0.8, 0.65)
+gameplay_definition_ids = PackedStringArray("gameplay.entity.creature.wisp")
+extension_points = PackedStringArray("rig", "animation", "variant", "equipment", "lod_proxy", "collision")
+source_status = "review_ready"
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray("entity.body_plan.production.incorporeal")
+legacy_fallback = "legacy.entity_definition_creature_wisp"

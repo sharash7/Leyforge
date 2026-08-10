@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_jm6ml"]
+
+[resource]
+script = ExtResource("1_jm6ml")
+receipt_id = "receipt.creator.catalogue.vfx_effect_production_magic_rune_ward_move_soft"
+source_id = "vfx.effect.production.magic_rune_ward_move_soft"
+source_type_id = "catalogue.vfx"
+source_hash = "9a2efbabb88847631300e73c490a57d49ec187c5625d2ece0bd2e21233a45114"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_effect_production_magic_rune_ward_move_soft.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_effect_production_magic_rune_ward_move_soft.tres": "36f2a3092b88609136289250cce0a17857e4108ad761623e665e88f0d3ca3d1c"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

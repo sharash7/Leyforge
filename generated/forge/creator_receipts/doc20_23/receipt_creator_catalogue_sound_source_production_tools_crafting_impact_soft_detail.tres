@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_rmw07"]
+
+[resource]
+script = ExtResource("1_rmw07")
+receipt_id = "receipt.creator.catalogue.sound_source_production_tools_crafting_impact_soft_detail"
+source_id = "sound.source.production.tools_crafting_impact_soft_detail"
+source_type_id = "catalogue.audio"
+source_hash = "fb8f95452fce5f5f88d1ae75a4242cc67cfe7055259c2e6f1578eabbe46e8137"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/sound_source_production_tools_crafting_impact_soft_detail.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/sound_source_production_tools_crafting_impact_soft_detail.tres": "1725d62ba1757fb945ab4b73066b9f87866c6e563c8cf793200ea8ac6271fea2"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

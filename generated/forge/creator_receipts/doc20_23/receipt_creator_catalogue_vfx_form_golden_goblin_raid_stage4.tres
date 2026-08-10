@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_0sesr"]
+
+[resource]
+script = ExtResource("1_0sesr")
+receipt_id = "receipt.creator.catalogue.vfx_form_golden_goblin_raid_stage4"
+source_id = "vfx.form.golden.goblin_raid.stage4"
+source_type_id = "catalogue.vfx"
+source_hash = "8be703b30cf9ae44444ccf4d646dc318fddab67346cde4fa3a44328261cbe6ac"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_form_golden_goblin_raid_stage4.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_form_golden_goblin_raid_stage4.tres": "d3ceeb3443372e63bd5c62d14a67593cdd6e5c340b31cdcd248b79f54a1460b3"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

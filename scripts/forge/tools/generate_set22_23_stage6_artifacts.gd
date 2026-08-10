@@ -177,7 +177,7 @@ func _toolchain_evidence(
 		"renderer": manifest_service.manifest.rendering_method,
 		"engine_upgrade_performed": false,
 		"generated_product_policy": "replaceable_output",
-		"save_version": 17, "main_scene_changed": false}
+		"save_version": 18, "main_scene_changed": false}
 
 
 func _acceptance_status() -> Dictionary:

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_dw631"]
+
+[resource]
+script = ExtResource("1_dw631")
+product_id = "runtime.catalogue.vfx_effect_production_magic_rune_ward_deactivate_soft"
+source_id = "vfx.effect.production.magic_rune_ward_deactivate_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_magic_rune_ward_deactivate_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_magic_rune_ward_deactivate_soft.tres": "7e3cce5a24f125f518420c9a33e6c16b2deca837a9541aaa4eb5d7159be4329b"
+}
+combined_source_hash = "9ca50be8306752760e2b7177a11248887789024b805e37c25ab925f3ad9aa9d8"
+dependency_ids = PackedStringArray()

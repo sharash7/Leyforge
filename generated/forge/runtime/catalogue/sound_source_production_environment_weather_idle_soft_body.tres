@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_vjs0p"]
+
+[resource]
+script = ExtResource("1_vjs0p")
+product_id = "runtime.catalogue.sound_source_production_environment_weather_idle_soft_body"
+source_id = "sound.source.production.environment_weather_idle_soft_body"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/audio/production/source_environment_weather_idle_soft_body.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/audio/production/source_environment_weather_idle_soft_body.tres": "5c9e585091488bbaf5fc2b5f29371d6549953eb64cec41e5ecc1f5d917bb2c83"
+}
+combined_source_hash = "0a39e565b601573b9cce77415f998e262d15f1faa8f9ebe8c09569feb8630e30"
+dependency_ids = PackedStringArray()

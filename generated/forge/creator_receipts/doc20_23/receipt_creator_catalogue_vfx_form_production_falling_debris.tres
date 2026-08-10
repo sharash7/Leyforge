@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_xj0v6"]
+
+[resource]
+script = ExtResource("1_xj0v6")
+receipt_id = "receipt.creator.catalogue.vfx_form_production_falling_debris"
+source_id = "vfx.form.production.falling_debris"
+source_type_id = "catalogue.vfx"
+source_hash = "a56fd701cfc80f7562ba0806980ea140b50b9ab14e06f9955e89e21bb5a58ccd"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/vfx_form_production_falling_debris.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/vfx_form_production_falling_debris.tres": "bc13df1e1ba1da2029159c94251953d7a1153fb4e5e8f751f2c6e765e9a4744a"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

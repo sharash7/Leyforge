@@ -9,7 +9,7 @@ signal snapshot_updated(snapshot: Dictionary)
 signal profile_applied(profile_id: String)
 
 const REPORT_VERSION := 1
-const BUILD_STAGE := "post_poc_development"
+const BUILD_STAGE := "production_foundation"
 const SESSION_MARKER_PATH := "user://leyforge_session_marker.json"
 const UNCLEAN_REPORT_PATH := "user://leyforge_last_unclean_session.json"
 const PERFORMANCE_REPORT_PATH := "user://leyforge_release_report.json"
@@ -116,7 +116,7 @@ func build_metadata() -> Dictionary:
 				"application/config/release_channel", "dev")),
 		],
 		"godot_version": str(version_info.get("string", "unknown")),
-		"save_version": 17,
+		"save_version": WorldManager.CURRENT_SAVE_VERSION,
 		"worldgen_version": VoxelWorld.WORLDGEN_VERSION,
 		"block_count": BlockRegistry.get_all_ids().size(),
 		"item_count": ItemRegistry.get_all_ids().size(),

@@ -245,16 +245,16 @@ func _run() -> void:
 	_check(materialized >= 3 and CombatState.unresolved_damage_count() >= 3,
 		"poor raid outcome did not create persistent visible warehouse damage")
 	var beams_before := Inventory.count_ref({
-		"kind": "item",
-		"stable_id": "item.material.beam_oak",
+		"kind": "block",
+		"stable_id": "construction.beam.oak",
 		"count": 1,
 	})
-	Inventory.add_stack(_stack("item.material.beam_oak", 2))
+	Inventory.add_stack(_stack("construction.beam.oak", 2, "block"))
 	var repair := CombatState.repair_next_damage(world)
 	_check(bool(repair.get("ok", false))
 			and Inventory.count_ref({
-				"kind": "item",
-				"stable_id": "item.material.beam_oak",
+				"kind": "block",
+				"stable_id": "construction.beam.oak",
 				"count": 1,
 			}) == beams_before + 1,
 		"raid repair did not consume exactly one Oak Beam")

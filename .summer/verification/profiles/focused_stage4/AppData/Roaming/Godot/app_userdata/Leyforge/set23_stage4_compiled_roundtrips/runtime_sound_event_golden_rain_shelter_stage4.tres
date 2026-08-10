@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ForgeCompiledSoundPlan" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_compiled_sound_plan.gd" id="1_pbxic"]
+
+[resource]
+script = ExtResource("1_pbxic")
+plan_id = "runtime.sound.event.golden.rain_shelter.stage4"
+source_event_id = "sound.event.golden.rain_shelter.stage4"
+source_hash = "768eaf3ca1209551599e616e7331ac28ebe4c5267a26d2edbd2a3ba249a30671"
+source_ids = PackedStringArray("sound.source.legacy.mining.stone.foundation")
+layer_records = Array[Dictionary]([{
+"gain_db": 0.0,
+"provenance_review": "open",
+"role": "legacy_active_fallback",
+"source_id": "sound.source.legacy.mining.stone.foundation"
+}])
+loop_policy = "managed_loop"
+concurrency_group = "golden.rain_shelter"
+maximum_voices = 2
+spatial_audio_profile_id = "sound.spatial_profile.contact.near.foundation"
+caption_key = "caption.golden.rain_shelter"
+fallback_ids = PackedStringArray("legacy.runtime.audio.rain_shelter")
+product_hash = "d66b054fb8f1f7543d294915fc7321a4e28d46b829538dd1d3662250ab58b1d7"

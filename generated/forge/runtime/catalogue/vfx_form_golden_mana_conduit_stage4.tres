@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_1wfqj"]
+
+[resource]
+script = ExtResource("1_1wfqj")
+product_id = "runtime.catalogue.vfx_form_golden_mana_conduit_stage4"
+source_id = "vfx.form.golden.mana_conduit.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/vfx_form_mana_conduit.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/vfx_form_mana_conduit.tres": "ea2a429301e291640e67c0f1c4afdd38699215f980f0f8b5898725a1fe3de4e3"
+}
+combined_source_hash = "4f821b60642b414d9bfe8488788a255dd72d37c0bd2e3e7df4428e4f894759bb"
+dependency_ids = PackedStringArray()

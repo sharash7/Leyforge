@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_o6qhq"]
+
+[resource]
+script = ExtResource("1_o6qhq")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_magic_mage_hut_rune_workshop_a"
+source_id = "blueprint.leyforge.magic.mage_hut_rune_workshop_a"
+source_type_id = "catalogue.structures"
+source_hash = "fc98ee6bdf395ca4f8bbc35dc21bd462e3fd9631edad80812512694cc830129a"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_magic_mage_hut_rune_workshop_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_magic_mage_hut_rune_workshop_a.tres": "df90be9311489562191469215fc17938dbe8cd7b5f9212729cbf6a990b23c9cb"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

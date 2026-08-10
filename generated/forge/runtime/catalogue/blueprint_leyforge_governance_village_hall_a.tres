@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ch56x"]
+
+[resource]
+script = ExtResource("1_ch56x")
+product_id = "runtime.catalogue.blueprint_leyforge_governance_village_hall_a"
+source_id = "blueprint.leyforge.governance.village_hall_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_governance_village_hall_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_governance_village_hall_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_governance_village_hall_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_governance_village_hall_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_governance_village_hall_a.tres": "d375be42caa02989910d13a6198f96c42641c8d0b50e16bf8fa09536d2c3dd19",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_governance_village_hall_a_light_damage.tres": "0cdf872f5776778a74dbc0043d943ac609289df7089a5e345b39bc05dae0b16d",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_governance_village_hall_a_repaired.tres": "2e8adf72eb660268662bec6fe2099c38326267079c6540805dde378bbf15d6da",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_governance_village_hall_a_under_construction.tres": "5ba50313970cc288619567ae5ac34fe2819233f3db60c0326a9d6a0edc5af00d"
+}
+combined_source_hash = "f7d74c32b7bba9ae45abb404c562e633456547234548f7baf0dab0f233345612"
+dependency_ids = PackedStringArray()

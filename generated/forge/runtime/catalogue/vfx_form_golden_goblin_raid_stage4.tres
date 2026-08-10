@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_vwe40"]
+
+[resource]
+script = ExtResource("1_vwe40")
+product_id = "runtime.catalogue.vfx_form_golden_goblin_raid_stage4"
+source_id = "vfx.form.golden.goblin_raid.stage4"
+source_paths = PackedStringArray("res://content/forge/runtime/set23_stage4/vfx_form_goblin_raid.tres")
+source_hashes = {
+"res://content/forge/runtime/set23_stage4/vfx_form_goblin_raid.tres": "fc357c9ff38565095cbf09e36cc1f5481d5ce7c26fa132757859436cc7a7710b"
+}
+combined_source_hash = "8be703b30cf9ae44444ccf4d646dc318fddab67346cde4fa3a44328261cbe6ac"
+dependency_ids = PackedStringArray()

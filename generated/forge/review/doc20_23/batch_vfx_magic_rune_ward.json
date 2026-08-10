@@ -1,0 +1,23 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.vfx.magic_rune_ward",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "vfx.effect.production.magic_rune_ward_activate_soft",
+    "vfx.effect.production.magic_rune_ward_burst_soft",
+    "vfx.effect.production.magic_rune_ward_contact_soft",
+    "vfx.effect.production.magic_rune_ward_deactivate_soft",
+    "vfx.effect.production.magic_rune_ward_finish_soft",
+    "vfx.effect.production.magic_rune_ward_idle_soft",
+    "vfx.effect.production.magic_rune_ward_impact_soft",
+    "vfx.effect.production.magic_rune_ward_move_soft",
+    "vfx.effect.production.magic_rune_ward_pulse_soft",
+    "vfx.effect.production.magic_rune_ward_release_soft",
+    "vfx.effect.production.magic_rune_ward_start_soft",
+    "vfx.effect.production.magic_rune_ward_sustain_soft",
+    "vfx.effect.production.magic_rune_ward_trail_soft",
+    "vfx.effect.production.magic_rune_ward_warning_soft"
+  ]
+}

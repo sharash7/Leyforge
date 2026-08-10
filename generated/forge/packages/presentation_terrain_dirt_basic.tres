@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3 uid="uid://btlo1oh3l66a1"]
+[gd_resource type="Resource" script_class="ForgeRuntimePackage" format=3]
 
-[ext_resource type="Script" uid="uid://c7yeo1mi5snq6" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_bwnow"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_runtime_package.gd" id="1_bwnow"]
 
 [resource]
 script = ExtResource("1_bwnow")
 presentation_id = "presentation.terrain.dirt.basic"
-root_scene_path = "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/presentation.tscn"
-mesh_path = "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/presentation_mesh.res"
-material_paths = PackedStringArray("res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/top.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/bottom.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/north.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/south.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/east.png", "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/west.png")
-collision_path = "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/collision.tres"
-icon_path = "res://generated/forge/products/presentation_terrain_dirt_basic/5e69d5fe02e05db9/icon.png"
+root_scene_path = "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/presentation.tscn"
+mesh_path = "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/presentation_mesh.res"
+material_paths = PackedStringArray("res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/top.png", "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/bottom.png", "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/north.png", "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/south.png", "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/east.png", "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/west.png")
+collision_path = "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/collision.tres"
+icon_path = "res://generated/forge/products/presentation_terrain_dirt_basic/8ebc2aa50dd181d8/icon.png"
 bounds = AABB(0, 0, 0, 1, 1, 1)
 lod_profile = {
 "far": "iconic",
@@ -22,12 +22,12 @@ runtime_metadata = {
 "authoring_profile": "surface.block.standard",
 "connection_rules": {},
 "face_colors": {
-"bottom": [0.3440857, 0.16686799, 0.0054608136, 1.0],
-"east": [0.3440857, 0.16686799, 0.0054608136, 1.0],
-"north": [0.3440857, 0.16686799, 0.0054608136, 1.0],
-"south": [0.3440857, 0.16686799, 0.0054608136, 1.0],
-"top": [0.3440857, 0.16686799, 0.0054608136, 1.0],
-"west": [0.3440857, 0.16686799, 0.0054608136, 1.0]
+"bottom": [0.34825897, 0.17710407, 0.011707053, 1.0],
+"east": [0.34825897, 0.17710407, 0.011707053, 1.0],
+"north": [0.34825897, 0.17710407, 0.011707053, 1.0],
+"south": [0.34825897, 0.17710407, 0.011707053, 1.0],
+"top": [0.34825897, 0.17710407, 0.011707053, 1.0],
+"west": [0.34825897, 0.17710407, 0.011707053, 1.0]
 },
 "footprint": {
 "allowed_placement_faces": ["floor"],
@@ -54,4 +54,4 @@ runtime_metadata = {
 "source_revision": 1,
 "voxel_frame_clips": {}
 }
-product_hash = "fd9a4640e6c8b8e77a3f9e864f6680ffa42d3f30fe2380b07c406922724367c1"
+product_hash = "1c869804768fc0ea0594f03f2562b7edb07caab57711bc899664719e1aa2f80d"

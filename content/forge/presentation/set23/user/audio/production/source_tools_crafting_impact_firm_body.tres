@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="ForgeSoundSource" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_sound_source.gd" id="1_vascx"]
+
+[resource]
+script = ExtResource("1_vascx")
+source_path = "forge-synth://sound.source.synth.production.tools_crafting_impact_firm_body"
+source_hash = "19488c18b7f3907e38690e35a783981f3f1042b593b4212373f79ad2a8fbeefb"
+duration_seconds = 1.05
+transformation_history = Array[Dictionary]([{
+"generator_version": "forge-audio-v1",
+"operation": "procedural_synthesis",
+"patch_id": "sound.source.synth.production.tools_crafting_impact_firm_body",
+"seed": 230246
+}])
+procedural_recipe_id = "sound.source.synth.production.tools_crafting_impact_firm_body"
+procedural_seed = 230246
+generator_version = "forge-audio-v1"
+waveform_preview = PackedFloat32Array(0, 0.17005496, 0.3102431, 0.40015534, 0.4275, 0.3897617, 0.2943332, 0.15713939, 4.9598196e-17, 0.15283419, 0.2784233, 0.35858074, 0.3825, 0.3481871, 0.2625134, 0.13991863, 8.817457e-17, 0.13561344, 0.24660349, 0.31700617, 0.3375, 0.30661252, 0.2306936, 0.122697875, 1.1572912e-16, 0.11839268, 0.21478368, 0.27543157, 0.2925, 0.26503795, 0.19887379, 0.105477124, 1.3226185e-16, 0.10117193, 0.18296388, 0.233857, 0.2475, 0.22346336, 0.16705398, 0.08825637, 1.3777277e-16, 0.083951175, 0.15114407, 0.19228242, 0.2025, 0.18188879, 0.13523418, 0.07103561, 1.3226185e-16, 0.066730425, 0.11932427, 0.15070786, 0.1575, 0.1403142, 0.103414364, 0.05381486, 1.1572912e-16, 0.04950967, 0.08750446, 0.10913327, 0.1125, 0.098739624, 0.07159456, 0.036594104)
+regions = Array[Dictionary]([{
+"end_seconds": 1.05,
+"region_id": "body",
+"start_seconds": 0.0
+}])
+processing_settings = {
+"fade_in_seconds": 0.005,
+"fade_out_seconds": 0.02,
+"non_destructive": true,
+"trim_end_seconds": 1.05,
+"trim_start_seconds": 0.0
+}
+loudness_analysis = {
+"clipped_samples": 0,
+"integrated_lufs": -16.0,
+"peak_db": -2.85,
+"peak_linear": 0.72,
+"silent": false
+}
+schema_id = "leyforge.forge.sound-source"
+stable_id = "sound.source.production.tools_crafting_impact_firm_body"
+display_name = "Tools Crafting Impact Firm Body Procedural Source"
+asset_class = "sound_source"
+lifecycle = "review_ready"
+source_status = "review_ready"
+aliases = PackedStringArray()
+dependency_ids = PackedStringArray("sound.source.synth.production.tools_crafting_impact_firm_body")
+optional_dependency_ids = PackedStringArray()
+fallback_ids = PackedStringArray()
+provenance = {
+"approval_batch_id": "audio.procedural_source.tools_crafting_impact_firm",
+"document_set": "23",
+"file_upload_required": false,
+"generator_version": "forge-audio-v1",
+"origin": "audio_forge_synth",
+"phase": "production_library",
+"seed": 230246,
+"source_patch_id": "sound.source.synth.production.tools_crafting_impact_firm_body",
+"status": "review_ready"
+}
+rights_status = "owned"
+review_history = Array[Dictionary]([{
+"review": "human_evidence",
+"status": "open"
+}])
+extension_fields = {
+"accessible_approved": false,
+"forge_baked": true,
+"legacy_active": true,
+"legally_cleared": false,
+"migration_classification": "new_work",
+"production_ready": true,
+"replacement_strategy": "approve_then_activate",
+"shippable": false,
+"visually_complete": false
+}

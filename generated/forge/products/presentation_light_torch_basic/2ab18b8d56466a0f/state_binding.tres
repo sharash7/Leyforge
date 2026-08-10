@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="ForgeStateBindingDefinition" format=3 uid="uid://c1fpm4odpvnaj"]
+[gd_resource type="Resource" script_class="ForgeStateBindingDefinition" format=3]
 
-[ext_resource type="Script" uid="uid://bo46nynsvn1r6" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="1_t21hk"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_state_binding_definition.gd" id="1_t21hk"]
 
 [resource]
 script = ExtResource("1_t21hk")

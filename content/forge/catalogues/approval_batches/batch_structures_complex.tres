@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_2fg3t"]
+
+[resource]
+script = ExtResource("1_2fg3t")
+batch_id = "batch.structures.complex"
+display_name = "Structures.complex"
+studio = "structures"
+category = "complex"
+target_ids = PackedStringArray("blueprint.leyforge.complex.citadel_fortified_perimeter_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_complex.json")

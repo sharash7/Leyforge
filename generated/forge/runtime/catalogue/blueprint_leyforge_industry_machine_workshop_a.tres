@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_y05ft"]
+
+[resource]
+script = ExtResource("1_y05ft")
+product_id = "runtime.catalogue.blueprint_leyforge_industry_machine_workshop_a"
+source_id = "blueprint.leyforge.industry.machine_workshop_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_industry_machine_workshop_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_machine_workshop_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_machine_workshop_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_machine_workshop_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_industry_machine_workshop_a.tres": "3be520204e94e361ebeb6ae8daf9f043512f42225db65dcc23de6621259e45c7",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_machine_workshop_a_light_damage.tres": "16bade33136582f75ff355c3a5ee80178635da844509ae7fcf5a529697c453bb",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_machine_workshop_a_repaired.tres": "2d0c9e3a13e8d779aa8a0fb144443351964d34f2cc4485e21ff35a885a1ec233",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_industry_machine_workshop_a_under_construction.tres": "a245174629a75017c34671df79867f5c05127c8dd6389ea01af3d0d391f735ae"
+}
+combined_source_hash = "6c075ea6cfd2ef9616536d6df5162c06c537dc1a737e4757e334b230bd6bad2a"
+dependency_ids = PackedStringArray()

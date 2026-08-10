@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_ctsxo"]
+
+[resource]
+script = ExtResource("1_ctsxo")
+batch_id = "batch.audio.furnace_automation.25"
+display_name = "Audio.furnace Automation.25"
+studio = "audio"
+category = "furnace_automation"
+target_ids = PackedStringArray("sound.event.production.furnace_automation_activate_soft", "sound.source.production.furnace_automation_activate_soft_body", "sound.source.production.furnace_automation_activate_soft_detail", "sound.event.production.furnace_automation_contact_soft", "sound.source.production.furnace_automation_contact_soft_body", "sound.source.production.furnace_automation_contact_soft_detail", "sound.event.production.furnace_automation_idle_soft", "sound.source.production.furnace_automation_idle_soft_body", "sound.source.production.furnace_automation_idle_soft_detail", "sound.event.production.furnace_automation_impact_soft", "sound.source.production.furnace_automation_impact_soft_body", "sound.source.production.furnace_automation_impact_soft_detail", "sound.event.production.furnace_automation_move_soft", "sound.source.production.furnace_automation_move_soft_body", "sound.source.production.furnace_automation_move_soft_detail", "sound.event.production.furnace_automation_release_soft", "sound.source.production.furnace_automation_release_soft_body", "sound.source.production.furnace_automation_release_soft_detail", "sound.event.production.furnace_automation_warning_soft", "sound.source.production.furnace_automation_warning_soft_body", "sound.source.production.furnace_automation_warning_soft_detail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_furnace_automation_25.json")

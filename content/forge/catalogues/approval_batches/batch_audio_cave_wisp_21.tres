@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_28qe4"]
+
+[resource]
+script = ExtResource("1_28qe4")
+batch_id = "batch.audio.cave_wisp.21"
+display_name = "Audio.cave Wisp.21"
+studio = "audio"
+category = "cave_wisp"
+target_ids = PackedStringArray("sound.event.production.cave_wisp_start_soft", "sound.source.production.cave_wisp_start_soft_body", "sound.source.production.cave_wisp_start_soft_detail", "sound.event.production.cave_wisp_sustain_soft", "sound.source.production.cave_wisp_sustain_soft_body", "sound.source.production.cave_wisp_sustain_soft_detail")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_audio_cave_wisp_21.json")

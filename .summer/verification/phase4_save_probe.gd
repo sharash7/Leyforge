@@ -53,6 +53,8 @@ func _run() -> void:
 		"source": "save.probe",
 		"amount": 3.0,
 	})
+	var saved_enemy_biology_id := str(CombatState.get_enemy_record(
+		saved_enemy_id).get("biological_actor_id", ""))
 	HamletState.accept_introduction()
 	var masonry_ref := {
 		"kind": "item",
@@ -81,7 +83,7 @@ func _run() -> void:
 	main._save_game()
 
 	var saved: Dictionary = main._read_save()
-	_check(int(saved.get("version", 0)) == 17, "atomic save did not write save version 17")
+	_check(int(saved.get("version", 0)) == 18, "atomic save did not write save version 18")
 	_check(main.validate_save_integrity(saved),
 		"atomic save omitted or failed its Stage 9 payload integrity record")
 	_check(saved.get("hamlet", {}) is Dictionary and not saved.get("hamlet", {}).is_empty(),
@@ -94,12 +96,117 @@ func _run() -> void:
 	_check(saved.get("combat", {}) is Dictionary
 			and not saved.get("combat", {}).is_empty(),
 		"atomic save omitted persistent combat and raid state")
+	var saved_biology: Dictionary = saved.get("biology", {})
+	var saved_biology_ids: Array[String] = []
+	for biological_value in saved_biology.get("records", []):
+		if biological_value is Dictionary:
+			saved_biology_ids.append(str(biological_value.get("actor_id", "")))
+	_check(str(saved_biology.get("schema", "")) \
+			== "leyforge.biological-state" \
+			and str(saved_biology.get("state_hash", "")).length() == 64 \
+			and CombatState.PLAYER_BIOLOGICAL_ACTOR_ID in saved_biology_ids \
+			and saved_enemy_biology_id in saved_biology_ids,
+		"save v18 omitted canonical player or raid biological state")
+	var saved_biology_hash := str(saved_biology.get("state_hash", ""))
+	var saved_political: Dictionary = saved.get("political", {})
+	var saved_political_hash := str(saved_political.get("state_hash", ""))
+	_check(str(saved_political.get("schema", "")) \
+			== PoliticalManager.STATE_SCHEMA \
+			and saved_political_hash.length() == 64 \
+			and not (saved_political.get("governments", []) as Array).is_empty(),
+		"save v18 omitted canonical political government and permission state")
+	var saved_movement: Dictionary = saved.get("movement", {})
+	var saved_movement_hash := str(saved_movement.get("state_hash", ""))
+	var saved_mover_ids: Array[String] = []
+	for mover_value in saved_movement.get("movers", []):
+		if mover_value is Dictionary:
+			saved_mover_ids.append(str(mover_value.get(
+				"entity_or_transport_ref", "")))
+	_check(str(saved_movement.get("schema", "")) \
+			== MovementManager.STATE_SCHEMA \
+			and saved_movement_hash.length() == 64 \
+			and CombatState.PLAYER_BIOLOGICAL_ACTOR_ID in saved_mover_ids \
+			and rowan_id in saved_mover_ids,
+		"save v18 omitted canonical player or resident movement state")
 	_check(saved.get("ui", {}) is Dictionary
 			and not saved.get("ui", {}).is_empty()
 			and not (saved.get("ui", {}) as Dictionary).has("settings"),
-		"save v17 omitted world UI state or copied global profile settings into it")
+		"save v18 omitted world UI state or copied global profile settings into it")
+	var saved_structures: Dictionary = saved.get("structures", {})
+	var saved_structure_records: Array = saved_structures.get("structures", [])
+	_check(str(saved_structures.get("schema", "")) \
+			== "leyforge.structure-state" \
+			and saved_structure_records.size() >= 1 \
+			and bool(StructureManager.validate_structure_record(
+				saved_structure_records[0], world.world_seed).get("ok", false)),
+		"save v18 omitted or invalidated persistent StructureInstance state")
+	var saved_structure_hash := str(saved_structure_records[0].get(
+		"state_hash", ""))
+	var saved_kernel_evidence: Array = saved.get(
+		"production_kernel", {}).get("evidence", [])
+	_check(not saved_kernel_evidence.is_empty() \
+			and not (saved_structure_records[0].get(
+				"evidence_refs", []) as Array).is_empty(),
+		"save v18 omitted structure evidence from the shared kernel")
+	var saved_lod: Dictionary = saved.get("simulation_lod", {})
+	_check(str(saved_lod.get("schema", "")) \
+			== "leyforge.simulation-lod-state" \
+			and str(saved_lod.get("state_hash", "")).length() == 64 \
+			and not (saved_lod.get("subjects", []) as Array).is_empty(),
+		"save v18 omitted persistent time, presence or LOD owner projections")
+	var v17_fixture := saved.duplicate(true)
+	v17_fixture["version"] = 17
+	v17_fixture.erase("structures")
+	v17_fixture.erase("production_kernel")
+	v17_fixture.erase("simulation_lod")
+	v17_fixture.erase("registry_state")
+	v17_fixture.erase("biology")
+	v17_fixture.erase("movement")
+	v17_fixture["inventory"] = {
+		"hotbar": [{"item_id": "item.resource.log_oak", "count": 13}],
+		"backpack": [],
+		"craft_grid": [],
+		"selected_slot": 0,
+	}
+	v17_fixture.erase("integrity")
+	v17_fixture = main._attach_integrity(v17_fixture)
+	var migrated_v17: Dictionary = main._migrate_save(v17_fixture)
+	main._apply_save(migrated_v17)
+	var migrated_inventory := Inventory.serialize_state()
+	_migration_check(
+		int(migrated_v17.get("version", 0)) == 18
+			and int(migrated_v17.get("save_manifest", {}).get(
+				"migrated_from", 0)) == 17
+			and Inventory.count_ref({
+				"kind": "block", "stable_id": "natural.log.oak",
+			}) == 13
+			and str(migrated_inventory["hotbar"][0].get(
+				"block_id", "")) == "natural.log.oak"
+			and not migrated_inventory["hotbar"][0].has("item_id"),
+		"version-17 proxy Item stack did not migrate losslessly to a Block projection")
+	_migration_check(not StructureManager.find_structure_for_anchor(
+		HamletState.active_village_id, "warehouse").is_empty() \
+			and not (ProductionKernel.serialize_state().get(
+				"evidence", []) as Array).is_empty() \
+			and SimulationLodManager.has_subject(
+				SettlementManager.focused_settlement_id) \
+			and not PoliticalManager.government_for_settlement(
+				HamletState.active_village_id).is_empty() \
+			and MovementManager.has_mover(rowan_id) \
+			and MovementManager.has_mover(CombatState.PLAYER_BIOLOGICAL_ACTOR_ID),
+		"version-17 save did not reconstruct derivable structure, political, movement and LOD ownership")
+	_migration_check(BiologyManager.has_actor(
+			CombatState.PLAYER_BIOLOGICAL_ACTOR_ID) \
+			and BiologyManager.has_actor(saved_enemy_biology_id) \
+			and is_equal_approx(BiologyManager.current_health(
+				saved_enemy_biology_id), float(CombatState.get_enemy_record(
+					saved_enemy_id).get("health", -1.0))),
+		"version-17 save did not reconstruct biological compatibility ownership")
 
 	HamletState.initialized = false
+	SocialManager.reset()
+	PoliticalManager.reset()
+	MovementManager.reset()
 	HamletState.initialize(world.world_seed, world.get_valley_anchors())
 	world.restore_item_drops([])
 	MagicState.reset()
@@ -108,6 +215,29 @@ func _run() -> void:
 	_check(HamletState.reputation_state == HamletState.REP_STRANGER,
 		"probe reset did not create a fresh hamlet")
 	main._apply_save(saved)
+	_check(str(BiologyManager.serialize_state().get("state_hash", "")) \
+			== saved_biology_hash \
+			and str(PoliticalManager.serialize_state().get("state_hash", "")) \
+				== saved_political_hash \
+			and is_equal_approx(BiologyManager.current_health(
+				saved_enemy_biology_id), float(CombatState.get_enemy_record(
+					saved_enemy_id).get("health", -1.0))),
+		"biological or political owner state did not survive the full save/apply path")
+	_check(str(MovementManager.serialize_state().get("state_hash", "")) \
+			== saved_movement_hash \
+			and MovementManager.has_mover(rowan_id),
+		"movement owner state did not survive the full save/apply path")
+	_check(StructureManager.structure_count() == saved_structure_records.size() \
+			and str(StructureManager.get_structure(
+				str(saved_structure_records[0].get("instance_id", ""))).get(
+					"state_hash", "")) == saved_structure_hash,
+		"StructureInstance owner state did not survive the full save/apply path")
+	_check(SimulationLodManager.has_subject(
+			SettlementManager.focused_settlement_id) \
+			and str(SimulationLodManager.subject_record(
+				SettlementManager.focused_settlement_id).get(
+					"lod_mode", "")) == "local",
+		"simulation presence did not survive and reconcile through full save/apply")
 	_check(HamletState.reputation_state == HamletState.REP_HELPFUL,
 		"reputation did not survive the full main save/apply path")
 	_check(HamletState.warehouse_count_ref(masonry_ref) == 7,
@@ -135,6 +265,10 @@ func _run() -> void:
 		"NPC runtime position did not survive the full main save/apply path")
 	var v13_fixture: Dictionary = saved.duplicate(true)
 	v13_fixture["version"] = 13
+	v13_fixture.erase("structures")
+	v13_fixture.erase("production_kernel")
+	v13_fixture.erase("simulation_lod")
+	v13_fixture.erase("registry_state")
 	v13_fixture.erase("integrity")
 	v13_fixture.erase("save_manifest")
 	var v13_hamlet: Dictionary = v13_fixture.get("hamlet", {}).duplicate(true)
@@ -155,16 +289,19 @@ func _run() -> void:
 	v13_fixture["hamlet"] = v13_hamlet
 	v13_fixture = main._attach_integrity(v13_fixture)
 	var migrated_v13: Dictionary = main._migrate_save(v13_fixture)
-	_migration_check(int(migrated_v13.get("version", 0)) == 17
+	_migration_check(int(migrated_v13.get("version", 0)) == 18
 			and int(migrated_v13.get("save_manifest", {}).get(
 				"migrated_from", 0)) == 13,
-		"version-13 save did not migrate to version 17")
+		"version-13 save did not migrate to version 18")
 	main._apply_save(migrated_v13)
 	_migration_check(str(HamletState.project.get("definition_id", ""))
 			== "project.build.wooden_watchtower"
 			and str(HamletState.project.get("stage", "")) == "frame"
 			and HamletState.warehouse_count_ref(masonry_ref) == 7,
 		"version-13 migration changed watchtower progress or warehouse stock")
+	_migration_check(not StructureManager.find_structure_for_anchor(
+		HamletState.active_village_id, "warehouse").is_empty(),
+		"version-13 migration did not reconstruct generated structure ownership")
 	var migrated_rowan: Array = HamletState.get_npc_record(
 		rowan_id).get("position", [])
 	_migration_check(migrated_rowan.size() == 3
@@ -188,7 +325,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v10.get("version", 0)) == 17
+		int(migrated_v10.get("version", 0)) == 18
 			and migrated_v10.get("combat", {}) is Dictionary,
 		"version-10 saves did not migrate to the Stage 8 save contract")
 	var migrated_v9: Dictionary = main._migrate_save({
@@ -197,7 +334,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v9.get("version", 0)) == 17
+		int(migrated_v9.get("version", 0)) == 18
 			and migrated_v9.get("combat", {}) is Dictionary,
 		"version-9 saves did not migrate to the combat save contract")
 	var migrated_v8: Dictionary = main._migrate_save({
@@ -206,7 +343,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v8.get("version", 0)) == 17
+		int(migrated_v8.get("version", 0)) == 18
 			and migrated_v8.get("magic_player", {}) is Dictionary,
 		"version-8 saves did not migrate to the magic save contract")
 	var migrated_v7: Dictionary = main._migrate_save({
@@ -215,7 +352,7 @@ func _run() -> void:
 		"worldgen": world.get_worldgen_manifest(),
 	})
 	_check(
-		int(migrated_v7.get("version", 0)) == 17
+		int(migrated_v7.get("version", 0)) == 18
 			and migrated_v7.get("item_drops", []) is Array
 			and migrated_v7.get("block_entities", {}) is Dictionary,
 		"version-7 saves did not migrate to the automation save contract")

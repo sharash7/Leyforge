@@ -44,6 +44,8 @@ func apply_scalability_profile(profile: Dictionary) -> void:
 func _process(delta: float) -> void:
 	if not configured or not HamletState.initialized:
 		return
+	SimulationLodManager.advance_runtime_minutes(
+		delta * HamletState.MINUTES_PER_REAL_SECOND)
 	_settlement_scan_accumulator += delta
 	if _settlement_scan_accumulator >= 1.0:
 		_settlement_scan_accumulator = 0.0
@@ -163,17 +165,14 @@ func _refresh_actor_lod() -> void:
 					or not world.is_voxel_loaded_at(
 						Vector3i(spawn_gp.x, maxi(0, spawn_gp.y - 1), spawn_gp.z)):
 				continue
+			if not _transition_npc_lod(npc_id, "local", "actor"):
+				continue
 			var actor: HamletNpcActor = NpcActorScript.new()
 			actor.setup(world, npc_id)
 			add_child(actor)
 			_actors[npc_id] = actor
 	elif distance >= demote_range:
-		for npc_id in _actors.keys():
-			var actor: HamletNpcActor = _actors[npc_id]
-			if is_instance_valid(actor):
-				HamletState.update_npc_position(str(npc_id), actor.global_position)
-				actor.queue_free()
-		_actors.clear()
+		_clear_actors(true)
 
 
 func _refresh_settlement_focus() -> void:
@@ -203,7 +202,8 @@ func focus_settlement(settlement_id: String) -> bool:
 		if configured:
 			_refresh_actor_lod()
 		return true
-	_clear_actors(true)
+	if not _clear_actors(true):
+		return false
 	if not SettlementManager.focus_settlement(settlement_id):
 		return false
 	_visual_stage = -1
@@ -221,15 +221,103 @@ func refresh_focused_settlement() -> void:
 		_refresh_actor_lod()
 
 
-func _clear_actors(save_positions: bool) -> void:
+func _clear_actors(save_positions: bool) -> bool:
+	var all_demoted := true
 	for npc_id in _actors.keys():
 		var actor: HamletNpcActor = _actors[npc_id]
 		if not is_instance_valid(actor):
 			continue
 		if save_positions and HamletState.npc_records.has(str(npc_id)):
 			HamletState.update_npc_position(str(npc_id), actor.global_position)
+		if not _transition_npc_lod(str(npc_id), "distant", "record"):
+			all_demoted = false
+			continue
 		actor.queue_free()
-	_actors.clear()
+		_actors.erase(npc_id)
+	return all_demoted
+
+
+func prepare_for_save() -> void:
+	## Save the promoted actor positions and owner snapshots without changing
+	## their representation or freeing nodes from the running scene.
+	for npc_id in _actors.keys():
+		var actor: HamletNpcActor = _actors[npc_id]
+		if not is_instance_valid(actor):
+			continue
+		HamletState.update_npc_position(str(npc_id), actor.global_position)
+		_refresh_npc_lod_snapshot(str(npc_id), "actor")
+
+
+func _transition_npc_lod(
+		npc_id: String, target_mode: String, representation: String) -> bool:
+	if not SimulationLodManager.initialized:
+		return true
+	var snapshot := HamletState.npc_lod_snapshot(npc_id)
+	if snapshot.is_empty():
+		return false
+	var state: Dictionary = snapshot.get("state", {})
+	var current_representation := (
+		"actor" if _actors.has(npc_id) else "record")
+	state["representation"] = current_representation
+	snapshot["state"] = state
+	var owner_id := HamletState.active_village_id
+	if not SimulationLodManager.has_subject(npc_id):
+		var initial_mode := "distant" if target_mode == "local" else "local"
+		var registered := SimulationLodManager.register_subject(
+			npc_id, "resident", owner_id, owner_id, initial_mode, snapshot)
+		if not bool(registered.get("ok", false)):
+			return false
+	else:
+		var refreshed := SimulationLodManager.refresh_subject(
+			npc_id, snapshot, owner_id)
+		if not bool(refreshed.get("ok", false)):
+			return false
+	var before: Dictionary = SimulationLodManager.subject_record(
+		npc_id).get("snapshot", {})
+	var after := before.duplicate(true)
+	var after_state: Dictionary = after.get("state", {})
+	after_state["representation"] = representation
+	after["state"] = after_state
+	var current_mode := str(SimulationLodManager.subject_record(
+		npc_id).get("lod_mode", ""))
+	if current_mode == target_mode:
+		var refreshed := bool(SimulationLodManager.refresh_subject(
+			npc_id, after, owner_id).get("ok", false))
+		return refreshed and _transition_movement_lod(npc_id, target_mode)
+	var transitioned := SimulationLodManager.transition_subject(
+		npc_id, target_mode, before, after, "", {"owner_id": owner_id})
+	return bool(transitioned.get("ok", false)) \
+		and _transition_movement_lod(npc_id, target_mode)
+
+
+func _transition_movement_lod(npc_id: String, target_mode: String) -> bool:
+	if not MovementManager.initialized or not MovementManager.has_mover(npc_id):
+		return true
+	var movement_lod := "local" if target_mode == "local" else "distant"
+	var result := MovementManager.transition_lod(npc_id, movement_lod, {
+		"transition_id": "simulation_lod.%s.%s" % [npc_id, target_mode],
+		"transition_reason": "hamlet_actor_streaming",
+	})
+	return bool(result.get("ok", false))
+
+
+func _refresh_npc_lod_snapshot(npc_id: String, representation: String) -> bool:
+	if not SimulationLodManager.initialized:
+		return true
+	var snapshot := HamletState.npc_lod_snapshot(npc_id)
+	if snapshot.is_empty():
+		return false
+	var state: Dictionary = snapshot.get("state", {})
+	state["representation"] = representation
+	snapshot["state"] = state
+	var owner_id := HamletState.active_village_id
+	if not SimulationLodManager.has_subject(npc_id):
+		return bool(SimulationLodManager.register_subject(
+			npc_id, "resident", owner_id, owner_id,
+			"local" if representation == "actor" else "distant",
+			snapshot).get("ok", false))
+	return bool(SimulationLodManager.refresh_subject(
+		npc_id, snapshot, owner_id).get("ok", false))
 
 
 func active_actor_count() -> int:

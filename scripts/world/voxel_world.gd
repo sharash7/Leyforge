@@ -183,6 +183,10 @@ func _ready() -> void:
 	_forge_presentation_root = Node3D.new()
 	_forge_presentation_root.name = "ForgeWorldPresentations"
 	add_child(_forge_presentation_root)
+	if has_node("/root/ForgeRuntime") \
+			and not ForgeRuntime.packages_reloaded.is_connected(
+				_on_forge_packages_reloaded):
+		ForgeRuntime.packages_reloaded.connect(_on_forge_packages_reloaded)
 
 	water_material = StandardMaterial3D.new()
 	water_material.vertex_color_use_as_albedo = true
@@ -225,6 +229,16 @@ func _build_block_shape_table() -> void:
 		block_transparency[numeric_id] = 1 \
 			if BlockRegistry.is_transparent(numeric_id) else 0
 		var stable_id := BlockRegistry.get_stable_id(numeric_id)
+		if has_node("/root/ForgeRuntime"):
+			var arrays := ForgeRuntime.mesh_arrays(stable_id)
+			if not arrays.is_empty():
+				forge_mesh_arrays[numeric_id] = {
+					"vertices": arrays[Mesh.ARRAY_VERTEX],
+					"normals": arrays[Mesh.ARRAY_NORMAL],
+					"colors": arrays[Mesh.ARRAY_COLOR],
+					"uvs": arrays[Mesh.ARRAY_TEX_UV],
+					"indices": arrays[Mesh.ARRAY_INDEX],
+				}
 		block_item_connectors[numeric_id] = 1 if (
 			"transport.chute" in stable_id
 			or "furnace" in stable_id
@@ -252,21 +266,26 @@ func _build_block_shape_table() -> void:
 				block_shapes[numeric_id] = 8
 			"forge":
 				block_shapes[numeric_id] = 9
-				if has_node("/root/ForgeRuntime"):
-					var arrays := ForgeRuntime.mesh_arrays(stable_id)
-					if not arrays.is_empty():
-						forge_mesh_arrays[numeric_id] = {
-							"vertices": arrays[Mesh.ARRAY_VERTEX],
-							"normals": arrays[Mesh.ARRAY_NORMAL],
-							"colors": arrays[Mesh.ARRAY_COLOR],
-							"uvs": arrays[Mesh.ARRAY_TEX_UV],
-							"indices": arrays[Mesh.ARRAY_INDEX],
-						}
 			_:
 				block_shapes[numeric_id] = 0
 		if has_node("/root/ForgeRuntime") \
 				and ForgeRuntime.uses_scene_presentation(stable_id):
 			block_shapes[numeric_id] = 10
+
+
+func _on_forge_packages_reloaded(_summary: Dictionary) -> void:
+	# A bake promotes package pointers while a world may already be loaded.
+	# Refresh lookup tables and every loaded chunk so the promoted product is
+	# visible immediately instead of waiting for the next game/world load.
+	_build_block_color_table()
+	_build_block_shape_table()
+	_build_shared_block_material()
+	for key_value in _forge_world_presentations.keys():
+		_remove_forge_presentation(str(key_value))
+	for chunk_value in chunks.values():
+		if chunk_value is Chunk:
+			_sync_chunk_forge_presentations(chunk_value)
+			request_chunk_rebuild(chunk_value.chunk_pos)
 
 
 func _build_shared_block_material() -> void:
@@ -2823,8 +2842,8 @@ func _fuel_seconds(stack: Dictionary) -> float:
 	var stable_id := Inventory.stack_stable_id(stack)
 	return float({
 		"item.resource.coal_chunk": 80.0,
-		"item.resource.log_oak": 15.0,
-		"item.material.plank_oak": 5.0,
+		"natural.log.oak": 15.0,
+		"construction.planks.oak": 5.0,
 	}.get(stable_id, 0.0))
 
 

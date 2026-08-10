@@ -24,6 +24,8 @@ var random_palette_indices := PackedInt32Array()
 var _stroke_button := 0
 var _last_stroke_cell := Vector2i(-1, -1)
 var _stroke_sequence := 0
+var _randomizer_rng := RandomNumberGenerator.new()
+var _randomizer_seeded := false
 
 
 func _ready() -> void:
@@ -159,12 +161,11 @@ func _apply_tool_between(from_cell: Vector2i, to_cell: Vector2i) -> void:
 			and randomizer_enabled and not random_palette_indices.is_empty():
 		_stroke_sequence += 1
 		var values := {}
+		var palette_bag: Array[int] = []
 		for cell in cells:
-			var key := "%s|%d|%d|%d" % [
-				active_face, cell.x, cell.y, _stroke_sequence]
-			var random_index := posmod(
-				hash(key), random_palette_indices.size())
-			var random_value := int(random_palette_indices[random_index])
+			if palette_bag.is_empty():
+				palette_bag = _shuffled_random_palette()
+			var random_value: int = palette_bag.pop_back()
 			values[cell] = random_value
 			pixel_edit_requested.emit(
 				active_face, cell.x, cell.y, random_value)
@@ -177,6 +178,21 @@ func _apply_tool_between(from_cell: Vector2i, to_cell: Vector2i) -> void:
 	for cell in cells:
 		pixel_edit_requested.emit(active_face, cell.x, cell.y, value)
 	accept_event()
+
+
+func _shuffled_random_palette() -> Array[int]:
+	if not _randomizer_seeded:
+		_randomizer_rng.seed = Time.get_ticks_usec() ^ get_instance_id()
+		_randomizer_seeded = true
+	var bag: Array[int] = []
+	for palette_index in random_palette_indices:
+		bag.append(int(palette_index))
+	for index in range(bag.size() - 1, 0, -1):
+		var swap_index := _randomizer_rng.randi_range(0, index)
+		var temporary := bag[index]
+		bag[index] = bag[swap_index]
+		bag[swap_index] = temporary
+	return bag
 
 
 func _flood_cells(start: Vector2i) -> Array[Vector2i]:

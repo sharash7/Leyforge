@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_ef6yk"]
+
+[resource]
+script = ExtResource("1_ef6yk")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_cluster_market_civic_centre_a"
+source_id = "blueprint.leyforge.cluster.market_civic_centre_a"
+source_type_id = "catalogue.structures"
+source_hash = "0e0e7b3d23d561c3a616de417818c685b8a7e25aa05511ad1735faf71a1a1b4c"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_cluster_market_civic_centre_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_cluster_market_civic_centre_a.tres": "88f57aef810a477edd726523c9acc02d64ce788432c13ea685a1a928ecb3d69b"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_vgwcx"]
+
+[resource]
+script = ExtResource("1_vgwcx")
+product_id = "runtime.catalogue.vfx_effect_production_village_ambience_start_soft"
+source_id = "vfx.effect.production.village_ambience_start_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_village_ambience_start_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_village_ambience_start_soft.tres": "b70e2b1432cfd5f498e8c367eb7231cfc4e0c240f3a6670becf1242314401aa2"
+}
+combined_source_hash = "e37d0b4fdeee08dec2b433cc4fb63551526907a70d496fc6ba11872257744f78"
+dependency_ids = PackedStringArray()

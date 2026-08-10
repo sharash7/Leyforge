@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_1d31c"]
+
+[resource]
+script = ExtResource("1_1d31c")
+product_id = "runtime.catalogue.blueprint_leyforge_district_artisan_industrial_a"
+source_id = "blueprint.leyforge.district.artisan_industrial_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_district_artisan_industrial_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_district_artisan_industrial_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_district_artisan_industrial_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_district_artisan_industrial_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_district_artisan_industrial_a.tres": "9b0e38622b3b11c88a8484a47cb75245e0f5d2dc08c1997a6f8cda40298de809",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_district_artisan_industrial_a_light_damage.tres": "f41d906b983784d83fe59828e9c26123ffc35ec144a14555061a44d3b11c4aab",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_district_artisan_industrial_a_repaired.tres": "3f715d752a72e26a1f31165db29b801ee477959030a767adda5e2c28c4b37c2a",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_district_artisan_industrial_a_under_construction.tres": "b6ef3df2884d2cc84bc40308ab88db43e8d58a4fff9de9ca9782518f31b505b6"
+}
+combined_source_hash = "525604d382ef2179dbc1be9ac9149f977a7fab66b11923f131685f736f59b4b0"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,33 @@
+{
+  "automated_validation": "pending_gate",
+  "batch_id": "batch.audio.footsteps_body.03",
+  "human_review": "open",
+  "instructions": "Use the Forge contact sheet or audition queue, then approve or request changes.",
+  "status": "review_ready",
+  "target_ids": [
+    "sound.event.production.footsteps_body_finish_firm",
+    "sound.source.production.footsteps_body_finish_firm_body",
+    "sound.source.production.footsteps_body_finish_firm_detail",
+    "sound.source.production.footsteps_body_finish_firm_tail",
+    "sound.event.production.footsteps_body_idle_firm",
+    "sound.source.production.footsteps_body_idle_firm_body",
+    "sound.source.production.footsteps_body_idle_firm_detail",
+    "sound.source.production.footsteps_body_idle_firm_tail",
+    "sound.event.production.footsteps_body_impact_firm",
+    "sound.source.production.footsteps_body_impact_firm_body",
+    "sound.source.production.footsteps_body_impact_firm_detail",
+    "sound.source.production.footsteps_body_impact_firm_tail",
+    "sound.event.production.footsteps_body_release_firm",
+    "sound.source.production.footsteps_body_release_firm_body",
+    "sound.source.production.footsteps_body_release_firm_detail",
+    "sound.source.production.footsteps_body_release_firm_tail",
+    "sound.event.production.footsteps_body_sustain_firm",
+    "sound.source.production.footsteps_body_sustain_firm_body",
+    "sound.source.production.footsteps_body_sustain_firm_detail",
+    "sound.source.production.footsteps_body_sustain_firm_tail",
+    "sound.event.production.footsteps_body_warning_firm",
+    "sound.source.production.footsteps_body_warning_firm_body",
+    "sound.source.production.footsteps_body_warning_firm_detail",
+    "sound.source.production.footsteps_body_warning_firm_tail"
+  ]
+}

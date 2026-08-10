@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_1cp33"]
+
+[resource]
+script = ExtResource("1_1cp33")
+product_id = "runtime.catalogue.vfx_form_production_rune_orbit"
+source_id = "vfx.form.production.rune_orbit"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/form_rune_orbit.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/form_rune_orbit.tres": "ca9b6bd5e297b435358edd28827d36c0a7955b818c10f9a69085fd6a4d543f17"
+}
+combined_source_hash = "a45dfbf11e4845ca293f75c5fb157e8a351e22d005e8c359092c3fe1e2384b7c"
+dependency_ids = PackedStringArray()

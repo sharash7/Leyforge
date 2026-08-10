@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ym5kp"]
+
+[resource]
+script = ExtResource("1_ym5kp")
+product_id = "runtime.catalogue.blueprint_leyforge_community_bathhouse_laundry_a"
+source_id = "blueprint.leyforge.community.bathhouse_laundry_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/user/production/blueprint_leyforge_community_bathhouse_laundry_a.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_bathhouse_laundry_a_under_construction.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_bathhouse_laundry_a_light_damage.tres", "res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_bathhouse_laundry_a_repaired.tres")
+source_hashes = {
+"res://content/forge/blueprints/user/production/blueprint_leyforge_community_bathhouse_laundry_a.tres": "142941ac521c6d242aeed9d36b6124b700a741ef419c640f626c9908d86ae4cd",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_bathhouse_laundry_a_light_damage.tres": "6ade30d9bd7637dcc6210439bb24c226a5300a461000a93af88a586580f4738b",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_bathhouse_laundry_a_repaired.tres": "affeb83837f197812dd39a01776f7cce9f33c20312a19800c842dd2825f12ae2",
+"res://content/forge/blueprints/user/production/states/blueprint_leyforge_community_bathhouse_laundry_a_under_construction.tres": "558ecd41bd9e48c9bf9455c277babe23f4d7a068375404f365d7d5638cf75b4f"
+}
+combined_source_hash = "f0e7f3734ae4de43a0b38f2d3c97676c8dd73221b0dcd1803dc903b98e743440"
+dependency_ids = PackedStringArray()

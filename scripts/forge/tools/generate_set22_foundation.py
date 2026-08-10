@@ -431,7 +431,7 @@ def main() -> None:
         "contract_version": CONTRACT_VERSION,
         "settlement_schema_version": 2,
         "settlement_catalogue_version": "20H-v0.2",
-        "save_version": 17,
+        "save_version": 18,
         "supported_domains": ["entity", "blueprint", "shared"],
         "semantic_registry_hash": stable_hash(semantics),
         "entity_inventory_hash": stable_hash(entities),

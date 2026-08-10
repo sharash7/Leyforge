@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ForgeApprovalBatchManifest" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_approval_batch_manifest.gd" id="1_26c04"]
+
+[resource]
+script = ExtResource("1_26c04")
+batch_id = "batch.structures.crafting"
+display_name = "Structures.crafting"
+studio = "structures"
+category = "crafting"
+target_ids = PackedStringArray("blueprint.leyforge.crafting.carpenter_workshop_a", "blueprint.leyforge.crafting.mason_yard_a", "blueprint.leyforge.crafting.village_blacksmith_a", "blueprint.leyforge.crafting.pottery_kiln_a", "blueprint.leyforge.crafting.weaver_tailor_a", "blueprint.leyforge.crafting.tannery_leatherworker_a", "blueprint.leyforge.crafting.glass_brick_works_a")
+evidence_paths = PackedStringArray("res://generated/forge/review/doc20_23/batch_structures_crafting.json")

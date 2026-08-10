@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ForgeCreatorBakeReceipt" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_creator_bake_receipt.gd" id="1_g55w8"]
+
+[resource]
+script = ExtResource("1_g55w8")
+receipt_id = "receipt.creator.catalogue.blueprint_leyforge_extraction_mana_crystal_site_a"
+source_id = "blueprint.leyforge.extraction.mana_crystal_site_a"
+source_type_id = "catalogue.structures"
+source_hash = "93eebd09d08aad834005b8c55820d75715831a35e72ee18e1c0f6705e608b04c"
+product_kind = "canonical_runtime_source"
+product_paths = PackedStringArray("res://generated/forge/runtime/catalogue/blueprint_leyforge_extraction_mana_crystal_site_a.tres")
+product_hashes = {
+"res://generated/forge/runtime/catalogue/blueprint_leyforge_extraction_mana_crystal_site_a.tres": "2a72f224a4a1c9d11f26c45eae0c8de9f8e262c5faa641de01e36b18ff72908b"
+}
+validation_summary = {
+"approval_state": "open",
+"blocking_diagnostics": 0,
+"matching_hashes": true,
+"source_reload_passes": 2
+}

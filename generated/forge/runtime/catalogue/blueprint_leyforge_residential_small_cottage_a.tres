@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_ebnvp"]
+
+[resource]
+script = ExtResource("1_ebnvp")
+product_id = "runtime.catalogue.blueprint_leyforge_residential_small_cottage_a"
+source_id = "blueprint.leyforge.residential.small_cottage_a"
+source_paths = PackedStringArray("res://content/forge/blueprints/blueprint_golden_small_forest_cottage.tres")
+source_hashes = {
+"res://content/forge/blueprints/blueprint_golden_small_forest_cottage.tres": "c03b865a7bfb6d7bbe6e5ffe885080dc7a22efe9a565ba1fed341227a7f52b92"
+}
+combined_source_hash = "34af9b2632b3a20bc75130999fcd0548fbc22b1c5e0f4c8a93182dc6dcc6e5f7"
+dependency_ids = PackedStringArray()

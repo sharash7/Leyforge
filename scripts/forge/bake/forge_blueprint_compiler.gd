@@ -42,7 +42,7 @@ func load_and_validate(
 				_diagnostics.append(_diag(
 					"EFB-DEP-001", "error", blueprint.blueprint_id,
 					"Blueprint module dependency is missing: %s" % module_id))
-		for element in blueprint.elements:
+		for element in _blueprint_semantic_elements(blueprint):
 			if element != null and not element.module_id.is_empty() \
 					and not _modules.has(element.module_id):
 				_diagnostics.append(_diag(
@@ -80,14 +80,29 @@ func compile(blueprint_id: String) -> Dictionary:
 		return {"ok": false, "diagnostics": [_diag(
 			"EFB-DEP-001", "error", blueprint_id, "Blueprint source is missing.")]}
 	var flattened: Array[Dictionary] = []
-	for element in blueprint.elements:
+	for record in _blueprint_voxel_records(blueprint):
+		flattened.append(record)
+	for element in _blueprint_semantic_elements(blueprint):
 		if element == null:
 			continue
 		if element.module_id.is_empty():
 			flattened.append(element.to_record())
 		else:
 			var module: ForgeBlueprintModuleDefinition = _modules.get(element.module_id)
-			for module_element in module.elements:
+			for module_record in _module_voxel_records(module):
+				var record := module_record.duplicate(true)
+				record["element_id"] = "%s/%s" % [element.element_id,
+					str(module_record.get("element_id", "voxel"))]
+				var local_position: Array = record.get("position", [0, 0, 0])
+				record["position"] = [
+					int(local_position[0]) + element.position.x,
+					int(local_position[1]) + element.position.y,
+					int(local_position[2]) + element.position.z]
+				record["rotation_quarters"] = posmod(
+					int(record.get("rotation_quarters", 0)) + element.rotation_quarters, 4)
+				record["module_id"] = element.module_id
+				flattened.append(record)
+			for module_element in _module_semantic_elements(module):
 				if module_element == null:
 					continue
 				var record := module_element.to_record()
@@ -105,11 +120,16 @@ func compile(blueprint_id: String) -> Dictionary:
 	flattened.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		return str(a.get("element_id", "")) < str(b.get("element_id", "")))
 	var stage_records: Array[Dictionary] = []
-	for delta in blueprint.construction_deltas:
-		if delta != null:
-			stage_records.append(delta.to_record())
-	stage_records.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		return str(a.get("stage_id", "")) < str(b.get("stage_id", "")))
+	if blueprint.physical_authoring_mode == "voxel_grid" \
+			and blueprint.structure_voxel_source != null:
+		stage_records = blueprint.structure_voxel_source.generated_stage_records(
+			blueprint.construction_deltas)
+	else:
+		for delta in blueprint.construction_deltas:
+			if delta != null:
+				stage_records.append(delta.to_record())
+		stage_records.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+			return str(a.get("stage_id", "")) < str(b.get("stage_id", "")))
 	var state_records: Array[Dictionary] = []
 	for state_value in _states_by_blueprint.get(blueprint.blueprint_id, []):
 		var state: ForgeBlueprintStateDefinition = state_value
@@ -152,6 +172,48 @@ func _module_hashes(blueprint: ForgeBlueprintDefinition) -> Dictionary:
 		var module: ForgeBlueprintModuleDefinition = _modules.get(module_id)
 		if module != null:
 			result[module_id] = module.canonical_hash()
+	return result
+
+
+func _blueprint_voxel_records(blueprint: ForgeBlueprintDefinition) -> Array[Dictionary]:
+	if blueprint.physical_authoring_mode == "voxel_grid" \
+			and blueprint.structure_voxel_source != null:
+		return blueprint.structure_voxel_source.to_element_records()
+	return []
+
+
+func _module_voxel_records(module: ForgeBlueprintModuleDefinition) -> Array[Dictionary]:
+	if module.physical_authoring_mode == "voxel_grid" \
+			and module.structure_voxel_source != null:
+		return module.structure_voxel_source.to_element_records()
+	return []
+
+
+func _blueprint_semantic_elements(
+		blueprint: ForgeBlueprintDefinition) -> Array[ForgeBlueprintElement]:
+	if blueprint.physical_authoring_mode != "voxel_grid":
+		return blueprint.elements
+	return _semantic_elements(blueprint.elements)
+
+
+func _module_semantic_elements(
+		module: ForgeBlueprintModuleDefinition) -> Array[ForgeBlueprintElement]:
+	if module.physical_authoring_mode != "voxel_grid":
+		return module.elements
+	return _semantic_elements(module.elements)
+
+
+func _semantic_elements(elements: Array[ForgeBlueprintElement]) \
+		-> Array[ForgeBlueprintElement]:
+	var result: Array[ForgeBlueprintElement] = []
+	for element in elements:
+		if element == null:
+			continue
+		if not element.module_id.is_empty() or element.source_id.is_empty() \
+				or element.element_kind in [
+					"module", "marker", "semantic_marker", "socket",
+					"network", "child_blueprint"]:
+			result.append(element)
 	return result
 
 

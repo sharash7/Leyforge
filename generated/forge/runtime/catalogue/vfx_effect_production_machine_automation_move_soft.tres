@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_snnhq"]
+
+[resource]
+script = ExtResource("1_snnhq")
+product_id = "runtime.catalogue.vfx_effect_production_machine_automation_move_soft"
+source_id = "vfx.effect.production.machine_automation_move_soft"
+source_paths = PackedStringArray("res://content/forge/presentation/set23/user/vfx/production/effect_machine_automation_move_soft.tres")
+source_hashes = {
+"res://content/forge/presentation/set23/user/vfx/production/effect_machine_automation_move_soft.tres": "d95bdc56a590372e7834715b09a9cf1b24a4281d943fbf8a25014fc319eacbd9"
+}
+combined_source_hash = "309ea7df342927be0710e20afa27dd8868682654591645440a16f4ee0d404ec5"
+dependency_ids = PackedStringArray()

@@ -1,0 +1,398 @@
+[gd_resource type="Resource" script_class="ForgeBlueprintDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_construction_delta.gd" id="1_k0mpj"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_element.gd" id="2_ls36s"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_material_role_set.gd" id="3_mm4ii"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_placement_profile.gd" id="4_u5xpr"]
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_blueprint_definition.gd" id="5_6yk31"]
+
+[sub_resource type="Resource" id="Resource_4g4b3"]
+script = ExtResource("1_k0mpj")
+delta_id = "blueprint.leyforge.magic.magic_academy_tower_a.delta.foundation"
+stage_id = "foundation"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.magic_academy_tower_a.element.foundation.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_8apdp"]
+script = ExtResource("1_k0mpj")
+delta_id = "blueprint.leyforge.magic.magic_academy_tower_a.delta.frame"
+stage_id = "frame"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.magic_academy_tower_a.element.frame.pillar_0", "blueprint.leyforge.magic.magic_academy_tower_a.element.frame.pillar_1", "blueprint.leyforge.magic.magic_academy_tower_a.element.frame.pillar_2", "blueprint.leyforge.magic.magic_academy_tower_a.element.frame.pillar_3")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("foundation")
+
+[sub_resource type="Resource" id="Resource_f0uud"]
+script = ExtResource("1_k0mpj")
+delta_id = "blueprint.leyforge.magic.magic_academy_tower_a.delta.shell"
+stage_id = "shell"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.magic_academy_tower_a.element.shell.perimeter_0", "blueprint.leyforge.magic.magic_academy_tower_a.element.shell.point_1")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("frame")
+
+[sub_resource type="Resource" id="Resource_m46cu"]
+script = ExtResource("1_k0mpj")
+delta_id = "blueprint.leyforge.magic.magic_academy_tower_a.delta.weatherproofing"
+stage_id = "weatherproofing"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.magic_academy_tower_a.element.weatherproofing.fill_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("shell")
+
+[sub_resource type="Resource" id="Resource_noo45"]
+script = ExtResource("1_k0mpj")
+delta_id = "blueprint.leyforge.magic.magic_academy_tower_a.delta.activation"
+stage_id = "activation"
+add_element_ids = PackedStringArray("blueprint.leyforge.magic.magic_academy_tower_a.element.activation.point_0")
+remove_element_ids = PackedStringArray()
+enable_marker_role_ids = PackedStringArray()
+disable_marker_role_ids = PackedStringArray()
+dependency_stage_ids = PackedStringArray("weatherproofing")
+
+[sub_resource type="Resource" id="Resource_j0mq3"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.element.foundation.fill_0"
+element_kind = "block_operation"
+material_role_id = "foundation_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "foundation"
+position = Vector3i(-2, 0, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.stone"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 0.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "foundation_primary"
+}
+
+[sub_resource type="Resource" id="Resource_1niwj"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.element.frame.pillar_0"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_jpi02"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.element.frame.pillar_1"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, -2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, -2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_iultc"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.element.frame.pillar_2"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(-2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [-2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_hb40v"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.element.frame.pillar_3"
+element_kind = "block_operation"
+material_role_id = "structural_beam"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "frame"
+position = Vector3i(2, 1, 2)
+size = Vector3i(1, 3, 1)
+source_id = "material.mvp.wood"
+metadata = {
+"height": 3.0,
+"op": "pillar",
+"origin": [2.0, 1.0, 2.0],
+"token": "structural_beam"
+}
+
+[sub_resource type="Resource" id="Resource_y1bgm"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.element.shell.perimeter_0"
+element_kind = "block_operation"
+material_role_id = "wall_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(-2, 1, -2)
+size = Vector3i(5, 2, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"exclude": [[-2.0, 1.0, -2.0], [-2.0, 2.0, -2.0], [-2.0, 1.0, 2.0], [-2.0, 2.0, 2.0], [2.0, 1.0, -2.0], [2.0, 2.0, -2.0], [2.0, 1.0, 2.0], [2.0, 2.0, 2.0], [0.0, 1.0, -2.0]],
+"op": "perimeter",
+"origin": [-2.0, 1.0, -2.0],
+"size": [5.0, 2.0, 5.0],
+"token": "wall_primary"
+}
+
+[sub_resource type="Resource" id="Resource_70mr1"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.element.shell.point_1"
+element_kind = "block_operation"
+material_role_id = "door_basic"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "shell"
+position = Vector3i(0, 1, -2)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, -2.0],
+"token": "door_basic"
+}
+
+[sub_resource type="Resource" id="Resource_mu4n1"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.element.weatherproofing.fill_0"
+element_kind = "block_operation"
+material_role_id = "roof_primary"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "weatherproofing"
+position = Vector3i(-2, 4, -2)
+size = Vector3i(5, 1, 5)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "fill",
+"origin": [-2.0, 4.0, -2.0],
+"size": [5.0, 1.0, 5.0],
+"token": "roof_primary"
+}
+
+[sub_resource type="Resource" id="Resource_56llj"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.element.activation.point_0"
+element_kind = "block_operation"
+material_role_id = "functional"
+marker_role_ids = PackedStringArray()
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+stage_id = "activation"
+position = Vector3i(0, 1, 0)
+source_id = "material.mvp.wood"
+metadata = {
+"op": "point",
+"position": [0.0, 1.0, 0.0],
+"token": "functional"
+}
+
+[sub_resource type="Resource" id="Resource_ixhlx"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.marker_01"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.classrooms")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -2)
+metadata = {
+"id": "marker_01",
+"position": [-2.0, 1.0, -2.0],
+"type": "classrooms"
+}
+
+[sub_resource type="Resource" id="Resource_ki4hd"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.marker_02"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.research_stations")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -2)
+metadata = {
+"id": "marker_02",
+"position": [-1.0, 1.0, -2.0],
+"type": "research_stations"
+}
+
+[sub_resource type="Resource" id="Resource_34h1l"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.marker_03"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.library_archive")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -2)
+metadata = {
+"id": "marker_03",
+"position": [0.0, 1.0, -2.0],
+"type": "library_archive"
+}
+
+[sub_resource type="Resource" id="Resource_sqahg"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.marker_04"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.mana_network")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -2)
+metadata = {
+"id": "marker_04",
+"position": [1.0, 1.0, -2.0],
+"type": "mana_network"
+}
+
+[sub_resource type="Resource" id="Resource_1q1dp"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.marker_05"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.safe_practice_zones")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(2, 1, -2)
+metadata = {
+"id": "marker_05",
+"position": [2.0, 1.0, -2.0],
+"type": "safe_practice_zones"
+}
+
+[sub_resource type="Resource" id="Resource_ck64h"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.marker_06"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.faculty_points")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-2, 1, -1)
+metadata = {
+"id": "marker_06",
+"position": [-2.0, 1.0, -1.0],
+"type": "faculty_points"
+}
+
+[sub_resource type="Resource" id="Resource_8dyb5"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.marker_07"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.student_points")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(-1, 1, -1)
+metadata = {
+"id": "marker_07",
+"position": [-1.0, 1.0, -1.0],
+"type": "student_points"
+}
+
+[sub_resource type="Resource" id="Resource_p72ts"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.marker_08"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.restricted_stores")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(0, 1, -1)
+metadata = {
+"id": "marker_08",
+"position": [0.0, 1.0, -1.0],
+"type": "restricted_stores"
+}
+
+[sub_resource type="Resource" id="Resource_3gf0d"]
+script = ExtResource("2_ls36s")
+element_id = "blueprint.leyforge.magic.magic_academy_tower_a.marker_09"
+element_kind = "semantic_marker"
+marker_role_ids = PackedStringArray("marker.role.public_service_desk_and_emergency_containment")
+socket_role_ids = PackedStringArray()
+network_role_ids = PackedStringArray()
+position = Vector3i(1, 1, -1)
+metadata = {
+"id": "marker_09",
+"position": [1.0, 1.0, -1.0],
+"type": "public_service_desk_and_emergency_containment"
+}
+
+[sub_resource type="Resource" id="Resource_t51cm"]
+script = ExtResource("3_mm4ii")
+material_role_set_id = "blueprint.material_role_set.blueprint_leyforge_magic_magic_academy_tower_a"
+display_name = "Magic Academy or Research Tower - Forest Neutral Material Roles"
+role_bindings = {
+"door_basic": "material.mvp.wood",
+"foundation_primary": "material.mvp.stone",
+"functional": "material.mvp.wood",
+"path_primary": "material.mvp.stone",
+"roof_primary": "material.mvp.wood",
+"structural_beam": "material.mvp.wood",
+"wall_primary": "material.mvp.wood"
+}
+required_role_ids = PackedStringArray("foundation_primary", "structural_beam", "wall_primary", "roof_primary", "door_basic", "functional", "path_primary")
+culture_ids = PackedStringArray()
+biome_ids = PackedStringArray("biome.forest")
+lifecycle = "review_ready"
+dependency_ids = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_lwur8"]
+script = ExtResource("4_u5xpr")
+placement_profile_id = "blueprint.placement_profile.blueprint_leyforge_magic_magic_academy_tower_a"
+allowed_zone_role_ids = PackedStringArray()
+required_socket_role_ids = PackedStringArray()
+required_network_role_ids = PackedStringArray()
+footprint_min = Vector3i(-2, 0, -2)
+footprint_max = Vector3i(2, 5, 2)
+max_slope = 1
+lifecycle = "review_ready"
+
+[resource]
+script = ExtResource("5_6yk31")
+blueprint_id = "blueprint.leyforge.magic.magic_academy_tower_a"
+display_name = "Magic Academy or Research Tower - Forest Neutral"
+definition_ids = PackedStringArray("building.magic.magic_academy_tower")
+module_ids = PackedStringArray()
+elements = Array[ExtResource("2_ls36s")]([SubResource("Resource_j0mq3"), SubResource("Resource_1niwj"), SubResource("Resource_jpi02"), SubResource("Resource_iultc"), SubResource("Resource_hb40v"), SubResource("Resource_y1bgm"), SubResource("Resource_70mr1"), SubResource("Resource_mu4n1"), SubResource("Resource_56llj"), SubResource("Resource_ixhlx"), SubResource("Resource_ki4hd"), SubResource("Resource_34h1l"), SubResource("Resource_sqahg"), SubResource("Resource_1q1dp"), SubResource("Resource_ck64h"), SubResource("Resource_8dyb5"), SubResource("Resource_p72ts"), SubResource("Resource_3gf0d")])
+construction_deltas = Array[ExtResource("1_k0mpj")]([SubResource("Resource_4g4b3"), SubResource("Resource_8apdp"), SubResource("Resource_f0uud"), SubResource("Resource_m46cu"), SubResource("Resource_noo45")])
+placement_profile = SubResource("Resource_lwur8")
+material_role_set = SubResource("Resource_t51cm")
+contract_ids = PackedStringArray()
+lifecycle = "review_ready"
+extension_points = PackedStringArray()
+source_status = "review_ready"
+dependency_ids = PackedStringArray()
+legacy_fallback = "bp.catalogue.096"

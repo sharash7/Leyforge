@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ForgeCanonicalRuntimeProduct" format=3]
+
+[ext_resource type="Script" path="res://scripts/forge/domain/forge_canonical_runtime_product.gd" id="1_0nj52"]
+
+[resource]
+script = ExtResource("1_0nj52")
+product_id = "runtime.catalogue.entity_definition_profession_lumberjack"
+source_id = "entity.definition.profession.lumberjack"
+source_paths = PackedStringArray("res://content/forge/entities/user/production/entity_definition_profession_lumberjack.tres", "res://content/forge/entities/user/production/rigs/entity_rig_production_entity_definition_profession_lumberjack.tres", "res://content/forge/entities/user/production/animations/entity_animation_set_production_entity_definition_profession_lumberjack.tres", "res://content/forge/entities/user/production/variants/entity_variant_production_entity_definition_profession_lumberjack.tres", "res://content/forge/entities/user/production/equipment/entity_equipment_profile_production_entity_definition_profession_lumberjack_primary.tres")
+source_hashes = {
+"res://content/forge/entities/user/production/animations/entity_animation_set_production_entity_definition_profession_lumberjack.tres": "9b181861778bada6558b7c5ea4abf135b4dae878e2b22018e493358d417820bc",
+"res://content/forge/entities/user/production/entity_definition_profession_lumberjack.tres": "eda039f9b48b7e3a3b4cbd035b0262f7be68153b959d32d24116977f0da8840f",
+"res://content/forge/entities/user/production/equipment/entity_equipment_profile_production_entity_definition_profession_lumberjack_primary.tres": "0bd7ea57f958a71601adfa4c1aa1856b18cadb70a6df7dc0d4c876cc01698917",
+"res://content/forge/entities/user/production/rigs/entity_rig_production_entity_definition_profession_lumberjack.tres": "a415ef9ef193805214abc396b4d11130c4c5729db5fcaf7bc0082dd49a50d420",
+"res://content/forge/entities/user/production/variants/entity_variant_production_entity_definition_profession_lumberjack.tres": "0a8bf89f11d1221fa5c9ff7c45a59ef333afc6bee94f72bc568d3f70b1e8f6a0"
+}
+combined_source_hash = "eed69beafde706160f21b13461df7fd028f09b57190bf52459b03f25a1319bfe"
+dependency_ids = PackedStringArray("entity.body_plan.production.humanoid")
