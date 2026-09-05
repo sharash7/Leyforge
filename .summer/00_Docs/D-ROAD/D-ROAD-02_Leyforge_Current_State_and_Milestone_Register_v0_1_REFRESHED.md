@@ -1,3 +1,13 @@
+## Execution update — 5 September 2026
+
+R2 Archive Verified is complete. R3 establishes the document-led clean bootstrap on `codex/chore/rebuild-00-bootstrap`, descended from `799305859bb0ba4230ef87d934e961cc21220afa`. Current evidence: `docs/rebuild/r3/STATUS.md` and the REBUILD-00 execution record.
+
+Branch A remains design-locked; only its directory placeholders exist. R4 operational Brain implementation is next. Branch B's supplied certified corpus is preserved; operational enforcement is not claimed. Branch C audit execution, PRD-05 source location, FCC/LFE/FORGE-ENG closure and the broader pre-rebuild programme remain **STATUS UNCONFIRMED — REFRESH REQUIRED** unless their owning records establish otherwise. No R8 gameplay permission exists.
+
+The 30 August register below is retained as a dated historical snapshot, not a newly verified live programme state. A complete cross-programme refresh belongs to subsequent controlled work.
+
+---
+
 # Leyforge Branch D — Production / Rebuild Roadmap
 
 ## D-ROAD-02 — Current State & Milestone Register

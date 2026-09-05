@@ -1,7 +1,0 @@
-Document checksum manifest is stale. Run .summer/tools/update_document_checksums.ps1
-At D:\AI\Projects\leyforge\.summer\tools\update_document_checksums.ps1:61 char:9
-+         throw (
-+         ~~~~~~~
-    + CategoryInfo          : OperationStopped: (Document checks...t_checksums.ps1:String) [], RuntimeException
-    + FullyQualifiedErrorId : Document checksum manifest is stale. Run .summer/tools/update_document_checksums.ps1
- 

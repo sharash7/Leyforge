@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-05T18:34:05.6865012+08:00",
+  "authorization": "Ash: you have authorization for github",
+  "destination": "https://github.com/sharash7/Leyforge.git",
+  "visibility": "public",
+  "commit": "799305859bb0ba4230ef87d934e961cc21220afa",
+  "tag": "legacy-poc-2026-09-05",
+  "tag_object": "de23f72ba5419b899f059e21fc21cce5315e2ab9",
+  "archive_branch": "codex/chore/rebuild-00-archive",
+  "remote_refs_verified": true,
+  "main_before_and_after": "57c1a2a732cbe94dd6dd7f38db0466ab54f564f1",
+  "rulesets": [
+    {
+      "id": 22329948,
+      "name": "REBUILD-00 frozen legacy POC tag",
+      "target": "tag",
+      "enforcement": "active"
+    },
+    {
+      "id": 22329949,
+      "name": "REBUILD-00 frozen legacy POC branch",
+      "target": "branch",
+      "enforcement": "active"
+    }
+  ],
+  "updates_and_deletions_blocked": true,
+  "bypass_actors": [],
+  "effective_branch_rules_verified": true,
+  "local_preservation_archives_uploaded": false,
+  "cold_recovery_result": "PASS; recovery-result.json",
+  "R2": "PASS",
+  "R3": "NOT_STARTED",
+  "R8": "NOT_AUTHORISED"
+}

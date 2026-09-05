@@ -1,8 +1,0 @@
-Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org
-
-ERROR: Failed to read the root certificate store.
-   at: OS_Windows::get_system_ca_certificates (platform\windows\os_windows.cpp:2588)
-BlockRegistry: loaded 143 blocks
-ItemRegistry: loaded 169 items
-SETTLEMENT REGISTRY: 120 definitions, 120 blueprints, 120 projects, 25 packs
-SET22_STAGE5_SET23_WORLD_PRESENTATION_PROBE {"checks":562,"deterministic_hash":"db51c5500c773f777ce86fdfd419395e70e19060a421f13775e9cbba4bbbae10","failures":["Golden blueprint overstates approval: cottage"],"ok":false}

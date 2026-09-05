@@ -1,0 +1,16 @@
+{
+  "status": "COMPLETED_VERIFIED",
+  "destination": "https://github.com/sharash7/Leyforge.git",
+  "visibility": "public",
+  "commit": "799305859bb0ba4230ef87d934e961cc21220afa",
+  "refs": [
+    "refs/tags/legacy-poc-2026-09-05",
+    "refs/heads/codex/chore/rebuild-00-archive"
+  ],
+  "tag_object": "de23f72ba5419b899f059e21fc21cce5315e2ab9",
+  "publication": "atomic push of these two refs only; no force",
+  "protection": "Two exact-ref active rulesets blocking updates and deletion, with no bypass actors",
+  "main_unchanged": true,
+  "local_preservation_payload_published": false,
+  "rejection": "Earlier rejection resolved by explicit user GitHub authorization; publication and protection verified. See publication-result.json."
+}

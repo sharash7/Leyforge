@@ -1,13 +1,6 @@
-# Godot 4+ specific ignores
 .godot/
-/android/
-/build/
-/.local/
-/.verification/
-
-# Summer Engine local-only state
+.local/
 .summer/local/
-
-# Forge atomic-save rotation backups are local recovery artifacts.
-content/forge/**/*.previous.bak
-generated/forge/**/*.previous.bak
+__pycache__/
+*.pyc
+/brain/.obsidian/workspace*.json

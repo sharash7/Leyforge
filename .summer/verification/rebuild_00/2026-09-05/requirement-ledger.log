@@ -1,7 +1,0 @@
-Conflicting canonical document identity PACKAGE-27-30-MANIFEST
-At D:\AI\Projects\leyforge\.summer\tools\generate_requirement_ledger.ps1:431 char:13
-+             throw "Conflicting canonical document identity $documentI ...
-+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : OperationStopped: (Conflicting can...-27-30-MANIFEST:String) [], RuntimeException
-    + FullyQualifiedErrorId : Conflicting canonical document identity PACKAGE-27-30-MANIFEST
- 

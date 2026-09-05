@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3]
-
-[ext_resource path="res://.summer/verification/creative_menu_probe.gd" type="Script" id="1"]
-[ext_resource path="res://main.tscn" type="PackedScene" id="2"]
-
-[node name="CreativeMenuProbe" type="Node"]
-script = ExtResource("1")
-
-[node name="Main" parent="." instance=ExtResource("2")]

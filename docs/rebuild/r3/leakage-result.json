@@ -1,0 +1,1179 @@
+{
+  "status": "PASS",
+  "checks": 1999,
+  "failures": [],
+  "source_documents": 441,
+  "unchanged_source_documents": 439,
+  "approved_document_updates": [
+    ".summer/00_Docs/Additional/REBUILD-00_Leyforge_Legacy_POC_Archive_Clean_Rebuild_and_Brain_Governance_Bootstrap_Handoff_v0.1.md",
+    ".summer/00_Docs/D-ROAD/D-ROAD-02_Leyforge_Current_State_and_Milestone_Register_v0_1_REFRESHED.md"
+  ],
+  "retired_paths": 10824,
+  "archived_validation_admitted": [],
+  "active_poc_dependencies": 0,
+  "reference_classifications": [
+    {
+      "path": ".summer/00_Docs/00-20/00_Fantasy_Voxel_Civilisation_Sandbox_Master_Game_Design_Bible_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "fixed_world_logic": 4
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/01_Fantasy_Voxel_Civilisation_Sandbox_Core_Gameplay_Loop_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2,
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/02_Fantasy_Voxel_Civilisation_Sandbox_Player_Progression_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/03_Fantasy_Voxel_Civilisation_Sandbox_Canonical_Blocks_Registry_Framework_and_Production_Families_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/04_Fantasy_Voxel_Civilisation_Sandbox_Canonical_Items_Registry_Inventory_Equipment_and_Production_Families_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/06_Fantasy_Voxel_Civilisation_Sandbox_Canonical_Resource_Progression_Material_Ecology_and_Capability_Pathway_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/07_Fantasy_Voxel_Civilisation_Sandbox_NPC_Village_Persistent_People_and_Settlement_Operations_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "fixed_world_logic": 2,
+        "archive_or_generator": 3
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/08_Fantasy_Voxel_Civilisation_Sandbox_Automation_Industry_Logistics_and_Network_Control_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/09_Fantasy_Voxel_Civilisation_Sandbox_Magic_Mana_Spellcraft_Runes_Rituals_and_Civilisation_Magic_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/10_Fantasy_Voxel_Civilisation_Sandbox_Creatures_Monsters_Wildlife_and_Ecology_Runtime_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/11_Fantasy_Voxel_Civilisation_Sandbox_Biomes_World_Generation_and_Procedural_World_Assembly_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 4,
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/12_Fantasy_Voxel_Civilisation_Sandbox_Structures_Landmarks_Routes_and_Persistent_Structure_Runtime_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 2,
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/13_Fantasy_Voxel_Civilisation_Sandbox_Peoples_Cultures_Factions_Governments_and_Civilisation_Identity_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "fixed_world_logic": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/14_Fantasy_Voxel_Civilisation_Sandbox_Dimensions_Realms_Realm_Travel_and_Interdimensional_World_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 4
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/15_Fantasy_Voxel_Civilisation_Sandbox_Quest_Event_History_and_World_Consequence_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/17_Fantasy_Voxel_Civilisation_Sandbox_UI_UX_Accessibility_Menus_HUD_World_Configuration_and_Player_Trust_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "fixed_world_logic": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/18_Fantasy_Voxel_Civilisation_Sandbox_Godot_Summer_Engine_Technical_Implementation_Plan_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2,
+        "fixed_world_logic": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/19_Fantasy_Voxel_Civilisation_Sandbox_Settlement_Growth_District_Planning_and_Player_Voxel_Blueprint_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/20_Fantasy_Voxel_Civilisation_Sandbox_Buildings_Facilities_Functional_Services_Construction_and_Settlement_Project_System_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "old_resource_paths": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/00-20/Governance/Leyforge_Foundation_00-20_POC_to_Production_Reconciliation_Register_v0_2.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 7,
+        "fixed_world_logic": 5,
+        "archive_or_generator": 10
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/20A_Fantasy_Voxel_Civilisation_Sandbox_Housing_Provisions_Health_and_Community_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/20B_Fantasy_Voxel_Civilisation_Sandbox_Work_Extraction_Crafting_Trade_and_Education_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/20C_Fantasy_Voxel_Civilisation_Sandbox_Governance_Safety_Defence_Justice_and_Emergency_Services_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/20D_Fantasy_Voxel_Civilisation_Sandbox_Storage_Roads_Transport_Logistics_and_Utilities_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/20E_Fantasy_Voxel_Civilisation_Sandbox_Magic_Automation_Industry_Power_and_Dimensions_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/20F_Fantasy_Voxel_Civilisation_Sandbox_Districts_Complexes_Megaprojects_and_Wonders_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/20G_Fantasy_Voxel_Civilisation_Sandbox_Culture_Faction_Biome_and_Realm_Building_Packs_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/20H_Fantasy_Voxel_Civilisation_Sandbox_Detailed_Building_Catalogue_Stage_Matrix_and_Production_Backlog_v1_0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/OLD/20G_Fantasy_Voxel_Civilisation_Sandbox_Culture_Faction_Biome_and_Realm_Building_Packs_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/20-A-H/OLD/20G_Fantasy_Voxel_Civilisation_Sandbox_Culture_Faction_Biome_and_Realm_Building_Packs_v0_2.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/21-A-G/21F_Fantasy_Voxel_Civilisation_Sandbox_Forge_Technical_Implementation_Plan_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "old_resource_paths": 8
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/21-A-G/21G_Fantasy_Voxel_Civilisation_Sandbox_Visual_Overhaul_and_Cross_Forge_Asset_Migration_Integration_Plan_v0_2.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "old_resource_paths": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24A - Foundations, World Topology and Procedural Content Rules.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 3,
+        "fixed_world_logic": 5
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24B - Overworld Regions, Climate and Surface Biomes.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 4,
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24C - Oceans, Coasts, Islands, Skylands, Underground and Special Overworld Biomes.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 3
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24D - Dimensions, Realm Structure and Realm Biome Atlas.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 14
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24E - Peoples, Cultures, Factions and Settlement Atlas.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24G - Dungeons, Ruins, Lairs and Megadungeons Atlas.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24H - Bosses, Titans, Siege Threats and Realm Guardians Atlas.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "fixed_world_logic": 3
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24I - Structures, Landmarks, Routes, Wonders and World Infrastructure Atlas.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24J - Resources, Loot, Relics, Trade and Material Ecology Atlas.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24K - World History, Story Arcs, Events and Dynamic World States Atlas.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 3
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/24-A-L/24L - Content Registry, Cross-Link Matrix, Budgets and Production Roadmap.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2,
+        "fixed_world_logic": 2,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25A_Fantasy_Voxel_Civilisation_Sandbox_Post_Atlas_Production_Governance_POC_Retirement_Baseline_and_Decision_Register_v0_2.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 3,
+        "fixed_world_logic": 5,
+        "archive_or_generator": 4
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25B_Fantasy_Voxel_Civilisation_Sandbox_Canonical_Registry_Kernel_Stable_IDs_Namespaces_and_Source_of_Truth_Ownership_v0_2.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 4,
+        "archive_or_generator": 5
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25C_Fantasy_Voxel_Civilisation_Sandbox_Domain_Schemas_Relationship_Graph_Capabilities_Suitability_Fallbacks_and_Completeness_Contracts_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25D_Fantasy_Voxel_Civilisation_Sandbox_Content_Packs_Manifests_Authoring_Formats_Import_Export_and_Migration_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 4
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25E_Fantasy_Voxel_Civilisation_Sandbox_Validation_Architecture_Seed_QA_Progression_Reachability_Performance_and_Release_Gates_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 3,
+        "fixed_world_logic": 2,
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25F_Fantasy_Voxel_Civilisation_Sandbox_Core_Production_Atlas_Classification_and_Scope_Lock_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2,
+        "fixed_world_logic": 5
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25G_Fantasy_Voxel_Civilisation_Sandbox_Core_Production_Package_Dependency_and_Progression_Matrix_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "fixed_world_logic": 4,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25H_Fantasy_Voxel_Civilisation_Sandbox_Core_Production_Block_Family_Catalogue_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "fixed_world_logic": 2,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25I_Fantasy_Voxel_Civilisation_Sandbox_Core_Production_Item_Family_Catalogue_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25J_Fantasy_Voxel_Civilisation_Sandbox_Resource_Loot_Provenance_Progression_and_Recipe_Chain_Matrix_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 3,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25K_Fantasy_Voxel_Civilisation_Sandbox_Asset_Budgets_Forge_Animation_Audio_VFX_Socket_and_Event_Manifest_Contract_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/25-A-L/25L_Fantasy_Voxel_Civilisation_Sandbox_Production_Backlog_Summer_Engine_Task_Contract_and_Source_of_Truth_Integrity_Audit_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 4,
+        "fixed_world_logic": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/26-A-O/26C_Fantasy_Voxel_Civilisation_Sandbox_Oceans_Coasts_Islands_and_Underwater_World_Generation_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/26-A-O/26E_Fantasy_Voxel_Civilisation_Sandbox_Swimming_Diving_and_Underwater_Player_Interaction_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/26-A-O/26F_Fantasy_Voxel_Civilisation_Sandbox_Voxel_Vessel_Architecture_Structural_Roles_and_Commissioning_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/26-A-O/26M_Fantasy_Voxel_Civilisation_Sandbox_Marine_Ecology_Fishing_Sea_Creatures_Dungeons_and_Bosses_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/27-30/28-A-J/28A_Fantasy_Voxel_Civilisation_Sandbox_Social_System_Vision_Architecture_and_Ownership_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/27-30/28-A-J/28D_Fantasy_Voxel_Civilisation_Sandbox_Relationships_Memory_Trust_Loyalty_Affection_and_Rivalry_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/27-30/28-A-J/28G_Fantasy_Voxel_Civilisation_Sandbox_Orders_Delegation_Assignments_Autonomy_and_Off_Screen_Resolution_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/27-30/28-A-J/28J_Fantasy_Voxel_Civilisation_Sandbox_Multiplayer_Persistence_Registries_Validation_and_Cross_System_Integration_v0_2.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/27-30/29-A-J/29J_Fantasy_Voxel_Civilisation_Sandbox_Biological_Registries_APIs_Balance_Framework_Validation_and_Cross_System_Integration_v0_2.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/99_Leyforge_POC_Manual_Testing_Guide_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "old_resource_paths": 11,
+        "save_registry_identity": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-05_Vault_Architecture_and_Navigation_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 4
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-06_Work_Records_and_Handoff_System_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/Additional/REBUILD-00_Leyforge_Legacy_POC_Archive_Clean_Rebuild_and_Brain_Governance_Bootstrap_Handoff_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 4,
+        "fixed_world_logic": 4,
+        "archive_or_generator": 16
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/ARCHIVED/00-20-Foundation/04_Fantasy_Voxel_Civilisation_Sandbox_Items_Registry_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "save_registry_identity": 19
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/ARCHIVED/00-20-Foundation/11_Fantasy_Voxel_Civilisation_Sandbox_Biomes_and_World_Generation_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 6
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/ARCHIVED/00-20-Foundation/12_Fantasy_Voxel_Civilisation_Sandbox_Structures_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 3
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/ARCHIVED/00-20-Foundation/18_Fantasy_Voxel_Civilisation_Sandbox_Technical_Implementation_Plan_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 5
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/ARCHIVED/00-20-Foundation/19_Fantasy_Voxel_Civilisation_Sandbox_Settlement_Growth_and_Player_Voxel_Blueprint_System_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "old_resource_paths": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/ARCHIVED/00-20-Foundation/20_Fantasy_Voxel_Civilisation_Sandbox_Buildings_Facilities_Construction_and_Settlement_Project_System_v0_2.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "old_resource_paths": 11
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-01_Leyforge_Governance_Rule_Enforcement_Matrix_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/Leyforge_Branch_B_Engineering_Governance_Complete_Corpus_v1.0.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 3,
+        "old_resource_paths": 2,
+        "fixed_world_logic": 1,
+        "save_registry_identity": 2,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-02_Leyforge_Repository_and_Module_Structure_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "old_resource_paths": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-03_Leyforge_Source_Style_and_Naming_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "save_registry_identity": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-08_Leyforge_Save_Schema_and_Migration_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-09_Leyforge_Registry_and_Stable_Identity_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-10_Leyforge_Performance_and_Benchmark_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/Leyforge_ENG-GOV_00-15_Complete_Governance_Corpus_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 3,
+        "old_resource_paths": 2,
+        "fixed_world_logic": 1,
+        "save_registry_identity": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/C-AUDIT/C-AUD-01_Leyforge_Master_Corpus_Inventory_and_Disposition_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/C-AUDIT/C-AUD-04_Leyforge_Stable_Identity_Registry_and_Migration_Audit_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/C-AUDIT/C-AUD-08_Leyforge_Legacy_Supersession_and_Archive_Disposition_Audit_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 3
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/C-AUDIT/C-AUD-09_Leyforge_V1_Rewrite_Normalisation_and_Promotion_Standard_v0.1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/D-ROAD/D-ROAD-01_Leyforge_Master_Production_Path_v0_1_REFRESHED.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 3
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/D-ROAD/D-ROAD-02_Leyforge_Current_State_and_Milestone_Register_v0_1_REFRESHED.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/D-ROAD/D-ROAD-03_Leyforge_Dependency_and_Critical_Path_Map_v0_1_REFRESHED.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/D-ROAD/D-ROAD-04_Leyforge_Production_Gates_and_Exit_Criteria_v0_1_REFRESHED.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC01/01_FINAL_LOCKED_CANON_A-J/FCC-01A_Overworld_Identity_Cosmology_World_Topology_Progression_and_Canon_Boundaries_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC01/01_FINAL_LOCKED_CANON_A-J/FCC-01B_Continents_Climate_Biomes_Oceans_Skylands_Underground_Hazards_and_Regional_States_v0_2_Final_Pass.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC01/01_FINAL_LOCKED_CANON_A-J/FCC-01F_Part_2_Overworld_Settlements_Population_Geography_Economy_Trade_Industry_and_Civilisation_Infrastructure_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC01/01_FINAL_LOCKED_CANON_A-J/FCC-01G_Part_1_Overworld_Structures_Landmarks_Routes_Infrastructure_Megaprojects_and_Wonders_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC01/01_FINAL_LOCKED_CANON_A-J/FCC-01I_Part_2_Overworld_Cross_Realm_Interfaces_Migration_Trade_Capability_Freedom_and_Void_Boundaries_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC01/02_PREWRITE_RECONCILIATION_STEPS/FCC-01_Step_2D_Interview_Architecture_and_Completeness_Map_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC01/04_SUPERSEDED_DRAFTS_AND_AUDIT_HISTORY/FCC-01B_Continents_Climate_Biomes_Oceans_Skylands_Underground_Hazards_and_Regional_States_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC02/FCC-02B_Verdant_Covenant_Biomes_Terrain_Climate_Seasonal_States_and_Environmental_Hazards_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC02/FCC-02H_Verdant_Covenant_Dungeons_Guardians_Authorities_Adventure_Sites_and_Resolution_Content_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC02/FCC-02J_Verdant_Covenant_Canonical_Content_Registry_Completeness_Certification_and_Art_Handoff_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC03/FCC-03A_Ancestral_Veil_Realm_Identity_Laws_Progression_and_Canon_Boundaries_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC03/FCC-03C_Ancestral_Veil_Geology_Materials_Resources_Processing_and_Provenance_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC03/FCC-03D_Ancestral_Veil_Flora_Soulwood_Ossuary_Ecology_Food_and_Botanical_Ecology_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC03/FCC-03G_Ancestral_Veil_Structures_Sites_Veilgate_Blocks_Items_Processing_and_Recipes_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC03/FCC-03H_Ancestral_Veil_Dungeons_Guardians_Authorities_Events_and_Major_Outcomes_v0_2.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC03/FCC-03J_Ancestral_Veil_Final_Canon_Registry_Validation_Completeness_Certification_and_Art_Handoff_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC04/FCC-04I_Somnolent_Expanse_Dream_States_Nightmare_Dynamics_Void_Corruption_Stabilisation_Restoration_and_Cross-Realm_Interaction_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC05/FCC-05H_Ascendant_Reach_Dungeons_Guardians_Authorities_Pilgrim_Star_Events_and_Major_Outcomes_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 2,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC06/FCC-06I_Impossible_Deep_Corruption_Regional_States_Realm_Events_and_Cross_Realm_Interfaces_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC06/FCC-06J_Impossible_Deep_Final_Registry_Completeness_Audit_and_Art_Handoff_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC08/FCC-08B_Ashen_Lower_Realms_Biomes_Terrain_Nine_Stratum_Distribution_Environmental_Hazards_and_Regional_States_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC08/FCC-08C_Ashen_Lower_Realms_Geology_Materials_Resources_Processing_Foundations_and_Provenance_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC08/FCC-08G_Ashen_Lower_Realms_Structures_Sites_Ashgate_Blocks_Items_Processing_and_Recipes_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC12/FCC-12_Step_1A_Universal_Material_Source_Corpus_Authority_and_Collision_Extraction_v0_1.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC13/Leyforge_FCC-13_Definitive_Registry_LOCKED/FCC-13_Step_1B_Legacy_POC_Row_Migration_Matrix_v0_1.csv",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "save_registry_identity": 18
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/FCC-01-14/FCC13/Leyforge_FCC-13_Definitive_Registry_LOCKED/FCC-13E_Final_312-Row_Legacy_Migration_Matrix_v0_1.csv",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "save_registry_identity": 18
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/PRD/PRD-00_Leyforge_Source_Corpus_and_Authority_Register_v1_0_FINAL.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/PRD/PRD-01_Leyforge_Complete_Technical_Requirements_and_Unknowns_Inventory_WORKING_v0_15_CLOSURE_CANDIDATE.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "retired_identity": 4,
+        "fixed_world_logic": 4,
+        "archive_or_generator": 4
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/PRD/PRD-03_Godot_and_Supporting_Technology_Audit_v0_8_CLOSURE_CANDIDATE.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "old_resource_paths": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "fixed_world_logic": 1,
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": ".summer/00_Docs/VoxelRegistry.json",
+      "classification": "current_authority_or_historical_source_citation",
+      "categories": {
+        "save_registry_identity": 36
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/ARCHIVE-STATUS.md",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "archive_or_generator": 3
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/freeze-commit-receipt.json",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "old_resource_paths": 3
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/publication-result.json",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/recovery-manifest.json",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/recovery-result.json",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "old_resource_paths": 2,
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/RECOVERY.md",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/remote-action-plan.json",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/remote-protection.json",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/remote-refs.txt",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/r2/RETIREMENT-LOG.md",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "retired_identity": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/archive-evidence/README.md",
+      "classification": "historical_archive_evidence",
+      "categories": {
+        "archive_or_generator": 2
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/AUTHORITY-LOCATIONS.md",
+      "classification": "bootstrap_retirement_record_or_boundary_enforcement",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/r3/baseline-manifest.json",
+      "classification": "bootstrap_retirement_record_or_boundary_enforcement",
+      "categories": {
+        "old_resource_paths": 505,
+        "save_registry_identity": 1,
+        "archive_or_generator": 5
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "docs/rebuild/r3/STATUS.md",
+      "classification": "bootstrap_retirement_record_or_boundary_enforcement",
+      "categories": {
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "README.md",
+      "classification": "bootstrap_retirement_record_or_boundary_enforcement",
+      "categories": {
+        "old_resource_paths": 1,
+        "archive_or_generator": 1
+      },
+      "runtime_inclusion": false
+    },
+    {
+      "path": "tools/verify_rebuild_boundary.py",
+      "classification": "bootstrap_retirement_record_or_boundary_enforcement",
+      "categories": {
+        "retired_identity": 2,
+        "old_resource_paths": 2,
+        "fixed_world_logic": 2,
+        "save_registry_identity": 2,
+        "archive_or_generator": 6
+      },
+      "runtime_inclusion": false
+    }
+  ]
+}

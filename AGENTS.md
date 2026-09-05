@@ -11,3 +11,9 @@
 - Keep automated verification in an isolated writable project/profile when it may create imports or `user://` state. Do not mutate live/shared save fixtures.
 
 Preserve unrelated dirty-worktree changes. Do not stage or commit unless the user asks.
+
+## Rebuild phase boundary
+
+This worktree is the document-led R3 bootstrap. Read README.md and docs/rebuild/r3/STATUS.md first. The old implementation is retired on this branch. Do not import it, execute historical tools or create a Godot runtime without the later governing authorization. R4 Brain implementation is next; R8 gameplay permission remains closed.
+
+Use `python tools/verify_rebuild_boundary.py` for this baseline. `brain/` contains placeholders only, not an operational knowledge system. Supplied documents and archive evidence retain their owning statuses; dated historical runtime paths are not instructions to restore dependencies.

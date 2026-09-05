@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3]
-
-[ext_resource path="res://.summer/verification/settlement_waves2_5_probe.gd" type="Script" id="1"]
-
-[node name="SettlementWaves2To5Probe" type="Node"]
-script = ExtResource("1")
