@@ -11,7 +11,10 @@ const CLEARANCE_ABOVE := 2
 const TERRAIN_APRON := 3
 const MAX_AUTOMATIC_CUT_FILL := 6
 const MAX_ROUTE_NODES := 8192
+const MAX_ROUTE_GRADE := 6
 const ROUTE_MARGIN := 24
+const PHYSICAL_FOOTPATH_BLOCK_ID := "road.path.dirt"
+const TERRAIN_FILL_BLOCK_ID := "construction.cobble.stone"
 
 const VEGETATION_IDS: Array[String] = [
 	"natural.log.oak",
@@ -83,6 +86,8 @@ func survey_project_site(
 	var protected_collisions: Array[Dictionary] = []
 	var expected_drops := {}
 	var tool_requirements := {}
+	var clearance_tool_requirements := {}
+	var clearance_expected_drops := {}
 	var maximum_delta := 0
 	var bounds := Rect2i(
 		footprint.position - Vector2i(CLEARANCE_MARGIN, CLEARANCE_MARGIN),
@@ -124,16 +129,18 @@ func survey_project_site(
 						or BlockRegistry.is_water(block_id):
 					continue
 				clearance_cells.append([gx, y, gz])
-				_record_clear_cell(
-					position, block_id, cut_cells, vegetation_removal,
-					tool_requirements, expected_drops)
+				_record_harvest_requirements(
+					position, block_id, clearance_tool_requirements,
+					clearance_expected_drops)
 				_record_collision(
 					position, block_id, settlement_id,
 					player_collisions, protected_collisions)
 
 	var reasons: Array[String] = []
+	var guidance: Array[String] = []
 	if maximum_delta > MAX_AUTOMATIC_CUT_FILL and placement_mode == "village":
 		reasons.append("terrain_cost_exceeds_automatic_limit:%d" % maximum_delta)
+		guidance.append("player_clear_or_fill_highlighted_site")
 	if not protected_collisions.is_empty():
 		reasons.append(
 			"protected_structure_collision:%d" % protected_collisions.size())
@@ -172,6 +179,7 @@ func survey_project_site(
 		"clearance_cells": _unique_cells(clearance_cells),
 		"cut_cells": _unique_cells(cut_cells),
 		"fill_cells": _unique_cells(fill_cells),
+		"fill_block_id": TERRAIN_FILL_BLOCK_ID,
 		"vegetation_removal": _unique_cells(vegetation_removal),
 		"water_cells": water_cells,
 		"foundation_mode": (
@@ -184,6 +192,18 @@ func survey_project_site(
 		},
 		"tool_requirements": tool_requirements,
 		"expected_drops": expected_drops,
+		"clearance_tool_requirements": clearance_tool_requirements,
+		"clearance_expected_drops": clearance_expected_drops,
+		"site_preparation": {
+			"clear_count": _unique_cells(cut_cells).size()
+				+ _unique_cells(vegetation_removal).size(),
+			"clearance_count": _unique_cells(clearance_cells).size(),
+			"fill_count": _unique_cells(fill_cells).size(),
+			"route_count": (route_plan.get("cells", []) as Array).size(),
+			"automatic_terrain_limit": MAX_AUTOMATIC_CUT_FILL,
+			"player_can_contribute": true,
+			"guidance": guidance,
+		},
 		"requires_overlap_confirmation": (
 			not player_collisions.is_empty() and not confirmed_player_overlap),
 		"validation_reasons": reasons,
@@ -243,7 +263,7 @@ func plan_access_route(
 				continue
 			var neighbor_height := world.surface_height_at(neighbor.x, neighbor.y)
 			var height_delta := absi(neighbor_height - current_height)
-			if height_delta > 1:
+			if height_delta > MAX_ROUTE_GRADE:
 				continue
 			var block_id := world.get_persisted_block_id(Vector3i(
 				neighbor.x, neighbor_height, neighbor.y))
@@ -261,7 +281,7 @@ func plan_access_route(
 				open_set[neighbor_key] = true
 	if not found:
 		return _invalid_route(
-			settlement_id, "no_traversable_route_with_maximum_one_block_grade")
+			settlement_id, "no_traversable_route_within_grade_limit")
 
 	var reversed: Array[Vector2i] = [goal]
 	var cursor := goal
@@ -286,9 +306,11 @@ func plan_access_route(
 		"from": [from_position.x, from_position.y, from_position.z],
 		"to": [to_position.x, to_position.y, to_position.z],
 		"cells": cells,
+		"physical_path": true,
+		"surface_block_id": PHYSICAL_FOOTPATH_BLOCK_ID,
 		"maximum_step": maximum_step,
 		"visited_nodes": visited,
-		"valid": maximum_step <= 1,
+		"valid": true,
 		"validation_reasons": [],
 	}
 	route["plan_hash"] = _stable_hash(route)
@@ -305,34 +327,64 @@ func compile_work_packages(survey: Dictionary) -> Array[Dictionary]:
 	var project_id := str(project.get("id", survey.get("project_id", "")))
 	var settlement_id := str(survey.get("settlement_id", ""))
 	var packages: Array[Dictionary] = []
-	packages.append(_work_package(
+	var route_plan: Dictionary = survey.get("route_plan", {})
+	var route_cells: Array = route_plan.get("cells", [])
+	var path_block_id := str(route_plan.get(
+		"surface_block_id", PHYSICAL_FOOTPATH_BLOCK_ID))
+	var route_package := _work_package(
 		settlement_id, project_id, "route", 0,
-		"Connect road socket", (survey.get(
-			"route_plan", {}) as Dictionary).get("cells", []),
-		{"road.path.dirt": maxi(1, int((survey.get(
-			"route_plan", {}) as Dictionary).get("cells", []).size()))}))
-	packages.append(_work_package(
+		"Build physical footpath to building entrance", route_cells,
+		{path_block_id: maxi(1, route_cells.size())})
+	route_package["physical_path"] = true
+	route_package["surface_block_id"] = path_block_id
+	route_package["path_amount"] = maxi(1, route_cells.size())
+	route_package["connects_existing_route"] = not route_cells.is_empty()
+	route_package["phase"] = "site_preparation"
+	route_package["phase_label"] = "Site Preparation"
+	route_package["substage"] = "footpath"
+	packages.append(route_package)
+	packages.append(_site_prep_package(
 		settlement_id, project_id, "vegetation", 1,
 		"Clear vegetation", survey.get("vegetation_removal", []),
-		{}, survey.get("tool_requirements", {})))
-	var terrain_cells: Array = survey.get("cut_cells", []).duplicate(true)
-	terrain_cells.append_array(survey.get("fill_cells", []))
-	packages.append(_work_package(
+		{}, survey.get("tool_requirements", {}), "clearing"))
+	packages.append(_site_prep_package(
 		settlement_id, project_id, "terrain", 2,
-		"Excavate, fill, drain, support, and level", terrain_cells,
-		{}, survey.get("tool_requirements", {})))
+		"Excavate and cut terrain", survey.get("cut_cells", []),
+		{}, survey.get("tool_requirements", {}), "clearing"))
+	packages.append(_site_prep_package(
+		settlement_id, project_id, "clearance", 3,
+		"Clear above-footprint obstructions", survey.get("clearance_cells", []),
+		{}, survey.get("clearance_tool_requirements", {}), "clearance"))
+	var fill_block_id := str(survey.get("fill_block_id", TERRAIN_FILL_BLOCK_ID))
+	var fill_count := (survey.get("fill_cells", []) as Array).size()
+	var fill_requirements := {}
+	if fill_count > 0:
+		fill_requirements[fill_block_id] = fill_count
+	var fill_package: Dictionary = _site_prep_package(
+		settlement_id, project_id, "fill", 4,
+		"Fill and level support gaps", survey.get("fill_cells", []),
+		fill_requirements, {}, "fill")
+	fill_package["fill_block_id"] = fill_block_id
+	fill_package["fill_amount"] = fill_count
+	packages.append(fill_package)
 	for stage_value in project.get("stages", []):
 		var stage: Dictionary = stage_value
-		packages.append(_work_package(
+		var blueprint_package := _work_package(
 			settlement_id, project_id, "blueprint_stage",
-			3 + int(stage.get("index", packages.size())),
+			packages.size(),
 			str(stage.get("display_name", stage.get("id", "Build"))),
 			[], _requirement_counts(stage.get("requirements", [])), {},
-			str(stage.get("id", ""))))
-	packages.append(_work_package(
+			str(stage.get("id", "")))
+		blueprint_package["phase"] = "construction"
+		blueprint_package["phase_label"] = "Construction"
+		packages.append(blueprint_package)
+	var activation_package := _work_package(
 		settlement_id, project_id, "activation",
-		3 + packages.size(), "Validate access, doors, markers, housing, "
-			+ "utilities, and activation", [], {}))
+		packages.size(), "Validate access, doors, markers, housing, "
+			+ "utilities, and activation", [], {})
+	activation_package["phase"] = "activation"
+	activation_package["phase_label"] = "Activation"
+	packages.append(activation_package)
 	for index in packages.size():
 		packages[index]["package_index"] = index
 		packages[index]["package_id"] = "%s.work.%02d.%s" % [
@@ -341,6 +393,25 @@ func compile_work_packages(survey: Dictionary) -> Array[Dictionary]:
 			str(packages[index]["kind"]),
 		]
 	return packages
+
+
+func _site_prep_package(
+		settlement_id: String,
+		project_id: String,
+		kind: String,
+		order: int,
+		display_name: String,
+		cells: Array,
+		requirements: Dictionary,
+		tool_requirements: Dictionary,
+		substage: String) -> Dictionary:
+	var package := _work_package(
+		settlement_id, project_id, kind, order, display_name,
+		cells, requirements, tool_requirements)
+	package["phase"] = "site_preparation"
+	package["phase_label"] = "Site Preparation"
+	package["substage"] = substage
+	return package
 
 
 func _work_package(
@@ -386,6 +457,16 @@ func _record_clear_cell(
 		vegetation_removal.append(cell)
 	else:
 		cut_cells.append(cell)
+	_record_harvest_requirements(
+		position, block_id, tool_requirements, expected_drops)
+
+
+func _record_harvest_requirements(
+		position: Vector3i,
+		block_id: int,
+		tool_requirements: Dictionary,
+		expected_drops: Dictionary) -> void:
+	var stable_id := BlockRegistry.get_stable_id(block_id)
 	var profile := BlockRegistry.get_harvest_profile(block_id)
 	var tool_class := str(profile.get("tool", ""))
 	if stable_id in SHOVEL_BLOCKS:

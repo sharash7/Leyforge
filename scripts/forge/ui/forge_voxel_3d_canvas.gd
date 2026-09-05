@@ -18,27 +18,39 @@ var _viewport: SubViewport
 var _root: Node3D
 var _cell_root: Node3D
 var _environment_root: Node3D
+var _highlight_root: Node3D
+var _selection_highlight_root: Node3D
+var _cursor_highlight_root: Node3D
 var _camera: Camera3D
 var _drag_button := MOUSE_BUTTON_NONE
 var _drag_origin := Vector2.ZERO
 var _dragged := false
 var _stroke_active := false
 var _last_stroke_cell := Vector3i(999999, 999999, 999999)
+var _hover_cell := Vector3i.ZERO
+var _has_hover_cell := false
+var _selected_cells := {}
 
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(520, 430)
+	# Keep the directly interactive canvas usable in the default 1152 px host
+	# while still allowing it to expand on wide editor displays. The surrounding
+	# creator studio owns the tool panes; a 520 px hard minimum previously pushed
+	# this canvas and the contextual preview outside the visible Forge window.
+	custom_minimum_size = Vector2(320, 320)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	size_flags_vertical = Control.SIZE_EXPAND_FILL
 	stretch = true
 	focus_mode = Control.FOCUS_ALL
 	mouse_default_cursor_shape = Control.CURSOR_CROSS
 	set_meta("accessible_label",
-		"Interactive three dimensional voxel canvas. Use arrow keys to orbit, "
+		"Interactive three dimensional voxel canvas. Right-drag or use arrow keys "
+		+ "to orbit, Shift-right-drag or middle-drag to pan, scroll to zoom, "
 		+ "Page Up and Page Down to change layer, Enter to place, and Delete to erase.")
 	_build_viewport()
 	_refresh_environment()
 	_rebuild_cells()
+	mouse_exited.connect(_clear_hover_cell)
 
 
 func set_records(value: Array[Dictionary]) -> void:
@@ -46,7 +58,16 @@ func set_records(value: Array[Dictionary]) -> void:
 	_rebuild_cells()
 
 
+func set_selected_cells(value: Array[Vector3i]) -> void:
+	_selected_cells.clear()
+	for position in value:
+		_selected_cells[_position_key(position)] = position
+	_refresh_highlights()
+
+
 func set_active_layer(value: int) -> void:
+	if active_layer != value:
+		_clear_hover_cell()
 	active_layer = value
 	_refresh_environment()
 
@@ -90,6 +111,15 @@ func _build_viewport() -> void:
 	_cell_root = Node3D.new()
 	_cell_root.name = "VoxelCells"
 	_root.add_child(_cell_root)
+	_highlight_root = Node3D.new()
+	_highlight_root.name = "VoxelHighlights"
+	_root.add_child(_highlight_root)
+	_selection_highlight_root = Node3D.new()
+	_selection_highlight_root.name = "SelectedCells"
+	_highlight_root.add_child(_selection_highlight_root)
+	_cursor_highlight_root = Node3D.new()
+	_cursor_highlight_root.name = "CursorCell"
+	_highlight_root.add_child(_cursor_highlight_root)
 	_camera = Camera3D.new()
 	_camera.name = "VoxelEditCamera"
 	_camera.fov = 48.0
@@ -194,9 +224,103 @@ func _rebuild_cells() -> void:
 		node.material_override = material
 		node.position = Vector3(position) + Vector3.ONE * 0.5
 		_cell_root.add_child(node)
+	_refresh_highlights()
+
+
+func _refresh_highlights() -> void:
+	_refresh_selection_highlights()
+	_refresh_cursor_highlight()
+
+
+func _refresh_selection_highlights() -> void:
+	if not is_instance_valid(_selection_highlight_root):
+		return
+	_clear_children(_selection_highlight_root)
+	var selection_mesh := BoxMesh.new()
+	selection_mesh.size = Vector3.ONE * 1.045
+	var selection_material := _highlight_material(Color(1.0, 0.67, 0.16, 0.34))
+	for value in _selected_cells.values():
+		var position: Vector3i = value
+		_add_highlight(
+			position, selection_mesh, selection_material,
+			"Selected_%d_%d_%d" % [position.x, position.y, position.z],
+			_selection_highlight_root)
+
+
+func _refresh_cursor_highlight() -> void:
+	if not is_instance_valid(_cursor_highlight_root):
+		return
+	_clear_children(_cursor_highlight_root)
+	if _has_hover_cell:
+		var cursor_mesh := BoxMesh.new()
+		cursor_mesh.size = Vector3.ONE * 1.085
+		_add_highlight(
+			_hover_cell, cursor_mesh,
+			_highlight_material(Color(0.18, 0.92, 1.0, 0.42)),
+			"CursorTarget", _cursor_highlight_root)
+
+
+func _add_highlight(
+		position: Vector3i,
+		mesh: BoxMesh,
+		material: StandardMaterial3D,
+		node_name: String,
+		parent: Node3D) -> void:
+	var node := MeshInstance3D.new()
+	node.name = node_name
+	node.mesh = mesh
+	node.material_override = material
+	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	node.position = Vector3(position) + Vector3.ONE * 0.5
+	parent.add_child(node)
+
+
+func _highlight_material(color: Color) -> StandardMaterial3D:
+	var material := StandardMaterial3D.new()
+	material.albedo_color = color
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.emission_enabled = true
+	material.emission = Color(color.r, color.g, color.b)
+	material.emission_energy_multiplier = 0.7
+	return material
+
+
+func _set_hover_cell(position: Vector3i) -> void:
+	if _has_hover_cell and _hover_cell == position:
+		return
+	_hover_cell = position
+	_has_hover_cell = true
+	_refresh_cursor_highlight()
+
+
+func _clear_hover_cell() -> void:
+	if not _has_hover_cell:
+		return
+	_has_hover_cell = false
+	_refresh_cursor_highlight()
 
 
 func _gui_input(event: InputEvent) -> void:
+	_dispatch_canvas_input(event)
+
+
+func _input(event: InputEvent) -> void:
+	# SubViewportContainer forwards pointer input into its child viewport before
+	# every host layout reliably calls this Control's _gui_input hook. Capture at
+	# the owning viewport boundary, convert back to local canvas coordinates and
+	# mark the event handled so it cannot also edit through another UI surface.
+	if event is InputEventMouse:
+		if not _contains_visible_viewport_point(event.position):
+			return
+		_dispatch_canvas_input(make_input_local(event))
+		get_viewport().set_input_as_handled()
+	elif event is InputEventKey and has_focus():
+		_dispatch_canvas_input(event)
+		get_viewport().set_input_as_handled()
+
+
+func _dispatch_canvas_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		_handle_mouse_button(event)
 	elif event is InputEventMouseMotion:
@@ -205,15 +329,31 @@ func _gui_input(event: InputEvent) -> void:
 		_handle_key(event)
 
 
+func _contains_visible_viewport_point(point: Vector2) -> bool:
+	if not is_visible_in_tree() or not get_global_rect().has_point(point):
+		return false
+	var ancestor := get_parent()
+	while ancestor is Control:
+		var control := ancestor as Control
+		if control.clip_contents and not control.get_global_rect().has_point(point):
+			return false
+		ancestor = ancestor.get_parent()
+	return true
+
+
 func _handle_mouse_button(event: InputEventMouseButton) -> void:
 	if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 		camera_distance = maxf(3.0, camera_distance * 0.88)
 		_update_camera()
+		_set_hover_cell(_project_to_layer(event.position))
+		hover_changed.emit(_hover_cell)
 		accept_event()
 		return
 	if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 		camera_distance = minf(200.0, camera_distance * 1.14)
 		_update_camera()
+		_set_hover_cell(_project_to_layer(event.position))
+		hover_changed.emit(_hover_cell)
 		accept_event()
 		return
 	if event.button_index not in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT,
@@ -224,16 +364,24 @@ func _handle_mouse_button(event: InputEventMouseButton) -> void:
 		_drag_button = event.button_index
 		_drag_origin = event.position
 		_dragged = false
-		if event.button_index == MOUSE_BUTTON_LEFT \
-				or (event.button_index == MOUSE_BUTTON_RIGHT and not event.shift_pressed):
+		if event.button_index == MOUSE_BUTTON_LEFT:
 			_stroke_active = true
 			_last_stroke_cell = Vector3i(999999, 999999, 999999)
-			_emit_cell(event.position, event.button_index == MOUSE_BUTTON_RIGHT, false)
+			_emit_cell(event.position, false, false)
 	else:
 		if _stroke_active:
 			stroke_finished.emit()
+		elif event.button_index == MOUSE_BUTTON_RIGHT and not _dragged \
+				and not event.shift_pressed:
+			# A right click erases one cell, while a right drag is reserved for
+			# orbiting. Deferring the erase until release keeps those gestures
+			# unambiguous and makes the documented orbit control reachable.
+			_emit_cell(event.position, true, false)
+			stroke_finished.emit()
 		_stroke_active = false
 		_drag_button = MOUSE_BUTTON_NONE
+		_set_hover_cell(_project_to_layer(event.position))
+		hover_changed.emit(_hover_cell)
 	accept_event()
 
 
@@ -248,14 +396,15 @@ func _handle_mouse_motion(event: InputEventMouseMotion) -> void:
 		camera_target += (-right * event.relative.x + up * event.relative.y) \
 			* camera_distance * 0.0018
 		_update_camera()
-	elif _drag_button == MOUSE_BUTTON_RIGHT and not _stroke_active:
+	elif _drag_button == MOUSE_BUTTON_RIGHT:
 		camera_yaw -= event.relative.x * 0.008
 		camera_pitch = clampf(camera_pitch - event.relative.y * 0.008, -1.45, -0.08)
 		_update_camera()
-	elif _stroke_active and _drag_button in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
-		_emit_cell(event.position, _drag_button == MOUSE_BUTTON_RIGHT, true)
+	elif _stroke_active and _drag_button == MOUSE_BUTTON_LEFT:
+		_emit_cell(event.position, false, true)
 	else:
-		hover_changed.emit(_project_to_layer(event.position))
+		_set_hover_cell(_project_to_layer(event.position))
+		hover_changed.emit(_hover_cell)
 	_drag_origin = event.position
 
 
@@ -274,18 +423,26 @@ func _handle_key(event: InputEventKey) -> void:
 		KEY_PAGEDOWN:
 			set_active_layer(active_layer - 1)
 		KEY_ENTER, KEY_KP_ENTER:
-			cell_pressed.emit(Vector3i(
-				floori(camera_target.x), active_layer, floori(camera_target.z)), false, false)
+			var keyboard_cell := Vector3i(
+				floori(camera_target.x), active_layer, floori(camera_target.z))
+			_set_hover_cell(keyboard_cell)
+			hover_changed.emit(keyboard_cell)
+			cell_pressed.emit(keyboard_cell, false, false)
 			stroke_finished.emit()
 		KEY_DELETE, KEY_BACKSPACE:
-			cell_pressed.emit(Vector3i(
-				floori(camera_target.x), active_layer, floori(camera_target.z)), true, false)
+			var keyboard_cell := Vector3i(
+				floori(camera_target.x), active_layer, floori(camera_target.z))
+			_set_hover_cell(keyboard_cell)
+			hover_changed.emit(keyboard_cell)
+			cell_pressed.emit(keyboard_cell, true, false)
 			stroke_finished.emit()
 	_update_camera()
 
 
 func _emit_cell(mouse_position: Vector2, erase: bool, continuous: bool) -> void:
 	var cell := _project_to_layer(mouse_position)
+	_set_hover_cell(cell)
+	hover_changed.emit(cell)
 	if cell == _last_stroke_cell:
 		return
 	_last_stroke_cell = cell
@@ -324,6 +481,10 @@ func _record_position(record: Dictionary) -> Vector3i:
 	if value is Array and value.size() >= 3:
 		return Vector3i(int(value[0]), int(value[1]), int(value[2]))
 	return Vector3i.ZERO
+
+
+func _position_key(position: Vector3i) -> String:
+	return "%d:%d:%d" % [position.x, position.y, position.z]
 
 
 func _clear_children(parent: Node) -> void:

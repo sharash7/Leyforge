@@ -55,6 +55,16 @@ for ($phaseIndex = 0; $phaseIndex -lt $phases.Count; $phaseIndex++) {
     if ([string]$phase.status -notin $statusVocabulary) {
         throw "Phase $($phase.id) has invalid status $($phase.status)"
     }
+    if ([string]$phase.status -eq 'completed') {
+        for ($earlierIndex = 0; $earlierIndex -lt $phaseIndex; $earlierIndex++) {
+            if ([string]$phases[$earlierIndex].status -ne 'completed') {
+                throw (
+                    "Phase $($phase.id) cannot be completed while earlier phase " +
+                    "$($phases[$earlierIndex].id) is $($phases[$earlierIndex].status)"
+                )
+            }
+        }
+    }
     if ([string]::IsNullOrWhiteSpace([string]$phase.gate) -or
             @($phase.exit_gate).Count -eq 0 -or @($phase.packages).Count -eq 0) {
         throw "Phase $($phase.id) lacks a gate, exit criteria, or packages"
@@ -108,6 +118,133 @@ foreach ($documentId in $requiredCoverageIds) {
     }
 }
 
+$disposition = $roadmap.requirement_disposition
+if ($null -eq $disposition -or [int]$disposition.schema_version -ne 1) {
+    throw 'Production path requirement disposition schema must be v1'
+}
+$acceptedTiers = @($disposition.accepted_tiers | ForEach-Object { [string]$_ })
+$nonBlockingTiers = @(
+    $disposition.non_blocking_tiers | ForEach-Object { [string]$_ }
+)
+if (($acceptedTiers -join '|') -ne (@($roadmap.completion_scope) -join '|')) {
+    throw 'Requirement accepted tiers disagree with completion scope'
+}
+if (($nonBlockingTiers -join '|') -ne
+        (@($roadmap.non_blocking_tiers) -join '|')) {
+    throw 'Requirement non-blocking tiers disagree with production path'
+}
+$allDeliveryTiers = $acceptedTiers + $nonBlockingTiers
+$packageTierById = @{}
+foreach ($phase in $phases) {
+    $phaseId = [string]$phase.id
+    $tierProperty = $disposition.phase_tiers.PSObject.Properties[$phaseId]
+    if ($null -eq $tierProperty) {
+        throw "Requirement disposition lacks a tier for phase $phaseId"
+    }
+    $phaseTier = [string]$tierProperty.Value
+    if ($phaseTier -notin $allDeliveryTiers) {
+        throw "Requirement disposition phase $phaseId has invalid tier $phaseTier"
+    }
+    foreach ($package in @($phase.packages)) {
+        $packageTierById[[string]$package.id] = $phaseTier
+    }
+}
+$documentPackageMap = @{}
+foreach ($property in $disposition.document_package_map.PSObject.Properties) {
+    $documentPackageMap[[string]$property.Name] = [string]$property.Value
+}
+$companionPackageMap = @{}
+foreach ($property in $disposition.companion_package_map.PSObject.Properties) {
+    $companionPackageMap[[string]$property.Name] = [string]$property.Value
+}
+foreach ($mapping in @($documentPackageMap, $companionPackageMap)) {
+    foreach ($mappedPackageId in @($mapping.Values)) {
+        if (-not $packageById.ContainsKey([string]$mappedPackageId)) {
+            throw "Requirement disposition refers to unknown package $mappedPackageId"
+        }
+    }
+}
+
+$requirementLedgerPath = Join-Path $ProjectPath (
+    '.summer\requirements\leyforge-requirements.json'
+)
+if (-not (Test-Path -LiteralPath $requirementLedgerPath -PathType Leaf)) {
+    throw "Requirement ledger is missing: $requirementLedgerPath"
+}
+$requirementLedger = [IO.File]::ReadAllText($requirementLedgerPath) |
+    ConvertFrom-Json
+if ([int]$requirementLedger.schema_version -lt 3) {
+    throw 'Requirement ledger schema must be v3 or newer for package disposition'
+}
+$productionPathHash = (
+    Get-FileHash -LiteralPath $InputPath -Algorithm SHA256
+).Hash.ToLowerInvariant()
+if ([string]$requirementLedger.production_package_source_sha256 -ne
+        $productionPathHash) {
+    throw 'Requirement ledger was generated from a different production path'
+}
+if ([int]$requirementLedger.requirement_count -ne
+        @($requirementLedger.requirements).Count) {
+    throw 'Requirement ledger count disagrees with its requirement rows'
+}
+$acceptedRequirementCount = 0
+$nonBlockingRequirementCount = 0
+foreach ($requirement in @($requirementLedger.requirements)) {
+    $requirementId = [string]$requirement.id
+    $documentId = [string]$requirement.document
+    $packageId = [string]$requirement.production_package_id
+    if ([string]::IsNullOrWhiteSpace($packageId) -or
+            -not $packageById.ContainsKey($packageId)) {
+        throw "Requirement $requirementId lacks one known production package"
+    }
+    $expectedPackageId = ''
+    if ($companionPackageMap.ContainsKey($documentId)) {
+        $expectedPackageId = [string]$companionPackageMap[$documentId]
+    } elseif ($documentId -match '^(\d{2})') {
+        $documentFamily = [string]$Matches[1]
+        if ($documentPackageMap.ContainsKey($documentFamily)) {
+            $expectedPackageId = [string]$documentPackageMap[$documentFamily]
+        }
+    }
+    if ([string]::IsNullOrWhiteSpace($expectedPackageId) -or
+            $packageId -ne $expectedPackageId) {
+        throw (
+            "Requirement $requirementId package $packageId disagrees with " +
+            "declared disposition $expectedPackageId"
+        )
+    }
+    $expectedPhase = "P$([int]$phaseIndexByPackage[$packageId])"
+    if ([string]$requirement.production_package_phase -ne $expectedPhase) {
+        throw "Requirement $requirementId has the wrong package phase"
+    }
+    $expectedTier = [string]$packageTierById[$packageId]
+    if ([string]$requirement.implementation_status -eq 'deferred') {
+        $expectedTier = [string]$disposition.deferred_implementation_tier
+    }
+    $deliveryTier = [string]$requirement.delivery_tier
+    if ($deliveryTier -ne $expectedTier -or
+            $deliveryTier -notin $allDeliveryTiers) {
+        throw "Requirement $requirementId has an invalid delivery tier"
+    }
+    $expectedScope = if ($deliveryTier -in $acceptedTiers) {
+        $acceptedRequirementCount += 1
+        'accepted'
+    } else {
+        $nonBlockingRequirementCount += 1
+        'non_blocking'
+    }
+    if ([string]$requirement.scope_disposition -ne $expectedScope) {
+        throw "Requirement $requirementId has an invalid scope disposition"
+    }
+}
+if ($acceptedRequirementCount -le 0) {
+    throw 'Requirement disposition did not resolve any accepted requirements'
+}
+if (($acceptedRequirementCount + $nonBlockingRequirementCount) -ne
+        [int]$requirementLedger.requirement_count) {
+    throw 'Requirement disposition does not cover the whole ledger'
+}
+
 $coveragePath = Join-Path $ProjectPath '.summer\requirements\implementation-coverage.json'
 if (Test-Path -LiteralPath $coveragePath -PathType Leaf) {
     $coverage = [IO.File]::ReadAllText($coveragePath) | ConvertFrom-Json
@@ -125,7 +262,7 @@ function Join-MarkdownList {
     return (@($Values | ForEach-Object { [string]$_ }) -join '; ')
 }
 
-$sourceHash = (Get-FileHash -LiteralPath $InputPath -Algorithm SHA256).Hash.ToLowerInvariant()
+$sourceHash = $productionPathHash
 $baseline = $roadmap.baseline
 $lines = [System.Collections.Generic.List[string]]::new()
 $lines.Add('# Leyforge Documents 00-30 Full-Implementation Production Roadmap')
@@ -143,6 +280,12 @@ $lines.Add('Tooling Research and Archived Validation remain governed but do not 
 $lines.Add('Catalogue presence, generated assets and narrow probe success are not gameplay')
 $lines.Add('completion evidence.')
 $lines.Add('')
+$lines.Add('Package status records implementation evidence for that named owner boundary.')
+$lines.Add('Phase status records ordered gate acceptance. Existing implementation may therefore')
+$lines.Add(('be verified in a later phase while `current_phase` remains {0}, but no later phase is' -f $roadmap.current_phase))
+$lines.Add('accepted until its earlier required gates close. This prevents vertical reconciliation')
+$lines.Add('work from being reported as out-of-order programme completion.')
+$lines.Add('')
 $lines.Add('## Current implementation baseline')
 $lines.Add('')
 $lines.Add(('- Coverage: {0} Implemented, {1} Partial, {2} Stub, {3} Missing.' -f
@@ -159,8 +302,16 @@ $lines.Add('')
 $lines.Add('| Phase | Status | Outcome | Gate |')
 $lines.Add('|---|---|---|---|')
 foreach ($phase in $phases) {
+    $displayStatus = [string]$phase.status
+    if ($phase.PSObject.Properties.Name -contains 'implementation_status' -and
+            $phase.PSObject.Properties.Name -contains 'gate_status' -and
+            [string]$phase.implementation_status -ne [string]$phase.status) {
+        $gateStatus = ([string]$phase.gate_status).Replace('_', ' ')
+        $displayStatus = '{0} (implementation {1}; gate {2})' -f
+            $phase.status, $phase.implementation_status, $gateStatus
+    }
     $lines.Add(('| {0} - {1} | {2} | {3} | {4} |' -f
-        $phase.id, $phase.name, $phase.status, $phase.outcome, $phase.gate))
+        $phase.id, $phase.name, $displayStatus, $phase.outcome, $phase.gate))
 }
 
 foreach ($phase in $phases) {
@@ -182,6 +333,14 @@ foreach ($phase in $phases) {
             (Join-MarkdownList @($package.documents)), $dependencies,
             (Join-MarkdownList @($package.deliverables)),
             (Join-MarkdownList @($package.acceptance))))
+    }
+    if ([string]$phase.id -eq 'P3') {
+        $lines.Add('')
+        $lines.Add('EVT-001 completion covers the runtime owner boundary: stable-definition Event and')
+        $lines.Add('Quest Instances, staged graphs and branches, authoritative evidence, contributions,')
+        $lines.Add('transactional reward-claim state, checked consequence links, bounded Chronicle state,')
+        $lines.Add('atomic commits, and v1-to-v2 migration. It does not claim the remaining authored')
+        $lines.Add('Document 15 breadth or the separate Document 24K Atlas scheduler and content registry.')
     }
     $lines.Add('')
     $lines.Add("**Exit gate ($($phase.gate)):** " +

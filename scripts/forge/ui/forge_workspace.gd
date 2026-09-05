@@ -114,7 +114,16 @@ func _ready() -> void:
 	asset_index.rebuild()
 	resized.connect(_apply_responsive_layout)
 	open_section(_active_section_id)
+	_apply_pending_route()
 	call_deferred("_offer_recovery")
+
+
+func _apply_pending_route() -> void:
+	var pending := ForgeNavigationCatalog.pending_route_id
+	ForgeNavigationCatalog.pending_route_id = ""
+	if pending.is_empty():
+		return
+	open_route(pending)
 
 
 func _build_shell() -> void:
@@ -151,7 +160,10 @@ func _build_shell() -> void:
 
 
 func _build_toolbar() -> Control:
-	var bar := HBoxContainer.new()
+	# Forge can be hosted in either the editor main screen or the runtime shell.
+	# Wrapping preserves every command without making their combined width enlarge
+	# the workspace past the host and misclassify a compact window as wide.
+	var bar := HFlowContainer.new()
 	bar.custom_minimum_size = Vector2(0, 58)
 	bar.add_theme_constant_override("separation", 8)
 	var brand := Label.new()
@@ -500,7 +512,10 @@ func _show_route_popup() -> void:
 func _apply_responsive_layout() -> void:
 	if not is_instance_valid(_navigation_host) or not is_instance_valid(_columns):
 		return
-	var show_secondary := size.x >= WIDE_LAYOUT_MINIMUM \
+	var available_width := size.x
+	if available_width <= 0.0:
+		available_width = get_viewport().get_visible_rect().size.x
+	var show_secondary := available_width >= WIDE_LAYOUT_MINIMUM \
 		and not _secondary_user_collapsed
 	_secondary_navigation.visible = show_secondary
 	_navigation_host.custom_minimum_size.x = 312.0 if show_secondary else 72.0
@@ -508,7 +523,7 @@ func _apply_responsive_layout() -> void:
 	if is_instance_valid(_navigation_toggle_button):
 		_navigation_toggle_button.visible = not show_secondary
 	if is_instance_valid(_status_label):
-		_status_label.visible = size.x >= 1400.0
+		_status_label.visible = available_width >= 1400.0
 	_update_workflow_card_columns()
 	_fit_shell_splits()
 
@@ -3423,6 +3438,53 @@ func _show_presentation_test_laboratory() -> void:
 	composer.status_changed.connect(_set_status)
 	composer.scenario_saved.connect(_on_visual_scenario_saved)
 	_page.add_child(composer)
+
+
+func _show_test_room_browser() -> void:
+	_clear_page("Test Room Browser")
+	_add_hub_banner("test_delivery", "Manual Test Room Browser",
+		"Launch isolated manual test rooms and mechanic labs directly. "
+		+ "Each entry changes the scene to its registered test room.")
+	_add_body(
+		"Manual test rooms are registered in ForgeNavigationCatalog.TEST_ROOMS "
+		+ "so new rooms can be added in one catalog location. Use the studio rail "
+		+ "to return to Forge Home or the back arrow to reach the main menu.")
+	var rooms := ForgeNavigationCatalog.test_rooms()
+	if rooms.is_empty():
+		_add_section("Manual test rooms")
+		_add_body("No manual test rooms are registered yet.")
+		return
+	var grouped := _group_test_rooms(rooms)
+	for category in grouped:
+		_add_section(category)
+		for room: Dictionary in grouped[category]:
+			var label := str(room.get("label", "Unnamed test room"))
+			var mechanic := str(room.get("mechanic", "Manual test room"))
+			var scene_path := str(room.get("scene", ""))
+			_add_body("%s  |  %s" % [label, mechanic])
+			_add_action("Open %s" % label, _open_test_room.bind(scene_path))
+	_add_section("Forge")
+	_add_action("Open full Leyforge Forge", open_route.bind("home_dashboard"))
+
+
+func _group_test_rooms(rooms: Array) -> Dictionary:
+	var grouped: Dictionary = {}
+	for room in rooms:
+		var category := str(room.get("category", "Manual test rooms"))
+		if not grouped.has(category):
+			grouped[category] = []
+		var list: Array = grouped[category]
+		list.append(room)
+	return grouped
+
+
+func _open_test_room(scene_path: String) -> void:
+	if scene_path.is_empty() or not ResourceLoader.exists(scene_path):
+		_set_status("Test room scene is unavailable: %s" % scene_path, true)
+		return
+	var error := get_tree().change_scene_to_file(scene_path)
+	if error != OK:
+		_set_status("Could not open test room: %s" % error_string(error), true)
 
 
 func _capture_test_slot(selector: OptionButton, slot: String) -> void:

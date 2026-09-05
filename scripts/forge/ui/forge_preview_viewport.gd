@@ -670,6 +670,25 @@ func _apply_orbit() -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
+	_dispatch_preview_input(event)
+
+
+func _input(event: InputEvent) -> void:
+	# SubViewportContainer owns a child Viewport which can consume input before
+	# the outer Control receives _gui_input in nested Forge layouts. Route pointer
+	# events from the root viewport when they are genuinely over the visible
+	# preview, then convert them back to local coordinates for drag tracking.
+	if event is InputEventMouse:
+		if not _contains_visible_viewport_point(event.position):
+			return
+		_dispatch_preview_input(make_input_local(event))
+		get_viewport().set_input_as_handled()
+	elif event is InputEventKey and has_focus():
+		_dispatch_preview_input(event)
+		get_viewport().set_input_as_handled()
+
+
+func _dispatch_preview_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			_panning = event.pressed and event.shift_pressed
@@ -724,3 +743,15 @@ func _gui_input(event: InputEvent) -> void:
 		elif event.keycode == KEY_DOWN:
 			pan_down()
 			accept_event()
+
+
+func _contains_visible_viewport_point(point: Vector2) -> bool:
+	if not is_visible_in_tree() or not get_global_rect().has_point(point):
+		return false
+	var ancestor := get_parent()
+	while ancestor is Control:
+		var control := ancestor as Control
+		if control.clip_contents and not control.get_global_rect().has_point(point):
+			return false
+		ancestor = ancestor.get_parent()
+	return true

@@ -1,0 +1,303 @@
+[
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-01_Project_Brain_Architecture_and_Governance_Specification_v0.1.md",
+    "expected": "5c695c4f1a84cf7d14265d7ce8fd3d8534b3071ce330714e336d824418e1538a",
+    "actual": "5c695c4f1a84cf7d14265d7ce8fd3d8534b3071ce330714e336d824418e1538a",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-02_Authority_and_Truth_Resolution_Model_v0.1.md",
+    "expected": "5378279fc372e6256a5fed6a16583f816b4c6a42a6ac00b91c6c0d3af594bde9",
+    "actual": "5378279fc372e6256a5fed6a16583f816b4c6a42a6ac00b91c6c0d3af594bde9",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-03_Note-Type_Taxonomy_and_Information_Model_v0.1.md",
+    "expected": "6885488f0bfbaed6febf60cfdd960303dac079d65758bfd9ee0eb665aa93e02c",
+    "actual": "6885488f0bfbaed6febf60cfdd960303dac079d65758bfd9ee0eb665aa93e02c",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-04_Brain_Schema_and_Metadata_Standard_v0.1.md",
+    "expected": "4f9fbb2dfe7dca4c653dfe18308fbda933353e6405f84a870bcda0c9ca9c0e14",
+    "actual": "4f9fbb2dfe7dca4c653dfe18308fbda933353e6405f84a870bcda0c9ca9c0e14",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-05_Vault_Architecture_and_Navigation_Standard_v0.1.md",
+    "expected": "b5116a1cdce4b99f352f82a04def6bb5d689347814eafe29c4100427a0c1a1f7",
+    "actual": "b5116a1cdce4b99f352f82a04def6bb5d689347814eafe29c4100427a0c1a1f7",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-06_Work_Records_and_Handoff_System_v0.1.md",
+    "expected": "350212e1494bdda700876282d966cd33ed0a6a6dc6061c3a1614df0389054ab8",
+    "actual": "350212e1494bdda700876282d966cd33ed0a6a6dc6061c3a1614df0389054ab8",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-07_Skills_Procedures_and_Project_Learning_System_v0.1.md",
+    "expected": "ac39308b08602df72938515473b0ce3ee73a4940457bb677210fddc961ccc56f",
+    "actual": "ac39308b08602df72938515473b0ce3ee73a4940457bb677210fddc961ccc56f",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-08_ADR_and_Decision_Management_Standard_v0.1.md",
+    "expected": "848fadb5e84861ef5edf9b3a4f15fdb72195523454a63ba06e3c9c00323e180a",
+    "actual": "848fadb5e84861ef5edf9b3a4f15fdb72195523454a63ba06e3c9c00323e180a",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-09_Agent_Operating_Contract_v0.1.md",
+    "expected": "0879cb61553a7de7dd4edf1523ad4cdc9eb8c560ff1a9e97324d37c7b64ba45d",
+    "actual": "0879cb61553a7de7dd4edf1523ad4cdc9eb8c560ff1a9e97324d37c7b64ba45d",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-10_Brain_Doctor_and_Validation_Standard_v0.1.md",
+    "expected": "def36be346c152f63918d7332d173084bbef36cb2ae45e6a28d5ee6e0e395c9e",
+    "actual": "def36be346c152f63918d7332d173084bbef36cb2ae45e6a28d5ee6e0e395c9e",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-11_Automation_CLI_and_Git_Integration_Standard_v0.1.md",
+    "expected": "162fe91639228c78dc6d53572c104ee1be17e641bd3c78f2bbb9f4afe193fce9",
+    "actual": "162fe91639228c78dc6d53572c104ee1be17e641bd3c78f2bbb9f4afe193fce9",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-12_Initial_Ingestion_and_Traceability_Plan_v0.1.md",
+    "expected": "025390560883348d84ffc6b113e58b64690f500aed723a5143528e1a27db5934",
+    "actual": "025390560883348d84ffc6b113e58b64690f500aed723a5143528e1a27db5934",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-13_Pilot_Certification_and_Codex_Implementation_Handoff_v0.1.md",
+    "expected": "d78ef7fa536d5dc2dd4af7519bd2827d31cff340a599eecc9515c29dcbf90ae7",
+    "actual": "d78ef7fa536d5dc2dd4af7519bd2827d31cff340a599eecc9515c29dcbf90ae7",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/LF-BRAIN-SET-A_Reconciliation_and_Lock_Register_v0.1.md",
+    "expected": "fbe6ad2f092f93c3b624e371f1b77cbb1f77f54ad3e467d5b3e4c9f564e5d279",
+    "actual": "fbe6ad2f092f93c3b624e371f1b77cbb1f77f54ad3e467d5b3e4c9f564e5d279",
+    "pass": true
+  },
+  {
+    "family": "A-BRAIN",
+    "path": ".summer/00_Docs/A-BRAIN/README.md",
+    "expected": "64af6ebf2335db5d027779596292eeeda352b822dafb5aae6a0ca24c6011e1b1",
+    "actual": "64af6ebf2335db5d027779596292eeeda352b822dafb5aae6a0ca24c6011e1b1",
+    "pass": true
+  },
+  {
+    "family": "PRD",
+    "path": ".summer/00_Docs/PRD/PRD-00_Leyforge_Source_Corpus_and_Authority_Register_v1_0_FINAL.md",
+    "expected": "e02c44620b6c09e7a7cec94bbbb55827bb515b8f3732272d4add0e7711bdfcac",
+    "actual": "e02c44620b6c09e7a7cec94bbbb55827bb515b8f3732272d4add0e7711bdfcac",
+    "pass": true
+  },
+  {
+    "family": "PRD",
+    "path": ".summer/00_Docs/PRD/PRD-01_Leyforge_Complete_Technical_Requirements_and_Unknowns_Inventory_WORKING_v0_15_CLOSURE_CANDIDATE.md",
+    "expected": "51e671f38a50ad070cd60dbbc29273fac79b17ed37eae009b0cd25e20094c534",
+    "actual": "51e671f38a50ad070cd60dbbc29273fac79b17ed37eae009b0cd25e20094c534",
+    "pass": true
+  },
+  {
+    "family": "PRD",
+    "path": ".summer/00_Docs/PRD/PRD-02_Zylann_Voxel_Tools_Deep_Capability_Audit_v0_8_CLOSURE_CANDIDATE.md",
+    "expected": "3545d9dd396c2fbccfed21c1dc877b7dbdd10e599200fd3708684d6a7e63d23a",
+    "actual": "3545d9dd396c2fbccfed21c1dc877b7dbdd10e599200fd3708684d6a7e63d23a",
+    "pass": true
+  },
+  {
+    "family": "PRD",
+    "path": ".summer/00_Docs/PRD/PRD-03_Godot_and_Supporting_Technology_Audit_v0_8_CLOSURE_CANDIDATE.md",
+    "expected": "430c2230cfc3cd44a550a003bcfccf63bf84d252949521ac65dac10f5e666f01",
+    "actual": "430c2230cfc3cd44a550a003bcfccf63bf84d252949521ac65dac10f5e666f01",
+    "pass": true
+  },
+  {
+    "family": "PRD",
+    "path": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+    "expected": "747c6681d521dc0483e9b8c1c622bb705aa3fbaff7f2a9b494965835f191e2b4",
+    "actual": "747c6681d521dc0483e9b8c1c622bb705aa3fbaff7f2a9b494965835f191e2b4",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-00_Leyforge_Engineering_Constitution_v0.1.md",
+    "expected": "ec22109e5482c30927da309211c04067a1350faadfca377add9caacc5184b02b",
+    "actual": "ec22109e5482c30927da309211c04067a1350faadfca377add9caacc5184b02b",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-01_Leyforge_Codebase_Engineering_Standard_v0.1.md",
+    "expected": "e879e4c3d85d77594951565c9281202917ec240e588e082383782e0b7eedda0a",
+    "actual": "e879e4c3d85d77594951565c9281202917ec240e588e082383782e0b7eedda0a",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-02_Leyforge_Repository_and_Module_Structure_Standard_v0.1.md",
+    "expected": "bfdedf5e65eff71218ddd2e1cd8eeca8955784d07a4a2a13380a107a61a19752",
+    "actual": "bfdedf5e65eff71218ddd2e1cd8eeca8955784d07a4a2a13380a107a61a19752",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-03_Leyforge_Source_Style_and_Naming_Standard_v0.1.md",
+    "expected": "395715051b80f52076484c25978e9f5939bc21ed29f4e71b26c2ce4117d2505f",
+    "actual": "395715051b80f52076484c25978e9f5939bc21ed29f4e71b26c2ce4117d2505f",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-04_Leyforge_Git_Branch_and_Change_Standard_v0.1.md",
+    "expected": "82a99da62174b347af20c17cee10697f8b8a65cfad1f504c4aa4c724e327e129",
+    "actual": "82a99da62174b347af20c17cee10697f8b8a65cfad1f504c4aa4c724e327e129",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-05_Leyforge_Testing_and_Verification_Standard_v0.1.md",
+    "expected": "fafb8d326415991fce05fcb1fd8d196f111122b2669bc4a443e4b3ed8ffa2459",
+    "actual": "fafb8d326415991fce05fcb1fd8d196f111122b2669bc4a443e4b3ed8ffa2459",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-06_Leyforge_CI_and_Quality_Gate_Standard_v0.1.md",
+    "expected": "ba409f3753bbab4a26c82e11cd80df49bf4fc7d832d744f7832af2c97f34ccb7",
+    "actual": "ba409f3753bbab4a26c82e11cd80df49bf4fc7d832d744f7832af2c97f34ccb7",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-07_Leyforge_Diagnostics_Logging_and_Observability_Standard_v0.1.md",
+    "expected": "cb8734a48b3a31dcd6fefac48a1579cedf33a1beb116550dba0ec6ad719e92be",
+    "actual": "cb8734a48b3a31dcd6fefac48a1579cedf33a1beb116550dba0ec6ad719e92be",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-08_Leyforge_Save_Schema_and_Migration_Standard_v0.1.md",
+    "expected": "972be3670d32580819ec31c525b31a1dad645931af4ad25185266cf09939dc78",
+    "actual": "972be3670d32580819ec31c525b31a1dad645931af4ad25185266cf09939dc78",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-09_Leyforge_Registry_and_Stable_Identity_Standard_v0.1.md",
+    "expected": "a84ceff175317bd84f6336f1ab957e62e1b31eec60a5aec1eaf19bd0aa14a7e9",
+    "actual": "a84ceff175317bd84f6336f1ab957e62e1b31eec60a5aec1eaf19bd0aa14a7e9",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-10_Leyforge_Performance_and_Benchmark_Standard_v0.1.md",
+    "expected": "98f32ca8a99e410f704193c6eb58a9924dd72bb18b80a6fa926feec5df8a8a23",
+    "actual": "98f32ca8a99e410f704193c6eb58a9924dd72bb18b80a6fa926feec5df8a8a23",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-11_Leyforge_Architecture_Decision_Record_Standard_v0.1.md",
+    "expected": "dde6c3743f74b2bd1ff01cc57c7d6d8adb9bfe6b38b8d8e90e81bd19d9f6a34b",
+    "actual": "dde6c3743f74b2bd1ff01cc57c7d6d8adb9bfe6b38b8d8e90e81bd19d9f6a34b",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-12_Leyforge_AI_and_Coding_Agent_Standard_v0.1.md",
+    "expected": "ddf61b425b68abfb4c516f624bb6aa79b5509e5cac2de357c3966e71791c6d39",
+    "actual": "ddf61b425b68abfb4c516f624bb6aa79b5509e5cac2de357c3966e71791c6d39",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-13_Leyforge_Security_and_Player_Content_Boundary_Standard_v0.1.md",
+    "expected": "c034059da26d5611774cee8191abd584a916f499ef47f721c9b7b3bfbebdfbc0",
+    "actual": "c034059da26d5611774cee8191abd584a916f499ef47f721c9b7b3bfbebdfbc0",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-14_Leyforge_Exceptions_Waivers_and_Deprecation_Standard_v0.1.md",
+    "expected": "f22dfbc79602724e2f3f97257ac80ae45b4425db24855c49593421c563337e23",
+    "actual": "f22dfbc79602724e2f3f97257ac80ae45b4425db24855c49593421c563337e23",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-15_Leyforge_Third-Party_and_Upstream_Integration_Standard_v0.1.md",
+    "expected": "3a3c6caba0b1e961dd3555532bce4768320312f536ff7238cd1bf53d2694e7cc",
+    "actual": "3a3c6caba0b1e961dd3555532bce4768320312f536ff7238cd1bf53d2694e7cc",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-00_Leyforge_Engineering_Governance_Index_and_Authority_Map_v0.1.md",
+    "expected": "e9d3f8efd9e61547693dc7fd83fcb5147440ced49c10d59f503b6b4d5de39cc3",
+    "actual": "e9d3f8efd9e61547693dc7fd83fcb5147440ced49c10d59f503b6b4d5de39cc3",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-01_Leyforge_Governance_Rule_Enforcement_Matrix_v0.1.md",
+    "expected": "e96028d42703ae0085e17ad755f3906c2cf2d9eba0aea724904f35ded75bc0d9",
+    "actual": "e96028d42703ae0085e17ad755f3906c2cf2d9eba0aea724904f35ded75bc0d9",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-02_Leyforge_Coding-Agent_Bootstrap_Contract_v0.1.md",
+    "expected": "1b601cc305e255bbc9191ec3356681d2878ea1e76ffe2786b7751b9cab6f1c93",
+    "actual": "1b601cc305e255bbc9191ec3356681d2878ea1e76ffe2786b7751b9cab6f1c93",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-03_Leyforge_Engineering_Governance_Templates_Pack_v0.1.md",
+    "expected": "e032faadc76c36fd6f926af364522273a48865b1525b47e0f0e1d9cf00292bb9",
+    "actual": "e032faadc76c36fd6f926af364522273a48865b1525b47e0f0e1d9cf00292bb9",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-04_Leyforge_Project_Brain_and_Engineering_Governance_Interface_v0.1.md",
+    "expected": "7d194c1714ac4aef260febc9d63b2a21b511f04834bcebdd061ade59245c673e",
+    "actual": "7d194c1714ac4aef260febc9d63b2a21b511f04834bcebdd061ade59245c673e",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-05_Leyforge_Governance_Debt_and_Validator_Backlog_v0.1.md",
+    "expected": "bcfd38404a37643454c822132d4e6c309a4da4d2ecfa95699e94899892a23e3b",
+    "actual": "bcfd38404a37643454c822132d4e6c309a4da4d2ecfa95699e94899892a23e3b",
+    "pass": true
+  },
+  {
+    "family": "B-ENG-GOV+B-OPS",
+    "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-06_Leyforge_Engineering_Governance_Reconciliation_and_Certification_Report_v0.1.md",
+    "expected": "62548f8caa91900ae36993ba3f03f8e03e8610f6f07f8b802b4f9976f48ac03f",
+    "actual": "62548f8caa91900ae36993ba3f03f8e03e8610f6f07f8b802b4f9976f48ac03f",
+    "pass": true
+  }
+]

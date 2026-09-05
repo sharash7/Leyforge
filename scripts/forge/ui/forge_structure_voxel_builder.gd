@@ -65,7 +65,9 @@ func _build_ui() -> void:
 	banner.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	banner.add_theme_color_override("font_color", Color("#9DD6D1"))
 	add_child(banner)
-	var toolbar := HBoxContainer.new()
+	# Keep every structure command, but let the command strip reflow instead of
+	# making the whole Forge page wider than a compact host viewport.
+	var toolbar := HFlowContainer.new()
 	toolbar.add_theme_constant_override("separation", 6)
 	_tool_selector = OptionButton.new()
 	_tool_selector.name = "StructureVisualTool"
@@ -114,7 +116,13 @@ func _build_ui() -> void:
 	split.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	add_child(split)
-	_build_palette(split)
+	var tool_tabs := TabContainer.new()
+	tool_tabs.name = "StructureToolTabs"
+	tool_tabs.custom_minimum_size.x = 290
+	tool_tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	split.add_child(tool_tabs)
+	_build_palette(tool_tabs)
+	_build_stage_and_selection_panel(tool_tabs)
 	_canvas = ForgeVoxel3DCanvas.new()
 	_canvas.name = "StructureVoxel3DCanvas"
 	_canvas.cell_pressed.connect(_on_canvas_cell)
@@ -123,11 +131,11 @@ func _build_ui() -> void:
 		_selection_status.text = "Cursor %s  |  Selection %d" % [
 			str(position), selection.size()])
 	split.add_child(_canvas)
-	_build_stage_and_selection_panel(split)
 
 
 func _build_palette(parent: Container) -> void:
 	var panel := VBoxContainer.new()
+	panel.name = "Blocks"
 	panel.custom_minimum_size.x = 270
 	panel.add_theme_constant_override("separation", 6)
 	var title := Label.new()
@@ -162,6 +170,7 @@ func _build_palette(parent: Container) -> void:
 
 func _build_stage_and_selection_panel(parent: Container) -> void:
 	var panel := VBoxContainer.new()
+	panel.name = "StagesAndSelection"
 	panel.custom_minimum_size.x = 290
 	panel.add_theme_constant_override("separation", 6)
 	var stage_title := Label.new()
@@ -215,8 +224,11 @@ func _build_stage_and_selection_panel(parent: Container) -> void:
 	panel.add_child(_source_summary)
 	var help := Label.new()
 	help.text = (
-		"Left-click places or selects. Right-click erases. Drag to paint. "
-		+ "Line, rectangle and box use two clicks. Middle-drag pans; wheel zooms. "
+		"The cyan target is the exact active-layer cell the next click will edit; "
+		+ "selected cells stay amber. Left-click places or selects. Right-click erases. "
+		+ "Drag to paint. "
+		+ "Line, rectangle and box use two clicks. Right-drag orbits, "
+		+ "Shift-right-drag or middle-drag pans, and the wheel zooms. "
 		+ "Page Up/Down changes the active layer.")
 	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	panel.add_child(help)
@@ -360,6 +372,10 @@ func _refresh_canvas() -> void:
 			record["alpha"] = 0.46
 		canvas_records.append(record)
 	_canvas.set_records(canvas_records)
+	var selected_positions: Array[Vector3i] = []
+	for value in selection.values():
+		selected_positions.append(value)
+	_canvas.set_selected_cells(selected_positions)
 	_canvas.set_active_layer(int(_layer_spin.value))
 	_source_summary.text = (
 		"%d authored cell(s)  |  %d visible at %s  |  %d semantic overlay(s)\nBounds %s from %s%s" % [

@@ -549,6 +549,21 @@ func _update_highlight() -> void:
 		var normal := ray.get_collision_normal()
 		var gp := Vector3i((point - normal * 0.5).floor())
 		var block_id := world.get_block_global(gp)
+		var placement_gp := Vector3i((point + normal * 0.5).floor())
+		var selected_stack := Inventory.get_selected_stack()
+		var selected_place_id := (
+			int(selected_stack.get("id", BlockRegistry.AIR))
+			if Inventory.stack_kind(selected_stack) == "block"
+			else ItemRegistry.get_place_block_id(
+				int(selected_stack.get("id", -1))))
+		if selected_place_id > BlockRegistry.AIR \
+				and BlockRegistry.is_water(world.get_block_global(placement_gp)):
+			# Water has no collision surface of its own. Show the replaceable water
+			# voxel in front of the solid ray hit so underwater placement is clear.
+			highlight.global_position = Vector3(placement_gp) \
+				+ Vector3(0.5, 0.5, 0.5)
+			highlight.visible = true
+			return
 		var touches_water := _ray_passes_through_water(point)
 		for offset in [
 			Vector3i.LEFT, Vector3i.RIGHT, Vector3i.UP, Vector3i.DOWN,
@@ -641,6 +656,7 @@ func _break_block_at(gp: Vector3i) -> bool:
 		Inventory.damage_selected_tool()
 	ProgressionState.record_harvest(Inventory.stack_stable_id(drop), int(drop["count"]))
 	_last_mined_drop = drop.duplicate(true)
+	_record_site_preparation_edit(gp)
 	_play_hand_action("mine")
 	return true
 
@@ -721,7 +737,8 @@ func _try_place() -> void:
 		return
 		return
 	var gp := Vector3i((point + normal * 0.5).floor())
-	if not BlockRegistry.is_air(world.get_block_global(gp)):
+	var replaced_block_id := world.get_block_global(gp)
+	if not is_replaceable_placement_block(replaced_block_id):
 		return
 	var facing := _placement_facing()
 	if _overlaps_player(gp):
@@ -750,10 +767,25 @@ func _try_place() -> void:
 		world.set_block_orientation(gp, facing)
 	var taken := Inventory.take_selected_stack(1)
 	if taken.is_empty():
-		world.set_block_global(gp, BlockRegistry.AIR)
+		world.set_block_global(gp, replaced_block_id)
 		push_error("Player: placement transaction rolled back")
 		return
+	_record_site_preparation_edit(gp)
 	_play_hand_action("use")
+
+
+static func is_replaceable_placement_block(block_id: int) -> bool:
+	## Water is a replaceable voxel, just like air, for ordinary block
+	## placement. It remains collision-free and cannot be mined for a drop.
+	return BlockRegistry.is_air(block_id) or BlockRegistry.is_water(block_id)
+
+
+func _record_site_preparation_edit(cell: Vector3i) -> void:
+	if not SettlementManager.initialized \
+			or SettlementManager.focused_settlement_id.is_empty():
+		return
+	SettlementManager.record_player_project_edit(
+		SettlementManager.focused_settlement_id, cell)
 
 
 func _placement_facing() -> int:

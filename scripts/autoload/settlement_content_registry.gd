@@ -51,6 +51,19 @@ const VALID_PLANNER_CLASSES := [
 	"district",
 	"megaproject",
 ]
+const VALID_RESOURCE_SOURCE_CLASSES := [
+	"cultivated",
+	"renewable_wild",
+	"finite_geological",
+	"large_deposit",
+	"realm_or_leyline",
+]
+const VALID_RESOURCE_DEPLETION_POLICIES := ["finite", "renewable"]
+const REQUIRED_RESOURCE_PROVENANCE_FIELDS := [
+	"origin_id",
+	"owner_id",
+	"evidence_id",
+]
 
 var loaded := false
 var catalogue_definitions: Dictionary = {}
@@ -683,6 +696,7 @@ func _validate_cross_references() -> void:
 				validation_errors.append(
 					"pack_missing_runtime_requirement:%s:%s" % [
 						id, str(requirement)])
+	var source_contract_ids := {}
 	for id in behaviors:
 		var behavior: Dictionary = behaviors[id].to_dictionary()
 		var definition_id := canonical_id(str(
@@ -693,11 +707,94 @@ func _validate_cross_references() -> void:
 		if str(behavior.get("near_far_kernel", "")) \
 				!= "settlement.fixed_step.v1":
 			validation_errors.append("behavior_invalid_kernel:%s" % id)
+		var staffing_contract: Dictionary = behavior.get(
+			"staffing_contract", {})
+		if not staffing_contract.is_empty():
+			var minimum_ratio := float(staffing_contract.get(
+				"minimum_ratio", 0.0))
+			var target_slots := int(staffing_contract.get("target_slots", 0))
+			if str(staffing_contract.get("owner_document", "")) \
+					!= "Document 20" \
+					or str(staffing_contract.get("assignment_owner", "")) \
+					!= "Document 07" \
+					or minimum_ratio <= 0.0 or minimum_ratio > 1.0 \
+					or target_slots <= 0 \
+					or target_slots != int(behavior.get("job_slots", 0)) \
+					or (staffing_contract.get(
+						"accepted_job_ids", []) as Array).is_empty() \
+					or (staffing_contract.get(
+						"staffing_marker_types", []) as Array).is_empty():
+				validation_errors.append(
+					"behavior_invalid_staffing_contract:%s" % id)
+			else:
+				for job_id in staffing_contract.get("accepted_job_ids", []):
+					if not str(job_id).begins_with("job."):
+						validation_errors.append(
+							"behavior_invalid_staffing_job:%s:%s" % [
+								id, str(job_id)])
+				var project := get_construction_project_for_definition(
+					definition_id)
+				var blueprint := get_blueprint(str(project.get(
+					"blueprint_id", "")))
+				var marker_types := {}
+				for marker_value in blueprint.get("markers", []):
+					if marker_value is Dictionary:
+						marker_types[str(marker_value.get(
+							"type", "")).to_lower()] = true
+				var matching_marker := false
+				for marker_type in staffing_contract.get(
+						"staffing_marker_types", []):
+					if marker_types.has(str(marker_type).to_lower()):
+						matching_marker = true
+						break
+				if project.is_empty() or blueprint.is_empty() \
+						or not matching_marker:
+					validation_errors.append(
+						"behavior_staffing_marker_missing:%s" % id)
 		for recipe in behavior.get("recipes", []):
-			if int((recipe as Dictionary).get("cycle_minutes", 0)) <= 0:
+			var recipe_record: Dictionary = recipe
+			if int(recipe_record.get("cycle_minutes", 0)) <= 0:
 				validation_errors.append("behavior_invalid_recipe_cycle:%s" % id)
+			var inputs: Array = recipe_record.get("inputs", [])
+			var outputs: Array = recipe_record.get("outputs", [])
+			var source_contract: Dictionary = recipe_record.get(
+				"source_contract", {})
+			if inputs.is_empty() and not outputs.is_empty() \
+					and source_contract.is_empty():
+				validation_errors.append(
+					"behavior_unbound_source_recipe:%s:%s" % [
+						id, str(recipe_record.get("id", ""))])
+			if not source_contract.is_empty():
+				var contract_id := str(source_contract.get("id", ""))
+				if contract_id.is_empty() or source_contract_ids.has(contract_id):
+					validation_errors.append(
+						"behavior_invalid_source_contract_id:%s:%s" % [
+							id, contract_id])
+				source_contract_ids[contract_id] = true
+				if str(source_contract.get("source_class", "")) \
+							not in VALID_RESOURCE_SOURCE_CLASSES:
+					validation_errors.append(
+						"behavior_invalid_source_class:%s:%s" % [
+							id, contract_id])
+				if str(source_contract.get("depletion_policy", "")) \
+							not in VALID_RESOURCE_DEPLETION_POLICIES:
+					validation_errors.append(
+						"behavior_invalid_depletion_policy:%s:%s" % [
+							id, contract_id])
+				if int(source_contract.get("units_per_cycle", 0)) <= 0 \
+						or (source_contract.get("chain_ids", []) as Array).is_empty():
+					validation_errors.append(
+						"behavior_incomplete_source_contract:%s:%s" % [
+							id, contract_id])
+				var provenance_fields: Array = source_contract.get(
+					"required_provenance_fields", [])
+				for field_name in REQUIRED_RESOURCE_PROVENANCE_FIELDS:
+					if field_name not in provenance_fields:
+						validation_errors.append(
+							"behavior_missing_source_provenance:%s:%s:%s" % [
+								id, contract_id, field_name])
 			for direction in ["inputs", "outputs"]:
-				for amount in (recipe as Dictionary).get(direction, []):
+				for amount in recipe_record.get(direction, []):
 					var stable_id := str(
 						(amount as Dictionary).get("stable_id", ""))
 					var kind := str((amount as Dictionary).get("kind", "item"))

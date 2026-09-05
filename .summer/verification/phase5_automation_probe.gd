@@ -288,6 +288,19 @@ func _run() -> void:
 			"project hatch rejected required %s" % content_ref["stable_id"])
 	_check(HamletState.project_is_building(),
 		"completed automated stage delivery did not enter builder labour")
+	var request_event_linked := false
+	for ledger_value in HamletState.delivery_ledger:
+		var ledger_entry: Dictionary = ledger_value
+		if str(ledger_entry.get("request_id", "")) != str(
+				foundation.get("request_id", "")):
+			continue
+		var event_ref := str(ledger_entry.get("event_ref", ""))
+		if not event_ref.is_empty() and EventManager.has_event(event_ref) \
+				and not str(ledger_entry.get("history_ref", "")).is_empty():
+			request_event_linked = true
+			break
+	_check(request_event_linked,
+		"automated request completion omitted its canonical event/history refs")
 	for content_ref in foundation["requirements"]:
 		_check(int(HamletState.project.get("reserved", {}).get(
 			str(content_ref["stable_id"]), 0)) == int(content_ref["count"]),

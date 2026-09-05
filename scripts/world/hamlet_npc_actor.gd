@@ -8,6 +8,7 @@ const GRAVITY := 22.0
 const JUMP_VELOCITY := 7.1
 const REPLAN_SECONDS := 0.8
 const RECOVERY_SECONDS := 3.2
+const MAX_SAFE_DROP := 2
 const GUARD_ATTACK_RANGE := 1.65
 const GUARD_ATTACK_DAMAGE := 5.0
 
@@ -33,6 +34,7 @@ var _last_route_failure := ""
 var _opened_door_base := Vector3i.ZERO
 var _has_opened_door := false
 var _movement_intent_id := ""
+var _path_publication_index := 0
 
 
 func setup(p_world: VoxelWorld, p_npc_id: String) -> void:
@@ -52,9 +54,13 @@ func _ready() -> void:
 	var saved: Array = record.get("position", [])
 	if saved.size() == 3:
 		global_position = Vector3(float(saved[0]), float(saved[1]), float(saved[2]))
-	if global_position.y <= 0.0:
-		global_position.y = float(world.surface_height_at(
-			floori(global_position.x), floori(global_position.z))) + 1.05
+	var spawn_feet_y := _walkable_surface_y(Vector2i(
+		floori(global_position.x), floori(global_position.z)))
+	if spawn_feet_y > -100000:
+		# Persistent records store an approximate presentation position. Reconcile
+		# it to the current voxel support when promoting the physical actor so pads,
+		# roads and construction edits cannot spawn the capsule inside a block.
+		global_position.y = float(spawn_feet_y) + 0.05
 	_last_safe_route_node = global_position
 	_choose_waypoint()
 
@@ -76,9 +82,9 @@ func _build_visual() -> void:
 	humanoid.name = "HumanoidVisual"
 	add_child(humanoid)
 	humanoid.configure(color)
-	_held_stack = record.get("carried_stack", {}).duplicate(true)
+	_held_stack = _stack_from_resident_record(record.get("carried_stack", {}))
 	if _held_stack.is_empty():
-		_held_stack = record.get("equipment", {}).duplicate(true)
+		_held_stack = _stack_from_resident_record(record.get("equipment", {}))
 	if _held_stack.is_empty():
 		_held_stack = _job_held_stack(str(record.get("job_id", "")))
 	humanoid.set_held_stack(_held_stack)
@@ -92,6 +98,23 @@ func _build_visual() -> void:
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	label.no_depth_test = true
 	add_child(label)
+
+
+func _stack_from_resident_record(value: Variant) -> Dictionary:
+	if not (value is Dictionary) or value.is_empty():
+		return {}
+	var record: Dictionary = value
+	# Resident equipment is a slot map whose values use the canonical serialized
+	# inventory envelope. A carried stack may instead already be a runtime stack.
+	# Treating the outer {primary: ...} map as a stack silently produced block -1,
+	# so all job tools disappeared even though the persistent record was correct.
+	if record.has("primary"):
+		return _stack_from_resident_record(record.get("primary", {}))
+	if record.has("item_id") or record.has("block_id"):
+		return Inventory.deserialize_stack(record)
+	if record.has("id") and record.has("count"):
+		return Inventory.deserialize_stack(Inventory.serialize_stack(record))
+	return {}
 
 
 func _job_held_stack(job_id: String) -> Dictionary:
@@ -122,41 +145,82 @@ func _choose_waypoint() -> void:
 	var is_builder := str(record.get("job_id", "")) == "job.builder.basic"
 	var schedule := str(record.get("schedule_state", "work"))
 	var radius := 1.4 if is_builder and schedule == "work" else 3.2
-	var hash_value := absi(
-		npc_id.hash() + _waypoint_index * 1103515245
-		+ int(HamletState.clock_minutes / 30.0) * 265443576)
-	var angle := float(hash_value % 6283) / 1000.0
-	var distance_roll := int(hash_value / 17) % 1000
-	var seconds_roll := int(hash_value / 31) % 500
-	var distance := 0.7 + float(distance_roll) / 1000.0 * radius
-	_waypoint = _waypoint_base + Vector2(cos(angle), sin(angle)) * distance
-	_waypoint_seconds = 6.0 + float(seconds_roll) / 100.0
 	_waypoint_index += 1
-	_avoid_sign = -1.0 if hash_value % 2 == 0 else 1.0
-	_rebuild_navigation()
+	# Authored work areas can border water, cliffs, crops or structure pads. Try
+	# deterministic alternatives instead of committing the actor to an unsafe
+	# random point for the whole waypoint interval.
+	for attempt in 12:
+		var hash_value := absi(
+			npc_id.hash() + _waypoint_index * 1103515245
+			+ int(HamletState.clock_minutes / 30.0) * 265443576
+			+ attempt * 1013904223)
+		var angle := float(hash_value % 6283) / 1000.0
+		var distance_roll := int(hash_value / 17) % 1000
+		var seconds_roll := int(hash_value / 31) % 500
+		var distance := 0.7 + float(distance_roll) / 1000.0 * radius
+		_waypoint = _waypoint_base + Vector2(cos(angle), sin(angle)) * distance
+		_waypoint_seconds = 6.0 + float(seconds_roll) / 100.0
+		_avoid_sign = -1.0 if hash_value % 2 == 0 else 1.0
+		if _rebuild_navigation(false):
+			return
+	_waypoint = _waypoint_base
+	_waypoint_seconds = 2.0
+	_rebuild_navigation(true)
 
 
-func _rebuild_navigation() -> void:
+func _rebuild_navigation(report_failure: bool = true) -> bool:
 	_navigation_path.clear()
 	_navigation_index = 0
 	_last_route_failure = ""
 	var destination := Vector3(
 		_waypoint.x,
 		float(world.surface_height_at(
-			floori(_waypoint.x), floori(_waypoint.y))) + 1.05,
+			floori(_waypoint.x), floori(_waypoint.y))) + 0.05,
 		_waypoint.y)
 	if SettlementManager != null:
 		_navigation_path = SettlementManager.navigation_waypoints(
 			HamletState.active_village_id, global_position, destination)
 	if _navigation_path.is_empty():
 		_last_route_failure = "no_safe_route"
-		_report_movement_waiting("navigation.no_path")
-		return
+		if report_failure:
+			_report_movement_waiting("navigation.no_path")
+		return false
+	for path_index in _navigation_path.size():
+		var point := _navigation_path[path_index]
+		var feet_y := _walkable_surface_y(Vector2i(
+			floori(point.x), floori(point.z)))
+		if feet_y > -100000:
+			point.y = float(feet_y) + 0.05
+			_navigation_path[path_index] = point
+	if not _navigation_path_is_traversable():
+		_navigation_path.clear()
+		_last_route_failure = "unsafe_route"
+		if report_failure:
+			_report_movement_waiting("navigation.unsafe_route")
+		return false
 	while _navigation_index < _navigation_path.size() \
 			and global_position.distance_to(
 				_navigation_path[_navigation_index]) < 0.45:
 		_navigation_index += 1
 	_publish_movement_path(destination)
+	return true
+
+
+func _navigation_path_is_traversable() -> bool:
+	var previous_feet_y := _walkable_surface_y(Vector2i(
+		floori(global_position.x), floori(global_position.z)))
+	if previous_feet_y <= -100000:
+		return false
+	for point in _navigation_path:
+		var feet_y := _walkable_surface_y(Vector2i(
+			floori(point.x), floori(point.z)))
+		if feet_y <= -100000:
+			return false
+		var step_delta := feet_y - previous_feet_y
+		if step_delta > 1 or step_delta < -MAX_SAFE_DROP:
+			return false
+		previous_feet_y = feet_y
+	return true
 
 
 func _publish_movement_path(destination: Vector3) -> void:
@@ -169,7 +233,7 @@ func _publish_movement_path(destination: Vector3) -> void:
 	var goal_position := [
 		schedule_target.x,
 		float(world.surface_height_at(
-			floori(schedule_target.x), floori(schedule_target.y))) + 1.05,
+			floori(schedule_target.x), floori(schedule_target.y))) + 0.05,
 		schedule_target.y,
 	]
 	intent["goal_position"] = goal_position
@@ -200,15 +264,21 @@ func _publish_movement_path(destination: Vector3) -> void:
 	if str(status.get("movement_status", "")) in [
 		"Arrived", "Failed", "Cancelled"]:
 		return
-	var path_transaction := "movement.hamlet.path.%s.%d" % [
-		_movement_intent_id, _waypoint_index]
+	# A replan can retain both the schedule intent and waypoint sequence while
+	# its remaining distance and timing change. Give each publication a stable
+	# monotonic revision so the canonical transaction ledger never treats a
+	# legitimate replan as a conflicting replay.
+	_path_publication_index += 1
+	var path_transaction := "movement.hamlet.path.%s.%d.%d.%s" % [
+		_movement_intent_id, _waypoint_index, _path_publication_index,
+		_movement_path_token(_navigation_path)]
 	var published := MovementManager.publish_local_path(_movement_intent_id, {
 		"request_id": path_transaction,
 		"transaction_id": path_transaction,
 		"ordered_path_points_or_cells": _navigation_path,
 		"estimated_local_time": maxf(0.1,
 			global_position.distance_to(destination) / WALK_SPEED),
-		"navigation_revision": _waypoint_index,
+		"navigation_revision": _path_publication_index,
 		"profile_revision": 1,
 		"confidence": 900,
 	})
@@ -229,6 +299,15 @@ func _movement_goal_token(goal_ref: String, goal_position: Array) -> String:
 		float(goal_position[1]),
 		float(goal_position[2]),
 	]).to_utf8_buffer())
+	return context.finish().hex_encode().substr(0, 12)
+
+
+func _movement_path_token(path: Array[Vector3]) -> String:
+	var context := HashingContext.new()
+	context.start(HashingContext.HASH_SHA256)
+	for point in path:
+		context.update(("%.3f|%.3f|%.3f;" % [
+			point.x, point.y, point.z]).to_utf8_buffer())
 	return context.finish().hex_encode().substr(0, 12)
 
 
@@ -254,9 +333,10 @@ func _report_movement_arrival() -> void:
 
 
 func _navigation_target() -> Vector3:
+	if _navigation_path.is_empty():
+		return global_position
 	if _navigation_index >= _navigation_path.size():
-		return Vector3(
-			_waypoint.x, global_position.y, _waypoint.y)
+		return _navigation_path.back()
 	return _navigation_path[_navigation_index]
 
 
@@ -275,23 +355,53 @@ func _advance_navigation_if_reached() -> void:
 
 func _next_cell_is_safe(target: Vector3) -> bool:
 	var cell := Vector2i(floori(target.x), floori(target.z))
-	var ground_y := world.surface_height_at(cell.x, cell.y)
-	var ground := Vector3i(cell.x, ground_y, cell.y)
-	if not world.is_voxel_loaded_at(ground) \
-			or not world.is_voxel_loaded_at(ground + Vector3i.UP) \
-			or not world.is_voxel_loaded_at(ground + Vector3i.UP * 2):
-		_last_route_failure = "terrain_unloaded"
-		return false
-	var ground_id := world.get_persisted_block_id(ground)
-	if BlockRegistry.is_air(ground_id) or BlockRegistry.is_water(ground_id):
+	var feet_y := _walkable_surface_y(cell)
+	if feet_y <= -100000:
 		_last_route_failure = "unsafe_ground"
 		return false
-	var current_ground := world.surface_height_at(
-		floori(global_position.x), floori(global_position.z))
-	if absi(ground_y - current_ground) > 1:
+	var support := Vector3i(cell.x, feet_y - 1, cell.y)
+	var feet := Vector3i(cell.x, feet_y, cell.y)
+	if not world.is_voxel_loaded_at(support) \
+			or not world.is_voxel_loaded_at(feet) \
+			or not world.is_voxel_loaded_at(feet + Vector3i.UP):
+		_last_route_failure = "terrain_unloaded"
+		return false
+	var support_id := world.get_persisted_block_id(support)
+	if BlockRegistry.is_air(support_id) or BlockRegistry.is_water(support_id):
+		_last_route_failure = "unsafe_ground"
+		return false
+	var current_feet_y := _walkable_surface_y(Vector2i(
+		floori(global_position.x), floori(global_position.z)))
+	var step_delta := feet_y - current_feet_y
+	if current_feet_y <= -100000 \
+			or step_delta > 1 or step_delta < -MAX_SAFE_DROP:
 		_last_route_failure = "unsafe_step"
 		return false
 	return true
+
+
+func _walkable_surface_y(cell: Vector2i) -> int:
+	# VoxelWorld.surface_height_at returns the first terrain air cell, not the
+	# supporting block. Authored pads may add a solid block just above that
+	# terrain surface, so scan a small vertical window for the highest support
+	# with two body-clear cells. Closed doors count as temporarily clear because
+	# _try_open_door_ahead owns their interaction.
+	var terrain_surface := world.surface_height_at(cell.x, cell.y)
+	for support_y in range(terrain_surface + 3, terrain_surface - 2, -1):
+		var support := Vector3i(cell.x, support_y, cell.y)
+		var support_id := world.get_persisted_block_id(support)
+		if BlockRegistry.is_air(support_id) or BlockRegistry.is_water(support_id):
+			continue
+		var feet := support + Vector3i.UP
+		var head := feet + Vector3i.UP
+		if _body_cell_clear(feet) and _body_cell_clear(head):
+			return feet.y
+	return -100000
+
+
+func _body_cell_clear(cell: Vector3i) -> bool:
+	return BlockRegistry.is_air(world.get_persisted_block_id(cell)) \
+		or world.is_door_at(cell)
 
 
 func _try_open_door_ahead(direction: Vector3) -> bool:
@@ -413,11 +523,11 @@ func _physics_process(delta: float) -> void:
 			direction = Vector3.ZERO
 			_blocked_seconds += delta
 		else:
-			var target_ground := world.surface_height_at(
-				floori(navigation_target.x), floori(navigation_target.z))
-			var current_ground := world.surface_height_at(
-				floori(global_position.x), floori(global_position.z))
-			if target_ground == current_ground + 1 and is_on_floor():
+			var target_feet_y := _walkable_surface_y(Vector2i(
+				floori(navigation_target.x), floori(navigation_target.z)))
+			var current_feet_y := _walkable_surface_y(Vector2i(
+				floori(global_position.x), floori(global_position.z)))
+			if target_feet_y == current_feet_y + 1 and is_on_floor():
 				velocity.y = JUMP_VELOCITY
 	var achievable_speed := WALK_SPEED
 	if MovementManager.initialized and MovementManager.has_mover(npc_id):
@@ -444,7 +554,11 @@ func _physics_process(delta: float) -> void:
 			break
 	if hit_wall and distance_to_target > 0.8 and _avoid_seconds <= 0.0:
 		_avoid_seconds = 0.75
-		if is_on_floor():
+		var target_feet_y := _walkable_surface_y(Vector2i(
+			floori(navigation_target.x), floori(navigation_target.z)))
+		var current_feet_y := _walkable_surface_y(Vector2i(
+			floori(global_position.x), floori(global_position.z)))
+		if is_on_floor() and target_feet_y == current_feet_y + 1:
 			velocity.y = JUMP_VELOCITY
 	if is_on_floor():
 		apply_floor_snap()
@@ -465,8 +579,8 @@ func _physics_process(delta: float) -> void:
 		_recover_to_last_safe_node()
 
 	# Recover actors whose direct local waypoint movement met an unloaded seam.
-	var expected_ground := float(world.surface_height_at(
-		floori(global_position.x), floori(global_position.z))) + 1.0
+	var expected_ground := float(_walkable_surface_y(Vector2i(
+		floori(global_position.x), floori(global_position.z))))
 	if global_position.y < expected_ground - 3.0:
 		_last_route_failure = "unsafe_fall"
 		_recover_to_last_safe_node()

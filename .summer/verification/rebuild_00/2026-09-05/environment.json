@@ -1,0 +1,38 @@
+{
+  "recorded_at": "2026-09-05T16:08:29.8933175+08:00",
+  "engine_version": "4.8.dev.custom_build.a9c94cd21",
+  "engine_source_commit": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+  "console_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+  "editor_sha256": "87d0a6077abe38b905f973b23d9f27fd4f3b7a8db2309dfd6807fad7dff582c8",
+  "git_version": "2.54.0.windows.1",
+  "lfs_version": "3.7.1",
+  "lfs_in_use": false,
+  "submodules_in_use": false,
+  "powershell_gate_version": "5.1.19041.6456",
+  "powershell_host_version": "7.6.5",
+  "python_version": "3.9.5",
+  "save_envelope_version": 18,
+  "current_worldgen_version": 5,
+  "current_regional_plan_version": 3,
+  "regional_worldgen_compatibility_version": 4,
+  "legacy_worldgen_version": 2,
+  "forge_presentation_save_version": 17,
+  "enabled_editor_plugins": [
+    {
+      "version": "0.1.0",
+      "path": "addons/leyforge_forge/plugin.cfg",
+      "ownership": "project-owned",
+      "name": "Leyforge Forge"
+    }
+  ],
+  "native_voxel_extension_in_index": false,
+  "main_scene": "main_menu.tscn",
+  "registry": {
+    "active_blocks": 143,
+    "active_items": 162,
+    "retired_aliases": 7,
+    "serialized_records": 312,
+    "evidence": "canonical-block-projection.log and runtime logs"
+  },
+  "production_architecture_selection": "none"
+}

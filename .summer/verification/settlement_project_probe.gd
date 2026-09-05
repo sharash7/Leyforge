@@ -31,13 +31,13 @@ func _supply_stage(stage_index: int) -> void:
 		var leftover := Inventory.add_stack(
 			Inventory.make_stack_from_ref(content_ref))
 		_check(leftover.is_empty(),
-			"inventory could not hold cottage stage resources")
+			"inventory could not hold project stage resources")
 	var transaction := HamletState.deliver_request(str(
 		definition.get("request_id", "")))
 	_check(bool(transaction.get("complete", false)),
-		"cottage stage request did not complete")
+		"project stage request did not complete")
 	_check(HamletState.project_is_building(),
-		"cottage stage did not reserve into builder labour")
+		"project stage did not reserve into builder labour")
 
 
 func _build_stage(
@@ -49,13 +49,13 @@ func _build_stage(
 	var placements := world.get_project_stage_placements(
 		project_id, stage_index, anchor)
 	_check(not placements.is_empty(),
-		"cottage stage did not compile visible blueprint cells")
+		"project stage did not compile visible blueprint cells")
 	var builder: HamletNpcActor = runtime._actors[BUILDER_ID]
 	var work_target := HamletState.get_npc_target(BUILDER_ID)
 	builder.global_position = Vector3(
 		work_target.x,
 		float(world.surface_height_at(
-			floori(work_target.x), floori(work_target.y))) + 1.05,
+			floori(work_target.x), floori(work_target.y))) + 0.05,
 		work_target.y)
 	var safety := placements.size() + 2
 	while HamletState.project_is_building() \
@@ -64,10 +64,46 @@ func _build_stage(
 		runtime._advance_builder_construction(
 			HamletRuntime.BUILD_INTERVAL + 0.01)
 		safety -= 1
-	_check(safety > 0, "cottage builder did not finish its compiled stage")
+	_check(safety > 0, "project builder did not finish its compiled stage")
 	var first: Dictionary = placements[0]
 	_check(world.get_block_global(first["position"]) == int(first["block_id"]),
-		"cottage progress advanced without a visible voxel")
+		"project progress advanced without a visible voxel")
+
+
+func _verify_primitive_hut_shell(
+		runtime: HamletRuntime,
+		world: VoxelWorld,
+		base_site: Vector2i) -> void:
+	var site := base_site + Vector2i(14, 0)
+	var instance_id := "project_instance.probe.primitive_hut"
+	var created := HamletState.create_project_instance(
+		"project.build.catalogue_005", instance_id, [site.x, site.y])
+	_check(bool(created.get("ok", false)),
+		"primitive hut project instance was not created")
+	_check(HamletState.activate_project_instance(instance_id),
+		"primitive hut project could not become the active build")
+	_check(HamletState.PROJECT_STAGES.size() == 4,
+		"primitive hut did not load its four data-defined stages")
+	var anchor := Vector3i(site.x, world.surface_height_at(site.x, site.y), site.y)
+	var prepared := {}
+	for stage_index in range(1, 4):
+		for placement in world.get_project_stage_placements(
+				"project.build.catalogue_005", stage_index, anchor):
+			var position: Vector3i = placement["position"]
+			var column := Vector2i(
+				world.chunk_coord(position.x), world.chunk_coord(position.z))
+			if not prepared.has(column):
+				prepared[column] = true
+				world.prepare_player_column(
+					Vector3(position) + Vector3(0.5, 1.0, 0.5))
+	for stage_index in range(1, 4):
+		_supply_stage(stage_index)
+		_build_stage(stage_index, runtime, world, anchor)
+	_check(int(HamletState.project.get("stage_index", 0)) == 4
+			and bool(HamletState.project.get("awaiting_supplies", false)),
+		"primitive hut shell did not advance after every authored block")
+	_check(world.is_door_at(anchor + Vector3i(0, 1, -2)),
+		"primitive hut shell did not install its two-cell door")
 
 
 func _run() -> void:
@@ -91,6 +127,10 @@ func _run() -> void:
 	_check(str(HamletState.project.get("blueprint_id", ""))
 			== "blueprint.leyforge.residential.small_cottage_a",
 		"cottage runtime did not retain its blueprint identity")
+	var initial_statuses := HamletState.request_status_counts()
+	_check(int(initial_statuses.get(HamletState.REQUEST_ACTIVE, 0)) >= 1
+			and int(initial_statuses.get(HamletState.REQUEST_DEFERRED, 0)) == 4,
+		"project request stages were not separated into active and deferred work")
 
 	var anchor := Vector3i(site.x, world.surface_height_at(site.x, site.y), site.y)
 	var prepared := {}
@@ -145,6 +185,10 @@ func _run() -> void:
 			== "building.residential.small_cottage"
 			and bool(cottage.get("active", false)),
 		"cottage activation did not create a building runtime record")
+	var completed_statuses := HamletState.request_status_counts()
+	_check(int(completed_statuses.get(HamletState.REQUEST_COMPLETED, 0))
+			>= HamletState.PROJECT_STAGES.size(),
+		"completed project requests did not move into board history")
 
 	var damage := HamletState.apply_building_damage(
 		cottage_instance_id, 0.25, "probe.weather")
@@ -156,6 +200,7 @@ func _run() -> void:
 	_check(str(needs.get("housing", {}).get("state", "")) in [
 			"stable", "thriving"],
 		"active cottage did not contribute through the seven-needs aggregator")
+	_verify_primitive_hut_shell(runtime, world, site)
 
 	var saved_state := HamletState.serialize_state()
 	HamletState.runtime_buildings.clear()
@@ -180,6 +225,9 @@ func _run() -> void:
 			and HamletState.warehouse_count_ref(stone_ref)
 				== int(stone_ref.get("count", 0)),
 		"project cancellation did not return every reserved resource")
+	_check(int(HamletState.request_status_counts().get(
+		HamletState.REQUEST_FAILED, 0)) > 0,
+		"cancelled project requests did not enter the failed board category")
 
 	var payload := {
 		"checks": checks,

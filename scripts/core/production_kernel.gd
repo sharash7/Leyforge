@@ -106,6 +106,22 @@ func validate_evidence(envelope: Dictionary) -> Dictionary:
 	return {"ok": true}
 
 
+func has_evidence(evidence_id: String) -> bool:
+	return _evidence_by_id.has(evidence_id)
+
+
+func get_evidence(evidence_id: String) -> Dictionary:
+	return (_evidence_by_id.get(evidence_id, {}) as Dictionary).duplicate(true)
+
+
+func get_transaction(transaction_id: String) -> Dictionary:
+	return (_transactions_by_id.get(transaction_id, {}) as Dictionary).duplicate(true)
+
+
+func get_published_event(event_id: String) -> Dictionary:
+	return (_events_by_id.get(event_id, {}) as Dictionary).duplicate(true)
+
+
 func begin_transaction(transaction_id: String, owner: String,
 		evidence_refs: Array[String], authority: Dictionary) -> Dictionary:
 	if transaction_id.is_empty() or owner.is_empty():
@@ -146,6 +162,95 @@ func commit_transaction(transaction_id: String, payload_hash: String) -> Diction
 	_transactions_by_id[transaction_id] = transaction
 	return {"ok": true, "duplicate": false,
 		"transaction": transaction.duplicate(true)}
+
+
+func commit_event_transaction_bundle(request: Dictionary) -> Dictionary:
+	var evidence_value: Variant = request.get("evidence", {})
+	if not (evidence_value is Dictionary):
+		return {"ok": false, "error": "invalid_evidence"}
+	var evidence: Dictionary = (evidence_value as Dictionary).duplicate(true)
+	var validation := validate_evidence(evidence)
+	if not bool(validation.get("ok", false)):
+		return validation
+	var transaction_id := str(request.get("transaction_id", ""))
+	var owner := str(request.get("owner", ""))
+	var payload_hash := str(request.get("payload_hash", "")).to_lower()
+	var publication_id := str(request.get("publication_id", ""))
+	var event_type := str(request.get("event_type", ""))
+	var authority_value: Variant = request.get("authority", {})
+	var authority: Dictionary = authority_value if authority_value is Dictionary else {}
+	if transaction_id.is_empty() or owner.is_empty():
+		return {"ok": false, "error": "transaction_identity_required"}
+	if publication_id.is_empty() or event_type.is_empty():
+		return {"ok": false, "error": "event_identity_required"}
+	if not _is_sha256(payload_hash):
+		return {"ok": false, "error": "invalid_payload_hash"}
+	if str(evidence.get("source_owner", "")) != owner:
+		return {"ok": false, "error": "evidence_owner_mismatch"}
+	if not (_has_permission(authority, "commit:*") \
+			or _has_permission(authority, "commit:%s" % owner)):
+		return {"ok": false, "error": "authority_denied"}
+	var evidence_id := str(evidence.get("evidence_id", ""))
+	var transaction := {
+		"schema": TRANSACTION_SCHEMA,
+		"schema_version": STATE_VERSION,
+		"transaction_id": transaction_id,
+		"owner": owner,
+		"authority_id": str(authority.get("authority_id", "")),
+		"evidence_refs": [evidence_id],
+		"opened_tick": _world_tick,
+		"state": "committed",
+		"payload_hash": payload_hash,
+		"committed_tick": _world_tick,
+	}
+	var publication := {
+		"schema": EVENT_SCHEMA,
+		"schema_version": STATE_VERSION,
+		"event_id": publication_id,
+		"source_owner": owner,
+		"event_type": event_type,
+		"payload_hash": payload_hash,
+		"evidence_refs": [evidence_id],
+		"published_tick": _world_tick,
+	}
+	var evidence_existed := _evidence_by_id.has(evidence_id)
+	var transaction_existed := _transactions_by_id.has(transaction_id)
+	var publication_existed := _events_by_id.has(publication_id)
+	if evidence_existed:
+		var existing_evidence: Dictionary = _evidence_by_id[evidence_id]
+		if str(existing_evidence.get("payload_hash", "")) != payload_hash \
+				or str(existing_evidence.get("source_owner", "")) != owner \
+				or str(existing_evidence.get("event_type", "")) != event_type:
+			return {"ok": false, "error": "evidence_conflict",
+				"evidence_id": evidence_id}
+	if transaction_existed:
+		var existing_transaction: Dictionary = _transactions_by_id[transaction_id]
+		if str(existing_transaction.get("state", "")) != "committed" \
+				or str(existing_transaction.get("payload_hash", "")) != payload_hash \
+				or str(existing_transaction.get("owner", "")) != owner \
+				or existing_transaction.get("evidence_refs", []) != [evidence_id]:
+			return {"ok": false, "error": "transaction_commit_conflict",
+				"transaction_id": transaction_id}
+	if publication_existed:
+		var existing_publication: Dictionary = _events_by_id[publication_id]
+		if str(existing_publication.get("payload_hash", "")) != payload_hash \
+				or str(existing_publication.get("source_owner", "")) != owner \
+				or str(existing_publication.get("event_type", "")) != event_type \
+				or existing_publication.get("evidence_refs", []) != [evidence_id]:
+			return {"ok": false, "error": "event_conflict",
+				"event_id": publication_id}
+	# Every failure condition is checked before these three authoritative maps
+	# change, so observers can never see only part of the bundle.
+	_evidence_by_id[evidence_id] = evidence
+	_transactions_by_id[transaction_id] = transaction
+	_events_by_id[publication_id] = publication
+	return {
+		"ok": true,
+		"duplicate": evidence_existed and transaction_existed and publication_existed,
+		"evidence": evidence.duplicate(true),
+		"transaction": transaction.duplicate(true),
+		"event": publication.duplicate(true),
+	}
 
 
 func make_command_envelope(command_id: String, target_owner: String,

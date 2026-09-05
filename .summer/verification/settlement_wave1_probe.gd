@@ -38,6 +38,37 @@ func _runtime(
 	return record
 
 
+func _resource_source(
+		contract_id: String,
+		chain_ids: Array,
+		source_class: String,
+		depletion_policy: String,
+		remaining_units: int,
+		capacity_units: int,
+		owner_id: String = HamletState.VILLAGE_ID) -> Dictionary:
+	var source := {
+		"schema": SettlementSimulationEngine.RESOURCE_SOURCE_SCHEMA,
+		"version": SettlementSimulationEngine.RESOURCE_SOURCE_VERSION,
+		"source_id": "resource_source.probe.%s" % contract_id,
+		"contract_id": contract_id,
+		"chain_ids": chain_ids.duplicate(),
+		"source_class": source_class,
+		"depletion_policy": depletion_policy,
+		"active": true,
+		"remaining_units": remaining_units,
+		"capacity_units": capacity_units,
+		"regeneration_units": 1 if depletion_policy == "renewable" else 0,
+		"regeneration_minutes": 1440.0 if depletion_policy == "renewable" else 0.0,
+		"regeneration_progress_minutes": 0.0,
+		"provenance": {
+			"origin_id": "world.probe.settlement_wave1",
+			"owner_id": owner_id,
+			"evidence_id": "survey.probe.%s" % contract_id,
+		},
+	}
+	return source
+
+
 func _run() -> void:
 	var definitions := SettlementContentRegistry.definitions_for_scope(
 		"technical_poc")
@@ -96,18 +127,31 @@ func _run() -> void:
 
 func _verify_near_far_simulation() -> void:
 	var buildings := [
-		_runtime("a_farm", "building.food.basic_farm_plot"),
+		_runtime("a_farm", "building.food.basic_farm_plot", {
+			"resource_sources": {
+				"source_contract.settlement.basic_farm_cultivation": _resource_source(
+					"source_contract.settlement.basic_farm_cultivation",
+					["RC-FOD-01"], "cultivated", "renewable", 2, 2),
+			},
+		}),
 		_runtime("b_kitchen", "building.food.communal_kitchen"),
 		_runtime("c_lumber", "building.extraction.lumber_camp", {
-			"resource_zone_id": "resource_zone.forest.probe",
-			"resource_zone_active": true,
+			"resource_sources": {
+				"source_contract.settlement.temperate_forestry": _resource_source(
+					"source_contract.settlement.temperate_forestry",
+					["RC-ORG-01"], "renewable_wild", "renewable", 3, 3),
+			},
 		}),
 		_runtime("d_mine_unbound", "building.extraction.mine_entrance"),
 	]
+	var initial_ledger := {
+		"item.seed.wheat_basic": 1,
+		"item.food.wild_berries": 8,
+	}
 	var near := SettlementSimulationEngine.simulate(
-		buildings, {}, 720.0, SettlementSimulationEngine.MODE_NEAR)
+		buildings, initial_ledger, 720.0, SettlementSimulationEngine.MODE_NEAR)
 	var far := SettlementSimulationEngine.simulate(
-		buildings, {}, 720.0, SettlementSimulationEngine.MODE_FAR)
+		buildings, initial_ledger, 720.0, SettlementSimulationEngine.MODE_FAR)
 	_check(JSON.stringify(near.get("ledger", {}))
 			== JSON.stringify(far.get("ledger", {}))
 			and JSON.stringify(near.get("buildings", []))
@@ -115,6 +159,8 @@ func _verify_near_far_simulation() -> void:
 		"near and distant simulation did not conserve equivalent outcomes")
 	var ledger: Dictionary = near.get("ledger", {})
 	_check(int(ledger.get("item.food.village_meal_pack", 0)) == 4
+			and int(ledger.get("item.crop.wheat", 0)) == 8
+			and int(ledger.get("item.seed.wheat_basic", 0)) == 1
 			and int(ledger.get("natural.log.oak", 0)) == 6,
 		"Forest Hamlet production chains produced unexpected conserved totals")
 	_check(int(ledger.get("item.resource.stone_chunk", 0)) == 0
@@ -130,8 +176,12 @@ func _verify_near_far_simulation() -> void:
 
 	var bound_mine := _runtime(
 		"mine_bound", "building.extraction.mine_entrance", {
-			"resource_zone_id": "resource_zone.iron.probe",
-			"resource_zone_active": true,
+			"resource_sources": {
+				"source_contract.settlement.shallow_mine_geology": _resource_source(
+					"source_contract.settlement.shallow_mine_geology",
+					["RC-MIN-01", "RC-MET-07"],
+					"finite_geological", "finite", 1, 1),
+			},
 		})
 	var extraction := SettlementSimulationEngine.simulate(
 		[bound_mine], {}, 240.0)
@@ -201,8 +251,21 @@ func _verify_all_definition_persistence(definitions: Array[Dictionary]) -> void:
 		var instance_id := "catalogue.%03d" % int(
 			definition.get("catalogue_no", 0))
 		if str(definition.get("kind", "")) == "building":
+			var runtime_extra := {}
+			if definition_id == "building.food.basic_farm_plot":
+				runtime_extra["worksite_state"] = {
+					"record_type": "SettlementWorksiteState",
+					"schema": SettlementProfessionEngine.WORKSITE_STATE_SCHEMA,
+					"version": SettlementProfessionEngine.WORKSITE_STATE_VERSION,
+					"worksite_instance_id": instance_id,
+					"job_id": "job.farmer.basic",
+					"task_id": "profession_task.probe.persistence",
+					"phase": "tend",
+					"crop_state": "growing",
+					"phase_progress": 0.5,
+				}
 			HamletState.runtime_buildings[instance_id] = _runtime(
-				instance_id, definition_id)
+				instance_id, definition_id, runtime_extra)
 			expected_buildings.append(instance_id)
 		else:
 			var project_instance_id := "project_%s" % instance_id
@@ -227,6 +290,11 @@ func _verify_all_definition_persistence(definitions: Array[Dictionary]) -> void:
 	for instance_id in expected_buildings:
 		_check(HamletState.runtime_buildings.has(instance_id),
 			"%s building runtime was lost on save/load" % instance_id)
+	var restored_farm: Dictionary = HamletState.runtime_buildings.get(
+		"catalogue.011", {})
+	_check(str((restored_farm.get("worksite_state", {}) as Dictionary).get(
+		"crop_state", "")) == "growing",
+		"persistent farm worksite state was lost on save/load")
 	for instance_id in expected_projects:
 		_check(HamletState.runtime_projects.has(instance_id),
 			"%s project runtime was lost on save/load" % instance_id)

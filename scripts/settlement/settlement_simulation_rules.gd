@@ -69,7 +69,7 @@ static func aggregate_needs(
 
 	for runtime_value in runtime_buildings:
 		var runtime: Dictionary = runtime_value if runtime_value is Dictionary else {}
-		if not bool(runtime.get("active", false)):
+		if not _service_available(runtime):
 			continue
 		var definition_id := str(runtime.get("definition_id", ""))
 		var definition: Dictionary = building_definitions.get(definition_id, {})
@@ -113,6 +113,15 @@ static func aggregate_needs(
 			"remedy": _remedy_for(need, causes[need]),
 		}
 	return result
+
+
+static func _service_available(runtime: Dictionary) -> bool:
+	var service_record: Dictionary = runtime.get("service_record", {})
+	if service_record.is_empty():
+		return bool(runtime.get("active", false))
+	return str(service_record.get("status", "unknown")) in [
+		"active", "strained", "partial",
+	]
 
 
 static func score_project(definition: Dictionary, context: Dictionary) -> float:

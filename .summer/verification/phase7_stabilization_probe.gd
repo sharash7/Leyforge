@@ -88,6 +88,68 @@ func _run() -> void:
 			and water_geometry["glass_vertices"].is_empty()
 			and water_geometry["collision_triangles"].is_empty(),
 		"water was not isolated on its collision-free material surface")
+	_check(Player.is_replaceable_placement_block(BlockRegistry.AIR)
+			and Player.is_replaceable_placement_block(world.id_water)
+			and not Player.is_replaceable_placement_block(
+				BlockRegistry.get_id_by_stable_id("terrain.dirt.basic")),
+		"player placement does not treat water as a replaceable voxel")
+	var water_test_x := floori(player.global_position.x) + 6
+	var water_test_z := floori(player.global_position.z)
+	var water_test_surface := world.surface_height_at(water_test_x, water_test_z)
+	world.prepare_player_column(Vector3(
+		water_test_x, water_test_surface + 3, water_test_z))
+	var saved_ray_transform := player.ray.transform
+	player.ray.global_position = Vector3(
+		water_test_x + 0.5, water_test_surface + 3.0, water_test_z + 0.5)
+	player.ray.global_rotation = Vector3(-PI * 0.5, 0.0, 0.0)
+	player.ray.target_position = Vector3(0.0, 0.0, -Player.REACH)
+	await get_tree().physics_frame
+	player.ray.force_raycast_update()
+	var dry_ray_point := player.ray.get_collision_point()
+	var dry_ray_normal := player.ray.get_collision_normal()
+	var water_test_cell := Vector3i(
+		(dry_ray_point + dry_ray_normal * 0.5).floor())
+	var previous_water_test_id := world.get_block_global(water_test_cell)
+	world.set_block_global(water_test_cell, world.id_water)
+	await get_tree().physics_frame
+	player.ray.force_raycast_update()
+	var water_ray_point := player.ray.get_collision_point() \
+		if player.ray.is_colliding() else Vector3.ZERO
+	var water_ray_normal := player.ray.get_collision_normal() \
+		if player.ray.is_colliding() else Vector3.ZERO
+	var water_ray_target := Vector3i(
+		(water_ray_point + water_ray_normal * 0.5).floor())
+	var saved_slot := Inventory.selected_slot
+	var water_test_slot := Inventory.HOTBAR_SIZE - 1
+	var saved_water_test_stack := Inventory.get_group_slot(
+		"hotbar", water_test_slot).duplicate(true)
+	var water_placement_stack := _stack("construction.cobble.stone", "block")
+	water_placement_stack["count"] = 2
+	Inventory.set_group_slot("hotbar", water_test_slot, water_placement_stack)
+	Inventory.select_slot(water_test_slot)
+	player._update_highlight()
+	var highlighted_water := player.highlight.visible \
+		and player.highlight.global_position.is_equal_approx(
+			Vector3(water_test_cell) + Vector3(0.5, 0.5, 0.5))
+	player._try_place()
+	_check(player.ray.is_colliding() and highlighted_water
+			and BlockRegistry.get_stable_id(
+				world.get_block_global(water_test_cell)) \
+				== "construction.cobble.stone"
+			and int(Inventory.get_selected_stack().get("count", 0)) == 1,
+		("player could not target and place a conserved block into water: "
+			+ "colliding=%s target=%s expected=%s highlight=%s/%s "
+			+ "block=%s count=%d") % [
+			player.ray.is_colliding(), water_ray_target, water_test_cell,
+			highlighted_water, player.highlight.global_position,
+			BlockRegistry.get_stable_id(
+				world.get_block_global(water_test_cell)),
+			int(Inventory.get_selected_stack().get("count", 0)),
+		])
+	world.set_block_global(water_test_cell, previous_water_test_id)
+	Inventory.set_group_slot("hotbar", water_test_slot, saved_water_test_stack)
+	Inventory.select_slot(saved_slot)
+	player.ray.transform = saved_ray_transform
 	_check(world.water_material.cull_mode == BaseMaterial3D.CULL_BACK
 			and world.water_material.transparency \
 				== BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS,
@@ -178,7 +240,22 @@ func _run() -> void:
 	_check(block_model.scale.x <= 0.43
 			and absf(block_model.position.x) <= 0.11,
 		"owner-rig held block remained oversized or outside the hand grip")
+	ItemModelFactoryScript.apply_hold_transform(
+		block_model, block_stack, "first_person")
+	_check(
+		block_model.scale.x >= 0.50 and block_model.position.z <= -0.18
+			and block_model.get_child_count() > 0,
+		"first-person held block remained hidden inside the player's hand")
 	block_model.free()
+	var resource_stack := _stack("item.resource.stick")
+	var resource_model := ItemModelFactoryScript.build(resource_stack)
+	ItemModelFactoryScript.apply_hold_transform(
+		resource_model, resource_stack, "first_person")
+	_check(
+		resource_model.position.z <= -0.12
+			and resource_model.get_child_count() > 0,
+		"first-person held resource remained hidden inside the player's hand")
+	resource_model.free()
 
 	# Villagers do not promote onto missing collision columns.
 	var npc_id := HamletState.get_npc_ids()[0]

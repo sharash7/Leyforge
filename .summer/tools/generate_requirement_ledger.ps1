@@ -23,6 +23,71 @@ if (-not (Test-Path -LiteralPath $docsRoot -PathType Container)) {
     throw "Canonical document directory not found: $docsRoot"
 }
 
+$productionPath = Join-Path $ProjectPath (
+    '.summer\requirements\production-path.json'
+)
+if (-not (Test-Path -LiteralPath $productionPath -PathType Leaf)) {
+    throw "Production path not found: $productionPath"
+}
+$productionPathText = [IO.File]::ReadAllText($productionPath)
+$productionRoadmap = $productionPathText | ConvertFrom-Json
+$disposition = $productionRoadmap.requirement_disposition
+if ($null -eq $disposition -or [int]$disposition.schema_version -ne 1) {
+    throw 'Production path requirement disposition schema must be v1'
+}
+$acceptedTiers = @($disposition.accepted_tiers | ForEach-Object { [string]$_ })
+$nonBlockingTiers = @(
+    $disposition.non_blocking_tiers | ForEach-Object { [string]$_ }
+)
+if (($acceptedTiers -join '|') -ne
+        (@($productionRoadmap.completion_scope) -join '|')) {
+    throw 'Requirement accepted tiers disagree with production completion scope'
+}
+if (($nonBlockingTiers -join '|') -ne
+        (@($productionRoadmap.non_blocking_tiers) -join '|')) {
+    throw 'Requirement non-blocking tiers disagree with production path'
+}
+
+$packageById = @{}
+$packagePhaseById = @{}
+$packageTierById = @{}
+foreach ($phase in @($productionRoadmap.phases)) {
+    $phaseId = [string]$phase.id
+    $tierProperty = $disposition.phase_tiers.PSObject.Properties[$phaseId]
+    if ($null -eq $tierProperty) {
+        throw "Requirement disposition lacks a tier for phase $phaseId"
+    }
+    $phaseTier = [string]$tierProperty.Value
+    if ($phaseTier -notin ($acceptedTiers + $nonBlockingTiers)) {
+        throw "Requirement disposition phase $phaseId has invalid tier $phaseTier"
+    }
+    foreach ($package in @($phase.packages)) {
+        $packageId = [string]$package.id
+        if ($packageById.ContainsKey($packageId)) {
+            throw "Duplicate production package ID: $packageId"
+        }
+        $packageById[$packageId] = $package
+        $packagePhaseById[$packageId] = $phaseId
+        $packageTierById[$packageId] = $phaseTier
+    }
+}
+
+$documentPackageMap = @{}
+foreach ($property in $disposition.document_package_map.PSObject.Properties) {
+    $documentPackageMap[[string]$property.Name] = [string]$property.Value
+}
+$companionPackageMap = @{}
+foreach ($property in $disposition.companion_package_map.PSObject.Properties) {
+    $companionPackageMap[[string]$property.Name] = [string]$property.Value
+}
+foreach ($mapping in @($documentPackageMap, $companionPackageMap)) {
+    foreach ($packageId in @($mapping.Values)) {
+        if (-not $packageById.ContainsKey([string]$packageId)) {
+            throw "Requirement disposition refers to unknown package $packageId"
+        }
+    }
+}
+
 $statusVocabulary = @(
     'unverified',
     'absent',
@@ -291,6 +356,48 @@ function Get-ReferencedDocuments {
     return @($references | Sort-Object)
 }
 
+function Get-RequirementDisposition {
+    param(
+        [string]$DocumentId,
+        [string]$ImplementationStatus
+    )
+
+    $packageId = ''
+    if ($companionPackageMap.ContainsKey($DocumentId)) {
+        $packageId = [string]$companionPackageMap[$DocumentId]
+    } elseif ($DocumentId -match '^(\d{2})') {
+        $documentFamily = [string]$Matches[1]
+        if ($documentPackageMap.ContainsKey($documentFamily)) {
+            $packageId = [string]$documentPackageMap[$documentFamily]
+        }
+    }
+    if ([string]::IsNullOrWhiteSpace($packageId)) {
+        throw "Requirement document $DocumentId has no production package disposition"
+    }
+    if (-not $packageById.ContainsKey($packageId)) {
+        throw "Requirement document $DocumentId resolves to unknown package $packageId"
+    }
+
+    $deliveryTier = [string]$packageTierById[$packageId]
+    if ($ImplementationStatus -eq 'deferred') {
+        $deliveryTier = [string]$disposition.deferred_implementation_tier
+    }
+    if ($deliveryTier -notin ($acceptedTiers + $nonBlockingTiers)) {
+        throw "Requirement document $DocumentId resolves to invalid tier $deliveryTier"
+    }
+    $scopeDisposition = if ($deliveryTier -in $acceptedTiers) {
+        'accepted'
+    } else {
+        'non_blocking'
+    }
+    return [ordered]@{
+        production_package_id = $packageId
+        production_package_phase = [string]$packagePhaseById[$packageId]
+        delivery_tier = $deliveryTier
+        scope_disposition = $scopeDisposition
+    }
+}
+
 $candidateFiles = @(
     Get-ChildItem -LiteralPath $docsRoot -Recurse -File |
         Where-Object {
@@ -421,6 +528,8 @@ foreach ($document in $documentManifest) {
                 $evidence = @($prior.evidence)
             }
         }
+        $requirementDisposition = Get-RequirementDisposition `
+            -DocumentId $documentId -ImplementationStatus $status
         $items.Add([ordered]@{
             id = $id
             document = $documentId
@@ -435,6 +544,16 @@ foreach ($document in $documentManifest) {
             evidence = $evidence
             roadmap_phase = Get-RoadmapPhase -DocumentId $documentId `
                 -Section $section -Text $text -Kind $kind
+            production_package_id = [string](
+                $requirementDisposition.production_package_id
+            )
+            production_package_phase = [string](
+                $requirementDisposition.production_package_phase
+            )
+            delivery_tier = [string]$requirementDisposition.delivery_tier
+            scope_disposition = [string](
+                $requirementDisposition.scope_disposition
+            )
         })
     }
 }
@@ -442,11 +561,17 @@ foreach ($document in $documentManifest) {
 $phaseCounts = [ordered]@{}
 $kindCounts = [ordered]@{}
 $statusCounts = [ordered]@{}
+$packageCounts = [ordered]@{}
+$tierCounts = [ordered]@{}
+$scopeDispositionCounts = [ordered]@{}
 foreach ($item in $items) {
     foreach ($pair in @(
         @($phaseCounts, [string]$item.roadmap_phase),
         @($kindCounts, [string]$item.kind),
-        @($statusCounts, [string]$item.implementation_status)
+        @($statusCounts, [string]$item.implementation_status),
+        @($packageCounts, [string]$item.production_package_id),
+        @($tierCounts, [string]$item.delivery_tier),
+        @($scopeDispositionCounts, [string]$item.scope_disposition)
     )) {
         $target = $pair[0]
         $key = [string]$pair[1]
@@ -458,16 +583,25 @@ foreach ($item in $items) {
 }
 
 $ledger = [ordered]@{
-    schema_version = 2
+    schema_version = 3
     source_scope = 'Leyforge Documents 00-30 governed specification'
     source_root = '.summer/00_Docs'
+    production_package_source = '.summer/requirements/production-path.json'
+    production_package_source_sha256 = (
+        Get-FileHash -LiteralPath $productionPath -Algorithm SHA256
+    ).Hash.ToLowerInvariant()
     primary_document_count = $primaryManifest.Count
     source_document_count = $documentManifest.Count
     requirement_count = $items.Count
     status_vocabulary = $statusVocabulary
+    accepted_delivery_tiers = $acceptedTiers
+    non_blocking_delivery_tiers = $nonBlockingTiers
     phase_counts = $phaseCounts
     kind_counts = $kindCounts
     status_counts = $statusCounts
+    package_counts = $packageCounts
+    delivery_tier_counts = $tierCounts
+    scope_disposition_counts = $scopeDispositionCounts
     document_manifest = $documentManifest
     requirements = $items
 }

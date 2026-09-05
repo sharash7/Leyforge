@@ -62,6 +62,11 @@ func _run() -> void:
 		"blueprint.leyforge.residential.small_cottage_a",
 		{"foundation": 25, "frame": 12, "shell": 31, "roof": 28,
 			"furnishing": 1})
+	_verify_blueprint(
+		"blueprint.leyforge.residential.primitive_hut_a",
+		{"foundation": 25, "frame": 12, "shell_weatherproofing": 48,
+			"activation": 1})
+	_verify_primitive_hut_door_clearance()
 	_verify_project_costs()
 	_verify_needs()
 	_verify_planner()
@@ -89,6 +94,29 @@ func _verify_blueprint(id: String, expected_counts: Dictionary) -> void:
 			"%s:%s expanded to the wrong cell count" % [id, stage_id])
 		_check(JSON.stringify(first) == JSON.stringify(second),
 			"%s:%s did not expand deterministically" % [id, stage_id])
+
+
+func _verify_primitive_hut_door_clearance() -> void:
+	var cells := SettlementContentRegistry.expand_blueprint_stage(
+		"blueprint.leyforge.residential.primitive_hut_a",
+		"shell_weatherproofing")
+	var occupied := {}
+	var door_position := Vector3i.ZERO
+	var door_count := 0
+	for cell in cells:
+		var values: Array = cell.get("local_position", [])
+		if values.size() != 3:
+			continue
+		var position := Vector3i(int(values[0]), int(values[1]), int(values[2]))
+		occupied["%d:%d:%d" % [position.x, position.y, position.z]] = true
+		if str(cell.get("stable_id", "")) == "construction.door.oak":
+			door_position = position
+			door_count += 1
+	_check(door_count == 1,
+		"primitive hut shell did not author exactly one door placement")
+	var upper := door_position + Vector3i.UP
+	_check(not occupied.has("%d:%d:%d" % [upper.x, upper.y, upper.z]),
+		"primitive hut shell authored a block inside the two-cell door opening")
 
 
 func _verify_project_costs() -> void:

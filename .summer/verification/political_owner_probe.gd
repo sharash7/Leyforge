@@ -572,9 +572,10 @@ func _test_save_restore_order() -> void:
 			and order.find("biology_owner") < order.find("social_owner") \
 			and order.find("social_owner") < order.find("political_owner") \
 			and order.find("political_owner") < order.find("movement_owner") \
-			and order.find("movement_owner") < order.find("settlements"),
+			and order.find("movement_owner") < order.find("event_owner") \
+			and order.find("event_owner") < order.find("settlements"),
 		"save coordinator restores specialist inputs and movement truth before settlement views")
-	_expect(order.size() == 18,
+	_expect(order.size() == 19,
 		"canonical save order includes additive political and movement owner domains")
 
 

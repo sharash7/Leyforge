@@ -1,0 +1,57 @@
+{
+  "package": "Leyforge FCC-02 Verdant Covenant Content Canon",
+  "version": "0.1",
+  "status": "CONTENT CANON LOCKED - pending final cross-realm reconciliation",
+  "documents": [
+    {
+      "filename": "FCC-02A_Verdant_Covenant_Realm_Identity_Laws_Progression_and_Canon_Boundaries_v0_1.md",
+      "size_bytes": 33913,
+      "sha256": "47ed2eb52e787043c742e170045a68e767db3188ddb796c5773e3e7b31701e3d"
+    },
+    {
+      "filename": "FCC-02B_Verdant_Covenant_Biomes_Terrain_Climate_Seasonal_States_and_Environmental_Hazards_v0_1.md",
+      "size_bytes": 43736,
+      "sha256": "7979eceb8788062451574026d64f044691bc93e1addf298dbaae3fca2dee8ee0"
+    },
+    {
+      "filename": "FCC-02C_Verdant_Covenant_Geology_Materials_Resources_Processing_Foundations_and_Material_Provenance_v0_1.md",
+      "size_bytes": 61234,
+      "sha256": "8e090724697489981275ebc959ff059761cbfd58826f92feec969c65315df587"
+    },
+    {
+      "filename": "FCC-02D_Verdant_Covenant_Flora_Great_Trees_Wood_Families_Crops_Fungi_Food_and_Botanical_Ecology_v0_1.md",
+      "size_bytes": 59454,
+      "sha256": "5f0bb45f5c7b26be62f3be60e486c34d9e0cac853df7ab8ce35d3973d765b6e3"
+    },
+    {
+      "filename": "FCC-02E_Verdant_Covenant_Creatures_Ecology_and_Creature_Materials_v0_1.md",
+      "size_bytes": 54482,
+      "sha256": "2460997ff3395c3e6e70ff5f1b955493f36587fc2b13fb8bf3719263c08ee0a7"
+    },
+    {
+      "filename": "FCC-02F_Verdant_Covenant_Civilisations_Seasonal_Courts_Settlements_Structures_and_Infrastructure_v0_1.md",
+      "size_bytes": 58146,
+      "sha256": "c2e9a333b7abb8d3384d9df527bf1e63f8c945598c0083418d38a46d68b1f6e3"
+    },
+    {
+      "filename": "FCC-02G_Verdant_Covenant_Blocks_Items_Processing_Recipes_and_Portal_Construction_v0_1.md",
+      "size_bytes": 70618,
+      "sha256": "4228323e7923c268c39565fa0f85d594302bf01494980557162f9167347c49fb"
+    },
+    {
+      "filename": "FCC-02H_Verdant_Covenant_Dungeons_Guardians_Authorities_Adventure_Sites_and_Resolution_Content_v0_1.md",
+      "size_bytes": 80151,
+      "sha256": "e479967e88e8671621140ea919960a2cbd1e37083d62aaf5c069d88641bf748e"
+    },
+    {
+      "filename": "FCC-02I_Verdant_Covenant_Corruption_Blight_Restoration_Realm_States_and_Cross-Realm_Interfaces_v0_1.md",
+      "size_bytes": 59127,
+      "sha256": "6636da50543bf4ef731ae1cc12c10c944b4c197bead127c94b0658fe5ec9c320"
+    },
+    {
+      "filename": "FCC-02J_Verdant_Covenant_Canonical_Content_Registry_Completeness_Certification_and_Art_Handoff_v0_1.md",
+      "size_bytes": 70831,
+      "sha256": "f57aa9bd1b96982021c80061b80b611f1012a5b437acbfb8282bc72abd4e8502"
+    }
+  ]
+}

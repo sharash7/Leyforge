@@ -434,10 +434,19 @@ func _test_settlement_owner_integration() -> void:
 	var far_state: Dictionary = far_record.get("hamlet_state", {}).duplicate(true)
 	far_state["village_id"] = far_id
 	var buildings := [
-		_runtime_building("farm.probe", "building.food.basic_farm_plot", far_id),
+		_runtime_building("farm.probe", "building.food.basic_farm_plot", far_id, {
+			"resource_sources": {
+				"source_contract.settlement.basic_farm_cultivation": _resource_source(
+					"source_contract.settlement.basic_farm_cultivation",
+					["RC-FOD-01"], "cultivated", "renewable", 2, 2, far_id),
+			},
+		}),
 		_runtime_building("lumber.probe", "building.extraction.lumber_camp", far_id, {
-			"resource_zone_id": "resource_zone.forest.probe",
-			"resource_zone_active": true,
+			"resource_sources": {
+				"source_contract.settlement.temperate_forestry": _resource_source(
+					"source_contract.settlement.temperate_forestry",
+					["RC-ORG-01"], "renewable_wild", "renewable", 3, 3, far_id),
+			},
 		}),
 	]
 	far_state["runtime_buildings"] = {
@@ -501,6 +510,36 @@ func _runtime_building(
 	}
 	record.merge(extra, true)
 	return record
+
+
+func _resource_source(
+		contract_id: String,
+		chain_ids: Array,
+		source_class: String,
+		depletion_policy: String,
+		remaining_units: int,
+		capacity_units: int,
+		owner_id: String) -> Dictionary:
+	return {
+		"schema": SettlementSimulationEngine.RESOURCE_SOURCE_SCHEMA,
+		"version": SettlementSimulationEngine.RESOURCE_SOURCE_VERSION,
+		"source_id": "resource_source.probe.%s" % contract_id,
+		"contract_id": contract_id,
+		"chain_ids": chain_ids.duplicate(),
+		"source_class": source_class,
+		"depletion_policy": depletion_policy,
+		"active": true,
+		"remaining_units": remaining_units,
+		"capacity_units": capacity_units,
+		"regeneration_units": 1 if depletion_policy == "renewable" else 0,
+		"regeneration_minutes": 1440.0 if depletion_policy == "renewable" else 0.0,
+		"regeneration_progress_minutes": 0.0,
+		"provenance": {
+			"origin_id": "world.probe.simulation_lod",
+			"owner_id": owner_id,
+			"evidence_id": "survey.probe.%s" % contract_id,
+		},
+	}
 
 
 func _expect(condition: bool, message: String) -> void:

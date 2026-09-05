@@ -1,6 +1,7 @@
 # Voxel Asset Forge Implementation Coverage
 
 **Implementation date:** 30 July 2026  
+**Last reverified:** 13 August 2026
 **Document boundary:** 21A-21G v0.1  
 **Implemented boundary:** 21A-21F MVP and 21G readiness only
 
@@ -73,8 +74,8 @@ images are under
   golden workflows and all later migration assets still require owner testing
   for silhouettes, tiling, icon composition, readability and creator
   ergonomics.
-- Camera navigation is partial: orbit, zoom and reset are implemented;
-  perspective/pan/fly presets, remapping, split views and controller preview
+- Camera navigation is partial: orbit, pan, zoom and reset are implemented;
+  perspective/fly presets, remapping, split views and controller preview
   rotation remain beyond this MVP.
 - A packaged development build still needs owner/manual Forge workflow sign-off.
 - The release export filter is configured, but a production export is not being
@@ -91,7 +92,8 @@ images are under
 powershell -NoProfile -ExecutionPolicy Bypass -File `
   .summer/verification/run_current_regression_gate.ps1
 
-C:\tmp\Godot_v4.6.3-stable_win64_console.exe --headless --path . `
+.\.local\Godot_v4.8-dev-a9c94-shutdown-fixed\godot.windows.editor.x86_64.console.exe `
+  --headless --rendering-method gl_compatibility --path . --scene `
   res://.summer/verification/forge_mvp_probe.tscn
 ```
 
@@ -102,11 +104,14 @@ verified boundary remain unverified, partial or explicitly deferred.
 
 - Approved source/product integrity: 7 assets, zero failures; six stale
   first-approval manifests refreshed and the current pickaxe remained current.
-- Focused Forge probe: **868/868** checks.
+- Focused Forge foundation probe: **958/958** checks.
+- Forge creator UI probe: **96/96** checks, including routed orbit, pan and
+  wheel zoom in the assembled compact-host UI, stationary right-click erase,
+  responsive structure-tool tabs and camera-preserving edit gestures.
 - Hardware preview capture: **8/8** images, zero failures (seven goldens plus
   the full workspace).
 - Main-menu route and production hiding probe: **23/23** checks.
-- Whole-project current regression gate: **5,890/5,890** checks across 27
+- Whole-project current regression gate: **19,817/19,817** checks across 55
   probes and 256 world-generation seeds.
 - Requirement ledger: 36 documents, 6,442 candidate rows; Forge work updated
   129 exact rows (94 verified, 9 implemented, 16 partial, 10 deferred).

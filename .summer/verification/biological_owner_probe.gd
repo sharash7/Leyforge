@@ -675,18 +675,19 @@ func _test_combat_integration() -> void:
 func _test_save_restore_order() -> void:
 	var coordinator: SaveCoordinator = SaveCoordinatorScript.new()
 	var order := coordinator.restore_order()
-	_expect(order.size() == 18,
-		"save coordinator exposes eighteen ordered restore domains")
+	_expect(order.size() == 19,
+		"save coordinator exposes nineteen ordered restore domains")
 	_expect(order.find("biology_owner") == order.find("people_owner") + 1 \
 			and order.find("social_owner") == order.find("biology_owner") + 1 \
 			and order.find("political_owner") == order.find("social_owner") + 1 \
 			and order.find("movement_owner") == order.find("political_owner") + 1 \
-			and order.find("movement_owner") < order.find("settlements") \
+			and order.find("event_owner") == order.find("movement_owner") + 1 \
+			and order.find("event_owner") < order.find("settlements") \
 			and order.find("political_owner") < order.find("combat"),
 		"specialist owners restore after people and before dependent projections")
 	var copy := coordinator.restore_order()
 	copy.clear()
-	_expect(coordinator.restore_order().size() == 18,
+	_expect(coordinator.restore_order().size() == 19,
 		"callers cannot mutate canonical restore order")
 
 

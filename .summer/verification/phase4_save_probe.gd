@@ -128,6 +128,17 @@ func _run() -> void:
 			and CombatState.PLAYER_BIOLOGICAL_ACTOR_ID in saved_mover_ids \
 			and rowan_id in saved_mover_ids,
 		"save v18 omitted canonical player or resident movement state")
+	var saved_events: Dictionary = saved.get("events", {})
+	var saved_events_hash := str(saved_events.get("state_hash", ""))
+	var saved_event_ids: Array[String] = []
+	for event_value in saved_events.get("events", []):
+		if event_value is Dictionary:
+			saved_event_ids.append(str(event_value.get("event_id", "")))
+	_check(str(saved_events.get("schema", "")) \
+			== EventManager.STATE_SCHEMA \
+			and saved_events_hash.length() == 64 \
+			and not saved_event_ids.is_empty(),
+		"save v18 omitted canonical EVT-001 event state")
 	_check(saved.get("ui", {}) is Dictionary
 			and not saved.get("ui", {}).is_empty()
 			and not (saved.get("ui", {}) as Dictionary).has("settings"),
@@ -161,6 +172,7 @@ func _run() -> void:
 	v17_fixture.erase("simulation_lod")
 	v17_fixture.erase("registry_state")
 	v17_fixture.erase("biology")
+	v17_fixture.erase("events")
 	v17_fixture.erase("movement")
 	v17_fixture["inventory"] = {
 		"hotbar": [{"item_id": "item.resource.log_oak", "count": 13}],
@@ -202,6 +214,9 @@ func _run() -> void:
 				saved_enemy_biology_id), float(CombatState.get_enemy_record(
 					saved_enemy_id).get("health", -1.0))),
 		"version-17 save did not reconstruct biological compatibility ownership")
+	_migration_check(not EventManager.event_ids().is_empty()
+			and not EventManager.get_recent_history(8).is_empty(),
+		"version-17 save did not reconstruct EVT-001 authority from legacy combat history")
 
 	HamletState.initialized = false
 	SocialManager.reset()
@@ -227,6 +242,10 @@ func _run() -> void:
 			== saved_movement_hash \
 			and MovementManager.has_mover(rowan_id),
 		"movement owner state did not survive the full save/apply path")
+	_check(str(EventManager.serialize_state().get("state_hash", "")) \
+			== saved_events_hash \
+			and not EventManager.get_recent_history(8).is_empty(),
+		"event owner state did not survive the full save/apply path")
 	_check(StructureManager.structure_count() == saved_structure_records.size() \
 			and str(StructureManager.get_structure(
 				str(saved_structure_records[0].get("instance_id", ""))).get(
@@ -311,8 +330,14 @@ func _run() -> void:
 	hud._open_mode("request_board", world.get_hamlet_station_position("request_board"))
 	hud._refresh_all()
 	_check(hud._request_buttons.size() == HamletState.request_order.size()
-			and hud._request_area.visible,
+			and hud._request_area.visible
+			and hud._request_filter_buttons.size() == 4
+			and hud._request_filter_buttons.has(HamletState.REQUEST_ACTIVE),
 		"request-board UI did not materialise every authoritative request")
+	_check(hud._request_buttons.values().filter(
+		func(button: Button) -> bool: return button.visible).size()
+			== HamletState.get_requests(HamletState.REQUEST_ACTIVE).size(),
+		"request-board Active filter still displayed archived requests")
 	hud.interaction_subject_id = rowan_id
 	hud._open_mode("npc", Vector3i.ZERO)
 	hud._refresh_all()

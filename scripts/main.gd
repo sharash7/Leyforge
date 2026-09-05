@@ -94,6 +94,9 @@ func _ready() -> void:
 	PoliticalManager.initialize(
 		world.world_seed,
 		str(WorldManager.active_world.get("world_id", "")))
+	EventManager.initialize(
+		world.world_seed,
+		str(WorldManager.active_world.get("world_id", "")))
 	MovementManager.initialize(
 		world.world_seed,
 		str(WorldManager.active_world.get("world_id", "")))
@@ -244,6 +247,7 @@ func _save_game() -> bool:
 		"biology": BiologyManager.serialize_state(),
 		"social": SocialManager.serialize_state(),
 		"political": PoliticalManager.serialize_state(),
+		"events": EventManager.serialize_state(),
 		"movement": MovementManager.serialize_state(),
 		"registry_state": ProductionCatalogue.serialize_registry_state(),
 		"ui": UIState.serialize_world_state(),
@@ -319,7 +323,8 @@ func _reset_world_autoloads() -> void:
 	ProgressionState.reset()
 	MagicState.reset()
 	HamletState.initialized = false
-	HamletState.active_village_id = HamletState.VILLAGE_ID
+	HamletState.active_village_id = ""
+	HamletState.roster_mode = HamletState.ROSTER_MODE_CAMP
 	SettlementManager.reset()
 	CombatState.initialized = false
 	ProductionKernel.reset_for_verification()
@@ -329,6 +334,7 @@ func _reset_world_autoloads() -> void:
 	BiologyManager.reset()
 	SocialManager.reset()
 	PoliticalManager.reset()
+	EventManager.reset()
 	MovementManager.reset()
 	UIState.reset_world_state()
 	_forge_world_presentation_state.reset()
@@ -770,6 +776,29 @@ func _apply_save(data: Dictionary) -> void:
 		MovementManager.initialize(
 			world.world_seed,
 			str(WorldManager.active_world.get("world_id", "")))
+	var settlements_data: Variant = data.get("settlements", {})
+	var saved_settlement_refs: Array[String] = []
+	if settlements_data is Dictionary:
+		var saved_settlements_value: Variant = settlements_data.get("settlements", {})
+		if saved_settlements_value is Dictionary:
+			for settlement_ref in (saved_settlements_value as Dictionary).keys():
+				saved_settlement_refs.append(str(settlement_ref))
+	var event_data: Variant = data.get("events", {})
+	var restored_events := false
+	if event_data is Dictionary and not event_data.is_empty():
+		restored_events = EventManager.restore_state(
+				event_data,
+				world.world_seed,
+				str(WorldManager.active_world.get("world_id", "")),
+				saved_settlement_refs)
+		if not restored_events:
+			push_warning(
+				"MAIN: rejected incompatible event state; rebuilding compatibility projections")
+	if not restored_events:
+		EventManager.reset()
+		EventManager.initialize(
+			world.world_seed,
+			str(WorldManager.active_world.get("world_id", "")))
 	world.apply_edits(data.get("edits", {}))
 	world.apply_edit_provenance(data.get("edit_provenance", {}))
 	world.apply_block_entities(data.get("block_entities", {}))
@@ -784,7 +813,6 @@ func _apply_save(data: Dictionary) -> void:
 		MagicState.restore_state(magic_player_data)
 	else:
 		MagicState.reset()
-	var settlements_data: Variant = data.get("settlements", {})
 	var restored_settlements := false
 	if settlements_data is Dictionary and not settlements_data.is_empty():
 		restored_settlements = SettlementManager.restore_state(

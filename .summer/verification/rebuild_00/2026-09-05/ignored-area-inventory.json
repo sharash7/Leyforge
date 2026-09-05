@@ -1,0 +1,302 @@
+[
+  {
+    "area": ".godot",
+    "group": "(root files)",
+    "files": 4,
+    "bytes": 92416
+  },
+  {
+    "area": ".godot",
+    "group": "editor",
+    "files": 119,
+    "bytes": 1364711
+  },
+  {
+    "area": ".godot",
+    "group": "imported",
+    "files": 510,
+    "bytes": 97261
+  },
+  {
+    "area": ".godot",
+    "group": "mono",
+    "files": 1,
+    "bytes": 71
+  },
+  {
+    "area": ".godot",
+    "group": "shader_cache",
+    "files": 738,
+    "bytes": 28971680
+  },
+  {
+    "area": ".godot",
+    "group": "summer_verify",
+    "files": 261,
+    "bytes": 10244801
+  },
+  {
+    "area": ".local",
+    "group": "Godot_v4.6.3-stable_win64",
+    "files": 7,
+    "bytes": 172629450
+  },
+  {
+    "area": ".local",
+    "group": "Godot_v4.8-dev-a9c94-shutdown-fixed",
+    "files": 3,
+    "bytes": 164503159
+  },
+  {
+    "area": ".local",
+    "group": "diagnostics",
+    "files": 5559,
+    "bytes": 972988766
+  },
+  {
+    "area": ".local",
+    "group": "verification-profile",
+    "files": 6,
+    "bytes": 5566
+  },
+  {
+    "area": ".verification",
+    "group": "compat-focused2",
+    "files": 8,
+    "bytes": 5961
+  },
+  {
+    "area": ".verification",
+    "group": "compat-project",
+    "files": 2,
+    "bytes": 535
+  },
+  {
+    "area": ".verification",
+    "group": "compat-registry",
+    "files": 2,
+    "bytes": 436
+  },
+  {
+    "area": ".verification",
+    "group": "compat-wave1",
+    "files": 2,
+    "bytes": 451
+  },
+  {
+    "area": ".verification",
+    "group": "compat-wave6",
+    "files": 2,
+    "bytes": 449
+  },
+  {
+    "area": ".verification",
+    "group": "final-focused",
+    "files": 8,
+    "bytes": 5961
+  },
+  {
+    "area": ".verification",
+    "group": "forge-import-profile",
+    "files": 2,
+    "bytes": 3146257
+  },
+  {
+    "area": ".verification",
+    "group": "forge-menu-profile",
+    "files": 2,
+    "bytes": 426
+  },
+  {
+    "area": ".verification",
+    "group": "forge-probe-profile",
+    "files": 2,
+    "bytes": 1846
+  },
+  {
+    "area": ".verification",
+    "group": "forge-probe-profile-2",
+    "files": 2,
+    "bytes": 427
+  },
+  {
+    "area": ".verification",
+    "group": "forge-seed-profile",
+    "files": 4,
+    "bytes": 19144
+  },
+  {
+    "area": ".verification",
+    "group": "live-appdata",
+    "files": 1,
+    "bytes": 3358
+  },
+  {
+    "area": ".verification",
+    "group": "parser-mini",
+    "files": 12,
+    "bytes": 30842
+  },
+  {
+    "area": ".verification",
+    "group": "preflight-forge",
+    "files": 4,
+    "bytes": 4316
+  },
+  {
+    "area": ".verification",
+    "group": "preflight-save",
+    "files": 5,
+    "bytes": 5736
+  },
+  {
+    "area": ".verification",
+    "group": "preflight-stageb",
+    "files": 2,
+    "bytes": 574
+  },
+  {
+    "area": ".verification",
+    "group": "set20-probe",
+    "files": 3,
+    "bytes": 8800
+  },
+  {
+    "area": ".verification",
+    "group": "set20-set22-final-gate",
+    "files": 29,
+    "bytes": 643491
+  },
+  {
+    "area": ".verification",
+    "group": "set20-set22-full-gate",
+    "files": 29,
+    "bytes": 643470
+  },
+  {
+    "area": ".verification",
+    "group": "set20-set22-stage9-gate",
+    "files": 9,
+    "bytes": 10335
+  },
+  {
+    "area": ".verification",
+    "group": "set22-probe",
+    "files": 10,
+    "bytes": 3152203
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-final-full-gate",
+    "files": 32,
+    "bytes": 711020
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-focused-a",
+    "files": 13,
+    "bytes": 76193
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-focused-b",
+    "files": 5,
+    "bytes": 69583
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-focused-index",
+    "files": 6,
+    "bytes": 70083
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-full-gate",
+    "files": 38,
+    "bytes": 771461
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-generate",
+    "files": 2,
+    "bytes": 503
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-parse",
+    "files": 2,
+    "bytes": 3146276
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-probe1",
+    "files": 2,
+    "bytes": 1135
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-probe2",
+    "files": 5,
+    "bytes": 69642
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-regenerate",
+    "files": 2,
+    "bytes": 503
+  },
+  {
+    "area": ".verification",
+    "group": "set22-stage1-stage9-gate",
+    "files": 7,
+    "bytes": 7993
+  },
+  {
+    "area": ".verification",
+    "group": "set22-status-20260806",
+    "files": 12,
+    "bytes": 75693
+  },
+  {
+    "area": ".verification",
+    "group": "stageb-baseline",
+    "files": 481,
+    "bytes": 132440578
+  },
+  {
+    "area": ".verification",
+    "group": "stageb-final-profile",
+    "files": 25,
+    "bytes": 3780850
+  },
+  {
+    "area": ".verification",
+    "group": "stageb-final-project",
+    "files": 451,
+    "bytes": 128903779
+  },
+  {
+    "area": ".verification",
+    "group": "stageb-live-profile",
+    "files": 19,
+    "bytes": 4276029
+  },
+  {
+    "area": ".summer/local",
+    "group": "(root files)",
+    "files": 4,
+    "bytes": 156
+  },
+  {
+    "area": ".summer/local",
+    "group": "git",
+    "files": 176,
+    "bytes": 2416797
+  },
+  {
+    "area": "build",
+    "group": "(root files)",
+    "files": 2,
+    "bytes": 105224604
+  }
+]

@@ -13,7 +13,7 @@ config_version=5
 config/name="Leyforge"
 config/version="0.10.0"
 run/main_scene="res://main_menu.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 config/release_channel="dev"
 
@@ -39,6 +39,7 @@ PeopleManager="*res://scripts/autoload/people_manager.gd"
 BiologyManager="*res://scripts/autoload/biology_manager.gd"
 SocialManager="*res://scripts/autoload/social_manager.gd"
 PoliticalManager="*res://scripts/autoload/political_manager.gd"
+EventManager="*res://scripts/autoload/event_manager.gd"
 MovementManager="*res://scripts/autoload/movement_manager.gd"
 ReleaseQuality="*res://scripts/autoload/release_quality.gd"
 ForgeRuntime="*res://scripts/forge/runtime/forge_runtime.gd"

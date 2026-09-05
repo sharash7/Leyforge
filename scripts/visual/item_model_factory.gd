@@ -150,10 +150,15 @@ static func apply_hold_transform(
 						"pickaxe", "axe", "hammer", "tool"] else 0.55))
 		model.rotation = HELD_ITEM_ROTATION
 		_align_canonical_bottom_to_hand(model)
+		if context == "first_person":
+			# Hand-sized resources used to sit almost completely inside the palm.
+			# Move their authored bottom just beyond the fingers so the selected
+			# item's actual silhouette remains readable, as tools already are.
+			model.position += Vector3(0.03, -0.02, -0.15)
 		return
 	if context == "first_person":
-		model.position = Vector3(-0.04, -0.08, 0.02)
-		model.scale = Vector3.ONE * 0.38
+		model.position = Vector3(-0.04, -0.03, -0.20)
+		model.scale = Vector3.ONE * 0.52
 		model.rotation = Vector3(0.08, -0.18, 0.02)
 		return
 	if context == "owner_humanoid":

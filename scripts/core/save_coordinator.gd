@@ -40,6 +40,7 @@ const RESTORE_ORDER: Array[String] = [
 	"social_owner",
 	"political_owner",
 	"movement_owner",
+	"event_owner",
 	"world_delta",
 	"inventory",
 	"progression",
@@ -312,6 +313,7 @@ func _apply_migration_step(data: Dictionary, step: Dictionary,
 			_ensure_dictionary(result, "social")
 			_ensure_dictionary(result, "political")
 			_ensure_dictionary(result, "movement")
+			_ensure_dictionary(result, "events")
 			_ensure_dictionary(result, "registry_state")
 			_ensure_dictionary(result, "world_manifest")
 	result["version"] = to_version
@@ -328,7 +330,7 @@ func _normalise_current_state(data: Dictionary, context: Dictionary,
 		"inventory", "edits", "edit_provenance", "block_entities",
 		"progression", "magic_player", "settlements", "hamlet", "combat",
 		"production_kernel", "structures", "simulation_lod", "people", "biology",
-		"social", "political", "movement",
+		"social", "political", "movement", "events",
 		"registry_state", "ui",
 		"forge_presentation", "worldgen", "world_manifest",
 	]:

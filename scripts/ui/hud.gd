@@ -62,7 +62,12 @@ var _selected_ability_slot := 0
 var _request_area: VBoxContainer
 var _request_reputation_label: Label
 var _request_project_label: Label
+var _request_plan_button: Button
+var _request_site_label: Label
+var _request_filter_buttons: Dictionary = {}
+var _request_empty_label: Label
 var _request_buttons: Dictionary = {}
+var _request_filter: String = HamletState.REQUEST_ACTIVE
 var _dialogue_area: VBoxContainer
 var _dialogue_title: Label
 var _dialogue_text: Label
@@ -96,6 +101,7 @@ var _target_status_label: Label
 var _save_status_label: Label
 var _hud_hint_label: Label
 var _nav_row: HBoxContainer
+var _nav_buttons: Dictionary = {}
 var _guide_area: VBoxContainer
 var _guide_title: Label
 var _guide_instruction: Label
@@ -142,6 +148,10 @@ func _ready() -> void:
 	HamletState.project_changed.connect(_refresh_all)
 	HamletState.delivery_ledger_changed.connect(_refresh_all)
 	HamletState.npc_changed.connect(func(_npc_id: String) -> void: _refresh_all())
+	SettlementManager.project_proposals_changed.connect(
+		func(_settlement_id: String) -> void: _refresh_all())
+	SettlementManager.population_changed.connect(
+		func(_settlement_id: String) -> void: _refresh_all())
 	MagicState.magic_changed.connect(_refresh_all)
 	CombatState.state_changed.connect(_refresh_all)
 	UIState.settings_changed.connect(_apply_ui_settings)
@@ -558,7 +568,9 @@ func _build_stage8_hud() -> void:
 func _build_navigation(parent: VBoxContainer) -> void:
 	_nav_row = HBoxContainer.new()
 	_nav_row.alignment = BoxContainer.ALIGNMENT_CENTER
-	_nav_row.add_theme_constant_override("separation", 4)
+	_nav_row.add_theme_constant_override("separation", 5)
+	var nav_group := ButtonGroup.new()
+	nav_group.allow_unpress = false
 	for entry in [
 		["Guide", "guide"], ["Inventory", "inventory"], ["Craft", "hand"],
 		["Village", "village"], ["Map", "map"], ["Raid", "raid"],
@@ -566,10 +578,30 @@ func _build_navigation(parent: VBoxContainer) -> void:
 	]:
 		var button := Button.new()
 		button.text = str(entry[0])
-		button.custom_minimum_size = Vector2(70, 30)
+		button.custom_minimum_size = Vector2(74, 34)
 		button.add_theme_font_size_override("font_size", 11)
+		button.toggle_mode = true
+		button.button_group = nav_group
+		button.tooltip_text = "Open %s" % str(entry[0])
+		var normal := StyleBoxFlat.new()
+		normal.bg_color = Color(0.055, 0.065, 0.075, 0.90)
+		normal.border_color = Color(0.24, 0.28, 0.31, 0.95)
+		normal.set_border_width_all(1)
+		normal.set_corner_radius_all(4)
+		var hover: StyleBoxFlat = normal.duplicate()
+		hover.bg_color = Color(0.10, 0.12, 0.14, 0.96)
+		hover.border_color = Color(0.52, 0.58, 0.62, 0.95)
+		var selected: StyleBoxFlat = normal.duplicate()
+		selected.bg_color = Color(0.18, 0.25, 0.27, 0.98)
+		selected.border_color = Color(0.96, 0.72, 0.24, 1.0)
+		selected.set_border_width_all(2)
+		button.add_theme_stylebox_override("normal", normal)
+		button.add_theme_stylebox_override("hover", hover)
+		button.add_theme_stylebox_override("pressed", selected)
+		button.add_theme_stylebox_override("focus", selected)
 		button.pressed.connect(_open_mode.bind(str(entry[1]), INVALID_TARGET))
 		_nav_row.add_child(button)
+		_nav_buttons[str(entry[1])] = button
 	parent.add_child(_nav_row)
 
 
@@ -629,17 +661,24 @@ func _build_village_ui(parent: VBoxContainer) -> void:
 	_village_area.add_theme_constant_override("separation", 10)
 	_village_summary = Label.new()
 	_village_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_village_summary.add_theme_font_size_override("font_size", 16)
+	_village_summary.add_theme_font_size_override("font_size", 15)
+	_village_summary.add_theme_color_override(
+		"font_color", Color(0.90, 0.94, 0.96))
 	_village_area.add_child(_village_summary)
 	_village_project = Label.new()
 	_village_project.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_village_project.custom_minimum_size = Vector2(410, 145)
+	_village_project.custom_minimum_size = Vector2(410, 132)
+	_village_project.add_theme_color_override(
+		"font_color", Color(0.82, 0.88, 0.90))
 	_village_area.add_child(_village_project)
 	_village_history = Label.new()
 	_village_history.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_village_history.add_theme_color_override(
+		"font_color", Color(0.74, 0.80, 0.82))
 	_village_area.add_child(_village_history)
 	var request_button := Button.new()
-	request_button.text = "Open request board details"
+	request_button.text = "Open Requests & Project Planning"
+	request_button.custom_minimum_size = Vector2(410, 40)
 	request_button.pressed.connect(_open_mode.bind(
 		"request_board", INVALID_TARGET))
 	_village_area.add_child(request_button)
@@ -1041,6 +1080,31 @@ func _build_request_ui(parent: VBoxContainer) -> void:
 	_request_project_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_request_project_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_request_area.add_child(_request_project_label)
+	_request_plan_button = Button.new()
+	_request_plan_button.custom_minimum_size = Vector2(410, 42)
+	_request_plan_button.text = "Plan Recommended Project"
+	_request_plan_button.pressed.connect(_on_plan_recommended_project)
+	_request_area.add_child(_request_plan_button)
+	_request_site_label = Label.new()
+	_request_site_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_request_site_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_request_site_label.add_theme_color_override(
+		"font_color", Color(1.0, 0.80, 0.38))
+	_request_area.add_child(_request_site_label)
+	var filter_row := HBoxContainer.new()
+	filter_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	for status in HamletState.REQUEST_LIFECYCLE:
+		var filter_button := Button.new()
+		filter_button.custom_minimum_size = Vector2(98, 36)
+		filter_button.toggle_mode = true
+		filter_button.pressed.connect(_on_request_filter_pressed.bind(status))
+		filter_row.add_child(filter_button)
+		_request_filter_buttons[status] = filter_button
+	_request_area.add_child(filter_row)
+	_request_empty_label = Label.new()
+	_request_empty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_request_empty_label.text = "No requests in this category."
+	_request_area.add_child(_request_empty_label)
 	_ensure_request_buttons()
 	parent.add_child(_request_area)
 
@@ -1048,8 +1112,10 @@ func _build_request_ui(parent: VBoxContainer) -> void:
 func _ensure_request_buttons() -> void:
 	if _request_area == null:
 		return
+	var authoritative_ids := {}
 	for request in HamletState.get_requests():
 		var request_id := str(request["id"])
+		authoritative_ids[request_id] = true
 		if _request_buttons.has(request_id):
 			continue
 		var button := Button.new()
@@ -1059,6 +1125,13 @@ func _ensure_request_buttons() -> void:
 		button.pressed.connect(_on_request_pressed.bind(request_id))
 		_request_area.add_child(button)
 		_request_buttons[request_id] = button
+	for request_id_value in _request_buttons.keys():
+		var request_id := str(request_id_value)
+		if authoritative_ids.has(request_id):
+			continue
+		var stale_button: Button = _request_buttons[request_id]
+		_request_buttons.erase(request_id)
+		stale_button.queue_free()
 
 
 func _build_dialogue_ui(parent: VBoxContainer) -> void:
@@ -1418,6 +1491,60 @@ func _on_request_pressed(request_id: String) -> void:
 	_refresh_all()
 
 
+func _on_request_filter_pressed(status: String) -> void:
+	if status not in HamletState.REQUEST_LIFECYCLE:
+		return
+	_request_filter = status
+	_refresh_requests()
+
+
+func _on_plan_recommended_project() -> void:
+	var settlement_id := SettlementManager.focused_settlement_id
+	var proposal := SettlementManager.get_recommended_project(settlement_id)
+	if proposal.is_empty():
+		_show_context("No eligible settlement project is currently available.")
+		return
+	var survey_result := SettlementManager.begin_project(
+		settlement_id, str(proposal.get("id", "")), "village")
+	if not bool(survey_result.get("ok", false)):
+		var survey: Dictionary = survey_result.get("survey", {})
+		var blockers: Array = survey.get("validation_reasons", [])
+		_show_context(_site_survey_blocker_text(survey, blockers))
+		_refresh_all()
+		return
+	var confirmed := SettlementManager.confirm_project_site(
+		settlement_id, survey_result.get("survey", {}))
+	if not bool(confirmed.get("ok", false)):
+		_show_context("The recommended project could not be planned: %s" % str(
+			confirmed.get("reason", "unknown blocker")))
+		_refresh_all()
+		return
+	_request_filter = HamletState.REQUEST_ACTIVE
+	_show_context("Planned %s from the village's current needs." % str(
+		proposal.get("display_name", "the recommended project")))
+	_refresh_all()
+
+
+func _site_survey_blocker_text(survey: Dictionary, blockers: Array) -> String:
+	for blocker_value in blockers:
+		var blocker := str(blocker_value)
+		if blocker.begins_with("terrain_cost_exceeds_automatic_limit:"):
+			return ("Site preparation needs player help. Close this panel and "
+				+ "follow the markers: orange clear, cyan fill, gold path. "
+				+ "Terrain difference: %d blocks; village automatic limit: %d.") % [
+				int(survey.get("maximum_terrain_delta", 0)),
+				SettlementTerrainPlanner.MAX_AUTOMATIC_CUT_FILL,
+			]
+		if blocker.begins_with("player_edit_collision:"):
+			return ("The site overlaps player-built blocks. The exact overlap is "
+				+ "highlighted in orange; clear it or plan this as a player site.")
+		if blocker.begins_with("protected_structure_collision:"):
+			return ("The highlighted site overlaps protected settlement work and "
+				+ "cannot be cleared automatically. Choose a different site.")
+	return "The recommended site needs attention: %s" % (
+		", ".join(blockers) if not blockers.is_empty() else "site validation failed")
+
+
 func _on_dialogue_action() -> void:
 	if HamletState.accept_introduction():
 		_show_context("The request board is now open for deliveries.")
@@ -1568,6 +1695,11 @@ func _cancel_rebind() -> void:
 
 func _focus_first_control() -> void:
 	if not craft_open or _craft_panel == null:
+		return
+	var nav_mode := _navigation_mode_for(craft_mode)
+	var active_nav: Button = _nav_buttons.get(nav_mode)
+	if active_nav != null and active_nav.is_visible_in_tree():
+		active_nav.grab_focus()
 		return
 	var control := _find_focusable(_craft_panel)
 	if control != null:
@@ -1846,6 +1978,7 @@ func _refresh_context_visibility() -> void:
 	_settings_scroll.visible = craft_mode == "settings"
 	_controls_scroll.visible = craft_mode == "controls"
 	_help_area.visible = craft_mode == "help"
+	_refresh_navigation_selection()
 	_furnace_row.visible = craft_mode in ["furnace", "mana_furnace"]
 	_furnace_progress.visible = craft_mode in ["furnace", "mana_furnace"]
 	_craft_title.text = {
@@ -1872,6 +2005,24 @@ func _refresh_context_visibility() -> void:
 		"controls": "Controls and Input Rebinding",
 		"help": "Help and Replayable Tutorials",
 	}.get(craft_mode, craft_mode.capitalize())
+
+
+func _refresh_navigation_selection() -> void:
+	var selected_mode := _navigation_mode_for(craft_mode)
+	for mode_value in _nav_buttons:
+		var mode := str(mode_value)
+		var button: Button = _nav_buttons[mode_value]
+		button.button_pressed = mode == selected_mode
+
+
+func _navigation_mode_for(mode: String) -> String:
+	if mode in ["workbench", "furnace", "rune_table", "mana_furnace"]:
+		return "hand"
+	if mode in ["request_board", "npc"]:
+		return "village"
+	if mode in ["chest", "warehouse", "creative"]:
+		return "inventory"
+	return mode if _nav_buttons.has(mode) else ""
 
 
 func _refresh_vitals_and_abilities() -> void:
@@ -2017,21 +2168,113 @@ func _refresh_requests() -> void:
 	_request_reputation_label.text = "%s · %d reputation" % [
 		HamletState.reputation_name(), HamletState.reputation_points]
 	var stage := HamletState.get_project_stage_definition()
-	_request_project_label.text = "%s\nLocation: hamlet watchtower site · Worker: Talia Stonehand\nStage reward: %+d reputation · Effect: better raid warning and defence\nIncomplete stages provide no hidden defence bonus." % [
-		HamletState.project_status_text(), int(stage.get("reward", 0))]
+	var builder_id := HamletState.get_npc_id_for_job("job.builder.basic")
+	var builder := HamletState.get_npc_record(builder_id)
+	var builder_name := str(builder.get("name", "Assigned builder"))
+	var settlement_id := SettlementManager.focused_settlement_id
+	var population := SettlementManager.get_population_report(settlement_id)
+	var target_homes := int(population.get("population", 0)) + 1
+	var permanent_homes := int(population.get("permanent_beds", 0))
+	var recommendation := SettlementManager.get_recommended_project(settlement_id)
+	var housing_text := "Permanent homes: %d/%d (one reserve required)" % [
+		permanent_homes, target_homes] if bool(population.get("ok", false)) else ""
+	var recommendation_text := ""
+	if not recommendation.is_empty():
+		recommendation_text = "Recommended next: %s · Need: %s" % [
+			str(recommendation.get("display_name", "Settlement Project")),
+			str(recommendation.get("primary_need", "general")).capitalize(),
+		]
+	var project_ended := bool(HamletState.project.get("complete", false)) \
+		or bool(HamletState.project.get("cancelled", false))
+	var site_text := _site_preparation_summary(settlement_id)
+	if project_ended:
+		_request_project_label.text = "%s\n%s\n%s" % [
+			HamletState.project_status_text(), housing_text, recommendation_text]
+	else:
+		_request_project_label.text = "%s\nLocation: settlement project site · Worker: %s\nStage reward: %+d reputation\n%s" % [
+			HamletState.project_status_text(), builder_name,
+			int(stage.get("reward", 0)), housing_text]
+	_request_plan_button.visible = project_ended and not recommendation.is_empty()
+	var settlement: Dictionary = SettlementManager.settlements.get(settlement_id, {})
+	var pending: Dictionary = settlement.get("pending_survey", {})
+	_request_plan_button.text = "Recheck Highlighted Site" \
+		if not pending.is_empty() else "Plan Recommended Project"
+	_request_site_label.visible = not site_text.is_empty()
+	_request_site_label.text = site_text
+	var counts := HamletState.request_status_counts()
+	for status in HamletState.REQUEST_LIFECYCLE:
+		var filter_button: Button = _request_filter_buttons.get(status)
+		if filter_button == null:
+			continue
+		filter_button.text = "%s (%d)" % [
+			status.capitalize(), int(counts.get(status, 0))]
+		filter_button.button_pressed = status == _request_filter
+	var visible_requests := 0
 	for request in HamletState.get_requests():
 		var request_id := str(request["id"])
 		var button: Button = _request_buttons.get(request_id)
 		if button == null:
 			continue
+		var status := str(request.get("lifecycle_status", ""))
+		button.visible = status == _request_filter
+		if not button.visible:
+			continue
+		visible_requests += 1
 		button.text = "%s%s\n%s" % [
-			"✓ " if bool(request.get("complete", false)) else "",
+			{
+				HamletState.REQUEST_ACTIVE: "▶ ",
+				HamletState.REQUEST_FAILED: "✕ ",
+				HamletState.REQUEST_COMPLETED: "✓ ",
+				HamletState.REQUEST_DEFERRED: "⏸ ",
+			}.get(status, ""),
 			str(request["name"]),
 			HamletState.request_progress_text(request_id),
 		]
-		button.disabled = bool(request.get("complete", false)) \
+		button.disabled = status != HamletState.REQUEST_ACTIVE \
 			or not HamletState.permission_enabled("request_delivery") \
 			or not HamletState.is_request_available(request_id)
+	_request_empty_label.visible = visible_requests == 0
+
+
+func _site_preparation_summary(settlement_id: String) -> String:
+	if settlement_id.is_empty() or not SettlementManager.settlements.has(
+			settlement_id):
+		return ""
+	var settlement: Dictionary = SettlementManager.settlements[settlement_id]
+	var survey: Dictionary = settlement.get("pending_survey", {})
+	var prefix := "SITE NEEDS PLAYER PREPARATION"
+	if survey.is_empty():
+		var project: Dictionary = HamletState.project
+		var package_ids: Array = project.get("work_package_ids", [])
+		var package_index := int(project.get("work_package_index", 0))
+		if package_index >= package_ids.size():
+			return ""
+		var package: Dictionary = (settlement.get(
+			"work_packages", {}) as Dictionary).get(
+				str(package_ids[package_index]), {})
+		if str(package.get("kind", "")) not in [
+			"route", "vegetation", "terrain", "clearance", "fill",
+		]:
+			return ""
+		survey = (settlement.get("surveys", {}) as Dictionary).get(
+			str(project.get("site_survey_hash", "")), {})
+		prefix = "SITE PREPARATION · %s (%d/%d)" % [
+			str(package.get("display_name", "Preparing site")),
+			int(package.get("progress", 0)),
+			(package.get("cells", []) as Array).size(),
+		]
+	if survey.is_empty():
+		return ""
+	var clear_count := (survey.get("cut_cells", []) as Array).size() \
+		+ (survey.get("vegetation_removal", []) as Array).size()
+	var clearance_count := (survey.get("clearance_cells", []) as Array).size()
+	var fill_count := (survey.get("fill_cells", []) as Array).size()
+	var route_count := ((survey.get(
+		"route_plan", {}) as Dictionary).get("cells", []) as Array).size()
+	return ("%s\nOrange boxes: clear %d · Red posts: above-clearance %d · "
+		+ "Cyan posts: fill %d · Gold plates: build physical footpath %d") % [
+		prefix, clear_count, clearance_count, fill_count, route_count,
+	]
 
 
 func _refresh_dialogue() -> void:
@@ -2273,30 +2516,56 @@ func _refresh_village_overview() -> void:
 	for npc_id in HamletState.get_npc_ids():
 		if bool(HamletState.get_npc_record(npc_id).get("injured", false)):
 			injured += 1
-	var active_requests := 0
-	for request in HamletState.get_requests():
-		if HamletState.is_request_available(str(request.get("id", ""))) \
-				and not bool(request.get("complete", false)):
-			active_requests += 1
-	_village_summary.text = "%s  ·  %d reputation\nPopulation %d  ·  Injured %d  ·  Active shortages %d" % [
+	var settlement_id := SettlementManager.focused_settlement_id
+	var population := SettlementManager.get_population_report(settlement_id)
+	var permanent_homes := int(population.get("permanent_beds", 0))
+	var target_homes := int(population.get(
+		"population", HamletState.get_npc_ids().size())) + 1
+	var request_counts := HamletState.request_status_counts()
+	_village_summary.text = ("SETTLEMENT AT A GLANCE\n%s · %d reputation  |  "
+		+ "Population %d · Injured %d\nPermanent homes %d/%d  |  "
+		+ "Requests: %d active · %d completed · %d deferred · %d failed") % [
 		HamletState.reputation_name(), HamletState.reputation_points,
-		HamletState.get_npc_ids().size(), injured, active_requests,
+		HamletState.get_npc_ids().size(), injured,
+		permanent_homes, target_homes,
+		int(request_counts.get(HamletState.REQUEST_ACTIVE, 0)),
+		int(request_counts.get(HamletState.REQUEST_COMPLETED, 0)),
+		int(request_counts.get(HamletState.REQUEST_DEFERRED, 0)),
+		int(request_counts.get(HamletState.REQUEST_FAILED, 0)),
 	]
 	var stage := HamletState.get_project_stage_definition()
-	var permissions: Array[String] = []
+	var open_permissions: Array[String] = []
+	var locked_permissions: Array[String] = []
 	for permission_id in [
 		"request_delivery", "warehouse_view", "warehouse_deposit",
 		"warehouse_withdraw", "automation_import",
 	]:
-		permissions.append("%s %s" % [
-			"[OPEN]" if HamletState.permission_enabled(permission_id) else "[LOCKED]",
-			permission_id.replace("_", " ").capitalize(),
-		])
-	_village_project.text = "WATCHTOWER PROJECT\n%s\nCurrent stage: %s\n\nPERMISSIONS\n%s" % [
+		var label: String = str(permission_id).replace("_", " ").capitalize()
+		if HamletState.permission_enabled(permission_id):
+			open_permissions.append(label)
+		else:
+			locked_permissions.append(label)
+	var recommendation := SettlementManager.get_recommended_project(settlement_id)
+	var next_text := ""
+	if not recommendation.is_empty():
+		next_text = "\nNext need: %s (%s)" % [
+			str(recommendation.get("display_name", "Settlement project")),
+			str(recommendation.get("primary_need", "general")).capitalize(),
+		]
+	var site_text := _site_preparation_summary(settlement_id)
+	var project_name := str(HamletState.project.get(
+		"name", "Settlement Project"))
+	_village_project.text = ("CURRENT SETTLEMENT PROJECT · %s\n%s\nStage: %s · %d%%%s%s"
+		+ "\n\nACCESS\nAvailable: %s\nLocked: %s") % [
+		project_name,
 		HamletState.project_status_text(),
 		"Complete" if bool(HamletState.project.get("complete", false)) \
 			else str(stage.get("name", "Current stage")),
-		"\n".join(permissions),
+		roundi(float(HamletState.project.get("stage_progress", 0.0)) * 100.0),
+		next_text,
+		"\n\n%s" % site_text if not site_text.is_empty() else "",
+		", ".join(open_permissions) if not open_permissions.is_empty() else "None",
+		", ".join(locked_permissions) if not locked_permissions.is_empty() else "None",
 	]
 	var recent := HamletState.get_recent_automation_deliveries(3)
 	var changes: Array[String] = []
@@ -2306,7 +2575,7 @@ func _refresh_village_overview() -> void:
 			int(entry.get("count", 0)),
 			str(entry.get("stable_id", "")).replace("_", " "),
 		])
-	_village_history.text = "RECENT AUTOMATION CONTRIBUTION\n%s" % (
+	_village_history.text = "RECENT CONTRIBUTIONS\n%s" % (
 		"No automated warehouse deliveries recorded."
 		if changes.is_empty() else "\n".join(changes))
 
@@ -2416,13 +2685,32 @@ func _refresh_bindings() -> void:
 			UIState.action_label(action), UIState.binding_text(action),
 			conflict_text]
 	if _hud_hint_label != null:
-		_hud_hint_label.text = "%s Guide  ·  %s Inventory  ·  %s Craft  ·  %s Map  ·  %s Item/Skill Bar" % [
-			UIState.binding_text("toggle_guide"),
-			UIState.binding_text("toggle_inventory"),
-			UIState.binding_text("toggle_craft"),
-			UIState.binding_text("toggle_map"),
-			UIState.binding_text("toggle_action_bar"),
+		_hud_hint_label.text = "%s Guide · %s Inventory · %s Craft · %s Village · %s Map · %s Bar" % [
+			_compact_binding("toggle_guide"),
+			_compact_binding("toggle_inventory"),
+			_compact_binding("toggle_craft"),
+			_compact_binding("toggle_village"),
+			_compact_binding("toggle_map"),
+			_compact_binding("toggle_action_bar"),
 		]
+		_hud_hint_label.tooltip_text = (
+			"Full keyboard/controller bindings are available on the Controls page.")
+
+
+func _compact_binding(action: String) -> String:
+	if not InputMap.has_action(action):
+		return "—"
+	var controller_fallback := ""
+	for event in InputMap.action_get_events(action):
+		if event is InputEventKey:
+			return OS.get_keycode_string(event.keycode)
+		if event is InputEventMouseButton:
+			return "Mouse %d" % int(event.button_index)
+		if controller_fallback.is_empty() \
+				and (event is InputEventJoypadButton \
+					or event is InputEventJoypadMotion):
+			controller_fallback = "Pad"
+	return controller_fallback if not controller_fallback.is_empty() else "—"
 
 
 func _apply_ui_settings() -> void:
@@ -2438,6 +2726,10 @@ func _apply_ui_settings() -> void:
 		else Color(0.7, 0.58, 0.32, 0.8)
 	panel_style.set_border_width_all(3 if high_contrast else 2)
 	panel_style.set_corner_radius_all(4)
+	panel_style.content_margin_left = 14.0
+	panel_style.content_margin_right = 14.0
+	panel_style.content_margin_top = 10.0
+	panel_style.content_margin_bottom = 10.0
 	_craft_panel.add_theme_stylebox_override("panel", panel_style)
 	if _objective_panel != null:
 		_objective_panel.add_theme_stylebox_override("panel", panel_style)

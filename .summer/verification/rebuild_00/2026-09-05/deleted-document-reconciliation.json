@@ -1,0 +1,678 @@
+[
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27A_Fantasy_Voxel_Civilisation_Sandbox_Economic_Vision_Architecture_and_Ownership_v0_1.md",
+    "original_git_blob": "96f21126d017578bf41fef2ff734e2bd48ea3229",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27A_Fantasy_Voxel_Civilisation_Sandbox_Economic_Vision_Architecture_and_Ownership_v0_1.md"
+    ],
+    "original_bytes": 93244
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27B_Fantasy_Voxel_Civilisation_Sandbox_Currency_Barter_Value_and_Price_Formation_v0_1.md",
+    "original_git_blob": "b685e34a3987d0f8730d2a744bb5f6caa8afb69c",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27B_Fantasy_Voxel_Civilisation_Sandbox_Currency_Barter_Value_and_Price_Formation_v0_1.md"
+    ],
+    "original_bytes": 80858
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27C_Fantasy_Voxel_Civilisation_Sandbox_Markets_Merchants_Stock_and_Supply_Demand_Simulation_v0_1.md",
+    "original_git_blob": "a13863238bf9fa468338c54625e68a265fe3049e",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27C_Fantasy_Voxel_Civilisation_Sandbox_Markets_Merchants_Stock_and_Supply_Demand_Simulation_v0_1.md"
+    ],
+    "original_bytes": 103466
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27D_Fantasy_Voxel_Civilisation_Sandbox_Labour_Wages_Households_Businesses_and_Ownership_v0_1.md",
+    "original_git_blob": "a9863d9d12168706371ee24a9bac9b9042ec6e80",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27D_Fantasy_Voxel_Civilisation_Sandbox_Labour_Wages_Households_Businesses_and_Ownership_v0_1.md"
+    ],
+    "original_bytes": 81208
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27E_Fantasy_Voxel_Civilisation_Sandbox_Contracts_Orders_Services_Breach_and_Enforcement_v0_1.md",
+    "original_git_blob": "2aa7ef74681095ff5f98e8c22919ff2ca86636a8",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27E_Fantasy_Voxel_Civilisation_Sandbox_Contracts_Orders_Services_Breach_and_Enforcement_v0_1.md"
+    ],
+    "original_bytes": 118511
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27F_Fantasy_Voxel_Civilisation_Sandbox_Credit_Debt_Banking_Insurance_and_Financial_Risk_v0_1.md",
+    "original_git_blob": "a7374d14584dcee5b3112486229d72e95eeb2920",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27F_Fantasy_Voxel_Civilisation_Sandbox_Credit_Debt_Banking_Insurance_and_Financial_Risk_v0_1.md"
+    ],
+    "original_bytes": 85585
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27G_Fantasy_Voxel_Civilisation_Sandbox_Taxation_Tariffs_Treasuries_and_Public_Finance_v0_1.md",
+    "original_git_blob": "c4532f1b0f17409dd715a2bc21afbb0267f6d663",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27G_Fantasy_Voxel_Civilisation_Sandbox_Taxation_Tariffs_Treasuries_and_Public_Finance_v0_1.md"
+    ],
+    "original_bytes": 87210
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27H_Fantasy_Voxel_Civilisation_Sandbox_Trade_Routes_Caravans_Regional_Exchange_and_Cross_Realm_Commerce_v0_1.md",
+    "original_git_blob": "241e96190dbf19a06017c2cd5702687720ad1ce2",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27H_Fantasy_Voxel_Civilisation_Sandbox_Trade_Routes_Caravans_Regional_Exchange_and_Cross_Realm_Commerce_v0_1.md"
+    ],
+    "original_bytes": 92004
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27I_Fantasy_Voxel_Civilisation_Sandbox_Monopolies_Embargoes_Smuggling_Black_Markets_and_Economic_Conflict_v0_1.md",
+    "original_git_blob": "cd4e133f8c6d9a59b777f771c86f460f5e077350",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27I_Fantasy_Voxel_Civilisation_Sandbox_Monopolies_Embargoes_Smuggling_Black_Markets_and_Economic_Conflict_v0_1.md"
+    ],
+    "original_bytes": 93917
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/27J_Fantasy_Voxel_Civilisation_Sandbox_Economy_UI_Simulation_LOD_Multiplayer_Registries_and_Integration_v0_2.md",
+    "original_git_blob": "c833d0b513a262644b63e6b228caefcb379d1bfb",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/27J_Fantasy_Voxel_Civilisation_Sandbox_Economy_UI_Simulation_LOD_Multiplayer_Registries_and_Integration_v0_2.md"
+    ],
+    "original_bytes": 106330
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/FINAL_RECONCILIATION_NOTICE_v0_2.md",
+    "original_git_blob": "69100d7a5d29b6d18ba13b3ec65ff07425c7801f",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/FINAL_RECONCILIATION_NOTICE_v0_2.md"
+    ],
+    "original_bytes": 1049
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/Leyforge_Document_Sets_27-30_Cross-Set_Interface_Register_v1_1_Final_Reconciled.md",
+    "original_git_blob": "1a0821118f7f93d9dacdc621822206ef014e31db",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/Leyforge_Document_Sets_27-30_Cross-Set_Interface_Register_v1_1_Final_Reconciled.md",
+      ".summer/00_Docs/27-30/28-A-J/Leyforge_Document_Sets_27-30_Cross-Set_Interface_Register_v1_1_Final_Reconciled.md",
+      ".summer/00_Docs/27-30/Leyforge_Document_Sets_27-30_Cross-Set_Interface_Register_v1_1_Final_Reconciled.md"
+    ],
+    "original_bytes": 27215
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/Leyforge_Document_Sets_27-30_Final_Cross-Set_Reconciliation_and_Integration_Report_v1_1.md",
+    "original_git_blob": "a20cf8645643e43e953206af6f78cfe9977e5f14",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/Leyforge_Document_Sets_27-30_Final_Cross-Set_Reconciliation_and_Integration_Report_v1_1.md",
+      ".summer/00_Docs/27-30/28-A-J/Leyforge_Document_Sets_27-30_Final_Cross-Set_Reconciliation_and_Integration_Report_v1_1.md",
+      ".summer/00_Docs/27-30/Leyforge_Document_Sets_27-30_Final_Cross-Set_Reconciliation_and_Integration_Report_v1_1.md"
+    ],
+    "original_bytes": 7582
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/MANIFEST.txt",
+    "original_git_blob": "634cec52e1ab9a2b39ba861bf81d32e296ab148f",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/MANIFEST.txt"
+    ],
+    "original_bytes": 2557
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/README.txt",
+    "original_git_blob": "56c8170118d4e532dcbd5d5e1ace8e1e3755d538",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/README.txt"
+    ],
+    "original_bytes": 1506
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/README_Sets_27-30_Final_Reconciled_v1_1.txt",
+    "original_git_blob": "aa5605674422290f21de179dacb50585d26ffef2",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/README_Sets_27-30_Final_Reconciled_v1_1.txt"
+    ],
+    "original_bytes": 1725
+  },
+  {
+    "deleted_path": ".summer/00_Docs/27-A-J/SHA256SUMS.txt",
+    "original_git_blob": "5d8fa343b95d60ec8225d3410d1c199a81c36757",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/SHA256SUMS.txt"
+    ],
+    "original_bytes": 4273
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28A_Fantasy_Voxel_Civilisation_Sandbox_Social_System_Vision_Architecture_and_Ownership_v0_1.md",
+    "original_git_blob": "7db070707e7ee8ac14a45ea41f542bec81372a04",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28A_Fantasy_Voxel_Civilisation_Sandbox_Social_System_Vision_Architecture_and_Ownership_v0_1.md"
+    ],
+    "original_bytes": 72324
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28B_Fantasy_Voxel_Civilisation_Sandbox_Dialogue_Runtime_Conversation_Structure_and_Context_v0_1.md",
+    "original_git_blob": "b8a2ad75b3e450d5d4fc5fbb9953a805e6e7bb5b",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28B_Fantasy_Voxel_Civilisation_Sandbox_Dialogue_Runtime_Conversation_Structure_and_Context_v0_1.md"
+    ],
+    "original_bytes": 78686
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28C_Fantasy_Voxel_Civilisation_Sandbox_Knowledge_Rumours_Truth_Lies_Languages_and_Information_Spread_v0_1.md",
+    "original_git_blob": "243617bfa93edba44af92a909b6806bc245aa3fb",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28C_Fantasy_Voxel_Civilisation_Sandbox_Knowledge_Rumours_Truth_Lies_Languages_and_Information_Spread_v0_1.md"
+    ],
+    "original_bytes": 91837
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28D_Fantasy_Voxel_Civilisation_Sandbox_Relationships_Memory_Trust_Loyalty_Affection_and_Rivalry_v0_1.md",
+    "original_git_blob": "13b3bd1aa1c1ed6417c24b91b4e3b94f4d6f9e96",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28D_Fantasy_Voxel_Civilisation_Sandbox_Relationships_Memory_Trust_Loyalty_Affection_and_Rivalry_v0_1.md"
+    ],
+    "original_bytes": 97364
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28E_Fantasy_Voxel_Civilisation_Sandbox_Persuasion_Negotiation_Intimidation_Etiquette_and_Social_Consequences_v0_1.md",
+    "original_git_blob": "017a970e012e6139c965c654765dececa561c1b6",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28E_Fantasy_Voxel_Civilisation_Sandbox_Persuasion_Negotiation_Intimidation_Etiquette_and_Social_Consequences_v0_1.md"
+    ],
+    "original_bytes": 83196
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28F_Fantasy_Voxel_Civilisation_Sandbox_Companion_Follower_Hireling_and_Temporary_Ally_System_v0_1.md",
+    "original_git_blob": "5341c1ca0c21b0485dc36e08069c5c0cf8826331",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28F_Fantasy_Voxel_Civilisation_Sandbox_Companion_Follower_Hireling_and_Temporary_Ally_System_v0_1.md"
+    ],
+    "original_bytes": 86876
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28G_Fantasy_Voxel_Civilisation_Sandbox_Orders_Delegation_Assignments_Autonomy_and_Off_Screen_Resolution_v0_1.md",
+    "original_git_blob": "32defa61c9008a8666b1c5756fbb6e076a13203f",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28G_Fantasy_Voxel_Civilisation_Sandbox_Orders_Delegation_Assignments_Autonomy_and_Off_Screen_Resolution_v0_1.md"
+    ],
+    "original_bytes": 91612
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28H_Fantasy_Voxel_Civilisation_Sandbox_Authored_Procedural_and_AI_Assisted_Dialogue_Governance_v0_1.md",
+    "original_git_blob": "ba64349ebc00e33c4f7caa7de91cadac76ea6aca",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28H_Fantasy_Voxel_Civilisation_Sandbox_Authored_Procedural_and_AI_Assisted_Dialogue_Governance_v0_1.md"
+    ],
+    "original_bytes": 88346
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28I_Fantasy_Voxel_Civilisation_Sandbox_Voice_Localisation_Accessibility_UI_and_Presentation_v0_1.md",
+    "original_git_blob": "dd04ab6288285904473e5a2d8c11a766ceb56ddf",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28I_Fantasy_Voxel_Civilisation_Sandbox_Voice_Localisation_Accessibility_UI_and_Presentation_v0_1.md"
+    ],
+    "original_bytes": 90679
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/28J_Fantasy_Voxel_Civilisation_Sandbox_Multiplayer_Persistence_Registries_Validation_and_Cross_System_Integration_v0_2.md",
+    "original_git_blob": "c3cf483168de4e417ebce4fcf3df876cd03cc261",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/28J_Fantasy_Voxel_Civilisation_Sandbox_Multiplayer_Persistence_Registries_Validation_and_Cross_System_Integration_v0_2.md"
+    ],
+    "original_bytes": 109803
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/FINAL_RECONCILIATION_NOTICE_v0_2.md",
+    "original_git_blob": "f688ed780b622ae0bede9d49461fbbceef0094bf",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/FINAL_RECONCILIATION_NOTICE_v0_2.md"
+    ],
+    "original_bytes": 1059
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/Leyforge_Document_Sets_27-30_Cross-Set_Interface_Register_v1_1_Final_Reconciled.md",
+    "original_git_blob": "1a0821118f7f93d9dacdc621822206ef014e31db",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/Leyforge_Document_Sets_27-30_Cross-Set_Interface_Register_v1_1_Final_Reconciled.md",
+      ".summer/00_Docs/27-30/28-A-J/Leyforge_Document_Sets_27-30_Cross-Set_Interface_Register_v1_1_Final_Reconciled.md",
+      ".summer/00_Docs/27-30/Leyforge_Document_Sets_27-30_Cross-Set_Interface_Register_v1_1_Final_Reconciled.md"
+    ],
+    "original_bytes": 27215
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/Leyforge_Document_Sets_27-30_Final_Cross-Set_Reconciliation_and_Integration_Report_v1_1.md",
+    "original_git_blob": "a20cf8645643e43e953206af6f78cfe9977e5f14",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/27-A-J/Leyforge_Document_Sets_27-30_Final_Cross-Set_Reconciliation_and_Integration_Report_v1_1.md",
+      ".summer/00_Docs/27-30/28-A-J/Leyforge_Document_Sets_27-30_Final_Cross-Set_Reconciliation_and_Integration_Report_v1_1.md",
+      ".summer/00_Docs/27-30/Leyforge_Document_Sets_27-30_Final_Cross-Set_Reconciliation_and_Integration_Report_v1_1.md"
+    ],
+    "original_bytes": 7582
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/MANIFEST.txt",
+    "original_git_blob": "14bab9935f87ced4f01de6ec306741b09874eb92",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/MANIFEST.txt"
+    ],
+    "original_bytes": 2682
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/README.md",
+    "original_git_blob": "85e4d795f1e341c7fbe26bb39573877c194adc86",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/README.md"
+    ],
+    "original_bytes": 1975
+  },
+  {
+    "deleted_path": ".summer/00_Docs/28-A-J/SHA256SUMS.txt",
+    "original_git_blob": "887b8548c28d27ce5ca66561773bf6e5171eac22",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/28-A-J/SHA256SUMS.txt"
+    ],
+    "original_bytes": 4398
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29A_Fantasy_Voxel_Civilisation_Sandbox_Survival_Health_and_Biological_System_Foundation_v0_1.md",
+    "original_git_blob": "5e82b852aee148031ea15690a1ac3dc5c4d3c1eb",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29A_Fantasy_Voxel_Civilisation_Sandbox_Survival_Health_and_Biological_System_Foundation_v0_1.md"
+    ],
+    "original_bytes": 72871
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29B_Fantasy_Voxel_Civilisation_Sandbox_Health_Stamina_Exertion_Fatigue_and_Biological_Recovery_v0_1.md",
+    "original_git_blob": "2f908fdbfd57d1f1dfd9857aaa87d8dfcc55de31",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29B_Fantasy_Voxel_Civilisation_Sandbox_Health_Stamina_Exertion_Fatigue_and_Biological_Recovery_v0_1.md"
+    ],
+    "original_bytes": 65302
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29C_Fantasy_Voxel_Civilisation_Sandbox_Hunger_Thirst_Nutrition_and_Consumption_v0_1.md",
+    "original_git_blob": "1c2087a85988de53db654ce45fc95d96ba0a713f",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29C_Fantasy_Voxel_Civilisation_Sandbox_Hunger_Thirst_Nutrition_and_Consumption_v0_1.md"
+    ],
+    "original_bytes": 71594
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29D_Fantasy_Voxel_Civilisation_Sandbox_Temperature_Wetness_Shelter_Sleep_and_Environmental_Exposure_v0_1.md",
+    "original_git_blob": "57e9fc8d52af929b0e46c8d7326309924349f0a6",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29D_Fantasy_Voxel_Civilisation_Sandbox_Temperature_Wetness_Shelter_Sleep_and_Environmental_Exposure_v0_1.md"
+    ],
+    "original_bytes": 73645
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29E_Fantasy_Voxel_Civilisation_Sandbox_Injuries_Wounds_Bleeding_Pain_and_Functional_Impairment_v0_1.md",
+    "original_git_blob": "8f952ada901b6a83c00676881b23ad40f49bf67f",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29E_Fantasy_Voxel_Civilisation_Sandbox_Injuries_Wounds_Bleeding_Pain_and_Functional_Impairment_v0_1.md"
+    ],
+    "original_bytes": 82375
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29F_Fantasy_Voxel_Civilisation_Sandbox_Disease_Infection_Poison_Toxins_and_Biological_Hazards_v0_1.md",
+    "original_git_blob": "d23c08d8804e1ab82b00366c842af20707747d11",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29F_Fantasy_Voxel_Civilisation_Sandbox_Disease_Infection_Poison_Toxins_and_Biological_Hazards_v0_1.md"
+    ],
+    "original_bytes": 91896
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29G_Fantasy_Voxel_Civilisation_Sandbox_Medicine_First_Aid_Healing_Treatment_and_Rehabilitation_v0_1.md",
+    "original_git_blob": "0475245491d1c257fff77fa37fd9b375ae7b4412",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29G_Fantasy_Voxel_Civilisation_Sandbox_Medicine_First_Aid_Healing_Treatment_and_Rehabilitation_v0_1.md"
+    ],
+    "original_bytes": 88042
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29H_Fantasy_Voxel_Civilisation_Sandbox_Biological_Profiles_Equipment_Magic_Settlement_and_Environmental_Integration_v0_1.md",
+    "original_git_blob": "5ba71a54d1129bffc7f2a08da86d2d9994a5f16c",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29H_Fantasy_Voxel_Civilisation_Sandbox_Biological_Profiles_Equipment_Magic_Settlement_and_Environmental_Integration_v0_1.md"
+    ],
+    "original_bytes": 85158
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29I_Fantasy_Voxel_Civilisation_Sandbox_Simulation_LOD_Multiplayer_Persistence_UI_and_Accessibility_v0_1.md",
+    "original_git_blob": "1aecb1864cd9b21c1b1f0b3a853ec85f616b631f",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29I_Fantasy_Voxel_Civilisation_Sandbox_Simulation_LOD_Multiplayer_Persistence_UI_and_Accessibility_v0_1.md"
+    ],
+    "original_bytes": 92816
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/29J_Fantasy_Voxel_Civilisation_Sandbox_Biological_Registries_APIs_Balance_Framework_Validation_and_Cross_System_Integration_v0_2.md",
+    "original_git_blob": "8552a2a96904a99c4eaad4a0f8a2c0283042a103",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/29J_Fantasy_Voxel_Civilisation_Sandbox_Biological_Registries_APIs_Balance_Framework_Validation_and_Cross_System_Integration_v0_2.md"
+    ],
+    "original_bytes": 100634
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/FINAL_RECONCILIATION_NOTICE_v0_2.md",
+    "original_git_blob": "17118ad00a9e3d1ff725d987060f89d2d31952d1",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/FINAL_RECONCILIATION_NOTICE_v0_2.md"
+    ],
+    "original_bytes": 1069
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/MANIFEST.txt",
+    "original_git_blob": "a77a2800571f3e91dbf414cd99fb48669dbebaf8",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/MANIFEST.txt"
+    ],
+    "original_bytes": 2688
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/README.md",
+    "original_git_blob": "b8581d8e939197bd9755bf43af132bf829ab2246",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/README.md"
+    ],
+    "original_bytes": 1929
+  },
+  {
+    "deleted_path": ".summer/00_Docs/29-A-J/SHA256SUMS.txt",
+    "original_git_blob": "5c6cb436fbbd44d7da06cfc2430b7cbffb9efefc",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/29-A-J/SHA256SUMS.txt"
+    ],
+    "original_bytes": 4404
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30A_Fantasy_Voxel_Civilisation_Sandbox_Movement_Traversal_and_Transportation_System_Architecture_v0_1.md",
+    "original_git_blob": "2e18d3630e860126bbec88c5676311eda136cbee",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30A_Fantasy_Voxel_Civilisation_Sandbox_Movement_Traversal_and_Transportation_System_Architecture_v0_1.md"
+    ],
+    "original_bytes": 93212
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30B_Fantasy_Voxel_Civilisation_Sandbox_Core_Player_Locomotion_Controls_Camera_and_Movement_States_v0_1.md",
+    "original_git_blob": "512e32163ece62c2fe27518c50e3ad6aa8e906be",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30B_Fantasy_Voxel_Civilisation_Sandbox_Core_Player_Locomotion_Controls_Camera_and_Movement_States_v0_1.md"
+    ],
+    "original_bytes": 69112
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30C_Fantasy_Voxel_Civilisation_Sandbox_Climbing_Vaulting_Mantling_Ladders_Ropes_and_Grappling_v0_1.md",
+    "original_git_blob": "1b7702a6ee21a4612597090ebdab72926ee104af",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30C_Fantasy_Voxel_Civilisation_Sandbox_Climbing_Vaulting_Mantling_Ladders_Ropes_and_Grappling_v0_1.md"
+    ],
+    "original_bytes": 73380
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30D_Fantasy_Voxel_Civilisation_Sandbox_Gliding_Falling_Aerial_Traversal_and_Environmental_Movement_v0_1.md",
+    "original_git_blob": "8cd6a1719571e14ca2d2d64ff0ef3b6158e2964e",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30D_Fantasy_Voxel_Civilisation_Sandbox_Gliding_Falling_Aerial_Traversal_and_Environmental_Movement_v0_1.md"
+    ],
+    "original_bytes": 69751
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30E_Fantasy_Voxel_Civilisation_Sandbox_Mounts_Riding_Saddles_Harnesses_and_Mounted_Traversal_v0_1.md",
+    "original_git_blob": "fed27fd53e3442f9c8958e818cdcddfff9e3a9f4",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30E_Fantasy_Voxel_Civilisation_Sandbox_Mounts_Riding_Saddles_Harnesses_and_Mounted_Traversal_v0_1.md"
+    ],
+    "original_bytes": 82585
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30F_Fantasy_Voxel_Civilisation_Sandbox_Work_Animals_Handcarts_Wagons_Carriages_and_Caravans_v0_1.md",
+    "original_git_blob": "890cb1c5ed4cbe6f4ad6db103c23f370cfde5f35",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30F_Fantasy_Voxel_Civilisation_Sandbox_Work_Animals_Handcarts_Wagons_Carriages_and_Caravans_v0_1.md"
+    ],
+    "original_bytes": 71852
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30G_Fantasy_Voxel_Civilisation_Sandbox_Rails_Minecarts_Elevators_and_Powered_Land_Transportation_v0_1.md",
+    "original_git_blob": "dc6db9d6a925ae052c176532c501ec17420c3f6a",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30G_Fantasy_Voxel_Civilisation_Sandbox_Rails_Minecarts_Elevators_and_Powered_Land_Transportation_v0_1.md"
+    ],
+    "original_bytes": 70149
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30H_Fantasy_Voxel_Civilisation_Sandbox_Roads_Routes_Terrain_Accessibility_Navigation_and_Long_Distance_Travel_v0_1.md",
+    "original_git_blob": "d44ee817832a83bc8ffd3b4fb4fb117c6c6bdc62",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30H_Fantasy_Voxel_Civilisation_Sandbox_Roads_Routes_Terrain_Accessibility_Navigation_and_Long_Distance_Travel_v0_1.md"
+    ],
+    "original_bytes": 66872
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30I_Fantasy_Voxel_Civilisation_Sandbox_NPC_Navigation_Pathfinding_Formations_Multiplayer_and_Persistence_v0_1.md",
+    "original_git_blob": "52df7d6a3e3fb5d7a31333c83e997c2e33ca6826",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30I_Fantasy_Voxel_Civilisation_Sandbox_NPC_Navigation_Pathfinding_Formations_Multiplayer_and_Persistence_v0_1.md"
+    ],
+    "original_bytes": 67868
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/30J_Fantasy_Voxel_Civilisation_Sandbox_Movement_Registries_Physics_Contracts_Validation_and_Final_Integration_v0_2.md",
+    "original_git_blob": "141fe262f0b8baaecf562eea6861dfc576c4d4f4",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/30J_Fantasy_Voxel_Civilisation_Sandbox_Movement_Registries_Physics_Contracts_Validation_and_Final_Integration_v0_2.md"
+    ],
+    "original_bytes": 72321
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/FINAL_RECONCILIATION_NOTICE_v0_2.md",
+    "original_git_blob": "1c5fc2906e9b5cc351fab571dabb9af2d2f17331",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/FINAL_RECONCILIATION_NOTICE_v0_2.md",
+      ".summer/00_Docs/27-30/FINAL_RECONCILIATION_NOTICE_v0_2.md"
+    ],
+    "original_bytes": 1055
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/MANIFEST.txt",
+    "original_git_blob": "c75a857a9fa265d60f4ecd56a08d139376538390",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/MANIFEST.txt",
+      ".summer/00_Docs/27-30/MANIFEST.txt"
+    ],
+    "original_bytes": 2708
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/README.md",
+    "original_git_blob": "a0715ec9d5f6a85408adf964ce2ed14a33ae0fb0",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/README.md",
+      ".summer/00_Docs/27-30/README.md"
+    ],
+    "original_bytes": 1082
+  },
+  {
+    "deleted_path": ".summer/00_Docs/30-A-J/SHA256SUMS.txt",
+    "original_git_blob": "32923cc11f6b61b363a20f59dad9f4dd90054f80",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/27-30/30-A-J/SHA256SUMS.txt",
+      ".summer/00_Docs/27-30/SHA256SUMS.txt"
+    ],
+    "original_bytes": 4424
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/00_Fantasy_Voxel_Civilisation_Sandbox_Master_Game_Design_Bible_v0_1.md",
+    "original_git_blob": "f7dbafe207bb61d7ff586cfdf135a8c22efd0645",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/00_Fantasy_Voxel_Civilisation_Sandbox_Master_Game_Design_Bible_v0_1.md"
+    ],
+    "original_bytes": 59437
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/01_Fantasy_Voxel_Civilisation_Sandbox_Core_Gameplay_Loop_v0_1.md",
+    "original_git_blob": "27992863f881254f5afcd4f44c9deea33c085ace",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/01_Fantasy_Voxel_Civilisation_Sandbox_Core_Gameplay_Loop_v0_1.md"
+    ],
+    "original_bytes": 73990
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/02_Fantasy_Voxel_Civilisation_Sandbox_Player_Progression_System_v0_1.md",
+    "original_git_blob": "3c74c1caca51e28fa807945a79e2964fdadeb2fc",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/02_Fantasy_Voxel_Civilisation_Sandbox_Player_Progression_System_v0_1.md"
+    ],
+    "original_bytes": 94860
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/03_Fantasy_Voxel_Civilisation_Sandbox_Blocks_Registry_v0_1.md",
+    "original_git_blob": "4e96d1c0d13f4826b5455583fa627a1015c4cf2a",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/03_Fantasy_Voxel_Civilisation_Sandbox_Blocks_Registry_v0_1.md"
+    ],
+    "original_bytes": 134913
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/04_Fantasy_Voxel_Civilisation_Sandbox_Items_Registry_v0_1.md",
+    "original_git_blob": "523a2b00a9956357ac1f59929d45d870da9a7591",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/04_Fantasy_Voxel_Civilisation_Sandbox_Items_Registry_v0_1.md"
+    ],
+    "original_bytes": 130697
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/05_Fantasy_Voxel_Civilisation_Sandbox_Crafting_Recipe_Registry_v0_1.md",
+    "original_git_blob": "6f06981d2865ab4ac97d50d8d1336d33776d5099",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/05_Fantasy_Voxel_Civilisation_Sandbox_Crafting_Recipe_Registry_v0_1.md"
+    ],
+    "original_bytes": 132007
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/06_Fantasy_Voxel_Civilisation_Sandbox_Resource_Progression_v0_1.md",
+    "original_git_blob": "83705e4050c46e51a484b2879ef5a12efa74c8ed",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/06_Fantasy_Voxel_Civilisation_Sandbox_Resource_Progression_v0_1.md"
+    ],
+    "original_bytes": 104518
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/07_Fantasy_Voxel_Civilisation_Sandbox_NPC_Village_System_v0_1.md",
+    "original_git_blob": "281efd19d6af9a23376891f3933496bc1832b60e",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/07_Fantasy_Voxel_Civilisation_Sandbox_NPC_Village_System_v0_1.md"
+    ],
+    "original_bytes": 126302
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/08_Fantasy_Voxel_Civilisation_Sandbox_Automation_System_v0_1.md",
+    "original_git_blob": "46e24a683ec8af9c7e5497987d66fda0968325eb",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/08_Fantasy_Voxel_Civilisation_Sandbox_Automation_System_v0_1.md"
+    ],
+    "original_bytes": 120513
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/09_Fantasy_Voxel_Civilisation_Sandbox_Magic_System_v0_1.md",
+    "original_git_blob": "c8b48337554a615addad1af0ee14ba99a248327e",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/09_Fantasy_Voxel_Civilisation_Sandbox_Magic_System_v0_1.md"
+    ],
+    "original_bytes": 109675
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/10_Fantasy_Voxel_Civilisation_Sandbox_Creatures_and_Monsters_v0_1.md",
+    "original_git_blob": "3f8faa6b3a39dc968b334de4568be4c15f64ca0d",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/10_Fantasy_Voxel_Civilisation_Sandbox_Creatures_and_Monsters_v0_1.md"
+    ],
+    "original_bytes": 120075
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/11_Fantasy_Voxel_Civilisation_Sandbox_Biomes_and_World_Generation_v0_1.md",
+    "original_git_blob": "3098a3bbfbb5bd9cce592ac798715d8329964d39",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/11_Fantasy_Voxel_Civilisation_Sandbox_Biomes_and_World_Generation_v0_1.md"
+    ],
+    "original_bytes": 119672
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/12_Fantasy_Voxel_Civilisation_Sandbox_Structures_v0_1.md",
+    "original_git_blob": "83262caaa6f0f8fb5ede3409220bd6b2486b5561",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/12_Fantasy_Voxel_Civilisation_Sandbox_Structures_v0_1.md"
+    ],
+    "original_bytes": 108065
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/13_Fantasy_Voxel_Civilisation_Sandbox_Races_Peoples_Cultures_and_Factions_v0_1.md",
+    "original_git_blob": "0bda41db7ad08dc08c9b3ff208de4bbeb7ae9211",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/13_Fantasy_Voxel_Civilisation_Sandbox_Races_Peoples_Cultures_and_Factions_v0_1.md"
+    ],
+    "original_bytes": 77896
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/14_Fantasy_Voxel_Civilisation_Sandbox_Dimensions_v0_1.md",
+    "original_git_blob": "d330f151fea5d74d819eecb4c91765a1038feabd",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/14_Fantasy_Voxel_Civilisation_Sandbox_Dimensions_v0_1.md"
+    ],
+    "original_bytes": 81110
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/15_Fantasy_Voxel_Civilisation_Sandbox_Quest_and_Event_System_v0_1.md",
+    "original_git_blob": "93d734477e7f1518ca26ed444bc5efb4bd986e92",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/15_Fantasy_Voxel_Civilisation_Sandbox_Quest_and_Event_System_v0_1.md"
+    ],
+    "original_bytes": 116401
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/16_Fantasy_Voxel_Civilisation_Sandbox_Combat_Gear_and_Defence_System_v0_1.md",
+    "original_git_blob": "21b81fa3b31d860e8f06075343ff6e19ed0568bf",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/16_Fantasy_Voxel_Civilisation_Sandbox_Combat_Gear_and_Defence_System_v0_1.md"
+    ],
+    "original_bytes": 284656
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/17_Fantasy_Voxel_Civilisation_Sandbox_UI_UX_System_v0_1.md",
+    "original_git_blob": "0245801479c2c795df19cebe569c55541cf7617d",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/17_Fantasy_Voxel_Civilisation_Sandbox_UI_UX_System_v0_1.md"
+    ],
+    "original_bytes": 145156
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/18_Fantasy_Voxel_Civilisation_Sandbox_Technical_Implementation_Plan_v0_1.md",
+    "original_git_blob": "d4a4085d57b11223541cd0be28d3d925323b585c",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/18_Fantasy_Voxel_Civilisation_Sandbox_Technical_Implementation_Plan_v0_1.md"
+    ],
+    "original_bytes": 162657
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/19_Fantasy_Voxel_Civilisation_Sandbox_Settlement_Growth_and_Player_Voxel_Blueprint_System_v0_1.md",
+    "original_git_blob": "3ad68b1fdb0fe4af406e34e44b934b5973bfc862",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/19_Fantasy_Voxel_Civilisation_Sandbox_Settlement_Growth_and_Player_Voxel_Blueprint_System_v0_1.md"
+    ],
+    "original_bytes": 144647
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/00-20-Foundation/20_Fantasy_Voxel_Civilisation_Sandbox_Buildings_Facilities_Construction_and_Settlement_Project_System_v0_2.md",
+    "original_git_blob": "fd94e63c560e1eddf1d9c37201c54bfea18cc6f5",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/00-20-Foundation/20_Fantasy_Voxel_Civilisation_Sandbox_Buildings_Facilities_Construction_and_Settlement_Project_System_v0_2.md"
+    ],
+    "original_bytes": 85820
+  },
+  {
+    "deleted_path": ".summer/00_Docs/OLD/20_Fantasy_Voxel_Civilisation_Sandbox_Buildings_Facilities_and_Settlement_Project_Registry_v0_1.md",
+    "original_git_blob": "04c3463590a5eaf0b98cddedfbe579b4652391a3",
+    "matching_current_paths_ignoring_crlf": [
+      ".summer/00_Docs/ARCHIVED/20_Fantasy_Voxel_Civilisation_Sandbox_Buildings_Facilities_and_Settlement_Project_Registry_v0_1.md"
+    ],
+    "original_bytes": 100499
+  }
+]

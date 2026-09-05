@@ -17,6 +17,8 @@ var _random_preview_seed := 0
 var _pending_binding := ""
 var _binding_buttons: Dictionary = {}
 var _dialog: AcceptDialog
+var _delete_dialog: ConfirmationDialog
+var _pending_delete_world: Dictionary = {}
 
 
 func _ready() -> void:
@@ -101,6 +103,11 @@ func _build_shell() -> void:
 	_dialog = AcceptDialog.new()
 	_dialog.title = "Leyforge"
 	add_child(_dialog)
+	_delete_dialog = ConfirmationDialog.new()
+	_delete_dialog.title = "Delete World"
+	_delete_dialog.confirmed.connect(_confirm_delete_world)
+	_delete_dialog.canceled.connect(_cancel_delete_world)
+	add_child(_delete_dialog)
 
 
 func _nav_button(label: String, action: Callable) -> Button:
@@ -213,6 +220,9 @@ func _world_card(world: Dictionary) -> Control:
 			Color("#e1a5a5") if health in ["unrecoverable", "incompatible"]
 				else Color("#b8c9cf"))
 		details.add_child(label)
+	var actions := VBoxContainer.new()
+	actions.add_theme_constant_override("separation", 8)
+	row.add_child(actions)
 	var load := Button.new()
 	load.text = "Load"
 	load.custom_minimum_size = Vector2(110, 46)
@@ -221,8 +231,42 @@ func _world_card(world: Dictionary) -> Control:
 		"This world remains visible, but its save cannot be safely loaded."
 		if load.disabled else "Load this world")
 	load.pressed.connect(_load_world.bind(world))
-	row.add_child(load)
+	actions.add_child(load)
+	var delete := Button.new()
+	delete.text = "Delete"
+	delete.custom_minimum_size = Vector2(110, 40)
+	delete.tooltip_text = "Remove this world after confirmation"
+	delete.pressed.connect(_request_delete_world.bind(world))
+	actions.add_child(delete)
 	return panel
+
+
+func _request_delete_world(world: Dictionary) -> void:
+	var world_id := str(world.get("world_id", ""))
+	if world_id.is_empty():
+		_show_error("This world has no valid identity and cannot be deleted.")
+		return
+	_pending_delete_world = world.duplicate(true)
+	var world_name := str(world.get("name", "Unnamed World"))
+	_delete_dialog.dialog_text = (
+		"Delete '%s'?\n\nThis removes the world from Leyforge. Its save will be "
+		+ "kept in Deleted Worlds for manual recovery.") % world_name
+	_delete_dialog.popup_centered(Vector2i(620, 260))
+
+
+func _confirm_delete_world() -> void:
+	var world_id := str(_pending_delete_world.get("world_id", ""))
+	_pending_delete_world.clear()
+	var result := WorldManager.delete_world(world_id)
+	if not bool(result.get("ok", false)):
+		_show_error("Could not delete the world safely: %s" % str(
+			result.get("error", "unknown_error")))
+		return
+	_show_worlds()
+
+
+func _cancel_delete_world() -> void:
+	_pending_delete_world.clear()
 
 
 func _show_new_world() -> void:
@@ -408,20 +452,11 @@ func _show_controls() -> void:
 
 
 func _show_developer_tools() -> void:
-	_clear_page("Developer Tools")
-	_add_body(
-		"Development-only project tools. These entries are omitted from "
-		+ "non-development builds and never become part of world save data.")
-	var forge := Button.new()
-	forge.text = "Leyforge Forge"
-	forge.custom_minimum_size = Vector2(0, 54)
-	forge.tooltip_text = (
-		"Author and validate block, item and machine presentations")
-	forge.pressed.connect(_open_forge)
-	_page.add_child(forge)
-	_add_note(
-		"Forge sources use stable presentation links and retain the current "
-		+ "legacy runtime as a safe fallback.")
+	if not ForgeAccessPolicy.is_development_enabled():
+		_show_error("Developer tools are unavailable in this build.")
+		return
+	ForgeNavigationCatalog.pending_route_id = "test_room_browser"
+	_open_forge()
 
 
 func _open_forge() -> void:

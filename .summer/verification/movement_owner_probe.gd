@@ -508,11 +508,12 @@ func _test_lod_persistence_and_save_order() -> void:
 	var coordinator := SaveCoordinatorScript.new()
 	var order := coordinator.restore_order()
 	_expect(order.find("political_owner") < order.find("movement_owner") \
-			and order.find("movement_owner") < order.find("settlements") \
+			and order.find("movement_owner") < order.find("event_owner") \
+			and order.find("event_owner") < order.find("settlements") \
 			and order.find("movement_owner") < order.find("player"),
 		"save order restores external inputs then Set-30 truth before compatibility actors")
-	_expect(order.size() == 18,
-		"canonical save order includes exactly one additive movement-owner domain")
+	_expect(order.size() == 19,
+		"canonical save order includes movement and event owner domains")
 
 
 func _expect(condition: bool, message: String) -> void:

@@ -1,0 +1,107 @@
+{
+  "schema": "leyforge.settlement-professions",
+  "version": 1,
+  "owner_document": "Document 07 - NPCs and AI",
+  "package_id": "SET-001",
+  "definitions": [
+    {
+      "job_id": "job.leader.elder",
+      "display_name": "Settlement Leader",
+      "implementation_status": "operational_non_material",
+      "action_engine": "people.schedule_and_settlement_governance",
+      "owner_package_id": "SET-001",
+      "material_profession": false
+    },
+    {
+      "job_id": "job.builder.basic",
+      "display_name": "Builder",
+      "implementation_status": "operational",
+      "action_engine": "settlement.construction_work_packages",
+      "owner_package_id": "SET-001",
+      "material_profession": false
+    },
+    {
+      "job_id": "job.farmer.basic",
+      "display_name": "Farmer",
+      "implementation_status": "operational",
+      "action_engine": "settlement.material_profession.v1",
+      "owner_package_id": "SET-001",
+      "material_profession": true,
+      "tool_stable_ids": ["item.tool.hoe_basic"],
+      "phases": [
+        {"id": "till", "cycle_weight": 0.25, "reserve_inputs": false},
+        {"id": "plant", "cycle_weight": 0.10, "reserve_inputs": true},
+        {"id": "tend", "cycle_weight": 0.50, "reserve_inputs": false},
+        {"id": "harvest", "cycle_weight": 0.15, "commit_recipe": true}
+      ],
+      "workplaces": [
+        {"definition_id": "building.residential.farmhouse", "recipe_id": "recipe.settlement.farmstead_provisions", "initial_source": {"initial_units": 4, "capacity_units": 8, "regeneration_units": 1, "regeneration_minutes": 960}},
+        {"definition_id": "building.food.basic_farm_plot", "recipe_id": "recipe.settlement.wheat_harvest", "initial_source": {"initial_units": 3, "capacity_units": 6, "regeneration_units": 1, "regeneration_minutes": 720}},
+        {"definition_id": "building.food.irrigated_terraced_farm", "recipe_id": "recipe.settlement.advanced_provisions", "initial_source": {"initial_units": 6, "capacity_units": 10, "regeneration_units": 1, "regeneration_minutes": 600}}
+      ]
+    },
+    {
+      "job_id": "job.miner.basic",
+      "display_name": "Miner",
+      "implementation_status": "operational",
+      "action_engine": "settlement.material_profession.v1",
+      "owner_package_id": "SET-001",
+      "material_profession": true,
+      "tool_stable_ids": ["item.tool.stone_pickaxe"],
+      "phases": [
+        {"id": "survey", "cycle_weight": 0.20, "reserve_inputs": false},
+        {"id": "extract", "cycle_weight": 0.60, "reserve_inputs": false},
+        {"id": "haul", "cycle_weight": 0.20, "commit_recipe": true}
+      ],
+      "workplaces": [
+        {"definition_id": "building.extraction.quarry_stone_yard", "recipe_id": "recipe.settlement.deep_extraction", "initial_source": {"initial_units": 48, "capacity_units": 48, "regeneration_units": 0, "regeneration_minutes": 0}},
+        {"definition_id": "building.extraction.mine_entrance", "recipe_id": "recipe.settlement.stone_extraction", "initial_source": {"initial_units": 64, "capacity_units": 64, "regeneration_units": 0, "regeneration_minutes": 0}},
+        {"definition_id": "building.extraction.deep_mine_complex", "recipe_id": "recipe.settlement.deep_extraction", "initial_source": {"initial_units": 128, "capacity_units": 128, "regeneration_units": 0, "regeneration_minutes": 0}}
+      ]
+    },
+    {
+      "job_id": "job.lumberjack.basic",
+      "display_name": "Lumberjack",
+      "implementation_status": "operational",
+      "action_engine": "settlement.material_profession.v1",
+      "owner_package_id": "SET-001",
+      "material_profession": true,
+      "tool_stable_ids": ["item.tool.stone_axe"],
+      "phases": [
+        {"id": "inspect", "cycle_weight": 0.20, "reserve_inputs": false},
+        {"id": "chop", "cycle_weight": 0.60, "reserve_inputs": false},
+        {"id": "haul", "cycle_weight": 0.20, "commit_recipe": true}
+      ],
+      "workplaces": [
+        {"definition_id": "building.extraction.lumber_camp", "recipe_id": "recipe.settlement.oak_logs", "initial_source": {"initial_units": 8, "capacity_units": 12, "regeneration_units": 1, "regeneration_minutes": 1440}}
+      ]
+    },
+    {
+      "job_id": "job.guard.militia",
+      "display_name": "Militia Guard",
+      "implementation_status": "compatible_external_owner",
+      "action_engine": "combat.guard_compatibility",
+      "owner_package_id": "COMBAT-001",
+      "material_profession": false,
+      "deferred_reason": "Guard patrol, threat response and combat outcomes are owned by the combat package; SET-001 retains the ordinary job and schedule binding."
+    },
+    {
+      "job_id": "job.merchant.basic",
+      "display_name": "Merchant",
+      "implementation_status": "deferred",
+      "action_engine": "economy.trade",
+      "owner_package_id": "ECO-001",
+      "material_profession": false,
+      "deferred_reason": "Trade, price and market transactions are owned by ECO-001."
+    },
+    {
+      "job_id": "job.mage.apprentice",
+      "display_name": "Settlement Mage",
+      "implementation_status": "deferred",
+      "action_engine": "magic.specialist_action",
+      "owner_package_id": "SYS-001",
+      "material_profession": false,
+      "deferred_reason": "Spell costs, magical outputs and specialist services are owned by SYS-001."
+    }
+  ]
+}

@@ -12,6 +12,7 @@ const WorldStructurePlannerScript = preload(
 const WorldManifestScript = preload("res://scripts/world/world_manifest.gd")
 
 const WORLDS_ROOT := "user://worlds"
+const DELETED_WORLDS_DIRECTORY := ".deleted_worlds"
 const PROFILE_PATH := "user://profile.json"
 const PROFILE_TEMP_PATH := "user://profile.tmp"
 const PROFILE_BACKUP_PATH := "user://profile.backup.json"
@@ -250,6 +251,53 @@ func list_worlds() -> Array[Dictionary]:
 	return result
 
 
+func delete_world(world_id: String) -> Dictionary:
+	## Removes one known world from the playable list with an atomic, recoverable
+	## move. The hidden destination remains inside the configured worlds root so
+	## callers never construct or recursively erase save paths.
+	if not _is_safe_world_id(world_id):
+		return {"ok": false, "error": "invalid_world_id"}
+	var known_world := false
+	for world in list_worlds():
+		if str(world.get("world_id", "")) == world_id:
+			known_world = true
+			break
+	if not known_world:
+		return {"ok": false, "error": "world_not_found"}
+	var source := world_directory(world_id)
+	var source_absolute := ProjectSettings.globalize_path(source)
+	if not DirAccess.dir_exists_absolute(source_absolute):
+		return {"ok": false, "error": "world_directory_missing"}
+	var deleted_root := _worlds_root().path_join(DELETED_WORLDS_DIRECTORY)
+	if not _ensure_directory(deleted_root):
+		return {"ok": false, "error": "deleted_worlds_directory_failed"}
+	var destination_name := "%s-%d" % [
+		world_id, int(Time.get_unix_time_from_system())]
+	var destination := deleted_root.path_join(destination_name)
+	var suffix := 2
+	while DirAccess.dir_exists_absolute(ProjectSettings.globalize_path(destination)):
+		destination_name = "%s-%d-%d" % [
+			world_id, int(Time.get_unix_time_from_system()), suffix]
+		destination = deleted_root.path_join(destination_name)
+		suffix += 1
+	var rename_error := DirAccess.rename_absolute(
+		source_absolute, ProjectSettings.globalize_path(destination))
+	if rename_error != OK:
+		return {
+			"ok": false,
+			"error": "world_delete_move_failed",
+			"error_code": rename_error,
+		}
+	if str(active_world.get("world_id", "")) == world_id:
+		clear_active_world()
+	worlds_changed.emit()
+	return {
+		"ok": true,
+		"world_id": world_id,
+		"recoverable_path": destination,
+	}
+
+
 func is_world_playable(world: Dictionary) -> bool:
 	if str(world.get("validation_result", "valid")) != "valid":
 		return false
@@ -427,6 +475,16 @@ func mark_active_world_invalid(errors: Array[String]) -> void:
 
 func world_directory(world_id: String) -> String:
 	return _worlds_root().path_join(world_id)
+
+
+func _is_safe_world_id(world_id: String) -> bool:
+	if world_id.is_empty() or world_id != world_id.strip_edges() \
+			or world_id in [".", ".."] or world_id.begins_with("."):
+		return false
+	for forbidden in ["/", "\\", ":", "*", "?", "\"", "<", ">", "|"]:
+		if forbidden in world_id:
+			return false
+	return true
 
 
 func save_profile() -> bool:

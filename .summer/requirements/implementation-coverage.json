@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "audit_date": "2026-08-10",
+  "audit_date": "2026-08-14",
   "source_scope": "Leyforge Documents 00-30 governed specification",
   "safe_runner": ".local/Godot_v4.8-dev-a9c94-shutdown-fixed/godot.windows.editor.x86_64.console.exe",
   "status_vocabulary": [
@@ -12,11 +12,11 @@
     "Cannot determine"
   ],
   "verification_baseline": {
-    "scene_count": 53,
-    "check_count": 19656,
+    "scene_count": 58,
+    "check_count": 20078,
     "worldgen_seeds": 256,
     "forge_structure_stress_seeds": 10000,
-    "result": "current regression baseline includes the shared kernels, Core production catalogue, persistent world manifest, StructureInstance owner, ordered save coordinator, persistent simulation LOD, persistent people, Set-29 biological-owner, Set-28 social-owner, Document-13 political-owner and Set-30 movement-owner verticals"
+    "result": "current regression baseline includes the shared kernels, Core production catalogue, persistent world manifest, recoverable confirmed world deletion, StructureInstance owner, ordered save coordinator, persistent simulation LOD, persistent people, Set-29 biological owner, Set-28 social owner, Document-13 political owner, Set-30 movement owner, EVT-001 event owner, DATA-001 conservation, SET-001 material-profession worksite state and crop presentation, and evidence-backed material-workplace ServiceRecords with reusable Document-07 staffing slots, plus all-role physical NPC movement, canonical job-tool presentation, builder construction and compact-host Forge 3D routed-input coverage"
   },
   "entries": [
     {
@@ -27,7 +27,7 @@
       "expected_implementation_area": ["project configuration", "runtime integration", "coverage governance"],
       "actual_repository_location": ["project.godot", "scripts/main.gd", ".summer/requirements"],
       "status": "Partial",
-      "evidence": ["Working deterministic vertical slice and main-menu world lifecycle", "Full civilisation sandbox breadth is not present"],
+      "evidence": ["Working deterministic vertical slice and main-menu world lifecycle", "World cards expose a named confirmation boundary and WorldManager atomically moves exactly one validated world into a hidden recoverable area before clearing selection", "Full civilisation sandbox breadth is not present"],
       "tests_present": ["main_menu_probe", "world_lifecycle_probe", "current regression gate"],
       "risks_conflicts": ["Historical POC framing remains active in production-facing paths"],
       "next_action": "Keep the product frame in the coverage gate and remove active fixed-scenario authority through migrations."
@@ -92,10 +92,10 @@
       "expected_implementation_area": ["recipe definitions", "crafting execution", "transformation conservation"],
       "actual_repository_location": ["scripts/autoload/recipe_registry.gd", "scripts/autoload/production_catalogue.gd", "scripts/autoload/inventory.gd", "scripts/world/voxel_world.gd"],
       "status": "Partial",
-      "evidence": ["45 crafting and 11 furnace recipes are exhaustively probed", "All 56 recipes compile with typed references, exact-input reservation, atomic-once commit and no undeclared material sink", "Confirmed recoverable-Block inputs and outputs use canonical Block projections"],
-      "tests_present": ["production_catalogue_probe", "production_registry_kernel_probe", "canonical_block_inventory_projection_probe", "all_recipes_probe", "phase5_automation_probe", "phase6_magic_probe"],
-      "risks_conflicts": ["Resource-transform recipes still require broader conservation and provenance coverage"],
-      "next_action": "Add transaction-ledger conservation tests for automation and distant production."
+      "evidence": ["45 crafting and 11 furnace recipes are exhaustively probed", "All 56 recipes compile with typed references, exact-input reservation, atomic-once commit and no undeclared material sink", "Confirmed recoverable-Block inputs and outputs use canonical Block projections", "All 23 settlement behavior recipes are classified: 17 consume explicit stock and 10 source-backed recipes carry quantified depletion and provenance contracts", "Far and near settlement transactions independently reconstruct their input, output and source journals and reject tampering"],
+      "tests_present": ["production_catalogue_probe", "production_registry_kernel_probe", "canonical_block_inventory_projection_probe", "all_recipes_probe", "phase5_automation_probe", "phase6_magic_probe", "data_001_resource_conservation_probe", "settlement_wave1_probe", "simulation_lod_probe"],
+      "risks_conflicts": ["Later automation, magic and economy packages must retain the same conservation envelope when adding new transformations"],
+      "next_action": "Apply the validated transaction and source contract to each later package as its new production recipes are introduced."
     },
     {
       "document_set": "06",
@@ -105,10 +105,10 @@
       "expected_implementation_area": ["resource provenance", "extraction records", "progression chains"],
       "actual_repository_location": ["scripts/autoload/production_catalogue.gd", "data/registry/core_capability_graph.json", "scripts/settlement/settlement_simulation_engine.gd", "data/settlement/settlement_behaviors.json"],
       "status": "Partial",
-      "evidence": ["The current physical catalogue records world-harvest and recipe provider provenance", "CAP-00 through CAP-10 form an acyclic graph; CAP-09 and CAP-10 remain explicitly planned without false providers", "Settlement transactions are deterministic and arithmetically validated", "Twelve settlement output recipes still consume no inputs and lack complete source/depletion evidence"],
-      "tests_present": ["production_catalogue_probe", "production_registry_kernel_probe", "settlement_registry_probe", "settlement_wave1_probe"],
-      "risks_conflicts": ["Far simulation can create authoritative stock from implicit environmental sources"],
-      "next_action": "Require reason-coded resource-zone, renewal and depletion evidence before committing outputs."
+      "evidence": ["The current physical catalogue records world-harvest and recipe provider provenance", "CAP-00 through CAP-10 form an acyclic graph; CAP-09 and CAP-10 remain explicitly planned without false providers", "Settlement transactions are deterministic and arithmetically validated", "Ten source-backed settlement recipes require typed chain IDs, source class, depletion policy, quantified units and origin, owner and evidence provenance", "Finite sources deplete exactly; cultivated and renewable-wild sources recover only within persisted capacity", "Distant material buildings cannot produce stock without an eligible persisted profession task"],
+      "tests_present": ["production_catalogue_probe", "production_registry_kernel_probe", "settlement_registry_probe", "settlement_wave1_probe", "data_001_resource_conservation_probe", "set_001_profession_probe", "simulation_lod_probe"],
+      "risks_conflicts": ["Regional source discovery, source-capacity balance and later resource families still require package-specific expansion"],
+      "next_action": "Expand surveyed source records and balance through the governed world, settlement and ecology packages without reintroducing implicit stock."
     },
     {
       "document_set": "07",
@@ -116,12 +116,12 @@
       "authoritative_owner": "Persistent people, households, jobs and settlement operations",
       "dependencies_interfaces": ["13", "19", "20", "Sets 27-30"],
       "expected_implementation_area": ["resident records", "households", "jobs", "settlement operations"],
-      "actual_repository_location": ["scripts/autoload/people_manager.gd", "scripts/autoload/biology_manager.gd", "scripts/autoload/social_manager.gd", "scripts/autoload/movement_manager.gd", "scripts/autoload/hamlet_state.gd", "scripts/autoload/settlement_manager.gd", "scripts/autoload/simulation_lod_manager.gd", "scripts/world/hamlet_runtime.gd", "scripts/world/hamlet_npc_actor.gd"],
+      "actual_repository_location": ["scripts/autoload/people_manager.gd", "scripts/autoload/biology_manager.gd", "scripts/autoload/social_manager.gd", "scripts/autoload/movement_manager.gd", "scripts/autoload/hamlet_state.gd", "scripts/autoload/settlement_manager.gd", "scripts/autoload/simulation_lod_manager.gd", "scripts/world/hamlet_runtime.gd", "scripts/world/hamlet_npc_actor.gd", "scripts/world/settlement_worksite_visual.gd", "scripts/settlement/settlement_profession_engine.gd", "scripts/settlement/settlement_service_engine.gd", "data/settlement/settlement_professions.json"],
       "status": "Partial",
-      "evidence": ["A standalone hashed owner persists stable person identity, lifecycle, household membership, ordinary job assignment and broad schedule intent", "Hamlet and regional settlement records are compatibility projections of the same canonical people records", "People records hold versioned Set-28, Set-29 and Set-30 references while social, biological and movement truth remain in their specialist owners", "Set-07 assignment and population reports consume typed biological availability and social willingness without owning either domain", "Settlement schedules now submit external movement intents and actor adapters publish paths, status and authoritative arrival through MovementManager", "Actor promotion, demotion and save reload preserve the same person and movement-record identities", "Production camps still derive from the fixed Forest Hamlet roster"],
-      "tests_present": ["persistent_people_probe", "biological_owner_probe", "social_owner_probe", "movement_owner_probe", "simulation_lod_probe", "phase4_hamlet_probe", "phase4_save_probe", "regional_settlement_isolation_probe", "stageb_living_settlement_probe"],
-      "risks_conflicts": ["Production camps still use archived fixed-roster source definitions", "Local NavigationAgent execution remains an adapter beneath Set-30 intent, status and arrival authority"],
-      "next_action": "Expand dynamic populations and settlement operations through SET-001 while keeping movement, biology, social and political state in their specialist owners."
+      "evidence": ["A standalone hashed owner persists stable person identity, lifecycle, household membership, ordinary job assignment and broad schedule intent", "Hamlet and regional settlement records are compatibility projections of the same canonical people records", "People records hold versioned Set-28, Set-29 and Set-30 references while social, biological and movement truth remain in their specialist owners", "Set-07 assignment and population reports consume typed biological availability and social willingness without owning either domain", "Settlement schedules now submit external movement intents and actor adapters publish paths, status and authoritative arrival through MovementManager", "Actor promotion, demotion and save reload preserve the same person and movement-record identities", "All eight current visible roles make physical horizontal progress without unauthorised jump launches, retain their authored work targets and present their canonical held job tools", "The current builder walks into the supplied construction radius and places an owned blueprint stage block", "Production camps use world-derived resident identities and names rather than the archived Forest Hamlet roster", "Farmer, miner and lumberjack tasks persist intent, eligibility, reservation, arrival, domain phases, conserved result evidence and release across near and distant execution", "Farmer till, plant, tend and harvest phases now project persistent worksite crop state; nearby Hamlet runtime promotes that state into soil, seedling, growing, mature and harvested visuals without owning production truth", "Document-07 assignments bind residents to reusable physical workplace slots; released assignments remain visible compatibility history without destroying or falsely occupying the slot", "Seven current farmer, miner and lumberjack workplaces activate only from accepted living-worker assignments and preserve exact staffing evidence for Document-20 ServiceRecords", "Guard, merchant and mage ownership is explicitly deferred to COMBAT-001, ECO-001 and SYS-001 rather than claimed complete by presentation actions"],
+      "tests_present": ["persistent_people_probe", "biological_owner_probe", "social_owner_probe", "movement_owner_probe", "simulation_lod_probe", "npc_runtime_probe", "set_001_profession_probe", "set_001_service_activation_probe", "phase4_hamlet_probe", "phase4_save_probe", "regional_settlement_isolation_probe", "stageb_living_settlement_probe"],
+      "risks_conflicts": ["Local NavigationAgent execution remains an adapter beneath Set-30 intent, status and arrival authority", "Service staffing beyond the seven governed material workplaces, dynamic population growth and the external-owner jobs remain later SET-001 and dependent-package work"],
+      "next_action": "Expand SET-001 ServiceRecords into the next governed service family and need-driven growth, then implement commerce, specialist magic and full guard outcomes in their declared owner packages."
     },
     {
       "document_set": "08",
@@ -220,12 +220,12 @@
       "authoritative_owner": "Quests, events, history and world consequence",
       "dependencies_interfaces": ["07", "10-14", "16", "24K", "27-29"],
       "expected_implementation_area": ["event records", "quest graphs", "history evidence"],
-      "actual_repository_location": ["scripts/world/raid_runtime.gd", "scripts/autoload/hamlet_state.gd", "scripts/autoload/social_manager.gd"],
-      "status": "Stub",
-      "evidence": ["Raid and project histories are recorded locally", "Semantic dialogue commits carry source-event and evidence references without becoming event authority", "No generic quest/event/history owner exists"],
-      "tests_present": ["social_owner_probe", "phase7_combat_visual_probe", "stage9_release_candidate_probe"],
-      "risks_conflicts": ["Fixed raid timing and outcome can be mistaken for systemic event scheduling"],
-      "next_action": "Introduce event evidence and history journals before new authored quest breadth."
+      "actual_repository_location": ["scripts/autoload/event_manager.gd", "scripts/autoload/combat_state.gd", "scripts/autoload/hamlet_state.gd", "scripts/autoload/social_manager.gd"],
+      "status": "Partial",
+      "evidence": ["EventManager v2 owns stable-definition Event Instances, staged Quest Instance graphs, branch decisions, objective evidence, contributions, reward-claim state and bounded Chronicle records", "Typed subject bindings resolve through the existing people, settlement, structure, political, social and movement owners; caller-supplied predicate claims cannot replace committed owner evidence", "Kernel evidence, transaction and publication envelopes commit atomically; event plus Chronicle creation and state restore preflight before mutation, and v1 EVT state migrates to v2", "One raid advances one canonical lifecycle Event Instance from warning through resolution, while settlement request, project, damage and repair consequences retain checked owner and evidence links", "Authored quest breadth, the separate 24K Atlas content registry, Atlas-scale scheduling, background LOD event selection and broader world-consequence consumers remain incomplete Document 15 and 24 scope"],
+      "tests_present": ["event_owner_probe", "phase4_save_probe", "phase4_hamlet_probe", "phase5_automation_probe", "social_owner_probe", "phase7_combat_visual_probe", "current_regression_gate"],
+      "risks_conflicts": ["The verified EVT-001 runtime foundation must not be mistaken for authored Document 15 quest breadth or systemic 24K event scheduling"],
+      "next_action": "Keep EVT-001 regression-locked while later governed packages add authored definitions, Atlas scheduling, LOD selection and additional specialist consumers."
     },
     {
       "document_set": "16",
@@ -248,7 +248,7 @@
       "expected_implementation_area": ["main menu", "HUD", "settings", "accessible guidance"],
       "actual_repository_location": ["scripts/ui", "scripts/autoload/ui_state.gd", "main_menu.tscn"],
       "status": "Partial",
-      "evidence": ["Menu, HUD, map, settings and learning flows are probed", "Production breadth and owner-neutral query surfaces remain incomplete"],
+      "evidence": ["Menu, HUD, map, settings and learning flows are probed", "Each world card exposes a Delete action that names the target in a ConfirmationDialog and refreshes the list only after WorldManager reports a safe move", "Production breadth and owner-neutral query surfaces remain incomplete"],
       "tests_present": ["main_menu_probe", "phase8_ui_learning_probe", "phase8_ui_capture"],
       "risks_conflicts": ["Fixed Forest Hamlet labels leak archived validation into production UI"],
       "next_action": "Replace fixed labels with focused world/settlement query data and preserve accessibility gates."
@@ -259,12 +259,12 @@
       "authoritative_owner": "Godot and Summer Engine technical architecture",
       "dependencies_interfaces": ["all runtime systems", "Set 25 validation"],
       "expected_implementation_area": ["autoload boundaries", "commands/events/queries", "persistence", "performance profiles"],
-      "actual_repository_location": ["project.godot", "scripts/core/production_kernel.gd", "scripts/core/production_registry_kernel.gd", "scripts/core/save_coordinator.gd", "scripts/autoload/production_catalogue.gd", "scripts/autoload/structure_manager.gd", "scripts/autoload/simulation_lod_manager.gd", "scripts/autoload/people_manager.gd", "scripts/autoload/biology_manager.gd", "scripts/autoload/social_manager.gd", "scripts/autoload/political_manager.gd", "scripts/autoload/movement_manager.gd", "scripts/world/world_manifest.gd", "scripts/main.gd", ".summer/verification"],
+      "actual_repository_location": ["project.godot", "scripts/core/production_kernel.gd", "scripts/core/production_registry_kernel.gd", "scripts/core/save_coordinator.gd", "scripts/autoload/world_manager.gd", "scripts/autoload/production_catalogue.gd", "scripts/autoload/structure_manager.gd", "scripts/autoload/simulation_lod_manager.gd", "scripts/autoload/people_manager.gd", "scripts/autoload/biology_manager.gd", "scripts/autoload/social_manager.gd", "scripts/autoload/political_manager.gd", "scripts/autoload/movement_manager.gd", "scripts/world/world_manifest.gd", "scripts/main.gd", ".summer/verification"],
       "status": "Partial",
-      "evidence": ["Implemented domains use record-backed state, deterministic tests and atomic recovery", "World time, presence, authority, cross-set evidence, commands, events, idempotent transactions and bounded scheduled work persist through the shared production kernel", "Qualified schemas, facets, pack dependencies, definition ownership and deterministic compilation are enforced by the production registry kernel", "Registry generations save, migrate, quarantine missing optional packs and roll back losslessly", "The v18 save coordinates shared evidence before hashed StructureInstance, simulation-LOD, persistent-people, biological-owner, social-owner, political-owner and movement-owner projections and reconstructs derivable ownership for legacy saves", "A 16-step v2-v18 coordinator preserves extension domains, records an 18-domain restore order, validates generated-base deltas, blocks missing required packs and quarantines optional definitions", "Persistent local, regional, distant and dormant records enforce no-reroll promotion/demotion invariants, two-phase bounded catch-up, reconciliation barriers and per-mode/global workload budgets", "Persistent people, biological, social, political and movement records expose typed cross-set references without duplicating specialist truth", "Biological, social, political, movement and heterogeneous LOD hashes round-trip through the actual JSON save boundary", "Verified temporary writes and atomic rotation preserve the prior committed generation on write failure or integrity corruption", "Scalable specialist domain stores, CI and network replication remain incomplete"],
+      "evidence": ["Implemented domains use record-backed state, deterministic tests and atomic recovery", "World time, presence, authority, cross-set evidence, commands, events, idempotent transactions and bounded scheduled work persist through the shared production kernel", "Qualified schemas, facets, pack dependencies, definition ownership and deterministic compilation are enforced by the production registry kernel", "Registry generations save, migrate, quarantine missing optional packs and roll back losslessly", "The v18 save coordinates shared evidence before hashed StructureInstance, simulation-LOD, persistent-people, biological-owner, social-owner, political-owner and movement-owner projections and reconstructs derivable ownership for legacy saves", "A 16-step v2-v18 coordinator preserves extension domains, records an 18-domain restore order, validates generated-base deltas, blocks missing required packs and quarantines optional definitions", "Persistent local, regional, distant and dormant records enforce no-reroll promotion/demotion invariants, two-phase bounded catch-up, reconciliation barriers and per-mode/global workload budgets", "Persistent people, biological, social, political and movement records expose typed cross-set references without duplicating specialist truth", "Biological, social, political, movement and heterogeneous LOD hashes round-trip through the actual JSON save boundary", "Verified temporary writes and atomic rotation preserve the prior committed generation on write failure or integrity corruption", "World deletion validates a known stable world ID and atomically moves its exact directory beneath the configured root into a hidden recovery area; traversal, unknown identity and wrong-world selection are probed", "Scalable specialist domain stores, CI and network replication remain incomplete"],
       "tests_present": ["production_kernel_probe", "production_registry_kernel_probe", "production_catalogue_probe", "world_manifest_probe", "structure_instance_probe", "simulation_lod_probe", "persistent_people_probe", "biological_owner_probe", "social_owner_probe", "political_owner_probe", "movement_owner_probe", "save_coordinator_probe", "phase4_save_probe", "stage9_release_candidate_probe", "run_current_regression_gate.ps1", "run_phase0_gate.ps1"],
       "risks_conflicts": ["Project compatibility marker and historical documents still mention Godot 4.6", "The shared kernel must remain an envelope provider rather than a joint gameplay owner"],
-      "next_action": "Continue specialist owner extraction through EVT-001 and realm persistence while retaining the kernel as an envelope provider only."
+      "next_action": "Close the open P0 and P2 gates before beginning P4 integration; retain the kernel as an envelope provider rather than a gameplay owner."
     },
     {
       "document_set": "19",
@@ -285,12 +285,12 @@
       "authoritative_owner": "Buildings, services and authoritative ConstructionProjects",
       "dependencies_interfaces": ["03-08", "12-13", "19", "22", "27-30"],
       "expected_implementation_area": ["building definitions", "service activation", "ConstructionProject records"],
-      "actual_repository_location": ["scripts/autoload/settlement_content_registry.gd", "scripts/autoload/hamlet_state.gd", "scripts/autoload/structure_manager.gd", "scripts/settlement", "data/settlement"],
+      "actual_repository_location": ["scripts/autoload/settlement_content_registry.gd", "scripts/autoload/hamlet_state.gd", "scripts/autoload/structure_manager.gd", "scripts/settlement", "scripts/world/hamlet_runtime.gd", "scripts/world/settlement_worksite_visual.gd", "data/settlement"],
       "status": "Partial",
-      "evidence": ["120 definitions, blueprints, projects and behaviours load", "Completed ConstructionProjects hand stable building-instance identity to the StructureInstance owner exactly once", "Hamlet runtime buildings are compatibility projections of canonical structure condition and hash"],
-      "tests_present": ["structure_instance_probe", "settlement_registry_probe", "settlement_project_probe", "stageb_living_settlement_probe"],
-      "risks_conflicts": ["Many catalogue projects still lack production physical providers and broader service activation"],
-      "next_action": "Expand need-driven projects while preserving resource conservation and the completed-structure handoff."
+      "evidence": ["120 definitions, blueprints, projects and behaviours load", "Completed ConstructionProjects hand stable building-instance identity to the StructureInstance owner exactly once", "Hamlet runtime buildings are compatibility projections of canonical structure condition and hash", "Completed material workplaces receive bounded source state with project or survey provenance", "Seven current farming, mining and lumber workplaces declare explicit Document 20 staffing contracts that cross-validate accepted Document 07 jobs, target slot counts and physical blueprint markers", "Persisted ServiceRecords expose stable service identity, effective capacity, status, staffing, evidence references, blocker codes, source revisions and semantic revision", "Managed material workplaces stay offline without minimum valid staff or canonical stock and source evidence, scale partial capacity between minimum and target staffing, and reach full capacity at target staffing", "Near and far simulation, seven-need contribution and profession workplace selection consume the same service availability while unreconciled service families retain the compatibility path", "Farmer, miner and lumberjack production requires active condition, access, services, an assigned living worker, the correct tool, authoritative arrival, reserved inputs and one exact canonical recipe commit", "Farming worksite state records phase, crop state, progress, evidence and revision beside the owned building; near presentation reconstructs crop rows from that record and save/LOD-compatible dictionaries retain it"],
+      "tests_present": ["structure_instance_probe", "settlement_registry_probe", "settlement_project_probe", "set_001_service_activation_probe", "set_001_profession_probe", "settlement_wave1_probe", "npc_runtime_probe", "stageb_living_settlement_probe"],
+      "risks_conflicts": ["Service activation beyond the seven governed material workplaces, maintenance and district-growth activation remain incomplete"],
+      "next_action": "Reconcile the next governed service family, then continue maintenance, need-driven project selection and district growth while preserving resource conservation, profession evidence and the completed-structure handoff."
     },
     {
       "document_set": "20A-20H",
@@ -300,8 +300,8 @@
       "expected_implementation_area": ["120-entry catalogue", "behaviour families", "packs and plans"],
       "actual_repository_location": ["data/settlement", "scripts/autoload/settlement_content_registry.gd"],
       "status": "Partial",
-      "evidence": ["Seven needs and all 120 catalogue rows validate", "Gameplay art, balance and specialist system integration are incomplete"],
-      "tests_present": ["settlement_wave1_probe", "settlement_waves2_5_probe", "settlement_wave6_pack_probe"],
+      "evidence": ["Seven needs and all 120 catalogue rows validate", "The seven currently managed material-workplace staffing contracts cross-validate job-slot counts and required physical blueprint markers", "Gameplay art, balance and specialist system integration are incomplete"],
+      "tests_present": ["set_001_service_activation_probe", "settlement_wave1_probe", "settlement_waves2_5_probe", "settlement_wave6_pack_probe"],
       "risks_conflicts": ["Catalogue lifecycle labels are not implementation completion"],
       "next_action": "Track each family separately without inventing additional top-level settlement needs."
     },
@@ -350,12 +350,12 @@
       "authoritative_owner": "World Content Atlas",
       "dependencies_interfaces": ["10-15", "21-23", "25-30"],
       "expected_implementation_area": ["Atlas registries", "world content packages", "cross-link validation"],
-      "actual_repository_location": ["scripts/world/world_manifest.gd", "scripts/autoload/structure_manager.gd", "content/forge", "data/settlement", "scripts/world/world_structure_planner.gd"],
+      "actual_repository_location": ["scripts/world/world_manifest.gd", "scripts/autoload/structure_manager.gd", "scripts/autoload/event_manager.gd", "content/forge", "data/settlement", "scripts/world/world_structure_planner.gd"],
       "status": "Partial",
-      "evidence": ["New worlds persist content-locked Overworld and starter-region identities", "Regional placement is deterministic and no production manifest accepts an archived POC profile", "Generated settlement structures receive stable worldgen-provenance StructureInstance ownership before combat", "No complete Atlas runtime registry or production world breadth exists"],
-      "tests_present": ["world_manifest_probe", "structure_instance_probe", "current_worldgen_fast_probe", "forge_production_catalogue_probe", "poc_archive_isolation_probe"],
+      "evidence": ["New worlds persist content-locked Overworld and starter-region identities", "Regional placement is deterministic and no production manifest accepts an archived POC profile", "Generated settlement structures receive stable worldgen-provenance StructureInstance ownership before combat", "EventManager now provides the first canonical world-consequence and history substrate required by Document 24K breadth", "No complete Atlas runtime registry or production world breadth exists"],
+      "tests_present": ["world_manifest_probe", "structure_instance_probe", "event_owner_probe", "current_worldgen_fast_probe", "forge_production_catalogue_probe", "poc_archive_isolation_probe"],
       "risks_conflicts": ["Generated assets can imply content completeness without systemic integration"],
-      "next_action": "Add Atlas registry validation only after canonical IDs and owner record schemas are stable."
+      "next_action": "Expand the separate Atlas registry, authored event breadth and background scheduling in their governed packages while retaining the certified EVT runtime interface."
     },
     {
       "document_set": "25",
@@ -365,10 +365,10 @@
       "expected_implementation_area": ["document manifest", "registry kernel", "migrations", "validation gates"],
       "actual_repository_location": [".summer/tools", ".summer/requirements", "scripts/core/production_registry_kernel.gd", "scripts/core/save_coordinator.gd", "scripts/autoload/production_catalogue.gd", "scripts/autoload/structure_manager.gd", "scripts/autoload/simulation_lod_manager.gd", "scripts/autoload/people_manager.gd", "scripts/autoload/biology_manager.gd", "scripts/world/world_manifest.gd", "scripts/settlement/settlement_schema_migration.gd"],
       "status": "Partial",
-      "evidence": ["A schema-v2 ledger governs 137 primary documents and 164 manifest identities", "A dependency-validated nine-phase production path governs 39 implementation packages", "Qualified definitions compile through deterministic pack order into a hashed lockfile", "The representative registry fixture saves, migrates, quarantines an optional pack and rolls back losslessly", "World manifests plus hashed StructureInstance, simulation-LOD, persistent-people and biological state persist through the v18 coordinator", "All supported v2-v18 saves have an explicit ordered migration path; missing required packs block restore and missing optional definitions are quarantined", "The LOD release cycle covers demote, bounded distant advance, save/reload and promotion with protected owner invariants and conservation validation", "People and biological owner records plus cross-set reference interfaces validate hashes, revisions, replay conflicts and atomic restore", "Checksums, 32-row implementation coverage and seven retired registry aliases are machine-validated"],
-      "tests_present": ["document_governance_probe.ps1", "poc_archive_isolation_probe.ps1", "production_kernel_probe", "production_registry_kernel_probe", "production_catalogue_probe", "world_manifest_probe", "structure_instance_probe", "simulation_lod_probe", "persistent_people_probe", "biological_owner_probe", "save_coordinator_probe", "phase4_save_probe", "stage9_release_candidate_probe", "canonical_block_inventory_projection_probe", "run_phase0_gate.ps1", "set20_v02_set22_foundation_probe"],
-      "risks_conflicts": ["Requirement disposition is still incomplete beyond the package-level map"],
-      "next_action": "Complete Core row disposition and implement registry-authoring rejection for new duplicate Block/Item identities."
+      "evidence": ["A schema-v3 ledger governs 137 primary documents and 164 manifest identities", "All 31788 requirement rows map to exactly one governed package, phase, release tier and scope disposition; 31778 accepted rows are blocking and 10 Tooling Research rows are explicitly non-blocking", "A dependency-validated nine-phase production path governs 39 implementation packages", "Qualified definitions compile through deterministic pack order into a hashed lockfile", "The representative registry fixture saves, migrates, quarantines an optional pack and rolls back losslessly", "World manifests plus hashed StructureInstance, simulation-LOD, persistent-people and biological state persist through the v18 coordinator", "All supported v2-v18 saves have an explicit ordered migration path; missing required packs block restore and missing optional definitions are quarantined", "The LOD release cycle covers demote, bounded distant advance, save/reload and promotion with protected owner invariants and conservation validation", "People and biological owner records plus cross-set reference interfaces validate hashes, revisions, replay conflicts and atomic restore", "Checksums, 32-row implementation coverage and seven retired registry aliases are machine-validated"],
+      "tests_present": ["document_governance_probe.ps1", "poc_archive_isolation_probe.ps1", "generate_requirement_ledger.ps1", "update_production_roadmap.ps1", "production_kernel_probe", "production_registry_kernel_probe", "production_catalogue_probe", "world_manifest_probe", "structure_instance_probe", "simulation_lod_probe", "persistent_people_probe", "biological_owner_probe", "save_coordinator_probe", "phase4_save_probe", "stage9_release_candidate_probe", "canonical_block_inventory_projection_probe", "run_phase0_gate.ps1", "set20_v02_set22_foundation_probe"],
+      "risks_conflicts": ["New governed documents and rows must receive a package disposition before acceptance", "Forge authoring still needs direct rejection for newly introduced duplicate recoverable Block and Item identities"],
+      "next_action": "Keep the row ledger generated from the production path and implement registry-authoring rejection for new duplicate Block and Item identities."
     },
     {
       "document_set": "26",

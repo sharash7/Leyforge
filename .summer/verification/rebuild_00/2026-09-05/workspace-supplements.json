@@ -1,0 +1,794 @@
+[
+  {
+    "source": "build/Leyforge.exe",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\build\\Leyforge.exe",
+    "bytes": 104546304,
+    "sha256": "93731792baca440c4ada89577959f5644e0ad44bffbc52566c3fd1e286df06ac",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "build/Leyforge.pck",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\build\\Leyforge.pck",
+    "bytes": 678300,
+    "sha256": "3f2d837aeed8d1dbbb0fa4a914da09797c0e259b815ceedec10660c06888735f",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/Godot_v4.8-dev-a9c94-shutdown-fixed/godot.windows.editor.x86_64.console.exe",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+    "bytes": 301056,
+    "sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/Godot_v4.8-dev-a9c94-shutdown-fixed/godot.windows.editor.x86_64.exe",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.exe",
+    "bytes": 164200960,
+    "sha256": "87d0a6077abe38b905f973b23d9f27fd4f3b7a8db2309dfd6807fad7dff582c8",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/Godot_v4.8-dev-a9c94-shutdown-fixed/README.txt",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\README.txt",
+    "bytes": 1143,
+    "sha256": "be2a21688664f98c071df9112120e1717abba5617f2a6dc382c886374779bb59",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/546e46d3-gdscript-shutdown.patch",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\546e46d3-gdscript-shutdown.patch",
+    "bytes": 10928,
+    "sha256": "217be6b0b2176c53b0c8deaf2149bde0f2e73cf047baad7f45ec29236dfb367a",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/a9c94cd2-owner-reference.patch",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\a9c94cd2-owner-reference.patch",
+    "bytes": 1296,
+    "sha256": "ca35e6dc60f0e40e4f71ed96d9431cac7b4349f1e543e37651ef672f7711b1d4",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/editor_settings-4.6.tres",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\editor_settings-4.6.tres",
+    "bytes": 3395,
+    "sha256": "2952330a8fd0b480266725cdeb4508b5d4d347ec18d9fb85f3bee627e0ec00a0",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/leyforge_release_report.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\leyforge_release_report.json",
+    "bytes": 1116,
+    "sha256": "f0aebcd23c9acc8600e21e37a04efe91de32b85cb73b8cad9c276730db02925b",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/profile.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\profile.backup.json",
+    "bytes": 1942,
+    "sha256": "df25b55d9ab5e9c0fd51674e1cc5ed9c6968e17e6bd61fb7a068a9918bcc2d74",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/profile.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\profile.json",
+    "bytes": 1942,
+    "sha256": "df25b55d9ab5e9c0fd51674e1cc5ed9c6968e17e6bd61fb7a068a9918bcc2d74",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/development/village_progression_lab/lab.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\development\\village_progression_lab\\lab.backup.json",
+    "bytes": 530008,
+    "sha256": "d2f09874568d434fa17f0da480d0a10afebcc53f0a57bfa9e1fac1bc6aae7def",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/development/village_progression_lab/lab.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\development\\village_progression_lab\\lab.json",
+    "bytes": 530008,
+    "sha256": "762efec48edcdebb9c0be9b15a49a715446e8b1e6702ad8a8af2589d897d44b2",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot.log",
+    "bytes": 510,
+    "sha256": "90037de4bc0015a4ec0254882b6cc1d4333a1160c4d0a8073442203bb4c8d84f",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.24.03.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-07-28T22.24.03.log",
+    "bytes": 411,
+    "sha256": "6a74ee27df1024e4ce149bfbd0e86cd63ee7ab3ef362779d00b8dd5d868dc626",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.29.44.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-07-28T22.29.44.log",
+    "bytes": 2287,
+    "sha256": "5e8be61018a2de572be2946b7c83b55097f46dee1b5948351c70a1ede959774d",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.49.52.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-07-28T22.49.52.log",
+    "bytes": 539,
+    "sha256": "8bbb766bb5210463f4dac551cdcfdb12b76e5ee820d772c21bf5d1724da1feab",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.50.20.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-07-28T22.50.20.log",
+    "bytes": 539,
+    "sha256": "8bbb766bb5210463f4dac551cdcfdb12b76e5ee820d772c21bf5d1724da1feab",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-254daf25/metadata.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3655275\\world-1785248619-254daf25\\metadata.backup.json",
+    "bytes": 675,
+    "sha256": "0639c4882c7937894bd164f14672662c45fc7a24dc5cb1c13133cd260c542625",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-254daf25/metadata.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3655275\\world-1785248619-254daf25\\metadata.json",
+    "bytes": 682,
+    "sha256": "0aa5829f4533e7f46974c9e610958eaf11b3a9dc8ec5d16a9ad31a5e74bcfc09",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-254daf25/world.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3655275\\world-1785248619-254daf25\\world.json",
+    "bytes": 28598,
+    "sha256": "f85adb0ac1341b74e54c2807fa9f10d144f63d1c76e6927934524eb992c6e8d3",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-407ff8aa/metadata.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3655275\\world-1785248619-407ff8aa\\metadata.backup.json",
+    "bytes": 675,
+    "sha256": "07bba9fe4bb17e0fc1c449cf45daa15ccdc07469f975746f04fef6df9611ae21",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-407ff8aa/metadata.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3655275\\world-1785248619-407ff8aa\\metadata.json",
+    "bytes": 682,
+    "sha256": "aa40f975ebcfa822f0c9d493a09f06ec0a56e39599cf7a2019f33c706ad09df0",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-407ff8aa/world.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3655275\\world-1785248619-407ff8aa\\world.json",
+    "bytes": 29124,
+    "sha256": "356664817443a670d18cda136dafe6f8b1d7b34cd27a47a5b9f87af7950ccc71",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/app_userdata/Leyforge/worlds/.legacy_import_complete",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\app_userdata\\Leyforge\\worlds\\.legacy_import_complete",
+    "bytes": 35,
+    "sha256": "5b48bb64d3f7ffac6716efac43db67af31f819c9c2bfb4f405c2f2c3acef7c2e",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-live-profile/Godot/cache/editor_doc_cache-4.6.res",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-live-profile\\Godot\\cache\\editor_doc_cache-4.6.res",
+    "bytes": 3142861,
+    "sha256": "a9d4da718ee7aab06b8c9ff81a8b809683adc264109f6a8fc4bde3277a50ae71",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/editor_settings-4.6.tres",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\editor_settings-4.6.tres",
+    "bytes": 3397,
+    "sha256": "766278d7001ce8c8419c62d7763ac4bfcbebf9e3dbc2b0304e0979ac49fa8673",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/leyforge_release_report.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\leyforge_release_report.json",
+    "bytes": 1131,
+    "sha256": "4a1aa64280c81d5eac01e4f7370e299e83d088a1be64afe6bddda646d5f63970",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/leyforge_save.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\leyforge_save.backup.json",
+    "bytes": 821,
+    "sha256": "63d328282c57069901a6fe301383f4fcc08927c2d829c1aafffa19ec93ac0948",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/leyforge_save.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\leyforge_save.json",
+    "bytes": 821,
+    "sha256": "63d328282c57069901a6fe301383f4fcc08927c2d829c1aafffa19ec93ac0948",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/profile.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\profile.backup.json",
+    "bytes": 1942,
+    "sha256": "e3116b87f9033197b43e9b9b797d3b8992361b0d9622d06e5bad672f6964ff5b",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/profile.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\profile.json",
+    "bytes": 1942,
+    "sha256": "e3116b87f9033197b43e9b9b797d3b8992361b0d9622d06e5bad672f6964ff5b",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/development/village_progression_lab/lab.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\development\\village_progression_lab\\lab.json",
+    "bytes": 530008,
+    "sha256": "1d527f37caa6bb5b7883787d9c08fb5b0a1ffd84f2262aabd817ffdc12bfefd4",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot.log",
+    "bytes": 442,
+    "sha256": "1c6c1335fdcf34dece6ceab9abfb9c3cf419d3deb498c65f7955f434caddb2c8",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.44.58.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-07-28T22.44.58.log",
+    "bytes": 682,
+    "sha256": "ea4492a95007db865f6e39bea31280e9a0136a2a568d143da87fe326ddd77a21",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.45.02.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-07-28T22.45.02.log",
+    "bytes": 391,
+    "sha256": "020d07c6e331b7ed07060567249c311d321fcf2f35164d9f582099f872afffe8",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.45.58.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-07-28T22.45.58.log",
+    "bytes": 510,
+    "sha256": "90037de4bc0015a4ec0254882b6cc1d4333a1160c4d0a8073442203bb4c8d84f",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.46.30.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-07-28T22.46.30.log",
+    "bytes": 539,
+    "sha256": "8bbb766bb5210463f4dac551cdcfdb12b76e5ee820d772c21bf5d1724da1feab",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/.legacy_import_complete",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_legacy_import_3312610\\.legacy_import_complete",
+    "bytes": 35,
+    "sha256": "03494fe0b1067fd1f588dc2110d2a9f5aec3c250e9867c8cebb4a8c7ff69f3b1",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/legacy-world/metadata.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_legacy_import_3312610\\legacy-world\\metadata.backup.json",
+    "bytes": 466,
+    "sha256": "c67800a237af26f5b3e77e0e60496fb8a27765b96d674c7d74efc4eae01e7bd0",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/legacy-world/metadata.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_legacy_import_3312610\\legacy-world\\metadata.json",
+    "bytes": 557,
+    "sha256": "455059e5cb981b4d53cc5331e09140f6784e10a06f5bc139f4b3db491ef09b28",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/legacy-world/world.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_legacy_import_3312610\\legacy-world\\world.backup.json",
+    "bytes": 821,
+    "sha256": "63d328282c57069901a6fe301383f4fcc08927c2d829c1aafffa19ec93ac0948",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/legacy-world/world.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_legacy_import_3312610\\legacy-world\\world.json",
+    "bytes": 33030,
+    "sha256": "128dd7522f5f872aaf487c6b906afed06766157d25bb8638ed80f97025f57617",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-5b1758ca/metadata.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3244010\\world-1785249886-5b1758ca\\metadata.backup.json",
+    "bytes": 675,
+    "sha256": "d20ae1e636dd77f8a3cf6dc422c4f76431458e80fa90114bae863674dcc41406",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-5b1758ca/metadata.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3244010\\world-1785249886-5b1758ca\\metadata.json",
+    "bytes": 682,
+    "sha256": "400644a1b991853d9b91f18efe93bc1d28b3f7a1039d161b3f4c1bdb61f712cc",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-5b1758ca/world.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3244010\\world-1785249886-5b1758ca\\world.json",
+    "bytes": 29126,
+    "sha256": "1602a59e11a213768f9cda7bfd77eb0174fc7e1a034dc9f14f4003b9ad3a365a",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-6c87e444/metadata.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3244010\\world-1785249886-6c87e444\\metadata.backup.json",
+    "bytes": 675,
+    "sha256": "a90809627b254cc9e0566a22dec9c714d45e91a29a171dce77d7787f09c56dd3",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-6c87e444/metadata.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3244010\\world-1785249886-6c87e444\\metadata.json",
+    "bytes": 682,
+    "sha256": "6c2dfe0dcd351d0a618cb73056624fffbed99eb456c81c42a95cb0948d9cbf45",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-6c87e444/world.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\verification_stage_a_worlds_3244010\\world-1785249886-6c87e444\\world.json",
+    "bytes": 28586,
+    "sha256": "9a3b008c14f01e28ddd1e630afd87ffc3c794a6db584b68f71b31b14da85abc4",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/app_userdata/Leyforge/worlds/.legacy_import_complete",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\app_userdata\\Leyforge\\worlds\\.legacy_import_complete",
+    "bytes": 35,
+    "sha256": "53085172cf1ce5c9f682e689fab7d6c1d403f8999ca86eb25de97f33d9c79750",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".verification/stageb-final-profile/Godot/cache/editor_doc_cache-4.6.res",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.verification\\stageb-final-profile\\Godot\\cache\\editor_doc_cache-4.6.res",
+    "bytes": 3142854,
+    "sha256": "334a21cbb5c44574eb761e93aaff59882da1dd25ed2d2f3c4c79148daf67f38a",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/leyforge_release_report.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\profile-enforced-default-20260806\\Godot\\app_userdata\\Leyforge\\leyforge_release_report.json",
+    "bytes": 1126,
+    "sha256": "23370fbba32437deb95854896b342825bf7a75a8f3b4817ae991e7e9f6f447f6",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/profile.backup.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\profile-enforced-default-20260806\\Godot\\app_userdata\\Leyforge\\profile.backup.json",
+    "bytes": 1943,
+    "sha256": "75893d6b5526b6b36afec837e874fce322c9d5859533da9ace004f6d22dec95d",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/profile.json",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\profile-enforced-default-20260806\\Godot\\app_userdata\\Leyforge\\profile.json",
+    "bytes": 1939,
+    "sha256": "55199dd983026ca2e2496438d999beb11ffa793055539e7afe3d676c126880cd",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\profile-enforced-default-20260806\\Godot\\app_userdata\\Leyforge\\logs\\godot.log",
+    "bytes": 600,
+    "sha256": "38f8f46edad6b791dc9b430400961ce6c603502b77e8359b6a023cf6cbe112f6",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot2026-08-06T14.46.45.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\profile-enforced-default-20260806\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-08-06T14.46.45.log",
+    "bytes": 654,
+    "sha256": "114eeeb6e3bf80ea2316a6726fc66b1733268898ae756859b3d246d9e05b1183",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot2026-08-06T14.46.55.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\profile-enforced-default-20260806\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-08-06T14.46.55.log",
+    "bytes": 625,
+    "sha256": "3237ffc4e12384eaad64801fe949dfc0554714cd9776d34304c69c1319583cce",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot2026-08-06T14.46.59.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\profile-enforced-default-20260806\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-08-06T14.46.59.log",
+    "bytes": 437,
+    "sha256": "7d4bb0206741fb55f3b303d815e3c96c990a4e9f0432218b344d70a23c6494b1",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot2026-08-06T14.47.13.log",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\profile-enforced-default-20260806\\Godot\\app_userdata\\Leyforge\\logs\\godot2026-08-06T14.47.13.log",
+    "bytes": 828,
+    "sha256": "a8750b255eb7dee4aa76874d0f531e3efc701fe84d368e958682499dd3a7928e",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": ".local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/worlds/.legacy_import_complete",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\.local\\diagnostics\\godot-shutdown-019fbb51\\profile-enforced-default-20260806\\Godot\\app_userdata\\Leyforge\\worlds\\.legacy_import_complete",
+    "bytes": 35,
+    "sha256": "968e21ecf0132d792aaa9aad996e15777557ac7c4d353fa45efce6cc35f3a771",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_automation_crusher_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_automation_crusher_basic.previous.bak",
+    "bytes": 100646,
+    "sha256": "72e460ad3dcbda598f31a936145fb523a19683996bbccfeaefc871cd1cfa6910",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_automation_transport_chute.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_automation_transport_chute.previous.bak",
+    "bytes": 92787,
+    "sha256": "dbdecadd66b04c435d7a333c79f4c02b89d10d66dd97b45a68dbd70193b3ef6b",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_construction_brick_stone.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_construction_brick_stone.previous.bak",
+    "bytes": 11350,
+    "sha256": "e2ddbf281c53c7769496865eef04bc55161ab9c66a311db49d329335e351779f",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_construction_planks_oak.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_construction_planks_oak.previous.bak",
+    "bytes": 10947,
+    "sha256": "8a0aa3bdc422c3033b6d473c642622b31e4c1f10cafd63627f2543a2e9be98c4",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_functional_furnace_stone.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_functional_furnace_stone.previous.bak",
+    "bytes": 110076,
+    "sha256": "d91cad1af0dc46fea5b0f12ee62004220f85d1a3dfe24b05000f450fcddccd6f",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_item_component_chute_segment.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_item_component_chute_segment.previous.bak",
+    "bytes": 90037,
+    "sha256": "e215cfb4ee2931820f76f56cce8dc4bb3f7a432f1ebee4c70e8e0b3d2863122b",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_item_tool_crude_pickaxe.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_item_tool_crude_pickaxe.previous.bak",
+    "bytes": 91291,
+    "sha256": "9726da814e908df2c73c89df2407dcab70f0348d9f05a525428e74fc5c2ff6ad",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_light_torch_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_light_torch_basic.previous.bak",
+    "bytes": 452458,
+    "sha256": "9f95c84829a0cbf56ab1200f8a2cb5e33d38e24f2f6074f0e7110311b4381a99",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_magic_conduit_mana_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_magic_conduit_mana_basic.previous.bak",
+    "bytes": 91490,
+    "sha256": "4534c04c5da0f6410515bc03c0a600fd5b2e435058dd9d85dd64dfc8d975a51b",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_ore_coal_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_ore_coal_basic.previous.bak",
+    "bytes": 13071,
+    "sha256": "798caf7c0f428fc0156d6d9352c6e8ff86c7ffb5938ef9e0ee71dd55ea739090",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_ore_copper_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_ore_copper_basic.previous.bak",
+    "bytes": 11019,
+    "sha256": "3513f6a7f847f1d129de0031d7107d12ec8f0afe97bc4c23956353402c273490",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_ore_iron_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_ore_iron_basic.previous.bak",
+    "bytes": 11001,
+    "sha256": "1ee79bf2c4fa6997469d34b7041eb84437ad0835df5906b876a8bba1d306cd87",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_terrain_dirt_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_terrain_dirt_basic.previous.bak",
+    "bytes": 12109,
+    "sha256": "fecbb7d85883384cbd297c1d92c05744cdb46444d0b6d813ce9046a0a4a0368e",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_terrain_grass_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_terrain_grass_basic.previous.bak",
+    "bytes": 11706,
+    "sha256": "b3988c01380d2bf1eb09996b0a63f54c4672954b0a7a63bc0cb44ce20ea35c43",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "content/forge/assets/forge_asset_terrain_stone_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\content\\forge\\assets\\forge_asset_terrain_stone_basic.previous.bak",
+    "bytes": 12293,
+    "sha256": "b33637d09e8e37d9c736753109c95d0a48247ab51acdc53285e54fd51c99a722",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_automation_crusher_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_automation_crusher_basic.previous.bak",
+    "bytes": 2138,
+    "sha256": "bee84926136e864005b01394c3acea43a54088e2a79b5ee8948fe595bb63e68e",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_automation_transport_chute.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_automation_transport_chute.previous.bak",
+    "bytes": 1932,
+    "sha256": "b4c5645618388a8290ed9939ab150ee81ca503b32f837ae787bb3ccbc66e5adb",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_construction_brick_stone.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_construction_brick_stone.previous.bak",
+    "bytes": 2908,
+    "sha256": "04c651e97ad4c74b3c3b822e3251fa2c06893d43177e139d33f7ff19c62a0978",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_construction_planks_oak.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_construction_planks_oak.previous.bak",
+    "bytes": 2944,
+    "sha256": "5de01502e3117b19bfdc606b23c4f3858b9775693fe92f25e74735d9287e9e0d",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_functional_furnace_stone.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_functional_furnace_stone.previous.bak",
+    "bytes": 2858,
+    "sha256": "4bc707a34c1dfc33b7af30651d4b4bd98c383a772d5e8ee80367440d1aa488d1",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_item_tool_crude_pickaxe.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_item_tool_crude_pickaxe.previous.bak",
+    "bytes": 1668,
+    "sha256": "ebbfbbc5b52a0744203bdfb1450c3318a21140f25480421f1e54f9a6e5ff9573",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_light_torch_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_light_torch_basic.previous.bak",
+    "bytes": 3011,
+    "sha256": "b36f65302ddcef8c0d610f73cccd77afb3cb974067dfce3b5e193811fd48f90e",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_magic_conduit_mana_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_magic_conduit_mana_basic.previous.bak",
+    "bytes": 1896,
+    "sha256": "8d5080734b02b761a6f61d077d60a8b58e20f85d39364b0a932dff918b375e3f",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_ore_coal_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_ore_coal_basic.previous.bak",
+    "bytes": 2834,
+    "sha256": "7ef1761963a36734664718abd88ab2ff6932c5bcad137e3fc625eb435efa1b4a",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_terrain_dirt_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_terrain_dirt_basic.previous.bak",
+    "bytes": 2879,
+    "sha256": "72eb8add2751b0fe9a73e6a79eacf6186cb1758103029dba29360d4a8a363f62",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_terrain_grass_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_terrain_grass_basic.previous.bak",
+    "bytes": 2843,
+    "sha256": "da57e86ae3e58ade80f594281662c1b30a7df0a5e3e1b0298460e481a7120ec5",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/manifests/presentation_terrain_stone_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\manifests\\presentation_terrain_stone_basic.previous.bak",
+    "bytes": 2870,
+    "sha256": "5701023703248657a26e3ba71f101e4a66f77f99d2bdb18a4c1e93c1fb205a27",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_automation_crusher_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_automation_crusher_basic.previous.bak",
+    "bytes": 2969,
+    "sha256": "70f556dd0f6bc60a85cf0ed154ebf2c290634c0adcfaf3a0d4e6e886e20f9aae",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_automation_transport_chute.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_automation_transport_chute.previous.bak",
+    "bytes": 2691,
+    "sha256": "afa24a00308772a502956a239fde04764e19846a59604b2e216e912cb5996305",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_construction_brick_stone.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_construction_brick_stone.previous.bak",
+    "bytes": 2796,
+    "sha256": "ca8f335df0f0aadbf6f5856e466787eac5a51790e48305cc0aa3fef7b0506849",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_construction_planks_oak.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_construction_planks_oak.previous.bak",
+    "bytes": 2674,
+    "sha256": "003d0f9c543d8ce313bc411343171bb66ead722021720eb52160e1d3c01369b9",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_functional_furnace_stone.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_functional_furnace_stone.previous.bak",
+    "bytes": 4048,
+    "sha256": "432ce0593470765d38cbfa293dfd02f0588236dbf1e3ae397294e82248990f81",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_item_tool_crude_pickaxe.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_item_tool_crude_pickaxe.previous.bak",
+    "bytes": 2002,
+    "sha256": "2dd57811f3dfd4cc501522f3cd6ecdf643b80cb7f5872f111085f23934c7b3bc",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_light_torch_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_light_torch_basic.previous.bak",
+    "bytes": 3850,
+    "sha256": "bd76d2eb06b4ac9b36fc13d4e31b5c11b3b3aee77d799036794ac253dab25c59",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_magic_conduit_mana_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_magic_conduit_mana_basic.previous.bak",
+    "bytes": 2501,
+    "sha256": "6106519cd76df0aa7e98f724005a8f60510ae373f980fc8df4a203e551082ac6",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_ore_coal_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_ore_coal_basic.previous.bak",
+    "bytes": 2602,
+    "sha256": "71f3c6e78e2daa6c28a994fa39731400b8720e066b7bff3e7e8856e2c80246d0",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_terrain_dirt_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_terrain_dirt_basic.previous.bak",
+    "bytes": 2615,
+    "sha256": "c2d77acec34bd538161a57f2d8cf6f192d29ec5f285445918974d8e95da39fee",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_terrain_grass_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_terrain_grass_basic.previous.bak",
+    "bytes": 2621,
+    "sha256": "89ab13afa012328fecde648cf90eb788b4a9089d05a89201dbd5b96f87124827",
+    "copy_verified": true,
+    "execution": "not_executed"
+  },
+  {
+    "source": "generated/forge/packages/presentation_terrain_stone_basic.previous.bak",
+    "copy": "D:\\AI\\Projects\\leyforge\\.local\\r01-20260905\\supplements\\workspace\\generated\\forge\\packages\\presentation_terrain_stone_basic.previous.bak",
+    "bytes": 2656,
+    "sha256": "563fcfbb7a9de4f0e6efae2243545faf63305647ee640a62de8ae07ca42d6380",
+    "copy_verified": true,
+    "execution": "not_executed"
+  }
+]

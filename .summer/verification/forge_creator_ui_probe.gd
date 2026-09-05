@@ -4,14 +4,34 @@ extends Node
 var checks := 0
 var failures: Array[String] = []
 var workspace: ForgeWorkspace
+var workspace_host: Control
+
+const INPUT_VIEWPORT_SIZE := Vector2i(1800, 1000)
+const COMPACT_FORGE_HOST_SIZE := Vector2(1152, 648)
 
 
 func _ready() -> void:
 	ForgeAccessPolicy.test_override = true
+	# Headless Godot otherwise exposes a 64 x 64 root viewport. Size the actual
+	# input viewport, then mount Forge inside the compact host we want to verify.
+	get_window().size = INPUT_VIEWPORT_SIZE
+	await get_tree().process_frame
+	workspace_host = Control.new()
+	workspace_host.name = "ForgeProbeHost"
+	workspace_host.size = COMPACT_FORGE_HOST_SIZE
+	workspace_host.clip_contents = true
+	add_child(workspace_host)
 	workspace = ForgeWorkspace.new()
 	workspace.host_mode = "editor"
-	workspace.size = Vector2(1800, 1000)
-	add_child(workspace)
+	workspace.size = workspace_host.size
+	workspace_host.add_child(workspace)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	# Child minima are now responsive; re-assert the fixed host rectangle after
+	# the first container sort so a direct Node test host behaves like the editor
+	# or game viewport that normally owns ForgeWorkspace.
+	workspace.size = workspace_host.size
+	workspace.refresh_host_layout()
 	await get_tree().process_frame
 	await get_tree().process_frame
 	_test_routes()
@@ -70,7 +90,69 @@ func _test_structures() -> void:
 	_expect(panel.find_child("StructureVisualBuilder", true, false) is ForgeStructureVoxelBuilder \
 			and panel.find_child("StructureVoxel3DCanvas", true, false) is ForgeVoxel3DCanvas,
 		"structure module opens directly in the visual 3D block builder")
+	_expect(panel.find_child("StructureToolTabs", true, false) is TabContainer,
+		"structure block and stage tools remain accessible in responsive tabs")
 	var builder := panel._structure_builder
+	var canvas := builder._canvas
+	var canvas_edits: Array[Dictionary] = []
+	canvas.cell_pressed.connect(func(position: Vector3i, erase: bool, continuous: bool) -> void:
+		canvas_edits.append({"position": position, "erase": erase,
+			"continuous": continuous}))
+	var orbit_before := canvas.camera_yaw
+	var right_press := InputEventMouseButton.new()
+	right_press.button_index = MOUSE_BUTTON_RIGHT
+	right_press.pressed = true
+	right_press.position = Vector2(120, 120)
+	canvas._handle_mouse_button(right_press)
+	var orbit_motion := InputEventMouseMotion.new()
+	orbit_motion.position = Vector2(150, 125)
+	orbit_motion.relative = Vector2(30, 5)
+	canvas._handle_mouse_motion(orbit_motion)
+	var right_release := InputEventMouseButton.new()
+	right_release.button_index = MOUSE_BUTTON_RIGHT
+	right_release.pressed = false
+	right_release.position = Vector2(150, 125)
+	canvas._handle_mouse_button(right_release)
+	_expect(not is_equal_approx(canvas.camera_yaw, orbit_before) \
+			and canvas_edits.is_empty(),
+		"3D canvas right-drag orbits without accidentally erasing")
+	var click_press := InputEventMouseButton.new()
+	click_press.button_index = MOUSE_BUTTON_RIGHT
+	click_press.pressed = true
+	click_press.position = Vector2(120, 120)
+	canvas._handle_mouse_button(click_press)
+	var click_release := InputEventMouseButton.new()
+	click_release.button_index = MOUSE_BUTTON_RIGHT
+	click_release.pressed = false
+	click_release.position = Vector2(120, 120)
+	canvas._handle_mouse_button(click_release)
+	_expect(canvas_edits.size() == 1 and bool(canvas_edits[0].get("erase", false)),
+		"3D canvas preserves single-cell right-click erase")
+	var routed_edit_count := canvas_edits.size()
+	var routed_orbit_before := canvas.camera_yaw
+	await _route_mouse_drag(canvas, MOUSE_BUTTON_RIGHT, Vector2(42, 9))
+	_expect(not is_equal_approx(canvas.camera_yaw, routed_orbit_before) \
+			and canvas_edits.size() == routed_edit_count,
+		"assembled structure canvas receives right-drag orbit without editing "
+		+ "(before=%0.3f after=%0.3f drag=%s rect=%s)" % [
+			routed_orbit_before, canvas.camera_yaw, str(canvas._drag_button),
+			str(canvas.get_global_rect())])
+	var routed_pan_before := canvas.camera_target
+	await _route_mouse_drag(canvas, MOUSE_BUTTON_MIDDLE, Vector2(26, -18))
+	_expect(not canvas.camera_target.is_equal_approx(routed_pan_before),
+		"assembled structure canvas receives middle-drag pan")
+	var routed_zoom_before := canvas.camera_distance
+	await _route_mouse_wheel(canvas, MOUSE_BUTTON_WHEEL_UP)
+	_expect(canvas.camera_distance < routed_zoom_before,
+		"assembled structure canvas receives wheel zoom")
+	var preview_orbit_before := workspace._preview._yaw
+	await _route_mouse_drag(workspace._preview, MOUSE_BUTTON_LEFT, Vector2(36, 8))
+	_expect(not is_equal_approx(workspace._preview._yaw, preview_orbit_before),
+		"assembled live preview receives left-drag orbit "
+		+ "(before=%0.3f after=%0.3f dragging=%s rect=%s)" % [
+			preview_orbit_before, workspace._preview._yaw,
+			str(workspace._preview._dragging),
+			str(workspace._preview.get_global_rect())])
 	var registry_block_count := 0
 	for record in ForgeRegistryBridge.new().all_gameplay_records():
 		if str(record.get("kind", "")) == "block":
@@ -93,6 +175,20 @@ func _test_structures() -> void:
 		"visual structure gesture has grouped undo")
 	_expect(panel.redo() and module.structure_voxel_source.cells.size() == before_cells + 1,
 		"visual structure gesture has grouped redo")
+	canvas._set_hover_cell(Vector3i(2, 0, 1))
+	var cursor_highlight := canvas._highlight_root.find_child(
+		"CursorTarget", true, false)
+	_expect(canvas._has_hover_cell and canvas._hover_cell == Vector3i(2, 0, 1) \
+			and cursor_highlight is MeshInstance3D,
+		"3D canvas visibly highlights the exact prospective edit cell")
+	builder.active_tool = "select"
+	builder._on_canvas_cell(Vector3i(1, 0, 1), false, false)
+	var selection_highlight := canvas._highlight_root.find_child(
+		"Selected_1_0_1", true, false)
+	_expect(builder.selection.has("1,0,1") \
+			and selection_highlight is MeshInstance3D,
+		"3D canvas keeps selected structure cells visibly highlighted")
+	builder.active_tool = "pencil"
 	_expect(panel.find_child("CreatorEditor", true, false) != null,
 		"structure editor surface is mounted")
 	var preview := panel.preview_current()
@@ -142,6 +238,14 @@ func _test_characters() -> void:
 	await get_tree().process_frame
 	_expect(panel.find_child("CharacterVoxel3DCanvas", true, false) is ForgeVoxel3DCanvas,
 		"character body part opens in direct 3D voxel sculpting")
+	var character_canvas := panel.find_child(
+		"CharacterVoxel3DCanvas", true, false) as ForgeVoxel3DCanvas
+	var character_orbit_before := character_canvas.camera_yaw
+	await _route_mouse_drag(
+		character_canvas, MOUSE_BUTTON_RIGHT, Vector2(-34, 7))
+	_expect(not is_equal_approx(
+		character_canvas.camera_yaw, character_orbit_before),
+		"assembled character 3D canvas receives orbit input")
 	_expect(panel.find_child("CharacterVoxelCanvas", true, false) is ForgeVoxelSliceCanvas,
 		"character body part exposes voxel sculpting canvas")
 	var preview := panel.preview_current()
@@ -194,6 +298,12 @@ func _test_vfx() -> void:
 	var form := panel.current_resource as ForgeVfxForm
 	_expect(panel.find_child("VfxVoxel3DCanvas", true, false) is ForgeVoxel3DCanvas,
 		"VFX forms support direct 3D sculpting")
+	var vfx_canvas := panel.find_child(
+		"VfxVoxel3DCanvas", true, false) as ForgeVoxel3DCanvas
+	var vfx_orbit_before := vfx_canvas.camera_yaw
+	await _route_mouse_drag(vfx_canvas, MOUSE_BUTTON_RIGHT, Vector2(31, -6))
+	_expect(not is_equal_approx(vfx_canvas.camera_yaw, vfx_orbit_before),
+		"assembled VFX 3D canvas receives orbit input")
 	_expect(panel.find_child("VfxFormVoxelCanvas", true, false) is ForgeVoxelSliceCanvas,
 		"VFX form exposes a voxel sculpting canvas")
 	panel._vfx_form_canvas.voxel_edit_requested.emit(Vector3i(1, 1, 0), 1)
@@ -329,6 +439,118 @@ func _test_accessibility() -> void:
 		var steps := ForgeSectionGuides.steps_for_page(title, ForgeSectionGuides.IN_DEPTH)
 		_expect(not steps.is_empty() and str(steps[-1]).contains("Why now:"),
 			"%s has an explanatory in-depth capstone" % title)
+
+
+func _route_mouse_drag(
+		control: Control, button: MouseButton, delta: Vector2) -> void:
+	await _reveal_control(control)
+	var rect := _visible_control_rect(control)
+	_expect(rect.size.x >= 32.0 and rect.size.y >= 32.0,
+		"3D input target has a usable rendered rectangle")
+	if rect.size.x < 32.0 or rect.size.y < 32.0:
+		return
+	var margin := Vector2(absf(delta.x), absf(delta.y)) + Vector2(8, 8)
+	var safe_size := rect.size - margin
+	if safe_size.x < 16.0 or safe_size.y < 16.0:
+		return
+	var start := rect.position + margin * 0.5 + safe_size * 0.5
+	var finish := start + delta
+	var button_mask := _mouse_button_mask(button)
+	var press := InputEventMouseButton.new()
+	press.button_index = button
+	press.button_mask = button_mask
+	press.pressed = true
+	press.position = start
+	press.global_position = start
+	get_viewport().push_input(press, true)
+	await get_tree().process_frame
+	var motion := InputEventMouseMotion.new()
+	motion.button_mask = button_mask
+	motion.position = finish
+	motion.global_position = finish
+	motion.relative = delta
+	get_viewport().push_input(motion, true)
+	await get_tree().process_frame
+	var release := InputEventMouseButton.new()
+	release.button_index = button
+	release.button_mask = 0
+	release.pressed = false
+	release.position = finish
+	release.global_position = finish
+	get_viewport().push_input(release, true)
+	await get_tree().process_frame
+
+
+func _route_mouse_wheel(control: Control, button: MouseButton) -> void:
+	await _reveal_control(control)
+	var rect := _visible_control_rect(control)
+	_expect(rect.size.x >= 32.0 and rect.size.y >= 32.0,
+		"3D wheel target has a usable visible rectangle")
+	if rect.size.x < 32.0 or rect.size.y < 32.0:
+		return
+	var position := rect.position + rect.size * 0.5
+	var wheel := InputEventMouseButton.new()
+	wheel.button_index = button
+	wheel.pressed = true
+	wheel.position = position
+	wheel.global_position = position
+	get_viewport().push_input(wheel, true)
+	await get_tree().process_frame
+
+
+func _mouse_button_mask(button: MouseButton) -> int:
+	match button:
+		MOUSE_BUTTON_LEFT:
+			return MOUSE_BUTTON_MASK_LEFT
+		MOUSE_BUTTON_RIGHT:
+			return MOUSE_BUTTON_MASK_RIGHT
+		MOUSE_BUTTON_MIDDLE:
+			return MOUSE_BUTTON_MASK_MIDDLE
+	return 0
+
+
+func _ensure_control_visible(control: Control) -> void:
+	# Work from the nearest scroll host outward so nested editor pages settle in
+	# the same order as a user revealing the canvas.
+	var scroll_hosts: Array[ScrollContainer] = []
+	var ancestor := control.get_parent()
+	while ancestor != null:
+		if ancestor is ScrollContainer:
+			scroll_hosts.append(ancestor as ScrollContainer)
+		ancestor = ancestor.get_parent()
+	for scroll in scroll_hosts:
+		# Oversized authoring canvases cannot fit wholly within the page scroller,
+		# so align their leading edge with the scroll viewport exactly as a user
+		# would. Godot's ensure_control_visible can alternate between the leading
+		# and trailing edges when the child is taller than the viewport.
+		var target_top := control.get_global_rect().position.y
+		var viewport_top := scroll.get_global_rect().position.y
+		scroll.scroll_vertical += roundi(target_top - viewport_top - 8.0)
+
+
+func _reveal_control(control: Control) -> void:
+	# Flow containers re-wrap after a scrollbar first appears, so revealing a
+	# deep authoring canvas can need a second layout pass. Iterate to the stable
+	# visible rectangle instead of assuming the first scroll extent was final.
+	for _attempt in 4:
+		_ensure_control_visible(control)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		var visible_rect := _visible_control_rect(control)
+		if visible_rect.size.x >= 64.0 and visible_rect.size.y >= 64.0:
+			return
+
+
+func _visible_control_rect(control: Control) -> Rect2:
+	var rect := control.get_global_rect().intersection(
+		get_viewport().get_visible_rect())
+	var ancestor := control.get_parent()
+	while ancestor is Control:
+		var ancestor_control := ancestor as Control
+		if ancestor_control.clip_contents or ancestor_control is ScrollContainer:
+			rect = rect.intersection(ancestor_control.get_global_rect())
+		ancestor = ancestor.get_parent()
+	return rect
 
 
 func _descendants(root: Node) -> Array[Node]:

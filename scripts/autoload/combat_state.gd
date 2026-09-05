@@ -629,7 +629,7 @@ func materialize_damage(world: Object) -> void:
 				instance_id, damage_amount, {
 					"consequence_id": consequence_id,
 					"source_owner": "combat",
-					"source_event_id": str(outcome.get("id", "raid")),
+					"source_event_id": _latest_event_ref("resolved"),
 					"position": [position.x, position.y, position.z],
 					"material_ref": stable_id,
 					"day": HamletState.day,
@@ -638,6 +638,25 @@ func materialize_damage(world: Object) -> void:
 			if not bool(consequence.get("ok", false)):
 				world.set_block_global(position, block_id)
 				continue
+			var resolved_event_ref := _latest_event_ref("resolved")
+			if not resolved_event_ref.is_empty():
+				var event_link := EventManager.attach_consequence({
+					"event_id": resolved_event_ref,
+					"transaction_id": "combat.raid.damage.attach.%s" % consequence_id,
+					"consequence_ref": consequence_id,
+					"owner_ref": instance_id,
+					"kind": "structure_damage",
+					"evidence_ref": str(consequence.get("evidence_id", "")),
+					"metadata": {
+						"position": [position.x, position.y, position.z],
+						"material_ref": stable_id,
+					},
+				})
+				if not bool(event_link.get("ok", false)):
+					record["event_link_error"] = str(event_link.get(
+						"error", "event.consequence_link_failed"))
+					push_warning("CombatState: raid damage consequence was not linked: %s" %
+						event_link)
 			record["position"] = [position.x, position.y, position.z]
 			record["original_block"] = stable_id
 			record["structure_evidence_id"] = str(
@@ -695,7 +714,7 @@ func repair_next_damage(world: Object) -> Dictionary:
 			instance_id, repair_amount, {
 				"consequence_id": repair_id,
 				"source_owner": "combat",
-				"source_event_id": damage_id,
+				"source_event_id": _latest_event_ref("resolved"),
 				"position": position_value.duplicate(),
 				"material_ref": original,
 				"day": HamletState.day,
@@ -711,6 +730,25 @@ func repair_next_damage(world: Object) -> Dictionary:
 		record["repaired"] = true
 		record["structure_repair_evidence_id"] = str(
 			consequence.get("evidence_id", ""))
+		var resolved_event_ref := _latest_event_ref("resolved")
+		if not resolved_event_ref.is_empty():
+			var event_link := EventManager.attach_consequence({
+				"event_id": resolved_event_ref,
+				"transaction_id": "combat.raid.repair.attach.%s" % repair_id,
+				"consequence_ref": repair_id,
+				"owner_ref": instance_id,
+				"kind": "structure_repair",
+				"evidence_ref": str(consequence.get("evidence_id", "")),
+				"metadata": {
+					"position": position_value.duplicate(),
+					"material_ref": original,
+				},
+			})
+			if not bool(event_link.get("ok", false)):
+				record["event_link_error"] = str(event_link.get(
+					"error", "event.consequence_link_failed"))
+				push_warning("CombatState: raid repair consequence was not linked: %s" %
+					event_link)
 		damage_records[index] = record
 		state_changed.emit()
 		return {
@@ -817,14 +855,155 @@ func status_text() -> String:
 
 
 func _record_event(kind: String, facts: Dictionary) -> void:
+	var event_id := _combat_event_id(kind, facts)
+	var lifecycle_phase := _event_phase_for_raid_kind(kind)
+	var facts_token := _hash_value(facts).substr(0, 12)
+	var result: Dictionary
+	if not EventManager.has_event(event_id):
+		result = EventManager.register_event({
+			"event_id": event_id,
+			"transaction_id": "combat.raid.event.%s" % event_id,
+			"definition_ref": "leyforge.core.event.raid",
+			"atlas_foundation_ref": "EVT-001",
+			"event_family": "raid",
+			"event_type": "raid",
+			"status": "resolved" if kind == "resolved" else "active",
+			"phase": lifecycle_phase,
+			"source_owner": "document16.combat",
+			"settlement_ref": target_settlement_id,
+			"participant_refs": _combat_participant_refs(kind, facts),
+			"evidence_predicates": ["raid.%s" % kind],
+			"metadata": {
+				"facts": facts.duplicate(true),
+				"raid_serial": raid_serial,
+				"day": HamletState.day,
+				"minute": HamletState.clock_minutes,
+			},
+			"title": "Raid %s" % kind.capitalize(),
+			"summary": _combat_event_summary(kind, facts),
+			"history_kind": "raid",
+		})
+	else:
+		var existing := EventManager.get_event(event_id)
+		if str(existing.get("phase", "")) == lifecycle_phase:
+			result = EventManager.record_history_entry({
+				"history_id": "history.%s.%s.%s" % [event_id, kind, facts_token],
+				"transaction_id": "combat.raid.milestone.%s.%s.%s" % [
+					event_id, kind, facts_token],
+				"kind": "raid",
+				"title": "Raid %s" % kind.capitalize(),
+				"summary": _combat_event_summary(kind, facts),
+				"event_ref": event_id,
+				"settlement_ref": target_settlement_id,
+				"tags": ["raid", kind, lifecycle_phase],
+				"metadata": {"facts": facts.duplicate(true)},
+			})
+			if bool(result.get("ok", false)):
+				result["event_id"] = event_id
+		else:
+			result = EventManager.advance_event_phase({
+				"event_id": event_id,
+				"transaction_id": "combat.raid.phase.%s.%s" % [
+					event_id, lifecycle_phase],
+				"phase": lifecycle_phase,
+				"history_id": "history.%s.%s.%s" % [
+					event_id, kind, facts_token],
+				"history_kind": "raid",
+				"title": "Raid %s" % kind.capitalize(),
+				"summary": _combat_event_summary(kind, facts),
+				"outcome_ref": str(facts.get("id", "")) if kind == "resolved" else "",
+				"metadata": {
+					"facts": facts.duplicate(true),
+					"raid_serial": raid_serial,
+					"day": HamletState.day,
+					"minute": HamletState.clock_minutes,
+				},
+			})
+	if not bool(result.get("ok", false)):
+		push_warning("CombatState: canonical raid event commit failed: %s" % result)
 	event_history.append({
 		"kind": kind,
 		"day": HamletState.day,
 		"minute": HamletState.clock_minutes,
 		"facts": facts.duplicate(true),
+		"event_ref": str(result.get("event_id", "")) \
+			if bool(result.get("ok", false)) else "",
+		"history_ref": str(result.get("history_id", "")),
+		"event_error": str(result.get("error", "")),
 	})
 	if event_history.size() > 32:
 		event_history.pop_front()
+
+
+func _combat_event_id(_kind: String, _facts: Dictionary) -> String:
+	var settlement_token := target_settlement_id \
+		if not target_settlement_id.is_empty() else "legacy"
+	return "event.raid.%s.%03d" % [
+		settlement_token,
+		raid_serial,
+	]
+
+
+func _event_phase_for_raid_kind(kind: String) -> String:
+	match kind:
+		"warning":
+			return "warning"
+		"assault":
+			return "initiation"
+		"enemy_defeated":
+			return "escalation"
+		"resolved":
+			return "resolution"
+	return "escalation"
+
+
+func _latest_event_ref(kind: String) -> String:
+	for index in range(event_history.size() - 1, -1, -1):
+		var entry: Dictionary = event_history[index]
+		if str(entry.get("kind", "")) == kind:
+			return str(entry.get("event_ref", ""))
+	return ""
+
+
+func _combat_participant_refs(kind: String, facts: Dictionary) -> Array[String]:
+	var refs: Array[String] = []
+	refs.append("actor.player")
+	if not target_settlement_id.is_empty():
+		refs.append(target_settlement_id)
+	var enemy_id := str(facts.get("enemy_id", ""))
+	if not enemy_id.is_empty():
+		refs.append("enemy:%s" % enemy_id)
+	if kind == "resolved":
+		refs.append("encounter:raid")
+	return refs
+
+
+func _combat_event_summary(kind: String, facts: Dictionary) -> String:
+	match kind:
+		"warning":
+			return "Raid warning issued for %s." % target_settlement_id
+		"assault":
+			return "Raid assault started with %d enemies." % int(
+				facts.get("enemy_count", 0))
+		"enemy_defeated":
+			return "%s defeated %s." % [
+				str(facts.get("source", "player")),
+				str(facts.get("enemy_id", "enemy")),
+			]
+		"resolved":
+			return "Raid resolved with outcome %s." % str(
+				facts.get("id", "unknown"))
+		_:
+			return "Raid event %s recorded." % kind
+
+
+func _hash_value(value: Variant) -> String:
+	var normalised: Variant = JSON.parse_string(JSON.stringify(value))
+	var context := HashingContext.new()
+	context.start(HashingContext.HASH_SHA256)
+	context.update(JSON.stringify(
+		normalised if normalised != null else value).to_utf8_buffer())
+	return context.finish().hex_encode()
 
 
 func _ensure_biology_owner() -> void:
@@ -951,9 +1130,14 @@ func restore_state(
 	enemy_records = data.get("enemy_records", {}).duplicate(true)
 	outcome = data.get("outcome", {}).duplicate(true)
 	event_history.clear()
+	var imported_legacy := false
 	for event_value in data.get("event_history", []):
 		if event_value is Dictionary:
-			event_history.append(event_value.duplicate(true))
+			var entry: Dictionary = event_value.duplicate(true)
+			event_history.append(entry)
+			var event_ref := str(entry.get("event_ref", ""))
+			if event_ref.is_empty() or not EventManager.has_event(event_ref):
+				imported_legacy = true
 	damage_records.clear()
 	for damage_value in data.get("damage_records", []):
 		if damage_value is Dictionary:
@@ -993,6 +1177,9 @@ func restore_state(
 	_refresh_player_biology_projection()
 	settings.merge(data.get("settings", {}), true)
 	_aftermath_applied = bool(data.get("aftermath_applied", phase == "resolved"))
+	if imported_legacy and not event_history.is_empty():
+		EventManager.import_legacy_combat_history(
+			event_history, target_settlement_id, raid_serial)
 	initialized = true
 	raid_phase_changed.emit(phase)
 	player_health_changed.emit()

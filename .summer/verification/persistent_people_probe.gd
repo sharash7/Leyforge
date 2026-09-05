@@ -408,18 +408,19 @@ func _test_hamlet_materialisation_integration() -> void:
 func _test_save_restore_order() -> void:
 	var coordinator: SaveCoordinator = SaveCoordinatorScript.new()
 	var order := coordinator.restore_order()
-	_expect(order.size() == 18,
-		"save coordinator exposes eighteen ordered restore domains")
+	_expect(order.size() == 19,
+		"save coordinator exposes nineteen ordered restore domains")
 	_expect(order.find("people_owner") == order.find("simulation_lod") + 1 \
 			and order.find("biology_owner") == order.find("people_owner") + 1 \
 			and order.find("social_owner") == order.find("biology_owner") + 1 \
 			and order.find("political_owner") == order.find("social_owner") + 1 \
 			and order.find("movement_owner") == order.find("political_owner") + 1 \
-			and order.find("movement_owner") < order.find("settlements"),
-		"people, biology, social, political and movement owners restore before settlement projections")
+			and order.find("event_owner") == order.find("movement_owner") + 1 \
+			and order.find("event_owner") < order.find("settlements"),
+		"specialist owners and events restore before settlement projections")
 	var copy := coordinator.restore_order()
 	copy.clear()
-	_expect(coordinator.restore_order().size() == 18,
+	_expect(coordinator.restore_order().size() == 19,
 		"callers cannot mutate canonical restore order")
 	_expect(PeopleManager.serialize_state().get("schema", "") \
 			== "leyforge.people-state",

@@ -470,14 +470,22 @@ func compatibility_job_slot_views(
 	var result := compatibility.duplicate(true)
 	for assignment_id in job_assignment_ids(settlement_id):
 		var assignment: Dictionary = _job_assignments[assignment_id]
+		var has_physical_slot := result.has(assignment_id)
 		var view: Dictionary = result.get(assignment_id, {}).duplicate(true)
+		var physical_slot_active := bool(view.get("active", true)) \
+			if has_physical_slot else false
+		var assignment_active := bool(assignment.get("active", false))
 		view["record_type"] = "JobAssignment"
 		view["job_assignment_id"] = assignment_id
-		view["assigned_person_id"] = str(assignment.get("person_id", ""))
+		view["assigned_person_id"] = str(assignment.get(
+			"person_id", "")) if assignment_active else ""
 		view["job_definition_ref"] = str(
 			assignment.get("job_definition_ref", ""))
-		view["role"] = str(assignment.get("workplace_role_ref", ""))
-		view["active"] = bool(assignment.get("active", false))
+		if assignment_active:
+			view["role"] = str(assignment.get("workplace_role_ref", ""))
+		view["active"] = physical_slot_active
+		view["physical_slot"] = has_physical_slot
+		view["assignment_active"] = assignment_active
 		view["authoritative_job_record_type"] = JOB_RECORD_TYPE
 		view["authoritative_job_revision"] = int(
 			assignment.get("revision", 0))
@@ -958,7 +966,9 @@ func _sync_job_assignment(
 		return {"ok": true, "duplicate": true, "assignment": {}}
 	if _job_assignments.has(assignment_id) \
 			and str((_job_assignments[assignment_id] as Dictionary).get(
-				"person_id", "")) != str(person.get("person_id", "")):
+				"person_id", "")) != str(person.get("person_id", "")) \
+			and bool((_job_assignments[assignment_id] as Dictionary).get(
+				"active", false)):
 		return {"ok": false, "error": "NPC-JOB-001"}
 	var before: Dictionary = _job_assignments.get(assignment_id, {})
 	var candidate := {

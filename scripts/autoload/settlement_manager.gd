@@ -20,6 +20,10 @@ signal population_changed(settlement_id: String)
 
 const TerrainPlannerScript = preload(
 	"res://scripts/settlement/settlement_terrain_planner.gd")
+const ProfessionEngine = preload(
+	"res://scripts/settlement/settlement_profession_engine.gd")
+const ServiceEngine = preload(
+	"res://scripts/settlement/settlement_service_engine.gd")
 
 const STATE_VERSION := 2
 const SETTLEMENT_PREFIX := "settlement."
@@ -65,6 +69,7 @@ func reset() -> void:
 func bind_world(world: VoxelWorld) -> void:
 	_world = world
 	_terrain_planner = TerrainPlannerScript.new().configure(world)
+	call_deferred("ensure_first_project_preparation")
 
 
 func initialize_world(seed_value: int, planner: RefCounted) -> bool:
@@ -146,6 +151,8 @@ func initialize_legacy(seed_value: int) -> bool:
 	record = _sync_social_owner_record(record, false)
 	record = _sync_political_owner_record(record, false)
 	record = _sync_movement_owner_record(record, false)
+	record = _refresh_service_activation_record(record)
+	_apply_service_record_to_focused(record)
 	settlements[settlement_id] = record
 	focused_settlement_id = settlement_id
 	initialized = true
@@ -236,6 +243,8 @@ func materialize_site(site_or_id: Variant) -> Dictionary:
 	record = _sync_social_owner_record(record, false)
 	record = _sync_political_owner_record(record, false)
 	record = _sync_movement_owner_record(record, false)
+	record = _refresh_service_activation_record(record)
+	_apply_service_record_to_focused(record)
 	settlements[settlement_id] = record
 	if previous_state.is_empty():
 		focused_settlement_id = settlement_id
@@ -264,6 +273,12 @@ func get_focused_settlement() -> Dictionary:
 	return get_settlement(focused_settlement_id)
 
 
+func get_recent_settlement_history(
+		settlement_id: String, limit: int = 8,
+		kind: String = "") -> Array[Dictionary]:
+	return EventManager.get_recent_history(limit, settlement_id, kind)
+
+
 func focus_settlement(settlement_id: String) -> bool:
 	if not settlements.has(settlement_id):
 		return false
@@ -288,6 +303,8 @@ func focus_settlement(settlement_id: String) -> bool:
 	record = _sync_social_owner_record(record, false)
 	record = _sync_political_owner_record(record, false)
 	record = _sync_movement_owner_record(record, false)
+	record = _refresh_service_activation_record(record)
+	_apply_service_record_to_focused(record)
 	CombatState.initialized = false
 	var expected_combat_owner := (
 		"" if _is_legacy_record(record) else settlement_id)
@@ -469,7 +486,8 @@ func _execute_settlement_catchup_plan(
 			"no_catchup_pending", "catchup_below_cadence",
 		]
 	var plan: Dictionary = planned.get("plan", {})
-	var candidate: Dictionary = settlements[settlement_id].duplicate(true)
+	var candidate: Dictionary = _refresh_service_activation_record(
+		settlements[settlement_id])
 	var state: Dictionary = candidate.get("hamlet_state", {}).duplicate(true)
 	var ledger: Dictionary = candidate.get("resource_ledger", {}).duplicate(true)
 	var transaction_batches: Array[Dictionary] = []
@@ -482,14 +500,24 @@ func _execute_settlement_catchup_plan(
 				buildings.append(building_value)
 		var result := SettlementSimulationEngine.simulate(
 			buildings, ledger, step_minutes,
-			SettlementSimulationEngine.MODE_FAR)
+			SettlementSimulationEngine.MODE_FAR, true, true)
 		if not SettlementSimulationEngine.validate_transaction_result(result):
 			SimulationLodManager.cancel_catchup(
 				str(plan.get("plan_id", "")), settlement_id)
 			return false
-		ledger = (result.get("ledger", {}) as Dictionary).duplicate(true)
+		var profession_result := ProfessionEngine.simulate_far_professions(
+			state.get("npc_records", {}), result.get("buildings", []),
+			result.get("ledger", {}), step_minutes)
+		if not bool(profession_result.get("ok", false)):
+			SimulationLodManager.cancel_catchup(
+				str(plan.get("plan_id", "")), settlement_id)
+			return false
+		ledger = (profession_result.get(
+			"ledger", {}) as Dictionary).duplicate(true)
+		state["npc_records"] = (profession_result.get(
+			"residents", {}) as Dictionary).duplicate(true)
 		var rebuilt := {}
-		for building_value in result.get("buildings", []):
+		for building_value in profession_result.get("buildings", []):
 			if building_value is Dictionary:
 				var building: Dictionary = building_value
 				rebuilt[str(building.get("instance_id", ""))] = building
@@ -503,6 +531,9 @@ func _execute_settlement_catchup_plan(
 			"minutes": step_minutes,
 			"before": result.get("before", {}),
 			"transactions": result.get("transactions", []),
+			"source_events": result.get("source_events", []),
+			"profession_transactions": profession_result.get(
+				"transactions", []),
 			"ledger": ledger.duplicate(true),
 		})
 	candidate["resource_ledger"] = ledger
@@ -533,7 +564,8 @@ func _execute_settlement_catchup_plan(
 
 func _simulate_far_without_lod(
 		settlement_id: String, elapsed_minutes: float) -> void:
-	var record: Dictionary = settlements[settlement_id]
+	var record: Dictionary = _refresh_service_activation_record(
+		settlements[settlement_id])
 	var state: Dictionary = record.get("hamlet_state", {})
 	var buildings: Array = []
 	for building_value in (state.get(
@@ -542,12 +574,18 @@ func _simulate_far_without_lod(
 			buildings.append(building_value)
 	var result := SettlementSimulationEngine.simulate(
 		buildings, record.get("resource_ledger", {}), elapsed_minutes,
-		SettlementSimulationEngine.MODE_FAR)
+		SettlementSimulationEngine.MODE_FAR, true, true)
 	if not SettlementSimulationEngine.validate_transaction_result(result):
 		return
-	record["resource_ledger"] = result.get("ledger", {})
+	var profession_result := ProfessionEngine.simulate_far_professions(
+		state.get("npc_records", {}), result.get("buildings", []),
+		result.get("ledger", {}), elapsed_minutes)
+	if not bool(profession_result.get("ok", false)):
+		return
+	record["resource_ledger"] = profession_result.get("ledger", {})
+	state["npc_records"] = profession_result.get("residents", {})
 	var rebuilt := {}
-	for building_value in result.get("buildings", []):
+	for building_value in profession_result.get("buildings", []):
 		if building_value is Dictionary:
 			var building: Dictionary = building_value
 			rebuilt[str(building.get("instance_id", ""))] = building
@@ -792,6 +830,9 @@ func _capture_focused_facade() -> void:
 			or HamletState.active_village_id != focused_settlement_id:
 		return
 	var record: Dictionary = settlements[focused_settlement_id]
+	record["hamlet_state"] = HamletState.serialize_state()
+	record = _refresh_service_activation_record(record)
+	_apply_service_record_to_focused(record)
 	record["hamlet_state"] = HamletState.serialize_state()
 	if CombatState.initialized \
 			and (
@@ -1435,12 +1476,15 @@ func get_project_proposals(settlement_id: String) -> Array[Dictionary]:
 			blockers.append("already_active")
 		var need_score := _proposal_need_score(
 			str(project.get("primary_need", "")), report)
+		var primary_need := str(project.get("primary_need", ""))
 		var priority := (
 			1000 if minimum_index == next_index else
 			700 if minimum_index == current_index else 300)
 		priority += need_score
-		if "housing" in building_id or "cottage" in building_id:
-			priority += int(report.get("housing_pressure", 0)) * 80
+		if primary_need in ["housing", "shelter"]:
+			priority += int(report.get(
+				"permanent_housing_pressure",
+				report.get("housing_pressure", 0))) * 80
 		if "road" in building_id or "bridge" in building_id:
 			priority += int(report.get("route_failures", 0)) * 90
 		proposals.append({
@@ -1448,6 +1492,9 @@ func get_project_proposals(settlement_id: String) -> Array[Dictionary]:
 			"id": project_id,
 			"display_name": str(project.get("display_name", project_id)),
 			"building_id": building_id,
+			"primary_need": primary_need,
+			"planner_class": str(project.get("planner_class", "optional")),
+			"need_score": need_score,
 			"minimum_stage": minimum_stage,
 			"eligible": blockers.is_empty(),
 			"blockers": blockers,
@@ -1478,6 +1525,14 @@ func get_project_proposals(settlement_id: String) -> Array[Dictionary]:
 			return int(a.get("priority", 0)) > int(b.get("priority", 0))
 		return str(a.get("id", "")) < str(b.get("id", "")))
 	return proposals
+
+
+func get_recommended_project(settlement_id: String) -> Dictionary:
+	for proposal in get_project_proposals(settlement_id):
+		if str(proposal.get("kind", "")) == "project" \
+				and bool(proposal.get("eligible", false)):
+			return proposal.duplicate(true)
+	return {}
 
 
 func begin_project(
@@ -1575,6 +1630,7 @@ func confirm_project_site(
 		return create_result
 	HamletState.activate_project_instance(instance_id)
 	var packages := _terrain_planner.compile_work_packages(survey)
+	_provision_terrain_preparation_stock(settlement_id, packages)
 	var project_record: Dictionary = HamletState.runtime_projects[instance_id]
 	project_record["rotation"] = int(survey.get("rotation", 0))
 	project_record["site_survey_hash"] = plan_hash
@@ -1610,6 +1666,130 @@ func confirm_project_site(
 		"survey_hash": plan_hash,
 		"work_packages": packages,
 	}
+
+
+func _provision_terrain_preparation_stock(
+		settlement_id: String,
+		packages: Array) -> void:
+	## Seeds the declared terrain-preparation materials (route path block and
+	## fill block) plus the required hand tools into the focused warehouse so
+	## the autonomous builder can withdraw and consume them. Blueprint stages
+	## keep their authored request/supply flow and are deliberately skipped.
+	for package_value in packages:
+		if not (package_value is Dictionary):
+			continue
+		var package: Dictionary = package_value
+		if str(package.get("kind", "")) not in [
+			"route", "vegetation", "terrain", "clearance", "fill",
+		]:
+			continue
+		var requirements: Dictionary = package.get("requirements", {})
+		for stable_value in requirements:
+			var stable_id := str(stable_value)
+			var count := maxi(0, int(requirements[stable_value]))
+			if count <= 0:
+				continue
+			var kind := (
+				"item" if ItemRegistry.get_id_by_stable_id(stable_id) >= 0
+				else "block")
+			var content_ref := {
+				"kind": kind, "stable_id": stable_id, "count": count,
+			}
+			var missing := maxi(
+				0, count - HamletState.warehouse_count_ref(content_ref))
+			if missing <= 0:
+				continue
+			var stack := Inventory.make_stack_from_ref({
+				"kind": kind, "stable_id": stable_id, "count": missing,
+			})
+			if stack.is_empty():
+				push_warning(
+					"SettlementManager: cannot provision unresolvable terrain material %s"
+					% stable_id)
+				continue
+			HamletState.warehouse_add_stack(stack)
+		_provision_terrain_tools(package.get("tool_requirements", {}))
+
+
+func _provision_terrain_tools(requirements: Dictionary) -> void:
+	var tool_by_class := {
+		"axe": "item.tool.iron_axe",
+		"pickaxe": "item.tool.iron_pickaxe",
+		"shovel": "item.tool.shovel_iron",
+	}
+	for tool_class_value in requirements:
+		var tool_class := str(tool_class_value)
+		if not tool_by_class.has(tool_class):
+			continue
+		var stable_id := str(tool_by_class[tool_class])
+		var ref := {"kind": "item", "stable_id": stable_id, "count": 1}
+		if HamletState.warehouse_count_ref(ref) <= 0:
+			var stack := Inventory.make_stack_from_ref(ref)
+			if not stack.is_empty():
+				HamletState.warehouse_add_stack(stack)
+
+
+func ensure_first_project_preparation() -> Dictionary:
+	## Wires the elder's first requested building (the default settlement
+	## project) into the canonical survey/work-package preparation flow so it
+	## receives explicit clear, fill, and footpath packages instead of the
+	## legacy direct-blueprint path. Idempotent and safe for restored saves.
+	if _world == null or _terrain_planner == null \
+			or not initialized or focused_settlement_id.is_empty():
+		return {"ok": false, "reason": "settlement_not_ready"}
+	if not HamletState.initialized \
+			or not settlements.has(focused_settlement_id):
+		return {"ok": false, "reason": "settlement_state_not_ready"}
+	var project: Dictionary = HamletState.project
+	if bool(project.get("complete", false)):
+		return {"ok": true, "reason": "already_complete"}
+	if not (project.get("work_package_ids", []) as Array).is_empty() \
+			or not str(project.get("site_survey_hash", "")).is_empty():
+		return {"ok": true, "reason": "already_prepared"}
+	var project_id := str(project.get(
+		"definition_id", project.get("id", HamletState.DEFAULT_PROJECT_ID)))
+	if SettlementContentRegistry.get_project(project_id).is_empty():
+		return {"ok": false, "reason": "unknown_project"}
+	var position: Array = project.get("position", [])
+	var gx := int(HamletState.watchtower_anchor.x)
+	var gz := int(HamletState.watchtower_anchor.y)
+	if position.size() >= 2:
+		gx = int(position[0])
+		gz = int(position[1])
+	var anchor := Vector3i(gx, _world.surface_height_at(gx, gz), gz)
+	var survey_result := begin_project(focused_settlement_id, project_id, {
+		"mode": "village",
+		"position": [anchor.x, anchor.y, anchor.z],
+		"rotation": 0,
+		"confirmed_player_overlap": false,
+	})
+	if not bool(survey_result.get("ok", false)):
+		return survey_result
+	var confirmed := confirm_project_site(
+		focused_settlement_id, survey_result.get("survey", {}))
+	if not bool(confirmed.get("ok", false)):
+		return confirmed
+	_retire_unprepared_project_duplicates(
+		project_id, str(confirmed.get("project_instance_id", "")))
+	return confirmed
+
+
+func _retire_unprepared_project_duplicates(
+		definition_id: String, keep_instance_id: String) -> void:
+	## Marks stale default project instances (created before the canonical
+	## survey flow) as cancelled so they never intercept the builder or count
+	## as duplicate active projects.
+	for instance_id_value in HamletState.runtime_projects.keys():
+		var instance_id := str(instance_id_value)
+		if instance_id == keep_instance_id:
+			continue
+		var record: Dictionary = HamletState.runtime_projects[instance_id]
+		if str(record.get("definition_id", record.get("id", ""))) != definition_id:
+			continue
+		if not (record.get("work_package_ids", []) as Array).is_empty():
+			continue
+		record["cancelled"] = true
+		HamletState.runtime_projects[instance_id] = record
 
 
 func get_population_report(settlement_id: String) -> Dictionary:
@@ -1694,9 +1874,9 @@ func get_population_report(settlement_id: String) -> Dictionary:
 	if population < int(POPULATION_GATES[next_stage]):
 		promotion_blockers.append("population:%d/%d" % [
 			population, int(POPULATION_GATES[next_stage])])
-	if valid_beds < population + 1:
-		promotion_blockers.append("housing_reserve:%d/%d" % [
-			valid_beds, population + 1])
+	if permanent_beds < population + 1:
+		promotion_blockers.append("permanent_housing_reserve:%d/%d" % [
+			permanent_beds, population + 1])
 	if valid_jobs < adults:
 		promotion_blockers.append("adult_jobs:%d/%d" % [valid_jobs, adults])
 	if displaced > 0:
@@ -1722,6 +1902,8 @@ func get_population_report(settlement_id: String) -> Dictionary:
 		"permanent_beds": permanent_beds,
 		"occupied_beds": assigned_beds.size(),
 		"spare_beds": maxi(0, valid_beds - assigned_beds.size()),
+		"permanent_housing_pressure": maxi(
+			0, population + 1 - permanent_beds),
 		"valid_adult_jobs": valid_jobs,
 		"occupied_jobs": assigned_jobs.size(),
 		"spare_jobs": maxi(0, valid_jobs - assigned_jobs.size()),
@@ -1881,7 +2063,7 @@ func navigation_waypoints(
 			continue
 		previous = point
 		result.append(Vector3(
-			float(cell[0]) + 0.5, float(cell[1]) + 1.05,
+			float(cell[0]) + 0.5, float(cell[1]) + 0.05,
 			float(cell[2]) + 0.5))
 	return result
 
@@ -2001,6 +2183,122 @@ func assign_resident_task(
 	return {"ok": true, "task": record}
 
 
+func assign_resident_to_job_slot(
+		settlement_id: String,
+		resident_id: String,
+		job_slot_id: String) -> Dictionary:
+	if not focus_settlement(settlement_id):
+		return {"ok": false, "reason": "unknown_settlement"}
+	var resident := HamletState.get_npc_record(resident_id)
+	var settlement: Dictionary = settlements[settlement_id]
+	var slot: Dictionary = (settlement.get(
+		"job_slots", {}) as Dictionary).get(job_slot_id, {})
+	if resident.is_empty() or slot.is_empty():
+		return {"ok": false, "reason": "unknown_resident_or_job_slot"}
+	if not bool(slot.get("active", true)) \
+			or not bool(slot.get("reachable", false)) \
+			or not bool(slot.get("marker_valid", false)):
+		return {"ok": false, "reason": "job_slot_unavailable"}
+	for other_id in HamletState.get_npc_ids():
+		if other_id != resident_id and str(HamletState.get_npc_record(
+				other_id).get("job_assignment_id", "")) == job_slot_id:
+			return {"ok": false, "reason": "job_slot_occupied"}
+	var workplace_id := str(slot.get("workplace_ref", ""))
+	var building: Dictionary = HamletState.runtime_buildings.get(
+		workplace_id, {})
+	if workplace_id.is_empty() or building.is_empty():
+		return {"ok": false, "reason": "job_slot_workplace_missing"}
+	var behavior := SettlementContentRegistry.get_behavior_for_definition(str(
+		building.get("definition_id", "")))
+	var contract: Dictionary = behavior.get("staffing_contract", {})
+	if contract.is_empty() or str(resident.get("job_id", "")) not in (
+			contract.get("accepted_job_ids", []) as Array):
+		return {"ok": false, "reason": "job_not_accepted_by_workplace"}
+	if BiologyManager.initialized and BiologyManager.has_actor(resident_id):
+		var availability := BiologyManager.assignment_availability(resident_id)
+		if not bool(availability.get("available", false)):
+			return {
+				"ok": false,
+				"reason": "biological_assignment_unavailable",
+				"biological_availability": availability,
+			}
+	if SocialManager.initialized and SocialManager.has_profile(resident_id):
+		var willingness := SocialManager.assignment_willingness(resident_id, {
+			"task_type": "settlement_workplace_assignment",
+			"workplace_id": workplace_id,
+			"job_slot_id": job_slot_id,
+		})
+		if not bool(willingness.get("ok", false)) \
+				or not bool(willingness.get("available", false)):
+			return {
+				"ok": false,
+				"reason": "social_assignment_unavailable",
+				"social_willingness": willingness,
+			}
+	if not HamletState.update_resident_runtime(resident_id, {
+		"job_assignment_id": job_slot_id,
+		"workplace_id": workplace_id,
+		"workplace_role_ref": str(slot.get("role", "")),
+		"work": (slot.get("position", []) as Array).duplicate(),
+	}):
+		return {"ok": false, "reason": "people_owner_rejected_assignment"}
+	settlement["hamlet_state"] = HamletState.serialize_state()
+	settlement = _sync_people_owner_record(settlement, true)
+	settlement = _refresh_service_activation_record(settlement)
+	_apply_service_record_to_focused(settlement)
+	settlement["hamlet_state"] = HamletState.serialize_state()
+	settlement["dirty"] = true
+	settlements[settlement_id] = settlement
+	population_changed.emit(settlement_id)
+	settlements_changed.emit()
+	return {
+		"ok": true,
+		"resident_id": resident_id,
+		"job_slot_id": job_slot_id,
+		"workplace_id": workplace_id,
+		"service_record": (HamletState.runtime_buildings.get(
+			workplace_id, {}) as Dictionary).get("service_record", {}).duplicate(true),
+	}
+
+
+func release_resident_job_slot(
+		settlement_id: String,
+		resident_id: String) -> Dictionary:
+	if not focus_settlement(settlement_id):
+		return {"ok": false, "reason": "unknown_settlement"}
+	var resident := HamletState.get_npc_record(resident_id)
+	if resident.is_empty():
+		return {"ok": false, "reason": "unknown_resident"}
+	var released_slot_id := str(resident.get("job_assignment_id", ""))
+	var workplace_id := str(resident.get("workplace_id", ""))
+	if workplace_id.is_empty():
+		return {"ok": false, "reason": "resident_has_no_workplace"}
+	if not HamletState.update_resident_runtime(resident_id, {
+		"job_assignment_id": "%s.assignment.ordinary" % resident_id,
+		"workplace_id": "",
+		"workplace_role_ref": "",
+	}):
+		return {"ok": false, "reason": "people_owner_rejected_release"}
+	var settlement: Dictionary = settlements[settlement_id]
+	settlement["hamlet_state"] = HamletState.serialize_state()
+	settlement = _sync_people_owner_record(settlement, true)
+	settlement = _refresh_service_activation_record(settlement)
+	_apply_service_record_to_focused(settlement)
+	settlement["hamlet_state"] = HamletState.serialize_state()
+	settlement["dirty"] = true
+	settlements[settlement_id] = settlement
+	population_changed.emit(settlement_id)
+	settlements_changed.emit()
+	return {
+		"ok": true,
+		"resident_id": resident_id,
+		"released_job_slot_id": released_slot_id,
+		"workplace_id": workplace_id,
+		"service_record": (HamletState.runtime_buildings.get(
+			workplace_id, {}) as Dictionary).get("service_record", {}).duplicate(true),
+	}
+
+
 func advance_project_work(
 		settlement_id: String,
 		project_instance_id: String,
@@ -2054,6 +2352,16 @@ func advance_project_work(
 		str(project.get("site_survey_hash", "")), {})
 	var resident := HamletState.get_npc_record(resident_id)
 	var task: Dictionary = resident.get("current_task", {}).duplicate(true)
+
+	if str(task.get("phase", "")) == "deposit" \
+			and not (resident.get("carried_stack", {}) as Dictionary).is_empty():
+		var deposit_result := deposit_resident_outputs(
+			settlement_id, resident_id, force_position)
+		if not bool(deposit_result.get("ok", false)):
+			return deposit_result
+		if not bool(deposit_result.get("deposited", false)):
+			return {"ok": true, "status": "traveling_to_storage"}
+		task = {}
 
 	if str(package.get("status", "pending")) == "pending":
 		var preparation := _prepare_work_package(
@@ -2169,6 +2477,150 @@ func advance_project_work(
 	return step_result
 
 
+func record_player_project_edit(
+		settlement_id: String, cell: Vector3i) -> Dictionary:
+	## Counts only an already-committed player voxel edit. This lets the player
+	## perform highlighted access/clearing/levelling work without creating free
+	## terrain changes or bypassing authored building stages.
+	if _world == null or settlement_id != focused_settlement_id \
+			or not settlements.has(settlement_id):
+		return {"ok": false, "reason": "settlement_or_world_unavailable"}
+	var project_instance_id := str(HamletState.project.get("instance_id", ""))
+	if project_instance_id.is_empty() \
+			or not HamletState.runtime_projects.has(project_instance_id):
+		return {"ok": false, "reason": "no_active_project"}
+	var project: Dictionary = HamletState.runtime_projects[project_instance_id]
+	var package_ids: Array = project.get("work_package_ids", [])
+	if package_ids.is_empty():
+		return {"ok": false, "reason": "project_has_no_site_preparation"}
+	var record: Dictionary = settlements[settlement_id]
+	var packages: Dictionary = record.get("work_packages", {})
+	var survey: Dictionary = (record.get("surveys", {}) as Dictionary).get(
+		str(project.get("site_survey_hash", "")), {})
+	if survey.is_empty():
+		return {"ok": false, "reason": "missing_site_survey"}
+	var matched_package_id := ""
+	for package_id_value in package_ids:
+		var package_id := str(package_id_value)
+		var package: Dictionary = packages.get(package_id, {})
+		var kind := str(package.get("kind", ""))
+		if kind not in ["route", "vegetation", "terrain", "clearance", "fill"] \
+				or str(package.get("status", "")) == "complete":
+			continue
+		var cell_index := _package_cell_index(package.get("cells", []), cell)
+		if cell_index < 0 \
+				or not _player_edit_matches_package(kind, cell, survey):
+			continue
+		var completed: Dictionary = package.get(
+			"player_completed_cells", {}).duplicate(true)
+		var cell_key := _work_cell_key(cell)
+		if completed.has(cell_key):
+			return {
+				"ok": true,
+				"recorded": false,
+				"reason": "site_edit_already_recorded",
+				"package_id": package_id,
+			}
+		completed[cell_key] = true
+		package["player_completed_cells"] = completed
+		var transactions: Array = package.get("transactions", []).duplicate(true)
+		transactions.append({
+			"event": "player_site_preparation",
+			"source": "player",
+			"position": [cell.x, cell.y, cell.z],
+			"kind": kind,
+			"conserved": true,
+		})
+		package["transactions"] = transactions
+		packages[package_id] = package
+		matched_package_id = package_id
+		break
+	if matched_package_id.is_empty():
+		return {"ok": false, "reason": "edit_not_in_active_site_preparation"}
+
+	project = _advance_player_completed_preparation(
+		project, packages, survey)
+	HamletState.runtime_projects[project_instance_id] = project
+	HamletState.project = project
+	record["work_packages"] = packages
+	_store_focused_record(settlement_id, record)
+	HamletState.project_changed.emit()
+	return {
+		"ok": true,
+		"recorded": true,
+		"package_id": matched_package_id,
+		"work_package_index": int(project.get("work_package_index", 0)),
+	}
+
+
+func _advance_player_completed_preparation(
+		project_value: Dictionary,
+		packages: Dictionary,
+		survey: Dictionary) -> Dictionary:
+	var project := project_value.duplicate(true)
+	var package_ids: Array = project.get("work_package_ids", [])
+	var package_index := int(project.get("work_package_index", 0))
+	while package_index < package_ids.size():
+		var package_id := str(package_ids[package_index])
+		var package: Dictionary = packages.get(package_id, {})
+		if str(package.get("kind", "")) not in [
+			"route", "vegetation", "terrain", "clearance", "fill",
+		]:
+			break
+		var cells: Array = package.get("cells", [])
+		var completed: Dictionary = package.get("player_completed_cells", {})
+		var progress := int(package.get("progress", 0))
+		while progress < cells.size():
+			var values: Array = cells[progress]
+			var cell := Vector3i(
+				int(values[0]), int(values[1]), int(values[2]))
+			if not completed.has(_work_cell_key(cell)):
+				break
+			progress += 1
+		package["progress"] = progress
+		if progress < cells.size():
+			package["status"] = "active"
+			packages[package_id] = package
+			break
+		package["status"] = "complete"
+		packages[package_id] = package
+		package_index += 1
+		project["work_package_index"] = package_index
+	return project
+
+
+func _package_cell_index(values: Array, target: Vector3i) -> int:
+	for index in values.size():
+		var cell: Variant = values[index]
+		if cell is Array and cell.size() >= 3 \
+				and Vector3i(int(cell[0]), int(cell[1]), int(cell[2])) == target:
+			return index
+	return -1
+
+
+func _player_edit_matches_package(
+		kind: String, cell: Vector3i, survey: Dictionary) -> bool:
+	var block_id := _world.get_persisted_block_id(cell)
+	if kind == "route":
+		var path_block_id := str((survey.get(
+			"route_plan", {}) as Dictionary).get(
+				"surface_block_id", "road.path.dirt"))
+		return BlockRegistry.get_stable_id(block_id) == path_block_id
+	var fill_keys := {}
+	for fill_value in survey.get("fill_cells", []):
+		fill_keys[_work_cell_key(Vector3i(
+			int(fill_value[0]), int(fill_value[1]), int(fill_value[2])))] = true
+	if fill_keys.has(_work_cell_key(cell)):
+		return BlockRegistry.get_stable_id(block_id) \
+			== str(survey.get("fill_block_id",
+			TerrainPlannerScript.TERRAIN_FILL_BLOCK_ID))
+	return BlockRegistry.is_air(block_id)
+
+
+func _work_cell_key(cell: Vector3i) -> String:
+	return "%d:%d:%d" % [cell.x, cell.y, cell.z]
+
+
 func _prepare_work_package(
 		settlement_id: String,
 		package: Dictionary,
@@ -2194,8 +2646,8 @@ func _ensure_resident_tool(
 		return {"ok": true}
 	var resident := HamletState.get_npc_record(resident_id)
 	for stack_value in [
-		resident.get("equipment", {}),
-		resident.get("carried_stack", {}),
+		_resident_stack_from_record(resident.get("equipment", {})),
+		_resident_stack_from_record(resident.get("carried_stack", {})),
 	]:
 		if not (stack_value is Dictionary) or stack_value.is_empty():
 			continue
@@ -2291,7 +2743,7 @@ func _equip_required_tool_from_warehouse(
 	if requirements.is_empty():
 		return {"ok": true}
 	var resident := HamletState.get_npc_record(resident_id)
-	var current: Dictionary = resident.get("equipment", {})
+	var current := _resident_stack_from_record(resident.get("equipment", {}))
 	if not current.is_empty() and str(current.get("kind", "")) == "item":
 		var current_profile := ItemRegistry.get_tool_profile(
 			int(current.get("id", -1)))
@@ -2314,8 +2766,11 @@ func _equip_required_tool_from_warehouse(
 		var equipment := stack.duplicate(true)
 		equipment["count"] = 1
 		HamletState.warehouse_slots[slot_index] = {}
+		var equipment_slots: Dictionary = resident.get(
+			"equipment", {}).duplicate(true)
+		equipment_slots["primary"] = Inventory.serialize_stack(equipment)
 		HamletState.update_resident_runtime(resident_id, {
-			"equipment": equipment,
+			"equipment": equipment_slots,
 		})
 		return {"ok": true, "withdrawn": true}
 	return {
@@ -2335,8 +2790,19 @@ func _perform_package_step(
 	var progress := int(package.get("progress", 0))
 	var cells: Array = package.get("cells", [])
 	var claim_id := str(survey.get("plan_hash", ""))
-	if kind in ["route", "vegetation", "terrain"]:
+	if kind in ["route", "vegetation", "terrain", "clearance", "fill"]:
+		var player_completed: Dictionary = package.get(
+			"player_completed_cells", {})
+		while progress < cells.size():
+			var completed_values: Array = cells[progress]
+			var completed_cell := Vector3i(
+				int(completed_values[0]), int(completed_values[1]),
+				int(completed_values[2]))
+			if not player_completed.has(_work_cell_key(completed_cell)):
+				break
+			progress += 1
 		if progress >= cells.size():
+			package["progress"] = progress
 			return {
 				"ok": true, "package": package, "package_complete": true,
 			}
@@ -2345,7 +2811,9 @@ func _perform_package_step(
 		if not _world.is_voxel_loaded_at(cell):
 			return {"ok": false, "reason": "terrain_unloaded"}
 		if kind == "route":
-			var path_id := BlockRegistry.get_id_by_stable_id("road.path.dirt")
+			var path_block_id := str(package.get(
+				"surface_block_id", "road.path.dirt"))
+			var path_id := BlockRegistry.get_id_by_stable_id(path_block_id)
 			if path_id <= 0:
 				path_id = BlockRegistry.get_id_by_stable_id(
 					"terrain.dirt.basic")
@@ -2353,32 +2821,29 @@ func _perform_package_step(
 					cell, path_id, project_instance_id, "project",
 					settlement_id, claim_id):
 				return {"ok": false, "reason": "route_write_failed"}
+		elif kind == "fill":
+			var fill_block_id := str(package.get(
+				"fill_block_id", survey.get(
+					"fill_block_id", TerrainPlannerScript.TERRAIN_FILL_BLOCK_ID)))
+			var fill_id := BlockRegistry.get_id_by_stable_id(fill_block_id)
+			if fill_id <= 0:
+				return {"ok": false, "reason": "fill_block_unknown"}
+			if not _world.set_block_with_provenance(
+					cell, fill_id, project_instance_id, "project",
+					settlement_id, claim_id):
+				return {"ok": false, "reason": "foundation_fill_failed"}
 		else:
-			var fill_keys := {}
-			for fill_value in survey.get("fill_cells", []):
-				fill_keys["%d:%d:%d" % [
-					int(fill_value[0]), int(fill_value[1]),
-					int(fill_value[2])]] = true
-			var key := "%d:%d:%d" % [cell.x, cell.y, cell.z]
-			if fill_keys.has(key):
-				var fill_id := BlockRegistry.get_id_by_stable_id(
-					"construction.cobble.stone")
-				if not _world.set_block_with_provenance(
-						cell, fill_id, project_instance_id, "project",
-						settlement_id, claim_id):
-					return {"ok": false, "reason": "foundation_fill_failed"}
-			else:
-				var block_id := _world.get_persisted_block_id(cell)
-				var harvested := _collect_excavation_drop(
-					resident_id, block_id, cell, project_instance_id)
-				if not bool(harvested.get("ok", false)):
-					return harvested
-				if _world.is_door_at(cell):
-					_world.remove_door(cell)
-				elif not _world.set_block_with_provenance(
-						cell, BlockRegistry.AIR, project_instance_id,
-						"project", settlement_id, claim_id):
-					return {"ok": false, "reason": "excavation_write_failed"}
+			var block_id := _world.get_persisted_block_id(cell)
+			var harvested := _collect_excavation_drop(
+				resident_id, block_id, cell, project_instance_id)
+			if not bool(harvested.get("ok", false)):
+				return harvested
+			if _world.is_door_at(cell):
+				_world.remove_door(cell)
+			elif not _world.set_block_with_provenance(
+					cell, BlockRegistry.AIR, project_instance_id,
+					"project", settlement_id, claim_id):
+				return {"ok": false, "reason": "excavation_write_failed"}
 		progress += 1
 	elif kind == "blueprint_stage":
 		if bool(HamletState.project.get("awaiting_supplies", true)):
@@ -2424,7 +2889,7 @@ func _perform_package_step(
 	package["progress"] = progress
 	var complete := (
 		progress >= maxi(1, cells.size())
-		if kind in ["route", "vegetation", "terrain"]
+		if kind in ["route", "vegetation", "terrain", "clearance", "fill"]
 		else kind == "activation")
 	if kind == "blueprint_stage":
 		var project_definition := SettlementContentRegistry.get_project(str(
@@ -2462,7 +2927,9 @@ func _collect_excavation_drop(
 	if not bool(tool_check.get("ok", false)):
 		return tool_check
 	var resident := HamletState.get_npc_record(resident_id)
-	var equipment: Dictionary = resident.get("equipment", {}).duplicate(true)
+	var equipment_slots: Dictionary = resident.get(
+		"equipment", {}).duplicate(true)
+	var equipment := _resident_stack_from_record(equipment_slots)
 	var instance: Dictionary = equipment.get("instance", {}).duplicate(true)
 	if not instance.is_empty():
 		instance["durability"] = maxi(
@@ -2475,6 +2942,15 @@ func _collect_excavation_drop(
 		"count": maxi(1, int(profile.get("drop_count", 1))),
 	}
 	var carried := Inventory.make_stack_from_ref(drop_ref)
+	var existing_carried: Dictionary = resident.get("carried_stack", {})
+	var existing_kind := str(existing_carried.get("kind", ""))
+	var carried_kind := str(carried.get("kind", ""))
+	var existing_id := str(existing_carried.get(
+		"stable_id", existing_carried.get("id", "")))
+	var carried_id := str(carried.get("stable_id", carried.get("id", "")))
+	if existing_kind == carried_kind and existing_id == carried_id:
+		carried["count"] = int(existing_carried.get("count", 0)) \
+			+ int(carried.get("count", 0))
 	var history: Array = resident.get("transaction_history", []).duplicate(true)
 	history.append({
 		"event": "excavation_drop_collected",
@@ -2483,12 +2959,27 @@ func _collect_excavation_drop(
 		"content_ref": drop_ref,
 		"conserved": true,
 	})
+	if not equipment.is_empty():
+		equipment_slots["primary"] = Inventory.serialize_stack(equipment)
 	HamletState.update_resident_runtime(resident_id, {
-		"equipment": equipment,
+		"equipment": equipment_slots,
 		"carried_stack": carried,
 		"transaction_history": history,
 	})
 	return {"ok": true, "drop": drop_ref}
+
+
+func _resident_stack_from_record(value: Variant) -> Dictionary:
+	if not (value is Dictionary) or value.is_empty():
+		return {}
+	var record: Dictionary = value
+	if record.has("primary"):
+		return _resident_stack_from_record(record.get("primary", {}))
+	if record.has("item_id") or record.has("block_id"):
+		return Inventory.deserialize_stack(record)
+	if record.has("id") and record.has("count"):
+		return record.duplicate(true)
+	return {}
 
 
 func deposit_resident_outputs(
@@ -2584,6 +3075,16 @@ func _register_completed_building_capacity(
 		project_instance_id, {})
 	var blueprint := SettlementContentRegistry.get_blueprint(str(
 		project.get("blueprint_id", "")))
+	var building_instance_id := "building_instance.%s" % (
+		project_instance_id.trim_prefix("project_instance."))
+	var behavior := SettlementContentRegistry.get_behavior_for_definition(str(
+		project.get("building_definition_id", "")))
+	var housing_capacity := maxi(0, int(behavior.get("housing_capacity", 0)))
+	var staffing_contract: Dictionary = behavior.get("staffing_contract", {})
+	var managed_staffing := not staffing_contract.is_empty()
+	var staffing_marker_types: Array = staffing_contract.get(
+		"staffing_marker_types", [])
+	var staffing_markers: Array[Dictionary] = []
 	var anchor_values: Array = survey.get("anchor", [])
 	if blueprint.is_empty() or anchor_values.size() < 3:
 		return
@@ -2592,6 +3093,7 @@ func _register_completed_building_capacity(
 	var rotation := int(survey.get("rotation", 0))
 	var beds: Dictionary = record.get("bed_slots", {})
 	var jobs: Dictionary = record.get("job_slots", {})
+	var bed_markers: Array[Dictionary] = []
 	for marker_value in blueprint.get("markers", []):
 		var marker: Dictionary = marker_value
 		var marker_type := str(marker.get("type", "")).to_lower()
@@ -2604,22 +3106,18 @@ func _register_completed_building_capacity(
 			rotated.x, int(local[1]), rotated.y)
 		var marker_id := str(marker.get("id", marker_type))
 		if "bed" in marker_type:
-			var bed_id := "%s.bed.%s" % [
-				project_instance_id, marker_id]
-			beds[bed_id] = {
-				"record_type": "BedAssignment",
-				"bed_id": bed_id,
-				"residence_id": "building_instance.%s" % (
-					project_instance_id.trim_prefix("project_instance.")),
+			bed_markers.append({
+				"marker_id": marker_id,
 				"position": [position.x, position.y, position.z],
-				"reachable": true,
-				"safe": true,
-				"marker_valid": true,
-				"permanent": true,
-				"source_marker_id": marker_id,
-			}
-		elif "job" in marker_type or "work" in marker_type \
-				or "staff" in marker_type:
+			})
+		elif managed_staffing and marker_type in staffing_marker_types:
+			staffing_markers.append({
+				"marker_id": marker_id,
+				"position": [position.x, position.y, position.z],
+			})
+		elif not managed_staffing and ("job" in marker_type \
+				or "work" in marker_type \
+				or "staff" in marker_type):
 			var assignment_id := "%s.job_slot.%s" % [
 				project_instance_id, marker_id]
 			jobs[assignment_id] = {
@@ -2627,12 +3125,55 @@ func _register_completed_building_capacity(
 				"job_assignment_id": assignment_id,
 				"role": str(marker.get(
 					"canonical_job_role", "job.generalist.settlement")),
+				"workplace_ref": building_instance_id,
 				"position": [position.x, position.y, position.z],
 				"adult_only": true,
 				"reachable": true,
 				"active": true,
 				"marker_valid": true,
 				"source_marker_id": marker_id,
+			}
+	if not bed_markers.is_empty():
+		var target_beds := maxi(bed_markers.size(), housing_capacity)
+		for bed_index in target_beds:
+			var marker: Dictionary = bed_markers[bed_index % bed_markers.size()]
+			var marker_id := str(marker.get("marker_id", "bed"))
+			var bed_id := "%s.bed.%s.%02d" % [
+				project_instance_id, marker_id, bed_index + 1]
+			beds[bed_id] = {
+				"record_type": "BedAssignment",
+				"bed_id": bed_id,
+				"residence_id": building_instance_id,
+				"position": (marker.get("position", []) as Array).duplicate(),
+				"reachable": true,
+				"safe": true,
+				"marker_valid": true,
+				"permanent": true,
+				"source_marker_id": marker_id,
+			}
+	if managed_staffing and not staffing_markers.is_empty():
+		var target_slots := maxi(1, int(staffing_contract.get(
+			"target_slots", behavior.get("job_slots", 1))))
+		var accepted_job_ids: Array = staffing_contract.get(
+			"accepted_job_ids", [])
+		for slot_index in target_slots:
+			var marker: Dictionary = staffing_markers[
+				slot_index % staffing_markers.size()]
+			var assignment_id := "%s.job_slot.staff.%02d" % [
+				project_instance_id, slot_index]
+			jobs[assignment_id] = {
+				"record_type": "JobAssignment",
+				"job_assignment_id": assignment_id,
+				"role": str(accepted_job_ids[
+					slot_index % accepted_job_ids.size()]),
+				"workplace_ref": building_instance_id,
+				"position": (marker.get("position", []) as Array).duplicate(),
+				"adult_only": true,
+				"reachable": true,
+				"active": true,
+				"marker_valid": true,
+				"accepted_job_ids": accepted_job_ids.duplicate(),
+				"source_marker_id": str(marker.get("marker_id", "")),
 			}
 	var routes: Array = record.get("routes", [])
 	var route: Dictionary = survey.get("route_plan", {}).duplicate(true)
@@ -2642,6 +3183,15 @@ func _register_completed_building_capacity(
 	record["routes"] = routes
 	record["bed_slots"] = beds
 	record["job_slots"] = jobs
+	record["hamlet_state"] = HamletState.serialize_state()
+	record = _assign_completed_permanent_housing(
+		record, building_instance_id)
+	if managed_staffing:
+		record = _auto_staff_completed_building(
+			record, building_instance_id, staffing_contract)
+	record = _sync_people_owner_record(record, true)
+	record = _refresh_service_activation_record(record)
+	_apply_service_record_to_focused(record)
 	record["capability"] = SettlementSimulationEngine.capability_stage(
 		HamletState.runtime_buildings.values())
 	record["hamlet_state"] = HamletState.serialize_state()
@@ -2649,6 +3199,99 @@ func _register_completed_building_capacity(
 	settlements[settlement_id] = record
 	project_proposals_changed.emit(settlement_id)
 	population_changed.emit(settlement_id)
+
+
+func register_completed_project(
+		settlement_id: String,
+		project_instance_id: String,
+		world_anchor: Vector3i) -> Dictionary:
+	if not initialized or not settlements.has(settlement_id) \
+			or settlement_id != focused_settlement_id \
+			or HamletState.active_village_id != settlement_id:
+		return {"ok": false, "reason": "settlement_not_focused"}
+	var project: Dictionary = HamletState.project
+	if str(project.get("instance_id", "")) != project_instance_id \
+			or not bool(project.get("complete", false)):
+		return {"ok": false, "reason": "project_not_complete"}
+	var record: Dictionary = settlements[settlement_id]
+	var registered: Array = record.get("completed_project_ids", []).duplicate()
+	if project_instance_id in registered:
+		return {"ok": true, "already_registered": true}
+	record["hamlet_state"] = HamletState.serialize_state()
+	settlements[settlement_id] = record
+	var survey: Dictionary = (record.get("surveys", {}) as Dictionary).get(
+		str(project.get("site_survey_hash", "")), {}).duplicate(true)
+	if survey.is_empty():
+		survey = {
+			"anchor": [world_anchor.x, world_anchor.y, world_anchor.z],
+			"rotation": int(project.get("rotation", 0)),
+			"route_plan": {},
+		}
+	_register_completed_building_capacity(
+		settlement_id, project_instance_id, survey)
+	record = settlements[settlement_id]
+	registered = record.get("completed_project_ids", []).duplicate()
+	registered.append(project_instance_id)
+	record["completed_project_ids"] = registered
+	record["hamlet_state"] = HamletState.serialize_state()
+	record["dirty"] = true
+	settlements[settlement_id] = record
+	settlements_changed.emit()
+	return {
+		"ok": true,
+		"population": get_population_report(settlement_id),
+		"recommended_project": get_recommended_project(settlement_id),
+	}
+
+
+func _assign_completed_permanent_housing(
+		record_value: Dictionary,
+		building_instance_id: String) -> Dictionary:
+	var record := record_value.duplicate(true)
+	var bed_slots: Dictionary = record.get("bed_slots", {})
+	var used_beds := {}
+	for resident_value in HamletState.npc_records.values():
+		if resident_value is Dictionary:
+			used_beds[str(resident_value.get("bed_id", ""))] = true
+	var available: Array[String] = []
+	for bed_id_value in bed_slots:
+		var bed_id := str(bed_id_value)
+		var bed: Dictionary = bed_slots[bed_id_value]
+		if str(bed.get("residence_id", "")) == building_instance_id \
+				and bool(bed.get("permanent", false)) \
+				and bool(bed.get("reachable", false)) \
+				and bool(bed.get("safe", false)) \
+				and not used_beds.has(bed_id):
+			available.append(bed_id)
+	available.sort()
+	var resident_ids: Array[String] = HamletState.get_npc_ids()
+	for resident_id in resident_ids:
+		if available.is_empty():
+			break
+		var resident: Dictionary = HamletState.get_npc_record(resident_id)
+		if not bool(resident.get("alive", true)):
+			continue
+		var current_bed: Dictionary = bed_slots.get(
+			str(resident.get("bed_id", "")), {})
+		if bool(current_bed.get("permanent", false)) \
+				and bool(current_bed.get("reachable", false)) \
+				and bool(current_bed.get("safe", false)):
+			continue
+		var bed_id: String = available.pop_front()
+		var bed: Dictionary = bed_slots[bed_id]
+		var position: Array = bed.get("position", [])
+		var home: Array = (resident.get("home", []) as Array).duplicate()
+		if position.size() >= 3:
+			home = [int(position[0]), int(position[2])]
+		if HamletState.update_resident_runtime(resident_id, {
+			"residence_id": str(bed.get("residence_id", "")),
+			"bed_id": bed_id,
+			"home": home,
+			"displaced": false,
+		}):
+			used_beds[bed_id] = true
+	record["hamlet_state"] = HamletState.serialize_state()
+	return record
 
 
 func _rotate_local_marker(point: Vector2i, rotation: int) -> Vector2i:
@@ -2660,6 +3303,106 @@ func _rotate_local_marker(point: Vector2i, rotation: int) -> Vector2i:
 		3:
 			return Vector2i(point.y, -point.x)
 	return point
+
+
+func _auto_staff_completed_building(
+		record_value: Dictionary,
+		building_instance_id: String,
+		staffing_contract: Dictionary) -> Dictionary:
+	var record := record_value.duplicate(true)
+	var accepted_job_ids: Array = staffing_contract.get(
+		"accepted_job_ids", [])
+	var available_slot_ids: Array[String] = []
+	for slot_value in (record.get("job_slots", {}) as Dictionary).values():
+		if slot_value is Dictionary \
+				and str(slot_value.get("workplace_ref", "")) \
+					== building_instance_id:
+			available_slot_ids.append(str(slot_value.get(
+				"job_assignment_id", "")))
+	available_slot_ids.sort()
+	var used_slot_ids := {}
+	for resident_value in HamletState.npc_records.values():
+		if resident_value is Dictionary:
+			var existing_assignment := str(resident_value.get(
+				"job_assignment_id", ""))
+			if existing_assignment in available_slot_ids:
+				used_slot_ids[existing_assignment] = true
+	var resident_ids := HamletState.get_npc_ids()
+	for resident_id in resident_ids:
+		var resident := HamletState.get_npc_record(resident_id)
+		if str(resident.get("job_id", "")) not in accepted_job_ids \
+				or not str(resident.get("workplace_id", "")).is_empty():
+			continue
+		var assignment_id := ""
+		for slot_id in available_slot_ids:
+			if not used_slot_ids.has(slot_id):
+				assignment_id = slot_id
+				break
+		if assignment_id.is_empty():
+			break
+		var slot: Dictionary = record["job_slots"][assignment_id]
+		if HamletState.update_resident_runtime(resident_id, {
+			"job_assignment_id": assignment_id,
+			"workplace_id": building_instance_id,
+			"workplace_role_ref": str(slot.get("role", "")),
+			"work": (slot.get("position", []) as Array).duplicate(),
+		}):
+			used_slot_ids[assignment_id] = true
+	record["hamlet_state"] = HamletState.serialize_state()
+	return record
+
+
+func _refresh_service_activation_record(record_value: Dictionary) -> Dictionary:
+	var record := record_value.duplicate(true)
+	var state: Dictionary = record.get("hamlet_state", {}).duplicate(true)
+	var buildings: Array = []
+	for building_value in (state.get(
+			"runtime_buildings", {}) as Dictionary).values():
+		if building_value is Dictionary:
+			buildings.append(building_value)
+	var resource_ledger: Dictionary = record.get(
+		"resource_ledger", {}).duplicate(true)
+	if HamletState.initialized \
+			and HamletState.active_village_id \
+				== str(record.get("settlement_id", "")):
+		resource_ledger = HamletState._warehouse_resource_ledger()
+		record["resource_ledger"] = resource_ledger.duplicate(true)
+	var result := ServiceEngine.evaluate_buildings(
+		buildings,
+		state.get("npc_records", {}),
+		record.get("job_slots", {}),
+		{
+			"day": int(state.get("day", 1)),
+			"clock_minutes": float(state.get("clock_minutes", 0.0)),
+			"world_tick": int(ProductionKernel.world_time_reference().get(
+				"world_tick", 0)),
+		},
+		resource_ledger)
+	if not bool(result.get("ok", false)):
+		record["service_activation_errors"] = (
+			result.get("errors", []) as Array).duplicate()
+		return record
+	var rebuilt := {}
+	for building_value in result.get("buildings", []):
+		if building_value is Dictionary:
+			var building: Dictionary = building_value
+			rebuilt[str(building.get("instance_id", ""))] = building
+	state["runtime_buildings"] = rebuilt
+	record["hamlet_state"] = state
+	record["service_records"] = (
+		result.get("service_records", {}) as Dictionary).duplicate(true)
+	record.erase("service_activation_errors")
+	return record
+
+
+func _apply_service_record_to_focused(record: Dictionary) -> void:
+	if not HamletState.initialized \
+			or str(record.get("settlement_id", "")) \
+				!= HamletState.active_village_id:
+		return
+	var state: Dictionary = record.get("hamlet_state", {})
+	HamletState.runtime_buildings = (
+		state.get("runtime_buildings", {}) as Dictionary).duplicate(true)
 
 
 func _pause_package(
@@ -2861,6 +3604,8 @@ func _ensure_stage_b_record(
 		"work_packages", {}).duplicate(true)
 	record["pending_survey"] = record.get(
 		"pending_survey", {}).duplicate(true)
+	record["completed_project_ids"] = record.get(
+		"completed_project_ids", []).duplicate(true)
 	record["population_state"] = record.get("population_state", {
 		"stable_days": 0,
 		"migration_cooldown_until_day": 0,
@@ -3326,7 +4071,9 @@ func _proposal_need_score(need_id: String, report: Dictionary) -> int:
 	if need_id.is_empty():
 		return 0
 	if need_id in ["housing", "shelter"]:
-		return int(report.get("housing_pressure", 0)) * 100
+		return int(report.get(
+			"permanent_housing_pressure",
+			report.get("housing_pressure", 0))) * 100
 	if need_id in ["jobs", "prosperity"]:
 		return maxi(0, int(report.get("adults", 0))
 			- int(report.get("valid_adult_jobs", 0))) * 80

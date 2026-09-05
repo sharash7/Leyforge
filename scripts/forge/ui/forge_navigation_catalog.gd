@@ -8,6 +8,10 @@ const AUTHOR := "Author"
 const INSPECT := "Inspect"
 const PLANNED := "Planned"
 
+## Set by Main Menu Dev Tools before loading forge_runtime_host.tscn so the
+## runtime shell opens directly on the manual test-room browser on startup.
+static var pending_route_id := ""
+
 const SECTIONS := [
 	{
 		"id": "home",
@@ -165,11 +169,40 @@ static var ROUTES: Array = [
 		"Capture & Replay", "_show_presentation_capture", AUTHOR, false, false),
 	_route("test_laboratory", "test_delivery", "Verify", "Test Laboratory",
 		"Test Laboratory", "_show_presentation_test_laboratory", INSPECT, false, false),
+	_route("test_room_browser", "test_delivery", "Manual Testing", "Test Room Browser",
+		"Test Room Browser", "_show_test_room_browser", INSPECT, false, false),
 	_route("validation", "test_delivery", "Deliver", "Validation Centre",
 		"Validation Centre", "_show_validation", AUTHOR, true, false),
 	_route("hot_reload", "test_delivery", "Deliver", "Hot Reload & Repair",
 		"Hot Reload & Repair", "_show_presentation_hot_reload", AUTHOR, false, false),
 ]
+
+## Single catalog location for manual test rooms launched from the Forge
+## Test Room Browser. Add one _test_room(...) entry here to register a room.
+static var TEST_ROOMS: Array = [
+	_test_room(
+		"village_progression_lab",
+		"Village Progression Lab",
+		"res://development/village_progression_lab.tscn",
+		"Village & Settlement",
+		"Village progression and settlement construction lab"),
+]
+
+
+static func test_rooms() -> Array:
+	return TEST_ROOMS.duplicate(true)
+
+
+static func _test_room(
+		id: String, label: String, scene: String, category: String,
+		mechanic: String) -> Dictionary:
+	return {
+		"id": id,
+		"label": label,
+		"scene": scene,
+		"category": category,
+		"mechanic": mechanic,
+	}
 
 
 static func sections() -> Array:

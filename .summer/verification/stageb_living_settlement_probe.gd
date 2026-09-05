@@ -2,6 +2,9 @@ extends Node
 ## Stage B contract: v5 camps, v17 records, safe parcels, construction work,
 ## directional placement, logical doors, population, and catalogue rotation.
 
+const SitePreviewScript = preload(
+	"res://scripts/world/settlement_site_preview.gd")
+
 var failures: Array[String] = []
 var checks := 0
 
@@ -148,6 +151,9 @@ func _run() -> void:
 	_check(
 		int(population.get("permanent_beds", -1)) == 0,
 		"temporary tents were incorrectly treated as permanent family housing")
+	_check(
+		int(population.get("permanent_housing_pressure", -1)) == 4,
+		"Camp did not report permanent housing for every resident plus a reserve")
 	var proposals := SettlementManager.get_project_proposals(settlement_id)
 	_check(
 		proposals.size()
@@ -164,6 +170,9 @@ func _run() -> void:
 					str(value.get("id", ""))
 						== "project.build.small_cottage")),
 		"watchtower completion path or permanent housing proposal is missing")
+	var recommended := SettlementManager.get_recommended_project(settlement_id)
+	_check(str(recommended.get("primary_need", "")) == "housing",
+		"needs planner did not prioritise permanent housing at the Camp")
 	var migration := SettlementManager.evaluate_population_day(
 		settlement_id, "migration")
 	_check(
@@ -203,7 +212,8 @@ func _run() -> void:
 	_check(
 		HamletNpcActor.JUMP_VELOCITY > 0.0
 			and HamletNpcActor.RECOVERY_SECONDS
-				> HamletNpcActor.REPLAN_SECONDS,
+				> HamletNpcActor.REPLAN_SECONDS
+			and HamletNpcActor.MAX_SAFE_DROP == 2,
 		"NPC shared navigation lacks jump or persistent stuck recovery")
 
 	var world := VoxelWorld.new()
@@ -257,8 +267,10 @@ func _run() -> void:
 	var route: Dictionary = survey.get("route_plan", {})
 	_check(
 		bool(route.get("valid", false))
-			and int(route.get("maximum_step", 99)) <= 1,
-		"survey route is disconnected or exceeds one-block grade")
+			and int(route.get("maximum_step", 99)) <= 1
+			and bool(route.get("physical_path", false))
+			and str(route.get("surface_block_id", "")) == "road.path.dirt",
+		"survey route is disconnected, abstract, or exceeds one-block grade")
 	var confirmation := SettlementManager.confirm_project_site(
 		settlement_id, survey)
 	_check(
@@ -272,6 +284,67 @@ func _run() -> void:
 			and package_kinds[-1] == "activation"
 			and "blueprint_stage" in package_kinds,
 		"construction work-package order is incomplete")
+	var visual_survey := survey.duplicate(true)
+	visual_survey["plan_hash"] = "%s.visual" % str(survey.get("plan_hash", ""))
+	visual_survey["cut_cells"] = [[test_point.x, ground + 1, test_point.y]]
+	visual_survey["fill_cells"] = [[test_point.x + 1, ground, test_point.y]]
+	var site_preview: SettlementSitePreview = SitePreviewScript.new()
+	add_child(site_preview)
+	_check(site_preview.apply_survey(visual_survey),
+		"site survey could not create its in-world explanation overlay")
+	var preview_snapshot := site_preview.visual_snapshot()
+	_check(
+		int(preview_snapshot.get("clear_cells", 0)) >= 1
+			and int(preview_snapshot.get("fill_cells", 0)) >= 1
+			and int(preview_snapshot.get("route_cells", 0)) >= 1
+			and int(preview_snapshot.get("footprint_cells", 0)) >= 1,
+		"site overlay omitted clear, fill, route, or footprint markers")
+	var clear_marker: MultiMeshInstance3D = site_preview.get_node(
+		"ClearTerrain")
+	var clear_material: StandardMaterial3D = clear_marker.multimesh.mesh.material
+	_check(clear_material.albedo_color.a <= 0.20
+			and not clear_material.no_depth_test,
+		"site overlay remained opaque or visible through overlapping terrain")
+	site_preview.queue_free()
+
+	var route_package: Dictionary = confirmation.get("work_packages", [])[0]
+	var route_cells: Array = route_package.get("cells", [])
+	_check(bool(route_package.get("physical_path", false))
+			and bool(route_package.get("connects_existing_route", false))
+			and str(route_package.get("surface_block_id", "")) \
+				== "road.path.dirt"
+			and str(route_package.get("display_name", "")) \
+				== "Build physical footpath to building entrance",
+		"access work package is not an explicit physical footpath stage")
+	var worker_route_values: Array = route_cells.front()
+	var worker_route_cell := Vector3i(
+		int(worker_route_values[0]), int(worker_route_values[1]),
+		int(worker_route_values[2]))
+	world.prepare_player_column(Vector3(worker_route_cell) + Vector3.UP * 2.0)
+	var route_step := SettlementManager._perform_package_step(
+		settlement_id,
+		str(confirmation.get("project_instance_id", "")),
+		route_package, survey, "")
+	_check(bool(route_step.get("ok", false))
+			and BlockRegistry.get_stable_id(
+				world.get_persisted_block_id(worker_route_cell)) \
+				== "road.path.dirt",
+		"footpath stage did not place a physical path block in the world")
+	var player_route_values: Array = route_cells.back()
+	var player_route_cell := Vector3i(
+		int(player_route_values[0]), int(player_route_values[1]),
+		int(player_route_values[2]))
+	world.prepare_player_column(Vector3(player_route_cell) + Vector3.UP * 2.0)
+	var path_id := BlockRegistry.get_id_by_stable_id("road.path.dirt")
+	_check(world.set_block_with_provenance(
+			player_route_cell, path_id, "player.place", "player"),
+		"player could not commit a physical access-path contribution")
+	var player_contribution := SettlementManager.record_player_project_edit(
+		settlement_id, player_route_cell)
+	_check(
+		bool(player_contribution.get("ok", false))
+			and bool(player_contribution.get("recorded", false)),
+		"physical player edit did not count toward site preparation")
 
 	var door_horizontal := Vector2i(
 		world.chunk_coord(test_point.x) * VoxelWorld.CHUNK_SIZE + 8,
@@ -392,6 +465,61 @@ func _run() -> void:
 		FileAccess.file_exists(
 			"res://development/village_progression_lab.tscn"),
 		"isolated village progression lab scene is missing")
+
+	var before_housing_handoff := SettlementManager.get_population_report(
+		settlement_id)
+	var primitive_project_id := ""
+	for project_id_value in HamletState.runtime_projects:
+		if str((HamletState.runtime_projects[project_id_value] as Dictionary).get(
+				"definition_id", "")) == HamletState.PRODUCTION_PROJECT_ID:
+			primitive_project_id = str(project_id_value)
+			break
+	_check(not primitive_project_id.is_empty()
+			and HamletState.activate_project_instance(primitive_project_id),
+		"initial primitive hut project was unavailable for completion handoff")
+	var completed_project := HamletState.project.duplicate(true)
+	completed_project["stage"] = "complete"
+	completed_project["complete"] = true
+	completed_project["awaiting_supplies"] = false
+	HamletState.project = completed_project
+	var completed_project_id := str(completed_project.get("instance_id", ""))
+	HamletState.runtime_projects[completed_project_id] = completed_project
+	HamletState._activate_project_building()
+	var project_position: Array = completed_project.get("position", [])
+	var completion_anchor := Vector3i(
+		int(project_position[0]),
+		world.surface_height_at(
+			int(project_position[0]), int(project_position[1])),
+		int(project_position[1]))
+	var handoff := SettlementManager.register_completed_project(
+		settlement_id, completed_project_id, completion_anchor)
+	var housed_population := SettlementManager.get_population_report(settlement_id)
+	var permanently_housed := HamletState.get_npc_ids().filter(
+		func(resident_id: String) -> bool:
+			var resident := HamletState.get_npc_record(resident_id)
+			var bed: Dictionary = SettlementManager.get_settlement(
+				settlement_id).get("bed_slots", {}).get(
+					str(resident.get("bed_id", "")), {})
+			return bool(bed.get("permanent", false))).size()
+	_check(bool(handoff.get("ok", false))
+			and int(housed_population.get("permanent_beds", 0))
+				== int(before_housing_handoff.get("permanent_beds", 0)) + 3
+			and permanently_housed
+				== mini(3, int(housed_population.get("population", 0))),
+		"completed primitive hut did not register and assign its three homes")
+	var remaining_housing_pressure := maxi(0,
+		int(housed_population.get("population", 0)) + 1
+			- int(housed_population.get("permanent_beds", 0)))
+	var next_recommendation := SettlementManager.get_recommended_project(
+		settlement_id)
+	_check(int(housed_population.get("permanent_housing_pressure", -1))
+			== remaining_housing_pressure
+			and not next_recommendation.is_empty()
+			and (remaining_housing_pressure > 0
+				and str(next_recommendation.get("primary_need", "")) == "housing"
+				or remaining_housing_pressure == 0
+				and str(next_recommendation.get("primary_need", "")) != "housing"),
+		"planner did not advance from housing to the next unmet village need")
 
 	world.queue_free()
 	await get_tree().process_frame

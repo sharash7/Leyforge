@@ -193,7 +193,39 @@ func _run() -> void:
 			"save changed the world's locked manifest identity")
 	replay.queue_free()
 	await get_tree().process_frame
+	_verify_world_deletion(first, second)
 	_finish()
+
+
+func _verify_world_deletion(first: Dictionary, second: Dictionary) -> void:
+	var first_id := str(first.get("world_id", ""))
+	var second_id := str(second.get("world_id", ""))
+	var first_directory := WorldManager.world_directory(first_id)
+	var second_directory := WorldManager.world_directory(second_id)
+	_check(not bool(WorldManager.delete_world("../world").get("ok", false)),
+		"world deletion accepted a traversal identity")
+	_check(not bool(WorldManager.delete_world("missing-world").get("ok", false)),
+		"world deletion accepted an unknown identity")
+	var second_delete := WorldManager.delete_world(second_id)
+	_check(bool(second_delete.get("ok", false)),
+		"inactive world deletion failed")
+	_check(not DirAccess.dir_exists_absolute(
+		ProjectSettings.globalize_path(second_directory)),
+		"deleted inactive world remained in the playable root")
+	_check(DirAccess.dir_exists_absolute(ProjectSettings.globalize_path(str(
+		second_delete.get("recoverable_path", "")))),
+		"deleted inactive world was not retained for recovery")
+	_check(str(WorldManager.active_world.get("world_id", "")) == first_id,
+		"deleting another world cleared the active selection")
+	var first_delete := WorldManager.delete_world(first_id)
+	_check(bool(first_delete.get("ok", false)), "active world deletion failed")
+	_check(WorldManager.active_world.is_empty(),
+		"deleting the active world did not clear its selection")
+	_check(not DirAccess.dir_exists_absolute(
+		ProjectSettings.globalize_path(first_directory)),
+		"deleted active world remained in the playable root")
+	_check(WorldManager.list_worlds().is_empty(),
+		"deleted worlds remained visible in the world list")
 
 
 func _finish() -> void:

@@ -1,9 +1,9 @@
 # Leyforge Documents 00-30 Full-Implementation Production Roadmap
 
 **Roadmap version:** 2
-**Updated:** 2026-08-10
-**Machine source SHA-256:** `1fa1be1e7fbcc97b3feca1bd207c1882ce08c733c4c714e32197c7bbb712cb8f`
-**Current phase:** P0
+**Updated:** 2026-08-14
+**Machine source SHA-256:** `1cb02ab929a5e3032d78098325400688feba21cd7efd86128692a3d706939781`
+**Current phase:** P4
 
 ## Completion contract
 
@@ -13,21 +13,27 @@ Tooling Research and Archived Validation remain governed but do not block releas
 Catalogue presence, generated assets and narrow probe success are not gameplay
 completion evidence.
 
+Package status records implementation evidence for that named owner boundary.
+Phase status records ordered gate acceptance. Existing implementation may therefore
+be verified in a later phase while `current_phase` remains P4, but no later phase is
+accepted until its earlier required gates close. This prevents vertical reconciliation
+work from being reported as out-of-order programme completion.
+
 ## Current implementation baseline
 
-- Coverage: 0 Implemented, 26 Partial, 3 Stub, 3 Missing.
-- Regression: 53 scenes and 19656 checks; 256 worldgen seeds; 10000 Forge structure seeds.
+- Coverage: 0 Implemented, 28 Partial, 1 Stub, 3 Missing.
+- Regression: 58 scenes and 20078 checks; 256 worldgen seeds; 10000 Forge structure seeds.
 - Runtime compatibility: save v18, worldgen v5.
 
 ## Phase map
 
 | Phase | Status | Outcome | Gate |
 |---|---|---|---|
-| P0 - Governance and Production Reset | in_progress | A reproducible Documents 00-30 baseline, production backlog, and archive-safe development profile. | G0-G1 |
-| P1 - Technical and Registry Kernel | in_progress | One authoritative command, evidence, registry, pack, and transaction substrate proven by a representative vertical. | G2-G3 |
-| P2 - Canonical Data, World and Persistence | in_progress | Canonical physical content and deterministic generated worlds persist independently of presentation and POC fixtures. | G4-G5 |
-| P3 - Persistent Simulation and Ownership Reconciliation | in_progress | Specialist systems own their state and communicate through the final reconciled Sets 27-30 contracts. | G6-foundation |
-| P4 - Living Frontier Gameplay Integration | planned | A complete generated gather, build, settle, trade, travel, adventure and recovery loop across connected settlements. | G6 |
+| P0 - Governance and Production Reset | completed | A reproducible Documents 00-30 baseline, production backlog, and archive-safe development profile. | G0-G1 |
+| P1 - Technical and Registry Kernel | completed | One authoritative command, evidence, registry, pack, and transaction substrate proven by a representative vertical. | G2-G3 |
+| P2 - Canonical Data, World and Persistence | completed | Canonical physical content and deterministic generated worlds persist independently of presentation and POC fixtures. | G4-G5 |
+| P3 - Persistent Simulation and Ownership Reconciliation | completed | Specialist systems own their state and communicate through the final reconciled Sets 27-30 contracts. | G6-foundation |
+| P4 - Living Frontier Gameplay Integration | in_progress | A complete generated gather, build, settle, trade, travel, adventure and recovery loop across connected settlements. | G6 |
 | P5 - Core Production Completion | planned | The solo-first Living Frontier Network is a complete, accessible, presented production milestone. | G7-G8 |
 | P6 - Early Access and Full Release Breadth | planned | Every accepted release-tier package across Documents 00-30 is integrated with complete dependencies and evidence. | G7-G9 expansion |
 | P7 - Multiplayer Hardening | planned | Solo, split-screen and network play share one authoritative persistent ruleset. | G9-network |
@@ -40,8 +46,8 @@ A reproducible Documents 00-30 baseline, production backlog, and archive-safe de
 | Package | Status | Documents | Depends on | Deliverables | Acceptance |
 |---|---|---|---|---|---|
 | GOV-001 - Canonical document and coverage baseline | completed | 00; 18; 25 | None | 137-document manifest; requirements ledger; 32-subsystem coverage register | document governance passes; coverage is evidence-derived |
-| GOV-002 - Requirements-to-package disposition | in_progress | 00; 01; 02; 03; 04; 05; 06; 07; 08; 09; 10; 11; 12; 13; 14; 15; 16; 17; 18; 19; 20; 20A-20H; 21; 22; 23; 24; 25; 26; 27; 28; 29; 30 | GOV-001 | machine-readable production packages; tier and dependency mapping | every accepted requirement resolves to one governed package before implementation |
-| GOV-003 - POC archive isolation | in_progress | 00; 01; 07; 11; 15; 18; 24; 25 | GOV-001 | production-safe profile and save labels; legacy identity aliases; leakage probe | new worlds do not use retired POC identities; legacy fixtures remain loadable |
+| GOV-002 - Requirements-to-package disposition | completed | 00; 01; 02; 03; 04; 05; 06; 07; 08; 09; 10; 11; 12; 13; 14; 15; 16; 17; 18; 19; 20; 20A-20H; 21; 22; 23; 24; 25; 26; 27; 28; 29; 30 | GOV-001 | machine-readable production packages; tier and dependency mapping | every accepted requirement resolves to one governed package before implementation |
+| GOV-003 - POC archive isolation | completed | 00; 01; 07; 11; 15; 18; 24; 25 | GOV-001 | production-safe profile and save labels; legacy identity aliases; leakage probe | new worlds do not use retired POC identities; legacy fixtures remain loadable |
 | GOV-004 - Safe build and verification baseline | completed | 18; 25 | GOV-001 | fixed Godot runner; isolated verification profiles; teardown blocking policy | current regression gate passes without release-blocking output |
 
 **Exit gate (G0-G1):** Core requirements have a package and owner; production profiles contain no active POC identity; Phase 0 and current regression gates pass
@@ -65,7 +71,7 @@ Canonical physical content and deterministic generated worlds persist independen
 
 | Package | Status | Documents | Depends on | Deliverables | Acceptance |
 |---|---|---|---|---|---|
-| DATA-001 - Core Blocks, Items, Recipes and Resources | in_progress | 03; 04; 05; 06; 25 | REG-002 | catalogue batches; provenance and conservation rules; capability graph | no recoverable-Block duplicate Item; all physical chains conserve quantities |
+| DATA-001 - Core Blocks, Items, Recipes and Resources | completed | 03; 04; 05; 06; 25 | REG-002 | catalogue batches; provenance and conservation rules; capability graph | no recoverable-Block duplicate Item; all physical chains conserve quantities |
 | WLD-001 - Seed world topology and biome assembly | completed | 11; 24 | REG-002 | world manifest; regional generation; deterministic repair | seed corpus is deterministic; normal generation has no archived-profile dependency |
 | STR-001 - Persistent StructureInstance owner | completed | 12; 16; 20; 22; 24 | REG-002; WLD-001 | StructureInstance record; damage and repair history; LOD views | ConstructionProject hands completion to Structure owner; combat cannot materialise structure truth directly |
 | SAVE-001 - Save coordinator, migration and recovery | completed | 18; 25 | KRN-002; REG-002 | ordered migrations; generated-base plus delta; missing-pack quarantine; atomic recovery | supported v2-v18 fixtures migrate; failed writes preserve the previous good save |
@@ -84,7 +90,13 @@ Specialist systems own their state and communicate through the final reconciled 
 | SOC-001 - Social, dialogue and knowledge state owner | completed | 07; 13; 15; 28 | KRN-002; NPC-001 | relationship and knowledge records; dialogue evidence; companion agreements | social trust cannot directly grant political or economic authority |
 | POL-001 - Government, law and territory owner | completed | 13; 27; 28 | KRN-002; NPC-001 | political authority; territory and law records; permission queries | political permissions have one owner |
 | MOV-001 - Universal Movement facade and journey records | completed | 07; 19; 26; 28; 29; 30 | BIO-001; SOC-001; STR-001 | movement request API; journey records; route truth; specialist provider boundary | settlement schedules issue movement intent; Set 26E remains aquatic provider |
-| EVT-001 - Quest, event and world-history evidence owner | planned | 15; 24 | KRN-002; SAVE-001 | event journal; quest graph state; world consequence references | events bind existing identities and remain idempotent |
+| EVT-001 - Quest, event and world-history evidence owner | completed | 15; 24 | KRN-002; SAVE-001 | event journal; quest graph state; world consequence references | events bind existing identities and remain idempotent |
+
+EVT-001 completion covers the runtime owner boundary: stable-definition Event and
+Quest Instances, staged graphs and branches, authoritative evidence, contributions,
+transactional reward-claim state, checked consequence links, bounded Chronicle state,
+atomic commits, and v1-to-v2 migration. It does not claim the remaining authored
+Document 15 breadth or the separate Document 24K Atlas scheduler and content registry.
 
 **Exit gate (G6-foundation):** owner boundaries are enforced; near and far simulation reconcile; save/load preserves specialist state
 
@@ -94,7 +106,7 @@ A complete generated gather, build, settle, trade, travel, adventure and recover
 
 | Package | Status | Documents | Depends on | Deliverables | Acceptance |
 |---|---|---|---|---|---|
-| SET-001 - Settlement services, construction and growth | planned | 07; 19; 20; 20A-20H | NPC-001; MOV-001; STR-001 | need-driven projects; service activation; district growth | projects conserve resources and produce owned structures |
+| SET-001 - Settlement services, construction and growth | in_progress | 07; 19; 20; 20A-20H | NPC-001; MOV-001; STR-001 | need-driven projects; service activation; district growth | projects conserve resources and produce owned structures |
 | ECO-001 - Economy, markets, contracts and trade | planned | 27 | BIO-001; SOC-001; POL-001; MOV-001; SET-001 | stock-backed markets; contracts and wages; transport missions; public finance | no invisible stock, money or completed journeys |
 | SYS-001 - Automation, magic and infrastructure integration | planned | 08; 09; 20 | DATA-001; SET-001; ECO-001 | network graphs; machines; mana and wards; facility transactions | networks conserve inputs and use owner-neutral settlement transactions |
 | ECOLOGY-001 - Creature, ecology and threat runtime | planned | 10; 11; 24; 29; 30 | BIO-001; MOV-001; WLD-001 | persistent creatures; bounded ecology; Atlas-driven threats | fixed goblin scheduling is not production authority |

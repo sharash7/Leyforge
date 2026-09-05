@@ -44,6 +44,10 @@ func _run() -> void:
 	_check(
 		hud._creative_area.visible and hud._creative_list.item_count == expected_entries,
 		"creative catalogue did not open or populate")
+	_check(
+		bool((hud._nav_buttons.get("inventory") as Button).button_pressed)
+			and not bool((hud._nav_buttons.get("guide") as Button).button_pressed),
+		"navigation selection remained on Guide instead of the visible page")
 
 	hud._rebuild_creative_list("stone pickaxe")
 	_check(hud._creative_list.item_count >= 1, "creative search did not find Stone Pickaxe")
@@ -107,10 +111,24 @@ func _run() -> void:
 			and int(sticks.get("count", 0)) == 2,
 		"3x3 inherited stick recipe produced the wrong result")
 
+	hud._open_mode("village", Vector3i.ZERO)
+	hud._refresh_all()
+	_check(
+		(hud._nav_buttons.get("village") as Button).button_pressed
+			and not (hud._nav_buttons.get("guide") as Button).button_pressed,
+		"Village page did not own the selected navigation state")
+	_check(
+		"CURRENT SETTLEMENT PROJECT" in hud._village_project.text
+			and "WATCHTOWER PROJECT" not in hud._village_project.text,
+		"village overview retained the hard-coded Watchtower Project heading")
+	_check(
+		hud._hud_hint_label.text.length() < 100,
+		"compact HUD bindings still overflow the bottom screen width")
+
 	hud._set_craft_open(false)
 	var result := {
 		"ok": failures.is_empty(),
-		"checks": 11,
+		"checks": 15,
 		"catalogue_entries": expected_entries,
 		"failures": failures,
 	}

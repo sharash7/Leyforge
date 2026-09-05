@@ -352,6 +352,10 @@ class BuildingRuntimeRecord:
 	var active := false
 	var position: Array = []
 	var buffers: Dictionary = {}
+	var worksite_state: Dictionary = {}
+	var service_record: Dictionary = {}
+	var service_active := false
+	var service_status := "unknown"
 	var history: Array[Dictionary] = []
 
 	static func from_dictionary(value: Dictionary) -> BuildingRuntimeRecord:
@@ -371,6 +375,10 @@ class BuildingRuntimeRecord:
 		record.active = bool(value.get("active", false))
 		record.position = value.get("position", []).duplicate(true)
 		record.buffers = value.get("buffers", {}).duplicate(true)
+		record.worksite_state = value.get("worksite_state", {}).duplicate(true)
+		record.service_record = value.get("service_record", {}).duplicate(true)
+		record.service_active = bool(value.get("service_active", false))
+		record.service_status = str(value.get("service_status", "unknown"))
 		for entry in value.get("history", []):
 			if entry is Dictionary:
 				record.history.append(entry.duplicate(true))
@@ -391,6 +399,10 @@ class BuildingRuntimeRecord:
 			"active": active,
 			"position": position.duplicate(true),
 			"buffers": buffers.duplicate(true),
+			"worksite_state": worksite_state.duplicate(true),
+			"service_record": service_record.duplicate(true),
+			"service_active": service_active,
+			"service_status": service_status,
 			"history": history.duplicate(true),
 		}
 

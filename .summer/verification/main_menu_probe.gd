@@ -41,6 +41,26 @@ func _run() -> void:
 		_check(expected in button_texts, "menu omitted %s" % expected)
 	_check(menu._page_scroll != null, "menu content is not scrollable")
 	_check(menu._dialog != null, "menu has no visible error boundary")
+	_check(menu._delete_dialog != null, "menu has no world-delete confirmation")
+	var deletion_card: Control = menu._world_card({
+		"world_id": "world-probe-delete",
+		"name": "Delete Probe",
+		"validation_result": "valid",
+		"save_health": "new_world",
+		"save_version": WorldManager.CURRENT_SAVE_VERSION,
+	})
+	button_texts.clear()
+	_collect_button_text(deletion_card, button_texts)
+	_check("Delete" in button_texts, "world card omitted the delete action")
+	menu._request_delete_world({
+		"world_id": "world-probe-delete", "name": "Delete Probe"})
+	_check(str(menu._pending_delete_world.get("world_id", "")) \
+			== "world-probe-delete" and "Delete Probe" in menu._delete_dialog.dialog_text,
+		"delete action did not require named-world confirmation")
+	menu._cancel_delete_world()
+	_check(menu._pending_delete_world.is_empty(),
+		"cancelled world deletion retained a pending target")
+	deletion_card.queue_free()
 
 	menu._show_new_world()
 	await get_tree().process_frame

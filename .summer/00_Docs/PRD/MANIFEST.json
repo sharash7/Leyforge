@@ -1,0 +1,43 @@
+{
+  "bundle": "Leyforge PRD 00-04 Current Source Bundle",
+  "bundle_date": "2026-09-04",
+  "purpose": "Clean source-storage package containing only the current controlled PRD-00 through PRD-04 baselines.",
+  "next_document": "PRD-05 \u2014 Research Evidence Crosswalk",
+  "documents": [
+    {
+      "id": "PRD-00",
+      "filename": "PRD-00_Leyforge_Source_Corpus_and_Authority_Register_v1_0_FINAL.md",
+      "status": "FINAL / CLOSED",
+      "sha256": "e02c44620b6c09e7a7cec94bbbb55827bb515b8f3732272d4add0e7711bdfcac",
+      "bytes": 109059
+    },
+    {
+      "id": "PRD-01",
+      "filename": "PRD-01_Leyforge_Complete_Technical_Requirements_and_Unknowns_Inventory_WORKING_v0_15_CLOSURE_CANDIDATE.md",
+      "status": "CLOSURE CANDIDATE",
+      "sha256": "51e671f38a50ad070cd60dbbc29273fac79b17ed37eae009b0cd25e20094c534",
+      "bytes": 701317
+    },
+    {
+      "id": "PRD-02",
+      "filename": "PRD-02_Zylann_Voxel_Tools_Deep_Capability_Audit_v0_8_CLOSURE_CANDIDATE.md",
+      "status": "CLOSURE CANDIDATE",
+      "sha256": "3545d9dd396c2fbccfed21c1dc877b7dbdd10e599200fd3708684d6a7e63d23a",
+      "bytes": 289645
+    },
+    {
+      "id": "PRD-03",
+      "filename": "PRD-03_Godot_and_Supporting_Technology_Audit_v0_8_CLOSURE_CANDIDATE.md",
+      "status": "CLOSURE CANDIDATE",
+      "sha256": "430c2230cfc3cd44a550a003bcfccf63bf84d252949521ac65dac10f5e666f01",
+      "bytes": 326810
+    },
+    {
+      "id": "PRD-04",
+      "filename": "PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+      "status": "CLOSURE CANDIDATE",
+      "sha256": "747c6681d521dc0483e9b8c1c622bb705aa3fbaff7f2a9b494965835f191e2b4",
+      "bytes": 345494
+    }
+  ]
+}

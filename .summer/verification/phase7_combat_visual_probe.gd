@@ -258,6 +258,34 @@ func _run() -> void:
 				"count": 1,
 			}) == beams_before + 1,
 		"raid repair did not consume exactly one Oak Beam")
+	var canonical_event_refs: Dictionary = {}
+	var event_link_errors: Array[String] = []
+	var latest_raid_start := 0
+	for index in range(CombatState.event_history.size() - 1, -1, -1):
+		if str(CombatState.event_history[index].get("kind", "")) == "warning":
+			latest_raid_start = index
+			break
+	for index in range(latest_raid_start, CombatState.event_history.size()):
+		var event_entry: Dictionary = CombatState.event_history[index]
+		var event_ref := str(event_entry.get("event_ref", ""))
+		if not event_ref.is_empty():
+			canonical_event_refs[event_ref] = true
+		var event_error := str(event_entry.get("event_error", ""))
+		if not event_error.is_empty():
+			event_link_errors.append(event_error)
+	_check(canonical_event_refs.size() == 1 and event_link_errors.is_empty(),
+		"one raid did not retain one successfully linked canonical Event Instance")
+	var canonical_raid_ref := ""
+	for index in range(CombatState.event_history.size() - 1, latest_raid_start - 1, -1):
+		if str(CombatState.event_history[index].get("kind", "")) == "resolved":
+			canonical_raid_ref = str(CombatState.event_history[index].get(
+				"event_ref", ""))
+			break
+	var canonical_raid := EventManager.get_event(canonical_raid_ref)
+	_check(str(canonical_raid.get("phase", "")) == "resolution"
+			and str(canonical_raid.get("status", "")) == "resolved"
+			and (canonical_raid.get("consequence_refs", []) as Array).size() >= 2,
+		"raid resolution did not retain its damage and repair consequence links")
 	var saved_combat := CombatState.serialize_state()
 	var remaining_repairs := CombatState.unresolved_damage_count()
 	CombatState.reset_raid()

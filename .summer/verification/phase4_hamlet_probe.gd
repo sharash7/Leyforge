@@ -47,7 +47,7 @@ func _build_current_stage(
 	var work_target := HamletState.get_npc_target(HamletRuntime.BUILDER_ID)
 	builder.global_position = Vector3(
 		work_target.x,
-		float(world.surface_height_at(floori(work_target.x), floori(work_target.y))) + 1.05,
+		float(world.surface_height_at(floori(work_target.x), floori(work_target.y))) + 0.05,
 		work_target.y)
 	runtime._advance_builder_construction(HamletRuntime.BUILD_INTERVAL + 0.01)
 	_check(int(HamletState.project.get("placed_blocks", 0)) == 1,
@@ -156,6 +156,26 @@ func _run() -> void:
 		"completed staged project did not advance the trust ladder")
 	_check(HamletState.permission_enabled("warehouse_withdraw"),
 		"Trusted Ally did not gain warehouse withdrawal permission")
+	var stage_event_refs: Dictionary = {}
+	var stage_event_entries := 0
+	var every_stage_event_is_canonical := true
+	for history_value in HamletState.project.get("history", []):
+		var history_entry: Dictionary = history_value
+		if str(history_entry.get("event", "")) not in [
+			"stage_reserved", "stage_completed",
+		]:
+			continue
+		stage_event_entries += 1
+		var event_ref := str(history_entry.get("event_ref", ""))
+		if event_ref.is_empty() or not EventManager.has_event(event_ref):
+			every_stage_event_is_canonical = false
+		else:
+			stage_event_refs[event_ref] = true
+	var expected_stage_events := HamletState.PROJECT_STAGES.size() * 2 - 1
+	_check(stage_event_entries == expected_stage_events
+			and stage_event_refs.size() == expected_stage_events
+			and every_stage_event_is_canonical,
+		"project stages did not retain distinct canonical reserve/completion events")
 
 	var saved := HamletState.serialize_state()
 	var expected_rowan_name := str(HamletState.get_npc_record(
@@ -194,7 +214,7 @@ func _run() -> void:
 
 	var result := {
 		"ok": failures.is_empty(),
-		"checks": 41,
+		"checks": 42,
 		"npc_count": HamletState.get_npc_ids().size(),
 		"reputation": HamletState.reputation_name(),
 		"project_stage": HamletState.project.get("stage", ""),

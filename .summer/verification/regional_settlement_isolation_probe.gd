@@ -83,6 +83,25 @@ func _run() -> void:
 	var first_npcs: Dictionary = first_state.get("npc_records", {})
 	var second_npcs: Dictionary = second_state.get("npc_records", {})
 	_check(
+		str(first_state.get("roster_mode", "")) == HamletState.ROSTER_MODE_CAMP
+			and str(second_state.get("roster_mode", ""))
+				== HamletState.ROSTER_MODE_CAMP,
+		"generated settlements did not select the production roster profile")
+	_check(
+		str((first_state.get("project", {}) as Dictionary).get(
+			"definition_id", "")) == HamletState.PRODUCTION_PROJECT_ID
+			and str((second_state.get("project", {}) as Dictionary).get(
+				"definition_id", "")) == HamletState.PRODUCTION_PROJECT_ID,
+		"generated settlements selected the archived watchtower project")
+	_check(
+		_production_people_are_archive_safe(first_npcs)
+			and _production_people_are_archive_safe(second_npcs),
+		"generated settlements reused named Forest Hamlet residents")
+	_check(
+		_production_state_is_archive_safe(first_state)
+			and _production_state_is_archive_safe(second_state),
+		"generated settlement state contains a retired POC identity")
+	_check(
 		not first_npcs.is_empty() and not second_npcs.is_empty(),
 		"generated settlement NPC records are missing")
 	_check(
@@ -215,7 +234,69 @@ func _run() -> void:
 		SettlementManager.get_settlement(first_id).get("site", {})
 			== first_record.get("site", {}),
 		"stable generated site identity changed across reload")
+	_verify_legacy_archive_compatibility(seed_value)
 	_finish()
+
+
+func _production_people_are_archive_safe(records: Dictionary) -> bool:
+	for resident_id in records:
+		var record: Dictionary = records[resident_id]
+		if ".poc." in str(resident_id):
+			return false
+		if str(record.get("name", "")) in [
+				"Elder Rowan", "Talia Stonehand", "Bram Reed"]:
+			return false
+	return true
+
+
+func _production_state_is_archive_safe(state: Dictionary) -> bool:
+	var encoded := JSON.stringify(state)
+	for retired_identity in [
+		"village.poc.forest_hamlet",
+		"npc.poc.forest_hamlet",
+		"project_instance.forest_hamlet.watchtower",
+		"project.build.wooden_watchtower",
+		"Forest Watchtower",
+		"Elder Rowan",
+		"Talia Stonehand",
+		"Bram Reed",
+	]:
+		if retired_identity in encoded:
+			return false
+	return true
+
+
+func _verify_legacy_archive_compatibility(seed_value: int) -> void:
+	var anchors := {
+		"hamlet": Vector2i.ZERO,
+		"warehouse": Vector2i(5, 0),
+		"watchtower_site": Vector2i(12, 0),
+		"goblin_camp": Vector2i(120, 0),
+		"raid_approach": Vector2i(20, 0),
+	}
+	HamletState.initialized = false
+	HamletState.initialize(
+		seed_value, anchors, HamletState.VILLAGE_ID,
+		HamletState.ROSTER_MODE_LEGACY)
+	_check(HamletState.get_npc_record(
+		"npc.poc.forest_hamlet.builder_talia").get("name", "")
+			== "Talia Stonehand"
+			and str(HamletState.project.get("definition_id", ""))
+				== HamletState.DEFAULT_PROJECT_ID,
+		"archived Forest Hamlet identities are no longer reconstructable")
+	var legacy_state := HamletState.serialize_state()
+	_check("project.build.wooden_watchtower" in JSON.stringify(legacy_state),
+		"archived watchtower fixture did not serialize its compatibility identity")
+	HamletState.initialized = false
+	_check(HamletState.restore_state(
+		legacy_state, seed_value, HamletState.VILLAGE_ID),
+		"archived Forest Hamlet state no longer restores")
+	_check(HamletState.get_npc_record(
+		"npc.poc.forest_hamlet.elder_rowan").get("name", "")
+			== "Elder Rowan"
+			and str(HamletState.project.get("definition_id", ""))
+				== HamletState.DEFAULT_PROJECT_ID,
+		"archived Forest Hamlet identity changed during restore")
 
 
 func _records_are_separated(first: Dictionary, second: Dictionary) -> bool:

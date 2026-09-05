@@ -452,6 +452,14 @@
       },
       "housing_capacity": 6,
       "job_slots": 3,
+      "staffing_contract": {
+        "owner_document": "Document 20",
+        "assignment_owner": "Document 07",
+        "minimum_ratio": 0.5,
+        "target_slots": 3,
+        "accepted_job_ids": ["job.farmer.basic"],
+        "staffing_marker_types": ["farm_work_point"]
+      },
       "storage_capacity": 0,
       "network_roles": [],
       "capabilities": [
@@ -463,14 +471,39 @@
         {
           "id": "recipe.settlement.farmstead_provisions",
           "cycle_minutes": 480,
-          "inputs": [],
+          "inputs": [
+            {
+              "kind": "item",
+              "stable_id": "item.seed.wheat_basic",
+              "count": 1
+            }
+          ],
           "outputs": [
             {
               "kind": "item",
-              "stable_id": "item.food.wild_berries",
+              "stable_id": "item.crop.wheat",
               "count": 3
+            },
+            {
+              "kind": "item",
+              "stable_id": "item.seed.wheat_basic",
+              "count": 1
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.farmstead_cultivation",
+            "chain_ids": [
+              "RC-FOD-01"
+            ],
+            "source_class": "cultivated",
+            "depletion_policy": "renewable",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],
@@ -719,6 +752,14 @@
       },
       "housing_capacity": 0,
       "job_slots": 2,
+      "staffing_contract": {
+        "owner_document": "Document 20",
+        "assignment_owner": "Document 07",
+        "minimum_ratio": 0.5,
+        "target_slots": 2,
+        "accepted_job_ids": ["job.farmer.basic"],
+        "staffing_marker_types": ["tool_work_point"]
+      },
       "storage_capacity": 0,
       "network_roles": [],
       "capabilities": [
@@ -727,16 +768,41 @@
       ],
       "recipes": [
         {
-          "id": "recipe.settlement.gather_berries",
+          "id": "recipe.settlement.wheat_harvest",
           "cycle_minutes": 360,
-          "inputs": [],
+          "inputs": [
+            {
+              "kind": "item",
+              "stable_id": "item.seed.wheat_basic",
+              "count": 1
+            }
+          ],
           "outputs": [
             {
               "kind": "item",
-              "stable_id": "item.food.wild_berries",
+              "stable_id": "item.crop.wheat",
               "count": 4
+            },
+            {
+              "kind": "item",
+              "stable_id": "item.seed.wheat_basic",
+              "count": 1
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.basic_farm_cultivation",
+            "chain_ids": [
+              "RC-FOD-01"
+            ],
+            "source_class": "cultivated",
+            "depletion_policy": "renewable",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],
@@ -805,6 +871,14 @@
       },
       "housing_capacity": 0,
       "job_slots": 3,
+      "staffing_contract": {
+        "owner_document": "Document 20",
+        "assignment_owner": "Document 07",
+        "minimum_ratio": 0.5,
+        "target_slots": 3,
+        "accepted_job_ids": ["job.farmer.basic"],
+        "staffing_marker_types": ["maintenance_points_and_storage_connection"]
+      },
       "storage_capacity": 0,
       "network_roles": [
         "defence"
@@ -819,14 +893,39 @@
         {
           "id": "recipe.settlement.advanced_provisions",
           "cycle_minutes": 300,
-          "inputs": [],
+          "inputs": [
+            {
+              "kind": "item",
+              "stable_id": "item.seed.wheat_basic",
+              "count": 1
+            }
+          ],
           "outputs": [
             {
               "kind": "item",
-              "stable_id": "item.food.wild_berries",
+              "stable_id": "item.crop.wheat",
               "count": 6
+            },
+            {
+              "kind": "item",
+              "stable_id": "item.seed.wheat_basic",
+              "count": 1
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.irrigated_farm_cultivation",
+            "chain_ids": [
+              "RC-FOD-01"
+            ],
+            "source_class": "cultivated",
+            "depletion_policy": "renewable",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],
@@ -1445,21 +1544,7 @@
         "jobs_and_production",
         "storage_routes_and_utilities"
       ],
-      "recipes": [
-        {
-          "id": "recipe.settlement.advanced_provisions",
-          "cycle_minutes": 300,
-          "inputs": [],
-          "outputs": [
-            {
-              "kind": "item",
-              "stable_id": "item.food.wild_berries",
-              "count": 6
-            }
-          ],
-          "minimum_staffing": 0.5
-        }
-      ],
+      "recipes": [],
       "required_inputs": [
         {
           "tag": "fishing_tools",
@@ -2385,6 +2470,14 @@
       },
       "housing_capacity": 0,
       "job_slots": 3,
+      "staffing_contract": {
+        "owner_document": "Document 20",
+        "assignment_owner": "Document 07",
+        "minimum_ratio": 0.5,
+        "target_slots": 3,
+        "accepted_job_ids": ["job.lumberjack.basic"],
+        "staffing_marker_types": ["job_board"]
+      },
       "storage_capacity": 0,
       "network_roles": [],
       "capabilities": [
@@ -2404,6 +2497,20 @@
               "count": 2
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.temperate_forestry",
+            "chain_ids": [
+              "RC-ORG-01"
+            ],
+            "source_class": "renewable_wild",
+            "depletion_policy": "renewable",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],
@@ -2501,12 +2608,18 @@
         {
           "id": "recipe.settlement.managed_timber",
           "cycle_minutes": 180,
-          "inputs": [],
-          "outputs": [
+          "inputs": [
             {
               "kind": "block",
               "stable_id": "natural.log.oak",
-              "count": 3
+              "count": 1
+            }
+          ],
+          "outputs": [
+            {
+              "kind": "block",
+              "stable_id": "construction.planks.oak",
+              "count": 4
             }
           ],
           "minimum_staffing": 0.5
@@ -2590,6 +2703,14 @@
       },
       "housing_capacity": 0,
       "job_slots": 5,
+      "staffing_contract": {
+        "owner_document": "Document 20",
+        "assignment_owner": "Document 07",
+        "minimum_ratio": 0.5,
+        "target_slots": 5,
+        "accepted_job_ids": ["job.miner.basic"],
+        "staffing_marker_types": ["safe_work_benches"]
+      },
       "storage_capacity": 0,
       "network_roles": [],
       "capabilities": [
@@ -2613,6 +2734,21 @@
               "count": 2
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.quarry_geology",
+            "chain_ids": [
+              "RC-MIN-01",
+              "RC-MET-07"
+            ],
+            "source_class": "finite_geological",
+            "depletion_policy": "finite",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],
@@ -2780,6 +2916,14 @@
       },
       "housing_capacity": 0,
       "job_slots": 5,
+      "staffing_contract": {
+        "owner_document": "Document 20",
+        "assignment_owner": "Document 07",
+        "minimum_ratio": 0.5,
+        "target_slots": 5,
+        "accepted_job_ids": ["job.miner.basic"],
+        "staffing_marker_types": ["job_board"]
+      },
       "storage_capacity": 0,
       "network_roles": [],
       "capabilities": [
@@ -2804,6 +2948,21 @@
               "count": 1
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.shallow_mine_geology",
+            "chain_ids": [
+              "RC-MIN-01",
+              "RC-MET-07"
+            ],
+            "source_class": "finite_geological",
+            "depletion_policy": "finite",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],
@@ -2892,6 +3051,14 @@
       },
       "housing_capacity": 0,
       "job_slots": 7,
+      "staffing_contract": {
+        "owner_document": "Document 20",
+        "assignment_owner": "Document 07",
+        "minimum_ratio": 0.5,
+        "target_slots": 7,
+        "accepted_job_ids": ["job.miner.basic"],
+        "staffing_marker_types": ["maintenance_bay"]
+      },
       "storage_capacity": 0,
       "network_roles": [],
       "capabilities": [
@@ -2917,6 +3084,21 @@
               "count": 2
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.deep_mine_geology",
+            "chain_ids": [
+              "RC-MIN-09",
+              "RC-MET-07"
+            ],
+            "source_class": "finite_geological",
+            "depletion_policy": "finite",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],
@@ -3288,6 +3470,21 @@
               "count": 2
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.automated_mine_geology",
+            "chain_ids": [
+              "RC-MIN-09",
+              "RC-MET-07"
+            ],
+            "source_class": "large_deposit",
+            "depletion_policy": "finite",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],
@@ -9223,6 +9420,20 @@
               "count": 1
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.leyline_harvest",
+            "chain_ids": [
+              "RC-MAG-01"
+            ],
+            "source_class": "realm_or_leyline",
+            "depletion_policy": "finite",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],
@@ -10149,14 +10360,39 @@
         {
           "id": "recipe.settlement.advanced_provisions",
           "cycle_minutes": 300,
-          "inputs": [],
+          "inputs": [
+            {
+              "kind": "item",
+              "stable_id": "item.seed.wheat_basic",
+              "count": 1
+            }
+          ],
           "outputs": [
             {
               "kind": "item",
-              "stable_id": "item.food.wild_berries",
+              "stable_id": "item.crop.wheat",
               "count": 6
+            },
+            {
+              "kind": "item",
+              "stable_id": "item.seed.wheat_basic",
+              "count": 1
             }
           ],
+          "source_contract": {
+            "id": "source_contract.settlement.automated_cultivation",
+            "chain_ids": [
+              "RC-FOD-01"
+            ],
+            "source_class": "cultivated",
+            "depletion_policy": "renewable",
+            "units_per_cycle": 1,
+            "required_provenance_fields": [
+              "origin_id",
+              "owner_id",
+              "evidence_id"
+            ]
+          },
           "minimum_staffing": 0.5
         }
       ],

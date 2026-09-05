@@ -138,7 +138,8 @@ func _test_ordered_version_matrix() -> void:
 					and migrated.get("simulation_lod", {}) is Dictionary \
 					and migrated.get("people", {}) is Dictionary \
 					and migrated.get("biology", {}) is Dictionary \
-					and migrated.get("social", {}) is Dictionary,
+					and migrated.get("social", {}) is Dictionary \
+					and migrated.get("events", {}) is Dictionary,
 				"v%d normalises every current persistence domain" % version)
 		else:
 			_expect(bool(coordinator.validate_storage_contract(
@@ -241,7 +242,7 @@ func _test_restore_and_recovery_order() -> void:
 	_expect(coordinator.restore_order() == [
 		"production_kernel", "registry_generation", "structure_owner",
 		"simulation_lod", "people_owner", "biology_owner", "social_owner",
-		"political_owner", "movement_owner", "world_delta",
+		"political_owner", "movement_owner", "event_owner", "world_delta",
 		"inventory", "progression", "magic",
 		"settlements", "combat", "ui", "forge_presentation", "player",
 	], "restore order places evidence and owners before dependent views")
@@ -250,7 +251,7 @@ func _test_restore_and_recovery_order() -> void:
 		"recovery order prefers committed generations before scratch state")
 	var copy := coordinator.restore_order()
 	copy.clear()
-	_expect(coordinator.restore_order().size() == 18,
+	_expect(coordinator.restore_order().size() == 19,
 		"callers cannot mutate the canonical restore order")
 
 

@@ -34,6 +34,9 @@ $menu = Read-ProjectText 'scripts\ui\main_menu.gd'
 $main = Read-ProjectText 'scripts\main.gd'
 $release = Read-ProjectText 'scripts\autoload\release_quality.gd'
 $placements = Read-ProjectText 'data\worldgen\structure_placement.json'
+$hamlet = Read-ProjectText 'scripts\autoload\hamlet_state.gd'
+$settlements = Read-ProjectText 'scripts\autoload\settlement_manager.gd'
+$hud = Read-ProjectText 'scripts\ui\hud.gd'
 
 Assert-ArchiveIsolation ($worldManager -match
     'const PROFILE_ID := "world\.profile\.living_frontier_regional"') `
@@ -66,6 +69,31 @@ Assert-ArchiveIsolation ($placements -notmatch
 Assert-ArchiveIsolation ($placements -match
     '"content_template"\s*:\s*"world\.structure\.raider_camp\.frontier"') `
     'production raider-camp content template is absent'
+Assert-ArchiveIsolation ($hamlet -match
+    'const PRODUCTION_PROJECT_ID := "project\.build\.catalogue_005"') `
+    'production settlements do not select a non-POC starter project'
+Assert-ArchiveIsolation ($hamlet -match
+    'const PRODUCTION_ROSTER: Array\[Dictionary\]') `
+    'production settlement role templates are missing'
+Assert-ArchiveIsolation ($hamlet -match
+    'definitions = PRODUCTION_ROSTER') `
+    'production settlements still select the archived named roster'
+Assert-ArchiveIsolation ($hamlet -match
+    'return PRODUCTION_PROJECT_ID') `
+    'production project selection does not resolve through its own identity'
+Assert-ArchiveIsolation ($settlements -match
+    'HamletState\.ROSTER_MODE_CAMP') `
+    'generated settlements do not request the production roster profile'
+Assert-ArchiveIsolation ($main -notmatch
+    'active_village_id\s*=\s*HamletState\.VILLAGE_ID') `
+    'new-world reset selects the archived Forest Hamlet identity'
+Assert-ArchiveIsolation ($hud -notmatch
+    'Worker:\s*Talia Stonehand|hamlet watchtower site') `
+    'production request UI exposes a retired named POC identity'
+Assert-ArchiveIsolation ($hamlet -match
+    '"npc\.poc\.forest_hamlet\.elder_rowan"' -and $hamlet -match
+    'const DEFAULT_PROJECT_ID := "project\.build\.wooden_watchtower"') `
+    'legacy Forest Hamlet aliases were removed instead of isolated'
 
 $result = [ordered]@{
     ok = $failures.Count -eq 0

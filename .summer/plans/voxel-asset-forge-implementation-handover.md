@@ -49,6 +49,23 @@ Do not start a broad automatic catalogue conversion.
   8/8 images with zero failures.
 
 Representative live-preview review is complete. The remaining golden workflows,
-camera features outside orbit/zoom/reset, and packaged-development-build
+camera features outside orbit/pan/zoom/reset, and packaged-development-build
 workflow sign-off remain open and must not be inferred from the automated
 result.
+
+## Current revalidation - 13 August 2026
+
+- The shared structure, character and VFX 3D canvas now distinguishes a
+  stationary right-click erase from right-drag orbit. Shift-right/middle drag
+  pans and the mouse wheel zooms without mutating authored voxels.
+- Dense creator controls wrap in compact hosts, the saved-source picker no
+  longer inherits the longest source label as a page minimum, and structure
+  block/stage tools remain available in responsive tabs beside the 3D canvas.
+- `FORGE_MVP_PROBE`: 958 checks, zero failures.
+- `FORGE_CREATOR_UI_PROBE`: 96 checks, zero failures, including assembled
+  compact-host orbit, pan and wheel input rather than direct helper calls only.
+- `CURRENT_REGRESSION_GATE`: 19,817 checks across 55 scenes, 256 worldgen
+  seeds and 10,000 Forge structure seeds, with no release-blocking failure.
+- Perspective/fly presets, remapping, split views, controller camera controls,
+  the remaining manual workflows and packaged-development-build sign-off remain
+  open; they are not implied complete by the camera repair.

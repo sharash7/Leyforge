@@ -191,7 +191,10 @@ func _build_document_bar() -> void:
 	var stack := VBoxContainer.new()
 	stack.add_theme_constant_override("separation", 7)
 	panel.add_child(stack)
-	var first := HBoxContainer.new()
+	# Creator controls must wrap in compact game/editor hosts. A single HBox fed
+	# the sum of every field minimum into the page width, which pushed both the
+	# authoring canvas and the separate Live Preview beyond the clipped window.
+	var first := HFlowContainer.new()
 	first.add_theme_constant_override("separation", 7)
 	_type_selector = OptionButton.new()
 	_type_selector.name = "CreatorType"
@@ -232,10 +235,12 @@ func _build_document_bar() -> void:
 	create_button.name = "CreateCreatorSource"
 	first.add_child(create_button)
 	stack.add_child(first)
-	var second := HBoxContainer.new()
+	var second := HFlowContainer.new()
 	second.add_theme_constant_override("separation", 7)
 	_existing_selector = OptionButton.new()
 	_existing_selector.name = "ExistingCreatorSources"
+	_existing_selector.fit_to_longest_item = false
+	_existing_selector.custom_minimum_size.x = 260
 	_existing_selector.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_existing_selector.tooltip_text = "Saved canonical sources in this studio."
 	second.add_child(_labeled("Open saved source", _existing_selector))
@@ -521,7 +526,7 @@ func _build_structure_visual_workspace() -> void:
 		_build_structure_board_visuals()
 		return
 	var mode := str(owner.get("physical_authoring_mode"))
-	var mode_row := HBoxContainer.new()
+	var mode_row := HFlowContainer.new()
 	var mode_label := Label.new()
 	mode_label.text = "PHYSICAL SOURCE: %s" % mode.replace("_", " ").to_upper()
 	mode_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -614,7 +619,7 @@ func _build_structure_semantic_visuals(owner: Resource) -> void:
 		+ "They appear as translucent viewport overlays and compile beside the voxel cells.")
 	explanation.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	panel.add_child(explanation)
-	var controls := HBoxContainer.new()
+	var controls := HFlowContainer.new()
 	var kind := OptionButton.new()
 	var kinds := ["door", "access_point", "room", "workstation",
 		"functional_marker", "socket", "network", "navigation_clearance"]
@@ -713,7 +718,7 @@ func _build_structure_semantic_visuals(owner: Resource) -> void:
 		module_picker.reference_selected.connect(func(stable_id: String) -> void:
 			_add_visual_module_instance(owner, stable_id))
 		panel.add_child(_labeled("Drag/add reusable room module", module_picker))
-	var state_row := HBoxContainer.new()
+	var state_row := HFlowContainer.new()
 	var state_preview := OptionButton.new()
 	for value in ["construction playback", "intact", "damaged", "repaired"]:
 		state_preview.add_item(value.capitalize())
@@ -959,7 +964,7 @@ func _build_character_voxel_visual(
 			_initialise_body_part_volume.bind(part))
 		_visual_workspace.add_child(initialise)
 		return
-	var toolbar := HBoxContainer.new()
+	var toolbar := HFlowContainer.new()
 	var layer := SpinBox.new()
 	layer.min_value = 0
 	layer.max_value = maxi(0, part.voxel_source.dimensions.y - 1)
@@ -1196,7 +1201,7 @@ func _commit_vfx_graph_visual(
 
 func _build_vfx_form_visual_workspace(form: ForgeVfxForm) -> void:
 	_vfx_visual_form = form
-	var toolbar := HBoxContainer.new()
+	var toolbar := HFlowContainer.new()
 	var layer := SpinBox.new()
 	layer.min_value = 0
 	layer.max_value = 63
