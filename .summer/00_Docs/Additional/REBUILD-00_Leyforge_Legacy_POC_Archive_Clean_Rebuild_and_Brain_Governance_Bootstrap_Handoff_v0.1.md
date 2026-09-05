@@ -1245,7 +1245,7 @@ Execution evidence: [R2 archive status](../../../docs/rebuild/archive-evidence/r
 | Field | Value |
 |---|---|
 | Rebuild-bootstrap branch/reference | `codex/chore/rebuild-00-bootstrap`; `D:\AI\Projects\leyforge-rebuild` |
-| First clean-baseline commit SHA | Recorded after commit in the R3 completion receipt |
+| First clean-baseline commit SHA | 3a2cebaa76728de8b97db2c0a932ec1de1c0d420 |
 | Legacy leakage scan result | PASS — allowlisted active tree; every surviving match classified; see `docs/rebuild/r3/leakage-result.json` |
 | Archived Validation material admitted | None. Historical documents/evidence only; no runtime fixture admission. |
 | Active POC dependencies remaining | None. No Godot project, scenes, runtime scripts, registry defaults or generators retained. |

@@ -1,0 +1,20 @@
+{
+  "status": "R3_COMPLETE",
+  "completed_at": "2026-09-05T18:56:01.5386510+08:00",
+  "first_clean_baseline_commit": "3a2cebaa76728de8b97db2c0a932ec1de1c0d420",
+  "source_archive_commit": "799305859bb0ba4230ef87d934e961cc21220afa",
+  "worktree": "D:\\AI\\Projects\\leyforge-rebuild",
+  "branch": "codex/chore/rebuild-00-bootstrap",
+  "documents_preserved": 441,
+  "unchanged_document_blobs": 439,
+  "retired_paths": 10824,
+  "brain_placeholder_directories": 23,
+  "archived_validation_fixtures_admitted": 0,
+  "active_poc_dependencies": 0,
+  "validation": "PASS; see leakage-result.json",
+  "runtime_validation": "Not applicable: no runtime admitted",
+  "whitespace": "Nine intentional Markdown hard line breaks retained",
+  "next": "R4: approved Branch A Brain implementation",
+  "gameplay_permission": "CLOSED",
+  "original_checkout_modified_by_R3": false
+}
