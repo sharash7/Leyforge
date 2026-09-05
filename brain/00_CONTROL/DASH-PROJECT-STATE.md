@@ -23,7 +23,7 @@ related_to:
 | R0–R1 | Complete | Retained rebuild records and Git history |
 | R2 | Complete | Controlled source archive and tag |
 | R3 | Complete | `docs/rebuild/r3/completion-receipt.json` |
-| R4 | Certification in progress | [[WORK-20260905-004]] and [[AUDIT-0001]] |
+| R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Next | [[HANDOFF-20260905-001]] |
 | R8 gameplay | Closed | No Godot runtime is admitted |
 

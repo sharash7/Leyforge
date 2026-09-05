@@ -26,4 +26,4 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[DASH-PROJECT-STATE|DASH-PROJECT-STATE]] | dashboard | active | Project State |
 | [[HANDOFF-20260905-001|HANDOFF-20260905-001]] | handoff | active | R4 Project Brain to R5 Audit Handoff |
 | [[HOME|HOME]] | home | active | Leyforge Project Brain |
-| [[WORK-20260905-004|WORK-20260905-004]] | work | active | Bootstrap and certify Leyforge Project Brain v0.1 |
+| [[WORK-20260905-004|WORK-20260905-004]] | work | complete | Bootstrap and certify Leyforge Project Brain v0.1 |

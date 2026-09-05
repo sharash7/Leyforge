@@ -22,4 +22,4 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
-| [[AUDIT-0001|AUDIT-0001]] | audit | active | Brain v0.1 Pilot Certification |
+| [[AUDIT-0001|AUDIT-0001]] | audit | certified | Brain v0.1 Pilot Certification |

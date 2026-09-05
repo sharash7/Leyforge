@@ -103,7 +103,8 @@ class BrainAcceptanceTests(unittest.TestCase):
     def test_07_BRAIN_AT_007_work_record_lifecycle(self) -> None:
         self.assertEqual(self.schema["record_types"]["work"], ["planned", "active", "blocked", "complete", "cancelled"])
         work = self.by_id["WORK-20260905-004"]
-        self.assertEqual(work.metadata["status"], "active")
+        self.assertEqual(work.metadata["status"], "complete")
+        self.assertIn("R4 Project Brain v0.1 is operational and certified", work.body)
         headings = ["Objective", "Starting State", "Authority Consulted", "Work Performed", "Result", "Decisions", "Verification", "Discoveries & Lessons", "Failures / Problems", "Remaining Work", "Handoff"]
         for heading in headings:
             self.assertIn(f"## {heading}", work.body)

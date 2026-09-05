@@ -14,6 +14,6 @@ Preserve unrelated dirty-worktree changes. Do not stage or commit unless the use
 
 ## Rebuild phase boundary
 
-This worktree is the document-led R3 bootstrap. Read README.md and docs/rebuild/r3/STATUS.md first. The old implementation is retired on this branch. Do not import it, execute historical tools or create a Godot runtime without the later governing authorization. R4 Brain implementation is next; R8 gameplay permission remains closed.
+This worktree contains the certified R4 Project Brain over the document-led clean rebuild. Start with `brain/AGENTS.md`, `brain/CURRENT_HANDOFF.md`, and `brain/HOME.md`. The old implementation remains retired. Do not import it, execute historical tools, or create a Godot runtime without the later governing authorization. R5 audit/reconciliation is next; R8 gameplay permission remains closed.
 
-Use `python tools/verify_rebuild_boundary.py` for this baseline. `brain/` contains placeholders only, not an operational knowledge system. Supplied documents and archive evidence retain their owning statuses; dated historical runtime paths are not instructions to restore dependencies.
+Use `python brain/92_SCRIPTS/brain.py doctor --profile certification` for Brain integrity and `python tools/verify_rebuild_boundary.py` for the clean-rebuild boundary. Supplied documents retain their owning statuses; Brain proxies defer to canonical source files, and dated historical runtime paths are not instructions to restore dependencies.

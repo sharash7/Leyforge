@@ -1,0 +1,27 @@
+{
+  "status": "R4_COMPLETE",
+  "completed_at": "2026-09-06T00:00:00+08:00",
+  "implementation_commit": "58c4cfc891e6cc658ed1b856be3486b9f6cac8cb",
+  "branch": "codex/feat/project-brain-bootstrap",
+  "brain_version": "0.1.0",
+  "brain_schema": 1,
+  "validated_records": 88,
+  "source_artifacts_registered": 441,
+  "source_markdown_registered": 402,
+  "priority_document_proxies": 49,
+  "generated_indexes": 17,
+  "templates": 15,
+  "bases": 10,
+  "canvas_maps": 2,
+  "acceptance_tests": {
+    "defined": 20,
+    "passed": 20
+  },
+  "brain_doctor_full": "PASS",
+  "brain_doctor_certification": "PASS",
+  "rebuild_boundary": "PASS",
+  "active_poc_dependencies": 0,
+  "community_plugin_dependencies": 0,
+  "next": "R5 audit and corpus reconciliation",
+  "gameplay_permission": "CLOSED"
+}

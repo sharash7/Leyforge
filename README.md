@@ -1,9 +1,19 @@
-# Leyforge rebuild bootstrap
+# Leyforge governed rebuild
 
-This is the R3 clean workspace. Gameplay implementation has not begun.
+R4 Project Brain v0.1 is installed and certified over the R3 clean workspace. Gameplay implementation has not begun.
 
-Start with [current status](docs/rebuild/r3/STATUS.md), [authority locations](docs/rebuild/AUTHORITY-LOCATIONS.md), and the [REBUILD-00 handoff](.summer/00_Docs/Additional/REBUILD-00_Leyforge_Legacy_POC_Archive_Clean_Rebuild_and_Brain_Governance_Bootstrap_Handoff_v0.1.md).
+Start with the [Brain home](brain/HOME.md), [agent contract](brain/AGENTS.md), [current handoff](brain/CURRENT_HANDOFF.md), and [R4 status](docs/rebuild/r4/STATUS.md). Canonical project sources remain under `.summer/00_Docs`; generated Brain proxies are navigation and traceability records, not replacement authority.
 
-The protected tag `legacy-poc-2026-09-05` preserves the complete POC history. This branch retains the supplied source documents at their existing paths and removes the legacy runtime. There is deliberately no project.godot or runnable game yet. Do not restore POC code to make the workspace launchable.
+The protected tag `legacy-poc-2026-09-05` preserves the complete POC history. The rebuild branch retains 441 controlled source artifacts and no legacy runtime. There is deliberately no `project.godot` or runnable game yet. Do not restore POC code to make the workspace launchable.
 
-Run `python tools/verify_rebuild_boundary.py` to verify the source-preservation and legacy-leakage boundary. Brain placeholders under `brain/` follow LF-BRAIN-05; R4 must implement and verify their behavior before any operational Brain claim.
+Run the governed checks from the repository root:
+
+```powershell
+python brain/92_SCRIPTS/brain.py doctor --profile certification
+python -m unittest discover brain/92_SCRIPTS/tests -v
+python brain/92_SCRIPTS/brain.py ingest --check
+python brain/92_SCRIPTS/brain.py index --check
+python tools/verify_rebuild_boundary.py
+```
+
+R5 audit/reconciliation is the next gate. R8 gameplay permission remains closed.

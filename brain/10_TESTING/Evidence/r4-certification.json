@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "result": "PASS",
+  "verified_at": "2026-09-06T00:00:00+08:00",
+  "tested_commit": "58c4cfc891e6cc658ed1b856be3486b9f6cac8cb",
+  "tool_version": "0.1.0",
+  "acceptance_tests": {
+    "defined": 20,
+    "passed": 20
+  },
+  "boundary": "PASS",
+  "brain_doctor_full": "PASS",
+  "commands": [
+    {
+      "command": "C:\\Python39\\python.exe -m unittest discover brain/92_SCRIPTS/tests -v",
+      "returncode": 0
+    },
+    {
+      "command": "C:\\Python39\\python.exe tools/verify_rebuild_boundary.py",
+      "returncode": 0
+    }
+  ]
+}
