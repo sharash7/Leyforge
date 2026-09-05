@@ -1,0 +1,23 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'type == "work" || type == "work_item" || type == "handoff"'
+    - 'status != "complete" && status != "cancelled" && status != "archived"'
+properties:
+  id:
+    displayName: ID
+  type:
+    displayName: Type
+  status:
+    displayName: Status
+  updated:
+    displayName: Updated
+views:
+  - type: table
+    name: Current Work
+    order:
+      - id
+      - type
+      - status
+      - file.name
+      - updated

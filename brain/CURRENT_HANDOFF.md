@@ -1,3 +1,20 @@
-# Current handoff
+---
+brain_schema: 1
+id: "CURRENT-HANDOFF"
+type: "dashboard"
+title: "Current Handoff"
+status: "active"
+information_class: "authored"
+created: "2026-09-06"
+updated: "2026-09-06"
+authority_domain: "project_control"
+authority_role: "delegated"
+authority_status: "authoritative"
+current_handoff: "HANDOFF-20260905-001"
+related_to:
+  - "HANDOFF-20260905-001"
+---
 
-R3 establishes the clean workspace and canonical placeholder directories. Next work is R4 Brain implementation against the supplied Branch A specifications. Read ../docs/rebuild/r3/STATUS.md and ../.summer/00_Docs/A-BRAIN/LF-BRAIN-13_Pilot_Certification_and_Codex_Implementation_Handoff_v0.1.md. Gameplay remains closed.
+# Current Handoff
+
+The active formal handoff is [[HANDOFF-20260905-001]]. Read it before starting the next gate. R4 installs the Project Brain; R5 is the next rebuild gate. Gameplay authorization remains closed.

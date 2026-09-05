@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'type == "adr" || type == "decision"'
+properties:
+  id:
+    displayName: ID
+  type:
+    displayName: Kind
+  status:
+    displayName: Status
+  authority_status:
+    displayName: Authority
+views:
+  - type: table
+    name: Decisions
+    order:
+      - id
+      - type
+      - file.name
+      - status
+      - authority_status

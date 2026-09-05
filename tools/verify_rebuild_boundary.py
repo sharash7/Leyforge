@@ -1,4 +1,4 @@
-"""Read-only R3 boundary validation; Python standard library only."""
+"""Read-only rebuild boundary validation through R4; Python standard library only."""
 import hashlib
 import json
 import re
@@ -29,7 +29,9 @@ for path,blob in zip(unchanged,blobs):
 check(manifest['archived_validation_admitted'] == [], 'Unexpected fixture admission')
 for folder in manifest['brain_folders']:
     check((root/'brain'/folder/'.gitkeep').is_file(), 'Missing canonical Brain placeholder: '+folder)
-check('NOT INSTALLED' in (root/'brain/HOME.md').read_text(), 'Brain status overclaims installation')
+check((root/'brain/91_SCHEMA/brain.schema.json').is_file(), 'Brain schema is missing')
+check((root/'brain/92_SCRIPTS/brain.py').is_file(), 'Brain CLI is missing')
+check('Project Brain' in (root/'brain/HOME.md').read_text(), 'Brain home is not operational')
 
 root_files = {'.git','.gitignore','.gitattributes','.editorconfig','AGENTS.md','README.md'}
 patterns = {
@@ -47,10 +49,11 @@ for path in sorted(root.rglob('*')):
     if path.is_dir():
         continue
     check(not path.is_symlink(), 'Unexpected filesystem link: '+rel)
-    allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel == 'tools/verify_rebuild_boundary.py'
+    allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel == 'tools/verify_rebuild_boundary.py' or rel == '.github/workflows/brain.yml'
     check(allowed, 'Unadmitted active path: '+rel)
     executable = path.suffix.lower() in {'.gd','.gdshader','.tscn','.tres','.res','.exe','.dll','.pck','.ps1','.bat','.cmd','.py'}
-    check(not executable or rel == 'tools/verify_rebuild_boundary.py', 'Legacy executable/resource admitted: '+rel)
+    brain_tool = rel.startswith('brain/92_SCRIPTS/') and path.suffix.lower() == '.py'
+    check(not executable or rel == 'tools/verify_rebuild_boundary.py' or brain_tool, 'Legacy executable/resource admitted: '+rel)
     if path.suffix.lower() not in {'.md','.json','.txt','.csv','.py'} or rel.endswith('leakage-result.json'):
         continue
     content = path.read_text(encoding='utf-8-sig',errors='replace')

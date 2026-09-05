@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'type == "system" || type == "entity" || type == "concept"'
+properties:
+  id:
+    displayName: ID
+  type:
+    displayName: Type
+  status:
+    displayName: Status
+  authority_domain:
+    displayName: Authority Domain
+views:
+  - type: table
+    name: Systems and Entities
+    order:
+      - id
+      - type
+      - file.name
+      - status
+      - authority_domain

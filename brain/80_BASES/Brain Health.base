@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'type == "audit" || type == "risk" || type == "conflict" || type == "bug"'
+properties:
+  id:
+    displayName: ID
+  type:
+    displayName: Kind
+  status:
+    displayName: Status
+  authority_domain:
+    displayName: Domain
+views:
+  - type: table
+    name: Brain Health
+    order:
+      - type
+      - id
+      - file.name
+      - status
+      - authority_domain

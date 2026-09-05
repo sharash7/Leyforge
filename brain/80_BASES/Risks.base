@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'type == "risk"'
+properties:
+  id:
+    displayName: ID
+  status:
+    displayName: Status
+  updated:
+    displayName: Updated
+views:
+  - type: table
+    name: Risks
+    order:
+      - id
+      - file.name
+      - status
+      - updated

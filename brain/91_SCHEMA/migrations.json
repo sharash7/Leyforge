@@ -1,0 +1,6 @@
+{
+  "current_schema": 1,
+  "tool_version": "0.1.0",
+  "migrations": [],
+  "policy": "Unknown or non-deterministic transformations stop and require an explicit approved migration."
+}

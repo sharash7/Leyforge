@@ -1,0 +1,46 @@
+name: Brain integrity
+
+on:
+  pull_request:
+    paths:
+      - "brain/**"
+      - ".summer/00_Docs/**"
+      - "docs/rebuild/**"
+      - "tools/verify_rebuild_boundary.py"
+      - ".github/workflows/brain.yml"
+  push:
+    paths:
+      - "brain/**"
+      - ".summer/00_Docs/**"
+      - "docs/rebuild/**"
+      - "tools/verify_rebuild_boundary.py"
+      - ".github/workflows/brain.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile Brain tooling
+        run: python -m py_compile brain/92_SCRIPTS/brain.py brain/92_SCRIPTS/tests/test_brain.py
+      - name: Run twenty R4 acceptance tests
+        run: python -m unittest discover brain/92_SCRIPTS/tests -v
+      - name: Check controlled-corpus ingestion
+        run: python brain/92_SCRIPTS/brain.py ingest --check
+      - name: Check generated indexes
+        run: python brain/92_SCRIPTS/brain.py index --check
+      - name: Check relationships
+        run: python brain/92_SCRIPTS/brain.py links
+      - name: Run certification Brain Doctor
+        run: python brain/92_SCRIPTS/brain.py doctor --profile certification
+      - name: Preserve clean-rebuild boundary
+        run: python tools/verify_rebuild_boundary.py

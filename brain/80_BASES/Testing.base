@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'type == "test" || type == "evidence" || type == "benchmark" || type == "bug"'
+properties:
+  id:
+    displayName: ID
+  type:
+    displayName: Kind
+  status:
+    displayName: Status
+  commit:
+    displayName: Tested Commit
+views:
+  - type: table
+    name: Tests and Evidence
+    order:
+      - id
+      - type
+      - file.name
+      - status
+      - commit

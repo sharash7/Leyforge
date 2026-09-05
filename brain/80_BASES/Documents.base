@@ -1,0 +1,25 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'type == "document" || type == "source"'
+properties:
+  id:
+    displayName: ID
+  status:
+    displayName: Record Status
+  authority_domain:
+    displayName: Domain
+  authority_status:
+    displayName: Source Authority
+  canonical_path:
+    displayName: Canonical Source
+views:
+  - type: table
+    name: Controlled Documents
+    order:
+      - id
+      - file.name
+      - status
+      - authority_domain
+      - authority_status
+      - canonical_path

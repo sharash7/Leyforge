@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'type == "skill" || type == "procedure" || type == "pattern" || type == "lesson" || type == "failure" || type == "workaround"'
+properties:
+  id:
+    displayName: ID
+  type:
+    displayName: Kind
+  status:
+    displayName: Validation State
+views:
+  - type: table
+    name: Skills and Learning
+    order:
+      - id
+      - type
+      - file.name
+      - status

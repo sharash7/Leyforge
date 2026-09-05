@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'type == "audit" || type == "deviation"'
+properties:
+  id:
+    displayName: ID
+  status:
+    displayName: Status
+  result:
+    displayName: Result
+  evidence:
+    displayName: Evidence
+views:
+  - type: table
+    name: Audit State
+    order:
+      - id
+      - file.name
+      - status
+      - result
+      - evidence

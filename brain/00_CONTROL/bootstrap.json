@@ -1,0 +1,14 @@
+{
+  "brain_version": "0.1.0",
+  "brain_schema": 1,
+  "installed_at": "2026-09-06T00:00:00+08:00",
+  "source_snapshot_commit": "9b3254e23f89056ae37e84f09bdcf4ea13df5128",
+  "source_archive_commit": "799305859bb0ba4230ef87d934e961cc21220afa",
+  "source_artifact_count": 441,
+  "vault_root": "brain",
+  "headless_entry_point": "brain/92_SCRIPTS/brain.py",
+  "obsidian_version_observed": "1.13.7",
+  "official_cli_on_path": false,
+  "community_plugin_dependencies": [],
+  "gameplay_permission": "CLOSED"
+}
