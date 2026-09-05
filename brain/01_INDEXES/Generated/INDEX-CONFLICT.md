@@ -23,4 +23,4 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[CONFLICT-0002|CONFLICT-0002]] | conflict | detected | Broader source status and supersession need reconciliation |
-| [[CONFLICT-0001|CONFLICT-0001]] | conflict | detected | PRD-05 is referenced but absent from the retained corpus |
+| [[CONFLICT-0001|CONFLICT-0001]] | conflict | resolved | PRD-05 absence resolved by controlled PRD-05 and PRD-06 intake |

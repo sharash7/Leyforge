@@ -1,0 +1,24 @@
+Leyforge PRD-05 + PRD-06 Closure Candidate Bundle
+Created: 2026-09-05
+
+PRD-05:
+  file: PRD-05_Leyforge_Research_Evidence_Crosswalk_v1_0_CLOSURE_CANDIDATE_Round10.md
+  sha256: 30af0861a801158459820d1756fb49cdf223015b682de8df5f7acbb89add766e
+  status: v1.0 CLOSURE CANDIDATE
+  crosswalk_records: 580
+  proof_ids_preserved: 76
+
+PRD-06:
+  file: PRD-06_Leyforge_Technical_Risk_and_Proof_Register_v1_0_CLOSURE_CANDIDATE_Round10.md
+  sha256: 001f748875e63760d22fda5e4fa8fb71f9a7f9cf465f285f019a3ba5a8ba3fba
+  status: v1.0 CLOSURE CANDIDATE
+  primary_risk_families: 18
+  stable_child_risks: 263
+  detailed_prd05_risk_refinements_consumed: 109
+  proof_ids_reverse_covered: 76
+  fixture_families_reverse_covered: 10
+  open_unknowns_promotion_audited: 137
+  closure_criteria: 19/19 PASS
+
+Next controlled document:
+  PRD-07 — Prototype / Benchmark / Proof Execution Programme

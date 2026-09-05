@@ -30,9 +30,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Compile Brain tooling
-        run: python -m py_compile brain/92_SCRIPTS/brain.py brain/92_SCRIPTS/tests/test_brain.py
-      - name: Run twenty R4 acceptance tests
+      - name: Compile Brain and governance tooling
+        run: python tools/verify.py --tier build
+      - name: Run Brain and governance acceptance tests
         run: python -m unittest discover brain/92_SCRIPTS/tests -v
       - name: Check controlled-corpus ingestion
         run: python brain/92_SCRIPTS/brain.py ingest --check

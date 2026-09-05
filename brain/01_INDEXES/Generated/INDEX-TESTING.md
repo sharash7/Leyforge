@@ -23,4 +23,6 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[EVID-0001|EVID-0001]] | evidence | active | R4 Brain Pilot Certification Evidence |
+| [[EVID-0002|EVID-0002]] | evidence | active | R5 Engineering Governance Worktree Evidence |
 | [[TEST-BRAIN-ACCEPTANCE|TEST-BRAIN-ACCEPTANCE]] | test | active | Brain v0.1 Acceptance Suite |
+| [[TEST-GOVERNANCE-G0|TEST-GOVERNANCE-G0]] | test | active | R5 G0 Engineering Governance Acceptance Suite |

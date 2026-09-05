@@ -22,6 +22,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
+| [[SYS-ENGINEERING-GOVERNANCE|SYS-ENGINEERING-GOVERNANCE]] | system | active | Leyforge Engineering Governance Control Plane |
 | [[SYS-PROJECT-BRAIN|SYS-PROJECT-BRAIN]] | system | active | Leyforge Project Brain |
 | [[AGENTS|AGENTS]] | system | locked | Brain Agent Operating Contract |
 | [[AUTHORITY-MAP|AUTHORITY-MAP]] | system | locked | Brain Authority Map |

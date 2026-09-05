@@ -13,6 +13,8 @@ authority_status: "authoritative"
 derived_from:
   - "DOC-LF-BRAIN-02"
   - "DOC-LF-BRAIN-04"
+  - "DOC-B-OPS-00"
+  - "DOC-B-OPS-04"
 conflicts_with:
   - "CONFLICT-0002"
 ---
@@ -24,7 +26,7 @@ Brain records expose authority; they do not create it. Resolve a claim by domain
 | Domain | Current source surface | Brain treatment |
 | --- | --- | --- |
 | Brain operations | LF-BRAIN-01 through LF-BRAIN-13 and SET-A | Locked source; generated proxies defer to canonical files |
-| Engineering governance | ENG-GOV-00 through ENG-GOV-15 and B-OPS | Source-owned status; proxies never promote it |
+| Engineering governance | ENG-GOV-00 through ENG-GOV-15 and B-OPS-00 through B-OPS-06 | Branch B sources retain primary authority; the hash-pinned manifest, validators and Brain records apply and expose them |
 | Audit | C-AUD corpus | Source-owned status; unresolved coverage remains visible |
 | Production | D-ROAD corpus | Current execution map, subject to source-status reconciliation |
 | Requirements | PRD corpus and accepted requirement sources | Closure candidates remain proposed until their owner promotes them |
@@ -32,4 +34,4 @@ Brain records expose authority; they do not create it. Resolve a claim by domain
 | Implementation state | Repository implementation records | Record what exists at a tested commit |
 | Testing evidence | Test and Evidence records | Evidence proves only the exact command and source state recorded |
 
-Authority statuses and roles are validated from `brain/91_SCHEMA/brain.schema.json`.
+Authority statuses and roles are validated from `brain/91_SCHEMA/brain.schema.json`. Branch B application metadata is validated from `brain/91_SCHEMA/governance.schema.json`. The adapter adds no competing canon or engineering law.

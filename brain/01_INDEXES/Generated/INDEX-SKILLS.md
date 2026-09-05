@@ -24,3 +24,5 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | --- | --- | --- | --- |
 | [[SKILL-0001|SKILL-0001]] | skill | candidate | Regenerate Brain-owned outputs instead of editing them |
 | [[PROC-BRAIN-CHANGE|PROC-BRAIN-CHANGE]] | procedure | testing | Governed Brain Change Procedure |
+| [[PROC-PARALLEL-WORKTREES|PROC-PARALLEL-WORKTREES]] | procedure | validated | Isolate parallel agent work with Git worktrees |
+| [[PROC-GOVERNANCE-VALIDATION|PROC-GOVERNANCE-VALIDATION]] | procedure | validated | Run the engineering-governance validation gates |

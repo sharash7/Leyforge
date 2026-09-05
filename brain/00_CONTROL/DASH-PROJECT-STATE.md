@@ -12,7 +12,9 @@ authority_role: "delegated"
 authority_status: "authoritative"
 related_to:
   - "WORK-20260905-004"
+  - "WORK-20260906-001"
   - "AUDIT-0001"
+  - "AUDIT-0002"
   - "CONFLICT-0002"
 ---
 
@@ -24,7 +26,8 @@ related_to:
 | R2 | Complete | Controlled source archive and tag |
 | R3 | Complete | `docs/rebuild/r3/completion-receipt.json` |
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
-| R5 | Next | [[HANDOFF-20260905-001]] |
+| R5 | Implemented; worktree gate PASS | [[WORK-20260906-001]], [[AUDIT-0002]] and [[DASH-GOVERNANCE]] |
+| R6 | Awaiting committed R5 certification | Bounded Brain-to-governance pilot |
 | R8 gameplay | Closed | No Godot runtime is admitted |
 
-The source registry contains the complete controlled corpus. Semantic reconciliation remains selective and must follow the owning authorities.
+The source registry contains 444 controlled artifacts: the immutable 441-file R3 baseline plus the three-file R5 PRD-05/06 intake. Semantic reconciliation remains selective and must follow the owning authorities.

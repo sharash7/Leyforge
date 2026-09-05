@@ -16,7 +16,7 @@ derived_from:
 
 # Brain Agent Operating Contract
 
-Follow the root `AGENTS.md` and the canonical LF-BRAIN-01 through LF-BRAIN-13 sources. This note is the concise runtime contract; it does not replace those sources.
+Follow the root `AGENTS.md`, the canonical LF-BRAIN-01 through LF-BRAIN-13 sources, and the installed Branch B navigation in [[DASH-GOVERNANCE]]. This note is the concise Brain runtime contract; it does not replace those sources.
 
 ## Startup sequence
 
@@ -26,6 +26,7 @@ Follow the root `AGENTS.md` and the canonical LF-BRAIN-01 through LF-BRAIN-13 so
 4. Open the relevant generated index.
 5. Read the target record and its canonical authority.
 6. Read linked decisions, learned knowledge, implementation and evidence.
+7. For engineering work, read [[SYS-ENGINEERING-GOVERNANCE]] and establish the Branch B Task contract.
 
 ## Operating rules
 
@@ -35,7 +36,9 @@ Follow the root `AGENTS.md` and the canonical LF-BRAIN-01 through LF-BRAIN-13 so
 - Create a Work Record for significant work and close it with verification, discoveries, remaining work and an active Handoff.
 - Candidate skills and lessons may be captured, but validation is a separate governed state change.
 - Do not edit files marked `information_class: generated` or `edit_policy: do_not_edit`; run their generator.
-- Run Brain Doctor after meaningful changes. Certification requires the full R4 acceptance gate.
+- Use the source-derived Branch B templates; do not edit generated templates or indexes by hand.
+- Validate governance IDs, risk, rule links, references and waivers with `governance.py`.
+- Run the stable focused or full verification entrypoint after meaningful changes.
 - Gameplay implementation remains closed until its later governing gate explicitly opens it.
 
 ## Headless commands
@@ -46,4 +49,7 @@ python brain/92_SCRIPTS/brain.py query --id SYS-PROJECT-BRAIN --format json
 python brain/92_SCRIPTS/brain.py links
 python brain/92_SCRIPTS/brain.py index --check
 python brain/92_SCRIPTS/brain.py ingest --check
+python brain/92_SCRIPTS/governance.py doctor --profile quick
+python brain/92_SCRIPTS/governance.py query --record-type governance_debt
+python tools/verify.py --tier full
 ```

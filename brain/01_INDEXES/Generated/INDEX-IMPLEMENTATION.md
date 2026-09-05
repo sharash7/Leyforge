@@ -23,3 +23,5 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[MOD-BRAIN-CLI|MOD-BRAIN-CLI]] | implementation_module | active | Brain Standard-Library CLI |
+| [[DEP-GODOT|DEP-GODOT]] | implementation_module | proposed | Godot Engine |
+| [[DEP-ZYLANN|DEP-ZYLANN]] | implementation_module | proposed | Zylann Voxel |

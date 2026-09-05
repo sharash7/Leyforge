@@ -22,4 +22,4 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
-| [[RISK-0001|RISK-0001]] | risk | active | Rebuild and legacy archive share one physical drive |
+| [[RISK-0001|RISK-0001]] | risk | mitigated | Rebuild and legacy archive share one physical drive |

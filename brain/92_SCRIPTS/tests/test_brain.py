@@ -156,8 +156,11 @@ class BrainAcceptanceTests(unittest.TestCase):
 
     def test_14_BRAIN_AT_014_legacy_source_classification(self) -> None:
         registry, proxies = brain.build_source_inventory()
-        self.assertEqual(registry["artifact_count"], 441)
-        self.assertEqual(registry["markdown_count"], 402)
+        expected, admissions = brain.controlled_source_expectations()
+        self.assertEqual(registry["artifact_count"], len(expected))
+        self.assertEqual(registry["markdown_count"], 404)
+        self.assertEqual(len(admissions), 3)
+        self.assertEqual({"DOC-PRD-05", "DOC-PRD-06"}, {item["proxy_id"] for item in registry["artifacts"] if item["path"] in admissions and item["proxy_id"]})
         historical = [item for item in registry["artifacts"] if item["declared_status"] == "historical"]
         self.assertTrue(historical)
         self.assertTrue(any("/OLD/" in item["path"] or "/ARCHIVED/" in item["path"] for item in historical))
@@ -166,10 +169,10 @@ class BrainAcceptanceTests(unittest.TestCase):
     def test_15_BRAIN_AT_015_conflict_surfacing(self) -> None:
         missing = self.by_id["CONFLICT-0001"]
         broader = self.by_id["CONFLICT-0002"]
-        self.assertEqual(missing.metadata["status"], "detected")
+        self.assertEqual(missing.metadata["status"], "resolved")
         self.assertIn("PRD-05", missing.metadata["title"])
         self.assertEqual(broader.metadata["authority_status"], "unresolved")
-        self.assertFalse((brain.REPO_ROOT / ".summer/00_Docs/PRD/PRD-05.md").exists())
+        self.assertTrue((brain.REPO_ROOT / ".summer/00_Docs/PRD/PRD-05_Leyforge_Research_Evidence_Crosswalk_v1_0_CLOSURE_CANDIDATE_Round10.md").exists())
 
     def test_16_BRAIN_AT_016_headless_brain_doctor(self) -> None:
         result = brain.run_doctor("full")

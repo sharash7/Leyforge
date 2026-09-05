@@ -59,6 +59,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[DOC-PRD-02|DOC-PRD-02]] | document | draft | PRD-02 — Zylann Voxel Tools Deep Capability Audit |
 | [[DOC-PRD-03|DOC-PRD-03]] | document | draft | PRD-03 — Godot & Supporting Technology Audit |
 | [[DOC-PRD-04|DOC-PRD-04]] | document | draft | PRD-04 — Leyforge Architecture Boundary Study |
+| [[DOC-PRD-05|DOC-PRD-05]] | document | draft | PRD-05 — Leyforge Research Evidence Crosswalk |
+| [[DOC-PRD-06|DOC-PRD-06]] | document | draft | PRD-06 — Leyforge Technical Risk & Proof Register |
 | [[DOC-LF-BRAIN-01|DOC-LF-BRAIN-01]] | document | locked | LEYFORGE PROJECT BRAIN |
 | [[DOC-LF-BRAIN-02|DOC-LF-BRAIN-02]] | document | locked | LEYFORGE PROJECT BRAIN |
 | [[DOC-LF-BRAIN-03|DOC-LF-BRAIN-03]] | document | locked | LEYFORGE PROJECT BRAIN |

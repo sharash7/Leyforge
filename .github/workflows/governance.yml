@@ -1,0 +1,42 @@
+name: Engineering governance integrity
+
+on:
+  pull_request:
+    paths:
+      - "AGENTS.md"
+      - "brain/**"
+      - ".summer/00_Docs/**"
+      - "docs/rebuild/**"
+      - "tools/**"
+      - ".github/workflows/**"
+  push:
+    paths:
+      - "AGENTS.md"
+      - "brain/**"
+      - ".summer/00_Docs/**"
+      - "docs/rebuild/**"
+      - "tools/**"
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check installed Branch B authority and templates
+        run: |
+          python brain/92_SCRIPTS/governance.py manifest --check
+          python brain/92_SCRIPTS/governance.py templates --check
+      - name: Run governance certification Doctor
+        run: python brain/92_SCRIPTS/governance.py doctor --profile certification
+      - name: Run full stable validation entrypoint
+        run: python tools/verify.py --tier full

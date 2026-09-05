@@ -1,0 +1,27 @@
+{
+  "manifest_version": 1,
+  "intake_id": "R5-PRD-05-06",
+  "received_on": "2026-09-06",
+  "provenance": "Provided directly by the Leyforge project owner in the PRD source path for R5 intake.",
+  "disposition": "Retained as supplied. Source-declared closure-candidate status is preserved pending its owning promotion workflow.",
+  "artifacts": [
+    {
+      "path": ".summer/00_Docs/PRD/Leyforge_PRD-05_PRD-06_Bundle_Manifest_v1_0.txt",
+      "bytes": 866,
+      "sha256": "3a57d79d2a1602e0ae56e766e332d89867c6ea4af7dc1eba84c8e08849c565d9",
+      "git_blob_hash": "1890dca956a535a636fa51aa02379987fb74b25a"
+    },
+    {
+      "path": ".summer/00_Docs/PRD/PRD-05_Leyforge_Research_Evidence_Crosswalk_v1_0_CLOSURE_CANDIDATE_Round10.md",
+      "bytes": 1312444,
+      "sha256": "30af0861a801158459820d1756fb49cdf223015b682de8df5f7acbb89add766e",
+      "git_blob_hash": "9cd2a2a0f6ed0e0dbfe483a6f0311f520ff7b936"
+    },
+    {
+      "path": ".summer/00_Docs/PRD/PRD-06_Leyforge_Technical_Risk_and_Proof_Register_v1_0_CLOSURE_CANDIDATE_Round10.md",
+      "bytes": 574732,
+      "sha256": "001f748875e63760d22fda5e4fa8fb71f9a7f9cf465f285f019a3ba5a8ba3fba",
+      "git_blob_hash": "044f3e4253f2d458b94c93c08fe7ddf56c66c3ac"
+    }
+  ]
+}

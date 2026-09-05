@@ -31,6 +31,7 @@ BOOTSTRAP_PATH = BRAIN_ROOT / "00_CONTROL" / "bootstrap.json"
 REGISTRY_PATH = BRAIN_ROOT / "04_DOCUMENTS" / "document-registry.json"
 TEMPLATE_ROOT = BRAIN_ROOT / "90_TEMPLATES"
 INDEX_ROOT = BRAIN_ROOT / "01_INDEXES" / "Generated"
+SOURCE_INTAKE_ROOT = REPO_ROOT / "docs" / "rebuild" / "source-intake"
 
 UNIVERSAL_FIELDS = (
     "brain_schema",
@@ -50,7 +51,7 @@ SELECTED_SOURCE_PATTERNS = (
     re.compile(r"^B-OPS-0[0-6]_"),
     re.compile(r"^C-AUD-0[0-2]_"),
     re.compile(r"^D-ROAD-0[0-2]_"),
-    re.compile(r"^PRD-0[0-4]_"),
+    re.compile(r"^PRD-0[0-6]_"),
     re.compile(r"^REBUILD-00_"),
 )
 
@@ -212,7 +213,7 @@ def diag(severity: str, code: str, path: str, message: str) -> dict[str, str]:
 def source_code(filename: str) -> str | None:
     match = re.match(
         r"(LF-BRAIN-SET-A|LF-BRAIN-(?:0[1-9]|1[0-3])|ENG-GOV-(?:0[0-9]|1[0-5])|"
-        r"B-OPS-0[0-6]|C-AUD-0[0-2]|D-ROAD-0[0-2]|PRD-0[0-4]|REBUILD-00)(?:_|\.)",
+        r"B-OPS-0[0-6]|C-AUD-0[0-2]|D-ROAD-0[0-2]|PRD-0[0-6]|REBUILD-00)(?:_|\.)",
         filename,
     )
     return match.group(1) if match else None
@@ -278,10 +279,32 @@ def proxy_status(source_status: str) -> tuple[str, str]:
     return "active", "unresolved"
 
 
+def controlled_source_expectations() -> tuple[dict[str, str], dict[str, dict[str, Any]]]:
+    """Return immutable R3 blobs plus explicitly admitted post-R3 artifacts."""
+    baseline = load_json(REPO_ROOT / "docs" / "rebuild" / "r3" / "baseline-manifest.json")
+    expected = dict(baseline["source_document_blobs"])
+    admissions: dict[str, dict[str, Any]] = {}
+    if SOURCE_INTAKE_ROOT.is_dir():
+        for manifest_path in sorted(SOURCE_INTAKE_ROOT.glob("*.json")):
+            intake = load_json(manifest_path)
+            for artifact in intake.get("artifacts", []):
+                relpath = str(artifact["path"])
+                if relpath in expected:
+                    raise ValueError(f"duplicate controlled source admission: {relpath}")
+                expected[relpath] = str(artifact["git_blob_hash"])
+                admissions[relpath] = {
+                    **artifact,
+                    "manifest": manifest_path.relative_to(REPO_ROOT).as_posix(),
+                    "intake_id": intake.get("intake_id"),
+                }
+    return expected, admissions
+
+
 def build_source_inventory() -> tuple[dict[str, Any], dict[str, str]]:
     manifest = load_json(REPO_ROOT / "docs" / "rebuild" / "r3" / "baseline-manifest.json")
     bootstrap = load_json(BOOTSTRAP_PATH)
-    expected = manifest["source_document_blobs"]
+    baseline = manifest["source_document_blobs"]
+    expected, admissions = controlled_source_expectations()
     artifacts: list[dict[str, Any]] = []
     proxies: dict[str, str] = {}
     source_root = REPO_ROOT / ".summer" / "00_Docs"
@@ -301,8 +324,11 @@ def build_source_inventory() -> tuple[dict[str, Any], dict[str, str]]:
                 "family": path.relative_to(source_root).parts[0],
                 "extension": path.suffix.lower(),
                 "current_blob_hash": current_hash,
-                "archive_blob_hash": expected.get(relpath),
-                "changed_from_archive": current_hash != expected.get(relpath),
+                "archive_blob_hash": baseline.get(relpath),
+                "controlled_blob_hash": expected.get(relpath),
+                "changed_from_archive": current_hash != baseline.get(relpath) if relpath in baseline else None,
+                "changed_from_controlled": current_hash != expected.get(relpath),
+                "source_intake_manifest": admissions.get(relpath, {}).get("manifest"),
                 "declared_status": status,
                 "status_basis": basis,
                 "ingestion": "priority_proxy" if proxy_id else ("historical_registered" if status == "historical" else "registered_only"),
@@ -699,8 +725,9 @@ def validate_certification(records: list[Record]) -> list[dict[str, str]]:
             diagnostics.append(diag("ERROR", "BRAIN-E033", left_record.relpath, f"pilot trace chain is broken between {left} and {right}"))
     try:
         registry = load_json(REGISTRY_PATH)
-        if registry.get("artifact_count") != 441:
-            diagnostics.append(diag("ERROR", "BRAIN-E034", REGISTRY_PATH.relative_to(REPO_ROOT).as_posix(), "controlled source registry must contain 441 artifacts"))
+        expected_count = len(controlled_source_expectations()[0])
+        if registry.get("artifact_count") != expected_count:
+            diagnostics.append(diag("ERROR", "BRAIN-E034", REGISTRY_PATH.relative_to(REPO_ROOT).as_posix(), f"controlled source registry must contain {expected_count} artifacts"))
     except (OSError, json.JSONDecodeError):
         diagnostics.append(diag("ERROR", "BRAIN-E034", REGISTRY_PATH.relative_to(REPO_ROOT).as_posix(), "controlled source registry is unreadable"))
     evidence_path = BRAIN_ROOT / "10_TESTING" / "Evidence" / "r4-certification.json"

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leyforge.local/schema/engineering-governance-v1.json",
+  "title": "Leyforge engineering governance record adapter",
+  "description": "Operational metadata for B-OPS-03 records embedded in the LF-BRAIN schema-1 vault. Branch B sources remain authoritative.",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "template_version": 1,
+  "risk_classes": ["A", "B", "C", "D", "E"],
+  "activation_milestones": ["G0", "G1", "G2", "G3", "G4", "G5"],
+  "record_types": {
+    "architecture_decision": {
+      "id_pattern": "^ADR-[0-9]{4}$",
+      "brain_types": ["adr"],
+      "statuses": ["proposed", "experimental", "accepted", "superseded", "rejected", "deprecated"],
+      "required": ["domain", "risk_class", "reconstructed"]
+    },
+    "waiver": {
+      "id_pattern": "^WAIVER-[0-9]{4}$",
+      "brain_types": ["deviation"],
+      "statuses": ["proposed", "approved", "active", "expired", "resolved", "revoked"],
+      "required": ["domain", "risk_class", "governing_rules"]
+    },
+    "deprecation": {
+      "id_pattern": "^DEPR-[0-9]{4}$",
+      "brain_types": ["deviation"],
+      "statuses": ["proposed", "active", "removed", "superseded"]
+    },
+    "temporary_constraint": {
+      "id_pattern": "^TEMP-[0-9]{4}$",
+      "brain_types": ["deviation"],
+      "statuses": ["active", "resolved", "expired"],
+      "required": ["domain", "risk_class"]
+    },
+    "dependency": {
+      "id_pattern": "^DEP-[A-Z0-9]+(?:-[A-Z0-9]+)*$",
+      "brain_types": ["implementation_module"],
+      "statuses": ["planned", "active", "deprecated", "superseded"],
+      "required": ["category", "related_adrs", "provenance_status", "licence_status"]
+    },
+    "benchmark": {
+      "id_pattern": "^BENCH-[A-Z0-9]+(?:-[A-Z0-9]+)*$",
+      "brain_types": ["benchmark"],
+      "statuses": ["active", "advisory", "pass", "fail", "incomplete", "historical"],
+      "required": ["system"]
+    },
+    "engineering_work_log": {
+      "id_pattern": "^WORK-[0-9]{8}-[0-9]{3}$",
+      "brain_types": ["work"],
+      "statuses": ["planned", "active", "blocked", "complete", "cancelled"],
+      "required": ["domain", "risk_class"]
+    },
+    "skill": {
+      "id_pattern": "^(?:SKILL|PROC)-[A-Z0-9]+(?:-[A-Z0-9]+)*$",
+      "brain_types": ["skill", "procedure", "shortcut", "workaround"],
+      "statuses": ["candidate", "testing", "active", "validated", "deprecated", "rejected", "archived"],
+      "required": ["domain"]
+    },
+    "failure": {
+      "id_pattern": "^FAILURE-[A-Z0-9]+(?:-[A-Z0-9]+)*$",
+      "brain_types": ["failure", "antipattern"],
+      "statuses": ["active", "resolved", "mitigated", "accepted", "archived"],
+      "required": ["domain"]
+    },
+    "governance_debt": {
+      "id_pattern": "^GOV-DEBT-[0-9]{4}$",
+      "brain_types": ["deviation"],
+      "statuses": ["open", "planned", "ready", "in_progress", "active_verifying", "blocking", "closed", "superseded"],
+      "required": ["domain", "risk_class", "rules", "activation_milestone", "current_protection", "desired_mechanism", "owning_domain"]
+    },
+    "engineering_completion": {
+      "id_pattern": "^CHANGE-[0-9]{8}-[0-9]{3}$",
+      "brain_types": ["work_item"],
+      "statuses": ["complete"],
+      "required": ["risk_class", "closure_evidence"]
+    },
+    "agent_task_contract": {
+      "id_pattern": "^TASK-[0-9]{8}-[0-9]{3}$",
+      "brain_types": ["work_item"],
+      "statuses": ["active", "complete", "cancelled"],
+      "required": ["risk_class"]
+    }
+  },
+  "reference_fields": ["related_adrs", "supersedes", "superseded_by"],
+  "rule_reference_fields": ["governing_rules", "rules"],
+  "authority_source_ids": [
+    "ENG-GOV-00", "ENG-GOV-01", "ENG-GOV-02", "ENG-GOV-03",
+    "ENG-GOV-04", "ENG-GOV-05", "ENG-GOV-06", "ENG-GOV-07",
+    "ENG-GOV-08", "ENG-GOV-09", "ENG-GOV-10", "ENG-GOV-11",
+    "ENG-GOV-12", "ENG-GOV-13", "ENG-GOV-14", "ENG-GOV-15",
+    "B-OPS-00", "B-OPS-01", "B-OPS-02", "B-OPS-03",
+    "B-OPS-04", "B-OPS-05", "B-OPS-06"
+  ]
+}

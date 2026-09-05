@@ -4,7 +4,7 @@
 
 **State:** R4 COMPLETE — implementation certified against commit `58c4cfc891e6cc658ed1b856be3486b9f6cac8cb`.
 
-**Next gate:** R5 audit and corpus reconciliation.
+**Next gate:** R5 Branch B engineering-governance bootstrap.
 
 **Gameplay permission:** CLOSED.
 
@@ -40,4 +40,4 @@ Machine evidence is at `brain/10_TESTING/Evidence/r4-certification.json`; its fo
 - `RISK-0001`: the rebuild and legacy archive need an independent remote or off-device recovery decision.
 - `DEC-0001` remains proposed. R4 does not grant an agent authority to accept the long-term CLI implementation choice.
 
-Read `brain/CURRENT_HANDOFF.md` before R5. Do not create a runtime or resume gameplay implementation.
+Read `brain/CURRENT_HANDOFF.md` before R5. R5 installs ENG-GOV/B-OPS controls; the broader Branch C audit follows later. Do not create a runtime or resume gameplay implementation.

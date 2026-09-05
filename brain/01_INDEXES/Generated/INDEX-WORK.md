@@ -22,5 +22,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
-| [[HANDOFF-20260905-001|HANDOFF-20260905-001]] | handoff | active | R4 Project Brain to R5 Audit Handoff |
+| [[HANDOFF-20260905-001|HANDOFF-20260905-001]] | handoff | active | R4 Project Brain to R5 Governance Bootstrap Handoff |
+| [[WORK-20260906-001|WORK-20260906-001]] | work | active | Install and validate the R5 engineering governance bootstrap |
+| [[TASK-20260906-001|TASK-20260906-001]] | work_item | active | R5 engineering governance bootstrap task contract |
 | [[WORK-20260905-004|WORK-20260905-004]] | work | complete | Bootstrap and certify Leyforge Project Brain v0.1 |

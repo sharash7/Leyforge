@@ -22,4 +22,11 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
+| [[ADR-0007|ADR-0007]] | adr | proposed | Authoritative persistent-state architecture |
+| [[ADR-0001|ADR-0001]] | adr | proposed | Godot V1 platform foundation |
+| [[ADR-0003|ADR-0003]] | adr | proposed | Leyforge and Zylann ownership and fork policy |
+| [[ADR-0005|ADR-0005]] | adr | proposed | Monorepo modular architecture |
+| [[ADR-0006|ADR-0006]] | adr | proposed | Registry and stable identity architecture |
+| [[ADR-0004|ADR-0004]] | adr | proposed | Repository-resident Project Brain |
+| [[ADR-0002|ADR-0002]] | adr | proposed | Zylann Voxel foundation |
 | [[DEC-0001|DEC-0001]] | decision | proposed | Retain the Python standard-library Brain CLI beyond bootstrap |

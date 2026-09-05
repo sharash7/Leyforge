@@ -1,0 +1,25 @@
+filters:
+  and:
+    - file.hasProperty("brain_schema")
+    - 'record_type == "governance_debt"'
+properties:
+  id:
+    displayName: ID
+  governance_status:
+    displayName: Governance Status
+  activation_milestone:
+    displayName: Activation
+  risk_class:
+    displayName: Risk
+  owning_domain:
+    displayName: Owner
+views:
+  - type: table
+    name: Governance Debt
+    order:
+      - id
+      - file.name
+      - governance_status
+      - activation_milestone
+      - risk_class
+      - owning_domain

@@ -1,0 +1,297 @@
+{
+  "manifest_version": 1,
+  "governance_baseline": "Leyforge Engineering Governance Baseline v1.0",
+  "installed_at": "2026-09-06T00:00:00+08:00",
+  "authority_order": [
+    "CANON_AND_PRODUCT",
+    "ENG-GOV-00",
+    "ENG-GOV-01_THROUGH_15",
+    "CURRENT_ARCHITECTURE_AND_ACCEPTED_ADRS",
+    "ROOT_AND_PATH_AGENTS",
+    "IMPLEMENTATION_TESTS_TOOLS_AND_CI"
+  ],
+  "source_root": ".summer/00_Docs/B-ENG-GOV+B-OPS",
+  "source_count": 23,
+  "sources": [
+    {
+      "id": "B-OPS-00",
+      "title": "B-OPS-00 — Leyforge Engineering Governance Index & Authority Map",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-00_Leyforge_Engineering_Governance_Index_and_Authority_Map_v0.1.md",
+      "source_status": "operational_baseline",
+      "authority_role": "primary",
+      "sha256": "e9d3f8efd9e61547693dc7fd83fcb5147440ced49c10d59f503b6b4d5de39cc3",
+      "bytes": 22663,
+      "rule_count": 0,
+      "brain_proxy": "DOC-B-OPS-00"
+    },
+    {
+      "id": "B-OPS-01",
+      "title": "B-OPS-01 — Leyforge Governance Rule Enforcement Matrix",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-01_Leyforge_Governance_Rule_Enforcement_Matrix_v0.1.md",
+      "source_status": "operational_baseline",
+      "authority_role": "primary",
+      "sha256": "e96028d42703ae0085e17ad755f3906c2cf2d9eba0aea724904f35ded75bc0d9",
+      "bytes": 13240,
+      "rule_count": 79,
+      "brain_proxy": "DOC-B-OPS-01"
+    },
+    {
+      "id": "B-OPS-02",
+      "title": "B-OPS-02 — Leyforge Coding-Agent Bootstrap Contract",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-02_Leyforge_Coding-Agent_Bootstrap_Contract_v0.1.md",
+      "source_status": "operational_baseline",
+      "authority_role": "primary",
+      "sha256": "1b601cc305e255bbc9191ec3356681d2878ea1e76ffe2786b7751b9cab6f1c93",
+      "bytes": 19070,
+      "rule_count": 168,
+      "brain_proxy": "DOC-B-OPS-02"
+    },
+    {
+      "id": "B-OPS-03",
+      "title": "B-OPS-03 — Leyforge Engineering Governance Templates Pack",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-03_Leyforge_Engineering_Governance_Templates_Pack_v0.1.md",
+      "source_status": "operational_baseline",
+      "authority_role": "primary",
+      "sha256": "e032faadc76c36fd6f926af364522273a48865b1525b47e0f0e1d9cf00292bb9",
+      "bytes": 14592,
+      "rule_count": 0,
+      "brain_proxy": "DOC-B-OPS-03"
+    },
+    {
+      "id": "B-OPS-04",
+      "title": "B-OPS-04 — Leyforge Project Brain ↔ Engineering Governance Interface",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-04_Leyforge_Project_Brain_and_Engineering_Governance_Interface_v0.1.md",
+      "source_status": "operational_baseline",
+      "authority_role": "primary",
+      "sha256": "7d194c1714ac4aef260febc9d63b2a21b511f04834bcebdd061ade59245c673e",
+      "bytes": 16081,
+      "rule_count": 155,
+      "brain_proxy": "DOC-B-OPS-04"
+    },
+    {
+      "id": "B-OPS-05",
+      "title": "B-OPS-05 — Leyforge Governance Debt & Validator Backlog",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-05_Leyforge_Governance_Debt_and_Validator_Backlog_v0.1.md",
+      "source_status": "operational_baseline",
+      "authority_role": "primary",
+      "sha256": "bcfd38404a37643454c822132d4e6c309a4da4d2ecfa95699e94899892a23e3b",
+      "bytes": 16567,
+      "rule_count": 138,
+      "brain_proxy": "DOC-B-OPS-05"
+    },
+    {
+      "id": "B-OPS-06",
+      "title": "B-OPS-06 — Leyforge Engineering Governance Reconciliation & Certification Report",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/B-OPS/B-OPS-06_Leyforge_Engineering_Governance_Reconciliation_and_Certification_Report_v0.1.md",
+      "source_status": "certified",
+      "authority_role": "primary",
+      "sha256": "62548f8caa91900ae36993ba3f03f8e03e8610f6f07f8b802b4f9976f48ac03f",
+      "bytes": 18793,
+      "rule_count": 0,
+      "brain_proxy": "DOC-B-OPS-06"
+    },
+    {
+      "id": "ENG-GOV-00",
+      "title": "ENG-GOV-00 — Leyforge Engineering Constitution",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-00_Leyforge_Engineering_Constitution_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "ec22109e5482c30927da309211c04067a1350faadfca377add9caacc5184b02b",
+      "bytes": 23890,
+      "rule_count": 0,
+      "brain_proxy": "DOC-ENG-GOV-00"
+    },
+    {
+      "id": "ENG-GOV-01",
+      "title": "ENG-GOV-01 — Leyforge Codebase Engineering Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-01_Leyforge_Codebase_Engineering_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "e879e4c3d85d77594951565c9281202917ec240e588e082383782e0b7eedda0a",
+      "bytes": 23632,
+      "rule_count": 42,
+      "brain_proxy": "DOC-ENG-GOV-01"
+    },
+    {
+      "id": "ENG-GOV-02",
+      "title": "ENG-GOV-02 — Leyforge Repository & Module Structure Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-02_Leyforge_Repository_and_Module_Structure_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "bfdedf5e65eff71218ddd2e1cd8eeca8955784d07a4a2a13380a107a61a19752",
+      "bytes": 21336,
+      "rule_count": 47,
+      "brain_proxy": "DOC-ENG-GOV-02"
+    },
+    {
+      "id": "ENG-GOV-03",
+      "title": "ENG-GOV-03 — Leyforge Source Style & Naming Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-03_Leyforge_Source_Style_and_Naming_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "395715051b80f52076484c25978e9f5939bc21ed29f4e71b26c2ce4117d2505f",
+      "bytes": 18863,
+      "rule_count": 53,
+      "brain_proxy": "DOC-ENG-GOV-03"
+    },
+    {
+      "id": "ENG-GOV-04",
+      "title": "ENG-GOV-04 — Leyforge Git / Branch / Change Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-04_Leyforge_Git_Branch_and_Change_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "82a99da62174b347af20c17cee10697f8b8a65cfad1f504c4aa4c724e327e129",
+      "bytes": 19239,
+      "rule_count": 60,
+      "brain_proxy": "DOC-ENG-GOV-04"
+    },
+    {
+      "id": "ENG-GOV-05",
+      "title": "ENG-GOV-05 — Leyforge Testing & Verification Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-05_Leyforge_Testing_and_Verification_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "fafb8d326415991fce05fcb1fd8d196f111122b2669bc4a443e4b3ed8ffa2459",
+      "bytes": 21282,
+      "rule_count": 87,
+      "brain_proxy": "DOC-ENG-GOV-05"
+    },
+    {
+      "id": "ENG-GOV-06",
+      "title": "ENG-GOV-06 — Leyforge CI / Quality Gate Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-06_Leyforge_CI_and_Quality_Gate_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "ba409f3753bbab4a26c82e11cd80df49bf4fc7d832d744f7832af2c97f34ccb7",
+      "bytes": 13874,
+      "rule_count": 63,
+      "brain_proxy": "DOC-ENG-GOV-06"
+    },
+    {
+      "id": "ENG-GOV-07",
+      "title": "ENG-GOV-07 — Leyforge Diagnostics / Logging / Observability Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-07_Leyforge_Diagnostics_Logging_and_Observability_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "cb8734a48b3a31dcd6fefac48a1579cedf33a1beb116550dba0ec6ad719e92be",
+      "bytes": 14415,
+      "rule_count": 75,
+      "brain_proxy": "DOC-ENG-GOV-07"
+    },
+    {
+      "id": "ENG-GOV-08",
+      "title": "ENG-GOV-08 — Leyforge Save / Schema / Migration Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-08_Leyforge_Save_Schema_and_Migration_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "972be3670d32580819ec31c525b31a1dad645931af4ad25185266cf09939dc78",
+      "bytes": 21689,
+      "rule_count": 113,
+      "brain_proxy": "DOC-ENG-GOV-08"
+    },
+    {
+      "id": "ENG-GOV-09",
+      "title": "ENG-GOV-09 — Leyforge Registry / Stable Identity Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-09_Leyforge_Registry_and_Stable_Identity_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "a84ceff175317bd84f6336f1ab957e62e1b31eec60a5aec1eaf19bd0aa14a7e9",
+      "bytes": 23174,
+      "rule_count": 121,
+      "brain_proxy": "DOC-ENG-GOV-09"
+    },
+    {
+      "id": "ENG-GOV-10",
+      "title": "ENG-GOV-10 — Leyforge Performance / Benchmark Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-10_Leyforge_Performance_and_Benchmark_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "98f32ca8a99e410f704193c6eb58a9924dd72bb18b80a6fa926feec5df8a8a23",
+      "bytes": 20336,
+      "rule_count": 111,
+      "brain_proxy": "DOC-ENG-GOV-10"
+    },
+    {
+      "id": "ENG-GOV-11",
+      "title": "ENG-GOV-11 — Leyforge Architecture Decision Record Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-11_Leyforge_Architecture_Decision_Record_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "dde6c3743f74b2bd1ff01cc57c7d6d8adb9bfe6b38b8d8e90e81bd19d9f6a34b",
+      "bytes": 18340,
+      "rule_count": 96,
+      "brain_proxy": "DOC-ENG-GOV-11"
+    },
+    {
+      "id": "ENG-GOV-12",
+      "title": "ENG-GOV-12 — Leyforge AI / Coding Agent Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-12_Leyforge_AI_and_Coding_Agent_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "ddf61b425b68abfb4c516f624bb6aa79b5509e5cac2de357c3966e71791c6d39",
+      "bytes": 27990,
+      "rule_count": 171,
+      "brain_proxy": "DOC-ENG-GOV-12"
+    },
+    {
+      "id": "ENG-GOV-13",
+      "title": "ENG-GOV-13 — Leyforge Security / Player Content Boundary Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-13_Leyforge_Security_and_Player_Content_Boundary_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "c034059da26d5611774cee8191abd584a916f499ef47f721c9b7b3bfbebdfbc0",
+      "bytes": 22989,
+      "rule_count": 127,
+      "brain_proxy": "DOC-ENG-GOV-13"
+    },
+    {
+      "id": "ENG-GOV-14",
+      "title": "ENG-GOV-14 — Leyforge Exceptions / Waivers / Deprecation Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-14_Leyforge_Exceptions_Waivers_and_Deprecation_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "f22dfbc79602724e2f3f97257ac80ae45b4425db24855c49593421c563337e23",
+      "bytes": 19736,
+      "rule_count": 125,
+      "brain_proxy": "DOC-ENG-GOV-14"
+    },
+    {
+      "id": "ENG-GOV-15",
+      "title": "ENG-GOV-15 — Leyforge Third-Party / Upstream Integration Standard",
+      "path": ".summer/00_Docs/B-ENG-GOV+B-OPS/ENG-GOV-15_Leyforge_Third-Party_and_Upstream_Integration_Standard_v0.1.md",
+      "source_status": "theoretically_locked",
+      "authority_role": "primary",
+      "sha256": "3a3c6caba0b1e961dd3555532bce4768320312f536ff7238cd1bf53d2694e7cc",
+      "bytes": 24873,
+      "rule_count": 150,
+      "brain_proxy": "DOC-ENG-GOV-15"
+    }
+  ],
+  "record_root": "brain",
+  "schema": "brain/91_SCHEMA/governance.schema.json",
+  "templates": [
+    "brain/90_TEMPLATES/Governance/Architecture Decision Record.md",
+    "brain/90_TEMPLATES/Governance/Waiver Exception.md",
+    "brain/90_TEMPLATES/Governance/Deprecation.md",
+    "brain/90_TEMPLATES/Governance/Temporary Constraint Quarantine.md",
+    "brain/90_TEMPLATES/Governance/Dependency Record.md",
+    "brain/90_TEMPLATES/Governance/Benchmark Record.md",
+    "brain/90_TEMPLATES/Governance/Engineering Work Log.md",
+    "brain/90_TEMPLATES/Governance/Skill Procedure Shortcut.md",
+    "brain/90_TEMPLATES/Governance/Failure Antipattern.md",
+    "brain/90_TEMPLATES/Governance/Governance Debt Record.md",
+    "brain/90_TEMPLATES/Governance/Engineering Change Completion Report.md",
+    "brain/90_TEMPLATES/Governance/Agent Task Contract.md"
+  ],
+  "entrypoints": {
+    "governance": "python brain/92_SCRIPTS/governance.py doctor --profile certification",
+    "build": "python tools/verify.py --tier build",
+    "focused_test": "python tools/verify.py --tier focused",
+    "full_validation": "python tools/verify.py --tier full"
+  },
+  "activation": {
+    "milestone": "G0",
+    "gameplay_permission": "CLOSED"
+  },
+  "authority_statement": "ENG-GOV and B-OPS source files remain authoritative. This manifest, its validators and Brain records are implementation and navigation artifacts."
+}
