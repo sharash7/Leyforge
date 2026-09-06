@@ -111,10 +111,16 @@ class BrainAcceptanceTests(unittest.TestCase):
 
     def test_08_BRAIN_AT_008_handoff_continuation(self) -> None:
         root = self.by_id["CURRENT-HANDOFF"]
+        previous = self.by_id["HANDOFF-20260905-001"]
+        self.assertEqual(previous.metadata["status"], "superseded")
+        self.assertEqual(previous.metadata["from_work"], "WORK-20260905-004")
+        self.assertEqual(previous.metadata["next_gate"], "R5")
+        self.assertEqual(previous.metadata["superseded_by"], "HANDOFF-20260906-001")
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260905-004")
-        self.assertEqual(handoff.metadata["next_gate"], "R5")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260906-001")
+        self.assertEqual(handoff.metadata["next_gate"], "R6")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260905-001")
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
             self.assertIn(f"## {heading}", handoff.body)
 
@@ -207,7 +213,7 @@ class BrainAcceptanceTests(unittest.TestCase):
         positions = [agents.index(item) for item in sequence]
         self.assertEqual(positions, sorted(positions))
         handoff = self.by_id[self.by_id["CURRENT-HANDOFF"].metadata["current_handoff"]]
-        self.assertIn("R5", handoff.body)
+        self.assertIn("R6", handoff.body)
         self.assertIn("R8 gameplay permission remains closed", handoff.body)
         for canvas in (brain.BRAIN_ROOT / "81_CANVAS").glob("*.canvas"):
             data = json.loads(canvas.read_text(encoding="utf-8"))

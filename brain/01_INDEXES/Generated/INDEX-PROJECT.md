@@ -25,8 +25,10 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[CURRENT-HANDOFF|CURRENT-HANDOFF]] | dashboard | active | Current Handoff |
 | [[DASH-GOVERNANCE|DASH-GOVERNANCE]] | dashboard | active | Engineering Governance Health |
 | [[DASH-PROJECT-STATE|DASH-PROJECT-STATE]] | dashboard | active | Project State |
-| [[HANDOFF-20260905-001|HANDOFF-20260905-001]] | handoff | active | R4 Project Brain to R5 Governance Bootstrap Handoff |
+| [[HANDOFF-20260906-001|HANDOFF-20260906-001]] | handoff | active | R5 Engineering Governance to R6 Operating Pilot Handoff |
 | [[HOME|HOME]] | home | active | Leyforge Project Brain |
-| [[WORK-20260906-001|WORK-20260906-001]] | work | active | Install and validate the R5 engineering governance bootstrap |
-| [[TASK-20260906-001|TASK-20260906-001]] | work_item | active | R5 engineering governance bootstrap task contract |
 | [[WORK-20260905-004|WORK-20260905-004]] | work | complete | Bootstrap and certify Leyforge Project Brain v0.1 |
+| [[WORK-20260906-001|WORK-20260906-001]] | work | complete | Install and validate the R5 engineering governance bootstrap |
+| [[CHANGE-20260906-001|CHANGE-20260906-001]] | work_item | complete | Complete the R5 engineering governance bootstrap |
+| [[TASK-20260906-001|TASK-20260906-001]] | work_item | complete | R5 engineering governance bootstrap task contract |
+| [[HANDOFF-20260905-001|HANDOFF-20260905-001]] | handoff | superseded | R4 Project Brain to R5 Governance Bootstrap Handoff |

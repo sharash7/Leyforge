@@ -103,6 +103,12 @@ class GovernanceAcceptanceTests(unittest.TestCase):
         self.assertEqual({"G0", "G1", "G2", "G3", "G4", "G5"}, {record.metadata["activation_milestone"] for record in debts})
         self.assertTrue(all(record.metadata["rules"] for record in debts))
         self.assertFalse(any(item["code"] == "GOV-E029" for item in governance.validate_records(debts)))
+        g0 = self.by_id["GOV-DEBT-0001"]
+        self.assertEqual(g0.metadata["governance_status"], "closed")
+        self.assertEqual(g0.metadata["closure_evidence"], "EVID-0002")
+        completion = self.by_id["CHANGE-20260906-001"]
+        self.assertEqual(completion.metadata["governance_status"], "complete")
+        self.assertEqual(completion.metadata["closure_evidence"], "EVID-0002")
 
     def test_12_GOV_AT_012_dependency_adr_links(self) -> None:
         for record_id in ("DEP-GODOT", "DEP-ZYLANN"):

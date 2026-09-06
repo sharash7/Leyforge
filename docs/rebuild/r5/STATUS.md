@@ -2,9 +2,9 @@
 
 **Work:** `WORK-20260906-001`
 
-**State:** IMPLEMENTED — full worktree validation PASS; exact-commit certification and publication pending.
+**State:** COMPLETE — certified against implementation commit `f9ea015a90706b302df9846040a1fe51f02ce6f9`.
 
-**Next gate after certification:** R6 bounded Brain-to-governance pilot.
+**Next gate:** R6 bounded Brain-to-governance operating pilot.
 
 **Gameplay permission:** CLOSED.
 
@@ -18,25 +18,26 @@ R5 installs Branch B as operational repository governance inside the existing Pr
 - Brain-native paths for proposed ADRs, dependencies, Work/Task records, procedures, waivers, deprecations and governance debt.
 - Seven proposed reconstructed foundational ADRs; none is silently accepted.
 - Godot and Zylann dependency records remain planned, uninstalled and provenance/licence unresolved.
-- G0 debt active/verifying and explicit planned debt for G1 through G5.
+- G0 governance debt closed by certified evidence; explicit planned debt remains for G1 through G5.
 - Python standard-library validation for metadata, ID collisions, statuses, risk classes, template versions, rule links, record references, dependency-to-ADR links and active waiver expiry.
 - Stable `build`, `focused` and `full` verification tiers and GitHub Actions coverage.
-- Brain governance dashboard, system record, source proxies, generated indexes, procedures, test, evidence and audit records.
+- Brain governance dashboard, system record, source proxies, generated indexes, procedures, test, evidence, audit and completion records.
 - Controlled PRD-05/06 intake that leaves the immutable 441-artifact R3 manifest unchanged.
 
-## Worktree validation
+## Certification
 
+- Implementation commit: `f9ea015a90706b302df9846040a1fe51f02ce6f9`.
 - GOV-AT-001 through GOV-AT-018: 18/18 PASS.
-- Existing BRAIN-AT-001 through BRAIN-AT-020: 20/20 PASS.
+- BRAIN-AT-001 through BRAIN-AT-020: 20/20 PASS.
 - Total unit/acceptance tests: 38/38 PASS.
 - Brain Doctor certification: PASS, zero errors; one informational Obsidian CLI-path note.
 - Governance Doctor certification: PASS, zero diagnostics.
 - Ingestion, generated indexes and relationship links: PASS with no drift.
-- Clean-rebuild boundary: PASS across 2,569 checks.
+- Clean-rebuild boundary: PASS.
 - Controlled sources: 444 total, comprising 441 R3 baseline artifacts and three R5 intake artifacts.
 - Active POC dependencies: zero.
 
-The prepublication receipt is `brain/10_TESTING/Evidence/r5-governance-certification.json`. It identifies the worktree state until an authorized commit is created and re-certified.
+The exact implementation receipt is `brain/10_TESTING/Evidence/r5-governance-certification.json`. The closeout summary is `docs/rebuild/r5/completion-receipt.json`.
 
 ## Scope limits
 

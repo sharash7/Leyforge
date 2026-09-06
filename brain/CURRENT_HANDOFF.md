@@ -10,11 +10,11 @@ updated: "2026-09-06"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260905-001"
+current_handoff: "HANDOFF-20260906-001"
 related_to:
-  - "HANDOFF-20260905-001"
+  - "HANDOFF-20260906-001"
 ---
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260905-001]]. Read it before starting the next gate. R4 installs the Project Brain; R5 is the next rebuild gate. Gameplay authorization remains closed.
+The active formal handoff is [[HANDOFF-20260906-001]]. Read it before starting the next gate. R5 engineering governance is complete and certified; R6 is the bounded Brain-to-governance operating pilot. R8 gameplay permission remains closed.
