@@ -62,11 +62,12 @@ related_to:
 
 ## R7 W0 Harness Bootstrap Certification
 
-- Exact implementation commit: `502604abfe36bf7cd654c688fba4a03ac649baf4`.
+- Certified state commit: `c25daedd33dc33ece3f70ab6867f6477a40c4ea1`.
 - Stable verification: 46/46 Brain/governance/R6 tests plus 28/28 W0 tests PASS.
 - Brain and Governance Doctors, controlled ingestion, index drift, link validation and clean-rebuild boundary: PASS.
 - Architecture lint: 15 harness Python files, six rules and zero violations; the seeded forbidden dependency is detected in its negative fixture.
 - Boundary: 24 exact hash-pinned development-tool paths; zero active POC dependencies.
+- Portability: Git-clean blob plus canonical LF digest checks pass in a fresh 446-source checkout.
 - Readiness: 13 `HARNESS-BLOCKED`, zero `READY`, zero proof-run IDs and zero proof-evidence IDs.
 - [[ADR-0008]]: proposed, not accepted.
 - Evidence and audit: [[EVID-0005]] and [[AUDIT-0005]].

@@ -6,7 +6,10 @@
   "certification": "PASS",
   "branch": "codex/chore/brain-governance-pilot",
   "starting_commit": "263e3f1810c08c1cd0197cc140fed5d6f45fbb16",
-  "implementation_commit": "502604abfe36bf7cd654c688fba4a03ac649baf4",
+  "base_implementation_commit": "502604abfe36bf7cd654c688fba4a03ac649baf4",
+  "initial_closeout_commit": "349f0e16f1aab9448ffd4e5c5509a6c3a80981ed",
+  "portability_repair_commit": "c25daedd33dc33ece3f70ab6867f6477a40c4ea1",
+  "certified_state_commit": "c25daedd33dc33ece3f70ab6867f6477a40c4ea1",
   "task_contract": "TASK-20260906-004",
   "work_record": "WORK-20260906-004",
   "evidence": "EVID-0005",
@@ -17,11 +20,20 @@
     "status": "PROPOSED",
     "accepted": false
   },
-  "ci_drift_repair": {
-    "commit": "263e3f1810c08c1cd0197cc140fed5d6f45fbb16",
-    "root_cause": "raw CRLF worktree hashing disagreed with Git LF clean-filtered blob identity",
-    "repair": "derive generated source hashes through git hash-object --stdin-paths"
-  },
+  "ci_drift_repairs": [
+    {
+      "commit": "263e3f1810c08c1cd0197cc140fed5d6f45fbb16",
+      "surface": "Brain generated source hashes",
+      "root_cause": "raw CRLF worktree hashing disagreed with Git LF clean-filtered blob identity",
+      "repair": "derive generated source hashes through git hash-object --stdin-paths"
+    },
+    {
+      "commit": "c25daedd33dc33ece3f70ab6867f6477a40c4ea1",
+      "surface": "W0 admission artifact hashes",
+      "root_cause": "w0-readiness.json raw CRLF worktree size and SHA-256 disagreed with committed LF bytes",
+      "repair": "pin Git-clean blob IDs and canonical LF size/SHA-256 for every admitted W0 artifact"
+    }
+  ],
   "harness": {
     "admission_manifest": "docs/rebuild/r7/w0-harness-boundary.json",
     "admitted_paths": 24,
@@ -35,26 +47,21 @@
       "violations": 0
     }
   },
-  "implementation_certification": {
+  "certified_state_verification": {
+    "status": "PASS",
     "brain_governance_r6_tests": {
       "passed": 46,
       "total": 46
     },
-    "brain_records": 136,
-    "governance_records": 31,
-    "authority_sources": 23,
-    "templates": 12,
-    "clean_rebuild_checks": 2934,
-    "active_poc_dependencies": 0
-  },
-  "closeout_verification": {
-    "status": "PASS",
     "brain_records": 140,
     "governance_records": 32,
     "authority_sources": 23,
     "templates": 12,
-    "clean_rebuild_checks": 2949,
-    "active_poc_dependencies": 0
+    "clean_checkout_boundary_checks": 2993,
+    "live_worktree_boundary_checks": 2999,
+    "controlled_sources": 446,
+    "active_poc_dependencies": 0,
+    "fresh_lf_checkout": "PASS"
   },
   "proof_readiness": {
     "w0_proofs": 13,

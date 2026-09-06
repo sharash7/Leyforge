@@ -8,7 +8,9 @@
 
 **Package starting commit:** `263e3f1810c08c1cd0197cc140fed5d6f45fbb16`.
 
-**Certified W0 implementation commit:** `502604abfe36bf7cd654c688fba4a03ac649baf4`.
+**Base W0 implementation commit:** `502604abfe36bf7cd654c688fba4a03ac649baf4`.
+
+**Certified W0 state commit:** `c25daedd33dc33ece3f70ab6867f6477a40c4ea1`.
 
 **Gameplay permission:** CLOSED.
 
@@ -26,6 +28,8 @@ The governing sources are:
 ## CI Drift Repair
 
 Commit `263e3f1810c08c1cd0197cc140fed5d6f45fbb16` fixed the generated-proxy hash drift. The Brain had hashed raw Windows CRLF working-tree bytes while Git committed LF-cleaned source bytes. `brain.py` now derives working-tree blob identities through `git hash-object --stdin-paths`, respecting Git clean filters. The D-ROAD-02 proxy and document registry were regenerated through approved tooling. Both GitHub Actions workflows pass at that commit.
+
+The initial W0 closeout commit `349f0e16f1aab9448ffd4e5c5509a6c3a80981ed` exposed the same portability class in the W0 admission manifest: one JSON artifact was pinned from raw CRLF worktree bytes. Certified state commit `c25daedd33dc33ece3f70ab6867f6477a40c4ea1` pins all 24 W0 artifacts by Git-clean blob ID and canonical LF size/SHA-256. The full gate passes in a fresh LF-only 446-source checkout.
 
 ## W0 Harness Bootstrap
 
@@ -63,14 +67,15 @@ Real proof execution remains blocked because the clean rebuild has no V1 runtime
 
 ## Certification
 
-[[EVID-0005]] and [[AUDIT-0005]] certify exact implementation commit `502604abfe36bf7cd654c688fba4a03ac649baf4`:
+[[EVID-0005]] and [[AUDIT-0005]] certify state commit `c25daedd33dc33ece3f70ab6867f6477a40c4ea1`:
 
 - 46/46 Brain/governance/R6 tests PASS;
 - 28/28 W0 contract/integration tests PASS;
 - W0 self-check and architecture lint PASS;
 - Brain ingestion, generated indexes and links PASS;
 - Brain and Governance certification Doctors PASS;
-- 2,934 clean-rebuild boundary checks PASS;
+- 2,993 clean-rebuild boundary checks PASS;
+- fresh LF-only clean-checkout verification PASS;
 - 24 exact W0 paths admitted; and
 - zero active POC dependencies.
 

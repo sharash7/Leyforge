@@ -28,7 +28,7 @@ related_to:
 
 ## Scope
 
-Certify the Class C, development-only W0 bootstrap at exact implementation commit `502604abfe36bf7cd654c688fba4a03ac649baf4` against PRD-07 sections 121–124, 164 and 165, Branch B governance and the clean-rebuild boundary.
+Certify the Class C, development-only W0 bootstrap at state commit `c25daedd33dc33ece3f70ab6867f6477a40c4ea1` against PRD-07 sections 121–124, 164 and 165, Branch B governance and the clean-rebuild boundary.
 
 ## Criteria
 
@@ -45,7 +45,7 @@ Certify the Class C, development-only W0 bootstrap at exact implementation commi
 
 ## Findings
 
-All criteria pass. The implementation provides the reusable bootstrap but correctly leaves all 13 W0 proofs `HARNESS-BLOCKED` because real runtime/provider adapters, governed dependency identities and exported client/headless artifacts do not exist. [[ADR-0008]] is proposed and remains awaiting its owning disposition.
+All criteria pass. Git-clean admission identities and canonical LF digests pass in a fresh 446-source checkout. The implementation provides the reusable bootstrap but correctly leaves all 13 W0 proofs `HARNESS-BLOCKED` because real runtime/provider adapters, governed dependency identities and exported client/headless artifacts do not exist. [[ADR-0008]] is proposed and remains awaiting its owning disposition.
 
 ## Result
 
