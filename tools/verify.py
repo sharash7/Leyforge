@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PROOF_HARNESS_PYTHON = sorted(
     str(path.relative_to(ROOT))
-    for base in (ROOT / "tools" / "proof_harness", ROOT / "tools" / "tests")
+    for base in (ROOT / "tools" / "proof_harness", ROOT / "tools" / "r7_w0_runtime", ROOT / "tools" / "tests")
     for path in base.rglob("*.py")
 )
 
@@ -52,6 +52,7 @@ def commands_for(tier: str) -> list[list[str]]:
             [python, "brain/92_SCRIPTS/tests/test_r6_pilot.py", "-v"],
             [python, "-m", "unittest", "discover", "tools/tests", "-v"],
             [python, "-m", "tools.proof_harness", "self-check", "--format", "json"],
+            [python, "-m", "tools.r7_w0_runtime", "preflight", "--static-only", "--format", "json"],
             [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "full", "--format", "json"],
         ]
     return [
@@ -59,6 +60,7 @@ def commands_for(tier: str) -> list[list[str]]:
         [python, "-m", "unittest", "discover", "brain/92_SCRIPTS/tests", "-v"],
         [python, "-m", "unittest", "discover", "tools/tests", "-v"],
         [python, "-m", "tools.proof_harness", "self-check", "--format", "json"],
+        [python, "-m", "tools.r7_w0_runtime", "preflight", "--static-only", "--format", "json"],
         [python, "brain/92_SCRIPTS/brain.py", "ingest", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "index", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "links", "--format", "json"],

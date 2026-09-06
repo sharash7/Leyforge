@@ -1,0 +1,98 @@
+{
+  "schema_version": "leyforge-r7-w0-dependency-lock-v1",
+  "scope": "development-only-prd07-proof-runtime",
+  "gameplay_permission": "CLOSED",
+  "local_patch_status": "NO-LOCAL-PATCH",
+  "components": {
+    "godot_build_driver": {
+      "name": "Godot fixed command-line build driver",
+      "version": "4.8.dev.custom_build.a9c94cd21",
+      "revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "source": "https://github.com/godotengine/godot/commit/a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "licence": "MIT",
+      "licence_status": "resolved",
+      "provenance_status": "verified",
+      "build_flags": "platform=windows target=editor arch=x86_64 production=yes debug_symbols=no accesskit=no d3d12=no -j6",
+      "default_local_path": "D:/AI/Projects/leyforge/.local/Godot_v4.8-dev-a9c94-shutdown-fixed/godot.windows.editor.x86_64.console.exe",
+      "bytes": 301056,
+      "sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "local_patch": "NO-LOCAL-PATCH; clean upstream commit with two upstream lifetime fixes"
+    },
+    "godot_export_template": {
+      "name": "Godot Windows release export template",
+      "version": "4.8-dev4",
+      "revision": "4.8.dev4.official.b56a91878",
+      "source": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev4/Godot_v4.8-dev4_export_templates.tpz",
+      "licence": "MIT",
+      "licence_status": "resolved",
+      "provenance_status": "verified",
+      "platform": "windows-x86_64",
+      "package_path": ".local/r7-w0-deps/Godot_v4.8-dev4_export_templates.tpz",
+      "package_bytes": 1415878829,
+      "package_sha256": "cebaad066428083f111515c74fba35e3ca64942eadf2323f1c7241d23abb73ea",
+      "runtime_path": ".local/r7-w0-deps/godot-4.8-dev4-templates/templates/windows_release_x86_64.exe",
+      "runtime_bytes": 110569472,
+      "runtime_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "local_patch": "NO-LOCAL-PATCH"
+    },
+    "voxel_tools": {
+      "name": "Zylann Voxel Tools GDExtension",
+      "version": "1.7",
+      "edition": "GDExtension for Godot 4.5+",
+      "revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+      "tag": "v1.7x",
+      "source": "https://github.com/Zylann/godot_voxel/releases/download/v1.7x/GodotVoxelExtension.zip",
+      "upstream_repository": "https://github.com/Zylann/godot_voxel",
+      "licence": "MIT",
+      "licence_status": "resolved",
+      "provenance_status": "verified",
+      "package_path": ".local/r7-w0-deps/GodotVoxelExtension-v1.7x.zip",
+      "package_bytes": 54457774,
+      "package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+      "extracted_root": ".local/r7-w0-deps/v1.7x/addons/zylann.voxel",
+      "compatibility_minimum": "4.4.1",
+      "provider_boundary": "proofs/r7/w0/runtime/src/provider/voxel_tools_adapter.gd",
+      "ownership": "external proof dependency behind Leyforge adapter",
+      "update_policy": "new governed lock and full affected-proof revalidation",
+      "permitted_use": "R7 proof-only provider and export evidence",
+      "known_limitations": [
+        "GDExtension is upstream's less-tested edition relative to the module build.",
+        "The full Godot editor process currently exits 0xC0000005 after loading this extension; editor mode is excluded from the claimed proof lane.",
+        "Only Windows x86_64 release export and fixed-editor import/runtime surfaces are admitted by this package."
+      ],
+      "local_patch": "NO-LOCAL-PATCH",
+      "staged_files": [
+        {
+          "source": "voxel.gdextension",
+          "destination": "addons/zylann.voxel/voxel.gdextension",
+          "bytes": 2149,
+          "sha256": "353b33a3b5631803785a7fb28810c8dee2ff97bc0a1675d80e1b7b28b7101770"
+        },
+        {
+          "source": "voxel.gdextension.uid",
+          "destination": "addons/zylann.voxel/voxel.gdextension.uid",
+          "bytes": 20,
+          "sha256": "a8e4b703888c739acb5e37f4a0819b8945b0245b7dee91c7190e921149af4f3a"
+        },
+        {
+          "source": "LICENSE.md",
+          "destination": "addons/zylann.voxel/LICENSE.md",
+          "bytes": 1075,
+          "sha256": "3a1f742145830b5702fe9e7aa2566c5896012a88fb3f70a00d6fd64e9cc203ee"
+        },
+        {
+          "source": "bin/libvoxel.windows.editor.x86_64.dll",
+          "destination": "addons/zylann.voxel/bin/libvoxel.windows.editor.x86_64.dll",
+          "bytes": 11337216,
+          "sha256": "e7191869989607805660de8f54c3aa2ab2e3ab08902bdd6976ac8aa6b3fe07ad"
+        },
+        {
+          "source": "bin/libvoxel.windows.template_release.x86_64.dll",
+          "destination": "addons/zylann.voxel/bin/libvoxel.windows.template_release.x86_64.dll",
+          "bytes": 10173952,
+          "sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0"
+        }
+      ]
+    }
+  }
+}

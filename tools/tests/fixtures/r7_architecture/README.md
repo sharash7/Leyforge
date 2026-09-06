@@ -1,0 +1,1 @@
+These fixtures exercise every `R7-W0-ARCH-*` rule. The known-good fixture must produce zero findings. The seeded bad fixture deliberately includes provider, runtime-ID, archived-path, and test/compat leakage and must trigger every rule.

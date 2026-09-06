@@ -1,0 +1,36 @@
+{
+  "schema_version": "leyforge-r7-w0-architecture-rules-v1",
+  "scan_root": "proofs/r7/w0/runtime/src",
+  "rules": [
+    {
+      "rule_id": "R7-W0-ARCH-001",
+      "scope": "domain/*.gd",
+      "forbidden_regex": "(?i)(VoxelBuffer|zylann\\.voxel|addons/)",
+      "reason": "Canonical domain code cannot depend on provider internals."
+    },
+    {
+      "rule_id": "R7-W0-ARCH-002",
+      "scope": "domain/*.gd",
+      "forbidden_regex": "(?i)(runtime[_ -]?id|provider[_ -]?local[_ -]?id)",
+      "reason": "Canonical domain state cannot use runtime/provider-local identity."
+    },
+    {
+      "rule_id": "R7-W0-ARCH-003",
+      "scope": "**/*.gd",
+      "forbidden_regex": "(?i)(res://\\.summer|/Game/Voxel|legacy[-_/ ]poc)",
+      "reason": "The proof runtime cannot depend on historical or archived implementation paths."
+    },
+    {
+      "rule_id": "R7-W0-ARCH-004",
+      "scope": "**/*.gd",
+      "forbidden_regex": "(?i)(leyforge_test|leyforge_compat)",
+      "reason": "Test and compatibility namespaces cannot leak into the proof runtime authority surface."
+    },
+    {
+      "rule_id": "R7-W0-ARCH-005",
+      "scope": "**/*.gd",
+      "forbidden_regex": "(?i)preload\\(\"res://addons/zylann\\.voxel",
+      "reason": "Provider package internals must be reached dynamically inside the single adapter boundary."
+    }
+  ]
+}

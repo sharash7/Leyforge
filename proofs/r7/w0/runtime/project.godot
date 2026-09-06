@@ -1,0 +1,15 @@
+[application]
+config/name="Leyforge R7 W0 Proof Runtime"
+config/description="Development-only governed PRD-07 W0 proof runtime"
+run/main_scene="res://main.tscn"
+
+[display]
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=320
+window/size/window_height_override=180
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.02, 0.025, 0.035, 1)
