@@ -1,0 +1,7 @@
+{
+  "schema_version": "prd07-architecture-rules-v1",
+  "scan_roots": ["good"],
+  "rules": [
+    {"rule_id": "TEST-ARCH-001", "source_prefix": "good.domain", "forbidden_prefix": "provider.internal", "reason": "Domain cannot reach provider internals."}
+  ]
+}

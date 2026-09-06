@@ -11,6 +11,11 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PROOF_HARNESS_PYTHON = sorted(
+    str(path.relative_to(ROOT))
+    for base in (ROOT / "tools" / "proof_harness", ROOT / "tools" / "tests")
+    for path in base.rglob("*.py")
+)
 
 
 def run(command: list[str]) -> dict[str, object]:
@@ -37,7 +42,7 @@ def commands_for(tier: str) -> list[list[str]]:
         "brain/92_SCRIPTS/tests/test_r6_pilot.py",
         "tools/verify.py",
         "tools/verify_rebuild_boundary.py",
-    ]
+    ] + PROOF_HARNESS_PYTHON
     if tier == "build":
         return [compile_command]
     if tier == "focused":
@@ -45,11 +50,15 @@ def commands_for(tier: str) -> list[list[str]]:
             compile_command,
             [python, "brain/92_SCRIPTS/tests/test_governance.py", "-v"],
             [python, "brain/92_SCRIPTS/tests/test_r6_pilot.py", "-v"],
+            [python, "-m", "unittest", "discover", "tools/tests", "-v"],
+            [python, "-m", "tools.proof_harness", "self-check", "--format", "json"],
             [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "full", "--format", "json"],
         ]
     return [
         compile_command,
         [python, "-m", "unittest", "discover", "brain/92_SCRIPTS/tests", "-v"],
+        [python, "-m", "unittest", "discover", "tools/tests", "-v"],
+        [python, "-m", "tools.proof_harness", "self-check", "--format", "json"],
         [python, "brain/92_SCRIPTS/brain.py", "ingest", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "index", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "links", "--format", "json"],

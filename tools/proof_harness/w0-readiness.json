@@ -1,0 +1,120 @@
+{
+  "schema_version": "prd07-w0-readiness-v1",
+  "package": "R7-W0-HARNESS",
+  "package_state": "BOOTSTRAP-COMPLETE",
+  "authority": "PRD-07 sections 35, 121-124, 164-165",
+  "readiness_meaning": "READY permits later actual run allocation; bootstrap tests are not proof execution.",
+  "allocated_run_ids": [],
+  "allocated_evidence_ids": [],
+  "proofs": [
+    {
+      "proof_id": "PRD04-PROOF-01",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No selected V1 runtime fixture exposes representative block, entity, item, machine and actor projections."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-02",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No runtime registry adapter or version-aware FCC-13E migration fixture exists in the clean rebuild."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-03",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No provider facade, pair of provider implementations or exact installed provider identities exists."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-05",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No runtime active-frame conversion implementation or exact precision build lane exists."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-06",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "PROOF-05 candidate lane and delayed worker/provider fixture are absent."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-10",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No authoritative listen server, second client or player/character runtime adapter exists."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-11",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No real dedicated/headless Leyforge export or runtime WorldSession adapter exists."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-12",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "The actual PROOF-01 projection path and distant domain-state implementation are absent."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-22",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No representative runtime read model and authoritative source query exist."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-67",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "Provider contracts, exact builds and provider readiness/failure injection are absent."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-70",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "Godot and Voxel Tools remain unresolved/uninstalled; no real client or dedicated/headless export target exists."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-73",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No governed installed provider, applicable local-patch inventory or clean upstream provider build exists."
+      ]
+    },
+    {
+      "proof_id": "PRD04-PROOF-74",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "Harness lint is bootstrapped, but the V1 runtime layout and final forbidden dependency examples are not concrete."
+      ]
+    }
+  ],
+  "smoke_lanes": [
+    {
+      "lane_id": "W0-CLIENT-EXPORT-SMOKE",
+      "role": "client",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No real exported Leyforge client artifact, exact installed dependency manifest or READY proof execution context exists."
+      ]
+    },
+    {
+      "lane_id": "W0-HEADLESS-EXPORT-SMOKE",
+      "role": "headless",
+      "state": "HARNESS-BLOCKED",
+      "blockers": [
+        "No real exported Leyforge dedicated/headless artifact, exact installed dependency manifest or READY proof execution context exists."
+      ]
+    }
+  ]
+}

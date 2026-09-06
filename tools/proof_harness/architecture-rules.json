@@ -1,0 +1,14 @@
+{
+  "schema_version": "prd07-architecture-rules-v1",
+  "description": "Development-only W0 harness boundaries; not the future V1 runtime layout.",
+  "scan_roots": ["proof_harness"],
+  "exclude": ["**/__pycache__/**"],
+  "rules": [
+    {"rule_id": "W0-ARCH-001", "source_prefix": "proof_harness.identity", "forbidden_prefix": "proof_harness.process", "reason": "Canonical identity cannot depend on process orchestration."},
+    {"rule_id": "W0-ARCH-002", "source_prefix": "proof_harness.identity", "forbidden_prefix": "proof_harness.evidence", "reason": "Canonical identity cannot depend on evidence packaging."},
+    {"rule_id": "W0-ARCH-003", "source_prefix": "proof_harness.manifests", "forbidden_prefix": "proof_harness.process", "reason": "Manifest identity must remain independent of process control."},
+    {"rule_id": "W0-ARCH-004", "source_prefix": "proof_harness.state", "forbidden_prefix": "proof_harness.evidence", "reason": "State guards evidence handoff without depending on packaging."},
+    {"rule_id": "W0-ARCH-005", "source_prefix": "proof_harness.scenario", "forbidden_prefix": "proof_harness.process", "reason": "Semantic scenarios must not own process execution."},
+    {"rule_id": "W0-ARCH-006", "source_prefix": "proof_harness.diagnostics", "forbidden_prefix": "proof_harness.identity", "reason": "Diagnostics cannot become semantic state authority."}
+  ]
+}

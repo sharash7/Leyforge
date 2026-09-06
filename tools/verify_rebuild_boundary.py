@@ -16,6 +16,33 @@ def check(condition, message):
     if not condition:
         failures.append(message)
 
+w0_manifest_path = root / 'docs/rebuild/r7/w0-harness-boundary.json'
+w0_manifest = json.loads(w0_manifest_path.read_text(encoding='utf-8')) if w0_manifest_path.is_file() else {}
+check(w0_manifest.get('manifest_version') == 1, 'W0 harness boundary manifest is missing or unsupported')
+check(w0_manifest.get('package') == 'R7-W0-HARNESS', 'W0 harness package identity changed')
+check(w0_manifest.get('scope') == 'development-only', 'W0 harness scope must remain development-only')
+check(w0_manifest.get('gameplay_permission') == 'CLOSED', 'W0 harness cannot open gameplay permission')
+check(w0_manifest.get('proof_execution') == 'NOT-STARTED', 'W0 bootstrap cannot claim proof execution')
+check(w0_manifest.get('allocated_run_ids') == [], 'W0 bootstrap allocated PRD07-RUN identities')
+check(w0_manifest.get('allocated_evidence_ids') == [], 'W0 bootstrap allocated PRD07-EVID identities')
+w0_admitted_paths = set()
+for artifact in w0_manifest.get('artifacts', []):
+    rel = artifact.get('path')
+    valid_path = isinstance(rel, str) and rel.startswith(('tools/proof_harness/', 'tools/tests/'))
+    check(valid_path, 'Invalid W0 harness admission path: ' + str(rel))
+    if not valid_path:
+        continue
+    check(rel not in w0_admitted_paths, 'Duplicate W0 harness admission path: ' + rel)
+    w0_admitted_paths.add(rel)
+    candidate = root / rel
+    check(candidate.is_file(), 'Admitted W0 harness path is missing: ' + rel)
+    check(candidate.suffix.lower() in {'.py', '.json', '.md'}, 'Unsupported W0 harness file type: ' + rel)
+    check(candidate.suffix.lower() not in {'.gd', '.gdshader', '.tscn', '.tres', '.res', '.exe', '.dll', '.pck'}, 'Runtime artifact admitted through W0 harness: ' + rel)
+    if candidate.is_file():
+        data = candidate.read_bytes()
+        check(len(data) == artifact.get('bytes'), 'Admitted W0 harness size changed: ' + rel)
+        check(hashlib.sha256(data).hexdigest() == artifact.get('sha256'), 'Admitted W0 harness hash changed: ' + rel)
+
 baseline_docs = manifest['source_document_blobs']
 intake_docs = {}
 intake_manifests = []
@@ -73,11 +100,11 @@ for path in sorted(root.rglob('*')):
     if path.is_dir():
         continue
     check(not path.is_symlink(), 'Unexpected filesystem link: '+rel)
-    allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'}
+    allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in w0_admitted_paths or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'}
     check(allowed, 'Unadmitted active path: '+rel)
     executable = path.suffix.lower() in {'.gd','.gdshader','.tscn','.tres','.res','.exe','.dll','.pck','.ps1','.bat','.cmd','.py'}
     brain_tool = rel.startswith('brain/92_SCRIPTS/') and path.suffix.lower() == '.py'
-    check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool, 'Legacy executable/resource admitted: '+rel)
+    check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool or rel in w0_admitted_paths, 'Legacy executable/resource admitted: '+rel)
     if path.suffix.lower() not in {'.md','.json','.txt','.csv','.py'} or rel.endswith('leakage-result.json'):
         continue
     content = path.read_text(encoding='utf-8-sig',errors='replace')
@@ -90,5 +117,5 @@ check(not (root/'project.godot').exists(), 'Unexpected Godot runtime entry point
 for name in ['addons','assets','content','data','generated','scripts','development','.profiles','.tmp']:
     check(not (root/name).exists(), 'Retired root remains: '+name)
 check((root/'tools/verify_rebuild_boundary.py').is_file(), 'Controlled validator missing')
-print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
+print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
 sys.exit(1 if failures else 0)

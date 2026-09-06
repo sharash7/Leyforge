@@ -27,6 +27,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[DASH-PROJECT-STATE|DASH-PROJECT-STATE]] | dashboard | active | Project State |
 | [[HANDOFF-20260906-003|HANDOFF-20260906-003]] | handoff | active | R7 PRD-07 Intake to W0 Harness Bootstrap Handoff |
 | [[HOME|HOME]] | home | active | Leyforge Project Brain |
+| [[WORK-20260906-004|WORK-20260906-004]] | work | active | Bootstrap the reusable R7 W0 proof harness |
+| [[TASK-20260906-004|TASK-20260906-004]] | work_item | active | R7 W0 reusable proof-harness bootstrap task contract |
 | [[WORK-20260906-003|WORK-20260906-003]] | work | complete | Admit PRD-07 and establish the R7 execution boundary |
 | [[WORK-20260905-004|WORK-20260905-004]] | work | complete | Bootstrap and certify Leyforge Project Brain v0.1 |
 | [[WORK-20260906-001|WORK-20260906-001]] | work | complete | Install and validate the R5 engineering governance bootstrap |

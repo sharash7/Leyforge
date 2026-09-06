@@ -1,58 +1,70 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Work:** `WORK-20260906-003`
+**Active work:** `WORK-20260906-004`
 
-**State:** ACTIVE — PRD-07 controlled intake COMPLETE AND CERTIFIED; W0 harness bootstrap NOT STARTED.
+**State:** ACTIVE — PRD-07 intake is certified; the reusable W0 harness bootstrap is implemented and awaiting exact-commit certification.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
-**Certified implementation commit:** `e1ab8d28984ac022f49133d21059ed1502c8b081`.
+**Package starting commit:** `263e3f1810c08c1cd0197cc140fed5d6f45fbb16`.
 
 **Gameplay permission:** CLOSED.
 
-## Supplied Intake
+## PRD-07 Authority
 
-The project owner supplied two artifacts for the first R7 package:
+PRD-07 is complete as a theoretical/executable programme and its controlled intake is certified. Proof execution remains not started. Its 28/28 closure checks, 76 specified proofs and supporting risk/fixture edges do not constitute run evidence or PRD-08 evaluation.
 
-- `PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md`
-- `PRD-07_to_PRD-08_Executable_Handoff_Manifest_v1_0.txt`
+The governing sources are:
 
-The actual PRD-07 SHA-256 is `c36296278d0c9f09c78931c0bfeaa7a2b2a5aa4b71c741c17fcd7b473259b88e`, exactly matching the supplied handoff. Both artifacts are retained byte-for-byte and admitted through `docs/rebuild/source-intake/r7-prd-07.json`.
+- `.summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md`;
+- `.summer/00_Docs/PRD/PRD-07_to_PRD-08_Executable_Handoff_Manifest_v1_0.txt`;
+- `docs/rebuild/source-intake/r7-prd-07.json`; and
+- `docs/rebuild/r7/intake-completion-receipt.json`.
 
-## Governing State
+## CI Drift Repair
 
-PRD-07 declares a 28/28 closure-candidate planning result while separately declaring `SPECIFICATION STATE: CLOSED FOR BROAD DESIGN DISCOVERY` and `EXECUTION STATE: NOT STARTED`.
+Commit `263e3f1810c08c1cd0197cc140fed5d6f45fbb16` fixed the generated-proxy hash drift. The Brain had hashed raw Windows CRLF working-tree bytes while Git committed LF-cleaned source bytes. `brain.py` now derives working-tree blob identities through `git hash-object --stdin-paths`, respecting Git clean filters. The D-ROAD-02 proxy and document registry were regenerated through approved tooling. Both GitHub Actions workflows pass at that commit.
 
-The controlled intake preserves both statements. It does not promote PRD-07, execute proofs, create PRD-08 results, accept ADRs, reopen architecture, activate dependencies or authorize gameplay.
+## W0 Harness Bootstrap
 
-## Intake Certification
+[[TASK-20260906-004]] and [[WORK-20260906-004]] govern a Class C, development-only package. The ADR trigger required architecture coverage, so [[ADR-0008]] records the external standard-library harness boundary as **PROPOSED**. It is not accepted production architecture.
 
-[[EVID-0004]] and [[AUDIT-0004]] certify the bounded intake at exact implementation commit `e1ab8d28984ac022f49133d21059ed1502c8b081`. The machine-readable receipt is `docs/rebuild/r7/intake-completion-receipt.json`.
+The package implements:
 
-The full certification passed:
+- FIXTURE-01 semantic, world, session, canonical-coordinate and frame-epoch identity;
+- deterministic runtime-ID randomisation and reversible semantic projection;
+- projection destruction/eviction and read-model rebuild controls;
+- canonical snapshots/hashes plus isolated fixture save/reload;
+- FIXTURE-09 source, dependency, role, profile, precision, content/schema and clean-export manifests;
+- artifact and optional symbol hashing, runtime self-report matching and tamper detection;
+- non-destructive clean-export orchestration and shell-free external process terminate/restart/timeout capture;
+- guarded client and dedicated/headless smoke-lane contracts;
+- deterministic scenario/fault plans, structured diagnostics, metrics and canonical oracles;
+- append-only evidence-pack validation that retains PASS, FAIL, INCONCLUSIVE and INVALIDATED outcomes while preventing invalidated/synthetic results from entering PRD-08;
+- the PRD-07 state machine with guarded run/evidence identity transitions; and
+- read-only architecture dependency lint with known-good and seeded-violation fixtures.
 
-- 45/45 acceptance tests;
-- Brain Doctor over 130 implementation records;
-- Governance Doctor over 27 implementation records, 23 authority sources and 12 templates;
-- ingestion, generated-index and relationship-link checks;
-- 2,663 clean-rebuild boundary checks;
-- 446 controlled sources, five post-R3 intake artifacts and zero active POC dependencies; and
-- the PRD-07 proxy-collision regression assertion.
+The exact admitted tool/test set is SHA-256 pinned by `docs/rebuild/r7/w0-harness-boundary.json`. `tools/verify_rebuild_boundary.py` admits only those listed development-tool paths and continues to reject unlisted executable/runtime content.
 
-## Next Executable Package
+## Readiness Result
 
-The next eligible R7 package is `R7-W0-HARNESS`, the reusable W0 harness bootstrap from PRD-07 sections 121 through 124, 164 and 165:
+`tools/proof_harness/w0-readiness.json` records the direct entry-prerequisite review:
 
-- FIXTURE-09 build/artifact manifest and clean-export control;
-- FIXTURE-01 semantic/world/session/frame identity core;
-- architecture-lint bootstrap;
-- runtime-ID randomization and projection controls; and
-- real exported headless/client smoke lanes.
+- 13 W0 proofs: `HARNESS-BLOCKED`;
+- 0 W0 proofs: `READY`;
+- client export smoke lane: `HARNESS-BLOCKED`;
+- dedicated/headless export smoke lane: `HARNESS-BLOCKED`;
+- allocated `PRD07-RUN-*` IDs: 0; and
+- allocated `PRD07-EVID-*` IDs: 0.
 
-That package requires `TASK-20260906-004`, `WORK-20260906-004` and an entry-prerequisite review before implementation. No `PRD07-RUN-*` or `PRD07-EVID-*` identifier has been allocated.
+The reusable contracts are implemented. Real proof execution remains blocked because the clean rebuild has no V1 runtime adapters, exact installed Godot/Zylann identities, provider candidates, client export or dedicated/headless export. Synthetic controller tests remain explicitly ineligible for PRD-07 evidence.
 
-## Boundary
+## Current Verification
 
-R7 remains active. All 13 W0 proofs and PRD-08 evaluation remain not started. ADR-0001 through ADR-0007 remain proposed, DEP-GODOT and DEP-ZYLANN remain planned and uninstalled, and [[CONFLICT-0002]] remains open. R8 gameplay permission remains closed.
+Focused implementation verification passes 28 harness contract/integration tests. Architecture lint passes over the package, and the seeded prohibited dependency is detected with file, line and rule context. Build, focused and full worktree verification pass with the refreshed hash-pinned W0 admission manifest. Exact-commit certification remains to be recorded.
 
-Git publication remains pending exact authorization. The two owner-controlled Obsidian edits remain outside this package.
+## Boundary and Next Dependency
+
+R7 remains active. PRD-08 has no result. ADR-0001 through ADR-0008 remain proposed. DEP-GODOT and DEP-ZYLANN remain planned/uninstalled with unresolved provenance/licence state. [[CONFLICT-0002]] remains open. Branch D G5, later R7 waves and Branch C certification remain downstream.
+
+After W0 bootstrap certification, the next bounded action is dependency/export readiness for W0 Group A: govern exact Godot and Voxel Tools identities and establish real R7 proof-only client/headless export targets before any PROOF-70, PROOF-73 or PROOF-74 row can become READY. That action requires its own Task Contract and must not open R8 gameplay.
