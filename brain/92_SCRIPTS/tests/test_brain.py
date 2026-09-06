@@ -170,9 +170,13 @@ class BrainAcceptanceTests(unittest.TestCase):
         registry, proxies = brain.build_source_inventory()
         expected, admissions = brain.controlled_source_expectations()
         self.assertEqual(registry["artifact_count"], len(expected))
-        self.assertEqual(registry["markdown_count"], 404)
-        self.assertEqual(len(admissions), 3)
-        self.assertEqual({"DOC-PRD-05", "DOC-PRD-06"}, {item["proxy_id"] for item in registry["artifacts"] if item["path"] in admissions and item["proxy_id"]})
+        self.assertEqual(registry["markdown_count"], 405)
+        self.assertEqual(len(admissions), 5)
+        prd07_path = ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md"
+        handoff_path = ".summer/00_Docs/PRD/PRD-07_to_PRD-08_Executable_Handoff_Manifest_v1_0.txt"
+        self.assertEqual("DOC-PRD-07", proxies[prd07_path])
+        self.assertNotIn(handoff_path, proxies)
+        self.assertEqual({"DOC-PRD-05", "DOC-PRD-06", "DOC-PRD-07"}, {item["proxy_id"] for item in registry["artifacts"] if item["path"] in admissions and item["proxy_id"]})
         historical = [item for item in registry["artifacts"] if item["declared_status"] == "historical"]
         self.assertTrue(historical)
         self.assertTrue(any("/OLD/" in item["path"] or "/ARCHIVED/" in item["path"] for item in historical))

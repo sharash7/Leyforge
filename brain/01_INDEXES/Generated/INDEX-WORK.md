@@ -23,6 +23,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[HANDOFF-20260906-002|HANDOFF-20260906-002]] | handoff | active | R6 Operating Pilot to R7 Pre-Rebuild Technical Programme Handoff |
+| [[WORK-20260906-003|WORK-20260906-003]] | work | active | Admit PRD-07 and establish the R7 execution boundary |
+| [[TASK-20260906-003|TASK-20260906-003]] | work_item | active | R7 PRD-07 controlled intake and execution-readiness task contract |
 | [[WORK-20260905-004|WORK-20260905-004]] | work | complete | Bootstrap and certify Leyforge Project Brain v0.1 |
 | [[WORK-20260906-001|WORK-20260906-001]] | work | complete | Install and validate the R5 engineering governance bootstrap |
 | [[WORK-20260906-002|WORK-20260906-002]] | work | complete | Run the R6 Brain-to-governance operating pilot |

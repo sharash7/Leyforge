@@ -7,9 +7,9 @@
   "edit_policy": "do_not_edit",
   "source_archive_commit": "799305859bb0ba4230ef87d934e961cc21220afa",
   "source_snapshot_commit": "9b3254e23f89056ae37e84f09bdcf4ea13df5128",
-  "artifact_count": 444,
-  "markdown_count": 404,
-  "priority_proxy_count": 51,
+  "artifact_count": 446,
+  "markdown_count": 405,
+  "priority_proxy_count": 52,
   "artifacts": [
     {
       "path": ".summer/00_Docs/00-20/00_Fantasy_Voxel_Civilisation_Sandbox_Master_Game_Design_Bible_v1_0.md",
@@ -6610,6 +6610,36 @@
       "status_basis": "filename status marker",
       "ingestion": "priority_proxy",
       "proxy_id": "DOC-PRD-06"
+    },
+    {
+      "path": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+      "family": "PRD",
+      "extension": ".md",
+      "current_blob_hash": "7d4ab352ac9f27cfae6b6472b2cb2491d88aa73d",
+      "archive_blob_hash": null,
+      "controlled_blob_hash": "7d4ab352ac9f27cfae6b6472b2cb2491d88aa73d",
+      "changed_from_archive": null,
+      "changed_from_controlled": false,
+      "source_intake_manifest": "docs/rebuild/source-intake/r7-prd-07.json",
+      "declared_status": "proposed",
+      "status_basis": "filename status marker",
+      "ingestion": "priority_proxy",
+      "proxy_id": "DOC-PRD-07"
+    },
+    {
+      "path": ".summer/00_Docs/PRD/PRD-07_to_PRD-08_Executable_Handoff_Manifest_v1_0.txt",
+      "family": "PRD",
+      "extension": ".txt",
+      "current_blob_hash": "d6441d407a60baabdfd19fc18792935d25026745",
+      "archive_blob_hash": null,
+      "controlled_blob_hash": "d6441d407a60baabdfd19fc18792935d25026745",
+      "changed_from_archive": null,
+      "changed_from_controlled": false,
+      "source_intake_manifest": "docs/rebuild/source-intake/r7-prd-07.json",
+      "declared_status": "unresolved",
+      "status_basis": "no deterministic status marker",
+      "ingestion": "registered_only",
+      "proxy_id": null
     },
     {
       "path": ".summer/00_Docs/PRD/README.md",

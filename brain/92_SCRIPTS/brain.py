@@ -51,7 +51,7 @@ SELECTED_SOURCE_PATTERNS = (
     re.compile(r"^B-OPS-0[0-6]_"),
     re.compile(r"^C-AUD-0[0-2]_"),
     re.compile(r"^D-ROAD-0[0-2]_"),
-    re.compile(r"^PRD-0[0-6]_"),
+    re.compile(r"^PRD-0[0-7]_.*\.md$"),
     re.compile(r"^REBUILD-00_"),
 )
 
@@ -213,7 +213,7 @@ def diag(severity: str, code: str, path: str, message: str) -> dict[str, str]:
 def source_code(filename: str) -> str | None:
     match = re.match(
         r"(LF-BRAIN-SET-A|LF-BRAIN-(?:0[1-9]|1[0-3])|ENG-GOV-(?:0[0-9]|1[0-5])|"
-        r"B-OPS-0[0-6]|C-AUD-0[0-2]|D-ROAD-0[0-2]|PRD-0[0-6]|REBUILD-00)(?:_|\.)",
+        r"B-OPS-0[0-6]|C-AUD-0[0-2]|D-ROAD-0[0-2]|PRD-0[0-7]|REBUILD-00)(?:_|\.)",
         filename,
     )
     return match.group(1) if match else None

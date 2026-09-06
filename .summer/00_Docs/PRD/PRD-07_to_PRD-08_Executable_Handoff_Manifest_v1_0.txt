@@ -1,0 +1,39 @@
+Leyforge PRD-07 -> PRD-08 Executable Handoff Manifest
+Status: PRD-07 v1.0 CLOSURE CANDIDATE
+Closure: 28/28 PASS
+
+PRD-07:
+  file: PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md
+  sha256: c36296278d0c9f09c78931c0bfeaa7a2b2a5aa4b71c741c17fcd7b473259b88e
+
+Controlled upstream:
+  PRD-05 sha256: 30af0861a801158459820d1756fb49cdf223015b682de8df5f7acbb89add766e
+  PRD-06 sha256: 001f748875e63760d22fda5e4fa8fb71f9a7f9cf465f285f019a3ba5a8ba3fba
+  PRD-07 Round-9 source sha256: fe281003a2e7aaf1e5b8a5c85e3c2a25a218c23f261a5573def426bdab86aaf8
+
+Final programme:
+  risk families: 18
+  child risks: 263
+  stable proofs: 76
+  detailed proof specifications: 76
+  shared fixtures: 10
+  execution waves: 6
+  final common-cause proof: PRD04-PROOF-76
+  risk->proof edges: 724
+  risk->fixture edges: 485
+  single-proof-route risks audited: 22
+
+Execution state at closure:
+  PRD07-RUN IDs: 0
+  PRD07-EVID IDs: 0
+  PRD-08 evaluated results: 0
+  implementation ADRs accepted: 0
+  architecture reopen candidates: 0
+
+Operational next steps:
+  1. Implement reusable W0 harness services.
+  2. Mark individual proof specs READY only when prerequisites exist.
+  3. Allocate PRD07-RUN IDs only at actual execution.
+  4. Retain complete evidence packs including failures/inconclusive runs.
+  5. Send real run evidence to PRD-08 for evaluation.
+  6. Do not grant rebuild authority from PRD-07 closure alone.

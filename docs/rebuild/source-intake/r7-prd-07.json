@@ -1,0 +1,21 @@
+{
+  "manifest_version": 1,
+  "intake_id": "R7-PRD-07",
+  "received_on": "2026-09-06",
+  "provenance": "Provided directly by the Leyforge project owner in the PRD source path for R7 intake.",
+  "disposition": "Retained as supplied. Source-declared closure-candidate status is preserved pending its owning promotion workflow. The handoff manifest does not imply proof execution, PRD-08 evaluation, ADR acceptance, architecture reopening, dependency activation, or gameplay authorization.",
+  "artifacts": [
+    {
+      "path": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+      "bytes": 393546,
+      "sha256": "c36296278d0c9f09c78931c0bfeaa7a2b2a5aa4b71c741c17fcd7b473259b88e",
+      "git_blob_hash": "7d4ab352ac9f27cfae6b6472b2cb2491d88aa73d"
+    },
+    {
+      "path": ".summer/00_Docs/PRD/PRD-07_to_PRD-08_Executable_Handoff_Manifest_v1_0.txt",
+      "bytes": 1430,
+      "sha256": "42fe961996f1e919cc121c5f81330e92c597f278b857bcf2b657cc6532df3d30",
+      "git_blob_hash": "d6441d407a60baabdfd19fc18792935d25026745"
+    }
+  ]
+}
