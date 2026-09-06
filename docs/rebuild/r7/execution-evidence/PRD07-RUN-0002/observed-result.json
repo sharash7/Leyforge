@@ -1,0 +1,16 @@
+{
+  "metrics": {
+    "baseline": "NO-LOCAL-PATCH",
+    "dependency_count": 3,
+    "future_patch_reproducibility_proven": false,
+    "no_local_patch_components": 3
+  },
+  "observations": [
+    "PRD-07 defines no current patch as a valid NO-LOCAL-PATCH baseline and an inconclusive future-patch result.",
+    "No patch or fork authority was inferred for Godot or Voxel Tools."
+  ],
+  "outcome": "INCONCLUSIVE",
+  "proof_id": "PRD04-PROOF-73",
+  "run_id": "PRD07-RUN-0002",
+  "schema_version": "prd07-w0-no-local-patch-result-v1"
+}

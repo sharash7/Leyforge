@@ -1,0 +1,162 @@
+{
+  "architecture_decision": {
+    "accepted": "2026-09-06",
+    "accepted_by": "Ash, project owner",
+    "id": "ADR-0008",
+    "status": "ACCEPTED"
+  },
+  "audit": "AUDIT-0006",
+  "branch": "codex/chore/brain-governance-pilot",
+  "certification": "LOCAL_PASS_CI_PENDING",
+  "change": "CHANGE-20260906-005",
+  "dependencies": {
+    "godot_build_driver": {
+      "commit": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "patch_state": "NO-LOCAL-PATCH",
+      "sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "version": "4.8.dev.custom_build.a9c94cd21"
+    },
+    "godot_export_runtime": {
+      "package_sha256": "cebaad066428083f111515c74fba35e3ca64942eadf2323f1c7241d23abb73ea",
+      "patch_state": "NO-LOCAL-PATCH",
+      "template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "version": "4.8.dev4.official.b56a91878"
+    },
+    "voxel_tools": {
+      "commit": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+      "package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+      "patch_state": "NO-LOCAL-PATCH",
+      "runtime_sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0",
+      "tag": "v1.7x",
+      "version": "1.7"
+    }
+  },
+  "evidence": "EVID-0006",
+  "exports": {
+    "clean_builds_per_lane": 3,
+    "provider_runtime_included": true,
+    "real_artifacts": [
+      {
+        "artifact_sha256": "7fd80ad8a2895f1d38582da99790cedbbdb5a74d81e83471e7ffe6ce0d101843",
+        "artifact_size_bytes": 110467032,
+        "build_identity": "51e080f577c74ac5f2de7de9ebc78140da0266ba592ec97671a43786765b15ff",
+        "evidence_eligible": true,
+        "repetition": 1,
+        "role": "client",
+        "smoke_exit_code": 0
+      },
+      {
+        "artifact_sha256": "653544d3e8d149931661937d9b32134496c89d8564b865b79497da6d7735af81",
+        "artifact_size_bytes": 110467032,
+        "build_identity": "94d6ea3e14b5d164d0a4134a8cb21233bae75ac24325b17bf848bcbd44d45484",
+        "evidence_eligible": true,
+        "repetition": 2,
+        "role": "client",
+        "smoke_exit_code": 0
+      },
+      {
+        "artifact_sha256": "b4198bad986793c90a4d52f0076bff48d5b8f9f97d786c975457c344529df43e",
+        "artifact_size_bytes": 110467032,
+        "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+        "evidence_eligible": true,
+        "repetition": 3,
+        "role": "client",
+        "smoke_exit_code": 0
+      },
+      {
+        "artifact_sha256": "464e5233db88c1fe801da50e653a7e479b045ee7ecbee010352a2be31bbdae37",
+        "artifact_size_bytes": 110467064,
+        "build_identity": "2a56a3d82caeb741f61a4ae9aa8b321668bbee9dc13a1bfdc04a233635e01e71",
+        "evidence_eligible": true,
+        "repetition": 1,
+        "role": "headless",
+        "smoke_exit_code": 0
+      },
+      {
+        "artifact_sha256": "5187da611e8f509e5f2a9d137ca6e949ffc7cccdbd34bdc69101c98abe487a23",
+        "artifact_size_bytes": 110467064,
+        "build_identity": "1a83710aba3bc93d463879979370fffc4ca896416b06cbccd0c8a9080c8a7e45",
+        "evidence_eligible": true,
+        "repetition": 2,
+        "role": "headless",
+        "smoke_exit_code": 0
+      },
+      {
+        "artifact_sha256": "b753acc979fe25f67b555fe1ef1c81e3ba1562130d8da9de6ae1f0be6f80fc1c",
+        "artifact_size_bytes": 110467064,
+        "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+        "evidence_eligible": true,
+        "repetition": 3,
+        "role": "headless",
+        "smoke_exit_code": 0
+      }
+    ],
+    "status": "PASS",
+    "synthetic_artifacts_used_as_evidence": false
+  },
+  "gameplay_permission": "CLOSED",
+  "gate": "R7",
+  "implementation_commit": "7e28c92e2c656b1afcbf96c75c3b969edf74494e",
+  "known_limitations": [
+    "PRD04-PROOF-73 is INCONCLUSIVE because a clean NO-LOCAL-PATCH baseline cannot prove future local-patch reproduction.",
+    "Full editor-mode Voxel Tools load exits 0xC0000005 during editor shutdown; command-line export and exported runtime lanes exit zero and are the only claimed surfaces."
+  ],
+  "next_handoff": "HANDOFF-20260906-005",
+  "next_package": "R7-W1-OWNERSHIP-WORLDGEN-DERIVED-SPATIAL-TRANSACTIONS-READINESS",
+  "owner_decision_commit": "93d775f3f2ac1c062a8ef5c912c0aa22702e9ced",
+  "package": "R7-W0-DEPENDENCY-EXPORT-READINESS",
+  "prd08_evaluation": "CLOSED",
+  "proof_execution": {
+    "evidence_ids": [
+      "PRD07-EVID-0001",
+      "PRD07-EVID-0002",
+      "PRD07-EVID-0003",
+      "PRD07-EVID-0004",
+      "PRD07-EVID-0005",
+      "PRD07-EVID-0006",
+      "PRD07-EVID-0007",
+      "PRD07-EVID-0008",
+      "PRD07-EVID-0009",
+      "PRD07-EVID-0010",
+      "PRD07-EVID-0011",
+      "PRD07-EVID-0012",
+      "PRD07-EVID-0013"
+    ],
+    "fail_observed": 0,
+    "inconclusive": 1,
+    "invalidated": 0,
+    "pass_observed": 12,
+    "prd08_submission": "NOT-SUBMITTED",
+    "proofs": 13,
+    "retained_evidence_root": "docs/rebuild/r7/execution-evidence",
+    "run_ids": [
+      "PRD07-RUN-0001",
+      "PRD07-RUN-0002",
+      "PRD07-RUN-0003",
+      "PRD07-RUN-0004",
+      "PRD07-RUN-0005",
+      "PRD07-RUN-0006",
+      "PRD07-RUN-0007",
+      "PRD07-RUN-0008",
+      "PRD07-RUN-0009",
+      "PRD07-RUN-0010",
+      "PRD07-RUN-0011",
+      "PRD07-RUN-0012",
+      "PRD07-RUN-0013"
+    ],
+    "state_path": "docs/rebuild/r7/w0-execution-state.json"
+  },
+  "r7_status": "ACTIVE",
+  "receipt_version": 1,
+  "runtime": {
+    "gameplay_permission": "CLOSED",
+    "nested_project": "proofs/r7/w0/runtime/project.godot",
+    "production_activation": false,
+    "root_project_godot_present": false,
+    "scope": "development-only-prd07-proof-runtime"
+  },
+  "starting_commit": "0c087f4ac692ce309c35fc65760be903cd3761b6",
+  "status": "W0_DEPENDENCY_EXPORT_AND_EXECUTION_COMPLETE",
+  "task_contract": "TASK-20260906-005",
+  "work_record": "WORK-20260906-005"
+}

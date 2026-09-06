@@ -1,0 +1,89 @@
+{
+  "governed_runtime_report": {
+    "duration_seconds": 0.004868000000001871,
+    "files_scanned": 9,
+    "findings": [],
+    "issues": [],
+    "rules_executed": 5,
+    "scan_root": "D:\\AI\\Projects\\leyforge-rebuild\\proofs\\r7\\w0\\runtime\\src",
+    "schema_version": "leyforge-r7-w0-architecture-lint-report-v1",
+    "status": "PASS"
+  },
+  "known_good_report": {
+    "duration_seconds": 0.001173399999998992,
+    "files_scanned": 1,
+    "findings": [],
+    "issues": [],
+    "rules_executed": 5,
+    "scan_root": "D:\\AI\\Projects\\leyforge-rebuild\\tools\\tests\\fixtures\\r7_architecture\\good",
+    "schema_version": "leyforge-r7-w0-architecture-lint-report-v1",
+    "status": "PASS"
+  },
+  "metrics": {
+    "false_negative_rules": 0,
+    "governed_runtime_findings": 0,
+    "known_good_false_positives": 0,
+    "rules": 5,
+    "true_positive_rules": 5
+  },
+  "observations": [
+    "Every rule ran against a known-good and an intentional violation fixture."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-74",
+  "run_id": "PRD07-RUN-0003",
+  "schema_version": "prd07-w0-architecture-proof-result-v1",
+  "seeded_violation_report": {
+    "duration_seconds": 0.001097100000009732,
+    "files_scanned": 1,
+    "findings": [
+      {
+        "line": 3,
+        "match": "addons/",
+        "path": "domain/forbidden_leaks.gd",
+        "reason": "Canonical domain code cannot depend on provider internals.",
+        "rule_id": "R7-W0-ARCH-001"
+      },
+      {
+        "line": 7,
+        "match": "VoxelBuffer",
+        "path": "domain/forbidden_leaks.gd",
+        "reason": "Canonical domain code cannot depend on provider internals.",
+        "rule_id": "R7-W0-ARCH-001"
+      },
+      {
+        "line": 4,
+        "match": "runtime_id",
+        "path": "domain/forbidden_leaks.gd",
+        "reason": "Canonical domain state cannot use runtime/provider-local identity.",
+        "rule_id": "R7-W0-ARCH-002"
+      },
+      {
+        "line": 5,
+        "match": "res://.summer",
+        "path": "domain/forbidden_leaks.gd",
+        "reason": "The proof runtime cannot depend on historical or archived implementation paths.",
+        "rule_id": "R7-W0-ARCH-003"
+      },
+      {
+        "line": 6,
+        "match": "leyforge_test",
+        "path": "domain/forbidden_leaks.gd",
+        "reason": "Test and compatibility namespaces cannot leak into the proof runtime authority surface.",
+        "rule_id": "R7-W0-ARCH-004"
+      },
+      {
+        "line": 3,
+        "match": "preload(\"res://addons/zylann.voxel",
+        "path": "domain/forbidden_leaks.gd",
+        "reason": "Provider package internals must be reached dynamically inside the single adapter boundary.",
+        "rule_id": "R7-W0-ARCH-005"
+      }
+    ],
+    "issues": [],
+    "rules_executed": 5,
+    "scan_root": "D:\\AI\\Projects\\leyforge-rebuild\\tools\\tests\\fixtures\\r7_architecture\\bad",
+    "schema_version": "leyforge-r7-w0-architecture-lint-report-v1",
+    "status": "FAIL"
+  }
+}

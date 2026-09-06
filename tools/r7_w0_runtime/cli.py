@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 from .architecture import lint
-from .admission import write_manifest
+from .admission import build_manifest, write_manifest
 from .execution import execute_w0, preflight_report
 
 
@@ -54,6 +54,13 @@ def main() -> int:
             result = preflight_report(check_local=not args.static_only)
         elif args.command == "architecture-lint":
             result = lint()
+        elif args.command == "admission":
+            result = (
+                write_manifest(args.implementation_commit)
+                if args.write
+                else build_manifest(args.implementation_commit)
+            )
+            result["status"] = "PASS"
         else:
             result = execute_w0(
                 source_revision=args.source_revision,

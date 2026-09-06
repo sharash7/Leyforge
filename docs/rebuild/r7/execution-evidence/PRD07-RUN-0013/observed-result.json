@@ -1,0 +1,449 @@
+{
+  "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+  "duration_ms": 506.21,
+  "metrics": {
+    "duplicate_authoritative_entity_count": 0,
+    "network_or_role_failures": 0,
+    "peer_identity_used_as_durable_identity": false,
+    "promote_join_leave_cycles": 50,
+    "successful_admissions": 50,
+    "successful_reconnects": 50,
+    "traces": [
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 0,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001000.promotion-00",
+        "world_id": "world.leyforge.w0.00001000"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 1,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001001.promotion-01",
+        "world_id": "world.leyforge.w0.00001001"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 2,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001002.promotion-02",
+        "world_id": "world.leyforge.w0.00001002"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 3,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001003.promotion-03",
+        "world_id": "world.leyforge.w0.00001003"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 4,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001004.promotion-04",
+        "world_id": "world.leyforge.w0.00001004"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 5,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001005.promotion-05",
+        "world_id": "world.leyforge.w0.00001005"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 6,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001006.promotion-06",
+        "world_id": "world.leyforge.w0.00001006"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 7,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001007.promotion-07",
+        "world_id": "world.leyforge.w0.00001007"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 8,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001008.promotion-08",
+        "world_id": "world.leyforge.w0.00001008"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 9,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001009.promotion-09",
+        "world_id": "world.leyforge.w0.00001009"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 10,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001010.promotion-10",
+        "world_id": "world.leyforge.w0.00001010"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 11,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001011.promotion-11",
+        "world_id": "world.leyforge.w0.00001011"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 12,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001012.promotion-12",
+        "world_id": "world.leyforge.w0.00001012"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 13,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001013.promotion-13",
+        "world_id": "world.leyforge.w0.00001013"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 14,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001014.promotion-14",
+        "world_id": "world.leyforge.w0.00001014"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 15,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001015.promotion-15",
+        "world_id": "world.leyforge.w0.00001015"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 16,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001016.promotion-16",
+        "world_id": "world.leyforge.w0.00001016"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 17,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001017.promotion-17",
+        "world_id": "world.leyforge.w0.00001017"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 18,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001018.promotion-18",
+        "world_id": "world.leyforge.w0.00001018"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 19,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001019.promotion-19",
+        "world_id": "world.leyforge.w0.00001019"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 20,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001020.promotion-20",
+        "world_id": "world.leyforge.w0.00001020"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 21,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001021.promotion-21",
+        "world_id": "world.leyforge.w0.00001021"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 22,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001022.promotion-22",
+        "world_id": "world.leyforge.w0.00001022"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 23,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001023.promotion-23",
+        "world_id": "world.leyforge.w0.00001023"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 24,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001024.promotion-24",
+        "world_id": "world.leyforge.w0.00001024"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 25,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001025.promotion-25",
+        "world_id": "world.leyforge.w0.00001025"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 26,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001026.promotion-26",
+        "world_id": "world.leyforge.w0.00001026"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 27,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001027.promotion-27",
+        "world_id": "world.leyforge.w0.00001027"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 28,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001028.promotion-28",
+        "world_id": "world.leyforge.w0.00001028"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 29,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001029.promotion-29",
+        "world_id": "world.leyforge.w0.00001029"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 30,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001030.promotion-30",
+        "world_id": "world.leyforge.w0.00001030"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 31,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001031.promotion-31",
+        "world_id": "world.leyforge.w0.00001031"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 32,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001032.promotion-32",
+        "world_id": "world.leyforge.w0.00001032"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 33,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001033.promotion-33",
+        "world_id": "world.leyforge.w0.00001033"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 34,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001034.promotion-34",
+        "world_id": "world.leyforge.w0.00001034"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 35,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001035.promotion-35",
+        "world_id": "world.leyforge.w0.00001035"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 36,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001036.promotion-36",
+        "world_id": "world.leyforge.w0.00001036"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 37,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001037.promotion-37",
+        "world_id": "world.leyforge.w0.00001037"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 38,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001038.promotion-38",
+        "world_id": "world.leyforge.w0.00001038"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 39,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001039.promotion-39",
+        "world_id": "world.leyforge.w0.00001039"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 40,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001040.promotion-40",
+        "world_id": "world.leyforge.w0.00001040"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 41,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001041.promotion-41",
+        "world_id": "world.leyforge.w0.00001041"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 42,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001042.promotion-42",
+        "world_id": "world.leyforge.w0.00001042"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 43,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001043.promotion-43",
+        "world_id": "world.leyforge.w0.00001043"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 44,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001044.promotion-44",
+        "world_id": "world.leyforge.w0.00001044"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 45,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001045.promotion-45",
+        "world_id": "world.leyforge.w0.00001045"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 46,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001046.promotion-46",
+        "world_id": "world.leyforge.w0.00001046"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 47,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001047.promotion-47",
+        "world_id": "world.leyforge.w0.00001047"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 48,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001048.promotion-48",
+        "world_id": "world.leyforge.w0.00001048"
+      },
+      {
+        "canonical_equal": true,
+        "connected": true,
+        "cycle": 49,
+        "reconnected": true,
+        "session_id": "world-session.leyforge.00001049.promotion-49",
+        "world_id": "world.leyforge.w0.00001049"
+      }
+    ]
+  },
+  "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+  "observations": [
+    "Each loopback ENet peer bound to a stable semantic actor while the same WorldSession remained authoritative."
+  ],
+  "outcome": "PASS",
+  "process": {
+    "eligibility_issues": [],
+    "evidence_eligible": true,
+    "lane_id": "PRD04-PROOF-10-client",
+    "process": {
+      "argv": [
+        "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+        "--",
+        "--mode",
+        "proof",
+        "--proof-id",
+        "PRD04-PROOF-10",
+        "--run-id",
+        "PRD07-RUN-0013"
+      ],
+      "duration_seconds": 1.5779433000000154,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":506.21,\"metrics\":{\"duplicate_authoritative_entity_count\":0,\"network_or_role_failures\":0,\"peer_identity_used_as_durable_identity\":false,\"promote_join_leave_cycles\":50,\"successful_admissions\":50,\"successful_reconnects\":50,\"traces\":[{\"canonical_equal\":true,\"connected\":true,\"cycle\":0,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001000.promotion-00\",\"world_id\":\"world.leyforge.w0.00001000\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":1,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001001.promotion-01\",\"world_id\":\"world.leyforge.w0.00001001\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":2,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001002.promotion-02\",\"world_id\":\"world.leyforge.w0.00001002\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":3,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001003.promotion-03\",\"world_id\":\"world.leyforge.w0.00001003\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":4,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001004.promotion-04\",\"world_id\":\"world.leyforge.w0.00001004\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":5,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001005.promotion-05\",\"world_id\":\"world.leyforge.w0.00001005\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":6,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001006.promotion-06\",\"world_id\":\"world.leyforge.w0.00001006\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":7,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001007.promotion-07\",\"world_id\":\"world.leyforge.w0.00001007\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":8,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001008.promotion-08\",\"world_id\":\"world.leyforge.w0.00001008\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":9,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001009.promotion-09\",\"world_id\":\"world.leyforge.w0.00001009\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":10,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001010.promotion-10\",\"world_id\":\"world.leyforge.w0.00001010\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":11,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001011.promotion-11\",\"world_id\":\"world.leyforge.w0.00001011\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":12,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001012.promotion-12\",\"world_id\":\"world.leyforge.w0.00001012\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":13,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001013.promotion-13\",\"world_id\":\"world.leyforge.w0.00001013\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":14,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001014.promotion-14\",\"world_id\":\"world.leyforge.w0.00001014\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":15,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001015.promotion-15\",\"world_id\":\"world.leyforge.w0.00001015\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":16,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001016.promotion-16\",\"world_id\":\"world.leyforge.w0.00001016\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":17,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001017.promotion-17\",\"world_id\":\"world.leyforge.w0.00001017\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":18,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001018.promotion-18\",\"world_id\":\"world.leyforge.w0.00001018\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":19,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001019.promotion-19\",\"world_id\":\"world.leyforge.w0.00001019\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":20,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001020.promotion-20\",\"world_id\":\"world.leyforge.w0.00001020\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":21,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001021.promotion-21\",\"world_id\":\"world.leyforge.w0.00001021\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":22,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001022.promotion-22\",\"world_id\":\"world.leyforge.w0.00001022\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":23,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001023.promotion-23\",\"world_id\":\"world.leyforge.w0.00001023\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":24,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001024.promotion-24\",\"world_id\":\"world.leyforge.w0.00001024\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":25,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001025.promotion-25\",\"world_id\":\"world.leyforge.w0.00001025\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":26,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001026.promotion-26\",\"world_id\":\"world.leyforge.w0.00001026\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":27,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001027.promotion-27\",\"world_id\":\"world.leyforge.w0.00001027\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":28,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001028.promotion-28\",\"world_id\":\"world.leyforge.w0.00001028\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":29,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001029.promotion-29\",\"world_id\":\"world.leyforge.w0.00001029\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":30,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001030.promotion-30\",\"world_id\":\"world.leyforge.w0.00001030\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":31,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001031.promotion-31\",\"world_id\":\"world.leyforge.w0.00001031\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":32,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001032.promotion-32\",\"world_id\":\"world.leyforge.w0.00001032\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":33,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001033.promotion-33\",\"world_id\":\"world.leyforge.w0.00001033\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":34,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001034.promotion-34\",\"world_id\":\"world.leyforge.w0.00001034\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":35,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001035.promotion-35\",\"world_id\":\"world.leyforge.w0.00001035\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":36,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001036.promotion-36\",\"world_id\":\"world.leyforge.w0.00001036\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":37,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001037.promotion-37\",\"world_id\":\"world.leyforge.w0.00001037\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":38,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001038.promotion-38\",\"world_id\":\"world.leyforge.w0.00001038\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":39,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001039.promotion-39\",\"world_id\":\"world.leyforge.w0.00001039\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":40,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001040.promotion-40\",\"world_id\":\"world.leyforge.w0.00001040\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":41,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001041.promotion-41\",\"world_id\":\"world.leyforge.w0.00001041\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":42,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001042.promotion-42\",\"world_id\":\"world.leyforge.w0.00001042\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":43,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001043.promotion-43\",\"world_id\":\"world.leyforge.w0.00001043\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":44,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001044.promotion-44\",\"world_id\":\"world.leyforge.w0.00001044\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":45,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001045.promotion-45\",\"world_id\":\"world.leyforge.w0.00001045\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":46,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001046.promotion-46\",\"world_id\":\"world.leyforge.w0.00001046\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":47,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001047.promotion-47\",\"world_id\":\"world.leyforge.w0.00001047\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":48,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001048.promotion-48\",\"world_id\":\"world.leyforge.w0.00001048\"},{\"canonical_equal\":true,\"connected\":true,\"cycle\":49,\"reconnected\":true,\"session_id\":\"world-session.leyforge.00001049.promotion-49\",\"world_id\":\"world.leyforge.w0.00001049\"}]},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"Each loopback ENet peer bound to a stable semantic actor while the same WorldSession remained authoritative.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-10\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0013\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "proof_id": "PRD04-PROOF-10",
+    "role": "client",
+    "run_id": "PRD07-RUN-0013"
+  },
+  "proof_id": "PRD04-PROOF-10",
+  "role": "client",
+  "run_id": "PRD07-RUN-0013",
+  "schema_version": "prd07-w0-observed-result-v1"
+}

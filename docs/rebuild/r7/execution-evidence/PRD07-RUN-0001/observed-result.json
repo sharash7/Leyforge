@@ -1,0 +1,1065 @@
+{
+  "matrix": [
+    {
+      "artifact_manifest": {
+        "artifact_kind": "leyforge-export",
+        "artifact_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-01\\output\\leyforge-w0-client-01.exe",
+        "artifact_sha256": "7fd80ad8a2895f1d38582da99790cedbbdb5a74d81e83471e7ffe6ce0d101843",
+        "build_identity": "51e080f577c74ac5f2de7de9ebc78140da0266ba592ec97671a43786765b15ff",
+        "exported_runtime": true,
+        "manifest_schema": "prd07-artifact-manifest-v1",
+        "role": "client",
+        "runtime_self_report_build_identity": "51e080f577c74ac5f2de7de9ebc78140da0266ba592ec97671a43786765b15ff",
+        "size_bytes": 110467032,
+        "symbol_sha256": null,
+        "synthetic_fixture": false
+      },
+      "build_manifest": {
+        "build_identity": "51e080f577c74ac5f2de7de9ebc78140da0266ba592ec97671a43786765b15ff",
+        "clean_export": true,
+        "components": [
+          {
+            "edition": "official-windows-release-template-x86_64",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "godot",
+            "provenance_status": "verified",
+            "revision": "4.8.dev4.official.b56a91878",
+            "source": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev4/Godot_v4.8-dev4_export_templates.tpz"
+          },
+          {
+            "edition": "4.8.dev.custom_build.a9c94cd21",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH; clean upstream commit with two upstream lifetime fixes",
+            "name": "godot-build-driver",
+            "provenance_status": "verified",
+            "revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+            "source": "https://github.com/godotengine/godot/commit/a9c94cd21fc1e95c56a17aca0b310c346e6c41fa"
+          },
+          {
+            "edition": "GDExtension for Godot 4.5+",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "voxel-tools",
+            "provenance_status": "verified",
+            "revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+            "source": "https://github.com/Zylann/godot_voxel/releases/download/v1.7x/GodotVoxelExtension.zip"
+          }
+        ],
+        "content_identity": "293646de91e0394f48a8f6c795dd645096c8f1cbdd297d1c16da70f727470ed0",
+        "environment": {
+          "clean_build_repetition": "1",
+          "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+          "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+          "local_patch_status": "NO-LOCAL-PATCH",
+          "machine": "AMD64",
+          "os": "Windows",
+          "os_release": "10",
+          "python": "3.9.5",
+          "role": "client",
+          "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+        },
+        "invocation": [
+          "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+          "--headless",
+          "--path",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-01\\project",
+          "--export-release",
+          "W0 Client",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-01\\output\\leyforge-w0-client-01.exe"
+        ],
+        "manifest_schema": "prd07-build-manifest-v1",
+        "platform": "windows-x86_64",
+        "precision": "single-precision-active-frame-with-int64-canonical-cells",
+        "profile": "release-like-proof",
+        "role": "client",
+        "schema_identity": "leyforge-r7-w0-proof-runtime-v1",
+        "source_revision": "7e28c92e2c656b1afcbf96c75c3b969edf74494e"
+      },
+      "export_result": {
+        "artifact_candidates": [
+          "leyforge-w0-client-01.exe",
+          "libvoxel.windows.template_release.x86_64.dll"
+        ],
+        "build_identity": "51e080f577c74ac5f2de7de9ebc78140da0266ba592ec97671a43786765b15ff",
+        "controller_test": false,
+        "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-01\\output",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+            "--headless",
+            "--path",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-01\\project",
+            "--export-release",
+            "W0 Client",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-01\\output\\leyforge-w0-client-01.exe"
+          ],
+          "duration_seconds": 6.5618164,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (9 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1msavepack\u001b[22m | Started Packing (102 steps)\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://addons/zylann.voxel/voxel.gdextension\u001b[39m\u001b[0m\n[   9% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gdc\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gdc\u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gdc\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gdc\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gdc\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gdc\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gdc\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gdc\u001b[39m\u001b[0m\n[  74% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gdc\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://build_manifest.json\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://main.tscn.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/global_script_class_cache.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/extension_list.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/uid_cache.bin\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://project.binary\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1msavepack\u001b[22m\n\u001b[0m\n",
+          "terminated_externally": false,
+          "timed_out": false
+        }
+      },
+      "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-01\\output",
+      "role_content_manifest": {
+        "build_identity": "51e080f577c74ac5f2de7de9ebc78140da0266ba592ec97671a43786765b15ff",
+        "files": [
+          {
+            "bytes": 110467032,
+            "path": "leyforge-w0-client-01.exe",
+            "sha256": "7fd80ad8a2895f1d38582da99790cedbbdb5a74d81e83471e7ffe6ce0d101843"
+          },
+          {
+            "bytes": 10173952,
+            "path": "libvoxel.windows.template_release.x86_64.dll",
+            "sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0"
+          }
+        ],
+        "presentation_authority_included": false,
+        "provider_runtime_included": true,
+        "role": "client",
+        "schema_version": "prd07-w0-role-content-manifest-v1"
+      },
+      "runtime_self_report": {
+        "build_identity": "51e080f577c74ac5f2de7de9ebc78140da0266ba592ec97671a43786765b15ff",
+        "canonical_state_digest": "f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c",
+        "canonical_ticks": 5,
+        "presentation_authority_dependencies": 0,
+        "provider": {
+          "class": "VoxelBuffer",
+          "edition": "v1.7x",
+          "lane": "zylann-voxel-tools-gdextension",
+          "ready": true
+        },
+        "provider_operation": {
+          "buffer_size": "(4, 4, 4)",
+          "canonical_value": 11,
+          "classification": "SUCCESS",
+          "provider_local_id": 97,
+          "semantic_id": "block.leyforge.stone"
+        },
+        "role": "client",
+        "schema_version": "prd07-w0-runtime-self-report-v1",
+        "status": "PASS",
+        "world_id": "world.leyforge.w0.00007001",
+        "world_session_id": "world-session.leyforge.00007001.primary"
+      },
+      "smoke_result": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "W0-CLIENT-EXPORT-SMOKE-01",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-01\\output\\leyforge-w0-client-01.exe",
+            "--",
+            "--mode",
+            "smoke"
+          ],
+          "duration_seconds": 2.6541855000000023,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_SELF_REPORT {\"build_identity\":\"51e080f577c74ac5f2de7de9ebc78140da0266ba592ec97671a43786765b15ff\",\"canonical_state_digest\":\"f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c\",\"canonical_ticks\":5,\"presentation_authority_dependencies\":0,\"provider\":{\"class\":\"VoxelBuffer\",\"edition\":\"v1.7x\",\"lane\":\"zylann-voxel-tools-gdextension\",\"ready\":true},\"provider_operation\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":97,\"semantic_id\":\"block.leyforge.stone\"},\"role\":\"client\",\"schema_version\":\"prd07-w0-runtime-self-report-v1\",\"status\":\"PASS\",\"world_id\":\"world.leyforge.w0.00007001\",\"world_session_id\":\"world-session.leyforge.00007001.primary\"}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-70",
+        "role": "client",
+        "run_id": "PRD07-RUN-0001"
+      },
+      "workspace": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-01\\project"
+    },
+    {
+      "artifact_manifest": {
+        "artifact_kind": "leyforge-export",
+        "artifact_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-02\\output\\leyforge-w0-client-02.exe",
+        "artifact_sha256": "653544d3e8d149931661937d9b32134496c89d8564b865b79497da6d7735af81",
+        "build_identity": "94d6ea3e14b5d164d0a4134a8cb21233bae75ac24325b17bf848bcbd44d45484",
+        "exported_runtime": true,
+        "manifest_schema": "prd07-artifact-manifest-v1",
+        "role": "client",
+        "runtime_self_report_build_identity": "94d6ea3e14b5d164d0a4134a8cb21233bae75ac24325b17bf848bcbd44d45484",
+        "size_bytes": 110467032,
+        "symbol_sha256": null,
+        "synthetic_fixture": false
+      },
+      "build_manifest": {
+        "build_identity": "94d6ea3e14b5d164d0a4134a8cb21233bae75ac24325b17bf848bcbd44d45484",
+        "clean_export": true,
+        "components": [
+          {
+            "edition": "official-windows-release-template-x86_64",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "godot",
+            "provenance_status": "verified",
+            "revision": "4.8.dev4.official.b56a91878",
+            "source": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev4/Godot_v4.8-dev4_export_templates.tpz"
+          },
+          {
+            "edition": "4.8.dev.custom_build.a9c94cd21",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH; clean upstream commit with two upstream lifetime fixes",
+            "name": "godot-build-driver",
+            "provenance_status": "verified",
+            "revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+            "source": "https://github.com/godotengine/godot/commit/a9c94cd21fc1e95c56a17aca0b310c346e6c41fa"
+          },
+          {
+            "edition": "GDExtension for Godot 4.5+",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "voxel-tools",
+            "provenance_status": "verified",
+            "revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+            "source": "https://github.com/Zylann/godot_voxel/releases/download/v1.7x/GodotVoxelExtension.zip"
+          }
+        ],
+        "content_identity": "293646de91e0394f48a8f6c795dd645096c8f1cbdd297d1c16da70f727470ed0",
+        "environment": {
+          "clean_build_repetition": "2",
+          "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+          "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+          "local_patch_status": "NO-LOCAL-PATCH",
+          "machine": "AMD64",
+          "os": "Windows",
+          "os_release": "10",
+          "python": "3.9.5",
+          "role": "client",
+          "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+        },
+        "invocation": [
+          "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+          "--headless",
+          "--path",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-02\\project",
+          "--export-release",
+          "W0 Client",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-02\\output\\leyforge-w0-client-02.exe"
+        ],
+        "manifest_schema": "prd07-build-manifest-v1",
+        "platform": "windows-x86_64",
+        "precision": "single-precision-active-frame-with-int64-canonical-cells",
+        "profile": "release-like-proof",
+        "role": "client",
+        "schema_identity": "leyforge-r7-w0-proof-runtime-v1",
+        "source_revision": "7e28c92e2c656b1afcbf96c75c3b969edf74494e"
+      },
+      "export_result": {
+        "artifact_candidates": [
+          "leyforge-w0-client-02.exe",
+          "libvoxel.windows.template_release.x86_64.dll"
+        ],
+        "build_identity": "94d6ea3e14b5d164d0a4134a8cb21233bae75ac24325b17bf848bcbd44d45484",
+        "controller_test": false,
+        "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-02\\output",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+            "--headless",
+            "--path",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-02\\project",
+            "--export-release",
+            "W0 Client",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-02\\output\\leyforge-w0-client-02.exe"
+          ],
+          "duration_seconds": 6.432665099999998,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (9 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1msavepack\u001b[22m | Started Packing (102 steps)\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://addons/zylann.voxel/voxel.gdextension\u001b[39m\u001b[0m\n[   9% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gdc\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gdc\u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gdc\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gdc\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gdc\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gdc\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gdc\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gdc\u001b[39m\u001b[0m\n[  74% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gdc\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://build_manifest.json\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://main.tscn.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/global_script_class_cache.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/extension_list.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/uid_cache.bin\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://project.binary\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1msavepack\u001b[22m\n\u001b[0m\n",
+          "terminated_externally": false,
+          "timed_out": false
+        }
+      },
+      "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-02\\output",
+      "role_content_manifest": {
+        "build_identity": "94d6ea3e14b5d164d0a4134a8cb21233bae75ac24325b17bf848bcbd44d45484",
+        "files": [
+          {
+            "bytes": 110467032,
+            "path": "leyforge-w0-client-02.exe",
+            "sha256": "653544d3e8d149931661937d9b32134496c89d8564b865b79497da6d7735af81"
+          },
+          {
+            "bytes": 10173952,
+            "path": "libvoxel.windows.template_release.x86_64.dll",
+            "sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0"
+          }
+        ],
+        "presentation_authority_included": false,
+        "provider_runtime_included": true,
+        "role": "client",
+        "schema_version": "prd07-w0-role-content-manifest-v1"
+      },
+      "runtime_self_report": {
+        "build_identity": "94d6ea3e14b5d164d0a4134a8cb21233bae75ac24325b17bf848bcbd44d45484",
+        "canonical_state_digest": "f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c",
+        "canonical_ticks": 5,
+        "presentation_authority_dependencies": 0,
+        "provider": {
+          "class": "VoxelBuffer",
+          "edition": "v1.7x",
+          "lane": "zylann-voxel-tools-gdextension",
+          "ready": true
+        },
+        "provider_operation": {
+          "buffer_size": "(4, 4, 4)",
+          "canonical_value": 11,
+          "classification": "SUCCESS",
+          "provider_local_id": 97,
+          "semantic_id": "block.leyforge.stone"
+        },
+        "role": "client",
+        "schema_version": "prd07-w0-runtime-self-report-v1",
+        "status": "PASS",
+        "world_id": "world.leyforge.w0.00007001",
+        "world_session_id": "world-session.leyforge.00007001.primary"
+      },
+      "smoke_result": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "W0-CLIENT-EXPORT-SMOKE-02",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-02\\output\\leyforge-w0-client-02.exe",
+            "--",
+            "--mode",
+            "smoke"
+          ],
+          "duration_seconds": 2.6302904,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_SELF_REPORT {\"build_identity\":\"94d6ea3e14b5d164d0a4134a8cb21233bae75ac24325b17bf848bcbd44d45484\",\"canonical_state_digest\":\"f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c\",\"canonical_ticks\":5,\"presentation_authority_dependencies\":0,\"provider\":{\"class\":\"VoxelBuffer\",\"edition\":\"v1.7x\",\"lane\":\"zylann-voxel-tools-gdextension\",\"ready\":true},\"provider_operation\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":97,\"semantic_id\":\"block.leyforge.stone\"},\"role\":\"client\",\"schema_version\":\"prd07-w0-runtime-self-report-v1\",\"status\":\"PASS\",\"world_id\":\"world.leyforge.w0.00007001\",\"world_session_id\":\"world-session.leyforge.00007001.primary\"}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-70",
+        "role": "client",
+        "run_id": "PRD07-RUN-0001"
+      },
+      "workspace": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-02\\project"
+    },
+    {
+      "artifact_manifest": {
+        "artifact_kind": "leyforge-export",
+        "artifact_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+        "artifact_sha256": "b4198bad986793c90a4d52f0076bff48d5b8f9f97d786c975457c344529df43e",
+        "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+        "exported_runtime": true,
+        "manifest_schema": "prd07-artifact-manifest-v1",
+        "role": "client",
+        "runtime_self_report_build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+        "size_bytes": 110467032,
+        "symbol_sha256": null,
+        "synthetic_fixture": false
+      },
+      "build_manifest": {
+        "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+        "clean_export": true,
+        "components": [
+          {
+            "edition": "official-windows-release-template-x86_64",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "godot",
+            "provenance_status": "verified",
+            "revision": "4.8.dev4.official.b56a91878",
+            "source": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev4/Godot_v4.8-dev4_export_templates.tpz"
+          },
+          {
+            "edition": "4.8.dev.custom_build.a9c94cd21",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH; clean upstream commit with two upstream lifetime fixes",
+            "name": "godot-build-driver",
+            "provenance_status": "verified",
+            "revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+            "source": "https://github.com/godotengine/godot/commit/a9c94cd21fc1e95c56a17aca0b310c346e6c41fa"
+          },
+          {
+            "edition": "GDExtension for Godot 4.5+",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "voxel-tools",
+            "provenance_status": "verified",
+            "revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+            "source": "https://github.com/Zylann/godot_voxel/releases/download/v1.7x/GodotVoxelExtension.zip"
+          }
+        ],
+        "content_identity": "293646de91e0394f48a8f6c795dd645096c8f1cbdd297d1c16da70f727470ed0",
+        "environment": {
+          "clean_build_repetition": "3",
+          "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+          "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+          "local_patch_status": "NO-LOCAL-PATCH",
+          "machine": "AMD64",
+          "os": "Windows",
+          "os_release": "10",
+          "python": "3.9.5",
+          "role": "client",
+          "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+        },
+        "invocation": [
+          "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+          "--headless",
+          "--path",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\project",
+          "--export-release",
+          "W0 Client",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe"
+        ],
+        "manifest_schema": "prd07-build-manifest-v1",
+        "platform": "windows-x86_64",
+        "precision": "single-precision-active-frame-with-int64-canonical-cells",
+        "profile": "release-like-proof",
+        "role": "client",
+        "schema_identity": "leyforge-r7-w0-proof-runtime-v1",
+        "source_revision": "7e28c92e2c656b1afcbf96c75c3b969edf74494e"
+      },
+      "export_result": {
+        "artifact_candidates": [
+          "leyforge-w0-client-03.exe",
+          "libvoxel.windows.template_release.x86_64.dll"
+        ],
+        "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+        "controller_test": false,
+        "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+            "--headless",
+            "--path",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\project",
+            "--export-release",
+            "W0 Client",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe"
+          ],
+          "duration_seconds": 6.3895015000000015,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (9 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1msavepack\u001b[22m | Started Packing (102 steps)\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://addons/zylann.voxel/voxel.gdextension\u001b[39m\u001b[0m\n[   9% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gdc\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gdc\u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gdc\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gdc\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gdc\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gdc\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gdc\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gdc\u001b[39m\u001b[0m\n[  74% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gdc\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://build_manifest.json\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://main.tscn.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/global_script_class_cache.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/extension_list.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/uid_cache.bin\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://project.binary\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1msavepack\u001b[22m\n\u001b[0m\n",
+          "terminated_externally": false,
+          "timed_out": false
+        }
+      },
+      "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output",
+      "role_content_manifest": {
+        "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+        "files": [
+          {
+            "bytes": 110467032,
+            "path": "leyforge-w0-client-03.exe",
+            "sha256": "b4198bad986793c90a4d52f0076bff48d5b8f9f97d786c975457c344529df43e"
+          },
+          {
+            "bytes": 10173952,
+            "path": "libvoxel.windows.template_release.x86_64.dll",
+            "sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0"
+          }
+        ],
+        "presentation_authority_included": false,
+        "provider_runtime_included": true,
+        "role": "client",
+        "schema_version": "prd07-w0-role-content-manifest-v1"
+      },
+      "runtime_self_report": {
+        "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+        "canonical_state_digest": "f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c",
+        "canonical_ticks": 5,
+        "presentation_authority_dependencies": 0,
+        "provider": {
+          "class": "VoxelBuffer",
+          "edition": "v1.7x",
+          "lane": "zylann-voxel-tools-gdextension",
+          "ready": true
+        },
+        "provider_operation": {
+          "buffer_size": "(4, 4, 4)",
+          "canonical_value": 11,
+          "classification": "SUCCESS",
+          "provider_local_id": 97,
+          "semantic_id": "block.leyforge.stone"
+        },
+        "role": "client",
+        "schema_version": "prd07-w0-runtime-self-report-v1",
+        "status": "PASS",
+        "world_id": "world.leyforge.w0.00007001",
+        "world_session_id": "world-session.leyforge.00007001.primary"
+      },
+      "smoke_result": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "W0-CLIENT-EXPORT-SMOKE-03",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+            "--",
+            "--mode",
+            "smoke"
+          ],
+          "duration_seconds": 2.66686,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_SELF_REPORT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"canonical_state_digest\":\"f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c\",\"canonical_ticks\":5,\"presentation_authority_dependencies\":0,\"provider\":{\"class\":\"VoxelBuffer\",\"edition\":\"v1.7x\",\"lane\":\"zylann-voxel-tools-gdextension\",\"ready\":true},\"provider_operation\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":97,\"semantic_id\":\"block.leyforge.stone\"},\"role\":\"client\",\"schema_version\":\"prd07-w0-runtime-self-report-v1\",\"status\":\"PASS\",\"world_id\":\"world.leyforge.w0.00007001\",\"world_session_id\":\"world-session.leyforge.00007001.primary\"}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-70",
+        "role": "client",
+        "run_id": "PRD07-RUN-0001"
+      },
+      "workspace": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\project"
+    },
+    {
+      "artifact_manifest": {
+        "artifact_kind": "leyforge-export",
+        "artifact_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-01\\output\\leyforge-w0-headless-01.exe",
+        "artifact_sha256": "464e5233db88c1fe801da50e653a7e479b045ee7ecbee010352a2be31bbdae37",
+        "build_identity": "2a56a3d82caeb741f61a4ae9aa8b321668bbee9dc13a1bfdc04a233635e01e71",
+        "exported_runtime": true,
+        "manifest_schema": "prd07-artifact-manifest-v1",
+        "role": "headless",
+        "runtime_self_report_build_identity": "2a56a3d82caeb741f61a4ae9aa8b321668bbee9dc13a1bfdc04a233635e01e71",
+        "size_bytes": 110467064,
+        "symbol_sha256": null,
+        "synthetic_fixture": false
+      },
+      "build_manifest": {
+        "build_identity": "2a56a3d82caeb741f61a4ae9aa8b321668bbee9dc13a1bfdc04a233635e01e71",
+        "clean_export": true,
+        "components": [
+          {
+            "edition": "official-windows-release-template-x86_64",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "godot",
+            "provenance_status": "verified",
+            "revision": "4.8.dev4.official.b56a91878",
+            "source": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev4/Godot_v4.8-dev4_export_templates.tpz"
+          },
+          {
+            "edition": "4.8.dev.custom_build.a9c94cd21",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH; clean upstream commit with two upstream lifetime fixes",
+            "name": "godot-build-driver",
+            "provenance_status": "verified",
+            "revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+            "source": "https://github.com/godotengine/godot/commit/a9c94cd21fc1e95c56a17aca0b310c346e6c41fa"
+          },
+          {
+            "edition": "GDExtension for Godot 4.5+",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "voxel-tools",
+            "provenance_status": "verified",
+            "revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+            "source": "https://github.com/Zylann/godot_voxel/releases/download/v1.7x/GodotVoxelExtension.zip"
+          }
+        ],
+        "content_identity": "293646de91e0394f48a8f6c795dd645096c8f1cbdd297d1c16da70f727470ed0",
+        "environment": {
+          "clean_build_repetition": "1",
+          "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+          "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+          "local_patch_status": "NO-LOCAL-PATCH",
+          "machine": "AMD64",
+          "os": "Windows",
+          "os_release": "10",
+          "python": "3.9.5",
+          "role": "headless",
+          "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+        },
+        "invocation": [
+          "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+          "--headless",
+          "--path",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-01\\project",
+          "--export-release",
+          "W0 Dedicated",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-01\\output\\leyforge-w0-headless-01.exe"
+        ],
+        "manifest_schema": "prd07-build-manifest-v1",
+        "platform": "windows-x86_64",
+        "precision": "single-precision-active-frame-with-int64-canonical-cells",
+        "profile": "release-like-proof",
+        "role": "headless",
+        "schema_identity": "leyforge-r7-w0-proof-runtime-v1",
+        "source_revision": "7e28c92e2c656b1afcbf96c75c3b969edf74494e"
+      },
+      "export_result": {
+        "artifact_candidates": [
+          "leyforge-w0-headless-01.exe",
+          "libvoxel.windows.template_release.x86_64.dll"
+        ],
+        "build_identity": "2a56a3d82caeb741f61a4ae9aa8b321668bbee9dc13a1bfdc04a233635e01e71",
+        "controller_test": false,
+        "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-01\\output",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+            "--headless",
+            "--path",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-01\\project",
+            "--export-release",
+            "W0 Dedicated",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-01\\output\\leyforge-w0-headless-01.exe"
+          ],
+          "duration_seconds": 6.445239300000004,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (9 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1msavepack\u001b[22m | Started Packing (102 steps)\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://addons/zylann.voxel/voxel.gdextension\u001b[39m\u001b[0m\n[   9% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gdc\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gdc\u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gdc\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gdc\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gdc\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gdc\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gdc\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gdc\u001b[39m\u001b[0m\n[  74% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gdc\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://build_manifest.json\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://main.tscn.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/global_script_class_cache.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/extension_list.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/uid_cache.bin\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://project.binary\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1msavepack\u001b[22m\n\u001b[0m\n",
+          "terminated_externally": false,
+          "timed_out": false
+        }
+      },
+      "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-01\\output",
+      "role_content_manifest": {
+        "build_identity": "2a56a3d82caeb741f61a4ae9aa8b321668bbee9dc13a1bfdc04a233635e01e71",
+        "files": [
+          {
+            "bytes": 110467064,
+            "path": "leyforge-w0-headless-01.exe",
+            "sha256": "464e5233db88c1fe801da50e653a7e479b045ee7ecbee010352a2be31bbdae37"
+          },
+          {
+            "bytes": 10173952,
+            "path": "libvoxel.windows.template_release.x86_64.dll",
+            "sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0"
+          }
+        ],
+        "presentation_authority_included": false,
+        "provider_runtime_included": true,
+        "role": "headless",
+        "schema_version": "prd07-w0-role-content-manifest-v1"
+      },
+      "runtime_self_report": {
+        "build_identity": "2a56a3d82caeb741f61a4ae9aa8b321668bbee9dc13a1bfdc04a233635e01e71",
+        "canonical_state_digest": "f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c",
+        "canonical_ticks": 5,
+        "presentation_authority_dependencies": 0,
+        "provider": {
+          "class": "VoxelBuffer",
+          "edition": "v1.7x",
+          "lane": "zylann-voxel-tools-gdextension",
+          "ready": true
+        },
+        "provider_operation": {
+          "buffer_size": "(4, 4, 4)",
+          "canonical_value": 11,
+          "classification": "SUCCESS",
+          "provider_local_id": 97,
+          "semantic_id": "block.leyforge.stone"
+        },
+        "role": "headless",
+        "schema_version": "prd07-w0-runtime-self-report-v1",
+        "status": "PASS",
+        "world_id": "world.leyforge.w0.00007001",
+        "world_session_id": "world-session.leyforge.00007001.primary"
+      },
+      "smoke_result": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "W0-HEADLESS-EXPORT-SMOKE-01",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-01\\output\\leyforge-w0-headless-01.exe",
+            "--headless",
+            "--",
+            "--mode",
+            "smoke"
+          ],
+          "duration_seconds": 0.9582873000000021,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_SELF_REPORT {\"build_identity\":\"2a56a3d82caeb741f61a4ae9aa8b321668bbee9dc13a1bfdc04a233635e01e71\",\"canonical_state_digest\":\"f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c\",\"canonical_ticks\":5,\"presentation_authority_dependencies\":0,\"provider\":{\"class\":\"VoxelBuffer\",\"edition\":\"v1.7x\",\"lane\":\"zylann-voxel-tools-gdextension\",\"ready\":true},\"provider_operation\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":97,\"semantic_id\":\"block.leyforge.stone\"},\"role\":\"headless\",\"schema_version\":\"prd07-w0-runtime-self-report-v1\",\"status\":\"PASS\",\"world_id\":\"world.leyforge.w0.00007001\",\"world_session_id\":\"world-session.leyforge.00007001.primary\"}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-70",
+        "role": "headless",
+        "run_id": "PRD07-RUN-0001"
+      },
+      "workspace": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-01\\project"
+    },
+    {
+      "artifact_manifest": {
+        "artifact_kind": "leyforge-export",
+        "artifact_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-02\\output\\leyforge-w0-headless-02.exe",
+        "artifact_sha256": "5187da611e8f509e5f2a9d137ca6e949ffc7cccdbd34bdc69101c98abe487a23",
+        "build_identity": "1a83710aba3bc93d463879979370fffc4ca896416b06cbccd0c8a9080c8a7e45",
+        "exported_runtime": true,
+        "manifest_schema": "prd07-artifact-manifest-v1",
+        "role": "headless",
+        "runtime_self_report_build_identity": "1a83710aba3bc93d463879979370fffc4ca896416b06cbccd0c8a9080c8a7e45",
+        "size_bytes": 110467064,
+        "symbol_sha256": null,
+        "synthetic_fixture": false
+      },
+      "build_manifest": {
+        "build_identity": "1a83710aba3bc93d463879979370fffc4ca896416b06cbccd0c8a9080c8a7e45",
+        "clean_export": true,
+        "components": [
+          {
+            "edition": "official-windows-release-template-x86_64",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "godot",
+            "provenance_status": "verified",
+            "revision": "4.8.dev4.official.b56a91878",
+            "source": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev4/Godot_v4.8-dev4_export_templates.tpz"
+          },
+          {
+            "edition": "4.8.dev.custom_build.a9c94cd21",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH; clean upstream commit with two upstream lifetime fixes",
+            "name": "godot-build-driver",
+            "provenance_status": "verified",
+            "revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+            "source": "https://github.com/godotengine/godot/commit/a9c94cd21fc1e95c56a17aca0b310c346e6c41fa"
+          },
+          {
+            "edition": "GDExtension for Godot 4.5+",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "voxel-tools",
+            "provenance_status": "verified",
+            "revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+            "source": "https://github.com/Zylann/godot_voxel/releases/download/v1.7x/GodotVoxelExtension.zip"
+          }
+        ],
+        "content_identity": "293646de91e0394f48a8f6c795dd645096c8f1cbdd297d1c16da70f727470ed0",
+        "environment": {
+          "clean_build_repetition": "2",
+          "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+          "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+          "local_patch_status": "NO-LOCAL-PATCH",
+          "machine": "AMD64",
+          "os": "Windows",
+          "os_release": "10",
+          "python": "3.9.5",
+          "role": "headless",
+          "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+        },
+        "invocation": [
+          "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+          "--headless",
+          "--path",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-02\\project",
+          "--export-release",
+          "W0 Dedicated",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-02\\output\\leyforge-w0-headless-02.exe"
+        ],
+        "manifest_schema": "prd07-build-manifest-v1",
+        "platform": "windows-x86_64",
+        "precision": "single-precision-active-frame-with-int64-canonical-cells",
+        "profile": "release-like-proof",
+        "role": "headless",
+        "schema_identity": "leyforge-r7-w0-proof-runtime-v1",
+        "source_revision": "7e28c92e2c656b1afcbf96c75c3b969edf74494e"
+      },
+      "export_result": {
+        "artifact_candidates": [
+          "leyforge-w0-headless-02.exe",
+          "libvoxel.windows.template_release.x86_64.dll"
+        ],
+        "build_identity": "1a83710aba3bc93d463879979370fffc4ca896416b06cbccd0c8a9080c8a7e45",
+        "controller_test": false,
+        "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-02\\output",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+            "--headless",
+            "--path",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-02\\project",
+            "--export-release",
+            "W0 Dedicated",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-02\\output\\leyforge-w0-headless-02.exe"
+          ],
+          "duration_seconds": 6.71525410000001,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (9 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1msavepack\u001b[22m | Started Packing (102 steps)\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://addons/zylann.voxel/voxel.gdextension\u001b[39m\u001b[0m\n[   9% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gdc\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gdc\u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gdc\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gdc\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gdc\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gdc\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gdc\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gdc\u001b[39m\u001b[0m\n[  74% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gdc\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://build_manifest.json\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://main.tscn.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/global_script_class_cache.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/extension_list.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/uid_cache.bin\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://project.binary\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1msavepack\u001b[22m\n\u001b[0m\n",
+          "terminated_externally": false,
+          "timed_out": false
+        }
+      },
+      "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-02\\output",
+      "role_content_manifest": {
+        "build_identity": "1a83710aba3bc93d463879979370fffc4ca896416b06cbccd0c8a9080c8a7e45",
+        "files": [
+          {
+            "bytes": 110467064,
+            "path": "leyforge-w0-headless-02.exe",
+            "sha256": "5187da611e8f509e5f2a9d137ca6e949ffc7cccdbd34bdc69101c98abe487a23"
+          },
+          {
+            "bytes": 10173952,
+            "path": "libvoxel.windows.template_release.x86_64.dll",
+            "sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0"
+          }
+        ],
+        "presentation_authority_included": false,
+        "provider_runtime_included": true,
+        "role": "headless",
+        "schema_version": "prd07-w0-role-content-manifest-v1"
+      },
+      "runtime_self_report": {
+        "build_identity": "1a83710aba3bc93d463879979370fffc4ca896416b06cbccd0c8a9080c8a7e45",
+        "canonical_state_digest": "f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c",
+        "canonical_ticks": 5,
+        "presentation_authority_dependencies": 0,
+        "provider": {
+          "class": "VoxelBuffer",
+          "edition": "v1.7x",
+          "lane": "zylann-voxel-tools-gdextension",
+          "ready": true
+        },
+        "provider_operation": {
+          "buffer_size": "(4, 4, 4)",
+          "canonical_value": 11,
+          "classification": "SUCCESS",
+          "provider_local_id": 97,
+          "semantic_id": "block.leyforge.stone"
+        },
+        "role": "headless",
+        "schema_version": "prd07-w0-runtime-self-report-v1",
+        "status": "PASS",
+        "world_id": "world.leyforge.w0.00007001",
+        "world_session_id": "world-session.leyforge.00007001.primary"
+      },
+      "smoke_result": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "W0-HEADLESS-EXPORT-SMOKE-02",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-02\\output\\leyforge-w0-headless-02.exe",
+            "--headless",
+            "--",
+            "--mode",
+            "smoke"
+          ],
+          "duration_seconds": 1.010694700000002,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_SELF_REPORT {\"build_identity\":\"1a83710aba3bc93d463879979370fffc4ca896416b06cbccd0c8a9080c8a7e45\",\"canonical_state_digest\":\"f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c\",\"canonical_ticks\":5,\"presentation_authority_dependencies\":0,\"provider\":{\"class\":\"VoxelBuffer\",\"edition\":\"v1.7x\",\"lane\":\"zylann-voxel-tools-gdextension\",\"ready\":true},\"provider_operation\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":97,\"semantic_id\":\"block.leyforge.stone\"},\"role\":\"headless\",\"schema_version\":\"prd07-w0-runtime-self-report-v1\",\"status\":\"PASS\",\"world_id\":\"world.leyforge.w0.00007001\",\"world_session_id\":\"world-session.leyforge.00007001.primary\"}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-70",
+        "role": "headless",
+        "run_id": "PRD07-RUN-0001"
+      },
+      "workspace": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-02\\project"
+    },
+    {
+      "artifact_manifest": {
+        "artifact_kind": "leyforge-export",
+        "artifact_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+        "artifact_sha256": "b753acc979fe25f67b555fe1ef1c81e3ba1562130d8da9de6ae1f0be6f80fc1c",
+        "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+        "exported_runtime": true,
+        "manifest_schema": "prd07-artifact-manifest-v1",
+        "role": "headless",
+        "runtime_self_report_build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+        "size_bytes": 110467064,
+        "symbol_sha256": null,
+        "synthetic_fixture": false
+      },
+      "build_manifest": {
+        "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+        "clean_export": true,
+        "components": [
+          {
+            "edition": "official-windows-release-template-x86_64",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "godot",
+            "provenance_status": "verified",
+            "revision": "4.8.dev4.official.b56a91878",
+            "source": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev4/Godot_v4.8-dev4_export_templates.tpz"
+          },
+          {
+            "edition": "4.8.dev.custom_build.a9c94cd21",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH; clean upstream commit with two upstream lifetime fixes",
+            "name": "godot-build-driver",
+            "provenance_status": "verified",
+            "revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+            "source": "https://github.com/godotengine/godot/commit/a9c94cd21fc1e95c56a17aca0b310c346e6c41fa"
+          },
+          {
+            "edition": "GDExtension for Godot 4.5+",
+            "installation_status": "installed",
+            "licence_status": "resolved",
+            "local_patch": "NO-LOCAL-PATCH",
+            "name": "voxel-tools",
+            "provenance_status": "verified",
+            "revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+            "source": "https://github.com/Zylann/godot_voxel/releases/download/v1.7x/GodotVoxelExtension.zip"
+          }
+        ],
+        "content_identity": "293646de91e0394f48a8f6c795dd645096c8f1cbdd297d1c16da70f727470ed0",
+        "environment": {
+          "clean_build_repetition": "3",
+          "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+          "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+          "local_patch_status": "NO-LOCAL-PATCH",
+          "machine": "AMD64",
+          "os": "Windows",
+          "os_release": "10",
+          "python": "3.9.5",
+          "role": "headless",
+          "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+        },
+        "invocation": [
+          "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+          "--headless",
+          "--path",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\project",
+          "--export-release",
+          "W0 Dedicated",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe"
+        ],
+        "manifest_schema": "prd07-build-manifest-v1",
+        "platform": "windows-x86_64",
+        "precision": "single-precision-active-frame-with-int64-canonical-cells",
+        "profile": "release-like-proof",
+        "role": "headless",
+        "schema_identity": "leyforge-r7-w0-proof-runtime-v1",
+        "source_revision": "7e28c92e2c656b1afcbf96c75c3b969edf74494e"
+      },
+      "export_result": {
+        "artifact_candidates": [
+          "leyforge-w0-headless-03.exe",
+          "libvoxel.windows.template_release.x86_64.dll"
+        ],
+        "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+        "controller_test": false,
+        "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+            "--headless",
+            "--path",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\project",
+            "--export-release",
+            "W0 Dedicated",
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe"
+          ],
+          "duration_seconds": 6.340025100000005,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (9 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1msavepack\u001b[22m | Started Packing (102 steps)\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://addons/zylann.voxel/voxel.gdextension\u001b[39m\u001b[0m\n[   9% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gdc\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gdc\u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gdc\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gdc\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gdc\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gdc\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gdc\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gdc\u001b[39m\u001b[0m\n[  74% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gdc\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://build_manifest.json\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/coordinate_frame.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/semantic_registry.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/domain/world_session.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/projection/projection_service.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/fake_provider.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/provider/voxel_tools_adapter.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/read_model/read_model.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/proof_runner.gd.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://main.tscn.remap\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/global_script_class_cache.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/extension_list.cfg\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/uid_cache.bin\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://project.binary\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1msavepack\u001b[22m\n\u001b[0m\n",
+          "terminated_externally": false,
+          "timed_out": false
+        }
+      },
+      "output_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output",
+      "role_content_manifest": {
+        "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+        "files": [
+          {
+            "bytes": 110467064,
+            "path": "leyforge-w0-headless-03.exe",
+            "sha256": "b753acc979fe25f67b555fe1ef1c81e3ba1562130d8da9de6ae1f0be6f80fc1c"
+          },
+          {
+            "bytes": 10173952,
+            "path": "libvoxel.windows.template_release.x86_64.dll",
+            "sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0"
+          }
+        ],
+        "presentation_authority_included": false,
+        "provider_runtime_included": true,
+        "role": "headless",
+        "schema_version": "prd07-w0-role-content-manifest-v1"
+      },
+      "runtime_self_report": {
+        "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+        "canonical_state_digest": "f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c",
+        "canonical_ticks": 5,
+        "presentation_authority_dependencies": 0,
+        "provider": {
+          "class": "VoxelBuffer",
+          "edition": "v1.7x",
+          "lane": "zylann-voxel-tools-gdextension",
+          "ready": true
+        },
+        "provider_operation": {
+          "buffer_size": "(4, 4, 4)",
+          "canonical_value": 11,
+          "classification": "SUCCESS",
+          "provider_local_id": 97,
+          "semantic_id": "block.leyforge.stone"
+        },
+        "role": "headless",
+        "schema_version": "prd07-w0-runtime-self-report-v1",
+        "status": "PASS",
+        "world_id": "world.leyforge.w0.00007001",
+        "world_session_id": "world-session.leyforge.00007001.primary"
+      },
+      "smoke_result": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "W0-HEADLESS-EXPORT-SMOKE-03",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+            "--headless",
+            "--",
+            "--mode",
+            "smoke"
+          ],
+          "duration_seconds": 0.9899654999999967,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_SELF_REPORT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"canonical_state_digest\":\"f791447d848b039f1b145cc96594d51e44cfc82ba7a3f7b432f77bc9d68b3e8c\",\"canonical_ticks\":5,\"presentation_authority_dependencies\":0,\"provider\":{\"class\":\"VoxelBuffer\",\"edition\":\"v1.7x\",\"lane\":\"zylann-voxel-tools-gdextension\",\"ready\":true},\"provider_operation\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":97,\"semantic_id\":\"block.leyforge.stone\"},\"role\":\"headless\",\"schema_version\":\"prd07-w0-runtime-self-report-v1\",\"status\":\"PASS\",\"world_id\":\"world.leyforge.w0.00007001\",\"world_session_id\":\"world-session.leyforge.00007001.primary\"}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-70",
+        "role": "headless",
+        "run_id": "PRD07-RUN-0001"
+      },
+      "workspace": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\project"
+    }
+  ],
+  "metrics": {
+    "all_clean_exports": true,
+    "all_provider_runtimes_included": true,
+    "all_smoke_lanes_evidence_eligible": true,
+    "clean_builds_per_lane": {
+      "client": 3,
+      "headless": 3
+    },
+    "forge_tool_artifact": "NOT-YET-APPLICABLE",
+    "real_artifact_count": 6,
+    "runtime_self_report_digest_count": 1
+  },
+  "observations": [
+    "Client and dedicated/headless roles used explicit distinct build identities.",
+    "Semantic common input produced one canonical runtime digest across all six artifacts."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-70",
+  "run_id": "PRD07-RUN-0001",
+  "schema_version": "prd07-w0-export-matrix-result-v1"
+}

@@ -1,0 +1,2417 @@
+{
+  "metrics": {
+    "clean_exported_server_runs": 20,
+    "client_comparison_runs": 20,
+    "failed_pairs": 0,
+    "presentation_authority_dependencies": 0
+  },
+  "observations": [
+    "Twenty fresh dedicated processes matched twenty client-role runs for the same seeded canonical scenario."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-11",
+  "run_id": "PRD07-RUN-0012",
+  "run_pairs": [
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.346,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.1309041000000093,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.346,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.334,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2713707000000056,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.334,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 1,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.344,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0788735000000003,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.344,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.331,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.265960800000002,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.331,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 2,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.351,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.079758599999991,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.351,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.314,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2695711000000074,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.314,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 3,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.345,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0481596999999994,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.345,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.33,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2666140000000041,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.33,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 4,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.348,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0612804000000011,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.348,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.33,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2659373000000045,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.33,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 5,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.356,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0691915000000023,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.356,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.327,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.26571429999999907,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.327,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 6,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.343,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0639989999999955,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.343,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.318,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2683111999999994,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.318,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 7,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.347,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.061172599999992,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.347,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.338,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2684925000000078,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.338,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 8,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.346,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0587911000000076,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.346,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.336,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2683837000000153,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.336,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 9,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.349,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0591212999999868,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.349,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.327,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.26712809999997944,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.327,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 10,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.35,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0695612000000096,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.35,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.331,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.26758339999997816,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.331,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 11,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.346,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0436435000000017,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.346,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.324,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2680422000000249,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.324,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 12,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.34,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.063876300000004,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.34,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.326,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.27572620000000825,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.326,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 13,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.343,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.069288400000005,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.343,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.323,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2669693999999936,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.323,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 14,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.346,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0690933999999856,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.346,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.324,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2679286999999988,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.324,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 15,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.348,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0464749999999867,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.348,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.325,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.26660090000001446,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.325,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 16,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.347,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0652103000000182,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.347,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.326,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2680625000000134,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.326,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 17,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.347,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0626417999999944,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.347,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.329,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.26903420000002143,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.329,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 18,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.361,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0742658000000063,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.361,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.339,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.26649119999999016,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.339,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 19,
+      "same_canonical_digest": true
+    },
+    {
+      "client_comparison": {
+        "observed": {
+          "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+          "duration_ms": 0.342,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-client",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 1.0404020000000003,
+            "exit_code": 0,
+            "stderr": "ERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\nERROR: Condition \"err != OK\" is true.\n   at: initialize (drivers/gles3/shader_gles3.cpp:802)\n",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.342,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "client",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "headless": {
+        "observed": {
+          "build_identity": "50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030",
+          "duration_ms": 0.34,
+          "metrics": {
+            "before_digest": "1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49",
+            "canonical_state_digest": "1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820",
+            "presentation_authority_dependencies": 0,
+            "provider_result": {
+              "buffer_size": "(4, 4, 4)",
+              "canonical_value": 11,
+              "classification": "SUCCESS",
+              "provider_local_id": 61,
+              "semantic_id": "block.leyforge.stone"
+            },
+            "resource_load_errors": 0,
+            "scene_tree_authority_dependencies": 0,
+            "seed": 1111,
+            "ticks_advanced": 100
+          },
+          "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+          "observations": [
+            "The exported process advanced canonical state without renderer, UI, audio, or presentation authority."
+          ],
+          "outcome": "PASS",
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012",
+          "schema_version": "prd07-w0-observed-result-v1"
+        },
+        "process": {
+          "eligibility_issues": [],
+          "evidence_eligible": true,
+          "lane_id": "PRD04-PROOF-11-headless",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\headless-03\\output\\leyforge-w0-headless-03.exe",
+              "--headless",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-11",
+              "--run-id",
+              "PRD07-RUN-0012"
+            ],
+            "duration_seconds": 0.2673983999999905,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_RESULT {\"build_identity\":\"50d97a8539d1d6fc3ad5b0e26d23ce9b74f589cf28e1d68f17228402a6aaa030\",\"duration_ms\":0.34,\"metrics\":{\"before_digest\":\"1e48dc20b2ed4758dbb444c018be1ff4e7690d1b97dc5f4ee2ce41898a3d6f49\",\"canonical_state_digest\":\"1eebc98a640598bdf1284a42bc0b2268e7135600a4c085eecbfdce172f79e820\",\"presentation_authority_dependencies\":0,\"provider_result\":{\"buffer_size\":\"(4, 4, 4)\",\"canonical_value\":11,\"classification\":\"SUCCESS\",\"provider_local_id\":61,\"semantic_id\":\"block.leyforge.stone\"},\"resource_load_errors\":0,\"scene_tree_authority_dependencies\":0,\"seed\":1111,\"ticks_advanced\":100},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"The exported process advanced canonical state without renderer, UI, audio, or presentation authority.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-11\",\"role\":\"headless\",\"run_id\":\"PRD07-RUN-0012\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+            "terminated_externally": false,
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-11",
+          "role": "headless",
+          "run_id": "PRD07-RUN-0012"
+        }
+      },
+      "passed": true,
+      "repetition": 20,
+      "same_canonical_digest": true
+    }
+  ],
+  "schema_version": "prd07-w0-headless-world-session-result-v1"
+}

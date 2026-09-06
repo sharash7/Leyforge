@@ -1,0 +1,49 @@
+{
+  "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+  "duration_ms": 27.186,
+  "metrics": {
+    "canonical_identity_errors": 0,
+    "conversion_count": 10000,
+    "declared_active_tolerance": 0.0,
+    "declared_world_envelope": "+/-1000000000 canonical cells",
+    "extreme_points": 7,
+    "maximum_active_component": 1023.0,
+    "maximum_roundtrip_error": 0.0,
+    "save_reload_equal": true
+  },
+  "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+  "observations": [
+    "Canonical coordinates used integer cells; active-frame values remained bounded."
+  ],
+  "outcome": "PASS",
+  "process": {
+    "eligibility_issues": [],
+    "evidence_eligible": true,
+    "lane_id": "PRD04-PROOF-05-client",
+    "process": {
+      "argv": [
+        "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+        "--",
+        "--mode",
+        "proof",
+        "--proof-id",
+        "PRD04-PROOF-05",
+        "--run-id",
+        "PRD07-RUN-0010"
+      ],
+      "duration_seconds": 1.1094116999999954,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":27.186,\"metrics\":{\"canonical_identity_errors\":0,\"conversion_count\":10000,\"declared_active_tolerance\":0.0,\"declared_world_envelope\":\"+/-1000000000 canonical cells\",\"extreme_points\":7,\"maximum_active_component\":1023.0,\"maximum_roundtrip_error\":0.0,\"save_reload_equal\":true},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"Canonical coordinates used integer cells; active-frame values remained bounded.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-05\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0010\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "proof_id": "PRD04-PROOF-05",
+    "role": "client",
+    "run_id": "PRD07-RUN-0010"
+  },
+  "proof_id": "PRD04-PROOF-05",
+  "role": "client",
+  "run_id": "PRD07-RUN-0010",
+  "schema_version": "prd07-w0-observed-result-v1"
+}

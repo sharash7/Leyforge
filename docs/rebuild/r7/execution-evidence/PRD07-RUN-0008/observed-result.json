@@ -1,0 +1,78 @@
+{
+  "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+  "duration_ms": 0.517,
+  "metrics": {
+    "alternate_edition": "NOT-YET-APPLICABLE",
+    "claimed_lanes": 2,
+    "cycles_per_claimed_lane": 20,
+    "fake": {
+      "canonical_result_digest": "e436eb63039900ebec870b66ccc6529ecbe34ea48919265c79d645ab350415ba",
+      "classifications": {
+        "DELAYED-SUCCESS": 20,
+        "NOT-READY": 20,
+        "PROVIDER-ERROR": 20,
+        "SUCCESS": 20
+      },
+      "failures": 0,
+      "lane": "deterministic-fake",
+      "provider_identity": {
+        "edition": "fixture",
+        "lane": "deterministic-fake",
+        "ready": true
+      }
+    },
+    "provider_specific_type_leakage_count": 0,
+    "real": {
+      "canonical_result_digest": "e436eb63039900ebec870b66ccc6529ecbe34ea48919265c79d645ab350415ba",
+      "classifications": {
+        "DELAYED-SUCCESS": 20,
+        "NOT-READY": 20,
+        "PROVIDER-ERROR": 20,
+        "SUCCESS": 20
+      },
+      "failures": 0,
+      "lane": "zylann-v1.7x-gdextension",
+      "provider_identity": {
+        "class": "VoxelBuffer",
+        "edition": "v1.7x",
+        "lane": "zylann-voxel-tools-gdextension",
+        "ready": true
+      }
+    }
+  },
+  "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+  "observations": [
+    "Provider failures stayed explicit and did not rewrite canonical semantics."
+  ],
+  "outcome": "PASS",
+  "process": {
+    "eligibility_issues": [],
+    "evidence_eligible": true,
+    "lane_id": "PRD04-PROOF-03-client",
+    "process": {
+      "argv": [
+        "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+        "--",
+        "--mode",
+        "proof",
+        "--proof-id",
+        "PRD04-PROOF-03",
+        "--run-id",
+        "PRD07-RUN-0008"
+      ],
+      "duration_seconds": 1.1017537000000033,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.517,\"metrics\":{\"alternate_edition\":\"NOT-YET-APPLICABLE\",\"claimed_lanes\":2,\"cycles_per_claimed_lane\":20,\"fake\":{\"canonical_result_digest\":\"e436eb63039900ebec870b66ccc6529ecbe34ea48919265c79d645ab350415ba\",\"classifications\":{\"DELAYED-SUCCESS\":20,\"NOT-READY\":20,\"PROVIDER-ERROR\":20,\"SUCCESS\":20},\"failures\":0,\"lane\":\"deterministic-fake\",\"provider_identity\":{\"edition\":\"fixture\",\"lane\":\"deterministic-fake\",\"ready\":true}},\"provider_specific_type_leakage_count\":0,\"real\":{\"canonical_result_digest\":\"e436eb63039900ebec870b66ccc6529ecbe34ea48919265c79d645ab350415ba\",\"classifications\":{\"DELAYED-SUCCESS\":20,\"NOT-READY\":20,\"PROVIDER-ERROR\":20,\"SUCCESS\":20},\"failures\":0,\"lane\":\"zylann-v1.7x-gdextension\",\"provider_identity\":{\"class\":\"VoxelBuffer\",\"edition\":\"v1.7x\",\"lane\":\"zylann-voxel-tools-gdextension\",\"ready\":true}}},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"Provider failures stayed explicit and did not rewrite canonical semantics.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-03\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0008\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "proof_id": "PRD04-PROOF-03",
+    "role": "client",
+    "run_id": "PRD07-RUN-0008"
+  },
+  "proof_id": "PRD04-PROOF-03",
+  "role": "client",
+  "run_id": "PRD07-RUN-0008",
+  "schema_version": "prd07-w0-observed-result-v1"
+}

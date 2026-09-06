@@ -1,0 +1,48 @@
+{
+  "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+  "duration_ms": 8.267,
+  "metrics": {
+    "final_authoritative_digest": "c608eaa75183022e322c4081c4d439df24c01657ca00568c34378c6a2127551c",
+    "final_read_model_digest": "83db5f829f110e430b61080fc87069a623482f94fd2703586c43ed270a55f9df",
+    "missing_or_extra_entries": 0,
+    "query_result_mismatches": 0,
+    "rebuild_count": 100,
+    "revision_convergence_failures": 0,
+    "worker_order_seed": 8738
+  },
+  "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+  "observations": [
+    "Destroyed and stale read models were rebuilt only from authoritative state."
+  ],
+  "outcome": "PASS",
+  "process": {
+    "eligibility_issues": [],
+    "evidence_eligible": true,
+    "lane_id": "PRD04-PROOF-22-client",
+    "process": {
+      "argv": [
+        "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+        "--",
+        "--mode",
+        "proof",
+        "--proof-id",
+        "PRD04-PROOF-22",
+        "--run-id",
+        "PRD07-RUN-0007"
+      ],
+      "duration_seconds": 1.091341799999995,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":8.267,\"metrics\":{\"final_authoritative_digest\":\"c608eaa75183022e322c4081c4d439df24c01657ca00568c34378c6a2127551c\",\"final_read_model_digest\":\"83db5f829f110e430b61080fc87069a623482f94fd2703586c43ed270a55f9df\",\"missing_or_extra_entries\":0,\"query_result_mismatches\":0,\"rebuild_count\":100,\"revision_convergence_failures\":0,\"worker_order_seed\":8738},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"Destroyed and stale read models were rebuilt only from authoritative state.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-22\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0007\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "proof_id": "PRD04-PROOF-22",
+    "role": "client",
+    "run_id": "PRD07-RUN-0007"
+  },
+  "proof_id": "PRD04-PROOF-22",
+  "role": "client",
+  "run_id": "PRD07-RUN-0007",
+  "schema_version": "prd07-w0-observed-result-v1"
+}

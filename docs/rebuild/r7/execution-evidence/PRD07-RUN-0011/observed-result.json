@@ -1,0 +1,57 @@
+{
+  "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+  "duration_ms": 33.158,
+  "metrics": {
+    "after_digest": "c2c7c94739dc1125fe1266750886e60097186a7d46e885e6070046465cd844e3",
+    "before_digest": "c2c7c94739dc1125fe1266750886e60097186a7d46e885e6070046465cd844e3",
+    "declared_projection_tolerance": 0.0,
+    "duplicate_movement_count": 0,
+    "interactive_cases": [
+      "idle",
+      "movement",
+      "pending-work",
+      "provider-work",
+      "back-and-forth",
+      "save-load-boundary"
+    ],
+    "maximum_relative_error": 0.0,
+    "stale_work_commits": 0,
+    "stale_work_rejections": 10000,
+    "synthetic_rebase_count": 10000
+  },
+  "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+  "observations": [
+    "Every pre-rebase proposal was rejected by frame epoch; canonical truth was unchanged."
+  ],
+  "outcome": "PASS",
+  "process": {
+    "eligibility_issues": [],
+    "evidence_eligible": true,
+    "lane_id": "PRD04-PROOF-06-client",
+    "process": {
+      "argv": [
+        "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+        "--",
+        "--mode",
+        "proof",
+        "--proof-id",
+        "PRD04-PROOF-06",
+        "--run-id",
+        "PRD07-RUN-0011"
+      ],
+      "duration_seconds": 1.103645599999993,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":33.158,\"metrics\":{\"after_digest\":\"c2c7c94739dc1125fe1266750886e60097186a7d46e885e6070046465cd844e3\",\"before_digest\":\"c2c7c94739dc1125fe1266750886e60097186a7d46e885e6070046465cd844e3\",\"declared_projection_tolerance\":0.0,\"duplicate_movement_count\":0,\"interactive_cases\":[\"idle\",\"movement\",\"pending-work\",\"provider-work\",\"back-and-forth\",\"save-load-boundary\"],\"maximum_relative_error\":0.0,\"stale_work_commits\":0,\"stale_work_rejections\":10000,\"synthetic_rebase_count\":10000},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"Every pre-rebase proposal was rejected by frame epoch; canonical truth was unchanged.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-06\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0011\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "proof_id": "PRD04-PROOF-06",
+    "role": "client",
+    "run_id": "PRD07-RUN-0011"
+  },
+  "proof_id": "PRD04-PROOF-06",
+  "role": "client",
+  "run_id": "PRD07-RUN-0011",
+  "schema_version": "prd07-w0-observed-result-v1"
+}

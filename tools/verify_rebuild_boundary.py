@@ -1,6 +1,7 @@
 """Read-only clean-rebuild boundary validation; Python standard library only."""
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -176,26 +177,26 @@ patterns = {
     'archive_or_generator': r'archive/|archive-evidence|generate_settlement|update_production_roadmap|legacy-poc',
 }
 matches = []
-for path in sorted(root.rglob('*')):
-    rel = path.relative_to(root).as_posix()
-    if rel.startswith(('.git/','.local/','__pycache__/')) or '__pycache__' in path.parts:
-        continue
-    if path.is_dir():
-        continue
-    check(not path.is_symlink(), 'Unexpected filesystem link: '+rel)
-    allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'}
-    check(allowed, 'Unadmitted active path: '+rel)
-    executable = path.suffix.lower() in {'.gd','.gdshader','.tscn','.tres','.res','.exe','.dll','.pck','.ps1','.bat','.cmd','.py'}
-    brain_tool = rel.startswith('brain/92_SCRIPTS/') and path.suffix.lower() == '.py'
-    check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool or rel in w0_admitted_paths or rel in r7_admitted_paths, 'Legacy executable/resource admitted: '+rel)
-    if path.suffix.lower() not in {'.md','.json','.txt','.csv','.py'} or rel.endswith('leakage-result.json'):
-        continue
-    content = path.read_text(encoding='utf-8-sig',errors='replace')
-    hits = {name:len(re.findall(pattern,content,re.I)) for name,pattern in patterns.items()}
-    hits = {name:count for name,count in hits.items() if count}
-    if hits:
-        classification = 'current_authority_or_historical_source_citation' if rel in expected_docs else 'historical_archive_evidence' if rel.startswith('docs/rebuild/archive-evidence/') else 'bootstrap_retirement_record_or_boundary_enforcement'
-        matches.append(dict(path=rel, classification=classification, categories=hits, runtime_inclusion=False))
+ignored_walk_dirs = {'.git', '.local', '__pycache__'}
+for directory, dirnames, filenames in os.walk(root, topdown=True):
+    dirnames[:] = sorted(name for name in dirnames if name not in ignored_walk_dirs)
+    for filename in sorted(filenames):
+        path = Path(directory) / filename
+        rel = path.relative_to(root).as_posix()
+        check(not path.is_symlink(), 'Unexpected filesystem link: '+rel)
+        allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'}
+        check(allowed, 'Unadmitted active path: '+rel)
+        executable = path.suffix.lower() in {'.gd','.gdshader','.tscn','.tres','.res','.exe','.dll','.pck','.ps1','.bat','.cmd','.py'}
+        brain_tool = rel.startswith('brain/92_SCRIPTS/') and path.suffix.lower() == '.py'
+        check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool or rel in w0_admitted_paths or rel in r7_admitted_paths, 'Legacy executable/resource admitted: '+rel)
+        if path.suffix.lower() not in {'.md','.json','.txt','.csv','.py'} or rel.endswith('leakage-result.json'):
+            continue
+        content = path.read_text(encoding='utf-8-sig',errors='replace')
+        hits = {name:len(re.findall(pattern,content,re.I)) for name,pattern in patterns.items()}
+        hits = {name:count for name,count in hits.items() if count}
+        if hits:
+            classification = 'current_authority_or_historical_source_citation' if rel in expected_docs else 'historical_archive_evidence' if rel.startswith('docs/rebuild/archive-evidence/') else 'bootstrap_retirement_record_or_boundary_enforcement'
+            matches.append(dict(path=rel, classification=classification, categories=hits, runtime_inclusion=False))
 check(not (root/'project.godot').exists(), 'Unexpected Godot runtime entry point')
 for name in ['addons','assets','content','data','generated','scripts','development','.profiles','.tmp']:
     check(not (root/name).exists(), 'Retired root remains: '+name)

@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -52,6 +54,30 @@ class R7W0RuntimeTests(unittest.TestCase):
         self.assertEqual(13, len(set(evidence)))
         self.assertEqual([f"PRD07-RUN-{index:04d}" for index in range(1, 14)], runs)
         self.assertEqual([f"PRD07-EVID-{index:04d}" for index in range(1, 14)], evidence)
+
+    def test_admission_cli_dispatches_without_writing(self) -> None:
+        result = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "tools.r7_w0_runtime",
+                "admission",
+                "--implementation-commit",
+                "7e28c92e2c656b1afcbf96c75c3b969edf74494e",
+                "--format",
+                "json",
+            ],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+        )
+        self.assertEqual(0, result.returncode, result.stderr or result.stdout)
+        report = json.loads(result.stdout)
+        self.assertEqual("PASS", report["status"])
+        self.assertEqual(
+            "7e28c92e2c656b1afcbf96c75c3b969edf74494e",
+            report["implementation_commit"],
+        )
 
     def test_execution_state_is_valid_when_present(self) -> None:
         path = ROOT / "docs/rebuild/r7/w0-execution-state.json"

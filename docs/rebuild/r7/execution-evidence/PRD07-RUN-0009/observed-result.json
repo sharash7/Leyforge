@@ -1,0 +1,402 @@
+{
+  "build_identity": "b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d",
+  "duration_ms": 0.243,
+  "metrics": {
+    "case_failures": 0,
+    "case_results": 42,
+    "claimed_provider_lanes": [
+      "zylann-v1.7x-gdextension",
+      "deterministic-fake"
+    ],
+    "contract_cases": [
+      "normal",
+      "delayed",
+      "not-ready",
+      "failure",
+      "runtime-id-remap",
+      "lifecycle",
+      "export-load"
+    ],
+    "matrix": [
+      {
+        "case": "normal",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "normal",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "normal",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "delayed",
+        "expected": "DELAYED-SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "DELAYED-SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "delayed",
+        "expected": "DELAYED-SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "DELAYED-SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "delayed",
+        "expected": "DELAYED-SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "DELAYED-SUCCESS",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "not-ready",
+        "expected": "NOT-READY",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "NOT-READY",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "not-ready",
+        "expected": "NOT-READY",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "NOT-READY",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "not-ready",
+        "expected": "NOT-READY",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "NOT-READY",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "failure",
+        "expected": "PROVIDER-ERROR",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "PROVIDER-ERROR",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "failure",
+        "expected": "PROVIDER-ERROR",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "PROVIDER-ERROR",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "failure",
+        "expected": "PROVIDER-ERROR",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "PROVIDER-ERROR",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "runtime-id-remap",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "runtime-id-remap",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "runtime-id-remap",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "lifecycle",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "lifecycle",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "lifecycle",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "export-load",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "export-load",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "export-load",
+        "expected": "SUCCESS",
+        "lane": "zylann-v1.7x-gdextension",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "normal",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "normal",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "normal",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "delayed",
+        "expected": "DELAYED-SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "DELAYED-SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "delayed",
+        "expected": "DELAYED-SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "DELAYED-SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "delayed",
+        "expected": "DELAYED-SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "DELAYED-SUCCESS",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "not-ready",
+        "expected": "NOT-READY",
+        "lane": "deterministic-fake",
+        "observed": "NOT-READY",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "not-ready",
+        "expected": "NOT-READY",
+        "lane": "deterministic-fake",
+        "observed": "NOT-READY",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "not-ready",
+        "expected": "NOT-READY",
+        "lane": "deterministic-fake",
+        "observed": "NOT-READY",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "failure",
+        "expected": "PROVIDER-ERROR",
+        "lane": "deterministic-fake",
+        "observed": "PROVIDER-ERROR",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "failure",
+        "expected": "PROVIDER-ERROR",
+        "lane": "deterministic-fake",
+        "observed": "PROVIDER-ERROR",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "failure",
+        "expected": "PROVIDER-ERROR",
+        "lane": "deterministic-fake",
+        "observed": "PROVIDER-ERROR",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "runtime-id-remap",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "runtime-id-remap",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "runtime-id-remap",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "lifecycle",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "lifecycle",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "lifecycle",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 2
+      },
+      {
+        "case": "export-load",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 0
+      },
+      {
+        "case": "export-load",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 1
+      },
+      {
+        "case": "export-load",
+        "expected": "SUCCESS",
+        "lane": "deterministic-fake",
+        "observed": "SUCCESS",
+        "passed": true,
+        "repetition": 2
+      }
+    ],
+    "repetitions_per_case": 3,
+    "unsupported_features": [
+      {
+        "lane": "alternate-module-edition",
+        "reason": "No governed module build is claimed by this W0 package.",
+        "status": "NOT-YET-APPLICABLE"
+      }
+    ]
+  },
+  "normalization_schema": "leyforge-r7-w0-semantic-state-v1",
+  "observations": [
+    "All claimed lanes reported explicit success, delay, readiness, and failure classifications."
+  ],
+  "outcome": "PASS",
+  "process": {
+    "eligibility_issues": [],
+    "evidence_eligible": true,
+    "lane_id": "PRD04-PROOF-67-client",
+    "process": {
+      "argv": [
+        "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-execution-7e28c92\\builds\\client-03\\output\\leyforge-w0-client-03.exe",
+        "--",
+        "--mode",
+        "proof",
+        "--proof-id",
+        "PRD04-PROOF-67",
+        "--run-id",
+        "PRD07-RUN-0009"
+      ],
+      "duration_seconds": 1.0893775999999917,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_RESULT {\"build_identity\":\"b46fea0d1ed217695ffa4d10fd3cf0edb17e9e470840ea666dc659c54d21297d\",\"duration_ms\":0.243,\"metrics\":{\"case_failures\":0,\"case_results\":42,\"claimed_provider_lanes\":[\"zylann-v1.7x-gdextension\",\"deterministic-fake\"],\"contract_cases\":[\"normal\",\"delayed\",\"not-ready\",\"failure\",\"runtime-id-remap\",\"lifecycle\",\"export-load\"],\"matrix\":[{\"case\":\"normal\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"normal\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"normal\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":2},{\"case\":\"delayed\",\"expected\":\"DELAYED-SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"DELAYED-SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"delayed\",\"expected\":\"DELAYED-SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"DELAYED-SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"delayed\",\"expected\":\"DELAYED-SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"DELAYED-SUCCESS\",\"passed\":true,\"repetition\":2},{\"case\":\"not-ready\",\"expected\":\"NOT-READY\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"NOT-READY\",\"passed\":true,\"repetition\":0},{\"case\":\"not-ready\",\"expected\":\"NOT-READY\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"NOT-READY\",\"passed\":true,\"repetition\":1},{\"case\":\"not-ready\",\"expected\":\"NOT-READY\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"NOT-READY\",\"passed\":true,\"repetition\":2},{\"case\":\"failure\",\"expected\":\"PROVIDER-ERROR\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"PROVIDER-ERROR\",\"passed\":true,\"repetition\":0},{\"case\":\"failure\",\"expected\":\"PROVIDER-ERROR\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"PROVIDER-ERROR\",\"passed\":true,\"repetition\":1},{\"case\":\"failure\",\"expected\":\"PROVIDER-ERROR\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"PROVIDER-ERROR\",\"passed\":true,\"repetition\":2},{\"case\":\"runtime-id-remap\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"runtime-id-remap\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"runtime-id-remap\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":2},{\"case\":\"lifecycle\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"lifecycle\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"lifecycle\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":2},{\"case\":\"export-load\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"export-load\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"export-load\",\"expected\":\"SUCCESS\",\"lane\":\"zylann-v1.7x-gdextension\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":2},{\"case\":\"normal\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"normal\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"normal\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":2},{\"case\":\"delayed\",\"expected\":\"DELAYED-SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"DELAYED-SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"delayed\",\"expected\":\"DELAYED-SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"DELAYED-SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"delayed\",\"expected\":\"DELAYED-SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"DELAYED-SUCCESS\",\"passed\":true,\"repetition\":2},{\"case\":\"not-ready\",\"expected\":\"NOT-READY\",\"lane\":\"deterministic-fake\",\"observed\":\"NOT-READY\",\"passed\":true,\"repetition\":0},{\"case\":\"not-ready\",\"expected\":\"NOT-READY\",\"lane\":\"deterministic-fake\",\"observed\":\"NOT-READY\",\"passed\":true,\"repetition\":1},{\"case\":\"not-ready\",\"expected\":\"NOT-READY\",\"lane\":\"deterministic-fake\",\"observed\":\"NOT-READY\",\"passed\":true,\"repetition\":2},{\"case\":\"failure\",\"expected\":\"PROVIDER-ERROR\",\"lane\":\"deterministic-fake\",\"observed\":\"PROVIDER-ERROR\",\"passed\":true,\"repetition\":0},{\"case\":\"failure\",\"expected\":\"PROVIDER-ERROR\",\"lane\":\"deterministic-fake\",\"observed\":\"PROVIDER-ERROR\",\"passed\":true,\"repetition\":1},{\"case\":\"failure\",\"expected\":\"PROVIDER-ERROR\",\"lane\":\"deterministic-fake\",\"observed\":\"PROVIDER-ERROR\",\"passed\":true,\"repetition\":2},{\"case\":\"runtime-id-remap\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"runtime-id-remap\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"runtime-id-remap\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":2},{\"case\":\"lifecycle\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"lifecycle\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"lifecycle\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":2},{\"case\":\"export-load\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":0},{\"case\":\"export-load\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":1},{\"case\":\"export-load\",\"expected\":\"SUCCESS\",\"lane\":\"deterministic-fake\",\"observed\":\"SUCCESS\",\"passed\":true,\"repetition\":2}],\"repetitions_per_case\":3,\"unsupported_features\":[{\"lane\":\"alternate-module-edition\",\"reason\":\"No governed module build is claimed by this W0 package.\",\"status\":\"NOT-YET-APPLICABLE\"}]},\"normalization_schema\":\"leyforge-r7-w0-semantic-state-v1\",\"observations\":[\"All claimed lanes reported explicit success, delay, readiness, and failure classifications.\"],\"outcome\":\"PASS\",\"proof_id\":\"PRD04-PROOF-67\",\"role\":\"client\",\"run_id\":\"PRD07-RUN-0009\",\"schema_version\":\"prd07-w0-observed-result-v1\"}\n",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "proof_id": "PRD04-PROOF-67",
+    "role": "client",
+    "run_id": "PRD07-RUN-0009"
+  },
+  "proof_id": "PRD04-PROOF-67",
+  "role": "client",
+  "run_id": "PRD07-RUN-0009",
+  "schema_version": "prd07-w0-observed-result-v1"
+}
