@@ -16,14 +16,19 @@ related_to:
   - "WORK-20260906-001"
   - "WORK-20260906-002"
   - "WORK-20260906-003"
+  - "WORK-20260906-004"
   - "GOV-DEBT-0007"
   - "TEST-GOVERNANCE-R6"
   - "EVID-0003"
   - "EVID-0004"
+  - "EVID-0005"
   - "AUDIT-0003"
   - "AUDIT-0004"
+  - "AUDIT-0005"
   - "CHANGE-20260906-003"
-  - "HANDOFF-20260906-003"
+  - "CHANGE-20260906-004"
+  - "HANDOFF-20260906-004"
+  - "ADR-0008"
 ---
 
 # Engineering Governance Health
@@ -36,7 +41,7 @@ related_to:
 - Governance metadata and references: active.
 - Waiver expiry: active.
 - Stable build, focused-test and full-validation entrypoints: active.
-- CI: active.
+- CI: active; both workflows passed after the portable generated-source hash repair at `263e3f1810c08c1cd0197cc140fed5d6f45fbb16`.
 - Brain integration: active.
 
 ## R6 Operating Pilot
@@ -51,12 +56,20 @@ related_to:
 ## R7 PRD-07 Intake Certification
 
 - Exact source admission: certified PASS at implementation commit `e1ab8d28984ac022f49133d21059ed1502c8b081`.
-- Full acceptance suite: 45/45 PASS.
-- Brain and Governance Doctors, controlled ingestion, index drift, link validation and clean-rebuild boundary: PASS.
 - Controlled source corpus: 446 artifacts with five post-R3 admissions and zero active POC dependencies.
 - `DOC-PRD-07`: Markdown authority exposed as proposed; supporting handoff registered without a proxy.
-- Execution state: all 13 W0 proofs remain not started.
 - Evidence and audit: [[EVID-0004]] and [[AUDIT-0004]].
+
+## R7 W0 Harness Bootstrap Certification
+
+- Exact implementation commit: `502604abfe36bf7cd654c688fba4a03ac649baf4`.
+- Stable verification: 46/46 Brain/governance/R6 tests plus 28/28 W0 tests PASS.
+- Brain and Governance Doctors, controlled ingestion, index drift, link validation and clean-rebuild boundary: PASS.
+- Architecture lint: 15 harness Python files, six rules and zero violations; the seeded forbidden dependency is detected in its negative fixture.
+- Boundary: 24 exact hash-pinned development-tool paths; zero active POC dependencies.
+- Readiness: 13 `HARNESS-BLOCKED`, zero `READY`, zero proof-run IDs and zero proof-evidence IDs.
+- [[ADR-0008]]: proposed, not accepted.
+- Evidence and audit: [[EVID-0005]] and [[AUDIT-0005]].
 
 ## Later Activation Milestones
 
@@ -66,4 +79,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 continues through [[HANDOFF-20260906-003]] with the reusable W0 harness bootstrap next. R8 gameplay permission remains closed. Planned validators do not claim active protection before their owning system exists.
+R7 continues through [[HANDOFF-20260906-004]] with dependency/export readiness next. R8 gameplay permission remains closed. Planned validators do not claim active protection before their owning system exists.

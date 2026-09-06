@@ -1,18 +1,20 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active work:** `WORK-20260906-004`
+**Last completed work:** `WORK-20260906-004`.
 
-**State:** ACTIVE — PRD-07 intake is certified; the reusable W0 harness bootstrap is implemented and awaiting exact-commit certification.
+**State:** ACTIVE — PRD-07 intake and the reusable W0 harness bootstrap are complete and certified; PRD-07 proof execution is not started.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
 **Package starting commit:** `263e3f1810c08c1cd0197cc140fed5d6f45fbb16`.
 
+**Certified W0 implementation commit:** `502604abfe36bf7cd654c688fba4a03ac649baf4`.
+
 **Gameplay permission:** CLOSED.
 
 ## PRD-07 Authority
 
-PRD-07 is complete as a theoretical/executable programme and its controlled intake is certified. Proof execution remains not started. Its 28/28 closure checks, 76 specified proofs and supporting risk/fixture edges do not constitute run evidence or PRD-08 evaluation.
+PRD-07 is complete as a theoretical/executable programme and its controlled intake is certified. Its 28/28 closure checks, 76 specified proofs and supporting risk/fixture edges do not constitute run evidence or PRD-08 evaluation.
 
 The governing sources are:
 
@@ -27,9 +29,9 @@ Commit `263e3f1810c08c1cd0197cc140fed5d6f45fbb16` fixed the generated-proxy hash
 
 ## W0 Harness Bootstrap
 
-[[TASK-20260906-004]] and [[WORK-20260906-004]] govern a Class C, development-only package. The ADR trigger required architecture coverage, so [[ADR-0008]] records the external standard-library harness boundary as **PROPOSED**. It is not accepted production architecture.
+[[TASK-20260906-004]] and [[WORK-20260906-004]] governed a Class C, development-only package. [[ADR-0008]] records the external standard-library harness boundary as **PROPOSED**; certification does not accept it as production architecture.
 
-The package implements:
+The certified package implements:
 
 - FIXTURE-01 semantic, world, session, canonical-coordinate and frame-epoch identity;
 - deterministic runtime-ID randomisation and reversible semantic projection;
@@ -48,7 +50,7 @@ The exact admitted tool/test set is SHA-256 pinned by `docs/rebuild/r7/w0-harnes
 
 ## Readiness Result
 
-`tools/proof_harness/w0-readiness.json` records the direct entry-prerequisite review:
+`tools/proof_harness/w0-readiness.json` records:
 
 - 13 W0 proofs: `HARNESS-BLOCKED`;
 - 0 W0 proofs: `READY`;
@@ -57,14 +59,25 @@ The exact admitted tool/test set is SHA-256 pinned by `docs/rebuild/r7/w0-harnes
 - allocated `PRD07-RUN-*` IDs: 0; and
 - allocated `PRD07-EVID-*` IDs: 0.
 
-The reusable contracts are implemented. Real proof execution remains blocked because the clean rebuild has no V1 runtime adapters, exact installed Godot/Zylann identities, provider candidates, client export or dedicated/headless export. Synthetic controller tests remain explicitly ineligible for PRD-07 evidence.
+Real proof execution remains blocked because the clean rebuild has no V1 runtime adapters, exact installed Godot/Zylann identities, provider candidates, client export or dedicated/headless export. Synthetic controller tests remain explicitly ineligible for PRD-07 evidence.
 
-## Current Verification
+## Certification
 
-Focused implementation verification passes 28 harness contract/integration tests. Architecture lint passes over the package, and the seeded prohibited dependency is detected with file, line and rule context. Build, focused and full worktree verification pass with the refreshed hash-pinned W0 admission manifest. Exact-commit certification remains to be recorded.
+[[EVID-0005]] and [[AUDIT-0005]] certify exact implementation commit `502604abfe36bf7cd654c688fba4a03ac649baf4`:
+
+- 46/46 Brain/governance/R6 tests PASS;
+- 28/28 W0 contract/integration tests PASS;
+- W0 self-check and architecture lint PASS;
+- Brain ingestion, generated indexes and links PASS;
+- Brain and Governance certification Doctors PASS;
+- 2,934 clean-rebuild boundary checks PASS;
+- 24 exact W0 paths admitted; and
+- zero active POC dependencies.
+
+The machine-readable receipt is `docs/rebuild/r7/w0-bootstrap-completion-receipt.json`.
 
 ## Boundary and Next Dependency
 
 R7 remains active. PRD-08 has no result. ADR-0001 through ADR-0008 remain proposed. DEP-GODOT and DEP-ZYLANN remain planned/uninstalled with unresolved provenance/licence state. [[CONFLICT-0002]] remains open. Branch D G5, later R7 waves and Branch C certification remain downstream.
 
-After W0 bootstrap certification, the next bounded action is dependency/export readiness for W0 Group A: govern exact Godot and Voxel Tools identities and establish real R7 proof-only client/headless export targets before any PROOF-70, PROOF-73 or PROOF-74 row can become READY. That action requires its own Task Contract and must not open R8 gameplay.
+Continue through [[HANDOFF-20260906-004]]. The next bounded action is dependency/export readiness for W0 Group A: govern exact Godot and Voxel Tools identities and establish real R7 proof-only client/headless export targets before any proof row can become READY. Begin that package under the next available `TASK-20260906-005` and `WORK-20260906-005` records. It must not open R8 gameplay.

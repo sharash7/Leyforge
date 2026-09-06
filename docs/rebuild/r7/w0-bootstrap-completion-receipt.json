@@ -1,0 +1,74 @@
+{
+  "receipt_version": 1,
+  "gate": "R7",
+  "package": "R7-W0-HARNESS",
+  "status": "W0_HARNESS_BOOTSTRAP_COMPLETE",
+  "certification": "PASS",
+  "branch": "codex/chore/brain-governance-pilot",
+  "starting_commit": "263e3f1810c08c1cd0197cc140fed5d6f45fbb16",
+  "implementation_commit": "502604abfe36bf7cd654c688fba4a03ac649baf4",
+  "task_contract": "TASK-20260906-004",
+  "work_record": "WORK-20260906-004",
+  "evidence": "EVID-0005",
+  "audit": "AUDIT-0005",
+  "change": "CHANGE-20260906-004",
+  "architecture_decision": {
+    "id": "ADR-0008",
+    "status": "PROPOSED",
+    "accepted": false
+  },
+  "ci_drift_repair": {
+    "commit": "263e3f1810c08c1cd0197cc140fed5d6f45fbb16",
+    "root_cause": "raw CRLF worktree hashing disagreed with Git LF clean-filtered blob identity",
+    "repair": "derive generated source hashes through git hash-object --stdin-paths"
+  },
+  "harness": {
+    "admission_manifest": "docs/rebuild/r7/w0-harness-boundary.json",
+    "admitted_paths": 24,
+    "tests": {
+      "passed": 28,
+      "total": 28
+    },
+    "architecture_lint": {
+      "scanned_python_files": 15,
+      "rules": 6,
+      "violations": 0
+    }
+  },
+  "implementation_certification": {
+    "brain_governance_r6_tests": {
+      "passed": 46,
+      "total": 46
+    },
+    "brain_records": 136,
+    "governance_records": 31,
+    "authority_sources": 23,
+    "templates": 12,
+    "clean_rebuild_checks": 2934,
+    "active_poc_dependencies": 0
+  },
+  "closeout_verification": {
+    "status": "PASS",
+    "brain_records": 140,
+    "governance_records": 32,
+    "authority_sources": 23,
+    "templates": 12,
+    "clean_rebuild_checks": 2949,
+    "active_poc_dependencies": 0
+  },
+  "proof_readiness": {
+    "w0_proofs": 13,
+    "harness_blocked": 13,
+    "ready": 0,
+    "allocated_run_ids": [],
+    "allocated_evidence_ids": []
+  },
+  "proof_execution": "NOT_STARTED",
+  "prd08_evaluated_results": 0,
+  "current_handoff": "HANDOFF-20260906-004",
+  "next_package": "R7-W0-DEPENDENCY-EXPORT-READINESS",
+  "next_available_task_contract": "TASK-20260906-005",
+  "next_available_work_record": "WORK-20260906-005",
+  "r7_status": "ACTIVE",
+  "gameplay_permission": "CLOSED"
+}

@@ -15,15 +15,20 @@ related_to:
   - "WORK-20260906-001"
   - "WORK-20260906-002"
   - "WORK-20260906-003"
+  - "WORK-20260906-004"
   - "AUDIT-0001"
   - "AUDIT-0002"
   - "AUDIT-0003"
   - "AUDIT-0004"
+  - "AUDIT-0005"
   - "EVID-0003"
   - "EVID-0004"
+  - "EVID-0005"
   - "CHANGE-20260906-002"
   - "CHANGE-20260906-003"
-  - "HANDOFF-20260906-003"
+  - "CHANGE-20260906-004"
+  - "HANDOFF-20260906-004"
+  - "ADR-0008"
   - "CONFLICT-0002"
 ---
 
@@ -37,9 +42,9 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active | PRD-07 intake complete and certified through [[WORK-20260906-003]], [[AUDIT-0004]] and [[EVID-0004]]; W0 not started |
+| R7 | Active | PRD-07 intake and W0 harness bootstrap complete/certified through [[WORK-20260906-004]], [[AUDIT-0005]] and [[EVID-0005]]; proof execution not started |
 | R8 gameplay | Closed | No production gameplay permission is open |
 
-The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. Semantic reconciliation remains selective and must follow the owning authorities.
+The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 development-tool boundary separately admits 24 exact hash-pinned harness/test paths and zero active POC dependencies.
 
-Continue through [[HANDOFF-20260906-003]] for the reusable W0 harness bootstrap. All 13 W0 proofs remain not started, and no run/evidence IDs have been allocated.
+Continue through [[HANDOFF-20260906-004]] for dependency/export readiness. All 13 W0 proofs remain `HARNESS-BLOCKED`, zero are `READY`, and no `PRD07-RUN-*` or `PRD07-EVID-*` ID has been allocated. [[ADR-0008]] remains proposed.

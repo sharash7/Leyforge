@@ -145,12 +145,21 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(r6_to_r7.metadata["next_gate"], "R7")
         self.assertEqual(r6_to_r7.metadata["supersedes"], "HANDOFF-20260906-001")
         self.assertEqual(r6_to_r7.metadata["superseded_by"], "HANDOFF-20260906-003")
+        r7_intake_to_w0 = self.by_id["HANDOFF-20260906-003"]
+        self.assertEqual(r7_intake_to_w0.metadata["status"], "superseded")
+        self.assertEqual(r7_intake_to_w0.metadata["from_work"], "WORK-20260906-003")
+        self.assertEqual(r7_intake_to_w0.metadata["next_gate"], "R7")
+        self.assertEqual(r7_intake_to_w0.metadata["next_package"], "R7-W0-HARNESS")
+        self.assertEqual(r7_intake_to_w0.metadata["supersedes"], "HANDOFF-20260906-002")
+        self.assertEqual(r7_intake_to_w0.metadata["superseded_by"], "HANDOFF-20260906-004")
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260906-003")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260906-004")
         self.assertEqual(handoff.metadata["next_gate"], "R7")
-        self.assertEqual(handoff.metadata["next_package"], "R7-W0-HARNESS")
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260906-002")
+        self.assertEqual(handoff.metadata["next_package"], "R7-W0-DEPENDENCY-EXPORT-READINESS")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260906-003")
+        self.assertIn("All 13 W0 proof specifications remain", handoff.body)
+        self.assertIn("no PRD-07 run/evidence ID exists", handoff.body)
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
             self.assertIn(f"## {heading}", handoff.body)
 
