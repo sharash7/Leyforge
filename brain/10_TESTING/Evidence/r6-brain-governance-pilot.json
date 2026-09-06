@@ -1,0 +1,135 @@
+{
+  "receipt_version": 1,
+  "gate": "R6",
+  "profile": "brain_governance_operating_pilot",
+  "generated_at": "2026-09-06T00:00:00+08:00",
+  "commit": "WORKTREE-PENDING-PUBLICATION",
+  "head_commit": "b7caa254fd14534d1d33ab11a1f0e7d978d4dc38",
+  "commit_matches_head": null,
+  "result": "PASS",
+  "tasks": [
+    {
+      "code": "A",
+      "title": "Authority lookup",
+      "status": "PASS",
+      "details": {
+        "owning_source": "ENG-GOV-11",
+        "owning_status": "theoretically_locked",
+        "historical_source": "SRC-LEGACY-POC-ARCHIVE",
+        "historical_status": "historical",
+        "supersession": "reciprocal"
+      }
+    },
+    {
+      "code": "B",
+      "title": "Work logging",
+      "status": "PASS",
+      "details": {
+        "work": "WORK-20260906-002",
+        "task": "TASK-20260906-002",
+        "risk_class": "B",
+        "next_ids": {
+          "brain_task": "TASK-20260906-003",
+          "governance_task": "TASK-20260906-003",
+          "governance_work": "WORK-20260906-003",
+          "governance_change": "CHANGE-20260906-002"
+        },
+        "undated_prefix": "REJECTED"
+      }
+    },
+    {
+      "code": "C",
+      "title": "ADR trigger recognition",
+      "status": "PASS",
+      "details": {
+        "synthetic_scenario": "ADR_REQUIRED",
+        "synthetic_disposition": "BLOCKED_PENDING_PROPOSED_ADR",
+        "synthetic_exit_code": 2,
+        "actual_change": "ADR_NOT_REQUIRED",
+        "actual_exit_code": 0,
+        "accepted_adr_created": false
+      }
+    },
+    {
+      "code": "D",
+      "title": "Governance violation and waiver routing",
+      "status": "PASS",
+      "details": {
+        "violation_diagnostic": "GOV-E024",
+        "unbounded_waiver_diagnostic": "GOV-E033",
+        "bounded_waiver": "PASS",
+        "gap_record": "GOV-DEBT-0007"
+      }
+    },
+    {
+      "code": "E",
+      "title": "Reusable Procedure promotion",
+      "status": "PASS",
+      "details": {
+        "procedure": "PROC-BRAIN-GOVERNANCE-PILOT",
+        "authority_role": "implementation_record"
+      }
+    },
+    {
+      "code": "F",
+      "title": "Stale Brain summary repair",
+      "status": "PASS",
+      "details": {
+        "stale_detected": true,
+        "repair": "PASS",
+        "source_of_truth": "validated Brain records"
+      }
+    },
+    {
+      "code": "G",
+      "title": "Legacy boundary",
+      "status": "PASS",
+      "details": {
+        "legacy_source": "SRC-LEGACY-POC-ARCHIVE",
+        "classification": "historical",
+        "current_authority": "DOC-REBUILD-00",
+        "current_authority_status": "unresolved",
+        "automatic_copy_forward": "REJECTED",
+        "gameplay_permission": "CLOSED"
+      }
+    }
+  ],
+  "pass_count": 7,
+  "task_count": 7,
+  "governance_debt": "GOV-DEBT-0007",
+  "procedure": "PROC-BRAIN-GOVERNANCE-PILOT",
+  "gameplay_permission": "CLOSED",
+  "full_verification": {
+    "status": "PASS",
+    "command": "C:\\Python39\\python.exe tools/verify.py --tier full --format json",
+    "exit_code": 0,
+    "command_count": 9,
+    "acceptance_tests": 45,
+    "brain_doctor": {
+      "status": "PASS",
+      "records": 124,
+      "diagnostics": {
+        "ERROR": 0,
+        "WARNING": 0,
+        "INFO": 1
+      }
+    },
+    "governance_doctor": {
+      "status": "PASS",
+      "authority_sources": 23,
+      "records": 24,
+      "templates": 12,
+      "diagnostics": {
+        "ERROR": 0,
+        "WARNING": 0,
+        "INFO": 0
+      }
+    },
+    "clean_rebuild_boundary": {
+      "status": "PASS",
+      "checks": 2617,
+      "controlled_sources": 444,
+      "active_poc_dependencies": 0
+    }
+  }
+}

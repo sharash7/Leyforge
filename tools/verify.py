@@ -31,8 +31,10 @@ def commands_for(tier: str) -> list[list[str]]:
         "py_compile",
         "brain/92_SCRIPTS/brain.py",
         "brain/92_SCRIPTS/governance.py",
+        "brain/92_SCRIPTS/r6_pilot.py",
         "brain/92_SCRIPTS/tests/test_brain.py",
         "brain/92_SCRIPTS/tests/test_governance.py",
+        "brain/92_SCRIPTS/tests/test_r6_pilot.py",
         "tools/verify.py",
         "tools/verify_rebuild_boundary.py",
     ]
@@ -42,6 +44,7 @@ def commands_for(tier: str) -> list[list[str]]:
         return [
             compile_command,
             [python, "brain/92_SCRIPTS/tests/test_governance.py", "-v"],
+            [python, "brain/92_SCRIPTS/tests/test_r6_pilot.py", "-v"],
             [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "full", "--format", "json"],
         ]
     return [
@@ -52,6 +55,7 @@ def commands_for(tier: str) -> list[list[str]]:
         [python, "brain/92_SCRIPTS/brain.py", "links", "--format", "json"],
         [python, "brain/92_SCRIPTS/brain.py", "doctor", "--profile", "certification", "--format", "json"],
         [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "certification", "--format", "json"],
+        [python, "brain/92_SCRIPTS/r6_pilot.py", "--check"],
         [python, "tools/verify_rebuild_boundary.py"],
     ]
 

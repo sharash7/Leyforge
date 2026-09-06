@@ -61,6 +61,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[DOC-PRD-04|DOC-PRD-04]] | document | draft | PRD-04 — Leyforge Architecture Boundary Study |
 | [[DOC-PRD-05|DOC-PRD-05]] | document | draft | PRD-05 — Leyforge Research Evidence Crosswalk |
 | [[DOC-PRD-06|DOC-PRD-06]] | document | draft | PRD-06 — Leyforge Technical Risk & Proof Register |
+| [[SRC-LEGACY-POC-ARCHIVE|SRC-LEGACY-POC-ARCHIVE]] | source | historical | Legacy POC archive and recovery evidence |
 | [[DOC-LF-BRAIN-01|DOC-LF-BRAIN-01]] | document | locked | LEYFORGE PROJECT BRAIN |
 | [[DOC-LF-BRAIN-02|DOC-LF-BRAIN-02]] | document | locked | LEYFORGE PROJECT BRAIN |
 | [[DOC-LF-BRAIN-03|DOC-LF-BRAIN-03]] | document | locked | LEYFORGE PROJECT BRAIN |

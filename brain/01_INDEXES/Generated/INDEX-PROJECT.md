@@ -27,6 +27,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[DASH-PROJECT-STATE|DASH-PROJECT-STATE]] | dashboard | active | Project State |
 | [[HANDOFF-20260906-001|HANDOFF-20260906-001]] | handoff | active | R5 Engineering Governance to R6 Operating Pilot Handoff |
 | [[HOME|HOME]] | home | active | Leyforge Project Brain |
+| [[WORK-20260906-002|WORK-20260906-002]] | work | active | Run the R6 Brain-to-governance operating pilot |
+| [[TASK-20260906-002|TASK-20260906-002]] | work_item | active | R6 Brain-to-governance operating pilot task contract |
 | [[WORK-20260905-004|WORK-20260905-004]] | work | complete | Bootstrap and certify Leyforge Project Brain v0.1 |
 | [[WORK-20260906-001|WORK-20260906-001]] | work | complete | Install and validate the R5 engineering governance bootstrap |
 | [[CHANGE-20260906-001|CHANGE-20260906-001]] | work_item | complete | Complete the R5 engineering governance bootstrap |

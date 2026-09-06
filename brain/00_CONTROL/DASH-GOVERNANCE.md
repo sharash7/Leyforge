@@ -14,6 +14,10 @@ depends_on:
   - "SYS-ENGINEERING-GOVERNANCE"
 related_to:
   - "WORK-20260906-001"
+  - "WORK-20260906-002"
+  - "GOV-DEBT-0007"
+  - "TEST-GOVERNANCE-R6"
+  - "EVID-0003"
 ---
 
 # Engineering Governance Health
@@ -28,6 +32,15 @@ related_to:
 - Stable build, focused-test and full-validation entrypoints: active.
 - CI: active.
 - Brain integration: active.
+
+## R6 Operating Pilot
+
+- Seven REBUILD-00 pilot paths: prepublication PASS.
+- Headless free-text authority lookup: active and tested.
+- Dated Work, Task and Change ID allocation: active and tested.
+- ADR-trigger, violation, waiver, stale-summary and legacy-boundary fixtures: PASS.
+- [[GOV-DEBT-0007]]: active verifying until exact-commit evidence.
+- [[PROC-BRAIN-GOVERNANCE-PILOT]]: testing until certified closeout.
 
 ## Later Activation Milestones
 

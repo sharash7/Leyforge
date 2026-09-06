@@ -810,6 +810,17 @@ def command_index(args: argparse.Namespace) -> int:
     return 0 if ok else 1
 
 
+def matches_text(needle: str | None, *values: Any) -> bool:
+    if not needle:
+        return True
+    tokens = [token.casefold() for token in re.findall(r"\S+", needle) if token]
+    haystack = "\n".join(
+        value if isinstance(value, str) else json.dumps(value, ensure_ascii=False, sort_keys=True)
+        for value in values
+    ).casefold()
+    return all(token in haystack for token in tokens)
+
+
 def command_query(args: argparse.Namespace) -> int:
     records, diagnostics = discover_records()
     if diagnostics:
@@ -826,6 +837,8 @@ def command_query(args: argparse.Namespace) -> int:
             continue
         if args.authority_domain and metadata.get("authority_domain") != args.authority_domain:
             continue
+        if not matches_text(args.text, metadata, record.body):
+            continue
         selected.append(
             {
                 "id": metadata.get("id"),
@@ -833,12 +846,16 @@ def command_query(args: argparse.Namespace) -> int:
                 "status": metadata.get("status"),
                 "title": metadata.get("title"),
                 "authority_domain": metadata.get("authority_domain"),
+                "authority_role": metadata.get("authority_role"),
+                "authority_status": metadata.get("authority_status"),
+                "source_status": metadata.get("source_status"),
+                "canonical_path": metadata.get("canonical_path"),
                 "path": record.relpath,
             }
         )
     selected.sort(key=lambda item: (str(item["type"]), str(item["status"]), str(item["id"])))
     print_result(selected, args.format)
-    return 0
+    return 0 if selected or not (args.id or args.text) else 1
 
 
 def command_id(args: argparse.Namespace) -> int:
@@ -854,7 +871,7 @@ def command_id(args: argparse.Namespace) -> int:
         match = re.fullmatch(re.escape(prefix) + r"-([0-9]+)", record_id)
         if match:
             values.append(int(match.group(1)))
-    width = 3 if prefix.startswith(("WORK-", "HANDOFF-")) else 4
+    width = 3 if re.fullmatch(r"(?:WORK|HANDOFF|TASK|CHANGE)-[0-9]{8}", prefix) else 4
     candidate = f"{prefix}-{max(values, default=0) + 1:0{width}d}"
     print(candidate)
     return 0
@@ -996,6 +1013,7 @@ def build_parser() -> argparse.ArgumentParser:
     doctor.set_defaults(func=command_doctor)
 
     query = subparsers.add_parser("query", help="query repository-backed Brain records")
+    query.add_argument("--text", help="case-insensitive text; all whitespace-separated terms must match")
     query.add_argument("--id")
     query.add_argument("--type")
     query.add_argument("--status")

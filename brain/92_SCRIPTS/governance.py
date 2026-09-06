@@ -452,21 +452,66 @@ def command_templates(args: argparse.Namespace) -> int:
 def command_query(args: argparse.Namespace) -> int:
     records, _ = governance_records()
     selected = []
+    sources = authority_sources()
+    source_ids = {item["id"] for item in sources}
+    include_sources = bool(
+        args.text
+        or args.id in source_ids
+        or args.record_type == "authority_source"
+        or args.status in set(SOURCE_STATUS.values())
+    )
+    if include_sources:
+        for source in sources:
+            if args.id and source["id"] != args.id:
+                continue
+            if args.record_type and args.record_type != "authority_source":
+                continue
+            if args.status and source["source_status"] != args.status:
+                continue
+            source_text = (REPO_ROOT / source["path"]).read_text(encoding="utf-8-sig", errors="replace")
+            if not brain.matches_text(args.text, source, source_text):
+                continue
+            selected.append(
+                {
+                    "kind": "authority_source",
+                    "id": source["id"],
+                    "record_type": "authority_source",
+                    "status": source["source_status"],
+                    "title": source["title"],
+                    "authority_role": source["authority_role"],
+                    "path": source["path"],
+                }
+            )
     for record in records:
         metadata = record.metadata
         if args.id and metadata.get("id") != args.id:
+            continue
+        if args.record_type == "authority_source":
             continue
         if args.record_type and metadata.get("record_type") != args.record_type:
             continue
         if args.status and governance_status(metadata) != args.status:
             continue
-        selected.append({"id": metadata.get("id"), "record_type": metadata.get("record_type"), "status": governance_status(metadata), "title": metadata.get("title"), "path": record.relpath})
+        if not brain.matches_text(args.text, metadata, record.body):
+            continue
+        selected.append(
+            {
+                "kind": "governance_record",
+                "id": metadata.get("id"),
+                "record_type": metadata.get("record_type"),
+                "status": governance_status(metadata),
+                "title": metadata.get("title"),
+                "authority_role": metadata.get("authority_role"),
+                "path": record.relpath,
+            }
+        )
+    selected.sort(key=lambda item: (item["kind"] != "authority_source", str(item["id"])))
     if args.format == "json":
         print(json.dumps(selected, indent=2, ensure_ascii=True))
     else:
         for item in selected:
-            print(" | ".join(str(item[key]) for key in ("id", "record_type", "status", "title", "path")))
-    return 0 if selected or not args.id else 1
+            print(" | ".join(str(item[key]) for key in ("kind", "id", "record_type", "status", "title", "path")))
+    return 0 if selected or not (args.id or args.text) else 1
 
 
 def command_id(args: argparse.Namespace) -> int:
@@ -480,9 +525,21 @@ def command_id(args: argparse.Namespace) -> int:
         print(json.dumps({"status": "PASS" if valid else "FAIL", "id": args.value, "record_type": args.record_type}, indent=2))
         return 0 if valid else 1
     records, _ = brain.discover_records()
-    prefix = args.value.upper()
+    prefix = args.value.rstrip("-").upper()
+    dated_prefixes = {
+        "engineering_work_log": "WORK",
+        "engineering_completion": "CHANGE",
+        "agent_task_contract": "TASK",
+    }
+    if args.record_type in dated_prefixes:
+        expected = dated_prefixes[args.record_type]
+        if not re.fullmatch(expected + r"-[0-9]{8}", prefix):
+            print(json.dumps({"status": "FAIL", "error": f"next {args.record_type} ID requires {expected}-YYYYMMDD prefix"}, indent=2))
+            return 1
+        width = 3
+    else:
+        width = 4
     used = {str(record.metadata.get("id")) for record in records}
-    width = 4
     number = 1
     while f"{prefix}-{number:0{width}d}" in used:
         number += 1
@@ -490,6 +547,28 @@ def command_id(args: argparse.Namespace) -> int:
     valid = bool(re.fullmatch(definition["id_pattern"], candidate))
     print(json.dumps({"status": "PASS" if valid else "FAIL", "id": candidate, "record_type": args.record_type}, indent=2))
     return 0 if valid else 1
+
+
+def adr_trigger_result(subject: str, risk_class: str, architecture_impact: bool) -> dict[str, Any]:
+    required = architecture_impact or risk_class in {"C", "D", "E"}
+    return {
+        "status": "ADR_REQUIRED" if required else "ADR_NOT_REQUIRED",
+        "subject": subject,
+        "risk_class": risk_class,
+        "architecture_impact": architecture_impact,
+        "implementation_disposition": "BLOCKED_PENDING_PROPOSED_ADR" if required else "MAY_PROCEED_WITH_WORK_RECORD",
+        "acceptance_authority": "OWNER_OR_DELEGATED_ARCHITECTURE_AUTHORITY" if required else "NOT_APPLICABLE",
+        "governing_rules": ["EG11-004", "EG11-006", "EG11-071", "BOP02-083", "BOP02-084"],
+    }
+
+
+def command_adr_trigger(args: argparse.Namespace) -> int:
+    result = adr_trigger_result(args.subject, args.risk, args.architecture_impact)
+    if args.format == "json":
+        print(json.dumps(result, indent=2, ensure_ascii=True))
+    else:
+        print(f"{result['status']} | {result['risk_class']} | {result['subject']}")
+    return 2 if result["status"] == "ADR_REQUIRED" else 0
 
 
 def check_command(kind: str, args: argparse.Namespace) -> int:
@@ -578,6 +657,7 @@ def build_parser() -> argparse.ArgumentParser:
         command.add_argument("--format", choices=("text", "json"), default="text")
         command.set_defaults(func=handler)
     query = sub.add_parser("query")
+    query.add_argument("--text", help="case-insensitive text; all whitespace-separated terms must match")
     query.add_argument("--id")
     query.add_argument("--record-type")
     query.add_argument("--status")
@@ -588,6 +668,12 @@ def build_parser() -> argparse.ArgumentParser:
     ids.add_argument("record_type")
     ids.add_argument("value")
     ids.set_defaults(func=command_id)
+    adr_trigger = sub.add_parser("adr-trigger")
+    adr_trigger.add_argument("--subject", required=True)
+    adr_trigger.add_argument("--risk", choices=("A", "B", "C", "D", "E"), required=True)
+    adr_trigger.add_argument("--architecture-impact", action="store_true")
+    adr_trigger.add_argument("--format", choices=("text", "json"), default="text")
+    adr_trigger.set_defaults(func=command_adr_trigger)
     for name in ("rules", "waivers", "references"):
         command = sub.add_parser(name)
         command.add_argument("--check", action="store_true", required=True)
