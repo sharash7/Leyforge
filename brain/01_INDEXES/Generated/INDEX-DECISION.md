@@ -22,8 +22,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
+| [[ADR-0008|ADR-0008]] | adr | accepted | Development-only external harness boundary for PRD-07 proof execution |
 | [[ADR-0007|ADR-0007]] | adr | proposed | Authoritative persistent-state architecture |
-| [[ADR-0008|ADR-0008]] | adr | proposed | Development-only external harness boundary for PRD-07 proof execution |
 | [[ADR-0001|ADR-0001]] | adr | proposed | Godot V1 platform foundation |
 | [[ADR-0003|ADR-0003]] | adr | proposed | Leyforge and Zylann ownership and fork policy |
 | [[ADR-0005|ADR-0005]] | adr | proposed | Monorepo modular architecture |

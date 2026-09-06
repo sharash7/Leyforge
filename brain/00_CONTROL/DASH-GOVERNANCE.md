@@ -17,6 +17,8 @@ related_to:
   - "WORK-20260906-002"
   - "WORK-20260906-003"
   - "WORK-20260906-004"
+  - "WORK-20260906-005"
+  - "TASK-20260906-005"
   - "GOV-DEBT-0007"
   - "TEST-GOVERNANCE-R6"
   - "EVID-0003"
@@ -69,7 +71,7 @@ related_to:
 - Boundary: 24 exact hash-pinned development-tool paths; zero active POC dependencies.
 - Portability: Git-clean blob plus canonical LF digest checks pass in a fresh 446-source checkout.
 - Readiness: 13 `HARNESS-BLOCKED`, zero `READY`, zero proof-run IDs and zero proof-evidence IDs.
-- [[ADR-0008]]: proposed, not accepted.
+- [[ADR-0008]]: **ACCEPTED** by the project owner on 2026-09-06 for the development-only proof-harness boundary.
 - Evidence and audit: [[EVID-0005]] and [[AUDIT-0005]].
 
 ## Later Activation Milestones
@@ -80,4 +82,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 continues through [[HANDOFF-20260906-004]] with dependency/export readiness next. R8 gameplay permission remains closed. Planned validators do not claim active protection before their owning system exists.
+R7 dependency/export readiness is active under [[TASK-20260906-005]] and [[WORK-20260906-005]]. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, and R8 gameplay permission remains closed. Planned validators do not claim active protection before their owning system exists.

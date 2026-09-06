@@ -16,6 +16,8 @@ related_to:
   - "WORK-20260906-002"
   - "WORK-20260906-003"
   - "WORK-20260906-004"
+  - "WORK-20260906-005"
+  - "TASK-20260906-005"
   - "AUDIT-0001"
   - "AUDIT-0002"
   - "AUDIT-0003"
@@ -47,4 +49,4 @@ related_to:
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 development-tool boundary separately admits 24 exact hash-pinned harness/test paths and zero active POC dependencies.
 
-Continue through [[HANDOFF-20260906-004]] for dependency/export readiness. All 13 W0 proofs remain `HARNESS-BLOCKED`, zero are `READY`, and no `PRD07-RUN-*` or `PRD07-EVID-*` ID has been allocated. [[ADR-0008]] remains proposed.
+The `R7-W0-DEPENDENCY-EXPORT-READINESS` package is active under [[TASK-20260906-005]] and [[WORK-20260906-005]]. Entry state remains 13 `HARNESS-BLOCKED`, zero `READY`, and no allocated `PRD07-RUN-*` or `PRD07-EVID-*`. [[ADR-0008]] is owner-accepted for the development-only proof-harness boundary; this does not open R8 or accept ADR-0001 through ADR-0007.
