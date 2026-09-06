@@ -1,6 +1,6 @@
 # Leyforge governed rebuild
 
-R5 Branch B engineering governance is complete and certified over the clean rebuild workspace. The bounded R6 Brain-to-governance pilot is implemented and passes its prepublication gate; exact-commit certification is pending. Gameplay implementation has not begun.
+R0 through R6 are complete and certified. The legacy POC is recoverably archived, the active workspace is clean of runtime dependencies, the Project Brain and Branch B governance are operational, and the seven-path operating pilot passes. R7 is the controlled pre-rebuild technical and audit programme. Gameplay implementation has not begun.
 
 Start with the [Brain home](brain/HOME.md), [agent contract](brain/AGENTS.md), [current handoff](brain/CURRENT_HANDOFF.md), and [governance health](brain/00_CONTROL/DASH-GOVERNANCE.md). Canonical project sources remain under `.summer/00_Docs`; generated Brain proxies and operational governance records are navigation, implementation and evidence records, not replacement authority.
 
@@ -14,4 +14,4 @@ python tools/verify.py --tier focused
 python tools/verify.py --tier full
 ```
 
-R5 implementation commit `f9ea015a90706b302df9846040a1fe51f02ce6f9` passed exact certification. Its evidence is `brain/10_TESTING/Evidence/r5-governance-certification.json`; the completion summary is `docs/rebuild/r5/completion-receipt.json`. The prepared R6 receipt is `brain/10_TESTING/Evidence/r6-brain-governance-pilot.json`; it remains prepublication until regenerated against the authorized implementation commit. The active handoff remains the bounded R6 task. R8 gameplay permission remains closed.
+R6 implementation commit `dd17cd6c5a24ab71aafd5ebf0c252461aa09aef4` passed exact certification. Its evidence is `brain/10_TESTING/Evidence/r6-brain-governance-pilot.json`; the completion summary is `docs/rebuild/r6/completion-receipt.json`. The active handoff opens R7 technical and audit work while R8 gameplay permission remains closed.

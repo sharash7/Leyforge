@@ -3,9 +3,9 @@
   "gate": "R6",
   "profile": "brain_governance_operating_pilot",
   "generated_at": "2026-09-06T00:00:00+08:00",
-  "commit": "WORKTREE-PENDING-PUBLICATION",
-  "head_commit": "b7caa254fd14534d1d33ab11a1f0e7d978d4dc38",
-  "commit_matches_head": null,
+  "commit": "dd17cd6c5a24ab71aafd5ebf0c252461aa09aef4",
+  "head_commit": "dd17cd6c5a24ab71aafd5ebf0c252461aa09aef4",
+  "commit_matches_head": true,
   "result": "PASS",
   "tasks": [
     {

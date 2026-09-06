@@ -10,11 +10,14 @@ updated: "2026-09-06"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260906-001"
+current_handoff: "HANDOFF-20260906-002"
 related_to:
-  - "HANDOFF-20260906-001"
+  - "HANDOFF-20260906-002"
+  - "WORK-20260906-002"
+  - "AUDIT-0003"
+  - "EVID-0003"
 ---
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260906-001]]. Read it before starting the next gate. R5 engineering governance is complete and certified; R6 is the bounded Brain-to-governance operating pilot. R8 gameplay permission remains closed.
+The active formal handoff is [[HANDOFF-20260906-002]]. Read it before starting the next gate. R0 through R6 are complete and certified; R7 is the controlled pre-rebuild technical and audit programme. R8 gameplay permission remains closed.

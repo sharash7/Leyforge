@@ -18,6 +18,8 @@ related_to:
   - "GOV-DEBT-0007"
   - "TEST-GOVERNANCE-R6"
   - "EVID-0003"
+  - "AUDIT-0003"
+  - "HANDOFF-20260906-002"
 ---
 
 # Engineering Governance Health
@@ -35,12 +37,12 @@ related_to:
 
 ## R6 Operating Pilot
 
-- Seven REBUILD-00 pilot paths: prepublication PASS.
+- Seven REBUILD-00 pilot paths: certified PASS.
 - Headless free-text authority lookup: active and tested.
 - Dated Work, Task and Change ID allocation: active and tested.
 - ADR-trigger, violation, waiver, stale-summary and legacy-boundary fixtures: PASS.
-- [[GOV-DEBT-0007]]: active verifying until exact-commit evidence.
-- [[PROC-BRAIN-GOVERNANCE-PILOT]]: testing until certified closeout.
+- [[GOV-DEBT-0007]]: closed by [[EVID-0003]].
+- [[PROC-BRAIN-GOVERNANCE-PILOT]]: validated.
 
 ## Later Activation Milestones
 
@@ -50,4 +52,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R8 gameplay permission remains closed. Planned validators do not claim active protection before their owning system exists.
+R7 technical and audit work proceeds through [[HANDOFF-20260906-002]]. R8 gameplay permission remains closed. Planned validators do not claim active protection before their owning system exists.

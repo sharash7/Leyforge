@@ -23,7 +23,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[SKILL-0001|SKILL-0001]] | skill | candidate | Regenerate Brain-owned outputs instead of editing them |
-| [[PROC-BRAIN-GOVERNANCE-PILOT|PROC-BRAIN-GOVERNANCE-PILOT]] | procedure | testing | Exercise the Brain-to-governance operating model |
 | [[PROC-BRAIN-CHANGE|PROC-BRAIN-CHANGE]] | procedure | testing | Governed Brain Change Procedure |
+| [[PROC-BRAIN-GOVERNANCE-PILOT|PROC-BRAIN-GOVERNANCE-PILOT]] | procedure | validated | Exercise the Brain-to-governance operating model |
 | [[PROC-PARALLEL-WORKTREES|PROC-PARALLEL-WORKTREES]] | procedure | validated | Isolate parallel agent work with Git worktrees |
 | [[PROC-GOVERNANCE-VALIDATION|PROC-GOVERNANCE-VALIDATION]] | procedure | validated | Run the engineering-governance validation gates |

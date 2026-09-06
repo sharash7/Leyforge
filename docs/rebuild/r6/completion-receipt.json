@@ -1,0 +1,36 @@
+{
+  "receipt_version": 1,
+  "gate": "R6",
+  "status": "R6_COMPLETE",
+  "certification": "PASS",
+  "branch": "codex/chore/brain-governance-pilot",
+  "implementation_commit": "dd17cd6c5a24ab71aafd5ebf0c252461aa09aef4",
+  "implementation_receipt": "brain/10_TESTING/Evidence/r6-brain-governance-pilot.json",
+  "pilot_tasks": {
+    "passed": 7,
+    "total": 7
+  },
+  "acceptance_tests": {
+    "passed": 45,
+    "total": 45
+  },
+  "implementation_certification": {
+    "brain_records": 124,
+    "governance_records": 24,
+    "authority_sources": 23,
+    "templates": 12,
+    "clean_rebuild_checks": 2617
+  },
+  "closeout_verification": {
+    "brain_records": 126,
+    "governance_records": 25,
+    "clean_rebuild_checks": 2626
+  },
+  "controlled_sources": 444,
+  "active_poc_dependencies": 0,
+  "governance_debt_closed": "GOV-DEBT-0007",
+  "validated_procedure": "PROC-BRAIN-GOVERNANCE-PILOT",
+  "current_handoff": "HANDOFF-20260906-002",
+  "next_gate": "R7",
+  "gameplay_permission": "CLOSED"
+}

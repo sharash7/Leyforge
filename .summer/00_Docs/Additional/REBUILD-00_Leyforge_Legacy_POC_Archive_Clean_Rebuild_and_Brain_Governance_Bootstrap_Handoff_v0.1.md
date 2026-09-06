@@ -1158,40 +1158,40 @@ Force-pushing, deleting the only archive reference, rewriting the final POC comm
 
 ## R3 → R4: Brain bootstrap
 
-- [ ] Install Branch A Brain structure.
-- [ ] Establish metadata/authority model.
-- [ ] Ingest current controlled corpus by status/authority.
-- [ ] Link supersession/history.
-- [ ] Establish work logs.
-- [ ] Establish Skills/Procedures/Shortcuts.
-- [ ] Establish decision/ADR links.
-- [ ] Establish project/domain indexes.
-- [ ] Establish Git traceability.
-- [ ] Verify Brain defers to source authority.
+- [x] Install Branch A Brain structure.
+- [x] Establish metadata/authority model.
+- [x] Ingest current controlled corpus by status/authority.
+- [x] Link supersession/history.
+- [x] Establish work logs.
+- [x] Establish Skills/Procedures/Shortcuts.
+- [x] Establish decision/ADR links.
+- [x] Establish project/domain indexes.
+- [x] Establish Git traceability.
+- [x] Verify Brain defers to source authority.
 
 ## R4 → R5: Governance bootstrap
 
-- [ ] Install ENG-GOV-00 through ENG-GOV-15.
-- [ ] Install B-OPS-00 through B-OPS-06.
-- [ ] Activate coding-agent bootstrap instructions.
-- [ ] Activate governance templates.
-- [ ] Activate ADR/waiver/deprecation routes.
-- [ ] Establish governance debt/validator backlog.
-- [ ] Activate initial validation/CI surfaces.
-- [ ] Connect governance records into the Brain.
-- [ ] Verify no duplicate authority system was created.
+- [x] Install ENG-GOV-00 through ENG-GOV-15.
+- [x] Install B-OPS-00 through B-OPS-06.
+- [x] Activate coding-agent bootstrap instructions.
+- [x] Activate governance templates.
+- [x] Activate ADR/waiver/deprecation routes.
+- [x] Establish governance debt/validator backlog.
+- [x] Activate initial validation/CI surfaces.
+- [x] Connect governance records into the Brain.
+- [x] Verify no duplicate authority system was created.
 
 ## R5 → R6: Pilot
 
-- [ ] Authority lookup passes.
-- [ ] Work-log path passes.
-- [ ] ADR trigger recognition passes.
-- [ ] Governance violation detection/debt path passes.
-- [ ] Skills/Procedures/Shortcuts promotion passes.
-- [ ] Stale Brain summary repair passes.
-- [ ] Legacy POC boundary test passes.
-- [ ] Active tree remains free of hidden POC runtime dependencies.
-- [ ] No premature gameplay rebuild work occurred.
+- [x] Authority lookup passes.
+- [x] Work-log path passes.
+- [x] ADR trigger recognition passes.
+- [x] Governance violation detection/debt path passes.
+- [x] Skills/Procedures/Shortcuts promotion passes.
+- [x] Stale Brain summary repair passes.
+- [x] Legacy POC boundary test passes.
+- [x] Active tree remains free of hidden POC runtime dependencies.
+- [x] No premature gameplay rebuild work occurred.
 
 ---
 
@@ -1255,41 +1255,43 @@ Execution evidence: [R2 archive status](../../../docs/rebuild/archive-evidence/r
 
 | Field | Value |
 |---|---|
-| Brain bootstrap commit SHA | |
-| Brain root/path | |
-| Corpus ingestion status | |
-| Authority resolution test | |
-| Supersession test | |
-| Work-log test | |
-| Skills/Procedures/Shortcuts test | |
-| Git integration test | |
+| Brain bootstrap commit SHA | `58c4cfc891e6cc658ed1b856be3486b9f6cac8cb` |
+| Brain root/path | `brain/` in `D:\AI\Projects\leyforge-rebuild` |
+| Corpus ingestion status | PASS — 444 controlled artifacts; immutable 441-artifact R3 baseline plus three hash-pinned R5 intake artifacts; generated proxies/indexes current |
+| Authority resolution test | PASS — BRAIN-AT-004 and R6-AT-001; source role, owning status, history and canonical path represented |
+| Supersession test | PASS — BRAIN-AT-005/BRAIN-AT-008 and reciprocal R4→R5→R6→R7 handoff lineage |
+| Work-log test | PASS — governed R4, R5 and R6 Work/Task/Evidence/Audit/Change lifecycles |
+| Skills/Procedures/Shortcuts test | PASS — `PROC-BRAIN-GOVERNANCE-PILOT` promoted and validated without claiming source authority |
+| Git integration test | PASS — BRAIN-AT-018, CI entrypoints and exact-commit R4/R5/R6 receipts |
 
 ## 32.4 Governance record
 
 | Field | Value |
 |---|---|
-| Governance bootstrap commit SHA | |
-| ENG-GOV corpus installed | |
-| B-OPS corpus installed | |
-| AGENTS/coding-agent bootstrap active | |
-| ADR route active | |
-| Exception/waiver route active | |
-| Governance debt register active | |
-| Initial validators active | |
-| Initial CI/quality gate active | |
-| Brain↔Governance links verified | |
+| Governance bootstrap commit SHA | `f9ea015a90706b302df9846040a1fe51f02ce6f9` |
+| ENG-GOV corpus installed | YES — ENG-GOV-00 through ENG-GOV-15 hash-pinned with source status/role |
+| B-OPS corpus installed | YES — B-OPS-00 through B-OPS-06 hash-pinned; B-OPS-06 certified |
+| AGENTS/coding-agent bootstrap active | YES — authority order, risk classes, permissions and exception/debt routing active |
+| ADR route active | YES — seven reconstructed ADRs remain proposed; R6 synthetic Class C route blocks pending proposed ADR |
+| Exception/waiver route active | YES — invalid and unbounded fixtures detected; bounded disposable waiver route passes; no real waiver approved |
+| Governance debt register active | YES — G0 controls certified, R6 operator gap closed, G1 through G5 planned |
+| Initial validators active | YES — metadata, IDs, statuses, references, rule links, waiver bounds, ingestion, indexes and legacy boundary |
+| Initial CI/quality gate active | YES — stable build/focused/full entrypoints and GitHub Actions |
+| Brain↔Governance links verified | PASS — R6-AT-001 through R6-AT-007 and exact evidence `EVID-0003` |
 
 ## 32.5 Pilot record
 
+Implementation commit: `dd17cd6c5a24ab71aafd5ebf0c252461aa09aef4`. Machine receipt: `brain/10_TESTING/Evidence/r6-brain-governance-pilot.json` (`EVID-0003`).
+
 | Pilot | Result | Evidence |
 |---|---|---|
-| Authority lookup | | |
-| Work logging | | |
-| ADR trigger | | |
-| Governance violation | | |
-| Skill/procedure promotion | | |
-| Stale-summary correction | | |
-| Legacy boundary | | |
+| Authority lookup | PASS | `ENG-GOV-11` returned as primary/theoretically locked; legacy POC returned as historical; handoff supersession reciprocal |
+| Work logging | PASS | `TASK-20260906-002`, `WORK-20260906-002`, valid dated next IDs and rejected undated prefix |
+| ADR trigger | PASS | Synthetic Class C/architecture-impact scenario returns `ADR_REQUIRED`, exit 2, blocked pending proposed ADR; bounded Class B fix proceeds |
+| Governance violation | PASS | Disposable invalid status `GOV-E024`; unbounded waiver `GOV-E033`; bounded waiver fixture PASS; gap recorded and closed as `GOV-DEBT-0007` |
+| Skill/procedure promotion | PASS | `PROC-BRAIN-GOVERNANCE-PILOT` validated as implementation knowledge, not engineering-law authority |
+| Stale-summary correction | PASS | Disposable index drift detected and regenerated; validated owning records win |
+| Legacy boundary | PASS | `SRC-LEGACY-POC-ARCHIVE` remains historical; `DOC-REBUILD-00` resolves the transition rule; automatic copy-forward rejected; no `project.godot` |
 
 ---
 
@@ -1324,14 +1326,14 @@ It does **not** mean gameplay rebuild authorised.
 
 ```yaml
 rebuild_bootstrap_authorised:
-  status: "PASS | FAIL | CONDITIONAL"
-  archive_state: ""
-  brain_state: ""
-  governance_state: ""
-  pilot_state: ""
+  status: "PASS"
+  archive_state: "R2 verified; protected legacy-poc-2026-09-05 reference and tested cold recovery retained"
+  brain_state: "R4 operational and certified; controlled corpus, authority navigation, traceability and generated indexes pass"
+  governance_state: "R5 Branch B operational and certified; 23 authority sources, 12 templates, validators and CI active"
+  pilot_state: "R6 certified PASS at dd17cd6c5a24ab71aafd5ebf0c252461aa09aef4; 7/7 pilot tasks and full gate pass"
   open_bootstrap_blockers: []
-  signed_by: ""
-  signed_at: ""
+  signed_by: "Codex — execution verification under Ash's explicit R6 implementation/closeout commit authorization; not owner gameplay certification"
+  signed_at: "2026-09-06"
 ```
 
 ## 33.3 Gameplay Rebuild Authorised

@@ -3,15 +3,15 @@ brain_schema: 1
 id: "PROC-BRAIN-GOVERNANCE-PILOT"
 type: "procedure"
 title: "Exercise the Brain-to-governance operating model"
-status: "testing"
+status: "validated"
 information_class: "authored"
 created: "2026-09-06"
 updated: "2026-09-06"
 authority_domain: "brain_operations"
 authority_role: "implementation_record"
-authority_status: "proposed"
+authority_status: "authoritative"
 record_type: "skill"
-governance_status: "testing"
+governance_status: "validated"
 domain: "brain_operations"
 template_version: 1
 derived_from:
@@ -19,10 +19,11 @@ derived_from:
   - "DOC-B-OPS-04"
 validated_by:
   - "TEST-GOVERNANCE-R6"
+  - "EVID-0003"
 related_to:
   - "WORK-20260906-002"
   - "GOV-DEBT-0007"
-  - "EVID-0003"
+  - "AUDIT-0003"
 ---
 
 # Exercise the Brain-to-governance operating model
@@ -57,6 +58,6 @@ R6-AT-001 through R6-AT-007 and the full repository gate pass, with each REBUILD
 
 This Procedure is reusable project knowledge, not engineering law. Do not edit canonical authority or a tracked generated index merely to make a pilot pass. Do not activate dependencies, accept ADRs, approve real waivers or begin gameplay.
 
-## Lifecycle
+## Validation
 
-The Procedure remains `testing` until R6 receives exact-commit evidence. It may become `validated` during certified closeout without changing its authority role.
+Validated by [[TEST-GOVERNANCE-R6]], [[EVID-0003]] and [[AUDIT-0003]] at implementation commit `dd17cd6c5a24ab71aafd5ebf0c252461aa09aef4`.

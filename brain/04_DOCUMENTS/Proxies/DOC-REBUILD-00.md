@@ -11,7 +11,7 @@ authority_domain: "project_control"
 authority_role: "derived_record"
 authority_status: "unresolved"
 canonical_path: ".summer/00_Docs/Additional/REBUILD-00_Leyforge_Legacy_POC_Archive_Clean_Rebuild_and_Brain_Governance_Bootstrap_Handoff_v0.1.md"
-source_hash: "e5cc7849d9cab1a9cc4ca749ec717e7fd83e8993"
+source_hash: "aa2121f455a75e56fa5bb8f88755c513c85ea9af"
 source_commit: "9b3254e23f89056ae37e84f09bdcf4ea13df5128"
 source_status: "unresolved"
 status_basis: "no deterministic status marker"
@@ -27,4 +27,4 @@ This record is a navigation and traceability proxy for `.summer/00_Docs/Addition
 
 - Source status classification: **unresolved**
 - Classification basis: no deterministic status marker
-- Source blob: `e5cc7849d9cab1a9cc4ca749ec717e7fd83e8993`
+- Source blob: `aa2121f455a75e56fa5bb8f88755c513c85ea9af`

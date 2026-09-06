@@ -3,15 +3,15 @@ brain_schema: 1
 id: "GOV-DEBT-0007"
 type: "deviation"
 title: "R6 headless query and dated stable-ID operator contract"
-status: "active"
+status: "resolved"
 information_class: "authored"
 created: "2026-09-06"
 updated: "2026-09-06"
 authority_domain: "engineering_governance"
 authority_role: "implementation_record"
-authority_status: "authoritative"
+authority_status: "certified"
 record_type: "governance_debt"
-governance_status: "active_verifying"
+governance_status: "closed"
 domain: "brain_operations"
 risk_class: "B"
 template_version: 1
@@ -23,9 +23,10 @@ rules:
   - "BOP05-121"
   - "BOP05-122"
 activation_milestone: "G0"
-current_protection: "Tested free-text authority search and schema-aware dated ID allocation; exact-commit certification pending"
+current_protection: "Certified free-text authority search and schema-aware dated ID allocation"
 desired_mechanism: "Tested free-text authority search and schema-aware dated ID allocation through the headless CLIs"
 owning_domain: "engineering_governance"
+closure_evidence: "EVID-0003"
 derived_from:
   - "DOC-REBUILD-00"
   - "DOC-B-OPS-04"
@@ -36,6 +37,7 @@ related_to:
   - "TEST-GOVERNANCE-R6"
   - "EVID-0003"
   - "AUDIT-0003"
+  - "CHANGE-20260906-002"
 ---
 
 # GOV-DEBT-0007 — R6 headless query and dated stable-ID operator contract
@@ -46,12 +48,12 @@ The certified R5 handoff advertised a free-text query form that the installed CL
 
 ## Current Protection
 
-The repaired CLIs now expose tested free-text lookup, authority role and owning status, and schema-valid dated ID allocation. The full prepublication gate passes; the changes are not yet an auditable implementation commit.
+The certified CLIs expose tested free-text lookup, authority role and owning status, and schema-valid dated ID allocation. Undated governed prefixes are rejected.
 
 ## Desired Mechanism
 
 Both CLIs accept `--text`; governance results distinguish primary authority sources from operational records and expose owning status. Both allocators generate IDs that validate against the applicable dated schema.
 
-## Closure Condition
+## Closure Evidence
 
-Close only after R6 acceptance tests, full verification and exact-commit pilot evidence prove the repaired path.
+[[EVID-0003]] and [[AUDIT-0003]] certify the repaired operator contract at `dd17cd6c5a24ab71aafd5ebf0c252461aa09aef4`. This G0 gap is closed.
