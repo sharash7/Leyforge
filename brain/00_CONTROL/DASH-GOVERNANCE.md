@@ -15,11 +15,15 @@ depends_on:
 related_to:
   - "WORK-20260906-001"
   - "WORK-20260906-002"
+  - "WORK-20260906-003"
   - "GOV-DEBT-0007"
   - "TEST-GOVERNANCE-R6"
   - "EVID-0003"
+  - "EVID-0004"
   - "AUDIT-0003"
-  - "HANDOFF-20260906-002"
+  - "AUDIT-0004"
+  - "CHANGE-20260906-003"
+  - "HANDOFF-20260906-003"
 ---
 
 # Engineering Governance Health
@@ -44,6 +48,16 @@ related_to:
 - [[GOV-DEBT-0007]]: closed by [[EVID-0003]].
 - [[PROC-BRAIN-GOVERNANCE-PILOT]]: validated.
 
+## R7 PRD-07 Intake Certification
+
+- Exact source admission: certified PASS at implementation commit `e1ab8d28984ac022f49133d21059ed1502c8b081`.
+- Full acceptance suite: 45/45 PASS.
+- Brain and Governance Doctors, controlled ingestion, index drift, link validation and clean-rebuild boundary: PASS.
+- Controlled source corpus: 446 artifacts with five post-R3 admissions and zero active POC dependencies.
+- `DOC-PRD-07`: Markdown authority exposed as proposed; supporting handoff registered without a proxy.
+- Execution state: all 13 W0 proofs remain not started.
+- Evidence and audit: [[EVID-0004]] and [[AUDIT-0004]].
+
 ## Later Activation Milestones
 
 - G1 registry and core identity: planned in [[GOV-DEBT-0002]].
@@ -52,4 +66,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 technical and audit work proceeds through [[HANDOFF-20260906-002]]. R8 gameplay permission remains closed. Planned validators do not claim active protection before their owning system exists.
+R7 continues through [[HANDOFF-20260906-003]] with the reusable W0 harness bootstrap next. R8 gameplay permission remains closed. Planned validators do not claim active protection before their owning system exists.

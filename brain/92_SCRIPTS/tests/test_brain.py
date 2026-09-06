@@ -122,11 +122,18 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(r5_to_r6.metadata["next_gate"], "R6")
         self.assertEqual(r5_to_r6.metadata["supersedes"], "HANDOFF-20260905-001")
         self.assertEqual(r5_to_r6.metadata["superseded_by"], "HANDOFF-20260906-002")
+        r6_to_r7 = self.by_id["HANDOFF-20260906-002"]
+        self.assertEqual(r6_to_r7.metadata["status"], "superseded")
+        self.assertEqual(r6_to_r7.metadata["from_work"], "WORK-20260906-002")
+        self.assertEqual(r6_to_r7.metadata["next_gate"], "R7")
+        self.assertEqual(r6_to_r7.metadata["supersedes"], "HANDOFF-20260906-001")
+        self.assertEqual(r6_to_r7.metadata["superseded_by"], "HANDOFF-20260906-003")
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260906-002")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260906-003")
         self.assertEqual(handoff.metadata["next_gate"], "R7")
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260906-001")
+        self.assertEqual(handoff.metadata["next_package"], "R7-W0-HARNESS")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260906-002")
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
             self.assertIn(f"## {heading}", handoff.body)
 

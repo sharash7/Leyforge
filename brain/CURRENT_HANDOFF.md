@@ -10,14 +10,17 @@ updated: "2026-09-06"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260906-002"
+current_handoff: "HANDOFF-20260906-003"
 related_to:
-  - "HANDOFF-20260906-002"
-  - "WORK-20260906-002"
-  - "AUDIT-0003"
-  - "EVID-0003"
+  - "HANDOFF-20260906-003"
+  - "WORK-20260906-003"
+  - "TASK-20260906-003"
+  - "AUDIT-0004"
+  - "EVID-0004"
+  - "CHANGE-20260906-003"
+  - "DOC-PRD-07"
 ---
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260906-002]]. Read it before starting the next gate. R0 through R6 are complete and certified; R7 is the controlled pre-rebuild technical and audit programme. R8 gameplay permission remains closed.
+The active formal handoff is [[HANDOFF-20260906-003]]. Read it before beginning the next bounded package. The PRD-07 controlled intake is complete and certified at implementation commit `e1ab8d28984ac022f49133d21059ed1502c8b081`. R7 remains active; the reusable W0 harness bootstrap is next and has not started. R8 gameplay permission remains closed.

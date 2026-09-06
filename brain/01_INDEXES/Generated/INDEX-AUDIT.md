@@ -25,6 +25,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[AUDIT-0001|AUDIT-0001]] | audit | certified | Brain v0.1 Pilot Certification |
 | [[AUDIT-0002|AUDIT-0002]] | audit | certified | R5 Engineering Governance Bootstrap Certification |
 | [[AUDIT-0003|AUDIT-0003]] | audit | certified | R6 Brain-to-Governance Operating Pilot Certification |
+| [[AUDIT-0004|AUDIT-0004]] | audit | certified | R7 PRD-07 Controlled Intake Certification |
 | [[GOV-DEBT-0002|GOV-DEBT-0002]] | deviation | proposed | G1 registry and core identity validators |
 | [[GOV-DEBT-0003|GOV-DEBT-0003]] | deviation | proposed | G2 persistent V1 world-state validators |
 | [[GOV-DEBT-0004|GOV-DEBT-0004]] | deviation | proposed | G3 external Forge and mod-content validators |

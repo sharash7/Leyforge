@@ -1,0 +1,40 @@
+{
+  "receipt_version": 1,
+  "gate": "R7",
+  "package": "R7-PRD07-INTAKE",
+  "status": "INTAKE_COMPLETE",
+  "certification": "PASS",
+  "branch": "codex/chore/brain-governance-pilot",
+  "implementation_commit": "e1ab8d28984ac022f49133d21059ed1502c8b081",
+  "source_intake_manifest": "docs/rebuild/source-intake/r7-prd-07.json",
+  "evidence": "EVID-0004",
+  "audit": "AUDIT-0004",
+  "acceptance_tests": {
+    "passed": 45,
+    "total": 45
+  },
+  "implementation_certification": {
+    "brain_records": 130,
+    "governance_records": 27,
+    "authority_sources": 23,
+    "templates": 12,
+    "clean_rebuild_checks": 2663
+  },
+  "closeout_verification": {
+    "brain_records": 133,
+    "governance_records": 28,
+    "authority_sources": 23,
+    "templates": 12,
+    "clean_rebuild_checks": 2675
+  },
+  "controlled_sources": 446,
+  "post_r3_intake_artifacts": 5,
+  "active_poc_dependencies": 0,
+  "proof_execution": "NOT_STARTED",
+  "current_handoff": "HANDOFF-20260906-003",
+  "next_package": "R7-W0-HARNESS",
+  "next_task_contract": "TASK-20260906-004",
+  "next_work_record": "WORK-20260906-004",
+  "r7_status": "ACTIVE",
+  "gameplay_permission": "CLOSED"
+}
