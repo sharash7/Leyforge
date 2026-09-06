@@ -4,121 +4,145 @@
   "artifacts": [
     {
       "bytes": 1073,
+      "git_blob": "3b7b31fc7538b2a79b5011e1264510fa196a4e2c",
       "path": "tools/proof_harness/__init__.py",
       "sha256": "12a50703930b7533ac5150935ebd4aaa077abb525d1c3bbe7788c70da7348a39"
     },
     {
       "bytes": 144,
+      "git_blob": "67cb33a9ca106704be188496f660c22b67c7a405",
       "path": "tools/proof_harness/__main__.py",
       "sha256": "a8a7bacaed37855b4ad12fadc87338272c23fb6f0ea153b761af5ac020a0c242"
     },
     {
       "bytes": 1380,
+      "git_blob": "deb4e48b9c073800070a7500743fa86fa8124530",
       "path": "tools/proof_harness/architecture-rules.json",
       "sha256": "91cf73a5c25c3d6c01b68734b4dbdb443f3e73908484506f150ccc580f94a87b"
     },
     {
       "bytes": 4838,
+      "git_blob": "d5c652cf573f3fefd2523eaf30f485104a3f5d55",
       "path": "tools/proof_harness/architecture.py",
       "sha256": "f1d04cc72625ce30a48fe41d862c585509447eb3d3f47d5f862f24a3cc3cedb2"
     },
     {
       "bytes": 2652,
+      "git_blob": "75e20b4deacd9587ecfa3a59be1361f0e198484e",
       "path": "tools/proof_harness/build.py",
       "sha256": "022daece2df8d1dba0e0f32cdad5d6f1d5c627809f966564bc799ff2734182a9"
     },
     {
       "bytes": 6007,
+      "git_blob": "d9f276051f75857d9bfc100b5fdc54105711f8b4",
       "path": "tools/proof_harness/cli.py",
       "sha256": "5c019d1b2d6186358b342cfd5eafa97ec8c968f022c49258acd219a0a96d6eae"
     },
     {
       "bytes": 2928,
+      "git_blob": "97733e1617f6d375b9cd6e2fc60b32d5e4ba4b2c",
       "path": "tools/proof_harness/diagnostics.py",
       "sha256": "2c79f6f5e295ffe04cf16c37e8f98ac11f7a61c6482b3be1f0ff7f71e3be0fad"
     },
     {
       "bytes": 6016,
+      "git_blob": "4bfc0cbb89a6c2aaa817299b21bc8fa848c05b51",
       "path": "tools/proof_harness/evidence.py",
       "sha256": "e475c2c885abe168487e2fd000b1731f391ce63214dc1f7233a418f7a442e8f4"
     },
     {
       "bytes": 12196,
+      "git_blob": "8dda505111d7816f0ceb6e32972bb57f3391972c",
       "path": "tools/proof_harness/identity.py",
       "sha256": "97fc13fda159c1d384953fb7c8c410d0af63ede86b57dee1d473c260b8f31982"
     },
     {
       "bytes": 10782,
+      "git_blob": "55840bde06011e859607a78f351bbe366e305808",
       "path": "tools/proof_harness/manifests.py",
       "sha256": "62609e4266f4669cbb3d1047278a66e7f4867679cdcb505bbb12efd5008c714d"
     },
     {
       "bytes": 1570,
+      "git_blob": "3b5c78bdeb92fbc5faa91fa451e3f907da5e6bfe",
       "path": "tools/proof_harness/metrics.py",
       "sha256": "828f6cd7a814e75ab37815a6b61625465b2cbd29c4ad0b126b4f5c7abab121d6"
     },
     {
       "bytes": 1406,
+      "git_blob": "06fe331b94a7450b698fd05c0ee3bb6a5b9f7897",
       "path": "tools/proof_harness/oracle.py",
       "sha256": "36b3d96b7625ddec3300ad4ef765f2ae9bc0c9fcce9ca2f683302e14afe2f777"
     },
     {
       "bytes": 7699,
+      "git_blob": "259a3ed5fe2796bc7a704679c56f6f0532746999",
       "path": "tools/proof_harness/process.py",
       "sha256": "9477568410a6a1de59343f4830662e7451b56da268ada0b89ed43bac48e86fb7"
     },
     {
       "bytes": 3489,
+      "git_blob": "6a98cf644756106371cf0168ae3fbb21a4f711d7",
       "path": "tools/proof_harness/readiness.py",
       "sha256": "80725e39da36e1c26646d0d80e97ebace037730cecc627495bebb404da1ca88a"
     },
     {
       "bytes": 2221,
+      "git_blob": "0c0818435ae1b4da6fa529f9319e042674abd273",
       "path": "tools/proof_harness/README.md",
       "sha256": "ed1bdc0c595e06a1a431ecf6ab64d61dccc27b28499c27094cf78073a3080765"
     },
     {
       "bytes": 2062,
+      "git_blob": "51fd953d8d6fea0fc6745741b01e18487a240fbb",
       "path": "tools/proof_harness/scenario.py",
       "sha256": "abe035060b7d1cd0289c965bbdeaf8c370a45a1fad38bcdecf105cbeef28b75b"
     },
     {
       "bytes": 5610,
+      "git_blob": "db63f8e91867afe87f11b806790542d864c998df",
       "path": "tools/proof_harness/state.py",
       "sha256": "587b8807b3656731fba933f907dd7d6ba6d67401d08464bb3a29dfb80244d4d9"
     },
     {
-      "bytes": 3857,
+      "bytes": 3737,
+      "git_blob": "ce8284e98dd1f692afe060e7e3eaaeac349096b9",
       "path": "tools/proof_harness/w0-readiness.json",
-      "sha256": "c05354e0ba2fd1b1e789b88ed3f58ddd98e0db9c1d34e0ec48645862b2653e64"
+      "sha256": "d9a1e92933b7a942d7d8012cce2a60cc84a4117e94efcc6347803f57d694585a"
     },
     {
       "bytes": 25,
+      "git_blob": "38fd98160082f54d618731b19b13700aa45ed951",
       "path": "tools/tests/fixtures/architecture/bad/domain/model.py",
       "sha256": "045ccc03c042126c7c3b461e42d5387c528ab6fdbd3df785eb4759d6ed7f147e"
     },
     {
       "bytes": 44,
+      "git_blob": "e7fd025b8923c1e988b5a3cf8c122eb86df3ee28",
       "path": "tools/tests/fixtures/architecture/good/domain/model.py",
       "sha256": "e1746e269bd62ba7b160cbe2e4d80d3e5ec02be044d79235dfac8dfd530eedcf"
     },
     {
       "bytes": 257,
+      "git_blob": "1baa24ed9bfecc9528d329a8c3ef59ad9eb88983",
       "path": "tools/tests/fixtures/architecture/good-rules.json",
       "sha256": "6b8ffaf8479bb5aa322d0b84ccaa1f6b6b34939614669da2a804eeb1b85e21ce"
     },
     {
       "bytes": 284,
+      "git_blob": "e43de80770897837b20559510735caf040f881ad",
       "path": "tools/tests/fixtures/architecture/README.md",
       "sha256": "24f6bae289a491792b55668b5786aaf08308133e89474b64c300a3ef3c1944e2"
     },
     {
       "bytes": 255,
+      "git_blob": "60fa35bd1d8a3006b34fb92affe493fdcedf6799",
       "path": "tools/tests/fixtures/architecture/seeded-violation-rules.json",
       "sha256": "218378345598dc637c97f5a8715dfdbf21ee7c32e47fb43774d54f5702b25aa6"
     },
     {
       "bytes": 22058,
+      "git_blob": "8ac7f6c8b064d7bc65deb9945ed254f15c47dcb7",
       "path": "tools/tests/test_proof_harness.py",
       "sha256": "53cc3f5d08fc6da26f56f5db24e2a72f701c84af684de8ce68ac44e6cac9ce40"
     }

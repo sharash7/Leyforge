@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import json
 import subprocess
@@ -243,6 +244,16 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertIn("verify_rebuild_boundary.py", workflow_text)
         boundary = subprocess.run([sys.executable, "tools/verify_rebuild_boundary.py"], cwd=brain.REPO_ROOT, text=True, capture_output=True)
         self.assertEqual(boundary.returncode, 0, boundary.stderr)
+        self.assertEqual(json.loads(boundary.stdout)["status"], "PASS")
+        manifest = brain.load_json(brain.REPO_ROOT / "docs/rebuild/r7/w0-harness-boundary.json")
+        paths = [brain.REPO_ROOT / artifact["path"] for artifact in manifest["artifacts"]]
+        git_clean_hashes = brain.git_worktree_blob_hashes(paths)
+        for artifact, artifact_path in zip(manifest["artifacts"], paths):
+            self.assertEqual(git_clean_hashes[artifact_path], artifact["git_blob"])
+            raw_data = artifact_path.read_bytes()
+            canonical_data = raw_data.replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
+            self.assertEqual(len(canonical_data), artifact["bytes"])
+            self.assertEqual(hashlib.sha256(canonical_data).hexdigest(), artifact["sha256"])
 
     def test_19_BRAIN_AT_019_no_plugin_core_operation(self) -> None:
         self.assertEqual(brain.load_json(brain.BRAIN_ROOT / ".obsidian/community-plugins.json"), [])

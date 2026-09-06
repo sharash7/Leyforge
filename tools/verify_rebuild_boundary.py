@@ -26,9 +26,15 @@ check(w0_manifest.get('proof_execution') == 'NOT-STARTED', 'W0 bootstrap cannot 
 check(w0_manifest.get('allocated_run_ids') == [], 'W0 bootstrap allocated PRD07-RUN identities')
 check(w0_manifest.get('allocated_evidence_ids') == [], 'W0 bootstrap allocated PRD07-EVID identities')
 w0_admitted_paths = set()
+w0_admitted_artifacts = []
 for artifact in w0_manifest.get('artifacts', []):
     rel = artifact.get('path')
-    valid_path = isinstance(rel, str) and rel.startswith(('tools/proof_harness/', 'tools/tests/'))
+    valid_path = (
+        isinstance(rel, str)
+        and rel.startswith(('tools/proof_harness/', 'tools/tests/'))
+        and '..' not in Path(rel).parts
+        and not Path(rel).is_absolute()
+    )
     check(valid_path, 'Invalid W0 harness admission path: ' + str(rel))
     if not valid_path:
         continue
@@ -39,9 +45,30 @@ for artifact in w0_manifest.get('artifacts', []):
     check(candidate.suffix.lower() in {'.py', '.json', '.md'}, 'Unsupported W0 harness file type: ' + rel)
     check(candidate.suffix.lower() not in {'.gd', '.gdshader', '.tscn', '.tres', '.res', '.exe', '.dll', '.pck'}, 'Runtime artifact admitted through W0 harness: ' + rel)
     if candidate.is_file():
-        data = candidate.read_bytes()
-        check(len(data) == artifact.get('bytes'), 'Admitted W0 harness size changed: ' + rel)
-        check(hashlib.sha256(data).hexdigest() == artifact.get('sha256'), 'Admitted W0 harness hash changed: ' + rel)
+        w0_admitted_artifacts.append((rel, candidate, artifact))
+
+w0_hash_result = subprocess.run(
+    ['git', 'hash-object', '--stdin-paths'],
+    cwd=root,
+    input=chr(10).join(rel for rel, _, _ in w0_admitted_artifacts) + chr(10),
+    text=True,
+    capture_output=True,
+)
+check(w0_hash_result.returncode == 0, 'W0 harness Git-clean blob hashing failed')
+w0_blob_hashes = w0_hash_result.stdout.splitlines() if w0_hash_result.returncode == 0 else []
+check(len(w0_blob_hashes) == len(w0_admitted_artifacts), 'W0 harness Git-clean blob count differs')
+for index, (rel, candidate, artifact) in enumerate(w0_admitted_artifacts):
+    expected_blob = artifact.get('git_blob')
+    actual_blob = w0_blob_hashes[index] if index < len(w0_blob_hashes) else ''
+    check(
+        isinstance(expected_blob, str) and re.fullmatch(r'[0-9a-f]{40}', expected_blob) is not None,
+        'Admitted W0 harness Git blob is missing or invalid: ' + rel,
+    )
+    check(actual_blob == expected_blob, 'Admitted W0 harness Git-clean blob changed: ' + rel)
+    raw_data = candidate.read_bytes()
+    canonical_data = raw_data.replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
+    check(len(canonical_data) == artifact.get('bytes'), 'Admitted W0 harness canonical size changed: ' + rel)
+    check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'Admitted W0 harness canonical SHA-256 changed: ' + rel)
 
 baseline_docs = manifest['source_document_blobs']
 intake_docs = {}
