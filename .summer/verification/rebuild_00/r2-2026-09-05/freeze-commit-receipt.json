@@ -1,0 +1,30 @@
+{
+  "status": "R0-R1 local freeze committed and verified",
+  "verified_at": "2026-09-05T18:16:00.3137828+08:00",
+  "commit": "799305859bb0ba4230ef87d934e961cc21220afa",
+  "tree": "e78d6567ed38986fe06bd090420461d2509ba605",
+  "parent": "57c1a2a732cbe94dd6dd7f38db0466ab54f564f1",
+  "branch": "codex/chore/rebuild-00-freeze",
+  "approved_changed_paths": 590,
+  "verified_present_blobs": 507,
+  "verified_deletions": 83,
+  "index_clean": true,
+  "tracked_worktree_clean": true,
+  "excluded_untracked_paths": [
+    ".trae/documents/evt-001_implementation_path_plan.md",
+    ".trae/specs/audit-summer-progress-report/checklist.md",
+    ".trae/specs/audit-summer-progress-report/spec.md",
+    ".trae/specs/audit-summer-progress-report/tasks.md",
+    ".vscode/settings.json",
+    "project.godot~RF28f26.TMP",
+    "project.godot~RF2cf5aa9.TMP",
+    "scripts/forge/ui/forge_navigation_catalog.gd~RF45b2c.TMP"
+  ],
+  "runtime_verification": "Previously completed on captured source: 48 strict passes, 10 failures across 58 scenes; not rerun for commit",
+  "whitespace_check": "Exit 2: 3229 trailing-whitespace findings and 17 new-blank-line-at-EOF findings; approved snapshot preserved",
+  "evidence_note": "Committed assessment and manifests record precommit state. This postcommit receipt closes their pending local-commit action. SHA256SUMS records original working-copy bytes; Git text blobs normalize line endings. Original byte-preserving capture remains in working-state.zip.",
+  "next_dependency": "R2 final archive tag, remote protection, independent backup and cold restore verification remain unperformed",
+  "pushed": false,
+  "tagged": false,
+  "cleanup_performed": false
+}

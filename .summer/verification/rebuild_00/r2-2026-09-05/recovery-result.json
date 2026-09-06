@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-05T10:26:26.840163+00:00",
+  "archive": "D:\\AI\\Archives\\Leyforge\\legacy-poc-2026-09-05",
+  "restore": "D:\\AI\\Archives\\Leyforge\\restore-test-20260905",
+  "final_poc_sha": "799305859bb0ba4230ef87d934e961cc21220afa",
+  "tree": "e78d6567ed38986fe06bd090420461d2509ba605",
+  "tag": "legacy-poc-2026-09-05",
+  "bundle_sha256": "5c763489196d34fd31d25ef703da52097179858eb440f3168228ee3e6ac8a272",
+  "bundle_complete": true,
+  "git_fsck_exit": 0,
+  "original_zip_entries": 11172,
+  "recovered_supplements": 184,
+  "representative_files": [
+    "project.godot",
+    "scripts/main.gd",
+    "scripts/autoload/world_manager.gd",
+    ".summer/verification/phase4_save_probe.gd",
+    ".summer/verification/rebuild_00/ASSESSMENT.md",
+    ".summer/00_Docs/Additional/REBUILD-00_Leyforge_Legacy_POC_Archive_Clean_Rebuild_and_Brain_Governance_Bootstrap_Handoff_v0.1.md"
+  ],
+  "checks": [
+    {
+      "name": "poc_archive_isolation_probe",
+      "exit_code": 0,
+      "output": "POC_ARCHIVE_ISOLATION_PROBE {\"ok\":true,\"checks\":28,\"failures\":[]}"
+    },
+    {
+      "name": "canonical_block_inventory_projection_probe",
+      "exit_code": 0,
+      "output": "CANONICAL_BLOCK_INVENTORY_PROJECTION_PROBE {\"ok\":true,\"checks\":140,\"aliases\":7,\"registry_records\":312,\"failures\":[]}"
+    }
+  ],
+  "clean_restored_worktree": true,
+  "validation_scope": "Cold bundle clone, exact commit/tree, complete Git object integrity, original ZIP CRC, all supplemental SHA256 values, and two lightweight repository gates. No historical executable or Godot process launched. Prior runtime results remain 48 pass / 10 fail.",
+  "remote_status": "BLOCKED_PENDING_EXPLICIT_PUBLICATION_AND_PROTECTION_APPROVAL",
+  "storage_limitation": "Outside active working copy on the same D: drive; not an off-device backup."
+}

@@ -1131,20 +1131,20 @@ Force-pushing, deleting the only archive reference, rewriting the final POC comm
 - [x] Run/record final practical automated verification — snapshot result FAIL; see execution record.
 - [x] Run/record final practical manual smoke verification — explicitly NOT RERUN with reason; no manual pass claimed.
 - [x] Record known defects and non-blocking limitations.
-- [ ] Create final POC commit if required.
+- [x] Create final POC commit if required. Verified local freeze: `799305859bb0ba4230ef87d934e961cc21220afa`.
 
 ## R1 → R2: Verify archive
 
-- [ ] Create governed final POC tag/reference.
-- [ ] Push and verify remote tag/reference.
-- [ ] Create governed archive branch/reference if required.
-- [ ] Push and protect archive branch/reference.
-- [ ] Create cold repository recovery artifact.
-- [ ] Generate integrity hash for cold artifact.
-- [ ] Restore into a disposable location.
-- [ ] Checkout exact final POC SHA.
-- [ ] Confirm representative files and repository health.
-- [ ] Record recovery result.
+- [x] Create governed final POC tag/reference. Annotated, published and protected: `legacy-poc-2026-09-05`.
+- [x] Push and verify remote tag/reference.
+- [x] Create governed archive branch/reference if required. Local: `codex/chore/rebuild-00-archive`.
+- [x] Push and protect archive branch/reference. Exact-ref rulesets 22329948/22329949 verified active; updates/deletion blocked; no bypass actors.
+- [x] Create cold repository recovery artifact.
+- [x] Generate integrity hash for cold artifact.
+- [x] Restore into a disposable location.
+- [x] Checkout exact final POC SHA.
+- [x] Confirm representative files and repository health.
+- [x] Record recovery result. R2 Archive Verified — PASS. See sections 32.1 and 33.1.
 
 ## R2 → R3: Create clean active workspace
 
@@ -1201,10 +1201,12 @@ This section is deliberately left fillable. Completing these fields records exec
 
 ## 32.0 R0–R1 assessment — 5 September 2026
 
-Ash authorised beginning R0–R1 in the project task. The assessment is complete
-and the final POC freeze candidate is prepared; the local final POC commit is
-pending separate Git authorisation. This records execution and does not lock
-the whole candidate procedure or grant any R2/R8 sign-off.
+Ash authorised beginning R0–R1 and subsequently explicitly authorised the
+reviewed local freeze commit. The assessment and commit are complete; final
+POC SHA is `799305859bb0ba4230ef87d934e961cc21220afa`. The historical assessment
+retains its precommit status; the R2 record below includes the closing receipt.
+This records execution and does not lock the whole candidate procedure or grant
+any R2/R8 sign-off.
 
 - Work record: [WORK-20260905-001](../../verification/rebuild_00/WORK-20260905-001.md).
 - Assessment and limitations: [R0–R1 assessment](../../verification/rebuild_00/ASSESSMENT.md).
@@ -1215,26 +1217,28 @@ the whole candidate procedure or grant any R2/R8 sign-off.
 - Capture: 11,172 source/evidence files with verified ZIP entry hashes; 80 player-state files copied with matching hashes; no original save writes.
 - Automated evidence: 58 scenes executed; 48 strict passes, 10 failures. Known failures are preserved; this is not a green baseline or final-commit qualification.
 - Manual smoke: NOT RERUN. Fresh automated runtime/save/recovery evidence and known failures are recorded for this bounded archival assessment; extra interactive/rendered qualification is deferred. Historical captures are preserved; no manual acceptance is claimed.
-- Final POC commit/tag, independent cold recovery and archive verification: not yet performed.
+- Final POC commit, protected remote tag/branch and independent cold recovery: completed and verified; see section 32.1.
 
 ## 32.1 Archive record
 
+Execution evidence: [R2 archive status](../../verification/rebuild_00/r2-2026-09-05/ARCHIVE-STATUS.md), [cold recovery result](../../verification/rebuild_00/r2-2026-09-05/recovery-result.json), [recovery instructions](../../verification/rebuild_00/r2-2026-09-05/RECOVERY.md), and [initial retirement log](../../verification/rebuild_00/r2-2026-09-05/RETIREMENT-LOG.md).
+
 | Field | Value |
 |---|---|
-| Execution date | |
-| Executed by | |
-| Pre-archive branch | |
-| Final POC commit SHA | |
-| Final POC tag/reference | |
-| Archive branch/reference | |
-| Remote archive verified | |
-| Cold recovery artifact | |
-| Cold artifact SHA-256 | |
-| Recovery test location | |
-| Recovery verified | |
-| Final automated gate result | |
-| Final manual smoke result | |
-| Known archive limitations | |
+| Execution date | 5 September 2026 |
+| Executed by | Codex under Ash's task instructions; no owner sign-off asserted |
+| Pre-archive branch | `main`; freeze committed on `codex/chore/rebuild-00-freeze` |
+| Final POC commit SHA | `799305859bb0ba4230ef87d934e961cc21220afa` |
+| Final POC tag/reference | `legacy-poc-2026-09-05` (annotated, published and protected) |
+| Archive branch/reference | `codex/chore/rebuild-00-archive` (published and protected) |
+| Remote archive verified | YES — exact tag object/commit and branch commit read back; active rulesets 22329948/22329949 block updates/deletion with no bypass actors; main unchanged |
+| Cold recovery artifact | `D:\AI\Archives\Leyforge\legacy-poc-2026-09-05\leyforge-history.bundle`; adjacent preservation ZIPs and manifests |
+| Cold artifact SHA-256 | `5c763489196d34fd31d25ef703da52097179858eb440f3168228ee3e6ac8a272` |
+| Recovery test location | `D:\AI\Archives\Leyforge\restore-test-20260905` |
+| Recovery verified | PASS — exact SHA/tree, full Git integrity, 184 supplemental hashes, source ZIP CRC, clean checkout, 168 repository checks |
+| Final automated gate result | Frozen baseline: 48/58 runtime scenes pass, 10 fail; two legacy static gates fail. Fresh cold recovery checks: 28/28 and 140/140 pass |
+| Final manual smoke result | NOT RERUN; no manual acceptance claim |
+| Known archive limitations | Same D: physical drive; local long-path Git setting required; raw R1 checksums describe original bytes, not normalized checkout; frozen POC retains documented failures |
 
 ## 32.2 Clean workspace record
 
@@ -1297,12 +1301,15 @@ Mark only when R2 is complete.
 
 ```yaml
 archive_verified:
-  status: "PASS | FAIL | CONDITIONAL"
-  final_poc_sha: ""
-  recovery_verified: false
-  evidence: []
-  signed_by: ""
-  signed_at: ""
+  status: "PASS"
+  final_poc_sha: "799305859bb0ba4230ef87d934e961cc21220afa"
+  recovery_verified: true
+  evidence:
+    - ".summer/verification/rebuild_00/r2-2026-09-05/ARCHIVE-STATUS.md"
+    - ".summer/verification/rebuild_00/r2-2026-09-05/recovery-result.json"
+    - ".summer/verification/rebuild_00/r2-2026-09-05/publication-result.json"
+  signed_by: "Codex — execution verification under Ash's explicit GitHub authorization; not owner gameplay certification"
+  signed_at: "2026-09-05"
 ```
 
 ## 33.2 Rebuild Bootstrap Authorised sign-off

@@ -1,0 +1,974 @@
+{
+  "final_poc_sha": "799305859bb0ba4230ef87d934e961cc21220afa",
+  "tag": "legacy-poc-2026-09-05",
+  "files": [
+    {
+      "path": "preservation/approved-freeze-input.json",
+      "bytes": 132997,
+      "sha256": "c4d1a7769b88c17f7a85056c4ea124d3623e892a9659ce8ab8abc1f5996cdc8e"
+    },
+    {
+      "path": "preservation/approved-freeze-paths.nul",
+      "bytes": 55143,
+      "sha256": "e626152d29211317f175ad73dd9f53e7e90b202850779ef276e47e67bd9f7790"
+    },
+    {
+      "path": "preservation/freeze-commit-receipt.json",
+      "bytes": 1707,
+      "sha256": "0754c98e1f2a7832077521436d5b607de11907006ff47d0ea709d2250e20c622"
+    },
+    {
+      "path": "preservation/staged-whitespace-check.txt",
+      "bytes": 701668,
+      "sha256": "8ad40e0659db8dc132ce70c44ba07d684585e14baf4e1648db43d8de6e183c6d"
+    },
+    {
+      "path": "preservation/staged.patch",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "preservation/unstaged.patch",
+      "bytes": 32986811,
+      "sha256": "fd5b4440f872e77954fbe0b510d97f5eb73622d0aec33a2c6101d765c477ad85"
+    },
+    {
+      "path": "preservation/working-state.zip",
+      "bytes": 81028442,
+      "sha256": "5a4405eb30622a01cf11c2b0a9b37e11bdf3e3483fbfecae416c08a008291750"
+    },
+    {
+      "path": "preservation/supplements.zip",
+      "bytes": 132838521,
+      "sha256": "61b2d2c452ae9f667a7205e7271a61e9ec02b02b46f48c574033b97683332a7e"
+    },
+    {
+      "path": "leyforge-history.bundle",
+      "bytes": 39790472,
+      "sha256": "5c763489196d34fd31d25ef703da52097179858eb440f3168228ee3e6ac8a272"
+    }
+  ],
+  "supplement_entries": [
+    {
+      "path": "player-state/development/village_progression_lab/lab.backup.json",
+      "bytes": 463119,
+      "sha256": "53de55b1f494e14ba1a5c6b02ae8d562658810821522e1466664535b4ac0471b"
+    },
+    {
+      "path": "player-state/development/village_progression_lab/lab.json",
+      "bytes": 463164,
+      "sha256": "65b14a24e19f8074a38b2a3356608bec33ea30eed5ddb4d611bb50f2f5832a19"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/blueprint_leyforge_automation_automated_farm_greenhouse_a.autosave.tres",
+      "bytes": 53541,
+      "sha256": "9915241840252be5cde7ed3fb4132f83982488c72c6961f57f5477646360076d"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/blueprint_leyforge_hospitality_tavern_inn_a.autosave.tres",
+      "bytes": 84633,
+      "sha256": "c60e435649e5b1840c11d9c1d3da27ffa56b1caa7b1f2fe13d11b994ecea0cd9"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/blueprint_leyforge_residential_farmhouse_a.autosave.tres",
+      "bytes": 50490,
+      "sha256": "d1424f611aae626cae5772210afce07d6fcad26a8ace9cf2a08533d7d00f7b06"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/blueprint_leyforge_residential_primitive_hut_a.autosave.tres",
+      "bytes": 65411,
+      "sha256": "d58e65322cd60fd4feaa6f880e4c936d3f3d088829eeaa2d04fa8a87b4e4dc5d"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/blueprint_leyforge_residential_small_tent_a.autosave.tres",
+      "bytes": 26591,
+      "sha256": "afde1e7685e95417be8d03cca40be6b45031317bab62eb674f4edac236859394"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/blueprint_leyforge_transport_dirt_path_junction_set_a.autosave.tres",
+      "bytes": 8672,
+      "sha256": "598c5b868dc71a7201afb26aa6bafc35474f6b864ca76c7734eff29a3c358e92"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/blueprint_module_ui_probe_room.autosave.tres",
+      "bytes": 2353,
+      "sha256": "3db607dd8fb782c2981ac696d2a05175c918e620e22b60cdbd3f2f6aeac819b6"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/entity_animation_set_ui_probe_animation.autosave.tres",
+      "bytes": 1357,
+      "sha256": "abbec146da3408e86c0700e9f2735872b957a17ef4e928b3baf34df6ed0f12e1"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/entity_body_part_production_arachnid_abdomen.autosave.tres",
+      "bytes": 2321,
+      "sha256": "61bedef714d3ca8a846463ed6b61303ddc84a493828c9ce1413007abc798bbe8"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/entity_definition_profession_lumberjack.autosave.tres",
+      "bytes": 11326,
+      "sha256": "035ee1e8daef7417bfdf671186647d62c11ac8fcf7bc961da9c53ad5dca2662a"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/entity_rig_ui_probe_rig.autosave.tres",
+      "bytes": 1486,
+      "sha256": "2be590c8e9de0d8f9d7ab316039415b7331561f4046a5cece09ef66bb8338d4d"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/forge_asset_construction_brick_stone.autosave.tres",
+      "bytes": 11350,
+      "sha256": "ceeab51b6192df64d2959bbbda17ccda4495e323fe06a3dba5de341c6117ccb8"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/forge_asset_construction_planks_oak.autosave.tres",
+      "bytes": 11734,
+      "sha256": "bd51e272c103870e599fa36380e0c402754dee967b4d04bc88f979ef87b7e727"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/forge_asset_item_tool_iron_pickaxe.autosave.tres",
+      "bytes": 91197,
+      "sha256": "df65919f76b2b55155388ea3ea86ee1d3c7c3a7128da23d1d862009a061f68eb"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/forge_asset_power_crank_basic.autosave.tres",
+      "bytes": 99389,
+      "sha256": "db2605c98ea36991abb85c5baca08a0d8bc0c8a6ad03eabf206cb74a3a4d5186"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/forge_asset_terrain_grass_basic.autosave.tres",
+      "bytes": 11887,
+      "sha256": "aede249ebde8b8c409bfce5dc91b9f60d92efb3afd2b77d4e3d9184fbcaa137b"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/sound_event_ui_probe_sound_event.autosave.tres",
+      "bytes": 691,
+      "sha256": "75440a2522d10d06e60d6f7283695564c7a20d18332036ad3ed5e1d8268fb12e"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/vfx_effect_production_construction_repair_finish_soft.autosave.tres",
+      "bytes": 1991,
+      "sha256": "dd2bc0f09833dcf8881f51f5293d1eca50b583eb1827adeb869e8a23c751ce57"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/vfx_form_ui_probe_spark_form.autosave.tres",
+      "bytes": 688,
+      "sha256": "03754cbf4c6a3d3a74e2cba6ad62ba812b2994512ab9086f48c7e6a55e374cd5"
+    },
+    {
+      "path": "player-state/leyforge/forge/autosaves/vfx_graph_ui_probe_sparks.autosave.tres",
+      "bytes": 713,
+      "sha256": "fe61e059170e1aaf3620d1104964661497adb27c2dbb04076f64e77c61a53b99"
+    },
+    {
+      "path": "player-state/leyforge/forge/visual_creativity.cfg",
+      "bytes": 168,
+      "sha256": "e37f26a3ab1bddcfdb108df9211bc76ce7f51d22f967026921a820260cadde12"
+    },
+    {
+      "path": "player-state/leyforge/forge/visual_studios.cfg",
+      "bytes": 54,
+      "sha256": "8de915e00a5368cfe49019e972108c78e501901214c017c193beb1c866f55a53"
+    },
+    {
+      "path": "player-state/leyforge_forge_ui.cfg",
+      "bytes": 262,
+      "sha256": "815584cf4416f39129b3bf16e07b93ebbc6806337cdf3b9b3d01b8ab0949e6e1"
+    },
+    {
+      "path": "player-state/leyforge_last_unclean_session.json",
+      "bytes": 557,
+      "sha256": "c71944c3113123852bb3d045d4ac1c62b850ed3112ecb81dbda1b69d2a163883"
+    },
+    {
+      "path": "player-state/leyforge_release_report.json",
+      "bytes": 1891,
+      "sha256": "cd1daaf5484d1986a88db87420dfaea3821a2868caf8995bcde0b49f36d3e582"
+    },
+    {
+      "path": "player-state/leyforge_save.backup.json",
+      "bytes": 39540,
+      "sha256": "eccfeb42c7ed41320512bd45bd685317b4cf611779f1fa21b1bc4b96772702e1"
+    },
+    {
+      "path": "player-state/leyforge_save.json",
+      "bytes": 58623,
+      "sha256": "635309484ea931ad0401eef834195f9095409118fa136318d6e85777a5fea213"
+    },
+    {
+      "path": "player-state/logs/godot.log",
+      "bytes": 482,
+      "sha256": "bdc76ad206c998ebb81a3d7653d1f2e1e9cbe8e1d23e6df8d44664c3cd0e92ce"
+    },
+    {
+      "path": "player-state/logs/godot2026-08-16T19.13.11.log",
+      "bytes": 588,
+      "sha256": "86ecd02da5d813129bfa9571f5b62ae3c24e29a9053ee7e367fd8dbd0b34ec40"
+    },
+    {
+      "path": "player-state/logs/godot2026-08-17T12.43.36.log",
+      "bytes": 2487,
+      "sha256": "b61a6cf3d570e17b30b556a459832eb8ea85086ceb15a32937942d0db5fcc288"
+    },
+    {
+      "path": "player-state/logs/godot2026-08-29T12.37.58.log",
+      "bytes": 1076,
+      "sha256": "316c55a92c9da62c1afc9c8819bb7fff195684718d7235488adedab711bbb0e8"
+    },
+    {
+      "path": "player-state/logs/godot2026-08-29T14.12.07.log",
+      "bytes": 482,
+      "sha256": "bdc76ad206c998ebb81a3d7653d1f2e1e9cbe8e1d23e6df8d44664c3cd0e92ce"
+    },
+    {
+      "path": "player-state/profile.backup.json",
+      "bytes": 1942,
+      "sha256": "211c2303f846ca58c7bb09e7a75ce02e1a0f3e38f0865f05c30cca4563732537"
+    },
+    {
+      "path": "player-state/profile.json",
+      "bytes": 1941,
+      "sha256": "6b41c3948afab84101db379a091f05684e6d38fec14228f5f38441fb20c36f5a"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/legacy-world-1786678327/metadata.backup.json",
+      "bytes": 560,
+      "sha256": "b31db8fe24150f3a1e096c10323e6983c170ef91391eefc95fe36211193d4981"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/legacy-world-1786678327/metadata.json",
+      "bytes": 1685,
+      "sha256": "03d94ef64f0ba53e7e02875ffd596632c66c0904e3117c91bfd34b7e7b5f8636"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/legacy-world-1786678327/world.backup.json",
+      "bytes": 179567,
+      "sha256": "d3bccec6e4b97d8550f1bdf885e400fcec98bcb4776a6f83a113170d2d09f56e"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/legacy-world-1786678327/world.json",
+      "bytes": 876031,
+      "sha256": "2d1fbfff29daf62794dd7720f5d8428293f61687662b6ae08767fdd81ad281f2"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1785208993-1951a2c6-1786678322/metadata.json",
+      "bytes": 481,
+      "sha256": "157a727825234c0c482d2cb91e2da0666f3cfcc680b4f99f09646a30c127ac1d"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1785419183-25aa5faa-1786678331/metadata.json",
+      "bytes": 659,
+      "sha256": "1d7c68aa8b590d4bf085477cb20dce9b4adf3ef0ef4665eada4a9cf564c46b36"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786330154-3b94ebd4-1786678313/metadata.backup.json",
+      "bytes": 1936,
+      "sha256": "33f1edf70bcaf1a62dda6a2db70494572239d3ae94136a3ae66a7f704b325aa9"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786330154-3b94ebd4-1786678313/metadata.json",
+      "bytes": 1973,
+      "sha256": "48db7994c413d464d083e34b4d6d7b2d48b6451deb0730a4e091b96f98c4c82d"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786335031-46368b23-1786678335/metadata.backup.json",
+      "bytes": 1945,
+      "sha256": "f2e3b25ebf8e5b55a3ebd9dc523cd8d7a100bfc94b5f6549ba4e7af85d62f8bc"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786335031-46368b23-1786678335/metadata.json",
+      "bytes": 1954,
+      "sha256": "99d959185e5391c0cb2868c4edce6d3417e771de2f62478274fae791e95a6996"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786335031-46368b23-1786678335/world.json",
+      "bytes": 664863,
+      "sha256": "949ce18e08c8a505f310d13f97dcaae7757d44bd85c19b8da200c8df352d18b2"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786367995-1723ca95-1786678338/metadata.backup.json",
+      "bytes": 1941,
+      "sha256": "5a4cada3e5be850390457abe237878c8b935f9ceeb73c03c88c7f0199bd5076f"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786367995-1723ca95-1786678338/metadata.json",
+      "bytes": 1950,
+      "sha256": "c958485f78e1701d9725a9503e44c7cb2a2defac6c68a5e294e22f04b1bce504"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786367995-1723ca95-1786678338/world.json",
+      "bytes": 1051574,
+      "sha256": "efa5d0a92104c0a7fc7f4962ee65942bbf854ffe76f56067927d4fa0dbafd4ae"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786673674-31ea13a9-1786689913/metadata.backup.json",
+      "bytes": 1945,
+      "sha256": "dbaae7fc898cdee599beb73022f1b29c8baa231fe1f383ffcd68b5c2ed132f0d"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786673674-31ea13a9-1786689913/metadata.json",
+      "bytes": 1961,
+      "sha256": "8114c0de5998497b749f89a7412a409510d17778ea2e5e949a5c2c73e91af2ad"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786673674-31ea13a9-1786689913/world.backup.json",
+      "bytes": 910371,
+      "sha256": "98b8020114dcc2ded8ebccf1292a7fca083f3a2801e8c987300d1f06b672c2f2"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786673674-31ea13a9-1786689913/world.json",
+      "bytes": 978666,
+      "sha256": "d7d8efbe7d7729a7db6661c58b1ed845dd2f415ac133564f27f05b6c5ec55e38"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786689921-648e2413-1786693568/metadata.backup.json",
+      "bytes": 1938,
+      "sha256": "ca90950a0c7df2774e8fdb8a28b19d63e5341e882ae22c1fabfa84a198df18af"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786689921-648e2413-1786693568/metadata.json",
+      "bytes": 1948,
+      "sha256": "d435f78e5268e19c7b4557f84874670993a422b7e057aa38dc5e14687fcaf43a"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786689921-648e2413-1786693568/world.json",
+      "bytes": 1501693,
+      "sha256": "9fdde58a02e7009df9a2e9753e13b13ab53a6e486beb4076d4f2008a72e05710"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786693580-201cdfa6-1786785425/metadata.backup.json",
+      "bytes": 1965,
+      "sha256": "e5929c77ef510142e63102ad72d75f966fa71dba25d45111bedad9d360abf55c"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786693580-201cdfa6-1786785425/metadata.json",
+      "bytes": 1965,
+      "sha256": "104cfa57ad541d12d4f777edbce3a7efebcd1dc95c22dbae2c9d4ff87a40c762"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786693580-201cdfa6-1786785425/world.backup.json",
+      "bytes": 1630103,
+      "sha256": "27ab116fc2dd268720b7d26f7b564ff2178cf578f8a9d771948ef5ff58d69495"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786693580-201cdfa6-1786785425/world.json",
+      "bytes": 1794395,
+      "sha256": "6228df268ec72c5b5bddb0cd98c6c83d8bd7d9b7a8d7bf6b42afb9915310c0c1"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786778640-2f9398d6-1786781494/metadata.backup.json",
+      "bytes": 1965,
+      "sha256": "4a2acd41c71191ddf5dbd87a42ea761781ee2d4fbc62c172b5804bbc94410051"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786778640-2f9398d6-1786781494/metadata.json",
+      "bytes": 1965,
+      "sha256": "9c94de7413b50b18b87ae0f153f14c5696f09594f34c96f36b9582027aab34c0"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786778640-2f9398d6-1786781494/world.backup.json",
+      "bytes": 1003192,
+      "sha256": "8d71fb3b98ff7a842d5fc2b002102aa812028bb30ddfb95532603551e95526d7"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786778640-2f9398d6-1786781494/world.json",
+      "bytes": 1028118,
+      "sha256": "4bc3ef52249f33805b6c0901c695a332d4eaec05d45351cff6d42152242d2be5"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786781504-3335af2d-1786785422/metadata.backup.json",
+      "bytes": 1946,
+      "sha256": "66f7cd5f1fa8ddd37314b3d19f505b4179f570e1f6c711634bcc900631f2f6f0"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786781504-3335af2d-1786785422/metadata.json",
+      "bytes": 1962,
+      "sha256": "862564f3ae2bd1c07ab50b3a81d66f276beca8a65810a1c9ce8222754466fbe5"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786781504-3335af2d-1786785422/world.backup.json",
+      "bytes": 1022238,
+      "sha256": "19d3bf13419c61e538a033f1cd4b31be240feb34463f64d31d3fbdbbb02a5cc8"
+    },
+    {
+      "path": "player-state/worlds/.deleted_worlds/world-1786781504-3335af2d-1786785422/world.json",
+      "bytes": 1060327,
+      "sha256": "0ed052684f69e1af748c40e4c306c48a0b7174043eec5d96e0814dd4c5f9d90c"
+    },
+    {
+      "path": "player-state/worlds/.legacy_import_complete",
+      "bytes": 35,
+      "sha256": "3c4a8ae45cdf0d75151de3f194d8642eaf77968724997109d0c845c58e159d26"
+    },
+    {
+      "path": "player-state/worlds/world-1786785436-04573998/metadata.backup.json",
+      "bytes": 1946,
+      "sha256": "a4366a15e788a37ced772fdf43e30b5d04b8fc03e5597df6b9e824ae191e2115"
+    },
+    {
+      "path": "player-state/worlds/world-1786785436-04573998/metadata.json",
+      "bytes": 1955,
+      "sha256": "399b26201ba9673a56fdedae9e79d9233eed418eee00dc2d49d014a93542c205"
+    },
+    {
+      "path": "player-state/worlds/world-1786785436-04573998/world.json",
+      "bytes": 1042782,
+      "sha256": "ccd09084b31a819e0ce70b8fb992b4541a939fef829af2b49290c0c73521ec18"
+    },
+    {
+      "path": "player-state/worlds/world-1786878817-4cfab7a1/metadata.backup.json",
+      "bytes": 1949,
+      "sha256": "99fc4e9d8dd145f460668519b8c5e1a75dc1846f8c35c903e9c6f988b3ea4ff2"
+    },
+    {
+      "path": "player-state/worlds/world-1786878817-4cfab7a1/metadata.json",
+      "bytes": 1965,
+      "sha256": "4f9968a37be5622ac8dc6a27f98587b6005a337cab30a97b5c34a8b546eca4e4"
+    },
+    {
+      "path": "player-state/worlds/world-1786878817-4cfab7a1/world.backup.json",
+      "bytes": 571694,
+      "sha256": "7da989e37ee3f4c25ccddc88ab3e74737c292c2117dedc24640a88f529ac2c7c"
+    },
+    {
+      "path": "player-state/worlds/world-1786878817-4cfab7a1/world.json",
+      "bytes": 578558,
+      "sha256": "cdf4ef47ed20b4b1614cb24b2599f66a61864c8a554d0edeb0c6d164bbfa8378"
+    },
+    {
+      "path": "player-state/worlds/world-1786942116-5b2196b1/metadata.backup.json",
+      "bytes": 1941,
+      "sha256": "d0686199a3569ce7e6cc5e266c0d9355029be5bb11fac0848bfb8ab120269639"
+    },
+    {
+      "path": "player-state/worlds/world-1786942116-5b2196b1/metadata.json",
+      "bytes": 1950,
+      "sha256": "9eff1c662c5ec4319a1efa368a6e041e206eafbe12962aba6d70c4d98acd519f"
+    },
+    {
+      "path": "player-state/worlds/world-1786942116-5b2196b1/world.json",
+      "bytes": 755098,
+      "sha256": "ed6fe3dbe98527145af4f191f9dbbdd2023e43037ef55a6e0a31ca74b471985f"
+    },
+    {
+      "path": "summer-local-history.bundle",
+      "bytes": 2198568,
+      "sha256": "6e8b66529fabc754b90390e4e75a3cddf9b2ff4f2ec4f17543ae1ca70d720587"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/546e46d3-gdscript-shutdown.patch",
+      "bytes": 10928,
+      "sha256": "217be6b0b2176c53b0c8deaf2149bde0f2e73cf047baad7f45ec29236dfb367a"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/a9c94cd2-owner-reference.patch",
+      "bytes": 1296,
+      "sha256": "ca35e6dc60f0e40e4f71ed96d9431cac7b4349f1e543e37651ef672f7711b1d4"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/leyforge_release_report.json",
+      "bytes": 1126,
+      "sha256": "23370fbba32437deb95854896b342825bf7a75a8f3b4817ae991e7e9f6f447f6"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot.log",
+      "bytes": 600,
+      "sha256": "38f8f46edad6b791dc9b430400961ce6c603502b77e8359b6a023cf6cbe112f6"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot2026-08-06T14.46.45.log",
+      "bytes": 654,
+      "sha256": "114eeeb6e3bf80ea2316a6726fc66b1733268898ae756859b3d246d9e05b1183"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot2026-08-06T14.46.55.log",
+      "bytes": 625,
+      "sha256": "3237ffc4e12384eaad64801fe949dfc0554714cd9776d34304c69c1319583cce"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot2026-08-06T14.46.59.log",
+      "bytes": 437,
+      "sha256": "7d4bb0206741fb55f3b303d815e3c96c990a4e9f0432218b344d70a23c6494b1"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/logs/godot2026-08-06T14.47.13.log",
+      "bytes": 828,
+      "sha256": "a8750b255eb7dee4aa76874d0f531e3efc701fe84d368e958682499dd3a7928e"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/profile.backup.json",
+      "bytes": 1943,
+      "sha256": "75893d6b5526b6b36afec837e874fce322c9d5859533da9ace004f6d22dec95d"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/profile.json",
+      "bytes": 1939,
+      "sha256": "55199dd983026ca2e2496438d999beb11ffa793055539e7afe3d676c126880cd"
+    },
+    {
+      "path": "workspace/.local/diagnostics/godot-shutdown-019fbb51/profile-enforced-default-20260806/Godot/app_userdata/Leyforge/worlds/.legacy_import_complete",
+      "bytes": 35,
+      "sha256": "968e21ecf0132d792aaa9aad996e15777557ac7c4d353fa45efce6cc35f3a771"
+    },
+    {
+      "path": "workspace/.local/Godot_v4.8-dev-a9c94-shutdown-fixed/godot.windows.editor.x86_64.console.exe",
+      "bytes": 301056,
+      "sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a"
+    },
+    {
+      "path": "workspace/.local/Godot_v4.8-dev-a9c94-shutdown-fixed/godot.windows.editor.x86_64.exe",
+      "bytes": 164200960,
+      "sha256": "87d0a6077abe38b905f973b23d9f27fd4f3b7a8db2309dfd6807fad7dff582c8"
+    },
+    {
+      "path": "workspace/.local/Godot_v4.8-dev-a9c94-shutdown-fixed/README.txt",
+      "bytes": 1143,
+      "sha256": "be2a21688664f98c071df9112120e1717abba5617f2a6dc382c886374779bb59"
+    },
+    {
+      "path": "workspace/.trae/documents/evt-001_implementation_path_plan.md",
+      "bytes": 19683,
+      "sha256": "914911605b6044fe314adc2a4884b93a22967c51d8330d8d27fe7e3f55a3eff6"
+    },
+    {
+      "path": "workspace/.trae/specs/audit-summer-progress-report/checklist.md",
+      "bytes": 533,
+      "sha256": "455d99af0132064dbe32da691e73d9bd233cdb3b8af264de607f8fcbac163282"
+    },
+    {
+      "path": "workspace/.trae/specs/audit-summer-progress-report/spec.md",
+      "bytes": 2806,
+      "sha256": "1082531effd2052d2d6e215cd465cc3e3c318a76aea01d54d0cc4f7ea943414e"
+    },
+    {
+      "path": "workspace/.trae/specs/audit-summer-progress-report/tasks.md",
+      "bytes": 1348,
+      "sha256": "75f97dff00e5e7d840345d202ec2bdcec41a032e2f68f283ea9ca4435c664852"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/development/village_progression_lab/lab.json",
+      "bytes": 530008,
+      "sha256": "1d527f37caa6bb5b7883787d9c08fb5b0a1ffd84f2262aabd817ffdc12bfefd4"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/leyforge_release_report.json",
+      "bytes": 1131,
+      "sha256": "4a1aa64280c81d5eac01e4f7370e299e83d088a1be64afe6bddda646d5f63970"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/leyforge_save.backup.json",
+      "bytes": 821,
+      "sha256": "63d328282c57069901a6fe301383f4fcc08927c2d829c1aafffa19ec93ac0948"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/leyforge_save.json",
+      "bytes": 821,
+      "sha256": "63d328282c57069901a6fe301383f4fcc08927c2d829c1aafffa19ec93ac0948"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot.log",
+      "bytes": 442,
+      "sha256": "1c6c1335fdcf34dece6ceab9abfb9c3cf419d3deb498c65f7955f434caddb2c8"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.44.58.log",
+      "bytes": 682,
+      "sha256": "ea4492a95007db865f6e39bea31280e9a0136a2a568d143da87fe326ddd77a21"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.45.02.log",
+      "bytes": 391,
+      "sha256": "020d07c6e331b7ed07060567249c311d321fcf2f35164d9f582099f872afffe8"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.45.58.log",
+      "bytes": 510,
+      "sha256": "90037de4bc0015a4ec0254882b6cc1d4333a1160c4d0a8073442203bb4c8d84f"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.46.30.log",
+      "bytes": 539,
+      "sha256": "8bbb766bb5210463f4dac551cdcfdb12b76e5ee820d772c21bf5d1724da1feab"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/profile.backup.json",
+      "bytes": 1942,
+      "sha256": "e3116b87f9033197b43e9b9b797d3b8992361b0d9622d06e5bad672f6964ff5b"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/profile.json",
+      "bytes": 1942,
+      "sha256": "e3116b87f9033197b43e9b9b797d3b8992361b0d9622d06e5bad672f6964ff5b"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/.legacy_import_complete",
+      "bytes": 35,
+      "sha256": "03494fe0b1067fd1f588dc2110d2a9f5aec3c250e9867c8cebb4a8c7ff69f3b1"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/legacy-world/metadata.backup.json",
+      "bytes": 466,
+      "sha256": "c67800a237af26f5b3e77e0e60496fb8a27765b96d674c7d74efc4eae01e7bd0"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/legacy-world/metadata.json",
+      "bytes": 557,
+      "sha256": "455059e5cb981b4d53cc5331e09140f6784e10a06f5bc139f4b3db491ef09b28"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/legacy-world/world.backup.json",
+      "bytes": 821,
+      "sha256": "63d328282c57069901a6fe301383f4fcc08927c2d829c1aafffa19ec93ac0948"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_legacy_import_3312610/legacy-world/world.json",
+      "bytes": 33030,
+      "sha256": "128dd7522f5f872aaf487c6b906afed06766157d25bb8638ed80f97025f57617"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-5b1758ca/metadata.backup.json",
+      "bytes": 675,
+      "sha256": "d20ae1e636dd77f8a3cf6dc422c4f76431458e80fa90114bae863674dcc41406"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-5b1758ca/metadata.json",
+      "bytes": 682,
+      "sha256": "400644a1b991853d9b91f18efe93bc1d28b3f7a1039d161b3f4c1bdb61f712cc"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-5b1758ca/world.json",
+      "bytes": 29126,
+      "sha256": "1602a59e11a213768f9cda7bfd77eb0174fc7e1a034dc9f14f4003b9ad3a365a"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-6c87e444/metadata.backup.json",
+      "bytes": 675,
+      "sha256": "a90809627b254cc9e0566a22dec9c714d45e91a29a171dce77d7787f09c56dd3"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-6c87e444/metadata.json",
+      "bytes": 682,
+      "sha256": "6c2dfe0dcd351d0a618cb73056624fffbed99eb456c81c42a95cb0948d9cbf45"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3244010/world-1785249886-6c87e444/world.json",
+      "bytes": 28586,
+      "sha256": "9a3b008c14f01e28ddd1e630afd87ffc3c794a6db584b68f71b31b14da85abc4"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/app_userdata/Leyforge/worlds/.legacy_import_complete",
+      "bytes": 35,
+      "sha256": "53085172cf1ce5c9f682e689fab7d6c1d403f8999ca86eb25de97f33d9c79750"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/cache/editor_doc_cache-4.6.res",
+      "bytes": 3142854,
+      "sha256": "334a21cbb5c44574eb761e93aaff59882da1dd25ed2d2f3c4c79148daf67f38a"
+    },
+    {
+      "path": "workspace/.verification/stageb-final-profile/Godot/editor_settings-4.6.tres",
+      "bytes": 3397,
+      "sha256": "766278d7001ce8c8419c62d7763ac4bfcbebf9e3dbc2b0304e0979ac49fa8673"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/development/village_progression_lab/lab.backup.json",
+      "bytes": 530008,
+      "sha256": "d2f09874568d434fa17f0da480d0a10afebcc53f0a57bfa9e1fac1bc6aae7def"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/development/village_progression_lab/lab.json",
+      "bytes": 530008,
+      "sha256": "762efec48edcdebb9c0be9b15a49a715446e8b1e6702ad8a8af2589d897d44b2"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/leyforge_release_report.json",
+      "bytes": 1116,
+      "sha256": "f0aebcd23c9acc8600e21e37a04efe91de32b85cb73b8cad9c276730db02925b"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot.log",
+      "bytes": 510,
+      "sha256": "90037de4bc0015a4ec0254882b6cc1d4333a1160c4d0a8073442203bb4c8d84f"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.24.03.log",
+      "bytes": 411,
+      "sha256": "6a74ee27df1024e4ce149bfbd0e86cd63ee7ab3ef362779d00b8dd5d868dc626"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.29.44.log",
+      "bytes": 2287,
+      "sha256": "5e8be61018a2de572be2946b7c83b55097f46dee1b5948351c70a1ede959774d"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.49.52.log",
+      "bytes": 539,
+      "sha256": "8bbb766bb5210463f4dac551cdcfdb12b76e5ee820d772c21bf5d1724da1feab"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/logs/godot2026-07-28T22.50.20.log",
+      "bytes": 539,
+      "sha256": "8bbb766bb5210463f4dac551cdcfdb12b76e5ee820d772c21bf5d1724da1feab"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/profile.backup.json",
+      "bytes": 1942,
+      "sha256": "df25b55d9ab5e9c0fd51674e1cc5ed9c6968e17e6bd61fb7a068a9918bcc2d74"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/profile.json",
+      "bytes": 1942,
+      "sha256": "df25b55d9ab5e9c0fd51674e1cc5ed9c6968e17e6bd61fb7a068a9918bcc2d74"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-254daf25/metadata.backup.json",
+      "bytes": 675,
+      "sha256": "0639c4882c7937894bd164f14672662c45fc7a24dc5cb1c13133cd260c542625"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-254daf25/metadata.json",
+      "bytes": 682,
+      "sha256": "0aa5829f4533e7f46974c9e610958eaf11b3a9dc8ec5d16a9ad31a5e74bcfc09"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-254daf25/world.json",
+      "bytes": 28598,
+      "sha256": "f85adb0ac1341b74e54c2807fa9f10d144f63d1c76e6927934524eb992c6e8d3"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-407ff8aa/metadata.backup.json",
+      "bytes": 675,
+      "sha256": "07bba9fe4bb17e0fc1c449cf45daa15ccdc07469f975746f04fef6df9611ae21"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-407ff8aa/metadata.json",
+      "bytes": 682,
+      "sha256": "aa40f975ebcfa822f0c9d493a09f06ec0a56e39599cf7a2019f33c706ad09df0"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/verification_stage_a_worlds_3655275/world-1785248619-407ff8aa/world.json",
+      "bytes": 29124,
+      "sha256": "356664817443a670d18cda136dafe6f8b1d7b34cd27a47a5b9f87af7950ccc71"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/app_userdata/Leyforge/worlds/.legacy_import_complete",
+      "bytes": 35,
+      "sha256": "5b48bb64d3f7ffac6716efac43db67af31f819c9c2bfb4f405c2f2c3acef7c2e"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/cache/editor_doc_cache-4.6.res",
+      "bytes": 3142861,
+      "sha256": "a9d4da718ee7aab06b8c9ff81a8b809683adc264109f6a8fc4bde3277a50ae71"
+    },
+    {
+      "path": "workspace/.verification/stageb-live-profile/Godot/editor_settings-4.6.tres",
+      "bytes": 3395,
+      "sha256": "2952330a8fd0b480266725cdeb4508b5d4d347ec18d9fb85f3bee627e0ec00a0"
+    },
+    {
+      "path": "workspace/build/Leyforge.exe",
+      "bytes": 104546304,
+      "sha256": "93731792baca440c4ada89577959f5644e0ad44bffbc52566c3fd1e286df06ac"
+    },
+    {
+      "path": "workspace/build/Leyforge.pck",
+      "bytes": 678300,
+      "sha256": "3f2d837aeed8d1dbbb0fa4a914da09797c0e259b815ceedec10660c06888735f"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_automation_crusher_basic.previous.bak",
+      "bytes": 100646,
+      "sha256": "72e460ad3dcbda598f31a936145fb523a19683996bbccfeaefc871cd1cfa6910"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_automation_transport_chute.previous.bak",
+      "bytes": 92787,
+      "sha256": "dbdecadd66b04c435d7a333c79f4c02b89d10d66dd97b45a68dbd70193b3ef6b"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_construction_brick_stone.previous.bak",
+      "bytes": 11350,
+      "sha256": "e2ddbf281c53c7769496865eef04bc55161ab9c66a311db49d329335e351779f"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_construction_planks_oak.previous.bak",
+      "bytes": 10947,
+      "sha256": "8a0aa3bdc422c3033b6d473c642622b31e4c1f10cafd63627f2543a2e9be98c4"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_functional_furnace_stone.previous.bak",
+      "bytes": 110076,
+      "sha256": "d91cad1af0dc46fea5b0f12ee62004220f85d1a3dfe24b05000f450fcddccd6f"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_item_component_chute_segment.previous.bak",
+      "bytes": 90037,
+      "sha256": "e215cfb4ee2931820f76f56cce8dc4bb3f7a432f1ebee4c70e8e0b3d2863122b"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_item_tool_crude_pickaxe.previous.bak",
+      "bytes": 91291,
+      "sha256": "9726da814e908df2c73c89df2407dcab70f0348d9f05a525428e74fc5c2ff6ad"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_light_torch_basic.previous.bak",
+      "bytes": 452458,
+      "sha256": "9f95c84829a0cbf56ab1200f8a2cb5e33d38e24f2f6074f0e7110311b4381a99"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_magic_conduit_mana_basic.previous.bak",
+      "bytes": 91490,
+      "sha256": "4534c04c5da0f6410515bc03c0a600fd5b2e435058dd9d85dd64dfc8d975a51b"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_ore_coal_basic.previous.bak",
+      "bytes": 13071,
+      "sha256": "798caf7c0f428fc0156d6d9352c6e8ff86c7ffb5938ef9e0ee71dd55ea739090"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_ore_copper_basic.previous.bak",
+      "bytes": 11019,
+      "sha256": "3513f6a7f847f1d129de0031d7107d12ec8f0afe97bc4c23956353402c273490"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_ore_iron_basic.previous.bak",
+      "bytes": 11001,
+      "sha256": "1ee79bf2c4fa6997469d34b7041eb84437ad0835df5906b876a8bba1d306cd87"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_terrain_dirt_basic.previous.bak",
+      "bytes": 12109,
+      "sha256": "fecbb7d85883384cbd297c1d92c05744cdb46444d0b6d813ce9046a0a4a0368e"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_terrain_grass_basic.previous.bak",
+      "bytes": 11706,
+      "sha256": "b3988c01380d2bf1eb09996b0a63f54c4672954b0a7a63bc0cb44ce20ea35c43"
+    },
+    {
+      "path": "workspace/content/forge/assets/forge_asset_terrain_stone_basic.previous.bak",
+      "bytes": 12293,
+      "sha256": "b33637d09e8e37d9c736753109c95d0a48247ab51acdc53285e54fd51c99a722"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_automation_crusher_basic.previous.bak",
+      "bytes": 2138,
+      "sha256": "bee84926136e864005b01394c3acea43a54088e2a79b5ee8948fe595bb63e68e"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_automation_transport_chute.previous.bak",
+      "bytes": 1932,
+      "sha256": "b4c5645618388a8290ed9939ab150ee81ca503b32f837ae787bb3ccbc66e5adb"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_construction_brick_stone.previous.bak",
+      "bytes": 2908,
+      "sha256": "04c651e97ad4c74b3c3b822e3251fa2c06893d43177e139d33f7ff19c62a0978"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_construction_planks_oak.previous.bak",
+      "bytes": 2944,
+      "sha256": "5de01502e3117b19bfdc606b23c4f3858b9775693fe92f25e74735d9287e9e0d"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_functional_furnace_stone.previous.bak",
+      "bytes": 2858,
+      "sha256": "4bc707a34c1dfc33b7af30651d4b4bd98c383a772d5e8ee80367440d1aa488d1"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_item_tool_crude_pickaxe.previous.bak",
+      "bytes": 1668,
+      "sha256": "ebbfbbc5b52a0744203bdfb1450c3318a21140f25480421f1e54f9a6e5ff9573"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_light_torch_basic.previous.bak",
+      "bytes": 3011,
+      "sha256": "b36f65302ddcef8c0d610f73cccd77afb3cb974067dfce3b5e193811fd48f90e"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_magic_conduit_mana_basic.previous.bak",
+      "bytes": 1896,
+      "sha256": "8d5080734b02b761a6f61d077d60a8b58e20f85d39364b0a932dff918b375e3f"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_ore_coal_basic.previous.bak",
+      "bytes": 2834,
+      "sha256": "7ef1761963a36734664718abd88ab2ff6932c5bcad137e3fc625eb435efa1b4a"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_terrain_dirt_basic.previous.bak",
+      "bytes": 2879,
+      "sha256": "72eb8add2751b0fe9a73e6a79eacf6186cb1758103029dba29360d4a8a363f62"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_terrain_grass_basic.previous.bak",
+      "bytes": 2843,
+      "sha256": "da57e86ae3e58ade80f594281662c1b30a7df0a5e3e1b0298460e481a7120ec5"
+    },
+    {
+      "path": "workspace/generated/forge/manifests/presentation_terrain_stone_basic.previous.bak",
+      "bytes": 2870,
+      "sha256": "5701023703248657a26e3ba71f101e4a66f77f99d2bdb18a4c1e93c1fb205a27"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_automation_crusher_basic.previous.bak",
+      "bytes": 2969,
+      "sha256": "70f556dd0f6bc60a85cf0ed154ebf2c290634c0adcfaf3a0d4e6e886e20f9aae"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_automation_transport_chute.previous.bak",
+      "bytes": 2691,
+      "sha256": "afa24a00308772a502956a239fde04764e19846a59604b2e216e912cb5996305"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_construction_brick_stone.previous.bak",
+      "bytes": 2796,
+      "sha256": "ca8f335df0f0aadbf6f5856e466787eac5a51790e48305cc0aa3fef7b0506849"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_construction_planks_oak.previous.bak",
+      "bytes": 2674,
+      "sha256": "003d0f9c543d8ce313bc411343171bb66ead722021720eb52160e1d3c01369b9"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_functional_furnace_stone.previous.bak",
+      "bytes": 4048,
+      "sha256": "432ce0593470765d38cbfa293dfd02f0588236dbf1e3ae397294e82248990f81"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_item_tool_crude_pickaxe.previous.bak",
+      "bytes": 2002,
+      "sha256": "2dd57811f3dfd4cc501522f3cd6ecdf643b80cb7f5872f111085f23934c7b3bc"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_light_torch_basic.previous.bak",
+      "bytes": 3850,
+      "sha256": "bd76d2eb06b4ac9b36fc13d4e31b5c11b3b3aee77d799036794ac253dab25c59"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_magic_conduit_mana_basic.previous.bak",
+      "bytes": 2501,
+      "sha256": "6106519cd76df0aa7e98f724005a8f60510ae373f980fc8df4a203e551082ac6"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_ore_coal_basic.previous.bak",
+      "bytes": 2602,
+      "sha256": "71f3c6e78e2daa6c28a994fa39731400b8720e066b7bff3e7e8856e2c80246d0"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_terrain_dirt_basic.previous.bak",
+      "bytes": 2615,
+      "sha256": "c2d77acec34bd538161a57f2d8cf6f192d29ec5f285445918974d8e95da39fee"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_terrain_grass_basic.previous.bak",
+      "bytes": 2621,
+      "sha256": "89ab13afa012328fecde648cf90eb788b4a9089d05a89201dbd5b96f87124827"
+    },
+    {
+      "path": "workspace/generated/forge/packages/presentation_terrain_stone_basic.previous.bak",
+      "bytes": 2656,
+      "sha256": "563fcfbb7a9de4f0e6efae2243545faf63305647ee640a62de8ae07ca42d6380"
+    }
+  ],
+  "note": "Original byte-preserving captures; local only, includes player state. Git text checkout uses LF; original R1 SHA256SUMS records working-copy bytes."
+}
