@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import subprocess
+import tempfile
 import sys
 import unittest
 from pathlib import Path
@@ -99,6 +100,22 @@ class BrainAcceptanceTests(unittest.TestCase):
             self.assertTrue(record.metadata.get("generation_version"))
             self.assertTrue(record.metadata.get("generated_at"))
         self.assertTrue(brain.run_ingest(False)[0])
+
+    def test_06a_BRAIN_AT_006_git_clean_hash_portability(self) -> None:
+        expected = brain.git_blob_hash(b"alpha\nbeta\n")
+        with tempfile.NamedTemporaryFile(
+            dir=brain.REPO_ROOT,
+            prefix=".brain-eol-",
+            suffix=".md",
+            delete=False,
+        ) as handle:
+            fixture = Path(handle.name)
+            handle.write(b"alpha\r\nbeta\r\n")
+        try:
+            self.assertNotEqual(brain.git_blob_hash(fixture.read_bytes()), expected)
+            self.assertEqual(brain.git_worktree_blob_hashes([fixture])[fixture], expected)
+        finally:
+            fixture.unlink(missing_ok=True)
 
     def test_07_BRAIN_AT_007_work_record_lifecycle(self) -> None:
         self.assertEqual(self.schema["record_types"]["work"], ["planned", "active", "blocked", "complete", "cancelled"])

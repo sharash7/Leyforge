@@ -96,6 +96,38 @@ def git_blob_hash(data: bytes) -> str:
     return hashlib.sha1(prefix + data).hexdigest()
 
 
+def git_worktree_blob_hashes(paths: Iterable[Path]) -> dict[Path, str]:
+    """Hash worktree files as Git would store them after clean filters."""
+
+    source_paths = list(paths)
+    if not source_paths:
+        return {}
+
+    repo_root = REPO_ROOT.resolve()
+    relpaths: list[str] = []
+    for path in source_paths:
+        try:
+            relpaths.append(path.resolve().relative_to(repo_root).as_posix())
+        except ValueError as exc:
+            raise ValueError(f"path is outside repository: {path}") from exc
+
+    result = subprocess.run(
+        ["git", "hash-object", "--stdin-paths"],
+        cwd=REPO_ROOT,
+        input=("\n".join(relpaths) + "\n").encode("utf-8"),
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        detail = result.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"git hash-object failed: {detail}")
+
+    hashes = result.stdout.decode("ascii").splitlines()
+    if len(hashes) != len(source_paths) or any(not re.fullmatch(r"[0-9a-f]{40}", value) for value in hashes):
+        raise RuntimeError("git hash-object returned an invalid result set")
+    return dict(zip(source_paths, hashes))
+
+
 def parse_scalar(value: str) -> Any:
     value = value.strip()
     if not value:
@@ -308,10 +340,12 @@ def build_source_inventory() -> tuple[dict[str, Any], dict[str, str]]:
     artifacts: list[dict[str, Any]] = []
     proxies: dict[str, str] = {}
     source_root = REPO_ROOT / ".summer" / "00_Docs"
-    for path in sorted(p for p in source_root.rglob("*") if p.is_file()):
+    source_paths = sorted(p for p in source_root.rglob("*") if p.is_file())
+    current_hashes = git_worktree_blob_hashes(source_paths)
+    for path in source_paths:
         relpath = path.relative_to(REPO_ROOT).as_posix()
         data = path.read_bytes()
-        current_hash = git_blob_hash(data)
+        current_hash = current_hashes[path]
         text = data.decode("utf-8-sig", errors="replace") if path.suffix.lower() in {".md", ".txt"} else ""
         status, basis = classify_source(path, text)
         code = source_code(path.name) if selected_source(path) else None
@@ -607,14 +641,19 @@ def validate_records(records: list[Record], initial: list[dict[str, str]]) -> li
                 if not candidate.exists() and not root_candidate.exists():
                     diagnostics.append(diag("ERROR", "BRAIN-E019", record.relpath, f"broken wiki link: {target}"))
 
-    for record in records:
-        if record.metadata.get("type") != "document":
-            continue
+    document_records = [record for record in records if record.metadata.get("type") == "document"]
+    canonical_paths = [
+        REPO_ROOT / str(record.metadata.get("canonical_path", ""))
+        for record in document_records
+        if (REPO_ROOT / str(record.metadata.get("canonical_path", ""))).is_file()
+    ]
+    canonical_hashes = git_worktree_blob_hashes(canonical_paths)
+    for record in document_records:
         rel = record.relpath
         canonical = REPO_ROOT / str(record.metadata.get("canonical_path", ""))
         if not canonical.is_file():
             diagnostics.append(diag("ERROR", "BRAIN-E020", rel, "document proxy canonical_path is missing"))
-        elif git_blob_hash(canonical.read_bytes()) != record.metadata.get("source_hash"):
+        elif canonical_hashes[canonical] != record.metadata.get("source_hash"):
             diagnostics.append(diag("ERROR", "BRAIN-E021", rel, "document proxy source_hash is stale"))
         if record.metadata.get("authority_role") == "primary":
             diagnostics.append(diag("ERROR", "BRAIN-E022", rel, "source proxy may not claim primary authority"))
