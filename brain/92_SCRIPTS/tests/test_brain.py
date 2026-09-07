@@ -160,16 +160,26 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(w0_harness_to_readiness.metadata["next_package"], "R7-W0-DEPENDENCY-EXPORT-READINESS")
         self.assertEqual(w0_harness_to_readiness.metadata["supersedes"], "HANDOFF-20260906-003")
         self.assertEqual(w0_harness_to_readiness.metadata["superseded_by"], "HANDOFF-20260906-005")
+        w0_readiness_to_w1 = self.by_id["HANDOFF-20260906-005"]
+        self.assertEqual(w0_readiness_to_w1.metadata["status"], "superseded")
+        self.assertEqual(w0_readiness_to_w1.metadata["from_work"], "WORK-20260906-005")
+        self.assertEqual(w0_readiness_to_w1.metadata["next_gate"], "R7")
+        self.assertEqual(
+            w0_readiness_to_w1.metadata["next_package"],
+            "R7-W1-OWNERSHIP-WORLDGEN-DERIVED-SPATIAL-TRANSACTIONS-READINESS",
+        )
+        self.assertEqual(w0_readiness_to_w1.metadata["supersedes"], "HANDOFF-20260906-004")
+        self.assertEqual(w0_readiness_to_w1.metadata["superseded_by"], "HANDOFF-20260906-006")
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260906-005")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260906-006")
         self.assertEqual(handoff.metadata["next_gate"], "R7")
         self.assertEqual(
             handoff.metadata["next_package"],
-            "R7-W1-OWNERSHIP-WORLDGEN-DERIVED-SPATIAL-TRANSACTIONS-READINESS",
+            "R7-W2-NETWORK-PERSISTENCE-RECOVERY-MIGRATION-READINESS",
         )
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260906-004")
-        self.assertIn("all 13 W0 proof executions are complete", handoff.body)
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260906-005")
+        self.assertIn("all 17 W1 proof executions are complete", handoff.body)
         self.assertIn("PRD04-PROOF-73 remains inconclusive", handoff.body)
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
             self.assertIn(f"## {heading}", handoff.body)

@@ -27,14 +27,18 @@ related_to:
   - "EVID-0004"
   - "EVID-0005"
   - "EVID-0006"
+  - "EVID-0007"
   - "AUDIT-0003"
   - "AUDIT-0004"
   - "AUDIT-0005"
   - "AUDIT-0006"
+  - "AUDIT-0007"
   - "CHANGE-20260906-003"
   - "CHANGE-20260906-004"
   - "CHANGE-20260906-005"
+  - "CHANGE-20260906-006"
   - "HANDOFF-20260906-005"
+  - "HANDOFF-20260906-006"
   - "ADR-0008"
 ---
 
@@ -87,12 +91,24 @@ related_to:
 - GitHub Actions: Brain integrity and Engineering governance integrity PASS on the evidence commit.
 - Evidence and audit: [[EVID-0006]] and [[AUDIT-0006]].
 
-## R7 W1 Semantic-Safety Proof Package
+## R7 W1 Semantic-Safety Proof Execution Certification
 
-- Active under [[TASK-20260906-006]] and [[WORK-20260906-006]].
-- Scope: 17 ownership/worldgen/derived-readiness/transaction proofs using bounded FIXTURE-02, FIXTURE-03, FIXTURE-09 and FIXTURE-10 expansion.
-- Entry state: all 17 `HARNESS-BLOCKED`; zero W1 run/evidence identities allocated.
-- W0 evidence and exact dependency identities remain immutable inputs.
+- Implementation commit: `4b5affc1d51802199422c4f94bdf6d49f453d9ea`; admitted source: `9424d4df9e4fb78884a94db3a2f65f468fb5f27c`; evidence commit: `d7e672d3a04760e102966158898932f1093bbbd3`.
+- Exact proof-only Godot and Voxel Tools identities reused without production activation or local patches.
+- Fresh real client/headless exports: hash, provider self-report and smoke PASS.
+- Execution: 17/17 W1 proofs run; 17 PASS, zero FAIL, zero INCONCLUSIVE, zero INVALIDATED.
+- Stable verification: 46/46 Brain/governance tests plus 42/42 tool/runtime tests PASS.
+- Brain and Governance Doctors, ingestion, indexes, links and clean-rebuild boundary: PASS.
+- Boundary: 5917 checks and zero active POC dependencies.
+- GitHub Actions: Brain integrity and Engineering governance integrity PASS on the evidence commit.
+- Evidence and audit: [[EVID-0007]] and [[AUDIT-0007]].
+
+## R7 W2 Next Package
+
+- Continue through [[HANDOFF-20260906-006]].
+- Scope: 20 network/persistence/recovery/migration proofs with individual prerequisite reconciliation.
+- Entry state: all 20 W2 proofs remain unexecuted; no W2 run/evidence identity has been allocated.
+- PRD04-PROOF-57/58 require W2 mechanism evidence and later W4 corpus revalidation.
 - PRD-08 evaluation and R8 gameplay permission remain closed.
 
 ## Later Activation Milestones
@@ -103,4 +119,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 W1 readiness is active under [[TASK-20260906-006]] and [[WORK-20260906-006]]. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 W1 is certified under [[TASK-20260906-006]], [[WORK-20260906-006]] and [[AUDIT-0007]]. W2 is next under [[HANDOFF-20260906-006]]. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

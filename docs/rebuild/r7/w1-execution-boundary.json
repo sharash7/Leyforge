@@ -777,6 +777,12 @@
       "sha256": "98759cb07713e09313478fd4689dc7e89649d16eacada3685da14565aee15985"
     },
     {
+      "bytes": 23897,
+      "git_blob": "e89a8f14a57347336a90bbb0f733c7b1543c6ce1",
+      "path": "docs/rebuild/r7/w1-execution-completion-receipt.json",
+      "sha256": "b9b05920391a98bc938a0440d37179e09f622d70c3bd7123a23b5e7f270b860d"
+    },
+    {
       "bytes": 51964,
       "git_blob": "bcb7acdc1468f6c11ed5499b2b073c7cad327d72",
       "path": "docs/rebuild/r7/w1-execution-state.json",

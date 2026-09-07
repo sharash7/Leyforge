@@ -10,21 +10,21 @@ updated: "2026-09-07"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260906-005"
+current_handoff: "HANDOFF-20260906-006"
 related_to:
-  - "HANDOFF-20260906-005"
-  - "WORK-20260906-005"
-  - "TASK-20260906-005"
+  - "HANDOFF-20260906-006"
+  - "WORK-20260906-006"
+  - "TASK-20260906-006"
   - "ADR-0008"
-  - "AUDIT-0006"
-  - "EVID-0006"
-  - "CHANGE-20260906-005"
+  - "AUDIT-0007"
+  - "EVID-0007"
+  - "CHANGE-20260906-006"
   - "DOC-PRD-07"
   - "CONFLICT-0002"
 ---
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260906-005]]. Read it before beginning the next bounded package. W0 dependency/export readiness and all 13 W0 proof executions are complete and certified at evidence commit `d57332db98c80051f3e15ce7b52fcaaf56eca391`.
+The active formal handoff is [[HANDOFF-20260906-006]]. Read it before beginning the next bounded package. W1 fixture readiness and all 17 W1 proof executions are complete and certified at evidence commit `d7e672d3a04760e102966158898932f1093bbbd3`.
 
-The retained result set is 12 `PASS-OBSERVED`, zero `FAIL-OBSERVED`, one `INCONCLUSIVE` and zero `INVALIDATED`. PRD04-PROOF-73 remains inconclusive. The next bounded action is W1 ownership/worldgen/derived-spatial/transactions readiness under the next valid Task and Work records. R7 remains active; PRD-08 evaluation and R8 gameplay permission remain closed.
+W1 retained 17 `PASS-OBSERVED`, zero `FAIL-OBSERVED`, zero `INCONCLUSIVE` and zero `INVALIDATED` results. Cumulative W0/W1 state is 29 PASS and one INCONCLUSIVE; PRD04-PROOF-73 remains inconclusive. The next bounded action is W2 network/persistence/recovery/migration readiness under the next valid Task and Work records. R7 remains active; PRD-08 evaluation and R8 gameplay permission remain closed.

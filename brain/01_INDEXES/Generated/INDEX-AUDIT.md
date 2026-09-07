@@ -28,6 +28,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[AUDIT-0004|AUDIT-0004]] | audit | certified | R7 PRD-07 Controlled Intake Certification |
 | [[AUDIT-0006|AUDIT-0006]] | audit | certified | R7 W0 Dependency, Export and Proof Execution Certification |
 | [[AUDIT-0005|AUDIT-0005]] | audit | certified | R7 W0 Reusable Proof-Harness Bootstrap Certification |
+| [[AUDIT-0007|AUDIT-0007]] | audit | certified | R7 W1 Semantic-Safety Proof Execution Certification |
 | [[GOV-DEBT-0002|GOV-DEBT-0002]] | deviation | proposed | G1 registry and core identity validators |
 | [[GOV-DEBT-0003|GOV-DEBT-0003]] | deviation | proposed | G2 persistent V1 world-state validators |
 | [[GOV-DEBT-0004|GOV-DEBT-0004]] | deviation | proposed | G3 external Forge and mod-content validators |

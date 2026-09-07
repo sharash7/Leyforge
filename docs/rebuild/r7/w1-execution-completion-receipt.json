@@ -1,0 +1,568 @@
+{
+  "admission_commit": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c",
+  "architecture_decisions": {
+    "ADR-0001-through-ADR-0007": "PROPOSED",
+    "ADR-0008": "ACCEPTED"
+  },
+  "audit": "AUDIT-0007",
+  "branch": "codex/chore/brain-governance-pilot",
+  "certification": "PASS",
+  "certified_date": "2026-09-07",
+  "certified_state_commit": "d7e672d3a04760e102966158898932f1093bbbd3",
+  "change": "CHANGE-20260906-006",
+  "ci": [
+    {
+      "commit": "d7e672d3a04760e102966158898932f1093bbbd3",
+      "run_id": 34071333589,
+      "status": "SUCCESS",
+      "url": "https://github.com/sharash7/Leyforge/actions/runs/34071333589",
+      "workflow": "Engineering governance integrity"
+    },
+    {
+      "commit": "d7e672d3a04760e102966158898932f1093bbbd3",
+      "run_id": 34071333597,
+      "status": "SUCCESS",
+      "url": "https://github.com/sharash7/Leyforge/actions/runs/34071333597",
+      "workflow": "Brain integrity"
+    }
+  ],
+  "conflict_status": {
+    "CONFLICT-0002": "OPEN"
+  },
+  "cumulative_w0_w1": {
+    "evidence_ids": 30,
+    "remaining_inconclusive": [
+      "PRD04-PROOF-73"
+    ],
+    "result_counts": {
+      "FAIL-OBSERVED": 0,
+      "INCONCLUSIVE": 1,
+      "INVALIDATED": 0,
+      "PASS-OBSERVED": 29
+    },
+    "run_ids": 30
+  },
+  "dependencies": {
+    "godot_build_driver": {
+      "commit": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "patch_state": "NO-LOCAL-PATCH",
+      "sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "version": "4.8.dev.custom_build.a9c94cd21"
+    },
+    "godot_export_runtime": {
+      "package_sha256": "cebaad066428083f111515c74fba35e3ca64942eadf2323f1c7241d23abb73ea",
+      "patch_state": "NO-LOCAL-PATCH",
+      "template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "version": "4.8.dev4.official.b56a91878"
+    },
+    "voxel_tools": {
+      "commit": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+      "package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+      "patch_state": "NO-LOCAL-PATCH",
+      "runtime_sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0",
+      "tag": "v1.7x",
+      "version": "1.7"
+    }
+  },
+  "evidence": "EVID-0007",
+  "evidence_commit": "d7e672d3a04760e102966158898932f1093bbbd3",
+  "execution": {
+    "evidence_id_range": [
+      "PRD07-EVID-0014",
+      "PRD07-EVID-0030"
+    ],
+    "prior_state": "HARNESS-BLOCKED",
+    "proof_count": 17,
+    "proofs": [
+      {
+        "acceptance_reason": "At least 10,000 consequential completions produced zero stale commits and zero false rejection of current work.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0014",
+        "key_metrics": {
+          "classification_counts": {
+            "CURRENT-ACCEPTED": 4000,
+            "OWNER-EPOCH-REJECTED": 2000,
+            "SESSION-EPOCH-REJECTED": 2000,
+            "STALE-REJECTED": 2000,
+            "SUPERSEDED-REJECTED": 2000
+          },
+          "correct_rejection_count": 8000,
+          "false_rejection_count": 0,
+          "stale_commit_count": 0,
+          "task_completions": 12000
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0014",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-13",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0014"
+      },
+      {
+        "acceptance_reason": "Ten thousand handoffs retained exactly one current owner, accepted the new command, and rejected all old mutation rights.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0015",
+        "key_metrics": {
+          "classification_counts": {
+            "CURRENT-ACCEPTED": 10000,
+            "OWNER-EPOCH-REJECTED": 10000
+          },
+          "duplicate_commands": 0,
+          "duplicate_entities": 0,
+          "lost_commands": 0,
+          "no_owner_gaps": 0,
+          "old_mutation_rights_committed": 0,
+          "overlap_windows": 0,
+          "ownership_transfers": 10000
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0015",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-14",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0015"
+      },
+      {
+        "acceptance_reason": "One hundred seeded cadence comparisons matched, with fresh real client and headless export smoke lanes present.",
+        "artifact_sha256": "4d5f2d49ffd268183b3e9e966630a51aadf34ea26ea352822feec5d712db8c4f",
+        "build_identity": "26ec871408bd185ba8f3b8c7bc21b20136467e25a97a6f2ea25ed2d6871bb031",
+        "evidence_id": "PRD07-EVID-0016",
+        "key_metrics": {
+          "cadence_profiles_per_comparison": 5,
+          "canonical_mismatches": 0,
+          "fps_correlation": 0.0,
+          "real_client_lane": true,
+          "real_headless_lane": true,
+          "seeded_comparisons": 100
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0016",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-19",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0016"
+      },
+      {
+        "acceptance_reason": "Persistent timers and production advanced for 4,096 records with zero Nodes and identity-preserving promotion.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0017",
+        "key_metrics": {
+          "live_entity_nodes": 0,
+          "population": 4096,
+          "produced_resources": 344036,
+          "promotion_checks": 100,
+          "promotion_differences": 0,
+          "simulated_days": 28,
+          "world_ticks": 672
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0017",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-15",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0017"
+      },
+      {
+        "acceptance_reason": "Ten thousand promotion/demotion transitions preserved identity, resources, timers, and obligations exactly.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0018",
+        "key_metrics": {
+          "identity_errors": 0,
+          "obligation_continuity_errors": 0,
+          "rapid_oscillation_transitions": 10000,
+          "resource_conservation_delta": 0,
+          "timer_continuity_errors": 0,
+          "transitions": 10000
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0018",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-16",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0018"
+      },
+      {
+        "acceptance_reason": "One thousand seeded runs matched across four worker counts and shuffled completion orders; negative controls differed.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0019",
+        "key_metrics": {
+          "canonical_divergences": 0,
+          "different_seed_negative_control_equalities": 0,
+          "first_divergence_revision": null,
+          "seeded_runs": 1000,
+          "worker_configurations": [
+            1,
+            2,
+            4,
+            8
+          ]
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0019",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-21",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0019"
+      },
+      {
+        "acceptance_reason": "Thousands of interior/boundary edits produced complete, duplicate-free, bounded fan-out.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0020",
+        "key_metrics": {
+          "canonical_edits": 4096,
+          "consumer_fanout_per_edit": 6,
+          "duplicate_work": 0,
+          "maximum_dirty_volume": 125,
+          "missed_invalidations": 0,
+          "revision_link_errors": 0
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0020",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-23",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0020"
+      },
+      {
+        "acceptance_reason": "Ten thousand raced cells retained the committed edit through delayed generation and reload representation.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0021",
+        "key_metrics": {
+          "classification_counts": {
+            "STALE-REJECTED": 10000
+          },
+          "late_generation_accepts": 0,
+          "overwritten_edits": 0,
+          "raced_cells": 10000,
+          "reload_regeneration_mismatches": 0
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0021",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-24",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0021"
+      },
+      {
+        "acceptance_reason": "Thousands of edit/contact cases rejected stale collision, permitted current collision, and crossed the real Voxel Tools probe boundary.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0022",
+        "key_metrics": {
+          "edit_interaction_cases": 4096,
+          "maximum_quarantine_duration_ticks": 17,
+          "quarantine_failures": 0,
+          "real_provider_probe": true,
+          "stale_collision_accepts": 0,
+          "unsafe_interactions": 0
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0022",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-25",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0022"
+      },
+      {
+        "acceptance_reason": "Five thousand topology/bake orders produced bounded dirtiness, zero stale path authorization, and a real provider-boundary probe.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0023",
+        "key_metrics": {
+          "dirty_region_errors": 0,
+          "edit_path_bake_cases": 5000,
+          "maximum_rebuild_lag_ticks": 23,
+          "real_provider_probe": true,
+          "stale_bake_accepts": 0,
+          "stale_path_accepts": 0,
+          "unsafe_traversals": 0
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0023",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-26",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0023"
+      },
+      {
+        "acceptance_reason": "Repeated transient and persistent failures across mesh, collision, and nav remained explicit, safe, and recoverable only at the current revision.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0024",
+        "key_metrics": {
+          "canonical_changes_from_provider_failure": 0,
+          "failure_modes": [
+            "error",
+            "timeout",
+            "stale",
+            "transient-recovery",
+            "persistent-degradation"
+          ],
+          "incorrect_recoveries": 0,
+          "invisible_failures": 0,
+          "provider_classes": [
+            "mesh",
+            "collision",
+            "nav"
+          ],
+          "provider_failure_cases": 750,
+          "real_provider_probe": true,
+          "unsafe_interactions": 0
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0024",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-34",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0024"
+      },
+      {
+        "acceptance_reason": "Six hundred multi-owner transaction cases conserved state with one explicit semantic commit boundary and no silent partial authority.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0025",
+        "key_metrics": {
+          "conservation_delta": 0,
+          "duplicate_operation_effects": 0,
+          "final_state_counts": {
+            "COMMITTED": 200,
+            "COMPENSATED": 300,
+            "REJECTED": 100
+          },
+          "partial_state_count": 0,
+          "reservation_leaks": 0,
+          "seeded_operations": 600,
+          "semantic_commits": 200
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0025",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-04",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0025"
+      },
+      {
+        "acceptance_reason": "At least 1,000 construction operations conserved materials and rejected illegal, failed, cancelled, and duplicate attempts without ghost state.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0026",
+        "key_metrics": {
+          "construction_operations": 1200,
+          "duplicate_retry_effects": 0,
+          "free_material_cases": 0,
+          "ghost_or_double_structures": 0,
+          "material_conservation_delta": 0,
+          "permission_denials": 110,
+          "reservation_leaks": 0,
+          "semantic_commits": 517
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0026",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-17",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0026"
+      },
+      {
+        "acceptance_reason": "Five hundred support/integrity cases produced exactly one canonical collapse and coherent conserved consequences.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0027",
+        "key_metrics": {
+          "canonical_collapse_transactions": 500,
+          "collapse_cases": 500,
+          "conservation_errors": 0,
+          "duplicate_damage": 0,
+          "duplicate_drops": 0,
+          "provider_authored_semantic_effects": 0
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0027",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-33",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0027"
+      },
+      {
+        "acceptance_reason": "One thousand consequential traces explained one semantic outcome and every provider, persistence, network, and acknowledgement descendant across a real external provider process.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0028",
+        "key_metrics": {
+          "contradictory_commit_traces": 0,
+          "events_per_transaction_max": 6,
+          "events_per_transaction_min": 6,
+          "incorrect_context_events": 0,
+          "network_projection_hooks": 1000,
+          "orphan_events": 0,
+          "persistence_projection_hooks": 1000,
+          "real_async_provider_boundary": true,
+          "transactions": 1000,
+          "undetermined_commit_status": 0
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0028",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-63",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0028"
+      },
+      {
+        "acceptance_reason": "Ten thousand randomized schedules preserved determinism, conservation, ownership, and stale-work invariants.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0029",
+        "key_metrics": {
+          "conservation_errors": 0,
+          "first_divergence_seed": null,
+          "invariant_violations": 0,
+          "randomized_schedules": 10000,
+          "stale_commit_count": 0,
+          "state_divergences": 0
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0029",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-68",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0029"
+      },
+      {
+        "acceptance_reason": "Fourteen sustained windows across seven configurations remained bounded, completed admitted work, preserved critical progress, and recovered after pressure.",
+        "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "evidence_id": "PRD07-EVID-0030",
+        "key_metrics": {
+          "completion_mismatch_windows": 0,
+          "configuration_lanes": 7,
+          "maximum_critical_latency_ms": 240.10849999999095,
+          "maximum_queue_age_ms": 241.78049999999018,
+          "maximum_queue_depth": 64,
+          "maximum_recovery_ms": 58.36909999999307,
+          "peak_traced_memory_bytes": 155196,
+          "prior_w1_workload_profile_digest": "99322dec147234a5b1716d87ad3797b3139880120ef1115144eb1abf5deb1c91",
+          "retained_traced_memory_delta_bytes": 80127,
+          "starved_windows": 0,
+          "sustained_windows": 14,
+          "unbounded_queue_windows": 0,
+          "unrecovered_windows": 0
+        },
+        "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0030",
+        "prd08_submission": "NOT-SUBMITTED",
+        "prior_state": "HARNESS-BLOCKED",
+        "proof_id": "PRD04-PROOF-18",
+        "readiness": "READY",
+        "result": "PASS-OBSERVED",
+        "run_id": "PRD07-RUN-0030"
+      }
+    ],
+    "result_counts": {
+      "FAIL-OBSERVED": 0,
+      "INCONCLUSIVE": 0,
+      "INVALIDATED": 0,
+      "PASS-OBSERVED": 17
+    },
+    "retained_run_pack_bytes": 892392,
+    "retained_run_pack_files": 123,
+    "run_id_range": [
+      "PRD07-RUN-0014",
+      "PRD07-RUN-0030"
+    ]
+  },
+  "exports": {
+    "client": {
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "artifact_size_bytes": 110441232,
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "runtime_self_report": {
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "presentation_authority_dependencies": 0,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_ready": true,
+        "readback": 37,
+        "role": "client",
+        "schema_version": "prd07-w1-provider-self-report-v1",
+        "status": "PASS"
+      },
+      "state": "PASS"
+    },
+    "headless": {
+      "artifact_sha256": "4d5f2d49ffd268183b3e9e966630a51aadf34ea26ea352822feec5d712db8c4f",
+      "artifact_size_bytes": 110441280,
+      "build_identity": "26ec871408bd185ba8f3b8c7bc21b20136467e25a97a6f2ea25ed2d6871bb031",
+      "runtime_self_report": {
+        "build_identity": "26ec871408bd185ba8f3b8c7bc21b20136467e25a97a6f2ea25ed2d6871bb031",
+        "presentation_authority_dependencies": 0,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_ready": true,
+        "readback": 37,
+        "role": "headless",
+        "schema_version": "prd07-w1-provider-self-report-v1",
+        "status": "PASS"
+      },
+      "state": "PASS"
+    }
+  },
+  "gameplay_permission": "CLOSED",
+  "gate": "R7",
+  "implementation_commit": "4b5affc1d51802199422c4f94bdf6d49f453d9ea",
+  "known_limits": [
+    "PRD04-PROOF-18 measurements apply only to controlled W1 workloads and are not final production budgets.",
+    "PRD04-PROOF-73 remains INCONCLUSIVE from W0 because the selected baseline has no local patch to reproduce.",
+    "Production Godot and Voxel Tools activation remains planned and uninstalled."
+  ],
+  "next_handoff": "HANDOFF-20260906-006",
+  "next_package": "R7-W2-NETWORK-PERSISTENCE-RECOVERY-MIGRATION-READINESS",
+  "opening_commit": "128d18da4dd9cb9152e88f9c8bc3c92d055fbca3",
+  "package": "R7-W1-OWNERSHIP-WORLDGEN-DERIVED-SPATIAL-TRANSACTIONS",
+  "prd08_submission": "NOT-SUBMITTED",
+  "schema_version": "r7-w1-execution-completion-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c",
+  "starting_commit": "b531168b7c3b18a8d2126d8ac064260ecd6ff425",
+  "task": "TASK-20260906-006",
+  "verification": {
+    "active_poc_dependencies": 0,
+    "brain_doctor": "PASS",
+    "brain_governance_tests": 46,
+    "brain_index": "PASS",
+    "brain_ingest": "PASS",
+    "brain_links": "PASS",
+    "build_tier": "PASS",
+    "clean_rebuild_boundary": "PASS",
+    "clean_rebuild_boundary_checks": 5917,
+    "focused_tier": "PASS",
+    "full_tier": "PASS",
+    "governance_doctor": "PASS",
+    "tool_runtime_tests": 42,
+    "w1_boundary_admitted_paths": 145,
+    "w1_exact_admission": "PASS",
+    "w1_preflight": "PASS",
+    "w1_specific_tests": 7
+  },
+  "work": "WORK-20260906-006"
+}
