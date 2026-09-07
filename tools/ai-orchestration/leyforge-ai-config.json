@@ -1,0 +1,9 @@
+﻿{
+    "recovery_ref":  "refs/leyforge-recovery/latest",
+    "local_model":  "qwen2.5-coder:14b-instruct-q4_K_M",
+    "leyforge_path":  "D:\\AI\\Projects\\leyforge-rebuild",
+    "checkpoint_seconds":  300,
+    "canvas_url":  "http://localhost:8000",
+    "trae_mode":  "desktop_manual_fallback",
+    "ollama_url":  "http://127.0.0.1:11434"
+}

@@ -1,0 +1,15 @@
+[application]
+config/name="Leyforge R7 W2 Server Probe"
+config/description="Development-only governed PRD-07 W2 crash and session probe"
+run/main_scene="res://main.tscn"
+
+[display]
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=320
+window/size/window_height_override=180
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.015, 0.02, 0.03, 1)

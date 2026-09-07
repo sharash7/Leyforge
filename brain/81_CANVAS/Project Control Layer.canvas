@@ -1,15 +1,15 @@
 {
-  "nodes": [
-    {"id": "home000000000001", "type": "file", "file": "HOME.md", "x": 0, "y": 0, "width": 360, "height": 240},
-    {"id": "state00000000001", "type": "file", "file": "00_CONTROL/DASH-PROJECT-STATE.md", "x": 500, "y": 0, "width": 400, "height": 280},
-    {"id": "work000000000001", "type": "file", "file": "06_WORK/Work Records/WORK-20260905-004.md", "x": 0, "y": 380, "width": 400, "height": 300},
-    {"id": "hand000000000001", "type": "file", "file": "06_WORK/Handoffs/HANDOFF-20260905-001.md", "x": 500, "y": 380, "width": 400, "height": 300},
-    {"id": "audit00000000001", "type": "file", "file": "11_AUDIT/Reports/AUDIT-0001.md", "x": 1000, "y": 190, "width": 360, "height": 260}
-  ],
-  "edges": [
-    {"id": "edge000000000001", "fromNode": "home000000000001", "toNode": "state00000000001"},
-    {"id": "edge000000000002", "fromNode": "state00000000001", "toNode": "work000000000001"},
-    {"id": "edge000000000003", "fromNode": "work000000000001", "toNode": "hand000000000001"},
-    {"id": "edge000000000004", "fromNode": "work000000000001", "toNode": "audit00000000001"}
-  ]
+	"nodes":[
+		{"id":"home000000000001","type":"file","file":"HOME.md","x":0,"y":0,"width":360,"height":240},
+		{"id":"state00000000001","type":"file","file":"00_CONTROL/DASH-PROJECT-STATE.md","x":500,"y":0,"width":400,"height":280},
+		{"id":"work000000000001","type":"file","file":"06_WORK/Work Records/WORK-20260905-004.md","x":0,"y":380,"width":400,"height":300},
+		{"id":"audit00000000001","type":"file","file":"11_AUDIT/Reports/AUDIT-0001.md","x":1000,"y":190,"width":360,"height":260},
+		{"id":"hand000000000001","type":"file","file":"06_WORK/Handoffs/HANDOFF-20260905-001.md","x":560,"y":530,"width":400,"height":300}
+	],
+	"edges":[
+		{"id":"edge000000000001","fromNode":"home000000000001","fromSide":"right","toNode":"state00000000001","toSide":"left"},
+		{"id":"edge000000000002","fromNode":"state00000000001","fromSide":"bottom","toNode":"work000000000001","toSide":"top"},
+		{"id":"edge000000000003","fromNode":"work000000000001","fromSide":"right","toNode":"hand000000000001","toSide":"left"},
+		{"id":"edge000000000004","fromNode":"work000000000001","fromSide":"right","toNode":"audit00000000001","toSide":"left"}
+	]
 }

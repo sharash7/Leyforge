@@ -29,6 +29,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[EVID-0006|EVID-0006]] | evidence | active | R7 W0 dependency, export and real proof-execution evidence |
 | [[EVID-0005|EVID-0005]] | evidence | active | R7 W0 reusable proof-harness bootstrap evidence |
 | [[EVID-0007|EVID-0007]] | evidence | active | R7 W1 ownership, spatial, transaction and saturation proof evidence |
+| [[EVID-0008|EVID-0008]] | evidence | active | R7 W2 network, persistence, recovery and migration proof evidence |
 | [[TEST-BRAIN-ACCEPTANCE|TEST-BRAIN-ACCEPTANCE]] | test | active | Brain v0.1 Acceptance Suite |
 | [[TEST-GOVERNANCE-G0|TEST-GOVERNANCE-G0]] | test | active | R5 G0 Engineering Governance Acceptance Suite |
 | [[TEST-GOVERNANCE-R6|TEST-GOVERNANCE-R6]] | test | active | R6 Brain-to-Governance Operating Pilot Acceptance Suite |

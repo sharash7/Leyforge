@@ -1,8 +1,8 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Last completed work:** `WORK-20260906-006`.
+**Last completed work:** `WORK-20260906-007`.
 
-**State:** ACTIVE — PRD-07 intake, W0 and W1 are complete and certified. W2, W3, W4, W5 and FINAL remain open.
+**State:** ACTIVE — PRD-07 intake, W0, W1 and W2 are complete and certified. W3, W4, W5 and FINAL remain open.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
@@ -45,10 +45,20 @@ Cumulative W0/W1 state is 30 retained run/evidence pairs: 29 PASS and one INCONC
 
 The machine-readable receipt is `docs/rebuild/r7/w1-execution-completion-receipt.json`.
 
+## W2 Execution State
+
+All 20 W2 proofs moved individually from `HARNESS-BLOCKED` to READY and then executed. `docs/rebuild/r7/w2-execution-state.json` retains `PRD07-RUN/EVID-0031` through `0050`. All 20 results are `PASS-OBSERVED`; none failed, was inconclusive or was invalidated.
+
+Cumulative W0, W1 and W2 state is 50 retained run/evidence pairs: 49 PASS and one INCONCLUSIVE. W0 PRD04-PROOF-73 remains inconclusive. No result has been submitted to PRD-08. PRD04-PROOF-18 and W2 metrics remain experimental and establish no final production budget. W4 FCC-13E revalidation remains REQUIRED.
+
+## Certification
+
+[[EVID-0008]] and [[AUDIT-0008]] certify W2 evidence commit `7fa9858a682c1f32f2e70381f78c4a891e492693`.
+
 ## Remaining R7 Work
 
-W2 contains 20 unexecuted network/persistence/recovery/migration proofs. W3, W4, W5 and FINAL remain open. PRD04-PROOF-57 and 58 require W2 mechanism testing plus W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W3, W4, W5 and FINAL remain open. PRD04-PROOF-57 and 58 require W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue through [[HANDOFF-20260906-006]]. The next bounded action is W2 prerequisite reconciliation and minimum proof-fixture readiness under the next valid Task and Work records. Do not begin PRD-08 evaluation or R8 gameplay.
+Continue through [[HANDOFF-20260906-007]]. The next bounded action is W3 prerequisite reconciliation and minimum proof-fixture readiness under the next valid Task and Work records. Do not begin PRD-08 evaluation or R8 gameplay.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

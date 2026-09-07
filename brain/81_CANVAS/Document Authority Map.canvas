@@ -1,17 +1,17 @@
 {
-  "nodes": [
-    {"id": "source00000000001", "type": "text", "text": "Canonical source\n.summer/00_Docs\nOwns project truth", "x": 0, "y": 0, "width": 320, "height": 180, "color": "4"},
-    {"id": "proxy000000000001", "type": "file", "file": "04_DOCUMENTS/Proxies/DOC-LF-BRAIN-11.md", "x": 460, "y": 0, "width": 360, "height": 220},
-    {"id": "req0000000000001", "type": "file", "file": "12_REQUIREMENTS/Brain/REQ-BRAIN-HEADLESS-001.md", "x": 940, "y": 0, "width": 380, "height": 240},
-    {"id": "arch000000000001", "type": "file", "file": "03_ARCHITECTURE/ARCH-BRAIN-HEADLESS-TOOLING.md", "x": 940, "y": 340, "width": 380, "height": 260},
-    {"id": "impl000000000001", "type": "file", "file": "09_IMPLEMENTATION/Modules/MOD-BRAIN-CLI.md", "x": 460, "y": 380, "width": 360, "height": 240},
-    {"id": "evid000000000001", "type": "file", "file": "10_TESTING/Evidence/EVID-0001.md", "x": 0, "y": 380, "width": 320, "height": 240}
-  ],
-  "edges": [
-    {"id": "auth000000000001", "fromNode": "source00000000001", "toNode": "proxy000000000001", "label": "represented by"},
-    {"id": "auth000000000002", "fromNode": "proxy000000000001", "toNode": "req0000000000001", "label": "governs"},
-    {"id": "auth000000000003", "fromNode": "req0000000000001", "toNode": "arch000000000001", "label": "shapes"},
-    {"id": "auth000000000004", "fromNode": "arch000000000001", "toNode": "impl000000000001", "label": "implemented by"},
-    {"id": "auth000000000005", "fromNode": "impl000000000001", "toNode": "evid000000000001", "label": "verified by"}
-  ]
+	"nodes":[
+		{"id":"source00000000001","type":"text","text":"Canonical source\n.summer/00_Docs\nOwns project truth","x":0,"y":0,"width":320,"height":180,"color":"4"},
+		{"id":"proxy000000000001","type":"file","file":"04_DOCUMENTS/Proxies/DOC-LF-BRAIN-11.md","x":460,"y":0,"width":360,"height":220},
+		{"id":"req0000000000001","type":"file","file":"12_REQUIREMENTS/Brain/REQ-BRAIN-HEADLESS-001.md","x":940,"y":0,"width":380,"height":240},
+		{"id":"arch000000000001","type":"file","file":"03_ARCHITECTURE/ARCH-BRAIN-HEADLESS-TOOLING.md","x":940,"y":340,"width":380,"height":260},
+		{"id":"evid000000000001","type":"file","file":"10_TESTING/Evidence/EVID-0001.md","x":0,"y":380,"width":320,"height":240},
+		{"id":"impl000000000001","type":"file","file":"09_IMPLEMENTATION/Modules/MOD-BRAIN-CLI.md","x":460,"y":380,"width":360,"height":240}
+	],
+	"edges":[
+		{"id":"auth000000000001","fromNode":"source00000000001","fromSide":"right","toNode":"proxy000000000001","toSide":"left","label":"represented by"},
+		{"id":"auth000000000002","fromNode":"proxy000000000001","fromSide":"right","toNode":"req0000000000001","toSide":"left","label":"governs"},
+		{"id":"auth000000000003","fromNode":"req0000000000001","fromSide":"bottom","toNode":"arch000000000001","toSide":"top","label":"shapes"},
+		{"id":"auth000000000004","fromNode":"arch000000000001","fromSide":"left","toNode":"impl000000000001","toSide":"right","label":"implemented by"},
+		{"id":"auth000000000005","fromNode":"impl000000000001","fromSide":"left","toNode":"evid000000000001","toSide":"right","label":"verified by"}
+	]
 }

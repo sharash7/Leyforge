@@ -1,7 +1,7 @@
 filters:
   and:
     - file.hasProperty("brain_schema")
-    - 'type == "audit" || type == "risk" || type == "conflict" || type == "bug"'
+    - type == "audit" || type == "risk" || type == "conflict" || type == "bug"
 properties:
   id:
     displayName: ID
