@@ -1,0 +1,36 @@
+{
+  "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "concurrent_processes": 2,
+  "distinct_runtime_sessions": true,
+  "outcome": "PASS",
+  "preserved_world_semantic_identity": true,
+  "process_overlap": true,
+  "processes": [
+    {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "deployment_id": "deployment.source",
+      "exit_code": 0,
+      "pid": 24820,
+      "role": "source",
+      "schema_version": "prd07-w2-session-smoke-v1",
+      "session_id": "session.source.24820",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "world_semantic_id": "world.w2.backup"
+    },
+    {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "deployment_id": "deployment.copy",
+      "exit_code": 0,
+      "pid": 25412,
+      "role": "copy",
+      "schema_version": "prd07-w2-session-smoke-v1",
+      "session_id": "session.copy.25412",
+      "status": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "world_semantic_id": "world.w2.backup"
+    }
+  ],
+  "schema_version": "prd07-w2-concurrent-backup-process-report-v1"
+}

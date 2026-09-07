@@ -1,0 +1,628 @@
+{
+  "acceptance_reason": "Every clean and reconnect baseline cell was either exactly admitted or observably rejected before authoritative traffic.",
+  "artifacts": {
+    "compatibility_decision_matrix": [
+      [
+        "supported",
+        null
+      ],
+      [
+        "protocol",
+        "protocol"
+      ],
+      [
+        "content",
+        "content"
+      ],
+      [
+        "schema",
+        "schema"
+      ],
+      [
+        "world",
+        "world"
+      ],
+      [
+        "missing-pack",
+        "pack"
+      ]
+    ],
+    "handshake_manifests": [
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "supported",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "ACCEPT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": []
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      },
+      {
+        "cell": "protocol",
+        "join_mode": "clean",
+        "result": {
+          "baseline": {
+            "content": "c.1",
+            "protocol": "p.1",
+            "schema": "s.1",
+            "world": "w.alpha"
+          },
+          "decision": "REJECT",
+          "ordinary_traffic_before_decision": 0,
+          "reason_codes": [
+            "BASELINE-PROTOCOL-MISMATCH"
+          ]
+        }
+      }
+    ]
+  },
+  "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+  "evidence_id": "PRD07-EVID-0034",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "admission_decisions": {
+      "ACCEPT": 40,
+      "REJECT": 200
+    },
+    "matrix_attempts": 240,
+    "maximum_reject_ticks": 1,
+    "ordinary_traffic_before_rejection": 0,
+    "reason_code_errors": 0,
+    "wrong_baseline_accepts": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Protocol, content, schema, world and required-pack identities were decided before ordinary traffic."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-36",
+  "run_id": "PRD07-RUN-0034",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

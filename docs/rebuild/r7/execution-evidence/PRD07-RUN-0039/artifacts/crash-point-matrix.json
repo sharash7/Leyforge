@@ -1,0 +1,5066 @@
+[
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "0aea842d4b5d367915d95a102bcdd6f2c9a0cd014daa8abaa90a13dbcd7db1dd",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "0aea842d4b5d367915d95a102bcdd6f2c9a0cd014daa8abaa90a13dbcd7db1dd",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "0aea842d4b5d367915d95a102bcdd6f2c9a0cd014daa8abaa90a13dbcd7db1dd",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "1d0ebe66b117033b3714ad4eaefd1ccc9173a0c81a646285f15030e264974e70",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "1d0ebe66b117033b3714ad4eaefd1ccc9173a0c81a646285f15030e264974e70",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "1d0ebe66b117033b3714ad4eaefd1ccc9173a0c81a646285f15030e264974e70",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "cb907c0020472915bda993f521b97a03ecc79f042c489abd9ef7cb1c671b1e6a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "cb907c0020472915bda993f521b97a03ecc79f042c489abd9ef7cb1c671b1e6a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "cb907c0020472915bda993f521b97a03ecc79f042c489abd9ef7cb1c671b1e6a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "ae45d0a709e22153741a50cb1af00b3a8d457f408aa247b54c7b16260f83aad9",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "ae45d0a709e22153741a50cb1af00b3a8d457f408aa247b54c7b16260f83aad9",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "SESSION-BEGIN",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.0.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "ae45d0a709e22153741a50cb1af00b3a8d457f408aa247b54c7b16260f83aad9",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "131528b6539819151b86411eb8a3733d969b540fd7b02a283a55f17c7b03fcc3",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "131528b6539819151b86411eb8a3733d969b540fd7b02a283a55f17c7b03fcc3",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "131528b6539819151b86411eb8a3733d969b540fd7b02a283a55f17c7b03fcc3",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "8a097d1c8409b864385d5aa30e0b319b9949c78e62ef0a412ac069dab2410be2",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "8a097d1c8409b864385d5aa30e0b319b9949c78e62ef0a412ac069dab2410be2",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "8a097d1c8409b864385d5aa30e0b319b9949c78e62ef0a412ac069dab2410be2",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "411bfe45c801b3fd9a6cf0dd1b95c824556ac375d19f62e691c9c0eaecb42374",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "411bfe45c801b3fd9a6cf0dd1b95c824556ac375d19f62e691c9c0eaecb42374",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "411bfe45c801b3fd9a6cf0dd1b95c824556ac375d19f62e691c9c0eaecb42374",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "e38335ea298c665f232aeec3b75cb559200d3a1a993d446c70714fe27fede6bd",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "e38335ea298c665f232aeec3b75cb559200d3a1a993d446c70714fe27fede6bd",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "COMMAND-RECEIVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.1.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "e38335ea298c665f232aeec3b75cb559200d3a1a993d446c70714fe27fede6bd",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "f688b2243121d8ea5e011244e102e0f54b3a7d7565027ae8270cbb856aec82c3",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "f688b2243121d8ea5e011244e102e0f54b3a7d7565027ae8270cbb856aec82c3",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "f688b2243121d8ea5e011244e102e0f54b3a7d7565027ae8270cbb856aec82c3",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "4e8550245a35a4d85cd0b862fd0710e2d19bbffad3c55842efce191a06bce18f",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "4e8550245a35a4d85cd0b862fd0710e2d19bbffad3c55842efce191a06bce18f",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "4e8550245a35a4d85cd0b862fd0710e2d19bbffad3c55842efce191a06bce18f",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "4cd2c776929cb3f025943f6311828b78c27eecaf5ed4e2800e61d5c2ab4800e5",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "4cd2c776929cb3f025943f6311828b78c27eecaf5ed4e2800e61d5c2ab4800e5",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "4cd2c776929cb3f025943f6311828b78c27eecaf5ed4e2800e61d5c2ab4800e5",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "3aad60d9490496e776853aefe838b4982ab6c387794c339c1215713f681356e9",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "3aad60d9490496e776853aefe838b4982ab6c387794c339c1215713f681356e9",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "VALIDATE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.2.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "3aad60d9490496e776853aefe838b4982ab6c387794c339c1215713f681356e9",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "62c1f1a187ed9ff6d35a49e4e00dc69e57ec3bdc46f07b2bd041c40fddb89319",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "62c1f1a187ed9ff6d35a49e4e00dc69e57ec3bdc46f07b2bd041c40fddb89319",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "62c1f1a187ed9ff6d35a49e4e00dc69e57ec3bdc46f07b2bd041c40fddb89319",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "13378a8739ca092f86fac018f616a37c8c189115a0ab73febd47e73de331bdbd",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "13378a8739ca092f86fac018f616a37c8c189115a0ab73febd47e73de331bdbd",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "13378a8739ca092f86fac018f616a37c8c189115a0ab73febd47e73de331bdbd",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "0476c52d85078c52b2d750621989b18f0b2e89b1071575b38bfe08b16070a36b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "0476c52d85078c52b2d750621989b18f0b2e89b1071575b38bfe08b16070a36b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "0476c52d85078c52b2d750621989b18f0b2e89b1071575b38bfe08b16070a36b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "5f4ec0e3f454aba2616839952541f13345134bf9bee1939ebc57cac382f7bf34",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "5f4ec0e3f454aba2616839952541f13345134bf9bee1939ebc57cac382f7bf34",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "RESERVE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.3.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "5f4ec0e3f454aba2616839952541f13345134bf9bee1939ebc57cac382f7bf34",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "94a4742030cb021e474be593c980a23d3defddbcd421d2aa510e638edbc117ef",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "94a4742030cb021e474be593c980a23d3defddbcd421d2aa510e638edbc117ef",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "94a4742030cb021e474be593c980a23d3defddbcd421d2aa510e638edbc117ef",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "e8faf5fa1a8f4c496c4746730b6eb9197857aa778d4bd7449fd320256247d2ba",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "e8faf5fa1a8f4c496c4746730b6eb9197857aa778d4bd7449fd320256247d2ba",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "e8faf5fa1a8f4c496c4746730b6eb9197857aa778d4bd7449fd320256247d2ba",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "a0b84d4e0fe0725f406d284daa1e0444d9f30118f8eb53fbdf543a7374b10fa3",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "a0b84d4e0fe0725f406d284daa1e0444d9f30118f8eb53fbdf543a7374b10fa3",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "a0b84d4e0fe0725f406d284daa1e0444d9f30118f8eb53fbdf543a7374b10fa3",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "c52d8699e85a5ae230473b9c63d23054e03cee0ac211c48a6c911d704dc66438",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "c52d8699e85a5ae230473b9c63d23054e03cee0ac211c48a6c911d704dc66438",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "SEMANTIC-COMMIT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.4.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "c52d8699e85a5ae230473b9c63d23054e03cee0ac211c48a6c911d704dc66438",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "6da479aa2ef529eceabbd85e236cb17cb28b8a3bf78865bf5f6e2e18886cdabe",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "6da479aa2ef529eceabbd85e236cb17cb28b8a3bf78865bf5f6e2e18886cdabe",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "6da479aa2ef529eceabbd85e236cb17cb28b8a3bf78865bf5f6e2e18886cdabe",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "ef5e754896f4e38684c42dd4fd68904063f887c655ceda1eca5a0d3a0a1ccc71",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "ef5e754896f4e38684c42dd4fd68904063f887c655ceda1eca5a0d3a0a1ccc71",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "ef5e754896f4e38684c42dd4fd68904063f887c655ceda1eca5a0d3a0a1ccc71",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "ca2f1ca1eb7139d179976221e2704d8d3e92422ca033288fe72045ec6a736d4a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "ca2f1ca1eb7139d179976221e2704d8d3e92422ca033288fe72045ec6a736d4a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "ca2f1ca1eb7139d179976221e2704d8d3e92422ca033288fe72045ec6a736d4a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "50cd5cd336d3f23f6502181ee62388aa145643d58b230633ba5cc13e961011c4",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "50cd5cd336d3f23f6502181ee62388aa145643d58b230633ba5cc13e961011c4",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "JOURNAL-INTENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.5.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "50cd5cd336d3f23f6502181ee62388aa145643d58b230633ba5cc13e961011c4",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "e26fd2fb6452cdbbcbb99759acda36d6b88745bebcade712bb5de11af79034e7",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "e26fd2fb6452cdbbcbb99759acda36d6b88745bebcade712bb5de11af79034e7",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "e26fd2fb6452cdbbcbb99759acda36d6b88745bebcade712bb5de11af79034e7",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "9ee66f7580f5305bcdb98f8507f627ee3296d70c2ef30dc40d88450a8654217f",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "9ee66f7580f5305bcdb98f8507f627ee3296d70c2ef30dc40d88450a8654217f",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "9ee66f7580f5305bcdb98f8507f627ee3296d70c2ef30dc40d88450a8654217f",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "11389c509aeb721e01b150b9e8f535dd6b82904ee4031fdb09915c1bcbfeb142",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "11389c509aeb721e01b150b9e8f535dd6b82904ee4031fdb09915c1bcbfeb142",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "11389c509aeb721e01b150b9e8f535dd6b82904ee4031fdb09915c1bcbfeb142",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "2c79ec4973ab5cb122c0ce76078b570fc778a321089f244ae9e1d0d6ab53829e",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "2c79ec4973ab5cb122c0ce76078b570fc778a321089f244ae9e1d0d6ab53829e",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "STRUCTURED-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.6.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "2c79ec4973ab5cb122c0ce76078b570fc778a321089f244ae9e1d0d6ab53829e",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "3cde04975f3968e10c55bb155076dc6fbafd69d370acd9beba15848b99c215cc",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "3cde04975f3968e10c55bb155076dc6fbafd69d370acd9beba15848b99c215cc",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "3cde04975f3968e10c55bb155076dc6fbafd69d370acd9beba15848b99c215cc",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "5d9e6742a924ade243c80b09e0d1747c5c972603e0fdb37f500ec3534f4ccefe",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "5d9e6742a924ade243c80b09e0d1747c5c972603e0fdb37f500ec3534f4ccefe",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "5d9e6742a924ade243c80b09e0d1747c5c972603e0fdb37f500ec3534f4ccefe",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "7d53021186ab9943f4245f2baf027faf8e5461fdf486f75999de9b85be33824a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "7d53021186ab9943f4245f2baf027faf8e5461fdf486f75999de9b85be33824a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "7d53021186ab9943f4245f2baf027faf8e5461fdf486f75999de9b85be33824a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "b64adcaa593a9dcd2853cf7efd0c8bb7f0a4d9a73d877838d3fb614fa317e399",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "b64adcaa593a9dcd2853cf7efd0c8bb7f0a4d9a73d877838d3fb614fa317e399",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "VOXEL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.7.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "b64adcaa593a9dcd2853cf7efd0c8bb7f0a4d9a73d877838d3fb614fa317e399",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "b91e245e58bb1b7b1d79e829354a4452a75bfc1fae46a5afa0d4318de7f88b2b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "b91e245e58bb1b7b1d79e829354a4452a75bfc1fae46a5afa0d4318de7f88b2b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "b91e245e58bb1b7b1d79e829354a4452a75bfc1fae46a5afa0d4318de7f88b2b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "56cd9cd47bc2e15bdb3d824d13617194291b830787a4bd07358d9363ecfc92a0",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "56cd9cd47bc2e15bdb3d824d13617194291b830787a4bd07358d9363ecfc92a0",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "56cd9cd47bc2e15bdb3d824d13617194291b830787a4bd07358d9363ecfc92a0",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "75c8942eba19e6ab71cc894b1d36ba9b5d378113d260cd46b12b6f134401aaea",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "75c8942eba19e6ab71cc894b1d36ba9b5d378113d260cd46b12b6f134401aaea",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "75c8942eba19e6ab71cc894b1d36ba9b5d378113d260cd46b12b6f134401aaea",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "1ef74e2f07ce395896229c4ad374e31465aa4ecf0474e9a69801ea5dd17ec63e",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "1ef74e2f07ce395896229c4ad374e31465aa4ecf0474e9a69801ea5dd17ec63e",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "JOURNAL-STAGE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.8.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "1ef74e2f07ce395896229c4ad374e31465aa4ecf0474e9a69801ea5dd17ec63e",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "c26161cef4e06f86234d988d35cca9b3169d95d7e47ee5dc851c12d262445731",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "c26161cef4e06f86234d988d35cca9b3169d95d7e47ee5dc851c12d262445731",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "c26161cef4e06f86234d988d35cca9b3169d95d7e47ee5dc851c12d262445731",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "21f174767798f8964b73c38123aee43573f4f56958895dfdf877a9315cbeb469",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "21f174767798f8964b73c38123aee43573f4f56958895dfdf877a9315cbeb469",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "21f174767798f8964b73c38123aee43573f4f56958895dfdf877a9315cbeb469",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "44105d3eca8fbc72c1e97d589263f569fe4abce35e6556cf98db4eacca68303c",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "44105d3eca8fbc72c1e97d589263f569fe4abce35e6556cf98db4eacca68303c",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "44105d3eca8fbc72c1e97d589263f569fe4abce35e6556cf98db4eacca68303c",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "80f186d5c1e75c6dd3de768b200c72287531b9c8fd08632c647b39b380305f90",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "80f186d5c1e75c6dd3de768b200c72287531b9c8fd08632c647b39b380305f90",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "MANIFEST-TEMP",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.9.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "80f186d5c1e75c6dd3de768b200c72287531b9c8fd08632c647b39b380305f90",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "c8cb3d5141af009505ea45b56d1d8e2ed1bcdae6097ee848e22b27baf1a9dd9e",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "c8cb3d5141af009505ea45b56d1d8e2ed1bcdae6097ee848e22b27baf1a9dd9e",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.0.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "c8cb3d5141af009505ea45b56d1d8e2ed1bcdae6097ee848e22b27baf1a9dd9e",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "be846bd9f9f126a0cf505562fe07e2c02442b4cf819d76132611610d2aa31107",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "be846bd9f9f126a0cf505562fe07e2c02442b4cf819d76132611610d2aa31107",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.1.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "be846bd9f9f126a0cf505562fe07e2c02442b4cf819d76132611610d2aa31107",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "0094c3a0868b5d37b2f52051de3dd5814580e95df6b6b8d6059f33378e2b59f1",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "0094c3a0868b5d37b2f52051de3dd5814580e95df6b6b8d6059f33378e2b59f1",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.2.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "0094c3a0868b5d37b2f52051de3dd5814580e95df6b6b8d6059f33378e2b59f1",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "7b57c9a3d0c7547384e5c84e6897a84a5c4b14dee3e1f990b44f26cc19f44c00",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "7b57c9a3d0c7547384e5c84e6897a84a5c4b14dee3e1f990b44f26cc19f44c00",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 1,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "PARTICIPANT-FSYNC",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "UNPUBLISHED",
+          "generation": 2
+        },
+        {
+          "classification": "SELECTED",
+          "generation": 1
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.10.3.00000001",
+      "generation": 1,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        1,
+        1,
+        1
+      ],
+      "state_hash": "7b57c9a3d0c7547384e5c84e6897a84a5c4b14dee3e1f990b44f26cc19f44c00",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.0.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "d952aa54f2989c1262c5b44f2167e79ca19b30b02afb9166d30ba1278610c16b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.0.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "d952aa54f2989c1262c5b44f2167e79ca19b30b02afb9166d30ba1278610c16b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.0.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "d952aa54f2989c1262c5b44f2167e79ca19b30b02afb9166d30ba1278610c16b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.1.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "cb07559522c8fda37f83ac83ba0ac2dda70a8d906ac28114421d78d230a8249b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.1.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "cb07559522c8fda37f83ac83ba0ac2dda70a8d906ac28114421d78d230a8249b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.1.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "cb07559522c8fda37f83ac83ba0ac2dda70a8d906ac28114421d78d230a8249b",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.2.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "fc9ec6b0fff60ebd593358f19f408b150613e9294d2e03f91611bc552f4de05a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.2.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "fc9ec6b0fff60ebd593358f19f408b150613e9294d2e03f91611bc552f4de05a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.2.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "fc9ec6b0fff60ebd593358f19f408b150613e9294d2e03f91611bc552f4de05a",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.3.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "77c1ecff30cc9f51c8f7e2b31588621383e41a9762822d9f80c996a5731d9448",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.3.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "77c1ecff30cc9f51c8f7e2b31588621383e41a9762822d9f80c996a5731d9448",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "MANIFEST-PUBLISH",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.11.3.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "77c1ecff30cc9f51c8f7e2b31588621383e41a9762822d9f80c996a5731d9448",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.0.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "a504c3871cd9a7bbdd024fe23471091ed51a49cdd4411a07616d5c4f384a8212",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.0.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "a504c3871cd9a7bbdd024fe23471091ed51a49cdd4411a07616d5c4f384a8212",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.0.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "a504c3871cd9a7bbdd024fe23471091ed51a49cdd4411a07616d5c4f384a8212",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.1.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "1ffdd9c0224f70cfa48ac77e27c12cd8e833f6902c7dc46536cd7c5a88718561",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.1.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "1ffdd9c0224f70cfa48ac77e27c12cd8e833f6902c7dc46536cd7c5a88718561",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.1.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "1ffdd9c0224f70cfa48ac77e27c12cd8e833f6902c7dc46536cd7c5a88718561",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.2.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "414e5573b9be3b1f830b7365830d62881368b05eac5be5e497f790071bdf8410",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.2.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "414e5573b9be3b1f830b7365830d62881368b05eac5be5e497f790071bdf8410",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.2.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "414e5573b9be3b1f830b7365830d62881368b05eac5be5e497f790071bdf8410",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.3.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "cd0bb0b6e8fe9d42ae9b49243f9d4f66f1c95d239adf14c57159f0a0aa00a984",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.3.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "cd0bb0b6e8fe9d42ae9b49243f9d4f66f1c95d239adf14c57159f0a0aa00a984",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "ACK-PREPARE",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.12.3.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "cd0bb0b6e8fe9d42ae9b49243f9d4f66f1c95d239adf14c57159f0a0aa00a984",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.0.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "b4bf8aebd71633db78a48fe7313bfc7961aeda827eb01b787c0c1844ff7f78d4",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.0.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "b4bf8aebd71633db78a48fe7313bfc7961aeda827eb01b787c0c1844ff7f78d4",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.0.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "b4bf8aebd71633db78a48fe7313bfc7961aeda827eb01b787c0c1844ff7f78d4",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.1.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "45fdeab0c8468f5b514057ff0d30b1a9bb0d9b1bcd5ea56c211a2da90c840805",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.1.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "45fdeab0c8468f5b514057ff0d30b1a9bb0d9b1bcd5ea56c211a2da90c840805",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.1.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "45fdeab0c8468f5b514057ff0d30b1a9bb0d9b1bcd5ea56c211a2da90c840805",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.2.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "f361576479dde0579d5a74395cf2cfe851df207fef83dd2c0344272d74839d66",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.2.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "f361576479dde0579d5a74395cf2cfe851df207fef83dd2c0344272d74839d66",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.2.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "f361576479dde0579d5a74395cf2cfe851df207fef83dd2c0344272d74839d66",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "structured",
+      "voxel",
+      "journal"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.3.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "97c4c13b95facf481e94afc7a16e675de674ffc993afe02d8eaf3f018e64aad8",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "journal",
+      "structured",
+      "voxel"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.3.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "97c4c13b95facf481e94afc7a16e675de674ffc993afe02d8eaf3f018e64aad8",
+      "status": "RECOVERED"
+    }
+  },
+  {
+    "expected_generation": 2,
+    "load_order": [
+      "voxel",
+      "journal",
+      "structured"
+    ],
+    "phase": "ACK-SENT",
+    "recovered": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 2
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.crash.13.3.00000002",
+      "generation": 2,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        2,
+        2,
+        2
+      ],
+      "state_hash": "97c4c13b95facf481e94afc7a16e675de674ffc993afe02d8eaf3f018e64aad8",
+      "status": "RECOVERED"
+    }
+  }
+]

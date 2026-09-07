@@ -1,0 +1,558 @@
+[
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "REJECT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": [
+        "BASELINE-CONTENT-MISMATCH"
+      ]
+    },
+    "client_hash": "786e295a8d3196019273e8398c15134719a84c0a2eaf1ca5491120e08daa9a58",
+    "server_hash": "ef26217e78acae79ab1c4834e3d9502a7e0aabe43b31ff571046e1dcc8e4f8ac"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "0c7cb4fc9f45749fb00b9ed8a4f567794f94239a8fe5bece4e54c189eefc954f",
+    "server_hash": "0c7cb4fc9f45749fb00b9ed8a4f567794f94239a8fe5bece4e54c189eefc954f"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "4eadb2c00a3e556d132c4d4a8a16a7bdd358da3d49a7a348f49d17f5e223744d",
+    "server_hash": "4eadb2c00a3e556d132c4d4a8a16a7bdd358da3d49a7a348f49d17f5e223744d"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "e00dbffa45c9d6dd9f293754390bb3f004e51d7515e51c5c42122c8ccf902f7e",
+    "server_hash": "e00dbffa45c9d6dd9f293754390bb3f004e51d7515e51c5c42122c8ccf902f7e"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "5bbe73bca2a4fe6cf7226bf788838f796e9dbe205591ab4fffe742795ac89aff",
+    "server_hash": "5bbe73bca2a4fe6cf7226bf788838f796e9dbe205591ab4fffe742795ac89aff"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "REJECT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": [
+        "BASELINE-CONTENT-MISMATCH"
+      ]
+    },
+    "client_hash": "647468be2ea36763fa809f154657ee84ca16f0a88d13563f220d86276ca5d1e4",
+    "server_hash": "2839c962c15b42e1d11085d63492cb1326ec6c879021181c184948a93a3a7660"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "0c24aba8c6cd17065d281e9a2980a52a2ea3de01485b2b6be03bdf378811cc0a",
+    "server_hash": "0c24aba8c6cd17065d281e9a2980a52a2ea3de01485b2b6be03bdf378811cc0a"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "d143113dc94644ee0f354e9c44c5b5765bb41ec0f1a3ff55ed5a121743ce8b49",
+    "server_hash": "d143113dc94644ee0f354e9c44c5b5765bb41ec0f1a3ff55ed5a121743ce8b49"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "46ea97503cf4f6c42d9a7d357b6038ef292da47b24205e0ee1e6b7bb1152000f",
+    "server_hash": "46ea97503cf4f6c42d9a7d357b6038ef292da47b24205e0ee1e6b7bb1152000f"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "1579b3c520612b5dd7904fcfb3805169df8d6f81f26302e7f16eb075c325eb9a",
+    "server_hash": "1579b3c520612b5dd7904fcfb3805169df8d6f81f26302e7f16eb075c325eb9a"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "REJECT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": [
+        "BASELINE-CONTENT-MISMATCH"
+      ]
+    },
+    "client_hash": "ed483ded31530cd89277c1bdf26bbb285a14853633adfe1a5eaaaec979249fdc",
+    "server_hash": "3fbc7ec42454b098f63ee352a26e338331de8dc61f717f31b9a41d1e11dcdc74"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "5118ce7c1ecff68e8443a839a5c83505c1d0aaca97d89211d15dc356d7a30f96",
+    "server_hash": "5118ce7c1ecff68e8443a839a5c83505c1d0aaca97d89211d15dc356d7a30f96"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "b8bc976b7d565b47f17af2fb5898768457fd87953191a319f6c68b108e8056a7",
+    "server_hash": "b8bc976b7d565b47f17af2fb5898768457fd87953191a319f6c68b108e8056a7"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "c2a3d0da393a7a90f0591c65eaf7e936f62b04258b68cd8bd447e1f85f237923",
+    "server_hash": "c2a3d0da393a7a90f0591c65eaf7e936f62b04258b68cd8bd447e1f85f237923"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "84adbc21c2082670774b4128c694853c93253733712e178661573bda286aa79b",
+    "server_hash": "84adbc21c2082670774b4128c694853c93253733712e178661573bda286aa79b"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "REJECT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": [
+        "BASELINE-CONTENT-MISMATCH"
+      ]
+    },
+    "client_hash": "cae69c7f65adf47e3b892452fb2e6cfe9d377cb0f31b4f854fdffc8ab286ece2",
+    "server_hash": "32e3bffadb186f6d5a9524dc681800450aaf02996be39bd94e37280450265d02"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "40135c9bbca745be94b524d52541d28b09ad5ee75a0e13649077910d85e7636f",
+    "server_hash": "40135c9bbca745be94b524d52541d28b09ad5ee75a0e13649077910d85e7636f"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "6c2fddb5604ba17bc8cffe0c527500860c2ac9c6c3aaa85b3e0cdb0feb73331f",
+    "server_hash": "6c2fddb5604ba17bc8cffe0c527500860c2ac9c6c3aaa85b3e0cdb0feb73331f"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "4dbcc5a17d32102ccf68b94e96f08ea44c7f59318e2455d9e2b8ee0f7b4aa5b3",
+    "server_hash": "4dbcc5a17d32102ccf68b94e96f08ea44c7f59318e2455d9e2b8ee0f7b4aa5b3"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "1325da011eb754954b1cbcc91af075499585c6721647849632ee7bd98e19affd",
+    "server_hash": "1325da011eb754954b1cbcc91af075499585c6721647849632ee7bd98e19affd"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "REJECT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": [
+        "BASELINE-CONTENT-MISMATCH"
+      ]
+    },
+    "client_hash": "5fdb5272cfd6771afb0671c541b886bef4e549d8988cf1641b866fb8dc93846b",
+    "server_hash": "d1e2692c6406536f344247393d3e6d46610e6fab8c653ee915a01768ec2eb08c"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "002c707515caf09e9e143ca48342c6df812657b29f65c14ad62e3349da590a6a",
+    "server_hash": "002c707515caf09e9e143ca48342c6df812657b29f65c14ad62e3349da590a6a"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "3dfd6b8848fc091e5f3028e21dc204e7629c0d90e734b0e762b1904a37e9a399",
+    "server_hash": "3dfd6b8848fc091e5f3028e21dc204e7629c0d90e734b0e762b1904a37e9a399"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "9d8d352c8012a0f872b5e8a7982bb9b9bdf987cd6141c72204f012160755c2b2",
+    "server_hash": "9d8d352c8012a0f872b5e8a7982bb9b9bdf987cd6141c72204f012160755c2b2"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "b3682d6c6c5a9f79e4cfc1960f1e5adcc119786dc51041514b1e10a7d226f811",
+    "server_hash": "b3682d6c6c5a9f79e4cfc1960f1e5adcc119786dc51041514b1e10a7d226f811"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "REJECT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": [
+        "BASELINE-CONTENT-MISMATCH"
+      ]
+    },
+    "client_hash": "9bd662a1ea50ec581ebcafed45a216cf15b72bf33f4bc1ed17cb8dc65fb52b7f",
+    "server_hash": "e9523fe75c3eb0ad3a3752c2c1e82706722a0dec39da97a4026c8d90e455bb49"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "0a1a822ccf898d19abefbb6744c88ff9b5f32a5347a9d477b0aef0c9bcb296d2",
+    "server_hash": "0a1a822ccf898d19abefbb6744c88ff9b5f32a5347a9d477b0aef0c9bcb296d2"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "79fd2e9077305b14ca2db0c2b31049b1e45e00dbbeb15e1debcff05f270b87bd",
+    "server_hash": "79fd2e9077305b14ca2db0c2b31049b1e45e00dbbeb15e1debcff05f270b87bd"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "9ca882cdd2faec6e0c05b9eb3365fe017890d38824a9c8ccfc2d4818ba491f2e",
+    "server_hash": "9ca882cdd2faec6e0c05b9eb3365fe017890d38824a9c8ccfc2d4818ba491f2e"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "5203f354e58d32363611227d3098ea1763f73b3b29ebab6eeb0a12115505f1d5",
+    "server_hash": "5203f354e58d32363611227d3098ea1763f73b3b29ebab6eeb0a12115505f1d5"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "REJECT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": [
+        "BASELINE-CONTENT-MISMATCH"
+      ]
+    },
+    "client_hash": "d7524f22b04d0b199b4a57bb9d75761727dae4224b5acb553dce20b17a5b1f1a",
+    "server_hash": "5f0d55423662daa698ecbe506fa04faff5d123701acf6c56e9fbd5367afd554d"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "5368acc4fef0a5b3eed3bf8d8db9efed937e9988256d67677bb9eedb29ff17e0",
+    "server_hash": "5368acc4fef0a5b3eed3bf8d8db9efed937e9988256d67677bb9eedb29ff17e0"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "9f2469212faf13e639b15b88a15dfd877734fda1f2e8cf070b16369075ea19ee",
+    "server_hash": "9f2469212faf13e639b15b88a15dfd877734fda1f2e8cf070b16369075ea19ee"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "b5b882338cb017dcf572121dea6d5e519e07c868b69beed6f65336302c69e362",
+    "server_hash": "b5b882338cb017dcf572121dea6d5e519e07c868b69beed6f65336302c69e362"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "ACCEPT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": []
+    },
+    "client_hash": "78337ee4d5c7a2707fb8675673faf2328ac296af547369e8205c2662230eed8f",
+    "server_hash": "78337ee4d5c7a2707fb8675673faf2328ac296af547369e8205c2662230eed8f"
+  },
+  {
+    "admission": {
+      "baseline": {
+        "content": "c.1",
+        "protocol": "p.1",
+        "schema": "s.1",
+        "world": "w.alpha"
+      },
+      "decision": "REJECT",
+      "ordinary_traffic_before_decision": 0,
+      "reason_codes": [
+        "BASELINE-CONTENT-MISMATCH"
+      ]
+    },
+    "client_hash": "bdff8ba259dbb0a6b3de1d16f4a0c7a9ee3468616f2aada11530a0c410b2de5c",
+    "server_hash": "0560ebd716dd2c60017fc41f1f2900a872e22860d07d472e6ad51a430eb1e2e0"
+  }
+]

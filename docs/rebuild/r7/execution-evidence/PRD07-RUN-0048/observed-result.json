@@ -1,0 +1,665 @@
+{
+  "acceptance_reason": "Every supported missing-content class and the representative FCC-13E sample avoided guessed substitution and data loss.",
+  "artifacts": {
+    "representative_fcc13e_rows": [
+      {
+        "disposition": "CONTEXTUAL TERRAIN REBIND",
+        "final_action": "actual soil + vegetated surface/terrain state. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+        "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+        "numeric_id": "1",
+        "original_id": "terrain.grass.basic",
+        "stable_row_identity": "VXL_BLK_Terrain_GrassBlock",
+        "target": "actual soil + vegetated surface/terrain state",
+        "unique_id": "VXL_BLK_Terrain_GrassBlock"
+      },
+      {
+        "disposition": "LIVING/NATURAL OBJECT \u2014 DEFER EXACT",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "14",
+        "original_id": "natural.bush.basic",
+        "stable_row_identity": "VXL_BLK_Natural_BushBlock",
+        "target": "species/plant object and harvested products as later bound",
+        "unique_id": "VXL_BLK_Natural_BushBlock"
+      },
+      {
+        "disposition": "SYSTEM/OBJECT CANDIDATE \u2014 DEFER EXACT",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "27",
+        "original_id": "village.warehouse.basic",
+        "stable_row_identity": "VXL_BLK_Village_VillageWarehouse",
+        "target": "Village Warehouse",
+        "unique_id": "VXL_BLK_Village_VillageWarehouse"
+      },
+      {
+        "disposition": "COMPONENT / DEFER EXACT",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "40",
+        "original_id": "defence.watchtower.core",
+        "stable_row_identity": "VXL_BLK_Defence_WatchtowerCore",
+        "target": "Watchtower Core",
+        "unique_id": "VXL_BLK_Defence_WatchtowerCore"
+      },
+      {
+        "disposition": "MIGRATE CONTEXTUALLY / RETIRE",
+        "final_action": "actual canonical material if source evidence identifies one. Resolve by locked context; do not preserve the obsolete identity as active canon.",
+        "final_status": "CANONICAL CONTEXTUAL MIGRATION",
+        "numeric_id": "53",
+        "original_id": "terrain.crystal_stone.basic",
+        "stable_row_identity": "VXL_BLK_Terrain_CrystalStone",
+        "target": "actual canonical material if source evidence identifies one",
+        "unique_id": "VXL_BLK_Terrain_CrystalStone"
+      },
+      {
+        "disposition": "OBJECT/PROVIDER REBIND",
+        "final_action": "timber material/provider + construction archetype. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+        "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+        "numeric_id": "66",
+        "original_id": "utility.ladder.wood",
+        "stable_row_identity": "VXL_BLK_Utility_WoodenLadder",
+        "target": "timber material/provider + construction archetype",
+        "unique_id": "VXL_BLK_Utility_WoodenLadder"
+      },
+      {
+        "disposition": "SYSTEM/OBJECT CANDIDATE \u2014 DEFER EXACT",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "79",
+        "original_id": "functional.research_desk.basic",
+        "stable_row_identity": "VXL_MCH_Functional_ResearchDesk",
+        "target": "Research Desk",
+        "unique_id": "VXL_MCH_Functional_ResearchDesk"
+      },
+      {
+        "disposition": "SYSTEM CANDIDATE / REBIND",
+        "final_action": "Redirect/rebind legacy row to the modern Pump archetype under FCC-13B/C. Preserve old ID as migration alias where semantically exact.",
+        "final_status": "CANONICAL SYSTEM ARCHETYPE REBIND",
+        "numeric_id": "92",
+        "original_id": "automation.pump.basic",
+        "stable_row_identity": "VXL_MCH_Automation_Pump",
+        "target": "Pump",
+        "unique_id": "VXL_MCH_Automation_Pump"
+      },
+      {
+        "disposition": "SYSTEM/OBJECT CANDIDATE \u2014 DEFER EXACT",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "105",
+        "original_id": "automation.assembler.arcane",
+        "stable_row_identity": "VXL_MCH_Automation_ArcaneAssembler",
+        "target": "Arcane Assembler",
+        "unique_id": "VXL_MCH_Automation_ArcaneAssembler"
+      },
+      {
+        "disposition": "SYSTEM/OBJECT CANDIDATE \u2014 DEFER EXACT",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "118",
+        "original_id": "village.repair_marker.basic",
+        "stable_row_identity": "VXL_BLK_Village_RepairMarker",
+        "target": "Repair Marker",
+        "unique_id": "VXL_BLK_Village_RepairMarker"
+      },
+      {
+        "disposition": "DEFER / UNCONFIRMED FLUID",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "131",
+        "original_id": "fluid.mana.arcane",
+        "stable_row_identity": "VXL_BLK_Fluid_ArcaneManaFluid",
+        "target": "none yet",
+        "unique_id": "VXL_BLK_Fluid_ArcaneManaFluid"
+      },
+      {
+        "disposition": "CATEGORY / PROVIDER",
+        "final_action": "exact botanical fibre, Mixed Plant Fibre, or fibre provider semantics. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+        "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+        "numeric_id": "144",
+        "original_id": "item.resource.plant_fibre",
+        "stable_row_identity": "VXL_ITM_RawResource_PlantFibre",
+        "target": "exact botanical fibre, Mixed Plant Fibre, or fibre provider semantics",
+        "unique_id": "VXL_ITM_RawResource_PlantFibre"
+      },
+      {
+        "disposition": "FORM / REBIND CANONICAL",
+        "final_action": "Iron + ingot form. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+        "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+        "numeric_id": "157",
+        "original_id": "item.material.iron_ingot",
+        "stable_row_identity": "VXL_ITM_RefinedMaterial_IronIngot",
+        "target": "Iron + ingot form",
+        "unique_id": "VXL_ITM_RefinedMaterial_IronIngot"
+      },
+      {
+        "disposition": "MERGE / SINGLE-DEFINITION",
+        "final_action": "stone-material masonry brick object. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+        "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+        "numeric_id": "170",
+        "original_id": "item.material.stone_brick",
+        "stable_row_identity": "VXL_ITM_ConstructionMaterial_StoneBrick",
+        "target": "stone-material masonry brick object",
+        "unique_id": "VXL_ITM_ConstructionMaterial_StoneBrick"
+      },
+      {
+        "disposition": "DEFER / TOOL REVIEW",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "183",
+        "original_id": "item.tool.stone_axe",
+        "stable_row_identity": "VXL_ITM_Tool_StoneAxe",
+        "target": "Stone Axe",
+        "unique_id": "VXL_ITM_Tool_StoneAxe"
+      },
+      {
+        "disposition": "DEFER / EQUIPMENT REVIEW",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "196",
+        "original_id": "item.armor.leather_tunic",
+        "stable_row_identity": "VXL_ITM_Armour_LeatherTunic",
+        "target": "Leather Tunic",
+        "unique_id": "VXL_ITM_Armour_LeatherTunic"
+      },
+      {
+        "disposition": "DEFER / CONTENT REVIEW",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "209",
+        "original_id": "item.quest.warehouse_manifest",
+        "stable_row_identity": "VXL_ITM_QuestItem_WarehouseCrateManifest",
+        "target": "Warehouse Crate Manifest",
+        "unique_id": "VXL_ITM_QuestItem_WarehouseCrateManifest"
+      },
+      {
+        "disposition": "PROCESSED MATERIAL / REBIND",
+        "final_action": "Charcoal. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+        "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+        "numeric_id": "222",
+        "original_id": "item.material.charcoal",
+        "stable_row_identity": "VXL_ITM_ProcessedMaterial_Charcoal",
+        "target": "Charcoal",
+        "unique_id": "VXL_ITM_ProcessedMaterial_Charcoal"
+      },
+      {
+        "disposition": "COMPONENT REBIND CANDIDATE",
+        "final_action": "Item Pipe Section. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+        "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+        "numeric_id": "235",
+        "original_id": "item.component.item_pipe_section",
+        "stable_row_identity": "VXL_MCH_MachineComponent_ItemPipeSection",
+        "target": "Item Pipe Section",
+        "unique_id": "VXL_MCH_MachineComponent_ItemPipeSection"
+      },
+      {
+        "disposition": "DEFER / EQUIPMENT REVIEW",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "248",
+        "original_id": "item.weapon.stone_spear",
+        "stable_row_identity": "VXL_ITM_Weapon_StoneSpear",
+        "target": "Stone Spear",
+        "unique_id": "VXL_ITM_Weapon_StoneSpear"
+      },
+      {
+        "disposition": "DEFER / CONTENT REVIEW",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "261",
+        "original_id": "item.drink.herbal_tea",
+        "stable_row_identity": "VXL_ITM_Drink_HerbalTea",
+        "target": "Herbal Tea",
+        "unique_id": "VXL_ITM_Drink_HerbalTea"
+      },
+      {
+        "disposition": "DEFER / LOOT REVIEW",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "274",
+        "original_id": "item.loot.bandit_badge",
+        "stable_row_identity": "VXL_ITM_Loot_BanditBadge",
+        "target": "Bandit Badge",
+        "unique_id": "VXL_ITM_Loot_BanditBadge"
+      },
+      {
+        "disposition": "COMPONENT / DEFER EXACT",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "287",
+        "original_id": "item.magic.heart_golem_clay",
+        "stable_row_identity": "VXL_ITM_GolemancyComponent_ClayGolemHeart",
+        "target": "Clay Golem Heart",
+        "unique_id": "VXL_ITM_GolemancyComponent_ClayGolemHeart"
+      },
+      {
+        "disposition": "DEFER / CONTENT REVIEW",
+        "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+        "final_status": "POC-ONLY / NOT PROMOTED",
+        "numeric_id": "300",
+        "original_id": "item.economy.goblin_clockwork_junk",
+        "stable_row_identity": "VXL_ITM_CultureTradeGood_GoblinClockworkJunk",
+        "target": "Goblin Clockwork Junk",
+        "unique_id": "VXL_ITM_CultureTradeGood_GoblinClockworkJunk"
+      }
+    ],
+    "world_load_report_samples": [
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.000",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.000": "compat.removed-pack.000"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.001",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.001"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.002",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.002": "compat.removed-pack.002"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.003",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.003"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.004",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.004": "compat.removed-pack.004"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.005",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.005"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.006",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.006": "compat.removed-pack.006"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.007",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.007"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.008",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.008": "compat.removed-pack.008"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.009",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.009"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.010",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.010": "compat.removed-pack.010"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.011",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.011"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.012",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.012": "compat.removed-pack.012"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.013",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.013"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.014",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.014": "compat.removed-pack.014"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.015",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.015"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.016",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.016": "compat.removed-pack.016"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.017",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.017"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.018",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.018": "compat.removed-pack.018"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.019",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.019"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.020",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.020": "compat.removed-pack.020"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.021",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.021"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.022",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.022": "compat.removed-pack.022"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.023",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.023"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.024",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.024": "compat.removed-pack.024"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.025",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.025"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.026",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.026": "compat.removed-pack.026"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.027",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.027"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.028",
+        "result": {
+          "load_outcome": "LOADED",
+          "quarantined": [],
+          "resolved": {
+            "pack.removed-pack.content.028": "compat.removed-pack.028"
+          },
+          "silent_substitutions": 0
+        }
+      },
+      {
+        "class": "removed-pack",
+        "identity": "pack.removed-pack.content.029",
+        "result": {
+          "load_outcome": "COMPATIBILITY-QUARANTINE",
+          "quarantined": [
+            "pack.removed-pack.content.029"
+          ],
+          "resolved": {},
+          "silent_substitutions": 0
+        }
+      }
+    ]
+  },
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "evidence_id": "PRD07-EVID-0048",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [
+    "Full FCC-13E 312-row semantic conformance remains mandatory in W4."
+  ],
+  "metrics": {
+    "compatibility_quarantines": 250,
+    "data_loss": 0,
+    "missing_content_cases": 500,
+    "missing_content_classes": 5,
+    "preserved_unknown_ids": 250,
+    "representative_fcc13e_cases": 24,
+    "silent_substitutions": 0,
+    "wrong_replacements": 0
+  },
+  "migration_source": {
+    "sample_indexes_zero_based": [
+      0,
+      13,
+      26,
+      39,
+      52,
+      65,
+      78,
+      91,
+      104,
+      117,
+      130,
+      143,
+      156,
+      169,
+      182,
+      195,
+      208,
+      221,
+      234,
+      247,
+      260,
+      273,
+      286,
+      299
+    ],
+    "sample_rows": 24,
+    "source": ".summer/00_Docs/FCC-01-14/FCC13/Leyforge_FCC-13_Definitive_Registry_LOCKED/FCC-13E_Final_312-Row_Legacy_Migration_Matrix_v0_1.csv",
+    "source_rows": 312,
+    "source_sha256": "8ecd4f8ec4a78e7e651de295a337a02e435852cdddea036040a0f69d1cc58036",
+    "w4_full_revalidation": "REQUIRED"
+  },
+  "observations": [
+    "Absent content was explicitly mapped through governed context or retained as a quarantined unknown identity."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-57",
+  "run_id": "PRD07-RUN-0048",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

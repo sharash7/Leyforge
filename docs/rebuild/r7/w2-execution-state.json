@@ -1,0 +1,608 @@
+{
+  "allocated_evidence_ids": [
+    "PRD07-EVID-0031",
+    "PRD07-EVID-0032",
+    "PRD07-EVID-0033",
+    "PRD07-EVID-0034",
+    "PRD07-EVID-0035",
+    "PRD07-EVID-0036",
+    "PRD07-EVID-0037",
+    "PRD07-EVID-0038",
+    "PRD07-EVID-0039",
+    "PRD07-EVID-0040",
+    "PRD07-EVID-0041",
+    "PRD07-EVID-0042",
+    "PRD07-EVID-0043",
+    "PRD07-EVID-0044",
+    "PRD07-EVID-0045",
+    "PRD07-EVID-0046",
+    "PRD07-EVID-0047",
+    "PRD07-EVID-0048",
+    "PRD07-EVID-0049",
+    "PRD07-EVID-0050"
+  ],
+  "allocated_run_ids": [
+    "PRD07-RUN-0031",
+    "PRD07-RUN-0032",
+    "PRD07-RUN-0033",
+    "PRD07-RUN-0034",
+    "PRD07-RUN-0035",
+    "PRD07-RUN-0036",
+    "PRD07-RUN-0037",
+    "PRD07-RUN-0038",
+    "PRD07-RUN-0039",
+    "PRD07-RUN-0040",
+    "PRD07-RUN-0041",
+    "PRD07-RUN-0042",
+    "PRD07-RUN-0043",
+    "PRD07-RUN-0044",
+    "PRD07-RUN-0045",
+    "PRD07-RUN-0046",
+    "PRD07-RUN-0047",
+    "PRD07-RUN-0048",
+    "PRD07-RUN-0049",
+    "PRD07-RUN-0050"
+  ],
+  "export_lanes": {
+    "client": {
+      "artifact_sha256": "4dcf0e5ff43f8d20f0d078f3b31939c3afe7c062e5a8645826a4e8c1e891614a",
+      "artifact_size_bytes": 110445168,
+      "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+      "runtime_self_report": {
+        "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+        "crash_phase_count": 14,
+        "presentation_authority_dependencies": 0,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_ready": true,
+        "readback": 73,
+        "role": "client",
+        "schema_version": "prd07-w2-server-self-report-v1",
+        "status": "PASS"
+      },
+      "state": "PASS"
+    },
+    "headless": {
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "artifact_size_bytes": 110445200,
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "runtime_self_report": {
+        "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+        "crash_phase_count": 14,
+        "presentation_authority_dependencies": 0,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_ready": true,
+        "readback": 73,
+        "role": "headless",
+        "schema_version": "prd07-w2-server-self-report-v1",
+        "status": "PASS"
+      },
+      "state": "PASS"
+    }
+  },
+  "gameplay_permission": "CLOSED",
+  "package": "R7-W2-NETWORK-PERSISTENCE-RECOVERY-MIGRATION-READINESS",
+  "package_state": "W2-EXECUTION-COMPLETE",
+  "prd08_evaluation": "CLOSED",
+  "prior_readiness_source": "docs/rebuild/r7/w2-readiness.json",
+  "proofs": [
+    {
+      "acceptance_reason": "One thousand randomized same/different-world reopen cycles admitted current work and rejected every old-session write.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0031",
+      "key_metrics": {
+        "close_reopen_cycles": 1000,
+        "cross_session_writes": 0,
+        "current_session_write_failures": 0,
+        "maximum_declared_drain_ticks": 4,
+        "stale_task_rejects": 1000,
+        "world_session_id_mismatches": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0031",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-07",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0031",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Three hundred twenty shutdown matrices reached a bounded, restart-correct terminal state with no unclassified work.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0032",
+      "key_metrics": {
+        "cancelled_or_deferred_by_class": {
+          "diagnostics": 8,
+          "network": 7,
+          "persistence": 18,
+          "provider": 8,
+          "simulation": 7
+        },
+        "deadlocks": 0,
+        "false_clean_shutdowns": 0,
+        "maximum_shutdown_ticks": 26,
+        "real_headless_export_lane": true,
+        "restart_errors": 0,
+        "shutdowns": 320,
+        "task_classes": [
+          "persistence",
+          "provider",
+          "simulation",
+          "diagnostics",
+          "network"
+        ],
+        "unfinished_unclassified_consequential_tasks": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0032",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-20",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0032",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Ten thousand lost-ACK and duplicate-command operations produced exactly one semantic effect and replayed the original outcome.",
+      "artifact_sha256": "4dcf0e5ff43f8d20f0d078f3b31939c3afe7c062e5a8645826a4e8c1e891614a",
+      "blockers": [],
+      "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+      "evidence_id": "PRD07-EVID-0033",
+      "key_metrics": {
+        "duplicate_rejections": 20000,
+        "operations": 10000,
+        "resource_conservation_errors": 0,
+        "result_reconstruction_failures": 0,
+        "result_replays": 20000,
+        "semantic_effect_errors": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0033",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-35",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0033",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Every clean and reconnect baseline cell was either exactly admitted or observably rejected before authoritative traffic.",
+      "artifact_sha256": "4dcf0e5ff43f8d20f0d078f3b31939c3afe7c062e5a8645826a4e8c1e891614a",
+      "blockers": [],
+      "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+      "evidence_id": "PRD07-EVID-0034",
+      "key_metrics": {
+        "admission_decisions": {
+          "ACCEPT": 40,
+          "REJECT": 200
+        },
+        "matrix_attempts": 240,
+        "maximum_reject_ticks": 1,
+        "ordinary_traffic_before_rejection": 0,
+        "reason_code_errors": 0,
+        "wrong_baseline_accepts": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0034",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-36",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0034",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Six thousand cross-domain interest decisions included all entitled relevant state, leaked none, and left simulation fidelity independent.",
+      "artifact_sha256": "4dcf0e5ff43f8d20f0d078f3b31939c3afe7c062e5a8645826a4e8c1e891614a",
+      "blockers": [],
+      "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+      "evidence_id": "PRD07-EVID-0035",
+      "key_metrics": {
+        "hidden_state_leaks": 0,
+        "interest_evaluations": 6000,
+        "missing_relevant_state": 0,
+        "reason_counts": {
+          "owner": 1200,
+          "quest": 1200,
+          "remote_ui": 1200,
+          "spatial": 1200,
+          "vessel": 1200
+        },
+        "simulation_fidelity_changes": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0035",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-38",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0035",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Three hundred twenty constrained teleport spikes remained bounded and converged without semantic deletion.",
+      "artifact_sha256": "4dcf0e5ff43f8d20f0d078f3b31939c3afe7c062e5a8645826a4e8c1e891614a",
+      "blockers": [],
+      "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+      "evidence_id": "PRD07-EVID-0036",
+      "key_metrics": {
+        "convergence_errors": 0,
+        "critical_starvation_cases": 0,
+        "maximum_critical_latency_ticks": 27,
+        "maximum_queue_age_ticks": 27,
+        "maximum_queue_depth": 28,
+        "maximum_recovery_ticks": 1,
+        "semantic_deletions": 0,
+        "teleport_spikes": 320,
+        "unbounded_queue_cases": 0
+      },
+      "limitations": [
+        "Queue and latency values are experimental W2 measurements, not final product limits."
+      ],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0036",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-37",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0036",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Three thousand poisoned voxel/entity/inventory caches caused zero canonical server mutation and converged or rejected explicitly.",
+      "artifact_sha256": "4dcf0e5ff43f8d20f0d078f3b31939c3afe7c062e5a8645826a4e8c1e891614a",
+      "blockers": [],
+      "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+      "evidence_id": "PRD07-EVID-0037",
+      "key_metrics": {
+        "convergence_errors": 0,
+        "poisoned_cache_cases": 3000,
+        "repair_bytes_diagnostic": 169473,
+        "server_mutations_from_cache": 0,
+        "wrong_cache_accepts": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0037",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-44",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0037",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Twenty-four sustained multi-client overload windows remained bounded, preserved critical traffic, and recovered without semantic corruption.",
+      "artifact_sha256": "4dcf0e5ff43f8d20f0d078f3b31939c3afe7c062e5a8645826a4e8c1e891614a",
+      "blockers": [],
+      "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+      "evidence_id": "PRD07-EVID-0038",
+      "key_metrics": {
+        "client_profiles": 6,
+        "critical_starvation_windows": 0,
+        "maximum_queue_age_ticks": 511,
+        "maximum_queue_depth": 512,
+        "maximum_recovery_ticks": 8,
+        "semantic_corruption": 0,
+        "sustained_overload_windows": 24,
+        "unbounded_windows": 0,
+        "unrecovered_windows": 0
+      },
+      "limitations": [
+        "Bandwidth and latency observations are W2 diagnostics, not production limits."
+      ],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0038",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-46",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0038",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Every fault phase across four generation variants and three load orders recovered one coherent checkpoint lineage.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0039",
+      "key_metrics": {
+        "checkpoint_cases": 168,
+        "fallbacks_to_known_good": 132,
+        "fault_phases": 14,
+        "load_orders": 3,
+        "lost_or_double_semantic_effects": 0,
+        "mixed_lineages": 0,
+        "wrong_generation_selections": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0039",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-39",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0039",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Three hundred twenty-four corruption patterns fell back to the latest coherent predecessor without guessing.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0040",
+      "key_metrics": {
+        "corruption_patterns": 324,
+        "guessing_count": 0,
+        "integrity_classifications": {
+          "INTEGRITY-REJECTED": 297,
+          "UNPUBLISHED": 27
+        },
+        "integrity_detection_misses": 0,
+        "maximum_generations_lost": 1,
+        "wrong_generation_selections": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0040",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-40",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0040",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Twenty-four sustained heavy-edit windows kept honest checkpoint status, bounded queues, and coherent recovery.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0041",
+      "key_metrics": {
+        "edit_ticks_per_window": 1200,
+        "false_save_successes": 0,
+        "incoherent_recoveries": 0,
+        "maximum_durability_lag_revisions": 2189,
+        "maximum_queue_age_ticks": 383,
+        "maximum_queue_depth": 384,
+        "sustained_windows": 24,
+        "unbounded_windows": 0,
+        "unrecovered_windows": 0
+      },
+      "limitations": [
+        "Throughput and queue measurements are experimental and do not set production save budgets."
+      ],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0041",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-41",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0041",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Twenty-four steady degraded persistence windows stayed bounded, reported durability honestly, and drained after storage resumed.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0042",
+      "key_metrics": {
+        "dishonest_durability_reports": 0,
+        "maximum_queue_age_ticks": 811,
+        "maximum_queue_depth": 512,
+        "maximum_recovery_ticks": 6,
+        "sustained_overload_windows": 24,
+        "unbounded_windows": 0,
+        "unrecovered_windows": 0,
+        "unrelated_task_starvation": 0
+      },
+      "limitations": [
+        "Storage throughput observations are experimental and do not establish product budgets."
+      ],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0042",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-47",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0042",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Two hundred forty live-copy phases restored coherently and a real concurrent source/copy exported-process smoke passed.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0043",
+      "key_metrics": {
+        "deployment_session_collisions": 0,
+        "incoherent_restores": 0,
+        "interrupted_copy_advertisements": 0,
+        "live_copy_cases": 240,
+        "real_concurrent_process_smoke": true,
+        "semantic_id_errors": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0043",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-48",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0043",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Five hundred transitions at each of five fault points preserved identity, inventory, and exactly-one realm presence.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0044",
+      "key_metrics": {
+        "duplicate_transition_operations": 0,
+        "failure_points": 5,
+        "inventory_conservation_errors": 0,
+        "player_identity_errors": 0,
+        "realm_presence_errors": 0,
+        "transitions": 2500
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0044",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-09",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0044",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "One thousand phase-varied disconnects preserved one character, one transition operation, one realm presence, and all inventory.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0045",
+      "key_metrics": {
+        "disconnect_reconnect_cycles": 1000,
+        "duplicate_characters": 0,
+        "duplicate_transition_operations": 0,
+        "inventory_conservation_errors": 0,
+        "peer_character_binding_errors": 0,
+        "realm_presence_errors": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0045",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-42",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0045",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Five thousand phase-randomized transaction reconnects returned one conserved terminal outcome per operation ID.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0046",
+      "key_metrics": {
+        "duplicate_operation_effects": 0,
+        "maximum_pending_attempts": 1,
+        "resource_conservation_errors": 0,
+        "result_replays": 10000,
+        "transaction_reconnect_cycles": 5000,
+        "unresolved_outcomes": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0046",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-43",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0046",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Six hundred restart/reconnect cycles restored stable character state and exactly one supported operation effect.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0047",
+      "key_metrics": {
+        "character_restore_errors": 0,
+        "history_fallbacks": 0,
+        "operation_duplication_or_loss": 0,
+        "reconnect_convergence_errors": 0,
+        "restart_reconnect_cycles": 600,
+        "wrong_world_lineages": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0047",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-45",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0047",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Every supported missing-content class and the representative FCC-13E sample avoided guessed substitution and data loss.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0048",
+      "key_metrics": {
+        "compatibility_quarantines": 250,
+        "data_loss": 0,
+        "missing_content_cases": 500,
+        "missing_content_classes": 5,
+        "preserved_unknown_ids": 250,
+        "representative_fcc13e_cases": 24,
+        "silent_substitutions": 0,
+        "wrong_replacements": 0
+      },
+      "limitations": [
+        "Full FCC-13E 312-row semantic conformance remains mandatory in W4."
+      ],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0048",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-57",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0048",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "The representative version chain retained recoverable source state, complete reports, and stable semantic mapping across every migration phase.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0049",
+      "key_metrics": {
+        "data_loss": 0,
+        "duplicates": 0,
+        "incomplete_reports": 0,
+        "migration_attempts": 144,
+        "migration_phases": 6,
+        "representative_fcc13e_cases": 24,
+        "silent_substitutions": 0,
+        "source_backup_errors": 0
+      },
+      "limitations": [
+        "Full FCC-13E 312-row semantic conformance remains mandatory in W4."
+      ],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0049",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-58",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0049",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "At least two hundred real external kills across all fourteen phase classes recovered only an explainable published or previous-known-good lineage.",
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "blockers": [],
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "evidence_id": "PRD07-EVID-0050",
+      "key_metrics": {
+        "fault_phase_count": 14,
+        "mixed_lineages": 0,
+        "non_forced_exits": 0,
+        "real_external_kills": 224,
+        "restart_failures": 0,
+        "unexplained_recoveries": 0,
+        "wrong_generation_selections": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0050",
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-69",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0050",
+      "state": "PASS-OBSERVED"
+    }
+  ],
+  "schema_version": "prd07-w2-execution-state-v1",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef",
+  "w4_fcc13e_revalidation": "REQUIRED"
+}

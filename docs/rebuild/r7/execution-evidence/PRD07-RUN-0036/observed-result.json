@@ -1,0 +1,453 @@
+{
+  "acceptance_reason": "Three hundred twenty constrained teleport spikes remained bounded and converged without semantic deletion.",
+  "artifacts": {
+    "interest_set_traces": [
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 21,
+          "maximum_depth": 22,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 1,
+        "spike": 0,
+        "target_items": 750
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 1,
+        "target_items": 493
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 2,
+        "target_items": 429
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 3,
+        "target_items": 615
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 16,
+          "maximum_depth": 17,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 1,
+        "spike": 4,
+        "target_items": 564
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 5,
+        "target_items": 488
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 6,
+        "target_items": 960
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 7,
+        "target_items": 513
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 22,
+          "maximum_depth": 23,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 1,
+        "spike": 8,
+        "target_items": 799
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 9,
+        "target_items": 854
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 10,
+        "target_items": 377
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 11,
+        "target_items": 617
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 18,
+          "maximum_depth": 19,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 1,
+        "spike": 12,
+        "target_items": 646
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 13,
+        "target_items": 600
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 14,
+        "target_items": 611
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 15,
+        "target_items": 806
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 16,
+          "maximum_depth": 17,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 1,
+        "spike": 16,
+        "target_items": 581
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 17,
+        "target_items": 479
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 18,
+        "target_items": 389
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 19,
+        "target_items": 954
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 27,
+          "maximum_depth": 28,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 1,
+        "spike": 20,
+        "target_items": 969
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 21,
+        "target_items": 731
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 22,
+        "target_items": 452
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 23,
+        "target_items": 524
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 21,
+          "maximum_depth": 22,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 1,
+        "spike": 24,
+        "target_items": 762
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 25,
+        "target_items": 323
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 26,
+        "target_items": 905
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 27,
+        "target_items": 760
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 22,
+          "maximum_depth": 23,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 1,
+        "spike": 28,
+        "target_items": 793
+      },
+      {
+        "queue": {
+          "capacity": 256,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 0,
+          "maximum_depth": 2,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 0,
+        "spike": 29,
+        "target_items": 806
+      }
+    ],
+    "latency_histogram_digest": "df8c315177856ce71a3bf201599d191ea119215492b3f39b34b1d1d62142512a"
+  },
+  "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+  "evidence_id": "PRD07-EVID-0036",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [
+    "Queue and latency values are experimental W2 measurements, not final product limits."
+  ],
+  "metrics": {
+    "convergence_errors": 0,
+    "critical_starvation_cases": 0,
+    "maximum_critical_latency_ticks": 27,
+    "maximum_queue_age_ticks": 27,
+    "maximum_queue_depth": 28,
+    "maximum_recovery_ticks": 1,
+    "semantic_deletions": 0,
+    "teleport_spikes": 320,
+    "unbounded_queue_cases": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Replaceable bulk work was bounded while critical traffic continued and every target queue converged."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-37",
+  "run_id": "PRD07-RUN-0036",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

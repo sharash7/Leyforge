@@ -1,0 +1,770 @@
+[
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 383,
+      "maximum_depth": 384,
+      "rejected_bulk": 2017,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.00.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        3003,
+        3003,
+        3003
+      ],
+      "state_hash": "ceaf24d73bf9a34b78f6a79fd39da8fe77a9ab64469ab48ce1f86dfbcbbb4c6d",
+      "status": "RECOVERED"
+    },
+    "revision": 3600,
+    "window": 0
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 191,
+      "maximum_depth": 384,
+      "rejected_bulk": 2018,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.01.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        4004,
+        4004,
+        4004
+      ],
+      "state_hash": "6c3b748e2137954c948cdfa07a1631c573eacb09cc24b639cc4a15561aadc4b8",
+      "status": "RECOVERED"
+    },
+    "revision": 4800,
+    "window": 1
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 127,
+      "maximum_depth": 384,
+      "rejected_bulk": 2019,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.02.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        5005,
+        5005,
+        5005
+      ],
+      "state_hash": "d1243357b723662f9ab170044b369371e9631c3ee8e0c7708bfe1b380dea78c7",
+      "status": "RECOVERED"
+    },
+    "revision": 6000,
+    "window": 2
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 95,
+      "maximum_depth": 384,
+      "rejected_bulk": 2020,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.03.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        6006,
+        6006,
+        6006
+      ],
+      "state_hash": "21e7efb457791f1f2568cbc36c4e8029d60e0470f6aec68da3e2c4922da5b2b2",
+      "status": "RECOVERED"
+    },
+    "revision": 7200,
+    "window": 3
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 383,
+      "maximum_depth": 384,
+      "rejected_bulk": 6817,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.04.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        7007,
+        7007,
+        7007
+      ],
+      "state_hash": "9d6856a252d200e70c0114f35631c45b5f3d4d2847ab2ebf49f539a35e145079",
+      "status": "RECOVERED"
+    },
+    "revision": 8400,
+    "window": 4
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 191,
+      "maximum_depth": 384,
+      "rejected_bulk": 6818,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.05.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        8008,
+        8008,
+        8008
+      ],
+      "state_hash": "d5dd1afdeadfa7ecab93295941067d85b387a9b059a2b74b3b2af2b5467825ef",
+      "status": "RECOVERED"
+    },
+    "revision": 9600,
+    "window": 5
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 127,
+      "maximum_depth": 384,
+      "rejected_bulk": 6819,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.06.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        9009,
+        9009,
+        9009
+      ],
+      "state_hash": "6b6ad491f1b87052f5bf5e6164e64f0258fa4b45e560aea523357a681d60bb8f",
+      "status": "RECOVERED"
+    },
+    "revision": 10800,
+    "window": 6
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 95,
+      "maximum_depth": 384,
+      "rejected_bulk": 6820,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.07.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        10010,
+        10010,
+        10010
+      ],
+      "state_hash": "527857fb9e18e5b20fc7caab45a289440e91f75f05ce6388ef2e6a05c57daf66",
+      "status": "RECOVERED"
+    },
+    "revision": 12000,
+    "window": 7
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 383,
+      "maximum_depth": 384,
+      "rejected_bulk": 11617,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.08.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        11011,
+        11011,
+        11011
+      ],
+      "state_hash": "49e0519d9e9437fa4b49f4830b85e3f73e2c2fa02c66ce39beaf8ced0e2f1847",
+      "status": "RECOVERED"
+    },
+    "revision": 13200,
+    "window": 8
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 191,
+      "maximum_depth": 384,
+      "rejected_bulk": 818,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.09.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        3003,
+        3003,
+        3003
+      ],
+      "state_hash": "b6dc37171fa997ff756f6130676cf50053a3e214858e4a4d84fdf850d70a638d",
+      "status": "RECOVERED"
+    },
+    "revision": 3600,
+    "window": 9
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 127,
+      "maximum_depth": 384,
+      "rejected_bulk": 819,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.10.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        4004,
+        4004,
+        4004
+      ],
+      "state_hash": "f8a24746b95c0d5beb246c1c48cef387f36ca45969a02743f1205fd7a3d03fe0",
+      "status": "RECOVERED"
+    },
+    "revision": 4800,
+    "window": 10
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 95,
+      "maximum_depth": 384,
+      "rejected_bulk": 820,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.11.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        5005,
+        5005,
+        5005
+      ],
+      "state_hash": "15648cee409153f1bb3ce9b90b36271298e98e5f261c00b64bdee77c312ff7b3",
+      "status": "RECOVERED"
+    },
+    "revision": 6000,
+    "window": 11
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 383,
+      "maximum_depth": 384,
+      "rejected_bulk": 5617,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.12.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        6006,
+        6006,
+        6006
+      ],
+      "state_hash": "ea803d5b4802d1586a2cda202fab37e3b3fc20b999a15144684fbadd917b3210",
+      "status": "RECOVERED"
+    },
+    "revision": 7200,
+    "window": 12
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 191,
+      "maximum_depth": 384,
+      "rejected_bulk": 5618,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.13.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        7007,
+        7007,
+        7007
+      ],
+      "state_hash": "022dfedbaa8423b6bb6e91c4c91f5ee0b8c30eb1a45bc0f39036e8245b8bfa89",
+      "status": "RECOVERED"
+    },
+    "revision": 8400,
+    "window": 13
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 127,
+      "maximum_depth": 384,
+      "rejected_bulk": 5619,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.14.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        8008,
+        8008,
+        8008
+      ],
+      "state_hash": "7fa3f1d6be937038646345eba1d22563f2c670e0d9187a4170716bbd6e44eae5",
+      "status": "RECOVERED"
+    },
+    "revision": 9600,
+    "window": 14
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 95,
+      "maximum_depth": 384,
+      "rejected_bulk": 5620,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.15.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        9009,
+        9009,
+        9009
+      ],
+      "state_hash": "490813d3a892b7fb618b042e1cd13e1bc23a7cf6f5b07c892821187a1e3c9262",
+      "status": "RECOVERED"
+    },
+    "revision": 10800,
+    "window": 15
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 383,
+      "maximum_depth": 384,
+      "rejected_bulk": 10417,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.16.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        10010,
+        10010,
+        10010
+      ],
+      "state_hash": "3ac87f836e1d33d51e1db1338fd63de6af9970aaff19b80c420b88b8ac3007ad",
+      "status": "RECOVERED"
+    },
+    "revision": 12000,
+    "window": 16
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 191,
+      "maximum_depth": 384,
+      "rejected_bulk": 10418,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.17.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        11011,
+        11011,
+        11011
+      ],
+      "state_hash": "1a73023d992089bd6401b23d46d8c05f560d42d06e0a0c793ab34823b2874139",
+      "status": "RECOVERED"
+    },
+    "revision": 13200,
+    "window": 17
+  },
+  {
+    "drain_ticks": 0,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 0,
+      "maximum_depth": 3,
+      "rejected_bulk": 0,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.18.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        3003,
+        3003,
+        3003
+      ],
+      "state_hash": "d9d5d095bb833529fbebd4fe59ebcb2c044bb39089d2333e34dbfe38229ac48b",
+      "status": "RECOVERED"
+    },
+    "revision": 3600,
+    "window": 18
+  },
+  {
+    "drain_ticks": 0,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 0,
+      "maximum_depth": 4,
+      "rejected_bulk": 0,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.19.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        4004,
+        4004,
+        4004
+      ],
+      "state_hash": "0ff8d45c1efa0cd199ea6c3e392bc49a4fdd14aeb35cf55b5ea03b25f9699376",
+      "status": "RECOVERED"
+    },
+    "revision": 4800,
+    "window": 19
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 383,
+      "maximum_depth": 384,
+      "rejected_bulk": 4417,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.20.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        5005,
+        5005,
+        5005
+      ],
+      "state_hash": "3647e249c18c8dceb6256c8bd5eae5c6b5b066af63193b7e565f07a579577845",
+      "status": "RECOVERED"
+    },
+    "revision": 6000,
+    "window": 20
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 191,
+      "maximum_depth": 384,
+      "rejected_bulk": 4418,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.21.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        6006,
+        6006,
+        6006
+      ],
+      "state_hash": "d6c8f2e5683c85c48d74771fdc87b7f2fa1fc455be4412ffdd80fdc14e9baaa0",
+      "status": "RECOVERED"
+    },
+    "revision": 7200,
+    "window": 21
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 127,
+      "maximum_depth": 384,
+      "rejected_bulk": 4419,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.22.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        7007,
+        7007,
+        7007
+      ],
+      "state_hash": "c61c0bb85252b8bbba4f609c3561216507f9a7ada2c79dc3f6d92b45bb017ead",
+      "status": "RECOVERED"
+    },
+    "revision": 8400,
+    "window": 22
+  },
+  {
+    "drain_ticks": 8,
+    "queue": {
+      "capacity": 384,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 95,
+      "maximum_depth": 384,
+      "rejected_bulk": 4420,
+      "replaced_bulk": 0
+    },
+    "recovery": {
+      "attempted": [
+        {
+          "classification": "SELECTED",
+          "generation": 6
+        }
+      ],
+      "checkpoint_id": "checkpoint.world.heavy.23.00000006",
+      "generation": 6,
+      "mixed_lineage": false,
+      "participant_revisions": [
+        8008,
+        8008,
+        8008
+      ],
+      "state_hash": "41eb2c4fbc91527aef82e6752705fdc21751ed7674ff3e1d64f413cd569bcb3f",
+      "status": "RECOVERED"
+    },
+    "revision": 9600,
+    "window": 23
+  }
+]

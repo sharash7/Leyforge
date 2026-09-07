@@ -1,0 +1,603 @@
+{
+  "acceptance_reason": "Two hundred forty live-copy phases restored coherently and a real concurrent source/copy exported-process smoke passed.",
+  "artifacts": {
+    "backup_manifest_samples": [
+      {
+        "backup": "backup.world.backup.0000.deployment.copy.0",
+        "hash": "0abb1142707b6b0824b78aeec3a9ed111425fe3aefbfe9bc130c08891dcfad41",
+        "semantic_ids": [
+          "entity.0.0",
+          "entity.0.1",
+          "entity.0.2",
+          "entity.0.3",
+          "entity.0.4",
+          "entity.0.5",
+          "entity.0.6",
+          "entity.0.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0001.deployment.copy.1",
+        "hash": "81c8f974f2292676810dc887d4803fd0d391e4e7c919f2bb406b01eaa79b4e06",
+        "semantic_ids": [
+          "entity.1.0",
+          "entity.1.1",
+          "entity.1.2",
+          "entity.1.3",
+          "entity.1.4",
+          "entity.1.5",
+          "entity.1.6",
+          "entity.1.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0002.deployment.copy.2",
+        "hash": "69ee17166e4b60d175b8730505559a26df1c672ccbbf7aa296c862259b55e7f2",
+        "semantic_ids": [
+          "entity.2.0",
+          "entity.2.1",
+          "entity.2.2",
+          "entity.2.3",
+          "entity.2.4",
+          "entity.2.5",
+          "entity.2.6",
+          "entity.2.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0003.deployment.copy.3",
+        "hash": "e204108b0634f11acbb1b854df09b93750651d9d031b14e3d022f2bb3e2be821",
+        "semantic_ids": [
+          "entity.3.0",
+          "entity.3.1",
+          "entity.3.2",
+          "entity.3.3",
+          "entity.3.4",
+          "entity.3.5",
+          "entity.3.6",
+          "entity.3.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0004.deployment.copy.4",
+        "hash": "c105594c7d464dc26360c101e06b420dd57bb47ea308c8c1e45f0ee3f559673b",
+        "semantic_ids": [
+          "entity.4.0",
+          "entity.4.1",
+          "entity.4.2",
+          "entity.4.3",
+          "entity.4.4",
+          "entity.4.5",
+          "entity.4.6",
+          "entity.4.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0005.deployment.copy.5",
+        "hash": "00f752529c2737a45ea4cf2758374a13c9ad1419767f4b0b87c5fb401248bf78",
+        "semantic_ids": [
+          "entity.5.0",
+          "entity.5.1",
+          "entity.5.2",
+          "entity.5.3",
+          "entity.5.4",
+          "entity.5.5",
+          "entity.5.6",
+          "entity.5.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0006.deployment.copy.6",
+        "hash": "93291f11f7445b463a4fd21fdb6f6974c81f784423cff9371060f5d4d5e9822f",
+        "semantic_ids": [
+          "entity.6.0",
+          "entity.6.1",
+          "entity.6.2",
+          "entity.6.3",
+          "entity.6.4",
+          "entity.6.5",
+          "entity.6.6",
+          "entity.6.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0007.deployment.copy.7",
+        "hash": "6ed59cf9e2fb3f8643718098d1f70cac9d4f135e3ac5b07aff2f342a3dd35c48",
+        "semantic_ids": [
+          "entity.7.0",
+          "entity.7.1",
+          "entity.7.2",
+          "entity.7.3",
+          "entity.7.4",
+          "entity.7.5",
+          "entity.7.6",
+          "entity.7.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0008.deployment.copy.8",
+        "hash": "85a9ce411447af9ab14a330ed06dc0839c82ed2ef3ee18c0fa9f9916443041d7",
+        "semantic_ids": [
+          "entity.8.0",
+          "entity.8.1",
+          "entity.8.2",
+          "entity.8.3",
+          "entity.8.4",
+          "entity.8.5",
+          "entity.8.6",
+          "entity.8.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0009.deployment.copy.9",
+        "hash": "1c7341909fbc64ec98d48fbc3d0ce222e4c74bd28e566c87cdd98e7eb33730ac",
+        "semantic_ids": [
+          "entity.9.0",
+          "entity.9.1",
+          "entity.9.2",
+          "entity.9.3",
+          "entity.9.4",
+          "entity.9.5",
+          "entity.9.6",
+          "entity.9.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0010.deployment.copy.10",
+        "hash": "bccebc5bc7b30783a9bb150d466725e4102a39dff4f81117bc817d27e5bc0721",
+        "semantic_ids": [
+          "entity.10.0",
+          "entity.10.1",
+          "entity.10.2",
+          "entity.10.3",
+          "entity.10.4",
+          "entity.10.5",
+          "entity.10.6",
+          "entity.10.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0011.deployment.copy.11",
+        "hash": "b788ab7844bea5e5b4046d331d37f4d163a2bab2afef9282736b93b2981db0f5",
+        "semantic_ids": [
+          "entity.11.0",
+          "entity.11.1",
+          "entity.11.2",
+          "entity.11.3",
+          "entity.11.4",
+          "entity.11.5",
+          "entity.11.6",
+          "entity.11.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0012.deployment.copy.12",
+        "hash": "915330af7fa5906b7b9b779cfd5f319700a6dc1eba520ac12e9492e00457e927",
+        "semantic_ids": [
+          "entity.12.0",
+          "entity.12.1",
+          "entity.12.2",
+          "entity.12.3",
+          "entity.12.4",
+          "entity.12.5",
+          "entity.12.6",
+          "entity.12.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0013.deployment.copy.13",
+        "hash": "4f582a0fcb28f206f83ff1acb9906104d86f0b94db70432ea9384e5b01c5801a",
+        "semantic_ids": [
+          "entity.13.0",
+          "entity.13.1",
+          "entity.13.2",
+          "entity.13.3",
+          "entity.13.4",
+          "entity.13.5",
+          "entity.13.6",
+          "entity.13.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0014.deployment.copy.14",
+        "hash": "953827378aea465c8fea7aa0e25198f48bfb980aaf7c0de13eef134164dded35",
+        "semantic_ids": [
+          "entity.14.0",
+          "entity.14.1",
+          "entity.14.2",
+          "entity.14.3",
+          "entity.14.4",
+          "entity.14.5",
+          "entity.14.6",
+          "entity.14.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0015.deployment.copy.15",
+        "hash": "ecb68b3d04fd0965292edded7bcb69bc55b5463c7073f501a7fe793f09241a2d",
+        "semantic_ids": [
+          "entity.15.0",
+          "entity.15.1",
+          "entity.15.2",
+          "entity.15.3",
+          "entity.15.4",
+          "entity.15.5",
+          "entity.15.6",
+          "entity.15.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0016.deployment.copy.16",
+        "hash": "2bd0607576b251073a9093754dbf8d69d366778adf362ea616a5dc857732cf45",
+        "semantic_ids": [
+          "entity.16.0",
+          "entity.16.1",
+          "entity.16.2",
+          "entity.16.3",
+          "entity.16.4",
+          "entity.16.5",
+          "entity.16.6",
+          "entity.16.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0017.deployment.copy.17",
+        "hash": "c2cc3f1f259c5687c9203f817d93d7eb987818b364efccb788059075f660e22b",
+        "semantic_ids": [
+          "entity.17.0",
+          "entity.17.1",
+          "entity.17.2",
+          "entity.17.3",
+          "entity.17.4",
+          "entity.17.5",
+          "entity.17.6",
+          "entity.17.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0018.deployment.copy.18",
+        "hash": "65254fc11b141857720053efd543114758f6e753a3958a9726d0dc11d8d229c3",
+        "semantic_ids": [
+          "entity.18.0",
+          "entity.18.1",
+          "entity.18.2",
+          "entity.18.3",
+          "entity.18.4",
+          "entity.18.5",
+          "entity.18.6",
+          "entity.18.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0019.deployment.copy.19",
+        "hash": "e03acf288c4af18fd9d23ec9c78a2134e3ae7ba8033af66a0ccf5d7fd603c5cb",
+        "semantic_ids": [
+          "entity.19.0",
+          "entity.19.1",
+          "entity.19.2",
+          "entity.19.3",
+          "entity.19.4",
+          "entity.19.5",
+          "entity.19.6",
+          "entity.19.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0020.deployment.copy.20",
+        "hash": "a8803e5eb1320f0233e61d0f85e0eed7c6e2ac27e4c984b3c6e6383246d2b654",
+        "semantic_ids": [
+          "entity.20.0",
+          "entity.20.1",
+          "entity.20.2",
+          "entity.20.3",
+          "entity.20.4",
+          "entity.20.5",
+          "entity.20.6",
+          "entity.20.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0021.deployment.copy.21",
+        "hash": "05e641288a1d2718afeca8967e81b4cfd9b89924b69344e6d3ef24069334141c",
+        "semantic_ids": [
+          "entity.21.0",
+          "entity.21.1",
+          "entity.21.2",
+          "entity.21.3",
+          "entity.21.4",
+          "entity.21.5",
+          "entity.21.6",
+          "entity.21.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0022.deployment.copy.22",
+        "hash": "8aa82b55f893577cdeab09c88d9b4f15b055b402a89cfe7da24500067a826726",
+        "semantic_ids": [
+          "entity.22.0",
+          "entity.22.1",
+          "entity.22.2",
+          "entity.22.3",
+          "entity.22.4",
+          "entity.22.5",
+          "entity.22.6",
+          "entity.22.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0023.deployment.copy.23",
+        "hash": "91348c86bd95cca9d5e0555ea32ed0786c1c9f13e4cea25bc51ba7622425be2d",
+        "semantic_ids": [
+          "entity.23.0",
+          "entity.23.1",
+          "entity.23.2",
+          "entity.23.3",
+          "entity.23.4",
+          "entity.23.5",
+          "entity.23.6",
+          "entity.23.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0024.deployment.copy.24",
+        "hash": "2147c872aaeeba86643b9006ccab81bab7fa988ea02d1926afbc4b5d3e3f38c0",
+        "semantic_ids": [
+          "entity.24.0",
+          "entity.24.1",
+          "entity.24.2",
+          "entity.24.3",
+          "entity.24.4",
+          "entity.24.5",
+          "entity.24.6",
+          "entity.24.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0025.deployment.copy.25",
+        "hash": "f8934271c9994c07d45913ce619a54cd0c1d102264b0215ab8af5a31e2b692c2",
+        "semantic_ids": [
+          "entity.25.0",
+          "entity.25.1",
+          "entity.25.2",
+          "entity.25.3",
+          "entity.25.4",
+          "entity.25.5",
+          "entity.25.6",
+          "entity.25.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0026.deployment.copy.26",
+        "hash": "1ef7c875f925c85ffbf112860804eae26a4a00fa4e49642519691e35939179cf",
+        "semantic_ids": [
+          "entity.26.0",
+          "entity.26.1",
+          "entity.26.2",
+          "entity.26.3",
+          "entity.26.4",
+          "entity.26.5",
+          "entity.26.6",
+          "entity.26.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0027.deployment.copy.27",
+        "hash": "c2bd69a73ce6d956bad9d2afeca8a6a9413ee3a901ab392140f34626f611b749",
+        "semantic_ids": [
+          "entity.27.0",
+          "entity.27.1",
+          "entity.27.2",
+          "entity.27.3",
+          "entity.27.4",
+          "entity.27.5",
+          "entity.27.6",
+          "entity.27.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0028.deployment.copy.28",
+        "hash": "38d82b4f999504d315cbb24e1fc4910e8d45800847543423352a714350d87537",
+        "semantic_ids": [
+          "entity.28.0",
+          "entity.28.1",
+          "entity.28.2",
+          "entity.28.3",
+          "entity.28.4",
+          "entity.28.5",
+          "entity.28.6",
+          "entity.28.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0029.deployment.copy.29",
+        "hash": "c41a76f3497a03cecfcb86480c2230bac211645b0eaf76ab4cb41a82582ed6ad",
+        "semantic_ids": [
+          "entity.29.0",
+          "entity.29.1",
+          "entity.29.2",
+          "entity.29.3",
+          "entity.29.4",
+          "entity.29.5",
+          "entity.29.6",
+          "entity.29.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0030.deployment.copy.30",
+        "hash": "e0510f2ff8831d638c365e1b936bc221a009d3799c3bfaa72dda297ac993c4a4",
+        "semantic_ids": [
+          "entity.30.0",
+          "entity.30.1",
+          "entity.30.2",
+          "entity.30.3",
+          "entity.30.4",
+          "entity.30.5",
+          "entity.30.6",
+          "entity.30.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0031.deployment.copy.31",
+        "hash": "8529aa822925c4ff34c9f621931c422f464947900c99e7067ff7b6a6c372986d",
+        "semantic_ids": [
+          "entity.31.0",
+          "entity.31.1",
+          "entity.31.2",
+          "entity.31.3",
+          "entity.31.4",
+          "entity.31.5",
+          "entity.31.6",
+          "entity.31.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0032.deployment.copy.32",
+        "hash": "a5225296bbba0be20d9745f43e66cb8e3bd837a44192d4262562bb0090f8b55e",
+        "semantic_ids": [
+          "entity.32.0",
+          "entity.32.1",
+          "entity.32.2",
+          "entity.32.3",
+          "entity.32.4",
+          "entity.32.5",
+          "entity.32.6",
+          "entity.32.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0033.deployment.copy.33",
+        "hash": "bcaf43fd728e1fea5daf41c559e3a880ebf12dca11359e7e578ec430573c8afd",
+        "semantic_ids": [
+          "entity.33.0",
+          "entity.33.1",
+          "entity.33.2",
+          "entity.33.3",
+          "entity.33.4",
+          "entity.33.5",
+          "entity.33.6",
+          "entity.33.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0034.deployment.copy.34",
+        "hash": "31646636d348f3f2d3d0793a9ac49cfa615524932a31413f481b0ef6beefc8c9",
+        "semantic_ids": [
+          "entity.34.0",
+          "entity.34.1",
+          "entity.34.2",
+          "entity.34.3",
+          "entity.34.4",
+          "entity.34.5",
+          "entity.34.6",
+          "entity.34.7"
+        ],
+        "source_generation": 1
+      },
+      {
+        "backup": "backup.world.backup.0035.deployment.copy.35",
+        "hash": "2c1b90a15b6a46397b7c7a45235c78fdb661b16553a8c537500dcf91399f4951",
+        "semantic_ids": [
+          "entity.35.0",
+          "entity.35.1",
+          "entity.35.2",
+          "entity.35.3",
+          "entity.35.4",
+          "entity.35.5",
+          "entity.35.6",
+          "entity.35.7"
+        ],
+        "source_generation": 1
+      }
+    ],
+    "source_copy_runtime_report": {
+      "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "concurrent_processes": 2,
+      "distinct_runtime_sessions": true,
+      "outcome": "PASS",
+      "preserved_world_semantic_identity": true,
+      "process_overlap": true,
+      "processes": [
+        {
+          "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+          "deployment_id": "deployment.source",
+          "exit_code": 0,
+          "pid": 24820,
+          "role": "source",
+          "schema_version": "prd07-w2-session-smoke-v1",
+          "session_id": "session.source.24820",
+          "status": "PASS",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "world_semantic_id": "world.w2.backup"
+        },
+        {
+          "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+          "deployment_id": "deployment.copy",
+          "exit_code": 0,
+          "pid": 25412,
+          "role": "copy",
+          "schema_version": "prd07-w2-session-smoke-v1",
+          "session_id": "session.copy.25412",
+          "status": "PASS",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "world_semantic_id": "world.w2.backup"
+        }
+      ],
+      "schema_version": "prd07-w2-concurrent-backup-process-report-v1"
+    }
+  },
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "evidence_id": "PRD07-EVID-0043",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "deployment_session_collisions": 0,
+    "incoherent_restores": 0,
+    "interrupted_copy_advertisements": 0,
+    "live_copy_cases": 240,
+    "real_concurrent_process_smoke": true,
+    "semantic_id_errors": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Only coherent published checkpoints were advertised; world-semantic IDs survived while deployment/session identity changed."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-48",
+  "run_id": "PRD07-RUN-0043",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

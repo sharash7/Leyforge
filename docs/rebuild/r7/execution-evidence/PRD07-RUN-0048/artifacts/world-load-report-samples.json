@@ -1,0 +1,362 @@
+[
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.000",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.000": "compat.removed-pack.000"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.001",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.001"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.002",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.002": "compat.removed-pack.002"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.003",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.003"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.004",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.004": "compat.removed-pack.004"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.005",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.005"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.006",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.006": "compat.removed-pack.006"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.007",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.007"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.008",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.008": "compat.removed-pack.008"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.009",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.009"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.010",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.010": "compat.removed-pack.010"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.011",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.011"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.012",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.012": "compat.removed-pack.012"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.013",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.013"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.014",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.014": "compat.removed-pack.014"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.015",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.015"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.016",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.016": "compat.removed-pack.016"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.017",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.017"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.018",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.018": "compat.removed-pack.018"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.019",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.019"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.020",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.020": "compat.removed-pack.020"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.021",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.021"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.022",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.022": "compat.removed-pack.022"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.023",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.023"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.024",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.024": "compat.removed-pack.024"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.025",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.025"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.026",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.026": "compat.removed-pack.026"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.027",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.027"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.028",
+    "result": {
+      "load_outcome": "LOADED",
+      "quarantined": [],
+      "resolved": {
+        "pack.removed-pack.content.028": "compat.removed-pack.028"
+      },
+      "silent_substitutions": 0
+    }
+  },
+  {
+    "class": "removed-pack",
+    "identity": "pack.removed-pack.content.029",
+    "result": {
+      "load_outcome": "COMPATIBILITY-QUARANTINE",
+      "quarantined": [
+        "pack.removed-pack.content.029"
+      ],
+      "resolved": {},
+      "silent_substitutions": 0
+    }
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "case_count": 224,
+  "external_forced_termination": true,
+  "fault_phase_count": 14,
+  "mixed_lineages": 0,
+  "non_forced_exits": 0,
+  "outcome": "PASS",
+  "repetitions_per_phase": 16,
+  "restart_failures": 0,
+  "schema_version": "prd07-w2-real-crash-matrix-v1",
+  "unexplained_recoveries": 0,
+  "wrong_generation_selections": 0
+}

@@ -1,0 +1,480 @@
+[
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "session-begin.00",
+      "manifest_published": false,
+      "phase": "SESSION-BEGIN",
+      "pid": 544.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "SESSION-BEGIN"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 9368,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "command-receive.00",
+      "manifest_published": false,
+      "phase": "COMMAND-RECEIVE",
+      "pid": 22412.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "COMMAND-RECEIVE"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 11576,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "validate.00",
+      "manifest_published": false,
+      "phase": "VALIDATE",
+      "pid": 9144.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "VALIDATE"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 18496,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "reserve.00",
+      "manifest_published": false,
+      "phase": "RESERVE",
+      "pid": 16516.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "RESERVE"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 24476,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "semantic-commit.00",
+      "manifest_published": false,
+      "phase": "SEMANTIC-COMMIT",
+      "pid": 7568.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "SEMANTIC-COMMIT"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 3000,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "journal-intent.00",
+      "manifest_published": false,
+      "phase": "JOURNAL-INTENT",
+      "pid": 10680.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "JOURNAL-INTENT"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 3228,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "structured-stage.00",
+      "manifest_published": false,
+      "phase": "STRUCTURED-STAGE",
+      "pid": 5220.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "STRUCTURED-STAGE"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 16512,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "voxel-stage.00",
+      "manifest_published": false,
+      "phase": "VOXEL-STAGE",
+      "pid": 20840.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "VOXEL-STAGE"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 4496,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "journal-stage.00",
+      "manifest_published": false,
+      "phase": "JOURNAL-STAGE",
+      "pid": 19176.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "JOURNAL-STAGE"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 21616,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "manifest-temp.00",
+      "manifest_published": false,
+      "phase": "MANIFEST-TEMP",
+      "pid": 23352.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "MANIFEST-TEMP"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 1080,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "UNPUBLISHED",
+        "generation": 2
+      },
+      {
+        "classification": "SELECTED",
+        "generation": 1
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000001",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "participant-fsync.00",
+      "manifest_published": false,
+      "phase": "PARTICIPANT-FSYNC",
+      "pid": 15088.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "PARTICIPANT-FSYNC"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      1,
+      1,
+      1
+    ],
+    "pid": 14100,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "SELECTED",
+        "generation": 2
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000002",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "manifest-publish.00",
+      "manifest_published": true,
+      "phase": "MANIFEST-PUBLISH",
+      "pid": 21272.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "MANIFEST-PUBLISH"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      2,
+      2,
+      2
+    ],
+    "pid": 23384,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 2,
+    "state_hash": "06e8affb5e8b2ae79cb9ce6ee94e2edd2ddb776ba72b673d8ebf1950503f5a37",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "SELECTED",
+        "generation": 2
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000002",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "ack-prepare.00",
+      "manifest_published": true,
+      "phase": "ACK-PREPARE",
+      "pid": 19804.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "ACK-PREPARE"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      2,
+      2,
+      2
+    ],
+    "pid": 25076,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 2,
+    "state_hash": "1dc56cee7ee9204d95587a23a9b58fac5c3f2f1832c27dd2c75e3d97ab7d4dcd",
+    "status": "PASS"
+  },
+  {
+    "attempted": [
+      {
+        "classification": "SELECTED",
+        "generation": 2
+      }
+    ],
+    "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+    "checkpoint_id": "checkpoint.world.w2.crash.00000002",
+    "kill_marker": {
+      "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+      "case_id": "ack-sent.00",
+      "manifest_published": true,
+      "phase": "ACK-SENT",
+      "pid": 9460.0,
+      "run_id": "PRD07-RUN-0050",
+      "schema_version": "prd07-w2-kill-marker-v1",
+      "target_phase": "ACK-SENT"
+    },
+    "mixed_lineage": false,
+    "participant_revisions": [
+      2,
+      2,
+      2
+    ],
+    "pid": 21380,
+    "schema_version": "prd07-w2-real-crash-recovery-v1",
+    "selected_generation": 2,
+    "state_hash": "e7073198827ca750e7f917bc2e19f3c82b960b3e4ecbcfff4544be0cf8c7b748",
+    "status": "PASS"
+  }
+]

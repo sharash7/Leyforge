@@ -1,0 +1,420 @@
+{
+  "acceptance_reason": "Twenty-four sustained multi-client overload windows remained bounded, preserved critical traffic, and recovered without semantic corruption.",
+  "artifacts": {
+    "network_queue_metrics": [
+      {
+        "bandwidth": 1,
+        "clients": 1,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 200,
+          "maximum_depth": 201,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 4
+      },
+      {
+        "bandwidth": 1,
+        "clients": 1,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 200,
+          "maximum_depth": 201,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 4
+      },
+      {
+        "bandwidth": 1,
+        "clients": 1,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 200,
+          "maximum_depth": 201,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 4
+      },
+      {
+        "bandwidth": 1,
+        "clients": 1,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 200,
+          "maximum_depth": 201,
+          "rejected_bulk": 0,
+          "replaced_bulk": 0
+        },
+        "recovery_ticks": 4
+      },
+      {
+        "bandwidth": 1,
+        "clients": 2,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 511,
+          "maximum_depth": 512,
+          "rejected_bulk": 574,
+          "replaced_bulk": 115
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 1,
+        "clients": 2,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 511,
+          "maximum_depth": 512,
+          "rejected_bulk": 574,
+          "replaced_bulk": 115
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 1,
+        "clients": 2,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 511,
+          "maximum_depth": 512,
+          "rejected_bulk": 574,
+          "replaced_bulk": 115
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 1,
+        "clients": 2,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 511,
+          "maximum_depth": 512,
+          "rejected_bulk": 574,
+          "replaced_bulk": 115
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 2,
+        "clients": 4,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 255,
+          "maximum_depth": 512,
+          "rejected_bulk": 1537,
+          "replaced_bulk": 153
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 2,
+        "clients": 4,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 255,
+          "maximum_depth": 512,
+          "rejected_bulk": 1537,
+          "replaced_bulk": 153
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 2,
+        "clients": 4,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 255,
+          "maximum_depth": 512,
+          "rejected_bulk": 1537,
+          "replaced_bulk": 153
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 2,
+        "clients": 4,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 255,
+          "maximum_depth": 512,
+          "rejected_bulk": 1537,
+          "replaced_bulk": 153
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 3,
+        "clients": 8,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 170,
+          "maximum_depth": 512,
+          "rejected_bulk": 4511,
+          "replaced_bulk": 180
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 3,
+        "clients": 8,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 170,
+          "maximum_depth": 512,
+          "rejected_bulk": 4511,
+          "replaced_bulk": 180
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 3,
+        "clients": 8,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 170,
+          "maximum_depth": 512,
+          "rejected_bulk": 4511,
+          "replaced_bulk": 180
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 3,
+        "clients": 8,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 170,
+          "maximum_depth": 512,
+          "rejected_bulk": 4511,
+          "replaced_bulk": 180
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 4,
+        "clients": 16,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 127,
+          "maximum_depth": 512,
+          "rejected_bulk": 11501,
+          "replaced_bulk": 191
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 4,
+        "clients": 16,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 127,
+          "maximum_depth": 512,
+          "rejected_bulk": 11501,
+          "replaced_bulk": 191
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 4,
+        "clients": 16,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 127,
+          "maximum_depth": 512,
+          "rejected_bulk": 11501,
+          "replaced_bulk": 191
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 4,
+        "clients": 16,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 127,
+          "maximum_depth": 512,
+          "rejected_bulk": 11501,
+          "replaced_bulk": 191
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 6,
+        "clients": 32,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 85,
+          "maximum_depth": 512,
+          "rejected_bulk": 25498,
+          "replaced_bulk": 196
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 6,
+        "clients": 32,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 85,
+          "maximum_depth": 512,
+          "rejected_bulk": 25498,
+          "replaced_bulk": 196
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 6,
+        "clients": 32,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 85,
+          "maximum_depth": 512,
+          "rejected_bulk": 25498,
+          "replaced_bulk": 196
+        },
+        "recovery_ticks": 8
+      },
+      {
+        "bandwidth": 6,
+        "clients": 32,
+        "critical_delivered": 200,
+        "critical_sent": 200,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 85,
+          "maximum_depth": 512,
+          "rejected_bulk": 25498,
+          "replaced_bulk": 196
+        },
+        "recovery_ticks": 8
+      }
+    ],
+    "traffic_class_config": {
+      "capacity": 512,
+      "critical_preempts_bulk": true
+    }
+  },
+  "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+  "evidence_id": "PRD07-EVID-0038",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [
+    "Bandwidth and latency observations are W2 diagnostics, not production limits."
+  ],
+  "metrics": {
+    "client_profiles": 6,
+    "critical_starvation_windows": 0,
+    "maximum_queue_age_ticks": 511,
+    "maximum_queue_depth": 512,
+    "maximum_recovery_ticks": 8,
+    "semantic_corruption": 0,
+    "sustained_overload_windows": 24,
+    "unbounded_windows": 0,
+    "unrecovered_windows": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Explicit bulk replacement bounded memory while all admitted critical traffic progressed and drained after overload."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-46",
+  "run_id": "PRD07-RUN-0038",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

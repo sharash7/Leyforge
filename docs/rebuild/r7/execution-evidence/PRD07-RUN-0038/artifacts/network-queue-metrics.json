@@ -1,0 +1,386 @@
+[
+  {
+    "bandwidth": 1,
+    "clients": 1,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 200,
+      "maximum_depth": 201,
+      "rejected_bulk": 0,
+      "replaced_bulk": 0
+    },
+    "recovery_ticks": 4
+  },
+  {
+    "bandwidth": 1,
+    "clients": 1,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 200,
+      "maximum_depth": 201,
+      "rejected_bulk": 0,
+      "replaced_bulk": 0
+    },
+    "recovery_ticks": 4
+  },
+  {
+    "bandwidth": 1,
+    "clients": 1,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 200,
+      "maximum_depth": 201,
+      "rejected_bulk": 0,
+      "replaced_bulk": 0
+    },
+    "recovery_ticks": 4
+  },
+  {
+    "bandwidth": 1,
+    "clients": 1,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 200,
+      "maximum_depth": 201,
+      "rejected_bulk": 0,
+      "replaced_bulk": 0
+    },
+    "recovery_ticks": 4
+  },
+  {
+    "bandwidth": 1,
+    "clients": 2,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 511,
+      "maximum_depth": 512,
+      "rejected_bulk": 574,
+      "replaced_bulk": 115
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 1,
+    "clients": 2,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 511,
+      "maximum_depth": 512,
+      "rejected_bulk": 574,
+      "replaced_bulk": 115
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 1,
+    "clients": 2,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 511,
+      "maximum_depth": 512,
+      "rejected_bulk": 574,
+      "replaced_bulk": 115
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 1,
+    "clients": 2,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 511,
+      "maximum_depth": 512,
+      "rejected_bulk": 574,
+      "replaced_bulk": 115
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 2,
+    "clients": 4,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 255,
+      "maximum_depth": 512,
+      "rejected_bulk": 1537,
+      "replaced_bulk": 153
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 2,
+    "clients": 4,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 255,
+      "maximum_depth": 512,
+      "rejected_bulk": 1537,
+      "replaced_bulk": 153
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 2,
+    "clients": 4,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 255,
+      "maximum_depth": 512,
+      "rejected_bulk": 1537,
+      "replaced_bulk": 153
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 2,
+    "clients": 4,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 255,
+      "maximum_depth": 512,
+      "rejected_bulk": 1537,
+      "replaced_bulk": 153
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 3,
+    "clients": 8,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 170,
+      "maximum_depth": 512,
+      "rejected_bulk": 4511,
+      "replaced_bulk": 180
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 3,
+    "clients": 8,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 170,
+      "maximum_depth": 512,
+      "rejected_bulk": 4511,
+      "replaced_bulk": 180
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 3,
+    "clients": 8,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 170,
+      "maximum_depth": 512,
+      "rejected_bulk": 4511,
+      "replaced_bulk": 180
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 3,
+    "clients": 8,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 170,
+      "maximum_depth": 512,
+      "rejected_bulk": 4511,
+      "replaced_bulk": 180
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 4,
+    "clients": 16,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 127,
+      "maximum_depth": 512,
+      "rejected_bulk": 11501,
+      "replaced_bulk": 191
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 4,
+    "clients": 16,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 127,
+      "maximum_depth": 512,
+      "rejected_bulk": 11501,
+      "replaced_bulk": 191
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 4,
+    "clients": 16,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 127,
+      "maximum_depth": 512,
+      "rejected_bulk": 11501,
+      "replaced_bulk": 191
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 4,
+    "clients": 16,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 127,
+      "maximum_depth": 512,
+      "rejected_bulk": 11501,
+      "replaced_bulk": 191
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 6,
+    "clients": 32,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 85,
+      "maximum_depth": 512,
+      "rejected_bulk": 25498,
+      "replaced_bulk": 196
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 6,
+    "clients": 32,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 85,
+      "maximum_depth": 512,
+      "rejected_bulk": 25498,
+      "replaced_bulk": 196
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 6,
+    "clients": 32,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 85,
+      "maximum_depth": 512,
+      "rejected_bulk": 25498,
+      "replaced_bulk": 196
+    },
+    "recovery_ticks": 8
+  },
+  {
+    "bandwidth": 6,
+    "clients": 32,
+    "critical_delivered": 200,
+    "critical_sent": 200,
+    "queue": {
+      "capacity": 512,
+      "critical_rejections": 0,
+      "depth": 0,
+      "maximum_age_ticks": 85,
+      "maximum_depth": 512,
+      "rejected_bulk": 25498,
+      "replaced_bulk": 196
+    },
+    "recovery_ticks": 8
+  }
+]

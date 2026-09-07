@@ -1,0 +1,479 @@
+{
+  "acceptance_reason": "One thousand randomized same/different-world reopen cycles admitted current work and rejected every old-session write.",
+  "artifacts": {
+    "classification_counts": {
+      "SESSION-EPOCH-REJECTED": 500,
+      "WORLD-ID-REJECTED": 500
+    },
+    "session_task_epoch_trace": [
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.0"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.00.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.00"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.1"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.02.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.02"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.2"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.02.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.02"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.3"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.04.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.04"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.4"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.04.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.04"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.5"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.06.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.06"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.6"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.06.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.06"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.7"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.08.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.08"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.8"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.08.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.08"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.9"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.10.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.10"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.10"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.10.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.10"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.11"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.01.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.01"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.12"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.01.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.01"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.13"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.03.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.03"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.14"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.03.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.03"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.15"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.05.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.05"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.16"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.05.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.05"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.17"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.07.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.07"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.18"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.07.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.07"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.19"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.09.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.09"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.20"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.09.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.09"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.21"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.00.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.00"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.22"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.00.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.00"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.23"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.02.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.02"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.24"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.02.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.02"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.25"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.04.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.04"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.26"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.04.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.04"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.27"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.06.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.06"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.28"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.06.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.06"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.29"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.08.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.08"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "SESSION-EPOCH-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.30"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.08.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.08"
+        }
+      },
+      {
+        "current": "CURRENT-ACCEPTED",
+        "old": "WORLD-ID-REJECTED",
+        "snapshot": {
+          "accepted": [
+            "current.31"
+          ],
+          "session_epoch": 2,
+          "session_id": "session.world.10.00000002",
+          "task_epoch": 3,
+          "value": 1,
+          "world_id": "world.10"
+        }
+      }
+    ]
+  },
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "evidence_id": "PRD07-EVID-0031",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "close_reopen_cycles": 1000,
+    "cross_session_writes": 0,
+    "current_session_write_failures": 0,
+    "maximum_declared_drain_ticks": 4,
+    "stale_task_rejects": 1000,
+    "world_session_id_mismatches": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Every old task carried a superseded WorldSession/task epoch and was rejected after reopen."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-07",
+  "run_id": "PRD07-RUN-0031",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

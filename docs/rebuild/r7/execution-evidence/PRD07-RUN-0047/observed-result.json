@@ -1,0 +1,1900 @@
+{
+  "acceptance_reason": "Six hundred restart/reconnect cycles restored stable character state and exactly one supported operation effect.",
+  "artifacts": {
+    "identity_conservation_audit_digest": "047ed2968c3a898aec0a04be15f6a3916fa0e4323bf481cf7a0ae851b18a567e",
+    "restart_manifest_samples": [
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.0",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0000.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "3145420ba4e382d1e9d3c9512c8f834da850c625596c58fbb88e380ba97eea13",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.0",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.1",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0001.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "0af80dfa901497ab526ee5656ddbf0b0c832aa6811ee6c71cdabf66c5d275e6b",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.1",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.2",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0002.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "b72835cc3a23760ce5b1ca03d48026c11ae7133fb6921b411a350a28af6bd132",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.2",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.3",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0003.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "3fed9b0d8cf8d46f988bd8cf42087e192104f08d00ca2a88c3ea3a6366edb464",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.3",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.4",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0004.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "db6e37e6d72930685a41b506bb7562a13823d316780894b93ebae89a5243f28c",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.4",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.5",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0005.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "5a82fbd9847e3b69da4244686df81d92e8774a946235a84efab0613a34c2936c",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.5",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.6",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0006.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "2b0eb9d2e9d462377e55544ffbefe2e4a9e9703962b0c4f8262a4d5ac2f24afc",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.6",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.7",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0007.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "58e7c33bb3ccec047bacc9c6aac1c2447b07f1523711596fbe9621029574d345",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.7",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.8",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0008.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "0e1c6abc04812492149ce2ef8be9841fbec4ebf91e162204fb889b76ab573e40",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.8",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.9",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0009.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "7ae996ca677059791af8fc2056d7b5c53f87777218aa04632b400e61f508bf8f",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.9",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.10",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0010.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "0e9cc141513603fdbe479963a1ae24ed63a4e0b372018615d61eb91ce9be1762",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.10",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.11",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0011.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "d290676c0143f5c19de8876dfab2795686f482134a42d562abd2384e3de1eca5",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.11",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.12",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0012.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "51d9b9d886777eba758edd7d25cc1b3649fda671a27a26c992f0d1fc10505e79",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.12",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.13",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0013.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "f2acd0302a0ef4f448f6503abdf68ef45ef50185ee7ff549cfeed49cc9aef74d",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.13",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.14",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0014.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "ac83d694e0c2569a5fe4b66fa0c3651c633a600dbf4020a7122f57a1f5562b5b",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.14",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.15",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0015.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "a2cc45fde97d3316489508f6be6f8aaa39aee597151465e8b2afd5471648369d",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.15",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.16",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0016.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "937b8621ae0c1c87251022c8da1a75b5a4f184cd934a7a88f636393c84dbebc5",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.16",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.17",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0017.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "668d0004eaca820d4d51137571177180d15e64182f333f0149d0180e0f9d6d83",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.17",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.18",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0018.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "d914cdcf381beb9853f84303bfebef1b90697210bd1bdb0ca9483aacf1b1163a",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.18",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.19",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0019.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "a9d8fd1ebbfb6084439a1202acc72e1362c7a0fa3eef863afe4bb752f4419fde",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.19",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.20",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0020.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "f23cd6a38d2fe559ac4758c7ea12d435984afb5ddf3f0a397040a9b4f53f5b44",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.20",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.21",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0021.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "ce3ff112abd4c5539ec97cc960547b40a93030565dbff2119ec12467608c553b",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.21",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.22",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0022.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "9f57166235e8ed389736e23d2d0e7d5fcbb8e30dfde5d37c09f437b6b4b97ae4",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.22",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.23",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0023.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "614474d46429b7808e6d1a347690c24c1aa9efe9d17ae0c4569a6e7291b0d614",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.23",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.24",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0024.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "15845fb13911a3acf5a7484a2d1c8bd524c526e2c0d73b81a637cf5d8c78a81a",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.24",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.25",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0025.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "1884460920cbea27c5be2210d2b9738db8a296a6098be218309b6454e80b1083",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.25",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.26",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0026.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "23ed4d34b969d374ba0e4765ba3cd4c587763aa42d8a80cecc35a5cc19f7c12b",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.26",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.27",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0027.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "02a5833cbf79031b78927ed8308ee31b5b8a613c62e9532bbf4c9a914cd98583",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.27",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.28",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0028.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "00dc83082b88d10ede39e3e0221aeeb7becb0497c242e31841ad75e8b082d08f",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.28",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.29",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0029.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "c9148c74b22a7e6a4b3a9a0cc4f5f7b3c6f47863885dbe79e834a7d8c12f9e9b",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.29",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.30",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0030.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "7a308b43c67039b37d63765857e9e8692a56ceaa8a61f26034a41dd5f06a9f48",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.30",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.31",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0031.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "4268a113675f11202071f41fe05149e0ba24c2425b1c4d1a20b2982fcd7d0256",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.31",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.32",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0032.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "1d4ea4bddc18114e04aedaf5c19af8724be1bf0d16fa783476d4633f996583d5",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.32",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.33",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0033.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "aba63ad2a7ede54f6d27e52069f76af9155f0f56567275b85ece397a94f2ffc6",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.33",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.34",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0034.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "bf44016a74b3060e3ee8cfa6de0474bdbb54a9b99face1d76c112ba1cec199b3",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.34",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.35",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.restart.0035.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "2d47e0bd9b485d7ff0f2602315cbeaf612382a0d92f058f1cd44dc9b93c02dc4",
+          "status": "RECOVERED"
+        },
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "restart.operation.35",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      }
+    ]
+  },
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "evidence_id": "PRD07-EVID-0047",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "character_restore_errors": 0,
+    "history_fallbacks": 0,
+    "operation_duplication_or_loss": 0,
+    "reconnect_convergence_errors": 0,
+    "restart_reconnect_cycles": 600,
+    "wrong_world_lineages": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Restart selected one coherent world lineage and replayed the committed pre-ACK operation result."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-45",
+  "run_id": "PRD07-RUN-0047",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

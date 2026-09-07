@@ -1,0 +1,1066 @@
+{
+  "acceptance_reason": "Three hundred twenty-four corruption patterns fell back to the latest coherent predecessor without guessing.",
+  "artifacts": {
+    "corruption_manifest_samples": [
+      {
+        "component": "manifest",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0000.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "690445886d24ddd10a3da318c21a29487b5423a51a00564802ebfccde3a99e96",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "structured",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0001.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "fca3fc8de6a6741401d982e262f6fb26cbc281734df6de0db7b12c2c5325fa86",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "voxel",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "voxel"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0002.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "a31b655787ea60c1dc5f76b3a716b533510a85695d687dbf3c1176d4a7d8052b",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "journal",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "journal"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0003.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "5dcc3cc7f17f53a5688756530d9e7c4204dcb88a76d830a71012e5f85ec423a8",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "manifest",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0004.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "0ea3cbaecf4d5a0cf72c9f3dd919e4e2e5f30935cd96701efb06fd78e500a498",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "structured",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0005.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "a820a5edfe9595b64c3705b75ee2c6896ceac81b23b7c33c4a0f413908c74ca7",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "voxel",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "voxel"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0006.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "6258a13ec6604fc6a361bf8050d00cf5060946fa488d55f700d350dba86b2413",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "journal",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "journal"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0007.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "bfa8df39f17a39f984664416cda091bed51435b58b836f7e6e3822b3804e82da",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "manifest",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "UNPUBLISHED",
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0008.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "dc2c41ab5d01cb87bb9f67f4dd5e59c3fb2a5556d0d1d8915ef0ba321b35d9b0",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "structured",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0009.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "2a63451c6021c74188f8339d440d36e87a284e87cdc44a62f9102fad874c9aa6",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "voxel",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "voxel"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0010.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "6bd8d206b78c3f53d8b061e8c5a01047a21b5aa52795064e37b18861e6bfef91",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "journal",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "journal"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0011.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "4d4a13e97cc14ac153551e6eb620470d97bf23cd6c82660a655d548575f9d742",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "manifest",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0012.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "6606b4b2480745b3b776509f80f2bd36f86b95cfba2d6a489bcd716d0a0b10e2",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "structured",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0013.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "8989c48f03d0ed26d9dc03eda953249d508e492c48506e2c412c9e5f580cec31",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "voxel",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "voxel"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0014.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "182907239414725186cb8c29faec3e16f4ec50788dba173a0242458efa4b00a5",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "journal",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "journal"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0015.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "e5003ac7baa64dbbae46ef3085c7bab120ff57b7991d076fa2c861f75e63c233",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "manifest",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0016.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "176b1c83d082b7beaa43f1656e637e9e357c01080e5b6e7899056b21e329cccc",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "structured",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0017.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "861e989bf7cfc3e44ed78a19061cc86c3fe8fdfb39e760b8850806541abd8b1f",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "voxel",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "voxel"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0018.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "79b624510d449382cb6c38bac7c5f3f2af0f051ec45e7c717ebf025011585604",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "journal",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "journal"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0019.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "b148393a9567395e255b69a947ebddeb396b59c479290eab156e85cfcfe4c4a8",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "manifest",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "UNPUBLISHED",
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0020.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "9eb71db6c40649909e1e14f8c49612003c0b6cd17b416a760a0f3a59bcd784d3",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "structured",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0021.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "b7cb1edb0676175f1a5ce5555a16ab76ee2a4153641a7cbfac430a6494792436",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "voxel",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "voxel"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0022.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "3bffc36628189048c1786e2a256799fde74d70e32175211df9679ac4bd80cef8",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "journal",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "journal"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0023.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "bd8611910d2b0c61d41ea3feb737a242e628f8b6280162d1ebab3679dc345942",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "manifest",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0024.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "1b35e2fd1bbd12d80b920176844dbc8d4a89bd44590e323a4554354eb2698b8d",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "structured",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0025.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "aa712f6985d0cd285854cb7910a1bb9e6cfa803a1584df49cb055f42a8bbe8da",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "voxel",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "voxel"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0026.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "c8240615fe397b84a0b1133245e37e62ae905b080d877bd2484dc58ff48d6f0e",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "journal",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "journal"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0027.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "c1b1a0c70c762ca129c29396a1f7c2b5205ee6db07c68667fc898c4302121540",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "manifest",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0028.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "c34f79384ea8db7851646584d762c18d1a05fd0a4e1e35c150fa3764025ef889",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "structured",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0029.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "468217e929a4a3b26853929da5f1a170df11fa2e63d97e729d421bf23c9b4382",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "voxel",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "voxel"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0030.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "ac6daad32f656819798b46448da7a4fedb48e4be5c7e8763716130c4e2e61ee1",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "journal",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "journal"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0031.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "de1546e4375e49cd10a6368e9a6c58d4e5505252d0f1db1696800ae060147e02",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "manifest",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "UNPUBLISHED",
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0032.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "92862736b543e2b9945e2340d7441eae408062e167d64a35b0fa4547cc11cb56",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "structured",
+        "mode": "bit-flip",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "structured"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0033.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "9f23226290ae535097b02f9d83f607b18f18d074b46f51c02b77af352bc669fd",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "voxel",
+        "mode": "truncate",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "voxel"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0034.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "dd49620f1fce6d7bf0108ae9a43c158907e7bcb2f0054343d25fa3da3b3c757d",
+          "status": "RECOVERED"
+        }
+      },
+      {
+        "component": "journal",
+        "mode": "remove",
+        "recovery": {
+          "attempted": [
+            {
+              "classification": "INTEGRITY-REJECTED",
+              "failures": [
+                "journal"
+              ],
+              "generation": 3
+            },
+            {
+              "classification": "SELECTED",
+              "generation": 2
+            }
+          ],
+          "checkpoint_id": "checkpoint.world.corrupt.0035.00000002",
+          "generation": 2,
+          "mixed_lineage": false,
+          "participant_revisions": [
+            2,
+            2,
+            2
+          ],
+          "state_hash": "c3bed92ed752db428a10bb3921292665d24e1c836f4e7a2be76531a2770bbd7b",
+          "status": "RECOVERED"
+        }
+      }
+    ],
+    "recovery_selection_trace_digest": "30db7fb5aebc4d53898f059d9f88c171802d04affabbcc4ce8f5f7e3a38954d2"
+  },
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "evidence_id": "PRD07-EVID-0040",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "corruption_patterns": 324,
+    "guessing_count": 0,
+    "integrity_classifications": {
+      "INTEGRITY-REJECTED": 297,
+      "UNPUBLISHED": 27
+    },
+    "integrity_detection_misses": 0,
+    "maximum_generations_lost": 1,
+    "wrong_generation_selections": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Each corrupt newest generation was rejected before use and the verified predecessor was selected."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-40",
+  "run_id": "PRD07-RUN-0040",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

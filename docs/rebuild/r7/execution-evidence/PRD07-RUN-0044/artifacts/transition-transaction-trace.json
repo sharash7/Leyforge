@@ -1,0 +1,1402 @@
+[
+  {
+    "character": "character.transition.before-commit.0",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.0",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.0",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.1",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.1",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.1",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.2",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.2",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.2",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.3",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.3",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.3",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.4",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.4",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.4",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.5",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.5",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.5",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.6",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.6",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.6",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.7",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.7",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.7",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.8",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.8",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.8",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.9",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.9",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.9",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.10",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.10",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.10",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.11",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.11",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.11",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.12",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.12",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.12",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.13",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.13",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.13",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.14",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.14",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.14",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.15",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.15",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.15",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.16",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.16",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.16",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.17",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.17",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.17",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.18",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.18",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.18",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.19",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.19",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.19",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.20",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.20",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.20",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.21",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.21",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.21",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.22",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.22",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.22",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.23",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.23",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.23",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.24",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.24",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.24",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.25",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.25",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.25",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.26",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.26",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.26",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.27",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.27",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.27",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.28",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.28",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.28",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.29",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.29",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.29",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.30",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.30",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.30",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.31",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.31",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.31",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.32",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.32",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.32",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.33",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.33",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.33",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.34",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.34",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.34",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.35",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.35",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.35",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.36",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.36",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.36",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.37",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.37",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.37",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.38",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.38",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.38",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  },
+  {
+    "character": "character.transition.before-commit.39",
+    "fault": "before-commit",
+    "first": {
+      "acknowledged": false,
+      "after": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.39",
+      "state": "PENDING"
+    },
+    "resolved": {
+      "acknowledged": true,
+      "after": {
+        "frame_id": "frame.realm.b",
+        "inventory": 73,
+        "realm_id": "realm.b"
+      },
+      "before": {
+        "frame_id": "frame.realm.a",
+        "inventory": 73,
+        "realm_id": "realm.a"
+      },
+      "operation_id": "realm.transition.before-commit.39",
+      "replay": true,
+      "state": "COMMITTED"
+    }
+  }
+]

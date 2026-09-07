@@ -1,0 +1,392 @@
+{
+  "acceptance_reason": "Twenty-four steady degraded persistence windows stayed bounded, reported durability honestly, and drained after storage resumed.",
+  "artifacts": {
+    "durability_lag_trace_digest": "97da98d07cf7245629cb90e2a11b05100cf19810fec7b080258eeed42526a20b",
+    "persistence_queue_series": [
+      {
+        "committed": 1702,
+        "durable": 1636,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 811,
+          "maximum_depth": 512,
+          "rejected_bulk": 4298,
+          "replaced_bulk": 66
+        },
+        "recovery_ticks": 6,
+        "window": 0
+      },
+      {
+        "committed": 2901,
+        "durable": 2835,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 555,
+          "maximum_depth": 512,
+          "rejected_bulk": 4599,
+          "replaced_bulk": 66
+        },
+        "recovery_ticks": 6,
+        "window": 1
+      },
+      {
+        "committed": 4100,
+        "durable": 4034,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 470,
+          "maximum_depth": 512,
+          "rejected_bulk": 4900,
+          "replaced_bulk": 66
+        },
+        "recovery_ticks": 6,
+        "window": 2
+      },
+      {
+        "committed": 5299,
+        "durable": 5233,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 427,
+          "maximum_depth": 512,
+          "rejected_bulk": 5201,
+          "replaced_bulk": 66
+        },
+        "recovery_ticks": 6,
+        "window": 3
+      },
+      {
+        "committed": 6498,
+        "durable": 6432,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 402,
+          "maximum_depth": 512,
+          "rejected_bulk": 5502,
+          "replaced_bulk": 66
+        },
+        "recovery_ticks": 6,
+        "window": 4
+      },
+      {
+        "committed": 1707,
+        "durable": 1636,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 811,
+          "maximum_depth": 512,
+          "rejected_bulk": 11793,
+          "replaced_bulk": 71
+        },
+        "recovery_ticks": 6,
+        "window": 5
+      },
+      {
+        "committed": 2906,
+        "durable": 2835,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 555,
+          "maximum_depth": 512,
+          "rejected_bulk": 12094,
+          "replaced_bulk": 71
+        },
+        "recovery_ticks": 6,
+        "window": 6
+      },
+      {
+        "committed": 4105,
+        "durable": 4034,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 470,
+          "maximum_depth": 512,
+          "rejected_bulk": 12395,
+          "replaced_bulk": 71
+        },
+        "recovery_ticks": 6,
+        "window": 7
+      },
+      {
+        "committed": 5304,
+        "durable": 5233,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 427,
+          "maximum_depth": 512,
+          "rejected_bulk": 12696,
+          "replaced_bulk": 71
+        },
+        "recovery_ticks": 6,
+        "window": 8
+      },
+      {
+        "committed": 6503,
+        "durable": 6432,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 402,
+          "maximum_depth": 512,
+          "rejected_bulk": 12997,
+          "replaced_bulk": 71
+        },
+        "recovery_ticks": 6,
+        "window": 9
+      },
+      {
+        "committed": 1709,
+        "durable": 1636,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 811,
+          "maximum_depth": 512,
+          "rejected_bulk": 19291,
+          "replaced_bulk": 73
+        },
+        "recovery_ticks": 6,
+        "window": 10
+      },
+      {
+        "committed": 2908,
+        "durable": 2835,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 555,
+          "maximum_depth": 512,
+          "rejected_bulk": 19592,
+          "replaced_bulk": 73
+        },
+        "recovery_ticks": 6,
+        "window": 11
+      },
+      {
+        "committed": 4087,
+        "durable": 4034,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 448,
+          "maximum_depth": 512,
+          "rejected_bulk": 1913,
+          "replaced_bulk": 53
+        },
+        "recovery_ticks": 6,
+        "window": 12
+      },
+      {
+        "committed": 5287,
+        "durable": 5233,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 410,
+          "maximum_depth": 512,
+          "rejected_bulk": 2213,
+          "replaced_bulk": 54
+        },
+        "recovery_ticks": 6,
+        "window": 13
+      },
+      {
+        "committed": 6486,
+        "durable": 6432,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 388,
+          "maximum_depth": 512,
+          "rejected_bulk": 2514,
+          "replaced_bulk": 54
+        },
+        "recovery_ticks": 6,
+        "window": 14
+      },
+      {
+        "committed": 1706,
+        "durable": 1636,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 811,
+          "maximum_depth": 512,
+          "rejected_bulk": 8794,
+          "replaced_bulk": 70
+        },
+        "recovery_ticks": 6,
+        "window": 15
+      },
+      {
+        "committed": 2905,
+        "durable": 2835,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 555,
+          "maximum_depth": 512,
+          "rejected_bulk": 9095,
+          "replaced_bulk": 70
+        },
+        "recovery_ticks": 6,
+        "window": 16
+      },
+      {
+        "committed": 4104,
+        "durable": 4034,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 470,
+          "maximum_depth": 512,
+          "rejected_bulk": 9396,
+          "replaced_bulk": 70
+        },
+        "recovery_ticks": 6,
+        "window": 17
+      },
+      {
+        "committed": 5303,
+        "durable": 5233,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 427,
+          "maximum_depth": 512,
+          "rejected_bulk": 9697,
+          "replaced_bulk": 70
+        },
+        "recovery_ticks": 6,
+        "window": 18
+      },
+      {
+        "committed": 6502,
+        "durable": 6432,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 402,
+          "maximum_depth": 512,
+          "rejected_bulk": 9998,
+          "replaced_bulk": 70
+        },
+        "recovery_ticks": 6,
+        "window": 19
+      },
+      {
+        "committed": 1708,
+        "durable": 1636,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 811,
+          "maximum_depth": 512,
+          "rejected_bulk": 16292,
+          "replaced_bulk": 72
+        },
+        "recovery_ticks": 6,
+        "window": 20
+      },
+      {
+        "committed": 2907,
+        "durable": 2835,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 555,
+          "maximum_depth": 512,
+          "rejected_bulk": 16593,
+          "replaced_bulk": 72
+        },
+        "recovery_ticks": 6,
+        "window": 21
+      },
+      {
+        "committed": 4106,
+        "durable": 4034,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 470,
+          "maximum_depth": 512,
+          "rejected_bulk": 16894,
+          "replaced_bulk": 72
+        },
+        "recovery_ticks": 6,
+        "window": 22
+      },
+      {
+        "committed": 5305,
+        "durable": 5233,
+        "queue": {
+          "capacity": 512,
+          "critical_rejections": 0,
+          "depth": 0,
+          "maximum_age_ticks": 427,
+          "maximum_depth": 512,
+          "rejected_bulk": 17195,
+          "replaced_bulk": 72
+        },
+        "recovery_ticks": 6,
+        "window": 23
+      }
+    ]
+  },
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "evidence_id": "PRD07-EVID-0042",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [
+    "Storage throughput observations are experimental and do not establish product budgets."
+  ],
+  "metrics": {
+    "dishonest_durability_reports": 0,
+    "maximum_queue_age_ticks": 811,
+    "maximum_queue_depth": 512,
+    "maximum_recovery_ticks": 6,
+    "sustained_overload_windows": 24,
+    "unbounded_windows": 0,
+    "unrecovered_windows": 0,
+    "unrelated_task_starvation": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Slow and paused storage caused explicit bounded admission/degradation while commit and durability counts stayed distinct."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-47",
+  "run_id": "PRD07-RUN-0042",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

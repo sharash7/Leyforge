@@ -1,0 +1,879 @@
+{
+  "acceptance_reason": "Six thousand cross-domain interest decisions included all entitled relevant state, leaked none, and left simulation fidelity independent.",
+  "artifacts": {
+    "entitlement_set_digest": "0fb05a7f584ada8016f658c12ddcd112b919771def52fd10a0a6d50faef2f0f5",
+    "interest_decision_ledger": [
+      {
+        "decision": {
+          "entitled": true,
+          "hidden": true,
+          "include": true,
+          "reasons": [
+            "spatial"
+          ],
+          "semantic_id": "entity.00000",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": true,
+          "semantic_id": "entity.00000",
+          "simulation_fidelity": "aggregate",
+          "spatial": true
+        },
+        "viewer": {
+          "entitlements": [
+            "entity.00000"
+          ]
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "owner"
+          ],
+          "semantic_id": "entity.00001",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "owner": true,
+          "semantic_id": "entity.00001",
+          "simulation_fidelity": "regional"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "remote_ui"
+          ],
+          "semantic_id": "entity.00002",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "remote_ui": true,
+          "semantic_id": "entity.00002",
+          "simulation_fidelity": "active"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "quest"
+          ],
+          "semantic_id": "entity.00003",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "quest": true,
+          "semantic_id": "entity.00003",
+          "simulation_fidelity": "aggregate"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "vessel"
+          ],
+          "semantic_id": "entity.00004",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00004",
+          "simulation_fidelity": "regional",
+          "vessel": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "spatial"
+          ],
+          "semantic_id": "entity.00005",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00005",
+          "simulation_fidelity": "active",
+          "spatial": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "owner"
+          ],
+          "semantic_id": "entity.00006",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "owner": true,
+          "semantic_id": "entity.00006",
+          "simulation_fidelity": "aggregate"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": true,
+          "include": false,
+          "reasons": [
+            "remote_ui"
+          ],
+          "semantic_id": "entity.00007",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": true,
+          "remote_ui": true,
+          "semantic_id": "entity.00007",
+          "simulation_fidelity": "regional"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "quest"
+          ],
+          "semantic_id": "entity.00008",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "quest": true,
+          "semantic_id": "entity.00008",
+          "simulation_fidelity": "active"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "vessel"
+          ],
+          "semantic_id": "entity.00009",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00009",
+          "simulation_fidelity": "aggregate",
+          "vessel": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "spatial"
+          ],
+          "semantic_id": "entity.00010",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00010",
+          "simulation_fidelity": "regional",
+          "spatial": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "owner"
+          ],
+          "semantic_id": "entity.00011",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "owner": true,
+          "semantic_id": "entity.00011",
+          "simulation_fidelity": "active"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "remote_ui"
+          ],
+          "semantic_id": "entity.00012",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "remote_ui": true,
+          "semantic_id": "entity.00012",
+          "simulation_fidelity": "aggregate"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "quest"
+          ],
+          "semantic_id": "entity.00013",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "quest": true,
+          "semantic_id": "entity.00013",
+          "simulation_fidelity": "regional"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": true,
+          "hidden": true,
+          "include": true,
+          "reasons": [
+            "vessel"
+          ],
+          "semantic_id": "entity.00014",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": true,
+          "semantic_id": "entity.00014",
+          "simulation_fidelity": "active",
+          "vessel": true
+        },
+        "viewer": {
+          "entitlements": [
+            "entity.00014"
+          ]
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "spatial"
+          ],
+          "semantic_id": "entity.00015",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00015",
+          "simulation_fidelity": "aggregate",
+          "spatial": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "owner"
+          ],
+          "semantic_id": "entity.00016",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "owner": true,
+          "semantic_id": "entity.00016",
+          "simulation_fidelity": "regional"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "remote_ui"
+          ],
+          "semantic_id": "entity.00017",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "remote_ui": true,
+          "semantic_id": "entity.00017",
+          "simulation_fidelity": "active"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "quest"
+          ],
+          "semantic_id": "entity.00018",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "quest": true,
+          "semantic_id": "entity.00018",
+          "simulation_fidelity": "aggregate"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "vessel"
+          ],
+          "semantic_id": "entity.00019",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00019",
+          "simulation_fidelity": "regional",
+          "vessel": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "spatial"
+          ],
+          "semantic_id": "entity.00020",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00020",
+          "simulation_fidelity": "active",
+          "spatial": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": true,
+          "include": false,
+          "reasons": [
+            "owner"
+          ],
+          "semantic_id": "entity.00021",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": true,
+          "owner": true,
+          "semantic_id": "entity.00021",
+          "simulation_fidelity": "aggregate"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "remote_ui"
+          ],
+          "semantic_id": "entity.00022",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "remote_ui": true,
+          "semantic_id": "entity.00022",
+          "simulation_fidelity": "regional"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "quest"
+          ],
+          "semantic_id": "entity.00023",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "quest": true,
+          "semantic_id": "entity.00023",
+          "simulation_fidelity": "active"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "vessel"
+          ],
+          "semantic_id": "entity.00024",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00024",
+          "simulation_fidelity": "aggregate",
+          "vessel": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "spatial"
+          ],
+          "semantic_id": "entity.00025",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00025",
+          "simulation_fidelity": "regional",
+          "spatial": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "owner"
+          ],
+          "semantic_id": "entity.00026",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "owner": true,
+          "semantic_id": "entity.00026",
+          "simulation_fidelity": "active"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "remote_ui"
+          ],
+          "semantic_id": "entity.00027",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "remote_ui": true,
+          "semantic_id": "entity.00027",
+          "simulation_fidelity": "aggregate"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": true,
+          "hidden": true,
+          "include": true,
+          "reasons": [
+            "quest"
+          ],
+          "semantic_id": "entity.00028",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": true,
+          "quest": true,
+          "semantic_id": "entity.00028",
+          "simulation_fidelity": "regional"
+        },
+        "viewer": {
+          "entitlements": [
+            "entity.00028"
+          ]
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "vessel"
+          ],
+          "semantic_id": "entity.00029",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00029",
+          "simulation_fidelity": "active",
+          "vessel": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "spatial"
+          ],
+          "semantic_id": "entity.00030",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00030",
+          "simulation_fidelity": "aggregate",
+          "spatial": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "owner"
+          ],
+          "semantic_id": "entity.00031",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "owner": true,
+          "semantic_id": "entity.00031",
+          "simulation_fidelity": "regional"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "remote_ui"
+          ],
+          "semantic_id": "entity.00032",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "remote_ui": true,
+          "semantic_id": "entity.00032",
+          "simulation_fidelity": "active"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "quest"
+          ],
+          "semantic_id": "entity.00033",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "quest": true,
+          "semantic_id": "entity.00033",
+          "simulation_fidelity": "aggregate"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "vessel"
+          ],
+          "semantic_id": "entity.00034",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00034",
+          "simulation_fidelity": "regional",
+          "vessel": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": true,
+          "include": false,
+          "reasons": [
+            "spatial"
+          ],
+          "semantic_id": "entity.00035",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": true,
+          "semantic_id": "entity.00035",
+          "simulation_fidelity": "active",
+          "spatial": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "owner"
+          ],
+          "semantic_id": "entity.00036",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "owner": true,
+          "semantic_id": "entity.00036",
+          "simulation_fidelity": "aggregate"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "remote_ui"
+          ],
+          "semantic_id": "entity.00037",
+          "simulation_fidelity": "regional"
+        },
+        "entity": {
+          "hidden": false,
+          "remote_ui": true,
+          "semantic_id": "entity.00037",
+          "simulation_fidelity": "regional"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "quest"
+          ],
+          "semantic_id": "entity.00038",
+          "simulation_fidelity": "active"
+        },
+        "entity": {
+          "hidden": false,
+          "quest": true,
+          "semantic_id": "entity.00038",
+          "simulation_fidelity": "active"
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      },
+      {
+        "decision": {
+          "entitled": false,
+          "hidden": false,
+          "include": true,
+          "reasons": [
+            "vessel"
+          ],
+          "semantic_id": "entity.00039",
+          "simulation_fidelity": "aggregate"
+        },
+        "entity": {
+          "hidden": false,
+          "semantic_id": "entity.00039",
+          "simulation_fidelity": "aggregate",
+          "vessel": true
+        },
+        "viewer": {
+          "entitlements": []
+        }
+      }
+    ]
+  },
+  "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+  "evidence_id": "PRD07-EVID-0035",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "hidden_state_leaks": 0,
+    "interest_evaluations": 6000,
+    "missing_relevant_state": 0,
+    "reason_counts": {
+      "owner": 1200,
+      "quest": 1200,
+      "remote_ui": 1200,
+      "spatial": 1200,
+      "vessel": 1200
+    },
+    "simulation_fidelity_changes": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Replication relevance followed spatial and non-spatial gameplay relations while entitlement protected hidden state."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-38",
+  "run_id": "PRD07-RUN-0035",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

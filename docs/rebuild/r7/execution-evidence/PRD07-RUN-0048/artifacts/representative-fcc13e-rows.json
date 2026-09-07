@@ -1,0 +1,242 @@
+[
+  {
+    "disposition": "CONTEXTUAL TERRAIN REBIND",
+    "final_action": "actual soil + vegetated surface/terrain state. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+    "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+    "numeric_id": "1",
+    "original_id": "terrain.grass.basic",
+    "stable_row_identity": "VXL_BLK_Terrain_GrassBlock",
+    "target": "actual soil + vegetated surface/terrain state",
+    "unique_id": "VXL_BLK_Terrain_GrassBlock"
+  },
+  {
+    "disposition": "LIVING/NATURAL OBJECT \u2014 DEFER EXACT",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "14",
+    "original_id": "natural.bush.basic",
+    "stable_row_identity": "VXL_BLK_Natural_BushBlock",
+    "target": "species/plant object and harvested products as later bound",
+    "unique_id": "VXL_BLK_Natural_BushBlock"
+  },
+  {
+    "disposition": "SYSTEM/OBJECT CANDIDATE \u2014 DEFER EXACT",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "27",
+    "original_id": "village.warehouse.basic",
+    "stable_row_identity": "VXL_BLK_Village_VillageWarehouse",
+    "target": "Village Warehouse",
+    "unique_id": "VXL_BLK_Village_VillageWarehouse"
+  },
+  {
+    "disposition": "COMPONENT / DEFER EXACT",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "40",
+    "original_id": "defence.watchtower.core",
+    "stable_row_identity": "VXL_BLK_Defence_WatchtowerCore",
+    "target": "Watchtower Core",
+    "unique_id": "VXL_BLK_Defence_WatchtowerCore"
+  },
+  {
+    "disposition": "MIGRATE CONTEXTUALLY / RETIRE",
+    "final_action": "actual canonical material if source evidence identifies one. Resolve by locked context; do not preserve the obsolete identity as active canon.",
+    "final_status": "CANONICAL CONTEXTUAL MIGRATION",
+    "numeric_id": "53",
+    "original_id": "terrain.crystal_stone.basic",
+    "stable_row_identity": "VXL_BLK_Terrain_CrystalStone",
+    "target": "actual canonical material if source evidence identifies one",
+    "unique_id": "VXL_BLK_Terrain_CrystalStone"
+  },
+  {
+    "disposition": "OBJECT/PROVIDER REBIND",
+    "final_action": "timber material/provider + construction archetype. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+    "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+    "numeric_id": "66",
+    "original_id": "utility.ladder.wood",
+    "stable_row_identity": "VXL_BLK_Utility_WoodenLadder",
+    "target": "timber material/provider + construction archetype",
+    "unique_id": "VXL_BLK_Utility_WoodenLadder"
+  },
+  {
+    "disposition": "SYSTEM/OBJECT CANDIDATE \u2014 DEFER EXACT",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "79",
+    "original_id": "functional.research_desk.basic",
+    "stable_row_identity": "VXL_MCH_Functional_ResearchDesk",
+    "target": "Research Desk",
+    "unique_id": "VXL_MCH_Functional_ResearchDesk"
+  },
+  {
+    "disposition": "SYSTEM CANDIDATE / REBIND",
+    "final_action": "Redirect/rebind legacy row to the modern Pump archetype under FCC-13B/C. Preserve old ID as migration alias where semantically exact.",
+    "final_status": "CANONICAL SYSTEM ARCHETYPE REBIND",
+    "numeric_id": "92",
+    "original_id": "automation.pump.basic",
+    "stable_row_identity": "VXL_MCH_Automation_Pump",
+    "target": "Pump",
+    "unique_id": "VXL_MCH_Automation_Pump"
+  },
+  {
+    "disposition": "SYSTEM/OBJECT CANDIDATE \u2014 DEFER EXACT",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "105",
+    "original_id": "automation.assembler.arcane",
+    "stable_row_identity": "VXL_MCH_Automation_ArcaneAssembler",
+    "target": "Arcane Assembler",
+    "unique_id": "VXL_MCH_Automation_ArcaneAssembler"
+  },
+  {
+    "disposition": "SYSTEM/OBJECT CANDIDATE \u2014 DEFER EXACT",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "118",
+    "original_id": "village.repair_marker.basic",
+    "stable_row_identity": "VXL_BLK_Village_RepairMarker",
+    "target": "Repair Marker",
+    "unique_id": "VXL_BLK_Village_RepairMarker"
+  },
+  {
+    "disposition": "DEFER / UNCONFIRMED FLUID",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "131",
+    "original_id": "fluid.mana.arcane",
+    "stable_row_identity": "VXL_BLK_Fluid_ArcaneManaFluid",
+    "target": "none yet",
+    "unique_id": "VXL_BLK_Fluid_ArcaneManaFluid"
+  },
+  {
+    "disposition": "CATEGORY / PROVIDER",
+    "final_action": "exact botanical fibre, Mixed Plant Fibre, or fibre provider semantics. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+    "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+    "numeric_id": "144",
+    "original_id": "item.resource.plant_fibre",
+    "stable_row_identity": "VXL_ITM_RawResource_PlantFibre",
+    "target": "exact botanical fibre, Mixed Plant Fibre, or fibre provider semantics",
+    "unique_id": "VXL_ITM_RawResource_PlantFibre"
+  },
+  {
+    "disposition": "FORM / REBIND CANONICAL",
+    "final_action": "Iron + ingot form. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+    "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+    "numeric_id": "157",
+    "original_id": "item.material.iron_ingot",
+    "stable_row_identity": "VXL_ITM_RefinedMaterial_IronIngot",
+    "target": "Iron + ingot form",
+    "unique_id": "VXL_ITM_RefinedMaterial_IronIngot"
+  },
+  {
+    "disposition": "MERGE / SINGLE-DEFINITION",
+    "final_action": "stone-material masonry brick object. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+    "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+    "numeric_id": "170",
+    "original_id": "item.material.stone_brick",
+    "stable_row_identity": "VXL_ITM_ConstructionMaterial_StoneBrick",
+    "target": "stone-material masonry brick object",
+    "unique_id": "VXL_ITM_ConstructionMaterial_StoneBrick"
+  },
+  {
+    "disposition": "DEFER / TOOL REVIEW",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "183",
+    "original_id": "item.tool.stone_axe",
+    "stable_row_identity": "VXL_ITM_Tool_StoneAxe",
+    "target": "Stone Axe",
+    "unique_id": "VXL_ITM_Tool_StoneAxe"
+  },
+  {
+    "disposition": "DEFER / EQUIPMENT REVIEW",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "196",
+    "original_id": "item.armor.leather_tunic",
+    "stable_row_identity": "VXL_ITM_Armour_LeatherTunic",
+    "target": "Leather Tunic",
+    "unique_id": "VXL_ITM_Armour_LeatherTunic"
+  },
+  {
+    "disposition": "DEFER / CONTENT REVIEW",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "209",
+    "original_id": "item.quest.warehouse_manifest",
+    "stable_row_identity": "VXL_ITM_QuestItem_WarehouseCrateManifest",
+    "target": "Warehouse Crate Manifest",
+    "unique_id": "VXL_ITM_QuestItem_WarehouseCrateManifest"
+  },
+  {
+    "disposition": "PROCESSED MATERIAL / REBIND",
+    "final_action": "Charcoal. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+    "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+    "numeric_id": "222",
+    "original_id": "item.material.charcoal",
+    "stable_row_identity": "VXL_ITM_ProcessedMaterial_Charcoal",
+    "target": "Charcoal",
+    "unique_id": "VXL_ITM_ProcessedMaterial_Charcoal"
+  },
+  {
+    "disposition": "COMPONENT REBIND CANDIDATE",
+    "final_action": "Item Pipe Section. Use FCC-13A/B identity/projection rules; old POC ID becomes migration alias where safe.",
+    "final_status": "CANONICAL REBIND / GENERATED FORM / STATE",
+    "numeric_id": "235",
+    "original_id": "item.component.item_pipe_section",
+    "stable_row_identity": "VXL_MCH_MachineComponent_ItemPipeSection",
+    "target": "Item Pipe Section",
+    "unique_id": "VXL_MCH_MachineComponent_ItemPipeSection"
+  },
+  {
+    "disposition": "DEFER / EQUIPMENT REVIEW",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "248",
+    "original_id": "item.weapon.stone_spear",
+    "stable_row_identity": "VXL_ITM_Weapon_StoneSpear",
+    "target": "Stone Spear",
+    "unique_id": "VXL_ITM_Weapon_StoneSpear"
+  },
+  {
+    "disposition": "DEFER / CONTENT REVIEW",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "261",
+    "original_id": "item.drink.herbal_tea",
+    "stable_row_identity": "VXL_ITM_Drink_HerbalTea",
+    "target": "Herbal Tea",
+    "unique_id": "VXL_ITM_Drink_HerbalTea"
+  },
+  {
+    "disposition": "DEFER / LOOT REVIEW",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "274",
+    "original_id": "item.loot.bandit_badge",
+    "stable_row_identity": "VXL_ITM_Loot_BanditBadge",
+    "target": "Bandit Badge",
+    "unique_id": "VXL_ITM_Loot_BanditBadge"
+  },
+  {
+    "disposition": "COMPONENT / DEFER EXACT",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "287",
+    "original_id": "item.magic.heart_golem_clay",
+    "stable_row_identity": "VXL_ITM_GolemancyComponent_ClayGolemHeart",
+    "target": "Clay Golem Heart",
+    "unique_id": "VXL_ITM_GolemancyComponent_ClayGolemHeart"
+  },
+  {
+    "disposition": "DEFER / CONTENT REVIEW",
+    "final_action": "FCC-13 does not have sufficient locked owner support for this exact POC object. Exclude from normal canonical worldgen/crafting. Preserve as leyforge_test when useful; use leyforge_compat for old-save instances; an owning system may later author a new canonical object through normal governance.",
+    "final_status": "POC-ONLY / NOT PROMOTED",
+    "numeric_id": "300",
+    "original_id": "item.economy.goblin_clockwork_junk",
+    "stable_row_identity": "VXL_ITM_CultureTradeGood_GoblinClockworkJunk",
+    "target": "Goblin Clockwork Junk",
+    "unique_id": "VXL_ITM_CultureTradeGood_GoblinClockworkJunk"
+  }
+]

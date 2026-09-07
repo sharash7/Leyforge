@@ -1,0 +1,1828 @@
+{
+  "acceptance_reason": "Five thousand phase-randomized transaction reconnects returned one conserved terminal outcome per operation ID.",
+  "artifacts": {
+    "operation_journal_samples": [
+      {
+        "first": {
+          "acknowledged": false,
+          "operation_id": "inventory.00000",
+          "replay": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "PENDING",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED"
+          ]
+        },
+        "phase": "disconnect-before-commit",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00000",
+          "replay": true,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00000",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00001",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "disconnect-after-commit",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00001",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00001",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00002",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "lose-ack",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00002",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00002",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00003",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "none",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00003",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00003",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "operation_id": "inventory.00004",
+          "replay": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "PENDING",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED"
+          ]
+        },
+        "phase": "disconnect-before-commit",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00004",
+          "replay": true,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00004",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00005",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "disconnect-after-commit",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00005",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00005",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00006",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "lose-ack",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00006",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00006",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00007",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "none",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00007",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00007",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "operation_id": "inventory.00008",
+          "replay": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "PENDING",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED"
+          ]
+        },
+        "phase": "disconnect-before-commit",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00008",
+          "replay": true,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00008",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00009",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "disconnect-after-commit",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00009",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00009",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00010",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "lose-ack",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00010",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00010",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00011",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "none",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00011",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00011",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "operation_id": "inventory.00012",
+          "replay": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "PENDING",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED"
+          ]
+        },
+        "phase": "disconnect-before-commit",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00012",
+          "replay": true,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00012",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00013",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "disconnect-after-commit",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00013",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00013",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00014",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "lose-ack",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00014",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00014",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00015",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "none",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00015",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00015",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "operation_id": "inventory.00016",
+          "replay": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "PENDING",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED"
+          ]
+        },
+        "phase": "disconnect-before-commit",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00016",
+          "replay": true,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00016",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00017",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "disconnect-after-commit",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00017",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00017",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00018",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "lose-ack",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00018",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00018",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00019",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "none",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00019",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00019",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "operation_id": "inventory.00020",
+          "replay": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "PENDING",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED"
+          ]
+        },
+        "phase": "disconnect-before-commit",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00020",
+          "replay": true,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00020",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00021",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "disconnect-after-commit",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00021",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00021",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00022",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "lose-ack",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00022",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00022",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00023",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "none",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00023",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00023",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "operation_id": "inventory.00024",
+          "replay": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "PENDING",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED"
+          ]
+        },
+        "phase": "disconnect-before-commit",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00024",
+          "replay": true,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00024",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00025",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "disconnect-after-commit",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00025",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00025",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00026",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "lose-ack",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00026",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00026",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00027",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "none",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00027",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00027",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "operation_id": "inventory.00028",
+          "replay": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "PENDING",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED"
+          ]
+        },
+        "phase": "disconnect-before-commit",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00028",
+          "replay": true,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00028",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00029",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "disconnect-after-commit",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00029",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00029",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00030",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "lose-ack",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00030",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00030",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00031",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "none",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00031",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00031",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "operation_id": "inventory.00032",
+          "replay": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "PENDING",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED"
+          ]
+        },
+        "phase": "disconnect-before-commit",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00032",
+          "replay": true,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00032",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00033",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "disconnect-after-commit",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00033",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00033",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00034",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "lose-ack",
+        "retry": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00034",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": false,
+          "effect": 1,
+          "operation_id": "inventory.00034",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00035",
+          "replay": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "phase": "none",
+        "retry": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00035",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "terminal": {
+          "acknowledged": true,
+          "effect": 1,
+          "operation_id": "inventory.00035",
+          "replay": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "trace": [
+            "RECEIVED",
+            "VALIDATED",
+            "RESERVED",
+            "SEMANTIC-COMMIT",
+            "DURABILITY-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      }
+    ],
+    "phase_matrix_digest": "47c858c5168ab8ee45ed7f525254b1e8b086502df28d67ef6042a50046c5593c"
+  },
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "evidence_id": "PRD07-EVID-0046",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "duplicate_operation_effects": 0,
+    "maximum_pending_attempts": 1,
+    "resource_conservation_errors": 0,
+    "result_replays": 10000,
+    "transaction_reconnect_cycles": 5000,
+    "unresolved_outcomes": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Reconnect completed or reconstructed each original operation without changing resource conservation."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-43",
+  "run_id": "PRD07-RUN-0046",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

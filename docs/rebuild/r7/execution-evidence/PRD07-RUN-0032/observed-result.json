@@ -1,0 +1,289 @@
+{
+  "acceptance_reason": "Three hundred twenty shutdown matrices reached a bounded, restart-correct terminal state with no unclassified work.",
+  "artifacts": {
+    "shutdown_phase_trace": [
+      {
+        "class": "persistence",
+        "deadline": 8,
+        "disposition": "EXPLICITLY-PENDING",
+        "duration": 8
+      },
+      {
+        "class": "provider",
+        "deadline": 16,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "simulation",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "diagnostics",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 8
+      },
+      {
+        "class": "network",
+        "deadline": 8,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "persistence",
+        "deadline": 16,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 10
+      },
+      {
+        "class": "provider",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 8
+      },
+      {
+        "class": "simulation",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 14
+      },
+      {
+        "class": "diagnostics",
+        "deadline": 8,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "network",
+        "deadline": 16,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 8
+      },
+      {
+        "class": "persistence",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 10
+      },
+      {
+        "class": "provider",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "simulation",
+        "deadline": 8,
+        "disposition": "EXPLICITLY-PENDING",
+        "duration": 8
+      },
+      {
+        "class": "diagnostics",
+        "deadline": 16,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "network",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 14
+      },
+      {
+        "class": "persistence",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 15
+      },
+      {
+        "class": "provider",
+        "deadline": 8,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "simulation",
+        "deadline": 16,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "diagnostics",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 8
+      },
+      {
+        "class": "network",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "persistence",
+        "deadline": 8,
+        "disposition": "EXPLICITLY-PENDING",
+        "duration": 8
+      },
+      {
+        "class": "provider",
+        "deadline": 16,
+        "disposition": "EXPLICITLY-PENDING",
+        "duration": 16
+      },
+      {
+        "class": "simulation",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "diagnostics",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "network",
+        "deadline": 8,
+        "disposition": "EXPLICITLY-PENDING",
+        "duration": 8
+      },
+      {
+        "class": "persistence",
+        "deadline": 16,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 10
+      },
+      {
+        "class": "provider",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "simulation",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 8
+      },
+      {
+        "class": "diagnostics",
+        "deadline": 8,
+        "disposition": "EXPLICITLY-PENDING",
+        "duration": 8
+      },
+      {
+        "class": "network",
+        "deadline": 16,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "persistence",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 15
+      },
+      {
+        "class": "provider",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "simulation",
+        "deadline": 8,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "diagnostics",
+        "deadline": 16,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 8
+      },
+      {
+        "class": "network",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "persistence",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 21
+      },
+      {
+        "class": "provider",
+        "deadline": 8,
+        "disposition": "EXPLICITLY-PENDING",
+        "duration": 8
+      },
+      {
+        "class": "simulation",
+        "deadline": 16,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "diagnostics",
+        "deadline": 32,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 3
+      },
+      {
+        "class": "network",
+        "deadline": 64,
+        "disposition": "DURABLY-RESOLVED",
+        "duration": 8
+      }
+    ],
+    "task_class_disposition_report": {
+      "diagnostics": 8,
+      "network": 7,
+      "persistence": 18,
+      "provider": 8,
+      "simulation": 7
+    }
+  },
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "evidence_id": "PRD07-EVID-0032",
+  "fixture_schema": "leyforge-r7-w2-network-persistence-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "cancelled_or_deferred_by_class": {
+      "diagnostics": 8,
+      "network": 7,
+      "persistence": 18,
+      "provider": 8,
+      "simulation": 7
+    },
+    "deadlocks": 0,
+    "false_clean_shutdowns": 0,
+    "maximum_shutdown_ticks": 26,
+    "real_headless_export_lane": true,
+    "restart_errors": 0,
+    "shutdowns": 320,
+    "task_classes": [
+      "persistence",
+      "provider",
+      "simulation",
+      "diagnostics",
+      "network"
+    ],
+    "unfinished_unclassified_consequential_tasks": 0
+  },
+  "migration_source": null,
+  "observations": [
+    "Every bounded shutdown ended with consequential work durably resolved or explicitly pending by policy."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-20",
+  "run_id": "PRD07-RUN-0032",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

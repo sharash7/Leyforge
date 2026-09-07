@@ -1,0 +1,49 @@
+{
+  "artifact_sha256": "02e93d4406f334887dfa01189fba2088690e340855d2b4fc1fb10d5ac039359c",
+  "artifact_size_bytes": 110445200,
+  "build_identity": "11c5b8d662835b1edd1f005b1ecd3393fa8e19e5b1006d0f8fe8a104b8ae6b3e",
+  "evidence_artifacts": [
+    {
+      "bytes": 18852,
+      "kind": "checkpoint_journal_samples",
+      "path": "artifacts/checkpoint-journal-samples.json",
+      "sha256": "fcbc8fafb2737d4207f51dced5abac8d1c885c89549a6813a377fdd57c36cd78"
+    },
+    {
+      "bytes": 66233,
+      "kind": "external_kill_schedule",
+      "path": "artifacts/external-kill-schedule.json",
+      "sha256": "8d15b2669103e9334b28a8d5b6356b02b3779f795e09b3ec6598150f37b1d949"
+    },
+    {
+      "bytes": 96848,
+      "kind": "process_exit_evidence",
+      "path": "artifacts/process-exit-evidence.json",
+      "sha256": "64897a24ea62b9bdd4af3b64dc2357f02fb4bb4d5a436f5061fb9640f1b66941"
+    },
+    {
+      "bytes": 527,
+      "kind": "real_crash_runtime_summary",
+      "path": "artifacts/real-crash-runtime-summary.json",
+      "sha256": "08bb2c7c13fa535538afc81deb64e9a00bff1fe0560fbb462298d29246d5b40a"
+    },
+    {
+      "bytes": 14446,
+      "kind": "restart_recovery_logs",
+      "path": "artifacts/restart-recovery-logs.json",
+      "sha256": "9f31d93516c1ea5cdc8704328085bbb0b5c1d8d04a152d9a64263f35ce0b690e"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0050",
+  "evidence_sha256": "809ca299df72ad581888fd315a9ab5f2dfadd2226831f1e798b49f463bab2bdb",
+  "execution_kind": "actual-governed-execution",
+  "gameplay_permission": "CLOSED",
+  "outcome": "PASS-OBSERVED",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-69",
+  "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w2-runs-dbf6d9f\\validated-evidence\\PRD07-RUN-0050",
+  "run_id": "PRD07-RUN-0050",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "dbf6d9fd99fc1af96cb39db864aac0f7957f40ef"
+}

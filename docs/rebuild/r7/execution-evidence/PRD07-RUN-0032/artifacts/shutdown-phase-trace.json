@@ -1,0 +1,242 @@
+[
+  {
+    "class": "persistence",
+    "deadline": 8,
+    "disposition": "EXPLICITLY-PENDING",
+    "duration": 8
+  },
+  {
+    "class": "provider",
+    "deadline": 16,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "simulation",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "diagnostics",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 8
+  },
+  {
+    "class": "network",
+    "deadline": 8,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "persistence",
+    "deadline": 16,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 10
+  },
+  {
+    "class": "provider",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 8
+  },
+  {
+    "class": "simulation",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 14
+  },
+  {
+    "class": "diagnostics",
+    "deadline": 8,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "network",
+    "deadline": 16,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 8
+  },
+  {
+    "class": "persistence",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 10
+  },
+  {
+    "class": "provider",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "simulation",
+    "deadline": 8,
+    "disposition": "EXPLICITLY-PENDING",
+    "duration": 8
+  },
+  {
+    "class": "diagnostics",
+    "deadline": 16,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "network",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 14
+  },
+  {
+    "class": "persistence",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 15
+  },
+  {
+    "class": "provider",
+    "deadline": 8,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "simulation",
+    "deadline": 16,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "diagnostics",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 8
+  },
+  {
+    "class": "network",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "persistence",
+    "deadline": 8,
+    "disposition": "EXPLICITLY-PENDING",
+    "duration": 8
+  },
+  {
+    "class": "provider",
+    "deadline": 16,
+    "disposition": "EXPLICITLY-PENDING",
+    "duration": 16
+  },
+  {
+    "class": "simulation",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "diagnostics",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "network",
+    "deadline": 8,
+    "disposition": "EXPLICITLY-PENDING",
+    "duration": 8
+  },
+  {
+    "class": "persistence",
+    "deadline": 16,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 10
+  },
+  {
+    "class": "provider",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "simulation",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 8
+  },
+  {
+    "class": "diagnostics",
+    "deadline": 8,
+    "disposition": "EXPLICITLY-PENDING",
+    "duration": 8
+  },
+  {
+    "class": "network",
+    "deadline": 16,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "persistence",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 15
+  },
+  {
+    "class": "provider",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "simulation",
+    "deadline": 8,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "diagnostics",
+    "deadline": 16,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 8
+  },
+  {
+    "class": "network",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "persistence",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 21
+  },
+  {
+    "class": "provider",
+    "deadline": 8,
+    "disposition": "EXPLICITLY-PENDING",
+    "duration": 8
+  },
+  {
+    "class": "simulation",
+    "deadline": 16,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "diagnostics",
+    "deadline": 32,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 3
+  },
+  {
+    "class": "network",
+    "deadline": 64,
+    "disposition": "DURABLY-RESOLVED",
+    "duration": 8
+  }
+]

@@ -1,0 +1,2242 @@
+[
+  {
+    "case_id": "session-begin.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "session-begin.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SESSION-BEGIN",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "command-receive.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "COMMAND-RECEIVE",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "validate.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VALIDATE",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "reserve.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "RESERVE",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "semantic-commit.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "SEMANTIC-COMMIT",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-intent.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-INTENT",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "structured-stage.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "STRUCTURED-STAGE",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "voxel-stage.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "VOXEL-STAGE",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "journal-stage.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "JOURNAL-STAGE",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-temp.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "MANIFEST-TEMP",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.00",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 0,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.01",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 1,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.02",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 2,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.03",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 3,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.04",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 4,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.05",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 5,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.06",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 6,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.07",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 7,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.08",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 8,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.09",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 9,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.10",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 10,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.11",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 11,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.12",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 12,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.13",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 13,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.14",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 14,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "participant-fsync.15",
+    "expected_generation": 1,
+    "external_kill": true,
+    "phase": "PARTICIPANT-FSYNC",
+    "repetition": 15,
+    "selected_generation": 1,
+    "state_hash": "d58a656b454a73e2ad912ee110573cdc4c09d29b6f3dcd6af96ed0066bbf0dc6",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.00",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 0,
+    "selected_generation": 2,
+    "state_hash": "06e8affb5e8b2ae79cb9ce6ee94e2edd2ddb776ba72b673d8ebf1950503f5a37",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.01",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 1,
+    "selected_generation": 2,
+    "state_hash": "ca05d5cdc1951bc93b2eab199eb1a4294a5fd4dcd18655a2ec1c3b6d96f739bf",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.02",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 2,
+    "selected_generation": 2,
+    "state_hash": "a125ee278465eaf854ef43868d6e85c257793306eea2a174b18d2317e32b51e7",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.03",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 3,
+    "selected_generation": 2,
+    "state_hash": "5ce196e3645f63750d5bff42d8f1b670438d5d8b9cf3726b826588a270b23241",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.04",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 4,
+    "selected_generation": 2,
+    "state_hash": "45f14acc8c02f08a61ee4b0cb5e9476f106a186f26f18b2b17531ae1afb98631",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.05",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 5,
+    "selected_generation": 2,
+    "state_hash": "a71b01b1885cb34cc92e074d4e96246edb979e2108a7934358f277530f1f16a9",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.06",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 6,
+    "selected_generation": 2,
+    "state_hash": "5a0b8142ce8040bacc6ed13d375816fc6a81a862bc745cfbd4e8975b85e60cca",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.07",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 7,
+    "selected_generation": 2,
+    "state_hash": "080db58170bc5ecc2d085c8437820e8c1d65123aca833d9ff4bfb3538f9c19db",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.08",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 8,
+    "selected_generation": 2,
+    "state_hash": "dc824768e7f6e17fd9153c52ddf8f92f51a611f0bb85742dd79e6825fdf92b52",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.09",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 9,
+    "selected_generation": 2,
+    "state_hash": "68cfd21b370491b943ccbd86ee5a0a657041f20c90431dc27fa9a4295fcc3511",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.10",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 10,
+    "selected_generation": 2,
+    "state_hash": "a75bcbf5b50a756214ad9f442b29b6711824a0b776118f0d8ba26da0d250eb57",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.11",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 11,
+    "selected_generation": 2,
+    "state_hash": "8f5ab40ced953ad4b45840c39bebea1830ae79f1d140ed8d7e2bd6a361c8789e",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.12",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 12,
+    "selected_generation": 2,
+    "state_hash": "c8aa0c19de56a4f1ed1786d9178ecdf29141a3316260befa2e8f4bbe330d1157",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.13",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 13,
+    "selected_generation": 2,
+    "state_hash": "8390af7eab4714d3f833906e9c464a20ae7b21906f0ebe70aee2ab915fed3b7a",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.14",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 14,
+    "selected_generation": 2,
+    "state_hash": "fbfecd2e0ebc92c6776432ef7f7f26bff3c4d05c449be1b63e513e79b42f6181",
+    "valid": true
+  },
+  {
+    "case_id": "manifest-publish.15",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "MANIFEST-PUBLISH",
+    "repetition": 15,
+    "selected_generation": 2,
+    "state_hash": "a655515e3524441610e48b27c19909fe93871d245b1a25d95c181e20b03ead88",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.00",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 0,
+    "selected_generation": 2,
+    "state_hash": "1dc56cee7ee9204d95587a23a9b58fac5c3f2f1832c27dd2c75e3d97ab7d4dcd",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.01",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 1,
+    "selected_generation": 2,
+    "state_hash": "55ba708e71c06e7df81aadffac5136baed6df0fc4fb564ea1c195ee5aa0d9800",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.02",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 2,
+    "selected_generation": 2,
+    "state_hash": "ef5a16ee38edf9a27a55187e77d069c60d3f939079d1bf0ba92c07b321beb7b2",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.03",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 3,
+    "selected_generation": 2,
+    "state_hash": "8290ba8a779cd1b88340ce182320466ccbc5d4e42fef8b493834ad564b183431",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.04",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 4,
+    "selected_generation": 2,
+    "state_hash": "db3af5e27f159cd3b9e2b81436849074ba69b9f8178ea72fa65752d2efe66336",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.05",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 5,
+    "selected_generation": 2,
+    "state_hash": "5da594f6f87b5c5f23de71c24c898a2e008226d42ef74f792c82df3d4bef754f",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.06",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 6,
+    "selected_generation": 2,
+    "state_hash": "a702445c191affa81a12ac7c63957242539440c71a819e2947ced00c84778868",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.07",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 7,
+    "selected_generation": 2,
+    "state_hash": "d1f0a10d5099a3097b1235e53444bc3df309c16afd5de358fc34dc98f1fcf54f",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.08",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 8,
+    "selected_generation": 2,
+    "state_hash": "a5c1e78fd346075af876acf43a383016e8615993dfa8d133455672a3f718b22a",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.09",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 9,
+    "selected_generation": 2,
+    "state_hash": "5324a9cdc31fc1c2c8568aa7571b3cf87d297d3e5f17f3e8e7715b4a5bd30470",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.10",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 10,
+    "selected_generation": 2,
+    "state_hash": "cba9e1d9f4ef619bd510e413fd4719b6a243c075c7cd93853ab83733ea1e62a6",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.11",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 11,
+    "selected_generation": 2,
+    "state_hash": "cb735ca7d86c1705f592898e9a2c55aa8cd675a86a52616c962a871ee4f564c0",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.12",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 12,
+    "selected_generation": 2,
+    "state_hash": "641277966667bb99df40c72767d894b5a343e1063323d4eb11b38304bdc5baf6",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.13",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 13,
+    "selected_generation": 2,
+    "state_hash": "0ee3235f9c8c9e85285ab88a898d9688bcad19cccb48d0a5e38db915755b0801",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.14",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 14,
+    "selected_generation": 2,
+    "state_hash": "df4d174fda1d7fa491cf146a1c47a404df358c19168868814072f9cdc9a31143",
+    "valid": true
+  },
+  {
+    "case_id": "ack-prepare.15",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-PREPARE",
+    "repetition": 15,
+    "selected_generation": 2,
+    "state_hash": "e2a6ecf37c304202c5da3e092c8f7c3bbda468b59ccb2587bcb2a7093d295216",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.00",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 0,
+    "selected_generation": 2,
+    "state_hash": "e7073198827ca750e7f917bc2e19f3c82b960b3e4ecbcfff4544be0cf8c7b748",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.01",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 1,
+    "selected_generation": 2,
+    "state_hash": "c7333322304d98e851e876ff9c930feeb4ee7cb707b2c07b36d7f2393cf989cf",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.02",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 2,
+    "selected_generation": 2,
+    "state_hash": "16325ed284776e24f4b3a4c780bb94025b1dc50f1d3eb4a4df419d994a848b54",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.03",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 3,
+    "selected_generation": 2,
+    "state_hash": "8222fc8fef125a165b7f80795513c5e8510520d08c04b2a6e1d550f8792ca1ea",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.04",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 4,
+    "selected_generation": 2,
+    "state_hash": "4afd1b73fb1f2866b5a66296b2f25836325307b866d76352f2a0f65b56e12c8a",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.05",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 5,
+    "selected_generation": 2,
+    "state_hash": "50894acbaceae1081113e807fd207030fec4c7a4876098772f6866962eef62d7",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.06",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 6,
+    "selected_generation": 2,
+    "state_hash": "a0781fbc7fe3536e81141cff22e01bb996b4b6f0eab973bb187977b9495d9884",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.07",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 7,
+    "selected_generation": 2,
+    "state_hash": "fd01ebe7f119592dd34ea184c02295e0042044ab3e36c678bd2d6574e4b26c11",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.08",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 8,
+    "selected_generation": 2,
+    "state_hash": "919b5e34183d6ab59ea550afb8947edba7e20453a9235648265e1a5f24f80742",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.09",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 9,
+    "selected_generation": 2,
+    "state_hash": "46b9359438199e9c076ed4ded09f50d0791e715ad9597aab5a9d04ca02962bf1",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.10",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 10,
+    "selected_generation": 2,
+    "state_hash": "abdf7497fb07756c99d777d0099a5efff3a957c60a5f58c767a9a9db1d4abfbe",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.11",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 11,
+    "selected_generation": 2,
+    "state_hash": "edcadb672b928d550ca9f288fbbcb03bf8ac7b31164ef58abf1c05c540a7e76e",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.12",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 12,
+    "selected_generation": 2,
+    "state_hash": "a2f80c6da49939538dd4c7e265d51b41ea5d8f04149a94e6fa935f8f6d13f558",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.13",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 13,
+    "selected_generation": 2,
+    "state_hash": "96147fd05ca42352a4a4ca0ebacfb766e87ca8c83e8e8e5053359ffd8fcccacf",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.14",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 14,
+    "selected_generation": 2,
+    "state_hash": "81abb6d7b289fbd3cfb30a76f7b55df22c8d941b3abcef45bb682924827a5134",
+    "valid": true
+  },
+  {
+    "case_id": "ack-sent.15",
+    "expected_generation": 2,
+    "external_kill": true,
+    "phase": "ACK-SENT",
+    "repetition": 15,
+    "selected_generation": 2,
+    "state_hash": "37303852edca789d15ddf9c1d1a82fd6d55213868bcc3f127bac58cef59f1170",
+    "valid": true
+  }
+]

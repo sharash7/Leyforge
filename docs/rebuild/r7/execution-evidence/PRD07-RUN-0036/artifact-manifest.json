@@ -1,0 +1,17 @@
+{
+  "artifact_kind": "leyforge-export",
+  "artifact_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w2-runs-dbf6d9f\\builds\\client\\output\\leyforge-w2-client-probe.exe",
+  "artifact_sha256": "4dcf0e5ff43f8d20f0d078f3b31939c3afe7c062e5a8645826a4e8c1e891614a",
+  "build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+  "exported_runtime": true,
+  "manifest_schema": "prd07-artifact-manifest-v1",
+  "retention": {
+    "binary": "local ignored build output; exact hash and reproducer retained",
+    "reproducer": "python -m tools.r7_w2_runtime execute --actual-execution-authorized ..."
+  },
+  "role": "client",
+  "runtime_self_report_build_identity": "9c2ccb9a87e40214dba05c991e251e783d4cb591938bde1d299213bfdab92792",
+  "size_bytes": 110445168,
+  "symbol_sha256": null,
+  "synthetic_fixture": false
+}
