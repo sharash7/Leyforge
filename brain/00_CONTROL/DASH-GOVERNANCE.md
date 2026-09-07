@@ -19,6 +19,8 @@ related_to:
   - "WORK-20260906-004"
   - "WORK-20260906-005"
   - "TASK-20260906-005"
+  - "WORK-20260906-006"
+  - "TASK-20260906-006"
   - "GOV-DEBT-0007"
   - "TEST-GOVERNANCE-R6"
   - "EVID-0003"
@@ -85,6 +87,14 @@ related_to:
 - GitHub Actions: Brain integrity and Engineering governance integrity PASS on the evidence commit.
 - Evidence and audit: [[EVID-0006]] and [[AUDIT-0006]].
 
+## R7 W1 Semantic-Safety Proof Package
+
+- Active under [[TASK-20260906-006]] and [[WORK-20260906-006]].
+- Scope: 17 ownership/worldgen/derived-readiness/transaction proofs using bounded FIXTURE-02, FIXTURE-03, FIXTURE-09 and FIXTURE-10 expansion.
+- Entry state: all 17 `HARNESS-BLOCKED`; zero W1 run/evidence identities allocated.
+- W0 evidence and exact dependency identities remain immutable inputs.
+- PRD-08 evaluation and R8 gameplay permission remain closed.
+
 ## Later Activation Milestones
 
 - G1 registry and core identity: planned in [[GOV-DEBT-0002]].
@@ -93,4 +103,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 continues through [[HANDOFF-20260906-005]] with W1 readiness. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 W1 readiness is active under [[TASK-20260906-006]] and [[WORK-20260906-006]]. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

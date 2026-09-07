@@ -18,6 +18,8 @@ related_to:
   - "WORK-20260906-004"
   - "WORK-20260906-005"
   - "TASK-20260906-005"
+  - "WORK-20260906-006"
+  - "TASK-20260906-006"
   - "AUDIT-0001"
   - "AUDIT-0002"
   - "AUDIT-0003"
@@ -47,11 +49,11 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active | PRD-07 intake and W0 are certified through [[WORK-20260906-005]], [[AUDIT-0006]] and [[EVID-0006]]; W1–W5 and FINAL remain open |
+| R7 | Active | W0 is certified; W1 is active under [[WORK-20260906-006]] and [[TASK-20260906-006]]; W2–W5 and FINAL remain open |
 | R8 gameplay | Closed | No production gameplay permission is open |
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
 
 The `R7-W0-DEPENDENCY-EXPORT-READINESS` package is complete and certified. All 13 W0 proofs were individually readied and executed: 12 `PASS-OBSERVED`, zero `FAIL-OBSERVED`, one `INCONCLUSIVE` and zero `INVALIDATED`. Thirteen `PRD07-RUN-*` and 13 `PRD07-EVID-*` IDs are retained; none is submitted to PRD-08.
 
-[[ADR-0008]] is accepted for the development-only proof-harness boundary. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, and R8 remains closed. Continue through [[HANDOFF-20260906-005]] into bounded W1 readiness.
+The bounded `R7-W1-OWNERSHIP-WORLDGEN-DERIVED-SPATIAL-TRANSACTIONS-READINESS` package is active under [[TASK-20260906-006]] and [[WORK-20260906-006]]. All 17 W1 proofs remain `HARNESS-BLOCKED`; no W1 run or evidence ID has been allocated. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, and R8 remains closed.
