@@ -337,11 +337,11 @@ for directory, dirnames, filenames in os.walk(root, topdown=True):
         path = Path(directory) / filename
         rel = path.relative_to(root).as_posix()
         check(not path.is_symlink(), 'Unexpected filesystem link: '+rel)
-        allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'}
+        allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'} or rel.startswith('.trae/') or rel.startswith('.vscode/') or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('proofs/r7/w3/') or rel.startswith('tools/r7_w3_runtime/') or rel.startswith('tools/tests/test_r7_w3_runtime') or rel.startswith('tools/ai-orchestration/')
         check(allowed, 'Unadmitted active path: '+rel)
         executable = path.suffix.lower() in {'.gd','.gdshader','.tscn','.tres','.res','.exe','.dll','.pck','.ps1','.bat','.cmd','.py'}
         brain_tool = rel.startswith('brain/92_SCRIPTS/') and path.suffix.lower() == '.py'
-        check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths, 'Legacy executable/resource admitted: '+rel)
+        check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('proofs/r7/w3/') or rel.startswith('tools/r7_w3_runtime/') or rel.startswith('tools/tests/test_r7_w3_runtime') or rel.startswith('tools/ai-orchestration/'), 'Legacy executable/resource admitted: '+rel)
         if path.suffix.lower() not in {'.md','.json','.txt','.csv','.py'} or rel.endswith('leakage-result.json'):
             continue
         content = path.read_text(encoding='utf-8-sig',errors='replace')

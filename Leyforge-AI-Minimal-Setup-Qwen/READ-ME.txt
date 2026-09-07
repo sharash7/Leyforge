@@ -1,0 +1,22 @@
+LEYFORGE AI - CONTINUE AFTER TRAE 403
+=====================================
+
+Why the previous setup stopped:
+TraeCode CLI / ACP is not part of normal Trae plans. Current Trae docs
+restrict TraeCode CLI to Enterprise Flagship. The normal Trae desktop app
+is still useful and supports project-level MCP.
+
+DO THIS:
+  Double-click CONTINUE-SETUP.cmd
+
+This does NOT repeat the successful Node/uv/Agent Canvas/Codex work unless
+one of those pieces is actually missing.
+
+Final simple setup:
+  Agent Canvas -> Codex + local Qwen
+  Trae desktop -> manual fallback on the same Leyforge repo
+  Summer Engine -> MCP tool for Codex and Trae
+  Recovery watcher -> protected local snapshots every 5 minutes
+
+After this finishes, normal daily startup is:
+  START-LEYFORGE-AI.cmd
