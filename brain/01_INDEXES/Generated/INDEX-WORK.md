@@ -23,6 +23,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[HANDOFF-20260906-006|HANDOFF-20260906-006]] | handoff | active | R7 W1 Execution to W2 Network, Persistence and Recovery Readiness Handoff |
+| [[WORK-20260906-007|WORK-20260906-007]] | work | active | Establish and execute the R7 W2 durability and network proof package |
+| [[TASK-20260906-007|TASK-20260906-007]] | work_item | active | R7 W2 network, persistence, recovery and migration proof task contract |
 | [[WORK-20260906-003|WORK-20260906-003]] | work | complete | Admit PRD-07 and establish the R7 execution boundary |
 | [[WORK-20260905-004|WORK-20260905-004]] | work | complete | Bootstrap and certify Leyforge Project Brain v0.1 |
 | [[WORK-20260906-004|WORK-20260906-004]] | work | complete | Bootstrap the reusable R7 W0 proof harness |

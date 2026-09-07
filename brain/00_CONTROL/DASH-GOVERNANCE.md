@@ -21,6 +21,8 @@ related_to:
   - "TASK-20260906-005"
   - "WORK-20260906-006"
   - "TASK-20260906-006"
+  - "WORK-20260906-007"
+  - "TASK-20260906-007"
   - "GOV-DEBT-0007"
   - "TEST-GOVERNANCE-R6"
   - "EVID-0003"
@@ -103,12 +105,14 @@ related_to:
 - GitHub Actions: Brain integrity and Engineering governance integrity PASS on the evidence commit.
 - Evidence and audit: [[EVID-0007]] and [[AUDIT-0007]].
 
-## R7 W2 Next Package
+## R7 W2 Durability and Network Proof Package
 
-- Continue through [[HANDOFF-20260906-006]].
-- Scope: 20 network/persistence/recovery/migration proofs with individual prerequisite reconciliation.
-- Entry state: all 20 W2 proofs remain unexecuted; no W2 run/evidence identity has been allocated.
-- PRD04-PROOF-57/58 require W2 mechanism evidence and later W4 corpus revalidation.
+- Active under [[TASK-20260906-007]] and [[WORK-20260906-007]].
+- Scope: 20 session/shutdown, command/admission/interest, checkpoint/persistence, reconnect/restart/travel, technical migration and real-crash proofs.
+- Entry state: all 20 `HARNESS-BLOCKED`; zero W2 run/evidence identities allocated.
+- Packet delivery/ACK, semantic commit and durability remain distinct test states.
+- PROOF-57/58 require later W4 corpus revalidation; W2 load measurements cannot become final product limits.
+- W0/W1 evidence and exact dependency identities remain immutable inputs.
 - PRD-08 evaluation and R8 gameplay permission remain closed.
 
 ## Later Activation Milestones
@@ -119,4 +123,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 W1 is certified under [[TASK-20260906-006]], [[WORK-20260906-006]] and [[AUDIT-0007]]. W2 is next under [[HANDOFF-20260906-006]]. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 W2 is active under [[TASK-20260906-007]] and [[WORK-20260906-007]]. W0/W1 remain certified. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
