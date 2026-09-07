@@ -1,0 +1,248 @@
+{
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "dependency_check": {
+    "issues": [],
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "paths": {
+      "godot_driver": "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+      "godot_template_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\Godot_v4.8-dev4_export_templates.tpz",
+      "godot_template_runtime": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\godot-4.8-dev4-templates\\templates\\windows_release_x86_64.exe",
+      "voxel_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\GodotVoxelExtension-v1.7x.zip",
+      "voxel_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\v1.7x\\addons\\zylann.voxel"
+    },
+    "schema_version": "leyforge-r7-w0-local-dependency-verification-v1",
+    "status": "PASS"
+  },
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "045da26ca055ebf15904a3a0601a17792590186d",
+  "issues": [],
+  "package": "R7-W2-NETWORK-PERSISTENCE-RECOVERY-MIGRATION-READINESS",
+  "package_state": "READY",
+  "prd08_evaluation": "CLOSED",
+  "proofs": [
+    {
+      "blockers": [],
+      "prerequisites": [
+        "WorldSession/task epochs",
+        "controllable pending work",
+        "close/reopen fixture"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-07",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "W1 operation identity",
+        "realm/frame transition",
+        "checkpoint and authoritative session"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-09",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "enumerable task classes",
+        "shutdown policy",
+        "real headless export and restart fixture"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-20",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "authoritative command path",
+        "stable operation ID",
+        "observable conserved effect"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-35",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "baseline admission",
+        "content-pack identity",
+        "incompatible baseline fixtures"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-36",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "interest engine",
+        "bulk/critical lanes",
+        "bounded queue metrics"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-37",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "cross-domain relevance",
+        "entitlements",
+        "independent simulation fidelity"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-38",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "multi-participant checkpoint",
+        "fault phases",
+        "coherent recovery oracle"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-39",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "multiple checkpoints",
+        "corruption injector",
+        "integrity-first recovery"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-40",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "heavy edit generator",
+        "cutoff visibility",
+        "honest durability state"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-41",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "PROOF-09 transition harness",
+        "reconnect control",
+        "stable character identity"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-42",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "PROOF-35 idempotency",
+        "persistence hook",
+        "reconnect result reconstruction"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-43",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "cache poison injection",
+        "authoritative revision",
+        "baseline repair/reject"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-44",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "coherent checkpoint",
+        "reconnect client",
+        "stable world/character/operation IDs"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-45",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "configurable impairment",
+        "bulk/critical traffic",
+        "queue and latency metrics"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-46",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "slow storage",
+        "heavy writes",
+        "durability and queue metrics"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-47",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "active checkpoints",
+        "live backup",
+        "concurrent real source/copy processes"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-48",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "pack identities",
+        "missing-content world",
+        "representative FCC-13E rows"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-57",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "staged migration and backup",
+        "old/new manifests",
+        "representative FCC-13E rows"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-58",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "external process controller",
+        "real exported headless artifact",
+        "phase markers and restart verifier"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-69",
+      "state": "READY"
+    }
+  ],
+  "schema_version": "prd07-w2-readiness-v1",
+  "status": "PASS",
+  "w4_fcc13e_revalidation": "REQUIRED"
+}
