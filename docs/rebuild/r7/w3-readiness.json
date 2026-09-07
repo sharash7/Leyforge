@@ -1,0 +1,97 @@
+{
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "dependency_check": {
+    "issues": [],
+    "paths": {},
+    "status": "NOT-CHECKED"
+  },
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "a5d2613b7754e54f1931e68223e3f1ff63579604",
+  "issues": [],
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-READINESS",
+  "package_state": "READY",
+  "prd08_evaluation": "CLOSED",
+  "proofs": [
+    {
+      "blockers": [],
+      "prerequisites": [
+        "vessel region ownership",
+        "frame bindings",
+        "vessel-local coordinates"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-08",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "conserved fluid state",
+        "revisioned cross-boundary exchange",
+        "cell/volume conservation"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-27",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "ocean reservoir boundary",
+        "bounded local fluid",
+        "level/pressure/source rules"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-28",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "canonical hull edit",
+        "revisioned derived-property rebuild",
+        "vessel-local frame"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-29",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "vessel-local attachment",
+        "independent entity identity",
+        "world frame projection"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-30",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "compound convex decomposition",
+        "moving body support",
+        "contact correctness"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-31",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "compartment flooding",
+        "derived buoyancy/mass",
+        "authoritative hull + contained fluid"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-32",
+      "state": "READY"
+    }
+  ],
+  "schema_version": "prd07-w3-readiness-v1",
+  "status": "PASS",
+  "w4_fcc13e_revalidation": "REQUIRED"
+}

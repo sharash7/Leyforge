@@ -59,7 +59,7 @@ def build_manifest(implementation_commit: str) -> Dict[str, Any]:
     reference = load_reference()
     return {
         "manifest_version": 1,
-        "package": "R7-W3-NETWORK-PERSISTENCE-RECOVERY-MIGRATION-READINESS",
+        "package": "R7-W3-TECHNICAL-ENVIRONMENT-READINESS",
         "scope": "development-only-prd07-proof-runtime",
         "gameplay_permission": "CLOSED",
         "implementation_commit": implementation_commit,
