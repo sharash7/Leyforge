@@ -4,9 +4,9 @@
   "artifacts": [
     {
       "bytes": 5887,
-      "git_blob": "51e81b99116d08cf8f1e32cf72891b988b96b74a",
+      "git_blob": "0ff1fa6cd478d9b97af748f3794df914863ebeb5",
       "path": "docs/rebuild/r7/w1-readiness.json",
-      "sha256": "6f50642581b36deaf127a8b94781329bd5503db92e19cbf2d3fb6eb8c69fcf73"
+      "sha256": "c346fa794a1f9ec17b9fb76a16e97a403eb21d2a067dbd72f90d4b0094efa58b"
     },
     {
       "bytes": 646,
@@ -134,7 +134,7 @@
     "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
   },
   "gameplay_permission": "CLOSED",
-  "implementation_commit": "128d18da4dd9cb9152e88f9c8bc3c92d055fbca3",
+  "implementation_commit": "4b5affc1d51802199422c4f94bdf6d49f453d9ea",
   "manifest_version": 1,
   "package": "R7-W1-OWNER-SPATIAL-PROOFS",
   "proof_execution": "NOT-STARTED",
