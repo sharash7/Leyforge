@@ -1,0 +1,458 @@
+[
+  {
+    "canonical_hash": "ac94fa291ef0984848e3bcb735fb41bf874ed8c12eefcb607051706d7a8234dc",
+    "completion_order": [
+      6,
+      5,
+      9,
+      0,
+      7,
+      3,
+      4,
+      8,
+      1,
+      10,
+      2,
+      11
+    ],
+    "seed": 6815744,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "7a250754cbf691e1013801d35ad63dde3e7885b0446ade4397fff0c7216b69ff",
+    "completion_order": [
+      8,
+      7,
+      5,
+      2,
+      11,
+      6,
+      1,
+      4,
+      0,
+      10,
+      9,
+      3
+    ],
+    "seed": 6815745,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "2cf735a758746b28b5971a19af2bf2ec440e90111de9c212e03c67bb6a07ecbb",
+    "completion_order": [
+      1,
+      4,
+      5,
+      6,
+      11,
+      2,
+      9,
+      7,
+      10,
+      3,
+      0,
+      8
+    ],
+    "seed": 6815746,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "89c3b15fcfa9c29f6f21f1e9fb600615714c6d17f683b49a6acea837cb9de352",
+    "completion_order": [
+      8,
+      4,
+      5,
+      0,
+      11,
+      1,
+      7,
+      3,
+      6,
+      9,
+      2,
+      10
+    ],
+    "seed": 6815747,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "f70180bcac35bac1a6002f2717914f52321a5d695926cad813e1ee7f5a07c9ee",
+    "completion_order": [
+      2,
+      11,
+      8,
+      7,
+      1,
+      5,
+      6,
+      3,
+      4,
+      10,
+      9,
+      0
+    ],
+    "seed": 6815748,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "82c50a15e0f9262759b4e5a8f0e133a4254ba6778881e07204ce8d969355927d",
+    "completion_order": [
+      5,
+      0,
+      10,
+      1,
+      3,
+      8,
+      6,
+      2,
+      9,
+      4,
+      7,
+      11
+    ],
+    "seed": 6815749,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "10c462a45323db81400c3e8e273361c359c516a142cc1bf9cb1a0d17f5243827",
+    "completion_order": [
+      1,
+      9,
+      6,
+      0,
+      4,
+      3,
+      11,
+      8,
+      7,
+      10,
+      5,
+      2
+    ],
+    "seed": 6815750,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "d5608647bd22f2d8c537dc49ca6d689912f1aa107b4889d3d48463594f3fd5c1",
+    "completion_order": [
+      1,
+      5,
+      4,
+      6,
+      10,
+      9,
+      2,
+      7,
+      3,
+      0,
+      11,
+      8
+    ],
+    "seed": 6815751,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "150d40b350db18175306b600eb93048764075a9fd42d519674008bf18c34c9ed",
+    "completion_order": [
+      5,
+      3,
+      7,
+      11,
+      6,
+      9,
+      8,
+      10,
+      4,
+      0,
+      1,
+      2
+    ],
+    "seed": 6815752,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "9e5d4e55eb28f6c53bf0e530465e529072f43df819876cec290e4960969a4725",
+    "completion_order": [
+      11,
+      0,
+      4,
+      10,
+      8,
+      6,
+      9,
+      7,
+      5,
+      1,
+      3,
+      2
+    ],
+    "seed": 6815753,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "dc8176083a9eb51db11018d05691b48ee14da682c06db5e0c497890600fcbe7d",
+    "completion_order": [
+      4,
+      11,
+      3,
+      10,
+      9,
+      2,
+      6,
+      7,
+      0,
+      1,
+      8,
+      5
+    ],
+    "seed": 6815754,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "7ae2a9c65104f82b351149d720167eadb32550f2420455f66bb27ac708b95116",
+    "completion_order": [
+      1,
+      7,
+      0,
+      6,
+      9,
+      4,
+      8,
+      11,
+      10,
+      2,
+      5,
+      3
+    ],
+    "seed": 6815755,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "f87fdba41e07e496634d43d60fae5ba9d891783ee6a8c70ed93111dcd6b399b1",
+    "completion_order": [
+      8,
+      6,
+      7,
+      4,
+      3,
+      9,
+      2,
+      5,
+      1,
+      11,
+      10,
+      0
+    ],
+    "seed": 6815756,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "086a1d743fe14f4ba645a945db0fe4a95ccd25e96703762865a7767781ef8fab",
+    "completion_order": [
+      5,
+      10,
+      9,
+      7,
+      0,
+      8,
+      11,
+      6,
+      1,
+      4,
+      2,
+      3
+    ],
+    "seed": 6815757,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "ca4d1dd171735a791b6500965e4b778178032bc610af3a3cd2fde07a9621a1ac",
+    "completion_order": [
+      6,
+      3,
+      9,
+      7,
+      4,
+      8,
+      5,
+      10,
+      2,
+      0,
+      1,
+      11
+    ],
+    "seed": 6815758,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "ae90633f861e56c75eb7b276a1382ab5a641b9ba6aea693d9b683599d9a223ff",
+    "completion_order": [
+      0,
+      11,
+      1,
+      6,
+      2,
+      9,
+      8,
+      4,
+      7,
+      3,
+      10,
+      5
+    ],
+    "seed": 6815759,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "1d1c3afe9408d02cc8e38f858ba27689c36ca65f615ebe508af1786b6baed2b2",
+    "completion_order": [
+      4,
+      9,
+      11,
+      1,
+      3,
+      0,
+      6,
+      7,
+      5,
+      8,
+      10,
+      2
+    ],
+    "seed": 6815760,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "812e90e91ac8206143f2423b3a43df5d3e6f3b7d7885eb60d6d61d80393f45d2",
+    "completion_order": [
+      5,
+      3,
+      9,
+      1,
+      4,
+      7,
+      0,
+      10,
+      2,
+      11,
+      8,
+      6
+    ],
+    "seed": 6815761,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "fbeffa34ac500528a29cf2a8dce90d9cb4bb50b956a805760b21a7016b4ee31e",
+    "completion_order": [
+      3,
+      11,
+      7,
+      0,
+      6,
+      9,
+      10,
+      5,
+      2,
+      4,
+      1,
+      8
+    ],
+    "seed": 6815762,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "0c1d8f0fd149c95f779c24c27a20da3e1b49b6c1d207ec0d67c75d8edd189b16",
+    "completion_order": [
+      4,
+      1,
+      10,
+      9,
+      5,
+      6,
+      0,
+      11,
+      8,
+      7,
+      2,
+      3
+    ],
+    "seed": 6815763,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "3b80cac3202e3cfbeb7874eebb318673de4c4a8cce8e1c268c88bc1e63d8209d",
+    "completion_order": [
+      9,
+      4,
+      10,
+      8,
+      1,
+      0,
+      6,
+      3,
+      7,
+      11,
+      2,
+      5
+    ],
+    "seed": 6815764,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "2db13121f8013288d4f0d5266c36208bcdc7a696563e73b043e2948017e2c2ad",
+    "completion_order": [
+      6,
+      7,
+      4,
+      9,
+      3,
+      5,
+      10,
+      1,
+      11,
+      2,
+      0,
+      8
+    ],
+    "seed": 6815765,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "ed8eb1c25f6b6a9d5222fa01baf1b0ab5d8140857ac687f1b5d4950614c4445a",
+    "completion_order": [
+      1,
+      6,
+      2,
+      9,
+      5,
+      10,
+      3,
+      7,
+      0,
+      4,
+      8,
+      11
+    ],
+    "seed": 6815766,
+    "stale": "STALE-REJECTED"
+  },
+  {
+    "canonical_hash": "d798fd3c587b995428356f6c090e8c7e14999ba5f4684a5ecf9b8e092e975bba",
+    "completion_order": [
+      11,
+      8,
+      6,
+      10,
+      3,
+      4,
+      2,
+      7,
+      0,
+      5,
+      1,
+      9
+    ],
+    "seed": 6815767,
+    "stale": "STALE-REJECTED"
+  }
+]

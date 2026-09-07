@@ -1,0 +1,1145 @@
+{
+  "acceptance_reason": "At least 1,000 construction operations conserved materials and rejected illegal, failed, cancelled, and duplicate attempts without ghost state.",
+  "artifacts": {
+    "construction_trace_samples": [
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "success",
+          "operation_id": "build-00000",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-0",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "permitted": false,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "success",
+          "operation_id": "build-00000",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-0",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00001",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-1",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00001",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-1",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00002",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-2",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00002",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-2",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 1,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00003",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-3",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 1,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00003",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-3",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00004",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-4",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00004",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-4",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 2,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00005",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-5",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 2,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00005",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-5",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 3,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00006",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-6",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 3,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00006",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-6",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00007",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-7",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00007",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-7",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00008",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-8",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00008",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-8",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 4,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00009",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-9",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 4,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00009",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-9",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00010",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-10",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00010",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-10",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "success",
+          "operation_id": "build-00011",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-11",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "permitted": false,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "success",
+          "operation_id": "build-00011",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-11",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 5,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00012",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-12",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 5,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00012",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-12",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00013",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-13",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00013",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-13",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00014",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-14",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00014",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-14",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 6,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00015",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-15",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 6,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00015",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-15",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00016",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-16",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00016",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-16",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 7,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00017",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-17",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 7,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00017",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-17",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 8,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00018",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-18",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 8,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00018",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-18",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00019",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-19",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00019",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-19",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00020",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-20",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00020",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-20",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 9,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00021",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-21",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 9,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00021",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-21",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00022",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-22",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "permitted": false,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00022",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-22",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 10,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00023",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-23",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 10,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00023",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-23",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 11,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00024",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-24",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 11,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00024",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-24",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00025",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-25",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "build-00025",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "voxel-25",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00026",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-26",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "build-00026",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-26",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 12,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00027",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-27",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 12,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "build-00027",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-27",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00028",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-28",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "build-00028",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "voxel-28",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 13,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00029",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "voxel-29",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "permitted": true,
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 13,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "build-00029",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "voxel-29",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      }
+    ],
+    "resource_ledger_digest": "8b22b31575fc1c75f993769bb6bdb18fbbd9ea2dcf4ad230c7d6529c60f199a7"
+  },
+  "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+  "duration_ms": 5.41199999999975,
+  "evidence_id": "PRD07-EVID-0026",
+  "fixture_schema": "leyforge-r7-w1-owner-spatial-runtime-v1",
+  "gameplay_permission": "CLOSED",
+  "limitations": [],
+  "metrics": {
+    "construction_operations": 1200,
+    "duplicate_retry_effects": 0,
+    "free_material_cases": 0,
+    "ghost_or_double_structures": 0,
+    "material_conservation_delta": 0,
+    "permission_denials": 110,
+    "reservation_leaks": 0,
+    "semantic_commits": 517
+  },
+  "observations": [
+    "Material reservation, permission, voxel target, and structure identity shared one semantic commit."
+  ],
+  "outcome": "PASS",
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-17",
+  "run_id": "PRD07-RUN-0026",
+  "schema_version": "prd07-w1-observed-result-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+}

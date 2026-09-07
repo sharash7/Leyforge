@@ -1,0 +1,1120 @@
+[
+  {
+    "collapse": {
+      "classification": "PROVIDER-FAILED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0000",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-0",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0000",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-0",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "support_trigger": 0
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0001",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-1",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0001",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-1",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 1
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0002",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-2",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0002",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-2",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 2
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0003",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-3",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0003",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-3",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 3
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0004",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-4",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0004",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-4",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 4
+  },
+  {
+    "collapse": {
+      "classification": "PROVIDER-FAILED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0005",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-5",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0005",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-5",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "support_trigger": 5
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0006",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-6",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0006",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-6",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 6
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0007",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-7",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0007",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-7",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 7
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0008",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-8",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0008",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-8",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 8
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0009",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-9",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0009",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-9",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 9
+  },
+  {
+    "collapse": {
+      "classification": "PROVIDER-FAILED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0010",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-10",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0010",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-10",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "support_trigger": 10
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0011",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-11",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0011",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-11",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 11
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0012",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-12",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0012",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-12",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 12
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0013",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-13",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0013",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-13",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 13
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0014",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-14",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0014",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-14",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 14
+  },
+  {
+    "collapse": {
+      "classification": "PROVIDER-FAILED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0015",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-15",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0015",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-15",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "support_trigger": 15
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0016",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-16",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0016",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-16",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 16
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0017",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-17",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0017",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-17",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 17
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0018",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-18",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0018",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-18",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 18
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0019",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-19",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0019",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-19",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 19
+  },
+  {
+    "collapse": {
+      "classification": "PROVIDER-FAILED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0020",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-20",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "DEGRADED",
+      "mode": "failure-after-commit",
+      "operation_id": "collapse-0020",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-20",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "COMPENSATE/RELEASE/QUARANTINE"
+      ]
+    },
+    "support_trigger": 20
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0021",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-21",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0021",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-21",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 21
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0022",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-22",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0022",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-22",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 22
+  },
+  {
+    "collapse": {
+      "classification": "CURRENT-ACCEPTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0023",
+      "retry": false,
+      "semantic_effects_this_attempt": 1,
+      "state": "COMMITTED",
+      "target": "structure-23",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "damage": 1,
+    "drops": 10,
+    "retry": {
+      "classification": "SUPERSEDED-REJECTED",
+      "commit_revision": 1,
+      "derived_readiness": "READY",
+      "mode": "success",
+      "operation_id": "collapse-0023",
+      "retry": true,
+      "semantic_effects_this_attempt": 0,
+      "state": "COMMITTED",
+      "target": "structure-23",
+      "trace": [
+        "COMMAND",
+        "VALIDATE",
+        "RESERVE",
+        "PREPARE",
+        "SEMANTIC-COMMIT",
+        "DERIVED-FANOUT",
+        "DURABILITY/REPLICATION-PROJECTION",
+        "ACKNOWLEDGE"
+      ]
+    },
+    "support_trigger": 23
+  }
+]

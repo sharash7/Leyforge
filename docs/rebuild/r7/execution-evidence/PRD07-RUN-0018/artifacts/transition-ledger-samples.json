@@ -1,0 +1,578 @@
+[
+  {
+    "after": {
+      "obligations": 2,
+      "resources": 157,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000000",
+      "timer": 14
+    },
+    "before": {
+      "obligations": 2,
+      "resources": 157,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000000",
+      "timer": 14
+    },
+    "tier": "aggregate",
+    "transition": 0
+  },
+  {
+    "after": {
+      "obligations": 4,
+      "resources": 134,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000097",
+      "timer": 15
+    },
+    "before": {
+      "obligations": 4,
+      "resources": 134,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000097",
+      "timer": 15
+    },
+    "tier": "regional",
+    "transition": 1
+  },
+  {
+    "after": {
+      "obligations": 1,
+      "resources": 111,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000194",
+      "timer": 16
+    },
+    "before": {
+      "obligations": 1,
+      "resources": 111,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000194",
+      "timer": 16
+    },
+    "tier": "active",
+    "transition": 2
+  },
+  {
+    "after": {
+      "obligations": 2,
+      "resources": 131,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000035",
+      "timer": 1
+    },
+    "before": {
+      "obligations": 2,
+      "resources": 131,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000035",
+      "timer": 1
+    },
+    "tier": "physical",
+    "transition": 3
+  },
+  {
+    "after": {
+      "obligations": 4,
+      "resources": 108,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000132",
+      "timer": 2
+    },
+    "before": {
+      "obligations": 4,
+      "resources": 108,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000132",
+      "timer": 2
+    },
+    "tier": "aggregate",
+    "transition": 4
+  },
+  {
+    "after": {
+      "obligations": 1,
+      "resources": 186,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000229",
+      "timer": 3
+    },
+    "before": {
+      "obligations": 1,
+      "resources": 186,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000229",
+      "timer": 3
+    },
+    "tier": "regional",
+    "transition": 5
+  },
+  {
+    "after": {
+      "obligations": 2,
+      "resources": 105,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000070",
+      "timer": 12
+    },
+    "before": {
+      "obligations": 2,
+      "resources": 105,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000070",
+      "timer": 12
+    },
+    "tier": "active",
+    "transition": 6
+  },
+  {
+    "after": {
+      "obligations": 4,
+      "resources": 183,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000167",
+      "timer": 13
+    },
+    "before": {
+      "obligations": 4,
+      "resources": 183,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000167",
+      "timer": 13
+    },
+    "tier": "physical",
+    "transition": 7
+  },
+  {
+    "after": {
+      "obligations": 0,
+      "resources": 102,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000008",
+      "timer": 22
+    },
+    "before": {
+      "obligations": 0,
+      "resources": 102,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000008",
+      "timer": 22
+    },
+    "tier": "aggregate",
+    "transition": 8
+  },
+  {
+    "after": {
+      "obligations": 2,
+      "resources": 180,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000105",
+      "timer": 23
+    },
+    "before": {
+      "obligations": 2,
+      "resources": 180,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000105",
+      "timer": 23
+    },
+    "tier": "regional",
+    "transition": 9
+  },
+  {
+    "after": {
+      "obligations": 4,
+      "resources": 157,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000202",
+      "timer": 0
+    },
+    "before": {
+      "obligations": 4,
+      "resources": 157,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000202",
+      "timer": 0
+    },
+    "tier": "active",
+    "transition": 10
+  },
+  {
+    "after": {
+      "obligations": 0,
+      "resources": 177,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000043",
+      "timer": 9
+    },
+    "before": {
+      "obligations": 0,
+      "resources": 177,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000043",
+      "timer": 9
+    },
+    "tier": "physical",
+    "transition": 11
+  },
+  {
+    "after": {
+      "obligations": 2,
+      "resources": 154,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000140",
+      "timer": 10
+    },
+    "before": {
+      "obligations": 2,
+      "resources": 154,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000140",
+      "timer": 10
+    },
+    "tier": "aggregate",
+    "transition": 12
+  },
+  {
+    "after": {
+      "obligations": 4,
+      "resources": 131,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000237",
+      "timer": 11
+    },
+    "before": {
+      "obligations": 4,
+      "resources": 131,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000237",
+      "timer": 11
+    },
+    "tier": "regional",
+    "transition": 13
+  },
+  {
+    "after": {
+      "obligations": 0,
+      "resources": 151,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000078",
+      "timer": 20
+    },
+    "before": {
+      "obligations": 0,
+      "resources": 151,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000078",
+      "timer": 20
+    },
+    "tier": "active",
+    "transition": 14
+  },
+  {
+    "after": {
+      "obligations": 2,
+      "resources": 128,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000175",
+      "timer": 21
+    },
+    "before": {
+      "obligations": 2,
+      "resources": 128,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000175",
+      "timer": 21
+    },
+    "tier": "physical",
+    "transition": 15
+  },
+  {
+    "after": {
+      "obligations": 3,
+      "resources": 148,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000016",
+      "timer": 6
+    },
+    "before": {
+      "obligations": 3,
+      "resources": 148,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000016",
+      "timer": 6
+    },
+    "tier": "aggregate",
+    "transition": 16
+  },
+  {
+    "after": {
+      "obligations": 0,
+      "resources": 125,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000113",
+      "timer": 7
+    },
+    "before": {
+      "obligations": 0,
+      "resources": 125,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000113",
+      "timer": 7
+    },
+    "tier": "regional",
+    "transition": 17
+  },
+  {
+    "after": {
+      "obligations": 2,
+      "resources": 102,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000210",
+      "timer": 8
+    },
+    "before": {
+      "obligations": 2,
+      "resources": 102,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000210",
+      "timer": 8
+    },
+    "tier": "active",
+    "transition": 18
+  },
+  {
+    "after": {
+      "obligations": 3,
+      "resources": 122,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000051",
+      "timer": 17
+    },
+    "before": {
+      "obligations": 3,
+      "resources": 122,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000051",
+      "timer": 17
+    },
+    "tier": "physical",
+    "transition": 19
+  },
+  {
+    "after": {
+      "obligations": 0,
+      "resources": 200,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000148",
+      "timer": 18
+    },
+    "before": {
+      "obligations": 0,
+      "resources": 200,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000148",
+      "timer": 18
+    },
+    "tier": "aggregate",
+    "transition": 20
+  },
+  {
+    "after": {
+      "obligations": 2,
+      "resources": 177,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000245",
+      "timer": 19
+    },
+    "before": {
+      "obligations": 2,
+      "resources": 177,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000245",
+      "timer": 19
+    },
+    "tier": "regional",
+    "transition": 21
+  },
+  {
+    "after": {
+      "obligations": 3,
+      "resources": 197,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000086",
+      "timer": 4
+    },
+    "before": {
+      "obligations": 3,
+      "resources": 197,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000086",
+      "timer": 4
+    },
+    "tier": "active",
+    "transition": 22
+  },
+  {
+    "after": {
+      "obligations": 0,
+      "resources": 174,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000183",
+      "timer": 5
+    },
+    "before": {
+      "obligations": 0,
+      "resources": 174,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000183",
+      "timer": 5
+    },
+    "tier": "physical",
+    "transition": 23
+  },
+  {
+    "after": {
+      "obligations": 1,
+      "resources": 194,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000024",
+      "timer": 14
+    },
+    "before": {
+      "obligations": 1,
+      "resources": 194,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000024",
+      "timer": 14
+    },
+    "tier": "aggregate",
+    "transition": 24
+  },
+  {
+    "after": {
+      "obligations": 3,
+      "resources": 171,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000121",
+      "timer": 15
+    },
+    "before": {
+      "obligations": 3,
+      "resources": 171,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000121",
+      "timer": 15
+    },
+    "tier": "regional",
+    "transition": 25
+  },
+  {
+    "after": {
+      "obligations": 0,
+      "resources": 148,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000218",
+      "timer": 16
+    },
+    "before": {
+      "obligations": 0,
+      "resources": 148,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000218",
+      "timer": 16
+    },
+    "tier": "active",
+    "transition": 26
+  },
+  {
+    "after": {
+      "obligations": 1,
+      "resources": 168,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000059",
+      "timer": 1
+    },
+    "before": {
+      "obligations": 1,
+      "resources": 168,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000059",
+      "timer": 1
+    },
+    "tier": "physical",
+    "transition": 27
+  },
+  {
+    "after": {
+      "obligations": 3,
+      "resources": 145,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000156",
+      "timer": 2
+    },
+    "before": {
+      "obligations": 3,
+      "resources": 145,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000156",
+      "timer": 2
+    },
+    "tier": "aggregate",
+    "transition": 28
+  },
+  {
+    "after": {
+      "obligations": 0,
+      "resources": 122,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000253",
+      "timer": 3
+    },
+    "before": {
+      "obligations": 0,
+      "resources": 122,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000253",
+      "timer": 3
+    },
+    "tier": "regional",
+    "transition": 29
+  },
+  {
+    "after": {
+      "obligations": 1,
+      "resources": 142,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000094",
+      "timer": 12
+    },
+    "before": {
+      "obligations": 1,
+      "resources": 142,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000094",
+      "timer": 12
+    },
+    "tier": "active",
+    "transition": 30
+  },
+  {
+    "after": {
+      "obligations": 3,
+      "resources": 119,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000191",
+      "timer": 13
+    },
+    "before": {
+      "obligations": 3,
+      "resources": 119,
+      "revision": 0,
+      "semantic_id": "actor.w1.00160016.000191",
+      "timer": 13
+    },
+    "tier": "physical",
+    "transition": 31
+  }
+]

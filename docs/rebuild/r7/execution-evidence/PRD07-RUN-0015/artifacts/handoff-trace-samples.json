@@ -1,0 +1,482 @@
+[
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  },
+  {
+    "after": {
+      "owner_epoch": 2,
+      "owner_id": "owner-b",
+      "revision": 1,
+      "session_epoch": 1
+    },
+    "before": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    },
+    "new": "CURRENT-ACCEPTED",
+    "old": "OWNER-EPOCH-REJECTED"
+  }
+]

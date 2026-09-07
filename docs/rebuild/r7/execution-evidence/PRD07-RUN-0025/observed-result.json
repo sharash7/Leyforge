@@ -1,0 +1,1096 @@
+{
+  "acceptance_reason": "Six hundred multi-owner transaction cases conserved state with one explicit semantic commit boundary and no silent partial authority.",
+  "artifacts": {
+    "operation_ledger_digest": "e09690b48858ff2a888c4d99f6554f262b96bdec4ba780ff8c1d0306a853a3bb",
+    "transaction_phase_trace_samples": [
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 1,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0000",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-0",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 1,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0000",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-0",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0001",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-1",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0001",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-1",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0002",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-2",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0002",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-2",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 2,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0003",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-3",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 2,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0003",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-3",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0004",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-4",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0004",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-4",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0005",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-5",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0005",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-5",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 3,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0006",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-6",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 3,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0006",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-6",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0007",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-7",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0007",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-7",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0008",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-8",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0008",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-8",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 4,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0009",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-9",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 4,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0009",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-9",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0010",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-10",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0010",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-10",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0011",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-11",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0011",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-11",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 5,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0012",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-12",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 5,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0012",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-12",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0013",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-13",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0013",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-13",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0014",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-14",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0014",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-14",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 6,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0015",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-15",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 6,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0015",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-15",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0016",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-16",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0016",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-16",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0017",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-17",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0017",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-17",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 7,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0018",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-18",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 7,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0018",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-18",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0019",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-19",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0019",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-19",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0020",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-20",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0020",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-20",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 8,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0021",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-21",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 8,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0021",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-21",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0022",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-22",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0022",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-22",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0023",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-23",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0023",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-23",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "CURRENT-ACCEPTED",
+          "commit_revision": 9,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0024",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-24",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 9,
+          "derived_readiness": "READY",
+          "mode": "success",
+          "operation_id": "xbound-0024",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-24",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "DURABILITY/REPLICATION-PROJECTION",
+            "ACKNOWLEDGE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0025",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-25",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "validation-rejection",
+          "operation_id": "xbound-0025",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "REJECTED",
+          "target": "cell-25",
+          "trace": [
+            "COMMAND",
+            "VALIDATE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0026",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-26",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "failure-before-commit",
+          "operation_id": "xbound-0026",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-26",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "PROVIDER-FAILED",
+          "commit_revision": 10,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0027",
+          "retry": false,
+          "semantic_effects_this_attempt": 1,
+          "state": "COMMITTED",
+          "target": "cell-27",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "commit_revision": 10,
+          "derived_readiness": "DEGRADED",
+          "mode": "failure-after-commit",
+          "operation_id": "xbound-0027",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMMITTED",
+          "target": "cell-27",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "SEMANTIC-COMMIT",
+            "DERIVED-FANOUT",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0028",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-28",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-before-prepare",
+          "operation_id": "xbound-0028",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-28",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      },
+      {
+        "first": {
+          "classification": "VALIDATION-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0029",
+          "retry": false,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-29",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        },
+        "retry": {
+          "classification": "SUPERSEDED-REJECTED",
+          "mode": "cancel-after-prepare",
+          "operation_id": "xbound-0029",
+          "retry": true,
+          "semantic_effects_this_attempt": 0,
+          "state": "COMPENSATED",
+          "target": "cell-29",
+          "trace": [
+            "COMMAND",
+            "VALIDATE",
+            "RESERVE",
+            "PREPARE",
+            "COMPENSATE/RELEASE/QUARANTINE"
+          ]
+        }
+      }
+    ]
+  },
+  "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+  "duration_ms": 4.517400000004557,
+  "evidence_id": "PRD07-EVID-0025",
+  "fixture_schema": "leyforge-r7-w1-owner-spatial-runtime-v1",
+  "gameplay_permission": "CLOSED",
+  "limitations": [],
+  "metrics": {
+    "conservation_delta": 0,
+    "duplicate_operation_effects": 0,
+    "final_state_counts": {
+      "COMMITTED": 200,
+      "COMPENSATED": 300,
+      "REJECTED": 100
+    },
+    "partial_state_count": 0,
+    "reservation_leaks": 0,
+    "seeded_operations": 600,
+    "semantic_commits": 200
+  },
+  "observations": [
+    "Every operation ended committed, rejected, or compensated, and idempotent retries had no second effect."
+  ],
+  "outcome": "PASS",
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-04",
+  "run_id": "PRD07-RUN-0025",
+  "schema_version": "prd07-w1-observed-result-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+}

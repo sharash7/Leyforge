@@ -1,0 +1,254 @@
+[
+  {
+    "mode": "error",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "timeout",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "stale",
+    "outcome": "STALE-REJECTED",
+    "provider": "nav",
+    "readiness": "STALE-QUARANTINED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "transient-recovery",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "CURRENT-ACCEPTED"
+  },
+  {
+    "mode": "persistent-degradation",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "error",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "timeout",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "stale",
+    "outcome": "STALE-REJECTED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "transient-recovery",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "CURRENT-ACCEPTED"
+  },
+  {
+    "mode": "persistent-degradation",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "error",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "timeout",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "stale",
+    "outcome": "STALE-REJECTED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "transient-recovery",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "CURRENT-ACCEPTED"
+  },
+  {
+    "mode": "persistent-degradation",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "error",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "timeout",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "stale",
+    "outcome": "STALE-REJECTED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "transient-recovery",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "CURRENT-ACCEPTED"
+  },
+  {
+    "mode": "persistent-degradation",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "error",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "timeout",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "stale",
+    "outcome": "STALE-REJECTED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "transient-recovery",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "CURRENT-ACCEPTED"
+  },
+  {
+    "mode": "persistent-degradation",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "error",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "timeout",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "stale",
+    "outcome": "STALE-REJECTED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "transient-recovery",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "CURRENT-ACCEPTED"
+  },
+  {
+    "mode": "persistent-degradation",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "error",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "timeout",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "stale",
+    "outcome": "STALE-REJECTED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "transient-recovery",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "mesh",
+    "readiness": "DEGRADED",
+    "recovery": "CURRENT-ACCEPTED"
+  },
+  {
+    "mode": "persistent-degradation",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "collision",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  },
+  {
+    "mode": "error",
+    "outcome": "PROVIDER-FAILED",
+    "provider": "nav",
+    "readiness": "DEGRADED",
+    "recovery": "NOT-ATTEMPTED"
+  }
+]

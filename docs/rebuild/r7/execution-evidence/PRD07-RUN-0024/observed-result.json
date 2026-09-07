@@ -1,0 +1,343 @@
+{
+  "acceptance_reason": "Repeated transient and persistent failures across mesh, collision, and nav remained explicit, safe, and recoverable only at the current revision.",
+  "artifacts": {
+    "provider_health_events": [
+      {
+        "mode": "error",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "timeout",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "stale",
+        "outcome": "STALE-REJECTED",
+        "provider": "nav",
+        "readiness": "STALE-QUARANTINED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "transient-recovery",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "CURRENT-ACCEPTED"
+      },
+      {
+        "mode": "persistent-degradation",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "error",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "timeout",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "stale",
+        "outcome": "STALE-REJECTED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "transient-recovery",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "CURRENT-ACCEPTED"
+      },
+      {
+        "mode": "persistent-degradation",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "error",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "timeout",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "stale",
+        "outcome": "STALE-REJECTED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "transient-recovery",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "CURRENT-ACCEPTED"
+      },
+      {
+        "mode": "persistent-degradation",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "error",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "timeout",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "stale",
+        "outcome": "STALE-REJECTED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "transient-recovery",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "CURRENT-ACCEPTED"
+      },
+      {
+        "mode": "persistent-degradation",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "error",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "timeout",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "stale",
+        "outcome": "STALE-REJECTED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "transient-recovery",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "CURRENT-ACCEPTED"
+      },
+      {
+        "mode": "persistent-degradation",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "error",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "timeout",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "stale",
+        "outcome": "STALE-REJECTED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "transient-recovery",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "CURRENT-ACCEPTED"
+      },
+      {
+        "mode": "persistent-degradation",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "error",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "timeout",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "stale",
+        "outcome": "STALE-REJECTED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "transient-recovery",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "mesh",
+        "readiness": "DEGRADED",
+        "recovery": "CURRENT-ACCEPTED"
+      },
+      {
+        "mode": "persistent-degradation",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "collision",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      },
+      {
+        "mode": "error",
+        "outcome": "PROVIDER-FAILED",
+        "provider": "nav",
+        "readiness": "DEGRADED",
+        "recovery": "NOT-ATTEMPTED"
+      }
+    ],
+    "provider_probe": {
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "current_revision_results_published": 512,
+      "external_process": true,
+      "final_revision": 1024,
+      "injected_adapter_failures_classified": 410,
+      "outcome": "PASS",
+      "presentation_authority_dependencies": 0,
+      "process": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "PRD04-PROOF-34-W1-PROVIDER",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\builds\\client\\output\\leyforge-w1-client-probe.exe",
+            "--",
+            "--mode",
+            "provider",
+            "--proof-id",
+            "PRD04-PROOF-34",
+            "--run-id",
+            "PRD07-RUN-0024",
+            "--iterations",
+            "512"
+          ],
+          "duration_seconds": 1.104470499999998,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W1_PROVIDER_REPORT {\"build_identity\":\"a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219\",\"current_revision_results_published\":512,\"final_revision\":1024,\"injected_adapter_failures_classified\":410,\"outcome\":\"PASS\",\"presentation_authority_dependencies\":0,\"proof_id\":\"PRD04-PROOF-34\",\"provider_class\":\"VoxelBuffer\",\"provider_edition\":\"zylann-voxel-tools-gdextension-v1.7x\",\"provider_ready\":true,\"readback_errors\":0,\"real_provider_operations\":512,\"role\":\"client\",\"run_id\":\"PRD07-RUN-0024\",\"schema_version\":\"prd07-w1-provider-report-v1\",\"stale_revision_results_rejected\":512}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-34",
+        "role": "client",
+        "run_id": "PRD07-RUN-0024"
+      },
+      "proof_id": "PRD04-PROOF-34",
+      "provider_class": "VoxelBuffer",
+      "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+      "provider_ready": true,
+      "readback_errors": 0,
+      "real_provider_operations": 512,
+      "role": "client",
+      "run_id": "PRD07-RUN-0024",
+      "schema_version": "prd07-w1-provider-report-v1",
+      "stale_revision_results_rejected": 512
+    }
+  },
+  "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+  "duration_ms": 1232.582299999997,
+  "evidence_id": "PRD07-EVID-0024",
+  "fixture_schema": "leyforge-r7-w1-owner-spatial-runtime-v1",
+  "gameplay_permission": "CLOSED",
+  "limitations": [
+    "Injected failures exercise the governed adapter boundary and do not claim an upstream Voxel Tools defect."
+  ],
+  "metrics": {
+    "canonical_changes_from_provider_failure": 0,
+    "failure_modes": [
+      "error",
+      "timeout",
+      "stale",
+      "transient-recovery",
+      "persistent-degradation"
+    ],
+    "incorrect_recoveries": 0,
+    "invisible_failures": 0,
+    "provider_classes": [
+      "mesh",
+      "collision",
+      "nav"
+    ],
+    "provider_failure_cases": 750,
+    "real_provider_probe": true,
+    "unsafe_interactions": 0
+  },
+  "observations": [
+    "Provider errors changed readiness only; canonical cell state remained stable and interactions were quarantined."
+  ],
+  "outcome": "PASS",
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-34",
+  "run_id": "PRD07-RUN-0024",
+  "schema_version": "prd07-w1-observed-result-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+}

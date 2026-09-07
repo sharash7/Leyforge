@@ -1,0 +1,874 @@
+[
+  {
+    "case": 0,
+    "classification": "CURRENT-ACCEPTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00000"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-0",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 1,
+    "classification": "STALE-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-1",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 2,
+    "classification": "OWNER-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 2,
+        "owner_id": "owner-b",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-2",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 3,
+    "classification": "SESSION-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 2
+      },
+      "partition_id": "partition-3",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 4,
+    "classification": "SUPERSEDED-REJECTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00004"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-4",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 0,
+    "classification": "CURRENT-ACCEPTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00005"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-5",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 1,
+    "classification": "STALE-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-6",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 2,
+    "classification": "OWNER-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 2,
+        "owner_id": "owner-b",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-7",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 3,
+    "classification": "SESSION-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 2
+      },
+      "partition_id": "partition-8",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 4,
+    "classification": "SUPERSEDED-REJECTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00009"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-9",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 0,
+    "classification": "CURRENT-ACCEPTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00010"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-10",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 1,
+    "classification": "STALE-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-11",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 2,
+    "classification": "OWNER-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 2,
+        "owner_id": "owner-b",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-12",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 3,
+    "classification": "SESSION-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 2
+      },
+      "partition_id": "partition-13",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 4,
+    "classification": "SUPERSEDED-REJECTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00014"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-14",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 0,
+    "classification": "CURRENT-ACCEPTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00015"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-15",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 1,
+    "classification": "STALE-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-16",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 2,
+    "classification": "OWNER-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 2,
+        "owner_id": "owner-b",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-17",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 3,
+    "classification": "SESSION-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 2
+      },
+      "partition_id": "partition-18",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 4,
+    "classification": "SUPERSEDED-REJECTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00019"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-19",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 0,
+    "classification": "CURRENT-ACCEPTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00020"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-20",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 1,
+    "classification": "STALE-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-21",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 2,
+    "classification": "OWNER-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 2,
+        "owner_id": "owner-b",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-22",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 3,
+    "classification": "SESSION-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 2
+      },
+      "partition_id": "partition-23",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 4,
+    "classification": "SUPERSEDED-REJECTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00024"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-24",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 0,
+    "classification": "CURRENT-ACCEPTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00025"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-25",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 1,
+    "classification": "STALE-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-26",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 2,
+    "classification": "OWNER-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 2,
+        "owner_id": "owner-b",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-27",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 3,
+    "classification": "SESSION-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 2
+      },
+      "partition_id": "partition-28",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 4,
+    "classification": "SUPERSEDED-REJECTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00029"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-29",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 0,
+    "classification": "CURRENT-ACCEPTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00030"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-30",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 1,
+    "classification": "STALE-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-31",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 2,
+    "classification": "OWNER-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 2,
+        "owner_id": "owner-b",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-32",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 3,
+    "classification": "SESSION-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 2
+      },
+      "partition_id": "partition-33",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 4,
+    "classification": "SUPERSEDED-REJECTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00034"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-34",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 0,
+    "classification": "CURRENT-ACCEPTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00035"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-35",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 1,
+    "classification": "STALE-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-36",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 2,
+    "classification": "OWNER-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 2,
+        "owner_id": "owner-b",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-0",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 3,
+    "classification": "SESSION-EPOCH-REJECTED",
+    "final": {
+      "accepted_operations": [],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 2
+      },
+      "partition_id": "partition-1",
+      "value": 0
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  },
+  {
+    "case": 4,
+    "classification": "SUPERSEDED-REJECTED",
+    "final": {
+      "accepted_operations": [
+        "worker-00039"
+      ],
+      "owner": {
+        "owner_epoch": 1,
+        "owner_id": "owner-a",
+        "revision": 1,
+        "session_epoch": 1
+      },
+      "partition_id": "partition-2",
+      "value": 1
+    },
+    "token": {
+      "owner_epoch": 1,
+      "owner_id": "owner-a",
+      "revision": 0,
+      "session_epoch": 1
+    }
+  }
+]

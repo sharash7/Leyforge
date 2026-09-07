@@ -1,0 +1,34 @@
+{
+  "client": {
+    "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+    "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+    "runtime_self_report": {
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "presentation_authority_dependencies": 0,
+      "provider_class": "VoxelBuffer",
+      "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+      "provider_ready": true,
+      "readback": 37,
+      "role": "client",
+      "schema_version": "prd07-w1-provider-self-report-v1",
+      "status": "PASS"
+    },
+    "smoke_pass": true
+  },
+  "headless": {
+    "artifact_sha256": "4d5f2d49ffd268183b3e9e966630a51aadf34ea26ea352822feec5d712db8c4f",
+    "build_identity": "26ec871408bd185ba8f3b8c7bc21b20136467e25a97a6f2ea25ed2d6871bb031",
+    "runtime_self_report": {
+      "build_identity": "26ec871408bd185ba8f3b8c7bc21b20136467e25a97a6f2ea25ed2d6871bb031",
+      "presentation_authority_dependencies": 0,
+      "provider_class": "VoxelBuffer",
+      "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+      "provider_ready": true,
+      "readback": 37,
+      "role": "headless",
+      "schema_version": "prd07-w1-provider-self-report-v1",
+      "status": "PASS"
+    },
+    "smoke_pass": true
+  }
+}

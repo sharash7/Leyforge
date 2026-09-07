@@ -1,0 +1,51 @@
+[
+  {
+    "duration_seconds": 0.12,
+    "name": "idle-baseline",
+    "payload_iterations": 16,
+    "queue_capacity": 64,
+    "workers_per_class": 1
+  },
+  {
+    "duration_seconds": 0.18,
+    "name": "single-subsystem",
+    "payload_iterations": 80,
+    "queue_capacity": 64,
+    "workers_per_class": 1
+  },
+  {
+    "duration_seconds": 0.18,
+    "name": "two-pool-contention",
+    "payload_iterations": 100,
+    "queue_capacity": 64,
+    "workers_per_class": 2
+  },
+  {
+    "duration_seconds": 0.22,
+    "name": "all-provider-low-core",
+    "payload_iterations": 140,
+    "queue_capacity": 64,
+    "workers_per_class": 1
+  },
+  {
+    "duration_seconds": 0.22,
+    "name": "all-provider-balanced",
+    "payload_iterations": 140,
+    "queue_capacity": 64,
+    "workers_per_class": 2
+  },
+  {
+    "duration_seconds": 0.18,
+    "name": "slow-io",
+    "payload_iterations": 180,
+    "queue_capacity": 64,
+    "workers_per_class": 1
+  },
+  {
+    "duration_seconds": 0.18,
+    "name": "priority-contention",
+    "payload_iterations": 180,
+    "queue_capacity": 64,
+    "workers_per_class": 2
+  }
+]

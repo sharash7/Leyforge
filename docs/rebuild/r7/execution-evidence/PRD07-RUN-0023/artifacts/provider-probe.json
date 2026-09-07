@@ -1,0 +1,47 @@
+{
+  "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+  "current_revision_results_published": 512,
+  "external_process": true,
+  "final_revision": 1024,
+  "injected_adapter_failures_classified": 0,
+  "outcome": "PASS",
+  "presentation_authority_dependencies": 0,
+  "process": {
+    "eligibility_issues": [],
+    "evidence_eligible": true,
+    "lane_id": "PRD04-PROOF-26-W1-PROVIDER",
+    "process": {
+      "argv": [
+        "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\builds\\client\\output\\leyforge-w1-client-probe.exe",
+        "--",
+        "--mode",
+        "provider",
+        "--proof-id",
+        "PRD04-PROOF-26",
+        "--run-id",
+        "PRD07-RUN-0023",
+        "--iterations",
+        "512"
+      ],
+      "duration_seconds": 1.2090877000000049,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W1_PROVIDER_REPORT {\"build_identity\":\"a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219\",\"current_revision_results_published\":512,\"final_revision\":1024,\"injected_adapter_failures_classified\":0,\"outcome\":\"PASS\",\"presentation_authority_dependencies\":0,\"proof_id\":\"PRD04-PROOF-26\",\"provider_class\":\"VoxelBuffer\",\"provider_edition\":\"zylann-voxel-tools-gdextension-v1.7x\",\"provider_ready\":true,\"readback_errors\":0,\"real_provider_operations\":512,\"role\":\"client\",\"run_id\":\"PRD07-RUN-0023\",\"schema_version\":\"prd07-w1-provider-report-v1\",\"stale_revision_results_rejected\":512}\n",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "proof_id": "PRD04-PROOF-26",
+    "role": "client",
+    "run_id": "PRD07-RUN-0023"
+  },
+  "proof_id": "PRD04-PROOF-26",
+  "provider_class": "VoxelBuffer",
+  "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+  "provider_ready": true,
+  "readback_errors": 0,
+  "real_provider_operations": 512,
+  "role": "client",
+  "run_id": "PRD07-RUN-0023",
+  "schema_version": "prd07-w1-provider-report-v1",
+  "stale_revision_results_rejected": 512
+}

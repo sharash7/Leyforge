@@ -1,0 +1,2462 @@
+{
+  "acceptance_reason": "Thousands of interior/boundary edits produced complete, duplicate-free, bounded fan-out.",
+  "artifacts": {
+    "dirty_region_policy": {
+      "collision": 1,
+      "fluid": 1,
+      "mesh": 1,
+      "nav": 2,
+      "read-model": 0,
+      "structure": 2
+    },
+    "spatial_change_samples": [
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -15,
+                1,
+                -31
+              ],
+              "minimum": [
+                -17,
+                -1,
+                -33
+              ]
+            },
+            "revision": 1
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -15,
+                1,
+                -31
+              ],
+              "minimum": [
+                -17,
+                -1,
+                -33
+              ]
+            },
+            "revision": 1
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -15,
+                1,
+                -31
+              ],
+              "minimum": [
+                -17,
+                -1,
+                -33
+              ]
+            },
+            "revision": 1
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -14,
+                2,
+                -30
+              ],
+              "minimum": [
+                -18,
+                -2,
+                -34
+              ]
+            },
+            "revision": 1
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -16,
+                0,
+                -32
+              ],
+              "minimum": [
+                -16,
+                0,
+                -32
+              ]
+            },
+            "revision": 1
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -14,
+                2,
+                -30
+              ],
+              "minimum": [
+                -18,
+                -2,
+                -34
+              ]
+            },
+            "revision": 1
+          }
+        },
+        "coordinate": [
+          -16,
+          0,
+          -32
+        ],
+        "operation_id": "edit-00000",
+        "revision": 1
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -14,
+                1,
+                0
+              ],
+              "minimum": [
+                -16,
+                -1,
+                -2
+              ]
+            },
+            "revision": 2
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -14,
+                1,
+                0
+              ],
+              "minimum": [
+                -16,
+                -1,
+                -2
+              ]
+            },
+            "revision": 2
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -14,
+                1,
+                0
+              ],
+              "minimum": [
+                -16,
+                -1,
+                -2
+              ]
+            },
+            "revision": 2
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -13,
+                2,
+                1
+              ],
+              "minimum": [
+                -17,
+                -2,
+                -3
+              ]
+            },
+            "revision": 2
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -15,
+                0,
+                -1
+              ],
+              "minimum": [
+                -15,
+                0,
+                -1
+              ]
+            },
+            "revision": 2
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -13,
+                2,
+                1
+              ],
+              "minimum": [
+                -17,
+                -2,
+                -3
+              ]
+            },
+            "revision": 2
+          }
+        },
+        "coordinate": [
+          -15,
+          0,
+          -1
+        ],
+        "operation_id": "edit-00001",
+        "revision": 2
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -13,
+                1,
+                31
+              ],
+              "minimum": [
+                -15,
+                -1,
+                29
+              ]
+            },
+            "revision": 3
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -13,
+                1,
+                31
+              ],
+              "minimum": [
+                -15,
+                -1,
+                29
+              ]
+            },
+            "revision": 3
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -13,
+                1,
+                31
+              ],
+              "minimum": [
+                -15,
+                -1,
+                29
+              ]
+            },
+            "revision": 3
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -12,
+                2,
+                32
+              ],
+              "minimum": [
+                -16,
+                -2,
+                28
+              ]
+            },
+            "revision": 3
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -14,
+                0,
+                30
+              ],
+              "minimum": [
+                -14,
+                0,
+                30
+              ]
+            },
+            "revision": 3
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -12,
+                2,
+                32
+              ],
+              "minimum": [
+                -16,
+                -2,
+                28
+              ]
+            },
+            "revision": 3
+          }
+        },
+        "coordinate": [
+          -14,
+          0,
+          30
+        ],
+        "operation_id": "edit-00002",
+        "revision": 3
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -12,
+                1,
+                -3
+              ],
+              "minimum": [
+                -14,
+                -1,
+                -5
+              ]
+            },
+            "revision": 4
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -12,
+                1,
+                -3
+              ],
+              "minimum": [
+                -14,
+                -1,
+                -5
+              ]
+            },
+            "revision": 4
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -12,
+                1,
+                -3
+              ],
+              "minimum": [
+                -14,
+                -1,
+                -5
+              ]
+            },
+            "revision": 4
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -11,
+                2,
+                -2
+              ],
+              "minimum": [
+                -15,
+                -2,
+                -6
+              ]
+            },
+            "revision": 4
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -13,
+                0,
+                -4
+              ],
+              "minimum": [
+                -13,
+                0,
+                -4
+              ]
+            },
+            "revision": 4
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -11,
+                2,
+                -2
+              ],
+              "minimum": [
+                -15,
+                -2,
+                -6
+              ]
+            },
+            "revision": 4
+          }
+        },
+        "coordinate": [
+          -13,
+          0,
+          -4
+        ],
+        "operation_id": "edit-00003",
+        "revision": 4
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -11,
+                1,
+                28
+              ],
+              "minimum": [
+                -13,
+                -1,
+                26
+              ]
+            },
+            "revision": 5
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -11,
+                1,
+                28
+              ],
+              "minimum": [
+                -13,
+                -1,
+                26
+              ]
+            },
+            "revision": 5
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -11,
+                1,
+                28
+              ],
+              "minimum": [
+                -13,
+                -1,
+                26
+              ]
+            },
+            "revision": 5
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -10,
+                2,
+                29
+              ],
+              "minimum": [
+                -14,
+                -2,
+                25
+              ]
+            },
+            "revision": 5
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -12,
+                0,
+                27
+              ],
+              "minimum": [
+                -12,
+                0,
+                27
+              ]
+            },
+            "revision": 5
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -10,
+                2,
+                29
+              ],
+              "minimum": [
+                -14,
+                -2,
+                25
+              ]
+            },
+            "revision": 5
+          }
+        },
+        "coordinate": [
+          -12,
+          0,
+          27
+        ],
+        "operation_id": "edit-00004",
+        "revision": 5
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -10,
+                1,
+                -6
+              ],
+              "minimum": [
+                -12,
+                -1,
+                -8
+              ]
+            },
+            "revision": 6
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -10,
+                1,
+                -6
+              ],
+              "minimum": [
+                -12,
+                -1,
+                -8
+              ]
+            },
+            "revision": 6
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -10,
+                1,
+                -6
+              ],
+              "minimum": [
+                -12,
+                -1,
+                -8
+              ]
+            },
+            "revision": 6
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -9,
+                2,
+                -5
+              ],
+              "minimum": [
+                -13,
+                -2,
+                -9
+              ]
+            },
+            "revision": 6
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -11,
+                0,
+                -7
+              ],
+              "minimum": [
+                -11,
+                0,
+                -7
+              ]
+            },
+            "revision": 6
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -9,
+                2,
+                -5
+              ],
+              "minimum": [
+                -13,
+                -2,
+                -9
+              ]
+            },
+            "revision": 6
+          }
+        },
+        "coordinate": [
+          -11,
+          0,
+          -7
+        ],
+        "operation_id": "edit-00005",
+        "revision": 6
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -9,
+                1,
+                25
+              ],
+              "minimum": [
+                -11,
+                -1,
+                23
+              ]
+            },
+            "revision": 7
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -9,
+                1,
+                25
+              ],
+              "minimum": [
+                -11,
+                -1,
+                23
+              ]
+            },
+            "revision": 7
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -9,
+                1,
+                25
+              ],
+              "minimum": [
+                -11,
+                -1,
+                23
+              ]
+            },
+            "revision": 7
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -8,
+                2,
+                26
+              ],
+              "minimum": [
+                -12,
+                -2,
+                22
+              ]
+            },
+            "revision": 7
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -10,
+                0,
+                24
+              ],
+              "minimum": [
+                -10,
+                0,
+                24
+              ]
+            },
+            "revision": 7
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -8,
+                2,
+                26
+              ],
+              "minimum": [
+                -12,
+                -2,
+                22
+              ]
+            },
+            "revision": 7
+          }
+        },
+        "coordinate": [
+          -10,
+          0,
+          24
+        ],
+        "operation_id": "edit-00006",
+        "revision": 7
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -8,
+                1,
+                -9
+              ],
+              "minimum": [
+                -10,
+                -1,
+                -11
+              ]
+            },
+            "revision": 8
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -8,
+                1,
+                -9
+              ],
+              "minimum": [
+                -10,
+                -1,
+                -11
+              ]
+            },
+            "revision": 8
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -8,
+                1,
+                -9
+              ],
+              "minimum": [
+                -10,
+                -1,
+                -11
+              ]
+            },
+            "revision": 8
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -7,
+                2,
+                -8
+              ],
+              "minimum": [
+                -11,
+                -2,
+                -12
+              ]
+            },
+            "revision": 8
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -9,
+                0,
+                -10
+              ],
+              "minimum": [
+                -9,
+                0,
+                -10
+              ]
+            },
+            "revision": 8
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -7,
+                2,
+                -8
+              ],
+              "minimum": [
+                -11,
+                -2,
+                -12
+              ]
+            },
+            "revision": 8
+          }
+        },
+        "coordinate": [
+          -9,
+          0,
+          -10
+        ],
+        "operation_id": "edit-00007",
+        "revision": 8
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -7,
+                1,
+                22
+              ],
+              "minimum": [
+                -9,
+                -1,
+                20
+              ]
+            },
+            "revision": 9
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -7,
+                1,
+                22
+              ],
+              "minimum": [
+                -9,
+                -1,
+                20
+              ]
+            },
+            "revision": 9
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -7,
+                1,
+                22
+              ],
+              "minimum": [
+                -9,
+                -1,
+                20
+              ]
+            },
+            "revision": 9
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -6,
+                2,
+                23
+              ],
+              "minimum": [
+                -10,
+                -2,
+                19
+              ]
+            },
+            "revision": 9
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -8,
+                0,
+                21
+              ],
+              "minimum": [
+                -8,
+                0,
+                21
+              ]
+            },
+            "revision": 9
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -6,
+                2,
+                23
+              ],
+              "minimum": [
+                -10,
+                -2,
+                19
+              ]
+            },
+            "revision": 9
+          }
+        },
+        "coordinate": [
+          -8,
+          0,
+          21
+        ],
+        "operation_id": "edit-00008",
+        "revision": 9
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -6,
+                1,
+                -12
+              ],
+              "minimum": [
+                -8,
+                -1,
+                -14
+              ]
+            },
+            "revision": 10
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -6,
+                1,
+                -12
+              ],
+              "minimum": [
+                -8,
+                -1,
+                -14
+              ]
+            },
+            "revision": 10
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -6,
+                1,
+                -12
+              ],
+              "minimum": [
+                -8,
+                -1,
+                -14
+              ]
+            },
+            "revision": 10
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -5,
+                2,
+                -11
+              ],
+              "minimum": [
+                -9,
+                -2,
+                -15
+              ]
+            },
+            "revision": 10
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -7,
+                0,
+                -13
+              ],
+              "minimum": [
+                -7,
+                0,
+                -13
+              ]
+            },
+            "revision": 10
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -5,
+                2,
+                -11
+              ],
+              "minimum": [
+                -9,
+                -2,
+                -15
+              ]
+            },
+            "revision": 10
+          }
+        },
+        "coordinate": [
+          -7,
+          0,
+          -13
+        ],
+        "operation_id": "edit-00009",
+        "revision": 10
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -5,
+                1,
+                19
+              ],
+              "minimum": [
+                -7,
+                -1,
+                17
+              ]
+            },
+            "revision": 11
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -5,
+                1,
+                19
+              ],
+              "minimum": [
+                -7,
+                -1,
+                17
+              ]
+            },
+            "revision": 11
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -5,
+                1,
+                19
+              ],
+              "minimum": [
+                -7,
+                -1,
+                17
+              ]
+            },
+            "revision": 11
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -4,
+                2,
+                20
+              ],
+              "minimum": [
+                -8,
+                -2,
+                16
+              ]
+            },
+            "revision": 11
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -6,
+                0,
+                18
+              ],
+              "minimum": [
+                -6,
+                0,
+                18
+              ]
+            },
+            "revision": 11
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -4,
+                2,
+                20
+              ],
+              "minimum": [
+                -8,
+                -2,
+                16
+              ]
+            },
+            "revision": 11
+          }
+        },
+        "coordinate": [
+          -6,
+          0,
+          18
+        ],
+        "operation_id": "edit-00010",
+        "revision": 11
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -4,
+                1,
+                -15
+              ],
+              "minimum": [
+                -6,
+                -1,
+                -17
+              ]
+            },
+            "revision": 12
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -4,
+                1,
+                -15
+              ],
+              "minimum": [
+                -6,
+                -1,
+                -17
+              ]
+            },
+            "revision": 12
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -4,
+                1,
+                -15
+              ],
+              "minimum": [
+                -6,
+                -1,
+                -17
+              ]
+            },
+            "revision": 12
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -3,
+                2,
+                -14
+              ],
+              "minimum": [
+                -7,
+                -2,
+                -18
+              ]
+            },
+            "revision": 12
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -5,
+                0,
+                -16
+              ],
+              "minimum": [
+                -5,
+                0,
+                -16
+              ]
+            },
+            "revision": 12
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -3,
+                2,
+                -14
+              ],
+              "minimum": [
+                -7,
+                -2,
+                -18
+              ]
+            },
+            "revision": 12
+          }
+        },
+        "coordinate": [
+          -5,
+          0,
+          -16
+        ],
+        "operation_id": "edit-00011",
+        "revision": 12
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -3,
+                1,
+                16
+              ],
+              "minimum": [
+                -5,
+                -1,
+                14
+              ]
+            },
+            "revision": 13
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -3,
+                1,
+                16
+              ],
+              "minimum": [
+                -5,
+                -1,
+                14
+              ]
+            },
+            "revision": 13
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -3,
+                1,
+                16
+              ],
+              "minimum": [
+                -5,
+                -1,
+                14
+              ]
+            },
+            "revision": 13
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -2,
+                2,
+                17
+              ],
+              "minimum": [
+                -6,
+                -2,
+                13
+              ]
+            },
+            "revision": 13
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -4,
+                0,
+                15
+              ],
+              "minimum": [
+                -4,
+                0,
+                15
+              ]
+            },
+            "revision": 13
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -2,
+                2,
+                17
+              ],
+              "minimum": [
+                -6,
+                -2,
+                13
+              ]
+            },
+            "revision": 13
+          }
+        },
+        "coordinate": [
+          -4,
+          0,
+          15
+        ],
+        "operation_id": "edit-00012",
+        "revision": 13
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -2,
+                1,
+                -18
+              ],
+              "minimum": [
+                -4,
+                -1,
+                -20
+              ]
+            },
+            "revision": 14
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -2,
+                1,
+                -18
+              ],
+              "minimum": [
+                -4,
+                -1,
+                -20
+              ]
+            },
+            "revision": 14
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -2,
+                1,
+                -18
+              ],
+              "minimum": [
+                -4,
+                -1,
+                -20
+              ]
+            },
+            "revision": 14
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                -1,
+                2,
+                -17
+              ],
+              "minimum": [
+                -5,
+                -2,
+                -21
+              ]
+            },
+            "revision": 14
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -3,
+                0,
+                -19
+              ],
+              "minimum": [
+                -3,
+                0,
+                -19
+              ]
+            },
+            "revision": 14
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                -1,
+                2,
+                -17
+              ],
+              "minimum": [
+                -5,
+                -2,
+                -21
+              ]
+            },
+            "revision": 14
+          }
+        },
+        "coordinate": [
+          -3,
+          0,
+          -19
+        ],
+        "operation_id": "edit-00013",
+        "revision": 14
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                -1,
+                1,
+                13
+              ],
+              "minimum": [
+                -3,
+                -1,
+                11
+              ]
+            },
+            "revision": 15
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                -1,
+                1,
+                13
+              ],
+              "minimum": [
+                -3,
+                -1,
+                11
+              ]
+            },
+            "revision": 15
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                -1,
+                1,
+                13
+              ],
+              "minimum": [
+                -3,
+                -1,
+                11
+              ]
+            },
+            "revision": 15
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                0,
+                2,
+                14
+              ],
+              "minimum": [
+                -4,
+                -2,
+                10
+              ]
+            },
+            "revision": 15
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -2,
+                0,
+                12
+              ],
+              "minimum": [
+                -2,
+                0,
+                12
+              ]
+            },
+            "revision": 15
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                0,
+                2,
+                14
+              ],
+              "minimum": [
+                -4,
+                -2,
+                10
+              ]
+            },
+            "revision": 15
+          }
+        },
+        "coordinate": [
+          -2,
+          0,
+          12
+        ],
+        "operation_id": "edit-00014",
+        "revision": 15
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                0,
+                1,
+                -21
+              ],
+              "minimum": [
+                -2,
+                -1,
+                -23
+              ]
+            },
+            "revision": 16
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                0,
+                1,
+                -21
+              ],
+              "minimum": [
+                -2,
+                -1,
+                -23
+              ]
+            },
+            "revision": 16
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                0,
+                1,
+                -21
+              ],
+              "minimum": [
+                -2,
+                -1,
+                -23
+              ]
+            },
+            "revision": 16
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                1,
+                2,
+                -20
+              ],
+              "minimum": [
+                -3,
+                -2,
+                -24
+              ]
+            },
+            "revision": 16
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                -1,
+                0,
+                -22
+              ],
+              "minimum": [
+                -1,
+                0,
+                -22
+              ]
+            },
+            "revision": 16
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                1,
+                2,
+                -20
+              ],
+              "minimum": [
+                -3,
+                -2,
+                -24
+              ]
+            },
+            "revision": 16
+          }
+        },
+        "coordinate": [
+          -1,
+          0,
+          -22
+        ],
+        "operation_id": "edit-00015",
+        "revision": 16
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                1,
+                1,
+                10
+              ],
+              "minimum": [
+                -1,
+                -1,
+                8
+              ]
+            },
+            "revision": 17
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                1,
+                1,
+                10
+              ],
+              "minimum": [
+                -1,
+                -1,
+                8
+              ]
+            },
+            "revision": 17
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                1,
+                1,
+                10
+              ],
+              "minimum": [
+                -1,
+                -1,
+                8
+              ]
+            },
+            "revision": 17
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                2,
+                2,
+                11
+              ],
+              "minimum": [
+                -2,
+                -2,
+                7
+              ]
+            },
+            "revision": 17
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                0,
+                0,
+                9
+              ],
+              "minimum": [
+                0,
+                0,
+                9
+              ]
+            },
+            "revision": 17
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                2,
+                2,
+                11
+              ],
+              "minimum": [
+                -2,
+                -2,
+                7
+              ]
+            },
+            "revision": 17
+          }
+        },
+        "coordinate": [
+          0,
+          0,
+          9
+        ],
+        "operation_id": "edit-00016",
+        "revision": 17
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                2,
+                1,
+                -24
+              ],
+              "minimum": [
+                0,
+                -1,
+                -26
+              ]
+            },
+            "revision": 18
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                2,
+                1,
+                -24
+              ],
+              "minimum": [
+                0,
+                -1,
+                -26
+              ]
+            },
+            "revision": 18
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                2,
+                1,
+                -24
+              ],
+              "minimum": [
+                0,
+                -1,
+                -26
+              ]
+            },
+            "revision": 18
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                3,
+                2,
+                -23
+              ],
+              "minimum": [
+                -1,
+                -2,
+                -27
+              ]
+            },
+            "revision": 18
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                1,
+                0,
+                -25
+              ],
+              "minimum": [
+                1,
+                0,
+                -25
+              ]
+            },
+            "revision": 18
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                3,
+                2,
+                -23
+              ],
+              "minimum": [
+                -1,
+                -2,
+                -27
+              ]
+            },
+            "revision": 18
+          }
+        },
+        "coordinate": [
+          1,
+          0,
+          -25
+        ],
+        "operation_id": "edit-00017",
+        "revision": 18
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                3,
+                1,
+                7
+              ],
+              "minimum": [
+                1,
+                -1,
+                5
+              ]
+            },
+            "revision": 19
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                3,
+                1,
+                7
+              ],
+              "minimum": [
+                1,
+                -1,
+                5
+              ]
+            },
+            "revision": 19
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                3,
+                1,
+                7
+              ],
+              "minimum": [
+                1,
+                -1,
+                5
+              ]
+            },
+            "revision": 19
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                4,
+                2,
+                8
+              ],
+              "minimum": [
+                0,
+                -2,
+                4
+              ]
+            },
+            "revision": 19
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                2,
+                0,
+                6
+              ],
+              "minimum": [
+                2,
+                0,
+                6
+              ]
+            },
+            "revision": 19
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                4,
+                2,
+                8
+              ],
+              "minimum": [
+                0,
+                -2,
+                4
+              ]
+            },
+            "revision": 19
+          }
+        },
+        "coordinate": [
+          2,
+          0,
+          6
+        ],
+        "operation_id": "edit-00018",
+        "revision": 19
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                4,
+                1,
+                -27
+              ],
+              "minimum": [
+                2,
+                -1,
+                -29
+              ]
+            },
+            "revision": 20
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                4,
+                1,
+                -27
+              ],
+              "minimum": [
+                2,
+                -1,
+                -29
+              ]
+            },
+            "revision": 20
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                4,
+                1,
+                -27
+              ],
+              "minimum": [
+                2,
+                -1,
+                -29
+              ]
+            },
+            "revision": 20
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                5,
+                2,
+                -26
+              ],
+              "minimum": [
+                1,
+                -2,
+                -30
+              ]
+            },
+            "revision": 20
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                3,
+                0,
+                -28
+              ],
+              "minimum": [
+                3,
+                0,
+                -28
+              ]
+            },
+            "revision": 20
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                5,
+                2,
+                -26
+              ],
+              "minimum": [
+                1,
+                -2,
+                -30
+              ]
+            },
+            "revision": 20
+          }
+        },
+        "coordinate": [
+          3,
+          0,
+          -28
+        ],
+        "operation_id": "edit-00019",
+        "revision": 20
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                5,
+                1,
+                4
+              ],
+              "minimum": [
+                3,
+                -1,
+                2
+              ]
+            },
+            "revision": 21
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                5,
+                1,
+                4
+              ],
+              "minimum": [
+                3,
+                -1,
+                2
+              ]
+            },
+            "revision": 21
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                5,
+                1,
+                4
+              ],
+              "minimum": [
+                3,
+                -1,
+                2
+              ]
+            },
+            "revision": 21
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                6,
+                2,
+                5
+              ],
+              "minimum": [
+                2,
+                -2,
+                1
+              ]
+            },
+            "revision": 21
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                4,
+                0,
+                3
+              ],
+              "minimum": [
+                4,
+                0,
+                3
+              ]
+            },
+            "revision": 21
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                6,
+                2,
+                5
+              ],
+              "minimum": [
+                2,
+                -2,
+                1
+              ]
+            },
+            "revision": 21
+          }
+        },
+        "coordinate": [
+          4,
+          0,
+          3
+        ],
+        "operation_id": "edit-00020",
+        "revision": 21
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                6,
+                1,
+                -30
+              ],
+              "minimum": [
+                4,
+                -1,
+                -32
+              ]
+            },
+            "revision": 22
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                6,
+                1,
+                -30
+              ],
+              "minimum": [
+                4,
+                -1,
+                -32
+              ]
+            },
+            "revision": 22
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                6,
+                1,
+                -30
+              ],
+              "minimum": [
+                4,
+                -1,
+                -32
+              ]
+            },
+            "revision": 22
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                7,
+                2,
+                -29
+              ],
+              "minimum": [
+                3,
+                -2,
+                -33
+              ]
+            },
+            "revision": 22
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                5,
+                0,
+                -31
+              ],
+              "minimum": [
+                5,
+                0,
+                -31
+              ]
+            },
+            "revision": 22
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                7,
+                2,
+                -29
+              ],
+              "minimum": [
+                3,
+                -2,
+                -33
+              ]
+            },
+            "revision": 22
+          }
+        },
+        "coordinate": [
+          5,
+          0,
+          -31
+        ],
+        "operation_id": "edit-00021",
+        "revision": 22
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                7,
+                1,
+                1
+              ],
+              "minimum": [
+                5,
+                -1,
+                -1
+              ]
+            },
+            "revision": 23
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                7,
+                1,
+                1
+              ],
+              "minimum": [
+                5,
+                -1,
+                -1
+              ]
+            },
+            "revision": 23
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                7,
+                1,
+                1
+              ],
+              "minimum": [
+                5,
+                -1,
+                -1
+              ]
+            },
+            "revision": 23
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                8,
+                2,
+                2
+              ],
+              "minimum": [
+                4,
+                -2,
+                -2
+              ]
+            },
+            "revision": 23
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                6,
+                0,
+                0
+              ],
+              "minimum": [
+                6,
+                0,
+                0
+              ]
+            },
+            "revision": 23
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                8,
+                2,
+                2
+              ],
+              "minimum": [
+                4,
+                -2,
+                -2
+              ]
+            },
+            "revision": 23
+          }
+        },
+        "coordinate": [
+          6,
+          0,
+          0
+        ],
+        "operation_id": "edit-00022",
+        "revision": 23
+      },
+      {
+        "consumers": {
+          "collision": {
+            "dirty_region": {
+              "maximum": [
+                8,
+                1,
+                32
+              ],
+              "minimum": [
+                6,
+                -1,
+                30
+              ]
+            },
+            "revision": 24
+          },
+          "fluid": {
+            "dirty_region": {
+              "maximum": [
+                8,
+                1,
+                32
+              ],
+              "minimum": [
+                6,
+                -1,
+                30
+              ]
+            },
+            "revision": 24
+          },
+          "mesh": {
+            "dirty_region": {
+              "maximum": [
+                8,
+                1,
+                32
+              ],
+              "minimum": [
+                6,
+                -1,
+                30
+              ]
+            },
+            "revision": 24
+          },
+          "nav": {
+            "dirty_region": {
+              "maximum": [
+                9,
+                2,
+                33
+              ],
+              "minimum": [
+                5,
+                -2,
+                29
+              ]
+            },
+            "revision": 24
+          },
+          "read-model": {
+            "dirty_region": {
+              "maximum": [
+                7,
+                0,
+                31
+              ],
+              "minimum": [
+                7,
+                0,
+                31
+              ]
+            },
+            "revision": 24
+          },
+          "structure": {
+            "dirty_region": {
+              "maximum": [
+                9,
+                2,
+                33
+              ],
+              "minimum": [
+                5,
+                -2,
+                29
+              ]
+            },
+            "revision": 24
+          }
+        },
+        "coordinate": [
+          7,
+          0,
+          31
+        ],
+        "operation_id": "edit-00023",
+        "revision": 24
+      }
+    ]
+  },
+  "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+  "duration_ms": 46.850599999999076,
+  "evidence_id": "PRD07-EVID-0020",
+  "fixture_schema": "leyforge-r7-w1-owner-spatial-runtime-v1",
+  "gameplay_permission": "CLOSED",
+  "limitations": [],
+  "metrics": {
+    "canonical_edits": 4096,
+    "consumer_fanout_per_edit": 6,
+    "duplicate_work": 0,
+    "maximum_dirty_volume": 125,
+    "missed_invalidations": 0,
+    "revision_link_errors": 0
+  },
+  "observations": [
+    "Each edit emitted one revision-linked dirty scope for all six declared consumers."
+  ],
+  "outcome": "PASS",
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-23",
+  "run_id": "PRD07-RUN-0020",
+  "schema_version": "prd07-w1-observed-result-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+}

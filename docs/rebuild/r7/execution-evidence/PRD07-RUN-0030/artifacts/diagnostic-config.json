@@ -1,0 +1,175 @@
+{
+  "experimental_critical_latency_limit_ms": 5000,
+  "experimental_queue_capacity": 64,
+  "production_budget_claim": "NONE",
+  "source_workloads": {
+    "PRD04-PROOF-04": {
+      "conservation_delta": 0,
+      "duplicate_operation_effects": 0,
+      "final_state_counts": {
+        "COMMITTED": 200,
+        "COMPENSATED": 300,
+        "REJECTED": 100
+      },
+      "partial_state_count": 0,
+      "reservation_leaks": 0,
+      "seeded_operations": 600,
+      "semantic_commits": 200
+    },
+    "PRD04-PROOF-13": {
+      "classification_counts": {
+        "CURRENT-ACCEPTED": 4000,
+        "OWNER-EPOCH-REJECTED": 2000,
+        "SESSION-EPOCH-REJECTED": 2000,
+        "STALE-REJECTED": 2000,
+        "SUPERSEDED-REJECTED": 2000
+      },
+      "correct_rejection_count": 8000,
+      "false_rejection_count": 0,
+      "stale_commit_count": 0,
+      "task_completions": 12000
+    },
+    "PRD04-PROOF-14": {
+      "classification_counts": {
+        "CURRENT-ACCEPTED": 10000,
+        "OWNER-EPOCH-REJECTED": 10000
+      },
+      "duplicate_commands": 0,
+      "duplicate_entities": 0,
+      "lost_commands": 0,
+      "no_owner_gaps": 0,
+      "old_mutation_rights_committed": 0,
+      "overlap_windows": 0,
+      "ownership_transfers": 10000
+    },
+    "PRD04-PROOF-15": {
+      "live_entity_nodes": 0,
+      "population": 4096,
+      "produced_resources": 344036,
+      "promotion_checks": 100,
+      "promotion_differences": 0,
+      "simulated_days": 28,
+      "world_ticks": 672
+    },
+    "PRD04-PROOF-16": {
+      "identity_errors": 0,
+      "obligation_continuity_errors": 0,
+      "rapid_oscillation_transitions": 10000,
+      "resource_conservation_delta": 0,
+      "timer_continuity_errors": 0,
+      "transitions": 10000
+    },
+    "PRD04-PROOF-17": {
+      "construction_operations": 1200,
+      "duplicate_retry_effects": 0,
+      "free_material_cases": 0,
+      "ghost_or_double_structures": 0,
+      "material_conservation_delta": 0,
+      "permission_denials": 110,
+      "reservation_leaks": 0,
+      "semantic_commits": 517
+    },
+    "PRD04-PROOF-19": {
+      "cadence_profiles_per_comparison": 5,
+      "canonical_mismatches": 0,
+      "fps_correlation": 0.0,
+      "real_client_lane": true,
+      "real_headless_lane": true,
+      "seeded_comparisons": 100
+    },
+    "PRD04-PROOF-21": {
+      "canonical_divergences": 0,
+      "different_seed_negative_control_equalities": 0,
+      "first_divergence_revision": null,
+      "seeded_runs": 1000,
+      "worker_configurations": [
+        1,
+        2,
+        4,
+        8
+      ]
+    },
+    "PRD04-PROOF-23": {
+      "canonical_edits": 4096,
+      "consumer_fanout_per_edit": 6,
+      "duplicate_work": 0,
+      "maximum_dirty_volume": 125,
+      "missed_invalidations": 0,
+      "revision_link_errors": 0
+    },
+    "PRD04-PROOF-24": {
+      "classification_counts": {
+        "STALE-REJECTED": 10000
+      },
+      "late_generation_accepts": 0,
+      "overwritten_edits": 0,
+      "raced_cells": 10000,
+      "reload_regeneration_mismatches": 0
+    },
+    "PRD04-PROOF-25": {
+      "edit_interaction_cases": 4096,
+      "maximum_quarantine_duration_ticks": 17,
+      "quarantine_failures": 0,
+      "real_provider_probe": true,
+      "stale_collision_accepts": 0,
+      "unsafe_interactions": 0
+    },
+    "PRD04-PROOF-26": {
+      "dirty_region_errors": 0,
+      "edit_path_bake_cases": 5000,
+      "maximum_rebuild_lag_ticks": 23,
+      "real_provider_probe": true,
+      "stale_bake_accepts": 0,
+      "stale_path_accepts": 0,
+      "unsafe_traversals": 0
+    },
+    "PRD04-PROOF-33": {
+      "canonical_collapse_transactions": 500,
+      "collapse_cases": 500,
+      "conservation_errors": 0,
+      "duplicate_damage": 0,
+      "duplicate_drops": 0,
+      "provider_authored_semantic_effects": 0
+    },
+    "PRD04-PROOF-34": {
+      "canonical_changes_from_provider_failure": 0,
+      "failure_modes": [
+        "error",
+        "timeout",
+        "stale",
+        "transient-recovery",
+        "persistent-degradation"
+      ],
+      "incorrect_recoveries": 0,
+      "invisible_failures": 0,
+      "provider_classes": [
+        "mesh",
+        "collision",
+        "nav"
+      ],
+      "provider_failure_cases": 750,
+      "real_provider_probe": true,
+      "unsafe_interactions": 0
+    },
+    "PRD04-PROOF-63": {
+      "contradictory_commit_traces": 0,
+      "events_per_transaction_max": 6,
+      "events_per_transaction_min": 6,
+      "incorrect_context_events": 0,
+      "network_projection_hooks": 1000,
+      "orphan_events": 0,
+      "persistence_projection_hooks": 1000,
+      "real_async_provider_boundary": true,
+      "transactions": 1000,
+      "undetermined_commit_status": 0
+    },
+    "PRD04-PROOF-68": {
+      "conservation_errors": 0,
+      "first_divergence_seed": null,
+      "invariant_violations": 0,
+      "randomized_schedules": 10000,
+      "stale_commit_count": 0,
+      "state_divergences": 0
+    }
+  }
+}

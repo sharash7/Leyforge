@@ -1,0 +1,895 @@
+{
+  "acceptance_reason": "Fourteen sustained windows across seven configurations remained bounded, completed admitted work, preserved critical progress, and recovered after pressure.",
+  "artifacts": {
+    "diagnostic_config": {
+      "experimental_critical_latency_limit_ms": 5000,
+      "experimental_queue_capacity": 64,
+      "production_budget_claim": "NONE",
+      "source_workloads": {
+        "PRD04-PROOF-04": {
+          "conservation_delta": 0,
+          "duplicate_operation_effects": 0,
+          "final_state_counts": {
+            "COMMITTED": 200,
+            "COMPENSATED": 300,
+            "REJECTED": 100
+          },
+          "partial_state_count": 0,
+          "reservation_leaks": 0,
+          "seeded_operations": 600,
+          "semantic_commits": 200
+        },
+        "PRD04-PROOF-13": {
+          "classification_counts": {
+            "CURRENT-ACCEPTED": 4000,
+            "OWNER-EPOCH-REJECTED": 2000,
+            "SESSION-EPOCH-REJECTED": 2000,
+            "STALE-REJECTED": 2000,
+            "SUPERSEDED-REJECTED": 2000
+          },
+          "correct_rejection_count": 8000,
+          "false_rejection_count": 0,
+          "stale_commit_count": 0,
+          "task_completions": 12000
+        },
+        "PRD04-PROOF-14": {
+          "classification_counts": {
+            "CURRENT-ACCEPTED": 10000,
+            "OWNER-EPOCH-REJECTED": 10000
+          },
+          "duplicate_commands": 0,
+          "duplicate_entities": 0,
+          "lost_commands": 0,
+          "no_owner_gaps": 0,
+          "old_mutation_rights_committed": 0,
+          "overlap_windows": 0,
+          "ownership_transfers": 10000
+        },
+        "PRD04-PROOF-15": {
+          "live_entity_nodes": 0,
+          "population": 4096,
+          "produced_resources": 344036,
+          "promotion_checks": 100,
+          "promotion_differences": 0,
+          "simulated_days": 28,
+          "world_ticks": 672
+        },
+        "PRD04-PROOF-16": {
+          "identity_errors": 0,
+          "obligation_continuity_errors": 0,
+          "rapid_oscillation_transitions": 10000,
+          "resource_conservation_delta": 0,
+          "timer_continuity_errors": 0,
+          "transitions": 10000
+        },
+        "PRD04-PROOF-17": {
+          "construction_operations": 1200,
+          "duplicate_retry_effects": 0,
+          "free_material_cases": 0,
+          "ghost_or_double_structures": 0,
+          "material_conservation_delta": 0,
+          "permission_denials": 110,
+          "reservation_leaks": 0,
+          "semantic_commits": 517
+        },
+        "PRD04-PROOF-19": {
+          "cadence_profiles_per_comparison": 5,
+          "canonical_mismatches": 0,
+          "fps_correlation": 0.0,
+          "real_client_lane": true,
+          "real_headless_lane": true,
+          "seeded_comparisons": 100
+        },
+        "PRD04-PROOF-21": {
+          "canonical_divergences": 0,
+          "different_seed_negative_control_equalities": 0,
+          "first_divergence_revision": null,
+          "seeded_runs": 1000,
+          "worker_configurations": [
+            1,
+            2,
+            4,
+            8
+          ]
+        },
+        "PRD04-PROOF-23": {
+          "canonical_edits": 4096,
+          "consumer_fanout_per_edit": 6,
+          "duplicate_work": 0,
+          "maximum_dirty_volume": 125,
+          "missed_invalidations": 0,
+          "revision_link_errors": 0
+        },
+        "PRD04-PROOF-24": {
+          "classification_counts": {
+            "STALE-REJECTED": 10000
+          },
+          "late_generation_accepts": 0,
+          "overwritten_edits": 0,
+          "raced_cells": 10000,
+          "reload_regeneration_mismatches": 0
+        },
+        "PRD04-PROOF-25": {
+          "edit_interaction_cases": 4096,
+          "maximum_quarantine_duration_ticks": 17,
+          "quarantine_failures": 0,
+          "real_provider_probe": true,
+          "stale_collision_accepts": 0,
+          "unsafe_interactions": 0
+        },
+        "PRD04-PROOF-26": {
+          "dirty_region_errors": 0,
+          "edit_path_bake_cases": 5000,
+          "maximum_rebuild_lag_ticks": 23,
+          "real_provider_probe": true,
+          "stale_bake_accepts": 0,
+          "stale_path_accepts": 0,
+          "unsafe_traversals": 0
+        },
+        "PRD04-PROOF-33": {
+          "canonical_collapse_transactions": 500,
+          "collapse_cases": 500,
+          "conservation_errors": 0,
+          "duplicate_damage": 0,
+          "duplicate_drops": 0,
+          "provider_authored_semantic_effects": 0
+        },
+        "PRD04-PROOF-34": {
+          "canonical_changes_from_provider_failure": 0,
+          "failure_modes": [
+            "error",
+            "timeout",
+            "stale",
+            "transient-recovery",
+            "persistent-degradation"
+          ],
+          "incorrect_recoveries": 0,
+          "invisible_failures": 0,
+          "provider_classes": [
+            "mesh",
+            "collision",
+            "nav"
+          ],
+          "provider_failure_cases": 750,
+          "real_provider_probe": true,
+          "unsafe_interactions": 0
+        },
+        "PRD04-PROOF-63": {
+          "contradictory_commit_traces": 0,
+          "events_per_transaction_max": 6,
+          "events_per_transaction_min": 6,
+          "incorrect_context_events": 0,
+          "network_projection_hooks": 1000,
+          "orphan_events": 0,
+          "persistence_projection_hooks": 1000,
+          "real_async_provider_boundary": true,
+          "transactions": 1000,
+          "undetermined_commit_status": 0
+        },
+        "PRD04-PROOF-68": {
+          "conservation_errors": 0,
+          "first_divergence_seed": null,
+          "invariant_violations": 0,
+          "randomized_schedules": 10000,
+          "stale_commit_count": 0,
+          "state_divergences": 0
+        }
+      }
+    },
+    "time_series_windows": [
+      {
+        "accepted": {
+          "domain": 432,
+          "network": 239,
+          "persistence": 368,
+          "provider": 432
+        },
+        "backpressured": {
+          "domain": 2338,
+          "network": 2530,
+          "persistence": 2402,
+          "provider": 2338
+        },
+        "completed": {
+          "domain": 432,
+          "network": 239,
+          "persistence": 368,
+          "provider": 432
+        },
+        "completed_critical": 88,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "idle-baseline-r1",
+        "maximum_critical_latency_ms": 70.06030000000862,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 70.06729999999095,
+        "normalized_process_cpu_percent": 13.28163483536918,
+        "p95_queue_age_ms": 26.75979999999356,
+        "process_cpu_seconds": 0.125,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 1.8193999999880361,
+        "throughput_per_second": 9377.896724557471,
+        "wall_seconds": 0.15685820000000206,
+        "worker_threads": 4,
+        "workers_per_class": 1
+      },
+      {
+        "accepted": {
+          "domain": 279,
+          "network": 279,
+          "persistence": 272,
+          "provider": 277
+        },
+        "backpressured": {
+          "domain": 2166,
+          "network": 2165,
+          "persistence": 2172,
+          "provider": 2167
+        },
+        "completed": {
+          "domain": 279,
+          "network": 279,
+          "persistence": 272,
+          "provider": 277
+        },
+        "completed_critical": 67,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "single-subsystem-r1",
+        "maximum_critical_latency_ms": 72.1928000000105,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 78.12509999999406,
+        "normalized_process_cpu_percent": 12.183800169770306,
+        "p95_queue_age_ms": 46.126700000002074,
+        "process_cpu_seconds": 0.15625,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 6.714399999992793,
+        "throughput_per_second": 5179.18724656732,
+        "wall_seconds": 0.21374009999999544,
+        "worker_threads": 4,
+        "workers_per_class": 1
+      },
+      {
+        "accepted": {
+          "domain": 256,
+          "network": 320,
+          "persistence": 320,
+          "provider": 256
+        },
+        "backpressured": {
+          "domain": 2577,
+          "network": 2512,
+          "persistence": 2512,
+          "provider": 2576
+        },
+        "completed": {
+          "domain": 256,
+          "network": 320,
+          "persistence": 320,
+          "provider": 256
+        },
+        "completed_critical": 67,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "two-pool-contention-r1",
+        "maximum_critical_latency_ms": 88.58060000000023,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 89.58540000000426,
+        "normalized_process_cpu_percent": 14.93101088028748,
+        "p95_queue_age_ms": 84.16579999999385,
+        "process_cpu_seconds": 0.21875,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 33.02819999998974,
+        "throughput_per_second": 4717.858157922152,
+        "wall_seconds": 0.24417859999999791,
+        "worker_threads": 8,
+        "workers_per_class": 2
+      },
+      {
+        "accepted": {
+          "domain": 64,
+          "network": 385,
+          "persistence": 320,
+          "provider": 192
+        },
+        "backpressured": {
+          "domain": 3389,
+          "network": 3068,
+          "persistence": 3133,
+          "provider": 3261
+        },
+        "completed": {
+          "domain": 64,
+          "network": 385,
+          "persistence": 320,
+          "provider": 192
+        },
+        "completed_critical": 57,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "all-provider-low-core-r1",
+        "maximum_critical_latency_ms": 240.10849999999095,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 241.78049999999018,
+        "normalized_process_cpu_percent": 14.173914337125542,
+        "p95_queue_age_ms": 235.2029999999985,
+        "process_cpu_seconds": 0.234375,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 11.499600000007604,
+        "throughput_per_second": 3487.0097095622773,
+        "wall_seconds": 0.2755942999999945,
+        "worker_threads": 4,
+        "workers_per_class": 1
+      },
+      {
+        "accepted": {
+          "domain": 232,
+          "network": 168,
+          "persistence": 297,
+          "provider": 232
+        },
+        "backpressured": {
+          "domain": 1810,
+          "network": 1873,
+          "persistence": 1745,
+          "provider": 1810
+        },
+        "completed": {
+          "domain": 232,
+          "network": 168,
+          "persistence": 297,
+          "provider": 232
+        },
+        "completed_critical": 56,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "all-provider-balanced-r1",
+        "maximum_critical_latency_ms": 95.06460000000061,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 95.06460000000061,
+        "normalized_process_cpu_percent": 15.063516461989211,
+        "p95_queue_age_ms": 88.0535000000009,
+        "process_cpu_seconds": 0.234375,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 3.1936999999970794,
+        "throughput_per_second": 3582.4657390561224,
+        "wall_seconds": 0.2593186000000003,
+        "worker_threads": 8,
+        "workers_per_class": 2
+      },
+      {
+        "accepted": {
+          "domain": 128,
+          "network": 192,
+          "persistence": 193,
+          "provider": 129
+        },
+        "backpressured": {
+          "domain": 2175,
+          "network": 2110,
+          "persistence": 2110,
+          "provider": 2174
+        },
+        "completed": {
+          "domain": 128,
+          "network": 192,
+          "persistence": 193,
+          "provider": 129
+        },
+        "completed_critical": 39,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "slow-io-r1",
+        "maximum_critical_latency_ms": 121.20670000000189,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 121.94879999999841,
+        "normalized_process_cpu_percent": 13.606603273682861,
+        "p95_queue_age_ms": 115.94470000000001,
+        "process_cpu_seconds": 0.1875,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 14.63979999999765,
+        "throughput_per_second": 2795.340576545407,
+        "wall_seconds": 0.2296679000000097,
+        "worker_threads": 4,
+        "workers_per_class": 1
+      },
+      {
+        "accepted": {
+          "domain": 256,
+          "network": 192,
+          "persistence": 192,
+          "provider": 64
+        },
+        "backpressured": {
+          "domain": 2664,
+          "network": 2727,
+          "persistence": 2727,
+          "provider": 2855
+        },
+        "completed": {
+          "domain": 256,
+          "network": 192,
+          "persistence": 192,
+          "provider": 64
+        },
+        "completed_critical": 43,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "priority-contention-r1",
+        "maximum_critical_latency_ms": 219.62950000001058,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 221.13879999999142,
+        "normalized_process_cpu_percent": 14.121388813897864,
+        "p95_queue_age_ms": 214.54330000000255,
+        "process_cpu_seconds": 0.21875,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 42.518799999996304,
+        "throughput_per_second": 2726.799833138495,
+        "wall_seconds": 0.25817809999999497,
+        "worker_threads": 8,
+        "workers_per_class": 2
+      },
+      {
+        "accepted": {
+          "domain": 429,
+          "network": 429,
+          "persistence": 429,
+          "provider": 422
+        },
+        "backpressured": {
+          "domain": 849,
+          "network": 848,
+          "persistence": 848,
+          "provider": 855
+        },
+        "completed": {
+          "domain": 429,
+          "network": 429,
+          "persistence": 429,
+          "provider": 422
+        },
+        "completed_critical": 102,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "idle-baseline-r2",
+        "maximum_critical_latency_ms": 28.464200000001938,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 30.305099999992535,
+        "normalized_process_cpu_percent": 13.641585139098412,
+        "p95_queue_age_ms": 19.065200000000004,
+        "process_cpu_seconds": 0.125,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 1.727400000007151,
+        "throughput_per_second": 11190.46512130521,
+        "wall_seconds": 0.1527192999999869,
+        "worker_threads": 4,
+        "workers_per_class": 1
+      },
+      {
+        "accepted": {
+          "domain": 448,
+          "network": 256,
+          "persistence": 256,
+          "provider": 128
+        },
+        "backpressured": {
+          "domain": 3095,
+          "network": 3286,
+          "persistence": 3287,
+          "provider": 3415
+        },
+        "completed": {
+          "domain": 448,
+          "network": 256,
+          "persistence": 256,
+          "provider": 128
+        },
+        "completed_critical": 65,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "single-subsystem-r2",
+        "maximum_critical_latency_ms": 139.42609999999434,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 139.97870000000034,
+        "normalized_process_cpu_percent": 14.737265660244772,
+        "p95_queue_age_ms": 136.21480000000474,
+        "process_cpu_seconds": 0.203125,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 13.573399999998514,
+        "throughput_per_second": 4736.239765173064,
+        "wall_seconds": 0.22971809999999948,
+        "worker_threads": 4,
+        "workers_per_class": 1
+      },
+      {
+        "accepted": {
+          "domain": 295,
+          "network": 295,
+          "persistence": 294,
+          "provider": 295
+        },
+        "backpressured": {
+          "domain": 1363,
+          "network": 1362,
+          "persistence": 1364,
+          "provider": 1363
+        },
+        "completed": {
+          "domain": 295,
+          "network": 295,
+          "persistence": 294,
+          "provider": 295
+        },
+        "completed_critical": 70,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "two-pool-contention-r2",
+        "maximum_critical_latency_ms": 61.04100000000301,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 68.12130000000138,
+        "normalized_process_cpu_percent": 14.940776469592189,
+        "p95_queue_age_ms": 43.628299999994624,
+        "process_cpu_seconds": 0.21875,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 33.076399999998785,
+        "throughput_per_second": 4831.590982669492,
+        "wall_seconds": 0.24401899999999443,
+        "worker_threads": 8,
+        "workers_per_class": 2
+      },
+      {
+        "accepted": {
+          "domain": 257,
+          "network": 128,
+          "persistence": 192,
+          "provider": 192
+        },
+        "backpressured": {
+          "domain": 4556,
+          "network": 4684,
+          "persistence": 4620,
+          "provider": 4620
+        },
+        "completed": {
+          "domain": 257,
+          "network": 128,
+          "persistence": 192,
+          "provider": 192
+        },
+        "completed_critical": 47,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "all-provider-low-core-r2",
+        "maximum_critical_latency_ms": 127.77830000000279,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 128.87810000000854,
+        "normalized_process_cpu_percent": 14.193371400333966,
+        "p95_queue_age_ms": 123.75900000000684,
+        "process_cpu_seconds": 0.234375,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 23.058000000006018,
+        "throughput_per_second": 2794.1638673553457,
+        "wall_seconds": 0.2752164999999991,
+        "worker_threads": 4,
+        "workers_per_class": 1
+      },
+      {
+        "accepted": {
+          "domain": 214,
+          "network": 277,
+          "persistence": 277,
+          "provider": 277
+        },
+        "backpressured": {
+          "domain": 1399,
+          "network": 1335,
+          "persistence": 1336,
+          "provider": 1336
+        },
+        "completed": {
+          "domain": 214,
+          "network": 277,
+          "persistence": 277,
+          "provider": 277
+        },
+        "completed_critical": 63,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "all-provider-balanced-r2",
+        "maximum_critical_latency_ms": 86.3178999999974,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 89.62439999999106,
+        "normalized_process_cpu_percent": 12.327546350663848,
+        "p95_queue_age_ms": 66.78810000001079,
+        "process_cpu_seconds": 0.203125,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 11.316800000003013,
+        "throughput_per_second": 3805.229076611068,
+        "wall_seconds": 0.274622100000002,
+        "worker_threads": 8,
+        "workers_per_class": 2
+      },
+      {
+        "accepted": {
+          "domain": 320,
+          "network": 64,
+          "persistence": 128,
+          "provider": 192
+        },
+        "backpressured": {
+          "domain": 3306,
+          "network": 3561,
+          "persistence": 3497,
+          "provider": 3433
+        },
+        "completed": {
+          "domain": 320,
+          "network": 64,
+          "persistence": 128,
+          "provider": 192
+        },
+        "completed_critical": 43,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "slow-io-r2",
+        "maximum_critical_latency_ms": 221.83610000000442,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 221.83610000000442,
+        "normalized_process_cpu_percent": 14.184228481458872,
+        "p95_queue_age_ms": 214.99369999999374,
+        "process_cpu_seconds": 0.234375,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 58.36909999999307,
+        "throughput_per_second": 2556.338393842444,
+        "wall_seconds": 0.2753938999999974,
+        "worker_threads": 4,
+        "workers_per_class": 1
+      },
+      {
+        "accepted": {
+          "domain": 192,
+          "network": 192,
+          "persistence": 192,
+          "provider": 256
+        },
+        "backpressured": {
+          "domain": 2117,
+          "network": 2116,
+          "persistence": 2116,
+          "provider": 2052
+        },
+        "completed": {
+          "domain": 192,
+          "network": 192,
+          "persistence": 192,
+          "provider": 256
+        },
+        "completed_critical": 51,
+        "final_depth": {
+          "domain": 0,
+          "network": 0,
+          "persistence": 0,
+          "provider": 0
+        },
+        "lane": "priority-contention-r2",
+        "maximum_critical_latency_ms": 102.60670000000971,
+        "maximum_depth": {
+          "domain": 64,
+          "network": 64,
+          "persistence": 64,
+          "provider": 64
+        },
+        "maximum_queue_age_ms": 133.7482999999935,
+        "normalized_process_cpu_percent": 15.067647711164,
+        "p95_queue_age_ms": 95.89890000000878,
+        "process_cpu_seconds": 0.234375,
+        "queue_capacity_per_class": 64,
+        "recovery_ms": 56.36400000000208,
+        "throughput_per_second": 3209.2884212962426,
+        "wall_seconds": 0.25924750000000074,
+        "worker_threads": 8,
+        "workers_per_class": 2
+      }
+    ],
+    "worker_config": [
+      {
+        "duration_seconds": 0.12,
+        "name": "idle-baseline",
+        "payload_iterations": 16,
+        "queue_capacity": 64,
+        "workers_per_class": 1
+      },
+      {
+        "duration_seconds": 0.18,
+        "name": "single-subsystem",
+        "payload_iterations": 80,
+        "queue_capacity": 64,
+        "workers_per_class": 1
+      },
+      {
+        "duration_seconds": 0.18,
+        "name": "two-pool-contention",
+        "payload_iterations": 100,
+        "queue_capacity": 64,
+        "workers_per_class": 2
+      },
+      {
+        "duration_seconds": 0.22,
+        "name": "all-provider-low-core",
+        "payload_iterations": 140,
+        "queue_capacity": 64,
+        "workers_per_class": 1
+      },
+      {
+        "duration_seconds": 0.22,
+        "name": "all-provider-balanced",
+        "payload_iterations": 140,
+        "queue_capacity": 64,
+        "workers_per_class": 2
+      },
+      {
+        "duration_seconds": 0.18,
+        "name": "slow-io",
+        "payload_iterations": 180,
+        "queue_capacity": 64,
+        "workers_per_class": 1
+      },
+      {
+        "duration_seconds": 0.18,
+        "name": "priority-contention",
+        "payload_iterations": 180,
+        "queue_capacity": 64,
+        "workers_per_class": 2
+      }
+    ]
+  },
+  "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+  "duration_ms": 3372.286299999999,
+  "evidence_id": "PRD07-EVID-0030",
+  "fixture_schema": "leyforge-r7-w1-owner-spatial-runtime-v1",
+  "gameplay_permission": "CLOSED",
+  "limitations": [
+    "CPU, latency, memory, worker, and queue measurements are experimental proof diagnostics; they are not production budgets."
+  ],
+  "metrics": {
+    "completion_mismatch_windows": 0,
+    "configuration_lanes": 7,
+    "maximum_critical_latency_ms": 240.10849999999095,
+    "maximum_queue_age_ms": 241.78049999999018,
+    "maximum_queue_depth": 64,
+    "maximum_recovery_ms": 58.36909999999307,
+    "peak_traced_memory_bytes": 155196,
+    "prior_w1_workload_profile_digest": "99322dec147234a5b1716d87ad3797b3139880120ef1115144eb1abf5deb1c91",
+    "retained_traced_memory_delta_bytes": 80127,
+    "starved_windows": 0,
+    "sustained_windows": 14,
+    "unbounded_queue_windows": 0,
+    "unrecovered_windows": 0
+  },
+  "observations": [
+    "Four independent bounded worker queues applied explicit admission/backpressure and drained after each pressure window."
+  ],
+  "outcome": "PASS",
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-18",
+  "run_id": "PRD07-RUN-0030",
+  "schema_version": "prd07-w1-observed-result-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+}

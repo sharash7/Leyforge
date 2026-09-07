@@ -1,0 +1,1108 @@
+{
+  "allocated_evidence_ids": [
+    "PRD07-EVID-0014",
+    "PRD07-EVID-0015",
+    "PRD07-EVID-0016",
+    "PRD07-EVID-0017",
+    "PRD07-EVID-0018",
+    "PRD07-EVID-0019",
+    "PRD07-EVID-0020",
+    "PRD07-EVID-0021",
+    "PRD07-EVID-0022",
+    "PRD07-EVID-0023",
+    "PRD07-EVID-0024",
+    "PRD07-EVID-0025",
+    "PRD07-EVID-0026",
+    "PRD07-EVID-0027",
+    "PRD07-EVID-0028",
+    "PRD07-EVID-0029",
+    "PRD07-EVID-0030"
+  ],
+  "allocated_run_ids": [
+    "PRD07-RUN-0014",
+    "PRD07-RUN-0015",
+    "PRD07-RUN-0016",
+    "PRD07-RUN-0017",
+    "PRD07-RUN-0018",
+    "PRD07-RUN-0019",
+    "PRD07-RUN-0020",
+    "PRD07-RUN-0021",
+    "PRD07-RUN-0022",
+    "PRD07-RUN-0023",
+    "PRD07-RUN-0024",
+    "PRD07-RUN-0025",
+    "PRD07-RUN-0026",
+    "PRD07-RUN-0027",
+    "PRD07-RUN-0028",
+    "PRD07-RUN-0029",
+    "PRD07-RUN-0030"
+  ],
+  "export_lanes": {
+    "client": {
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "artifact_size_bytes": 110441232,
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "runtime_self_report": {
+        "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+        "presentation_authority_dependencies": 0,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_ready": true,
+        "readback": 37,
+        "role": "client",
+        "schema_version": "prd07-w1-provider-self-report-v1",
+        "status": "PASS"
+      },
+      "state": "PASS"
+    },
+    "headless": {
+      "artifact_sha256": "4d5f2d49ffd268183b3e9e966630a51aadf34ea26ea352822feec5d712db8c4f",
+      "artifact_size_bytes": 110441280,
+      "build_identity": "26ec871408bd185ba8f3b8c7bc21b20136467e25a97a6f2ea25ed2d6871bb031",
+      "runtime_self_report": {
+        "build_identity": "26ec871408bd185ba8f3b8c7bc21b20136467e25a97a6f2ea25ed2d6871bb031",
+        "presentation_authority_dependencies": 0,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_ready": true,
+        "readback": 37,
+        "role": "headless",
+        "schema_version": "prd07-w1-provider-self-report-v1",
+        "status": "PASS"
+      },
+      "state": "PASS"
+    }
+  },
+  "gameplay_permission": "CLOSED",
+  "package": "R7-W1-OWNER-SPATIAL-PROOFS",
+  "package_state": "W1-EXECUTION-COMPLETE",
+  "prd08_evaluation": "CLOSED",
+  "prior_readiness_source": "docs/rebuild/r7/w1-readiness.json",
+  "proofs": [
+    {
+      "acceptance_reason": "At least 10,000 consequential completions produced zero stale commits and zero false rejection of current work.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0014",
+      "key_metrics": {
+        "classification_counts": {
+          "CURRENT-ACCEPTED": 4000,
+          "OWNER-EPOCH-REJECTED": 2000,
+          "SESSION-EPOCH-REJECTED": 2000,
+          "STALE-REJECTED": 2000,
+          "SUPERSEDED-REJECTED": 2000
+        },
+        "correct_rejection_count": 8000,
+        "false_rejection_count": 0,
+        "stale_commit_count": 0,
+        "task_completions": 12000
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-13",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0014",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0014",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 161,
+              "kind": "classification_report",
+              "path": "artifacts/classification-report.json",
+              "sha256": "448f9d4d37d4610edf74a40ebef0eef58699c4ac44ca0b3cf00636f5bfdb5331"
+            },
+            {
+              "bytes": 18592,
+              "kind": "revision_trace_samples",
+              "path": "artifacts/revision-trace-samples.json",
+              "sha256": "6a3da54b8334c341172f4d46d36b48d89e0a7f724745d539947dfaa9cc320365"
+            },
+            {
+              "bytes": 9,
+              "kind": "seed",
+              "path": "artifacts/seed.json",
+              "sha256": "4899f1e74201c35f0b4f9f680bf4e6b16e152ce8e468947ca0efba1010fa3100"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0014",
+          "evidence_sha256": "2965eb145d1787e4307cb7668e13ee490306b0216d606f29ead4bcee0e9e696b",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-13",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0014",
+          "run_id": "PRD07-RUN-0014",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0014",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Ten thousand handoffs retained exactly one current owner, accepted the new command, and rejected all old mutation rights.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0015",
+      "key_metrics": {
+        "classification_counts": {
+          "CURRENT-ACCEPTED": 10000,
+          "OWNER-EPOCH-REJECTED": 10000
+        },
+        "duplicate_commands": 0,
+        "duplicate_entities": 0,
+        "lost_commands": 0,
+        "no_owner_gaps": 0,
+        "old_mutation_rights_committed": 0,
+        "overlap_windows": 0,
+        "ownership_transfers": 10000
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-14",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0015",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0015",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 9995,
+              "kind": "handoff_trace_samples",
+              "path": "artifacts/handoff-trace-samples.json",
+              "sha256": "17c268947823d6e045b19449111ef505ae3a591bcc38a7e05ffcfb1dfed53a80"
+            },
+            {
+              "bytes": 68,
+              "kind": "ownership_epoch_log_digest",
+              "path": "artifacts/ownership-epoch-log-digest.json",
+              "sha256": "2efce0ff29bd63f00446ce4ffe78f94d57f2091b1990b9c91eabba224126e5b0"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0015",
+          "evidence_sha256": "c9c2556761e93f3aef53d4c1c4d00cb894787e749e4ea7b38cbd9ac8a4d6d2e6",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-14",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0015",
+          "run_id": "PRD07-RUN-0015",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0015",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "One hundred seeded cadence comparisons matched, with fresh real client and headless export smoke lanes present.",
+      "artifact_sha256": "4d5f2d49ffd268183b3e9e966630a51aadf34ea26ea352822feec5d712db8c4f",
+      "blockers": [],
+      "build_identity": "26ec871408bd185ba8f3b8c7bc21b20136467e25a97a6f2ea25ed2d6871bb031",
+      "evidence_id": "PRD07-EVID-0016",
+      "key_metrics": {
+        "cadence_profiles_per_comparison": 5,
+        "canonical_mismatches": 0,
+        "fps_correlation": 0.0,
+        "real_client_lane": true,
+        "real_headless_lane": true,
+        "seeded_comparisons": 100
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-19",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0016",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0016",
+        "run": {
+          "artifact_sha256": "4d5f2d49ffd268183b3e9e966630a51aadf34ea26ea352822feec5d712db8c4f",
+          "artifact_size_bytes": 110441280,
+          "build_identity": "26ec871408bd185ba8f3b8c7bc21b20136467e25a97a6f2ea25ed2d6871bb031",
+          "evidence_artifacts": [
+            {
+              "bytes": 1367,
+              "kind": "export_lane_reports",
+              "path": "artifacts/export-lane-reports.json",
+              "sha256": "b9b8d9d344d96ec7dd1304c51ff0532a7ebaa190b2a3dae5127ff6c60d81dae0"
+            },
+            {
+              "bytes": 10665,
+              "kind": "world_time_state_trace_samples",
+              "path": "artifacts/world-time-state-trace-samples.json",
+              "sha256": "c3fbdc4526bebee5f88252e2fd6750dfd3469ca474dc5e509f1227202c4747c2"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0016",
+          "evidence_sha256": "7a29b2342a9ff9b5c749f130b09aa5b7c5bb812ff5ec9dc4697b8c3b94adcc01",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-19",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0016",
+          "run_id": "PRD07-RUN-0016",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0016",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Persistent timers and production advanced for 4,096 records with zero Nodes and identity-preserving promotion.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0017",
+      "key_metrics": {
+        "live_entity_nodes": 0,
+        "population": 4096,
+        "produced_resources": 344036,
+        "promotion_checks": 100,
+        "promotion_differences": 0,
+        "simulated_days": 28,
+        "world_ticks": 672
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-15",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0017",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0017",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 166,
+              "kind": "canonical_snapshots",
+              "path": "artifacts/canonical-snapshots.json",
+              "sha256": "1146e9cb8e5f57c3f48371cbb3a62554863b11164bfad07d221e2c1ef759ff8b"
+            },
+            {
+              "bytes": 20,
+              "kind": "node_count_proof",
+              "path": "artifacts/node-count-proof.json",
+              "sha256": "d02c1303ff7dd090ff66366cd472008919999f99d9deb269e41855b98fed6d02"
+            },
+            {
+              "bytes": 7805,
+              "kind": "promotion_diffs",
+              "path": "artifacts/promotion-diffs.json",
+              "sha256": "094ec4c3b0472d121b24fd158ffea6b115b20af6abaf591e4e124c2556ea946c"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0017",
+          "evidence_sha256": "a0c90d5d3f33d88a0d911da75709c50d188a2a298cf1101fdd19024dd9ecc402",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-15",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0017",
+          "run_id": "PRD07-RUN-0017",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0017",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Ten thousand promotion/demotion transitions preserved identity, resources, timers, and obligations exactly.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0018",
+      "key_metrics": {
+        "identity_errors": 0,
+        "obligation_continuity_errors": 0,
+        "rapid_oscillation_transitions": 10000,
+        "resource_conservation_delta": 0,
+        "timer_continuity_errors": 0,
+        "transitions": 10000
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-16",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0018",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0018",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 166,
+              "kind": "canonical_snapshots",
+              "path": "artifacts/canonical-snapshots.json",
+              "sha256": "e3492ffb0e57c682d66221c57cd1ef5c623104078e0cc2cb2925e31e95161d65"
+            },
+            {
+              "bytes": 12409,
+              "kind": "transition_ledger_samples",
+              "path": "artifacts/transition-ledger-samples.json",
+              "sha256": "99ee83c510ffb87b16dfde58746f14aa9dd2a804a322e2956f2b8a07ec630f75"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0018",
+          "evidence_sha256": "acfbc5c65835c9feb1911318b6b782dfa8554f5ffed0904cae4054c84656304f",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-16",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0018",
+          "run_id": "PRD07-RUN-0018",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0018",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "One thousand seeded runs matched across four worker counts and shuffled completion orders; negative controls differed.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0019",
+      "key_metrics": {
+        "canonical_divergences": 0,
+        "different_seed_negative_control_equalities": 0,
+        "first_divergence_revision": null,
+        "seeded_runs": 1000,
+        "worker_configurations": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-21",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0019",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0019",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 92,
+              "kind": "rng_context",
+              "path": "artifacts/rng-context.json",
+              "sha256": "aecff86d645a08f7c4e035dcde2d181e83a2cd87832992710ac9f380b3c05ae9"
+            },
+            {
+              "bytes": 15425,
+              "kind": "seed_manifest_samples",
+              "path": "artifacts/seed-manifest-samples.json",
+              "sha256": "5c68f580714384db09a91480695febea19f5a3ce33f469aecef4e31440f2f892"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0019",
+          "evidence_sha256": "08637dfe5f73582954c768a885420c75f16522c9521e6b8139d8dc6f4afe8ad5",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-21",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0019",
+          "run_id": "PRD07-RUN-0019",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0019",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Thousands of interior/boundary edits produced complete, duplicate-free, bounded fan-out.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0020",
+      "key_metrics": {
+        "canonical_edits": 4096,
+        "consumer_fanout_per_edit": 6,
+        "duplicate_work": 0,
+        "maximum_dirty_volume": 125,
+        "missed_invalidations": 0,
+        "revision_link_errors": 0
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-23",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0020",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0020",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 105,
+              "kind": "dirty_region_policy",
+              "path": "artifacts/dirty-region-policy.json",
+              "sha256": "bf991a51e4e9b734a4ea5e0c65caeea271536620815bacda00a7b0d6e5d05a5e"
+            },
+            {
+              "bytes": 42042,
+              "kind": "spatial_change_samples",
+              "path": "artifacts/spatial-change-samples.json",
+              "sha256": "957eccabed5edae43b33ccd61ccf9f74848a75d94747615482cbf64b0ce303f7"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0020",
+          "evidence_sha256": "ec93a06baf32f7d180704a740f2721fc24d5c2a3430e8dce1317b2f6a40edd7b",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-23",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0020",
+          "run_id": "PRD07-RUN-0020",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0020",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Ten thousand raced cells retained the committed edit through delayed generation and reload representation.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0021",
+      "key_metrics": {
+        "classification_counts": {
+          "STALE-REJECTED": 10000
+        },
+        "late_generation_accepts": 0,
+        "overwritten_edits": 0,
+        "raced_cells": 10000,
+        "reload_regeneration_mismatches": 0
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-24",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0021",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0021",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 68067,
+              "kind": "generation_edit_timeline_samples",
+              "path": "artifacts/generation-edit-timeline-samples.json",
+              "sha256": "fc633d4c74f3cef48e6ddc2b321c7eb31d31b04090920aa2f26a13be05977553"
+            },
+            {
+              "bytes": 33,
+              "kind": "revision_merge_report",
+              "path": "artifacts/revision-merge-report.json",
+              "sha256": "3b10acced202b252f7a6af71eea01ed7dc937d2f6f7fbe2fae861cbba8fdaa93"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0021",
+          "evidence_sha256": "754f51a4ffa2e812dd8bb6cef3c0aaabd90d44e282a9f26642298abdbb551b5f",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-24",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0021",
+          "run_id": "PRD07-RUN-0021",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0021",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Thousands of edit/contact cases rejected stale collision, permitted current collision, and crossed the real Voxel Tools probe boundary.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0022",
+      "key_metrics": {
+        "edit_interaction_cases": 4096,
+        "maximum_quarantine_duration_ticks": 17,
+        "quarantine_failures": 0,
+        "real_provider_probe": true,
+        "stale_collision_accepts": 0,
+        "unsafe_interactions": 0
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-25",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0022",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0022",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 4100,
+              "kind": "collision_readiness_samples",
+              "path": "artifacts/collision-readiness-samples.json",
+              "sha256": "da7d86c597ba80ee61077d9df76fc2284dc3c83cd5b8b33e15c9d796f78a13d8"
+            },
+            {
+              "bytes": 2295,
+              "kind": "provider_probe",
+              "path": "artifacts/provider-probe.json",
+              "sha256": "371bdd10639edfdacb01fbb649e07c4781645339d4db4c75b0b4abc2d109bb1c"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0022",
+          "evidence_sha256": "d6fb92e08f6e297ecd8b98a3ee8e529c73fd7b6218ff4936d569e2c5fbf8874a",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-25",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0022",
+          "run_id": "PRD07-RUN-0022",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0022",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Five thousand topology/bake orders produced bounded dirtiness, zero stale path authorization, and a real provider-boundary probe.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0023",
+      "key_metrics": {
+        "dirty_region_errors": 0,
+        "edit_path_bake_cases": 5000,
+        "maximum_rebuild_lag_ticks": 23,
+        "real_provider_probe": true,
+        "stale_bake_accepts": 0,
+        "stale_path_accepts": 0,
+        "unsafe_traversals": 0
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-26",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0023",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0023",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 7989,
+              "kind": "nav_revision_samples",
+              "path": "artifacts/nav-revision-samples.json",
+              "sha256": "866f275204061360cccfd44bc285db079e0d0c3db80d49ced77706535b14f247"
+            },
+            {
+              "bytes": 2295,
+              "kind": "provider_probe",
+              "path": "artifacts/provider-probe.json",
+              "sha256": "7a8b1c3799237fe88fab53b3dcc8c51e26bad5701e6a499cc47cecfdfbcf747d"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0023",
+          "evidence_sha256": "df03fd766b08cb6502c6bdcba25e9770c2874cd62f748a9553b77286f2c48a57",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-26",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0023",
+          "run_id": "PRD07-RUN-0023",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0023",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Repeated transient and persistent failures across mesh, collision, and nav remained explicit, safe, and recoverable only at the current revision.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0024",
+      "key_metrics": {
+        "canonical_changes_from_provider_failure": 0,
+        "failure_modes": [
+          "error",
+          "timeout",
+          "stale",
+          "transient-recovery",
+          "persistent-degradation"
+        ],
+        "incorrect_recoveries": 0,
+        "invisible_failures": 0,
+        "provider_classes": [
+          "mesh",
+          "collision",
+          "nav"
+        ],
+        "provider_failure_cases": 750,
+        "real_provider_probe": true,
+        "unsafe_interactions": 0
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-34",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0024",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0024",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 5916,
+              "kind": "provider_health_events",
+              "path": "artifacts/provider-health-events.json",
+              "sha256": "e5c9fcb512d08e52c0c15cba37661babed29f1263bb878ac14f74cb2ff34df92"
+            },
+            {
+              "bytes": 2298,
+              "kind": "provider_probe",
+              "path": "artifacts/provider-probe.json",
+              "sha256": "8f09dff2ef0621941994d4953b5df65512dc3922077582cd3a5a74cb7ad9afa1"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0024",
+          "evidence_sha256": "b3a9d9843f81663e9468e771b7602c9aad5a8099a08538bfbbcf3696c71c264c",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-34",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0024",
+          "run_id": "PRD07-RUN-0024",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0024",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Six hundred multi-owner transaction cases conserved state with one explicit semantic commit boundary and no silent partial authority.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0025",
+      "key_metrics": {
+        "conservation_delta": 0,
+        "duplicate_operation_effects": 0,
+        "final_state_counts": {
+          "COMMITTED": 200,
+          "COMPENSATED": 300,
+          "REJECTED": 100
+        },
+        "partial_state_count": 0,
+        "reservation_leaks": 0,
+        "seeded_operations": 600,
+        "semantic_commits": 200
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-04",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0025",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0025",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 68,
+              "kind": "operation_ledger_digest",
+              "path": "artifacts/operation-ledger-digest.json",
+              "sha256": "c5ea8fe6623b3c5116b635acbe39ddd55dcc1fdee3bb51afe3652b9c3477a238"
+            },
+            {
+              "bytes": 26912,
+              "kind": "transaction_phase_trace_samples",
+              "path": "artifacts/transaction-phase-trace-samples.json",
+              "sha256": "245472987bce23accffc39755756ed3944a0a55f9c9dc17b6821a88bfb8581ec"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0025",
+          "evidence_sha256": "804db1d7d7bb85cd84609a525bbc62218fa16c3b200682b18bb27c9519ce52ea",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-04",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0025",
+          "run_id": "PRD07-RUN-0025",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0025",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "At least 1,000 construction operations conserved materials and rejected illegal, failed, cancelled, and duplicate attempts without ghost state.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0026",
+      "key_metrics": {
+        "construction_operations": 1200,
+        "duplicate_retry_effects": 0,
+        "free_material_cases": 0,
+        "ghost_or_double_structures": 0,
+        "material_conservation_delta": 0,
+        "permission_denials": 110,
+        "reservation_leaks": 0,
+        "semantic_commits": 517
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-17",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0026",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0026",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 28124,
+              "kind": "construction_trace_samples",
+              "path": "artifacts/construction-trace-samples.json",
+              "sha256": "3ee8209094eb47e070835fd3c5a95bbd3e294edaac8a41cd80d42c0455152a67"
+            },
+            {
+              "bytes": 68,
+              "kind": "resource_ledger_digest",
+              "path": "artifacts/resource-ledger-digest.json",
+              "sha256": "39ff4f1ca8548e1cccda519279e1fa576ef57253e8d8e37b4b2c65a709bac6c5"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0026",
+          "evidence_sha256": "fc05c3ee78126fb753382bc8756b5de2711361a5a846c0908c162c98e6aed2f3",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-17",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0026",
+          "run_id": "PRD07-RUN-0026",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0026",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Five hundred support/integrity cases produced exactly one canonical collapse and coherent conserved consequences.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0027",
+      "key_metrics": {
+        "canonical_collapse_transactions": 500,
+        "collapse_cases": 500,
+        "conservation_errors": 0,
+        "duplicate_damage": 0,
+        "duplicate_drops": 0,
+        "provider_authored_semantic_effects": 0
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-33",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0027",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0027",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 28674,
+              "kind": "collapse_trace_samples",
+              "path": "artifacts/collapse-trace-samples.json",
+              "sha256": "b70401c4b1411d2bebbb7214e9049aadb714357ec8298395cf8f44f903cf4bc0"
+            },
+            {
+              "bytes": 68,
+              "kind": "drop_damage_ledger_digest",
+              "path": "artifacts/drop-damage-ledger-digest.json",
+              "sha256": "025722424c627654b86809995f07fb98f3ed44f888c0914a728db4694ce6dc60"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0027",
+          "evidence_sha256": "cbc836e5dd87e4da736eef5040f7ca5ac7295c43a13fd60ec65fded8e2e51590",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-33",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0027",
+          "run_id": "PRD07-RUN-0027",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0027",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "One thousand consequential traces explained one semantic outcome and every provider, persistence, network, and acknowledgement descendant across a real external provider process.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0028",
+      "key_metrics": {
+        "contradictory_commit_traces": 0,
+        "events_per_transaction_max": 6,
+        "events_per_transaction_min": 6,
+        "incorrect_context_events": 0,
+        "network_projection_hooks": 1000,
+        "orphan_events": 0,
+        "persistence_projection_hooks": 1000,
+        "real_async_provider_boundary": true,
+        "transactions": 1000,
+        "undetermined_commit_status": 0
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-63",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0028",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0028",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 2373,
+              "kind": "provider_process_report",
+              "path": "artifacts/provider-process-report.json",
+              "sha256": "0eaff65127afbccfab5b8375094fdb8c1a5a85e1d0259b4db35e1cdf7fe4568a"
+            },
+            {
+              "bytes": 44039,
+              "kind": "structured_trace_samples",
+              "path": "artifacts/structured-trace-samples.json",
+              "sha256": "585714f5e3e09db565237251f6d1c4667480e80af84768b32965afcc13181830"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0028",
+          "evidence_sha256": "4a0d8e277c22a7c2365c688f06a356082b401052d3d21cb63afab3cb22f0d2c6",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-63",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0028",
+          "run_id": "PRD07-RUN-0028",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0028",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Ten thousand randomized schedules preserved determinism, conservation, ownership, and stale-work invariants.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0029",
+      "key_metrics": {
+        "conservation_errors": 0,
+        "first_divergence_seed": null,
+        "invariant_violations": 0,
+        "randomized_schedules": 10000,
+        "stale_commit_count": 0,
+        "state_divergences": 0
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-68",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0029",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0029",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 68,
+              "kind": "canonical_hash_ledger_digest",
+              "path": "artifacts/canonical-hash-ledger-digest.json",
+              "sha256": "c185415c9aa03f49d0b8f4db8a07047caf2c993c5e681ad093a76ae572d8beed"
+            },
+            {
+              "bytes": 7469,
+              "kind": "chaos_seed_samples",
+              "path": "artifacts/chaos-seed-samples.json",
+              "sha256": "e09e81b3d86814d3f7ab6e6fd322098967ea982751f1077bc6f2ea0505e6c61d"
+            },
+            {
+              "bytes": 109,
+              "kind": "worker_config",
+              "path": "artifacts/worker-config.json",
+              "sha256": "9f872c17c69355838ffa4e076845d2a0885176b1f3f4a3b299a22d55a8044828"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0029",
+          "evidence_sha256": "5661b9641ebba2e351479097b0ad69874158a1daea159674c328bbd7e8ad7a52",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-68",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0029",
+          "run_id": "PRD07-RUN-0029",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0029",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Fourteen sustained windows across seven configurations remained bounded, completed admitted work, preserved critical progress, and recovered after pressure.",
+      "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+      "blockers": [],
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "evidence_id": "PRD07-EVID-0030",
+      "key_metrics": {
+        "completion_mismatch_windows": 0,
+        "configuration_lanes": 7,
+        "maximum_critical_latency_ms": 240.10849999999095,
+        "maximum_queue_age_ms": 241.78049999999018,
+        "maximum_queue_depth": 64,
+        "maximum_recovery_ms": 58.36909999999307,
+        "peak_traced_memory_bytes": 155196,
+        "prior_w1_workload_profile_digest": "99322dec147234a5b1716d87ad3797b3139880120ef1115144eb1abf5deb1c91",
+        "retained_traced_memory_delta_bytes": 80127,
+        "starved_windows": 0,
+        "sustained_windows": 14,
+        "unbounded_queue_windows": 0,
+        "unrecovered_windows": 0
+      },
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-18",
+      "readiness": "READY",
+      "retention": {
+        "local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0030",
+        "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0030",
+        "run": {
+          "artifact_sha256": "5ef7f0f7378210acef28f1cfd7ba964173a750ee0ad432d3ccbe842ac2a52123",
+          "artifact_size_bytes": 110441232,
+          "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+          "evidence_artifacts": [
+            {
+              "bytes": 5081,
+              "kind": "diagnostic_config",
+              "path": "artifacts/diagnostic-config.json",
+              "sha256": "ee12e260a1124456c8173d986a8081e910823cbf71f7fec5398a2133d28149d0"
+            },
+            {
+              "bytes": 16236,
+              "kind": "time_series_windows",
+              "path": "artifacts/time-series-windows.json",
+              "sha256": "5d1a7bc6486354e799a125459d141929f00cf39d84625b24d8a6bedfac5811e3"
+            },
+            {
+              "bytes": 1141,
+              "kind": "worker_config",
+              "path": "artifacts/worker-config.json",
+              "sha256": "9988f2c64c7d9303d9fed67d0d6ea4cf35d9c6bb7fdae40105465f96dffb3fdd"
+            }
+          ],
+          "evidence_id": "PRD07-EVID-0030",
+          "evidence_sha256": "cbc36b512dec85cea66576e7386e45de762b98bde9e52bca2cd3398d318ff49d",
+          "execution_kind": "actual-governed-execution",
+          "gameplay_permission": "CLOSED",
+          "outcome": "PASS-OBSERVED",
+          "prd07_evidence_eligible": true,
+          "prd08_submission": "NOT-SUBMITTED",
+          "proof_id": "PRD04-PROOF-18",
+          "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\validated-evidence\\PRD07-RUN-0030",
+          "run_id": "PRD07-RUN-0030",
+          "schema_version": "prd07-portable-run-record-v1",
+          "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+        }
+      },
+      "run_id": "PRD07-RUN-0030",
+      "state": "PASS-OBSERVED"
+    }
+  ],
+  "schema_version": "prd07-w1-execution-state-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+}

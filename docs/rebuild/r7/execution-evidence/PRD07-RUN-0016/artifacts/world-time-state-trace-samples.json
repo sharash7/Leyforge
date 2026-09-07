@@ -1,0 +1,222 @@
+[
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "31b2b1ff04954336959ed84fcf7e572f5827f498882b6a9b013b74f061f583d6",
+      "high-fps": "31b2b1ff04954336959ed84fcf7e572f5827f498882b6a9b013b74f061f583d6",
+      "low-fps": "31b2b1ff04954336959ed84fcf7e572f5827f498882b6a9b013b74f061f583d6",
+      "presentation-stall": "31b2b1ff04954336959ed84fcf7e572f5827f498882b6a9b013b74f061f583d6",
+      "provider-delay": "31b2b1ff04954336959ed84fcf7e572f5827f498882b6a9b013b74f061f583d6"
+    },
+    "seed": 1638400
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "3685e88afddaab7f09bd1a2eb436b27324ea00cc672f93455e58635fbacb7731",
+      "high-fps": "3685e88afddaab7f09bd1a2eb436b27324ea00cc672f93455e58635fbacb7731",
+      "low-fps": "3685e88afddaab7f09bd1a2eb436b27324ea00cc672f93455e58635fbacb7731",
+      "presentation-stall": "3685e88afddaab7f09bd1a2eb436b27324ea00cc672f93455e58635fbacb7731",
+      "provider-delay": "3685e88afddaab7f09bd1a2eb436b27324ea00cc672f93455e58635fbacb7731"
+    },
+    "seed": 1638401
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "7deacb32088831a577e54264beda950c71b20b25be04a8b761b8d39c338a10bb",
+      "high-fps": "7deacb32088831a577e54264beda950c71b20b25be04a8b761b8d39c338a10bb",
+      "low-fps": "7deacb32088831a577e54264beda950c71b20b25be04a8b761b8d39c338a10bb",
+      "presentation-stall": "7deacb32088831a577e54264beda950c71b20b25be04a8b761b8d39c338a10bb",
+      "provider-delay": "7deacb32088831a577e54264beda950c71b20b25be04a8b761b8d39c338a10bb"
+    },
+    "seed": 1638402
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "f4b7a7ae1be1f4f94f801c4e4da53e44f9a8927edab2edb66dc702cf7ee193f2",
+      "high-fps": "f4b7a7ae1be1f4f94f801c4e4da53e44f9a8927edab2edb66dc702cf7ee193f2",
+      "low-fps": "f4b7a7ae1be1f4f94f801c4e4da53e44f9a8927edab2edb66dc702cf7ee193f2",
+      "presentation-stall": "f4b7a7ae1be1f4f94f801c4e4da53e44f9a8927edab2edb66dc702cf7ee193f2",
+      "provider-delay": "f4b7a7ae1be1f4f94f801c4e4da53e44f9a8927edab2edb66dc702cf7ee193f2"
+    },
+    "seed": 1638403
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "d30b633966c17a97144cab6189a3106843e4efb3feaa47bb040b1e478268522d",
+      "high-fps": "d30b633966c17a97144cab6189a3106843e4efb3feaa47bb040b1e478268522d",
+      "low-fps": "d30b633966c17a97144cab6189a3106843e4efb3feaa47bb040b1e478268522d",
+      "presentation-stall": "d30b633966c17a97144cab6189a3106843e4efb3feaa47bb040b1e478268522d",
+      "provider-delay": "d30b633966c17a97144cab6189a3106843e4efb3feaa47bb040b1e478268522d"
+    },
+    "seed": 1638404
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "5cf24e917ea298b6f53872e19fba581b3d2b2440aaef52a34fc23fc1d8dc97c7",
+      "high-fps": "5cf24e917ea298b6f53872e19fba581b3d2b2440aaef52a34fc23fc1d8dc97c7",
+      "low-fps": "5cf24e917ea298b6f53872e19fba581b3d2b2440aaef52a34fc23fc1d8dc97c7",
+      "presentation-stall": "5cf24e917ea298b6f53872e19fba581b3d2b2440aaef52a34fc23fc1d8dc97c7",
+      "provider-delay": "5cf24e917ea298b6f53872e19fba581b3d2b2440aaef52a34fc23fc1d8dc97c7"
+    },
+    "seed": 1638405
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "c0d46586a48c80751eb18b82138a4151d7ad3f855e2f7a3dcc636360707b753a",
+      "high-fps": "c0d46586a48c80751eb18b82138a4151d7ad3f855e2f7a3dcc636360707b753a",
+      "low-fps": "c0d46586a48c80751eb18b82138a4151d7ad3f855e2f7a3dcc636360707b753a",
+      "presentation-stall": "c0d46586a48c80751eb18b82138a4151d7ad3f855e2f7a3dcc636360707b753a",
+      "provider-delay": "c0d46586a48c80751eb18b82138a4151d7ad3f855e2f7a3dcc636360707b753a"
+    },
+    "seed": 1638406
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "c8854676ec65036948b8c7376b8409e08b2ebc1cc9d0155411f1dff623f90a3f",
+      "high-fps": "c8854676ec65036948b8c7376b8409e08b2ebc1cc9d0155411f1dff623f90a3f",
+      "low-fps": "c8854676ec65036948b8c7376b8409e08b2ebc1cc9d0155411f1dff623f90a3f",
+      "presentation-stall": "c8854676ec65036948b8c7376b8409e08b2ebc1cc9d0155411f1dff623f90a3f",
+      "provider-delay": "c8854676ec65036948b8c7376b8409e08b2ebc1cc9d0155411f1dff623f90a3f"
+    },
+    "seed": 1638407
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "43bdbfcfa6cffdbe551aac1ab708560e752186db5597cdfdeff443db7bcf7c42",
+      "high-fps": "43bdbfcfa6cffdbe551aac1ab708560e752186db5597cdfdeff443db7bcf7c42",
+      "low-fps": "43bdbfcfa6cffdbe551aac1ab708560e752186db5597cdfdeff443db7bcf7c42",
+      "presentation-stall": "43bdbfcfa6cffdbe551aac1ab708560e752186db5597cdfdeff443db7bcf7c42",
+      "provider-delay": "43bdbfcfa6cffdbe551aac1ab708560e752186db5597cdfdeff443db7bcf7c42"
+    },
+    "seed": 1638408
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "a662c3d185178f228e2cbe90a92948c90b19c84c2e7ca924d225452a731e46b1",
+      "high-fps": "a662c3d185178f228e2cbe90a92948c90b19c84c2e7ca924d225452a731e46b1",
+      "low-fps": "a662c3d185178f228e2cbe90a92948c90b19c84c2e7ca924d225452a731e46b1",
+      "presentation-stall": "a662c3d185178f228e2cbe90a92948c90b19c84c2e7ca924d225452a731e46b1",
+      "provider-delay": "a662c3d185178f228e2cbe90a92948c90b19c84c2e7ca924d225452a731e46b1"
+    },
+    "seed": 1638409
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "76d5ba43dd720e6fb958871bd80f676694326705404f8093b604f43ac7ff8c11",
+      "high-fps": "76d5ba43dd720e6fb958871bd80f676694326705404f8093b604f43ac7ff8c11",
+      "low-fps": "76d5ba43dd720e6fb958871bd80f676694326705404f8093b604f43ac7ff8c11",
+      "presentation-stall": "76d5ba43dd720e6fb958871bd80f676694326705404f8093b604f43ac7ff8c11",
+      "provider-delay": "76d5ba43dd720e6fb958871bd80f676694326705404f8093b604f43ac7ff8c11"
+    },
+    "seed": 1638410
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "106bd2cf1010eaa55d5c4c4333d058ac8b54bdb17565f64400b4d1e213dc1620",
+      "high-fps": "106bd2cf1010eaa55d5c4c4333d058ac8b54bdb17565f64400b4d1e213dc1620",
+      "low-fps": "106bd2cf1010eaa55d5c4c4333d058ac8b54bdb17565f64400b4d1e213dc1620",
+      "presentation-stall": "106bd2cf1010eaa55d5c4c4333d058ac8b54bdb17565f64400b4d1e213dc1620",
+      "provider-delay": "106bd2cf1010eaa55d5c4c4333d058ac8b54bdb17565f64400b4d1e213dc1620"
+    },
+    "seed": 1638411
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "c4054341b8508d4ab5d794293dfd2518a2916842205130c1878bf650cc32b4a0",
+      "high-fps": "c4054341b8508d4ab5d794293dfd2518a2916842205130c1878bf650cc32b4a0",
+      "low-fps": "c4054341b8508d4ab5d794293dfd2518a2916842205130c1878bf650cc32b4a0",
+      "presentation-stall": "c4054341b8508d4ab5d794293dfd2518a2916842205130c1878bf650cc32b4a0",
+      "provider-delay": "c4054341b8508d4ab5d794293dfd2518a2916842205130c1878bf650cc32b4a0"
+    },
+    "seed": 1638412
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "076f77ebca1b06cb894eff90e1cb758e628ad8d0c8c73b919bae530e8d01eb33",
+      "high-fps": "076f77ebca1b06cb894eff90e1cb758e628ad8d0c8c73b919bae530e8d01eb33",
+      "low-fps": "076f77ebca1b06cb894eff90e1cb758e628ad8d0c8c73b919bae530e8d01eb33",
+      "presentation-stall": "076f77ebca1b06cb894eff90e1cb758e628ad8d0c8c73b919bae530e8d01eb33",
+      "provider-delay": "076f77ebca1b06cb894eff90e1cb758e628ad8d0c8c73b919bae530e8d01eb33"
+    },
+    "seed": 1638413
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "edd79d08b2574ebe0b945a3d8836e38c69994fa85cfa00fd288f76d294ee50e6",
+      "high-fps": "edd79d08b2574ebe0b945a3d8836e38c69994fa85cfa00fd288f76d294ee50e6",
+      "low-fps": "edd79d08b2574ebe0b945a3d8836e38c69994fa85cfa00fd288f76d294ee50e6",
+      "presentation-stall": "edd79d08b2574ebe0b945a3d8836e38c69994fa85cfa00fd288f76d294ee50e6",
+      "provider-delay": "edd79d08b2574ebe0b945a3d8836e38c69994fa85cfa00fd288f76d294ee50e6"
+    },
+    "seed": 1638414
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "62c2d787da4ae3fcdc023976dfc3bb8c08c1c5667ebe976435af05e13f38cb2f",
+      "high-fps": "62c2d787da4ae3fcdc023976dfc3bb8c08c1c5667ebe976435af05e13f38cb2f",
+      "low-fps": "62c2d787da4ae3fcdc023976dfc3bb8c08c1c5667ebe976435af05e13f38cb2f",
+      "presentation-stall": "62c2d787da4ae3fcdc023976dfc3bb8c08c1c5667ebe976435af05e13f38cb2f",
+      "provider-delay": "62c2d787da4ae3fcdc023976dfc3bb8c08c1c5667ebe976435af05e13f38cb2f"
+    },
+    "seed": 1638415
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "eda40591194aa710122d6025407d20b56a2fe8892be81375aa3737bb01b00666",
+      "high-fps": "eda40591194aa710122d6025407d20b56a2fe8892be81375aa3737bb01b00666",
+      "low-fps": "eda40591194aa710122d6025407d20b56a2fe8892be81375aa3737bb01b00666",
+      "presentation-stall": "eda40591194aa710122d6025407d20b56a2fe8892be81375aa3737bb01b00666",
+      "provider-delay": "eda40591194aa710122d6025407d20b56a2fe8892be81375aa3737bb01b00666"
+    },
+    "seed": 1638416
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "50dc529075443f6545df07a0921fd6c6f627af8ed718a428ea520e7e861861d2",
+      "high-fps": "50dc529075443f6545df07a0921fd6c6f627af8ed718a428ea520e7e861861d2",
+      "low-fps": "50dc529075443f6545df07a0921fd6c6f627af8ed718a428ea520e7e861861d2",
+      "presentation-stall": "50dc529075443f6545df07a0921fd6c6f627af8ed718a428ea520e7e861861d2",
+      "provider-delay": "50dc529075443f6545df07a0921fd6c6f627af8ed718a428ea520e7e861861d2"
+    },
+    "seed": 1638417
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "ceabc5be626986b11dc2dba8a07620bce112873bcfe5abc4d77df4822ce03045",
+      "high-fps": "ceabc5be626986b11dc2dba8a07620bce112873bcfe5abc4d77df4822ce03045",
+      "low-fps": "ceabc5be626986b11dc2dba8a07620bce112873bcfe5abc4d77df4822ce03045",
+      "presentation-stall": "ceabc5be626986b11dc2dba8a07620bce112873bcfe5abc4d77df4822ce03045",
+      "provider-delay": "ceabc5be626986b11dc2dba8a07620bce112873bcfe5abc4d77df4822ce03045"
+    },
+    "seed": 1638418
+  },
+  {
+    "equivalent": true,
+    "profiles": {
+      "headless": "91efda508f22d08604a3e555d19e27354c0125116939729c5167c31872d49aa8",
+      "high-fps": "91efda508f22d08604a3e555d19e27354c0125116939729c5167c31872d49aa8",
+      "low-fps": "91efda508f22d08604a3e555d19e27354c0125116939729c5167c31872d49aa8",
+      "presentation-stall": "91efda508f22d08604a3e555d19e27354c0125116939729c5167c31872d49aa8",
+      "provider-delay": "91efda508f22d08604a3e555d19e27354c0125116939729c5167c31872d49aa8"
+    },
+    "seed": 1638419
+  }
+]

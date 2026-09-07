@@ -1,0 +1,247 @@
+{
+  "acceptance_reason": "Thousands of edit/contact cases rejected stale collision, permitted current collision, and crossed the real Voxel Tools probe boundary.",
+  "artifacts": {
+    "collision_readiness_samples": [
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 1,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 2,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 3,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 4,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 5,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 6,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 7,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 8,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 9,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 10,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 11,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 12,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 13,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 14,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 15,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 16,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 17,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 18,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 19,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 20,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 21,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 22,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 23,
+        "stale_publish": "STALE-REJECTED"
+      },
+      {
+        "after": "ACCEPTED",
+        "before": "QUARANTINED",
+        "current_publish": "CURRENT-ACCEPTED",
+        "revision": 24,
+        "stale_publish": "STALE-REJECTED"
+      }
+    ],
+    "provider_probe": {
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "current_revision_results_published": 512,
+      "external_process": true,
+      "final_revision": 1024,
+      "injected_adapter_failures_classified": 0,
+      "outcome": "PASS",
+      "presentation_authority_dependencies": 0,
+      "process": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "PRD04-PROOF-25-W1-PROVIDER",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\builds\\client\\output\\leyforge-w1-client-probe.exe",
+            "--",
+            "--mode",
+            "provider",
+            "--proof-id",
+            "PRD04-PROOF-25",
+            "--run-id",
+            "PRD07-RUN-0022",
+            "--iterations",
+            "512"
+          ],
+          "duration_seconds": 1.2007667999999967,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W1_PROVIDER_REPORT {\"build_identity\":\"a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219\",\"current_revision_results_published\":512,\"final_revision\":1024,\"injected_adapter_failures_classified\":0,\"outcome\":\"PASS\",\"presentation_authority_dependencies\":0,\"proof_id\":\"PRD04-PROOF-25\",\"provider_class\":\"VoxelBuffer\",\"provider_edition\":\"zylann-voxel-tools-gdextension-v1.7x\",\"provider_ready\":true,\"readback_errors\":0,\"real_provider_operations\":512,\"role\":\"client\",\"run_id\":\"PRD07-RUN-0022\",\"schema_version\":\"prd07-w1-provider-report-v1\",\"stale_revision_results_rejected\":512}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-25",
+        "role": "client",
+        "run_id": "PRD07-RUN-0022"
+      },
+      "proof_id": "PRD04-PROOF-25",
+      "provider_class": "VoxelBuffer",
+      "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+      "provider_ready": true,
+      "readback_errors": 0,
+      "real_provider_operations": 512,
+      "role": "client",
+      "run_id": "PRD07-RUN-0022",
+      "schema_version": "prd07-w1-provider-report-v1",
+      "stale_revision_results_rejected": 512
+    }
+  },
+  "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+  "duration_ms": 26.305200000003026,
+  "evidence_id": "PRD07-EVID-0022",
+  "fixture_schema": "leyforge-r7-w1-owner-spatial-runtime-v1",
+  "gameplay_permission": "CLOSED",
+  "limitations": [
+    "The proof-only collision readiness adapter does not select a production physics implementation."
+  ],
+  "metrics": {
+    "edit_interaction_cases": 4096,
+    "maximum_quarantine_duration_ticks": 17,
+    "quarantine_failures": 0,
+    "real_provider_probe": true,
+    "stale_collision_accepts": 0,
+    "unsafe_interactions": 0
+  },
+  "observations": [
+    "Authoritative contact queries remained quarantined until the derived collision revision matched canonical state."
+  ],
+  "outcome": "PASS",
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-25",
+  "run_id": "PRD07-RUN-0022",
+  "schema_version": "prd07-w1-observed-result-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+}

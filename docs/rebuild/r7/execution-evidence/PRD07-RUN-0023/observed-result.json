@@ -1,0 +1,536 @@
+{
+  "acceptance_reason": "Five thousand topology/bake orders produced bounded dirtiness, zero stale path authorization, and a real provider-boundary probe.",
+  "artifacts": {
+    "nav_revision_samples": [
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            2,
+            2,
+            2
+          ],
+          "minimum": [
+            -2,
+            -2,
+            -2
+          ]
+        },
+        "revision": 1,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            3,
+            2,
+            45
+          ],
+          "minimum": [
+            -1,
+            -2,
+            41
+          ]
+        },
+        "revision": 2,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            4,
+            2,
+            15
+          ],
+          "minimum": [
+            0,
+            -2,
+            11
+          ]
+        },
+        "revision": 3,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            5,
+            2,
+            58
+          ],
+          "minimum": [
+            1,
+            -2,
+            54
+          ]
+        },
+        "revision": 4,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            6,
+            2,
+            28
+          ],
+          "minimum": [
+            2,
+            -2,
+            24
+          ]
+        },
+        "revision": 5,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            7,
+            2,
+            71
+          ],
+          "minimum": [
+            3,
+            -2,
+            67
+          ]
+        },
+        "revision": 6,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            8,
+            2,
+            41
+          ],
+          "minimum": [
+            4,
+            -2,
+            37
+          ]
+        },
+        "revision": 7,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            9,
+            2,
+            11
+          ],
+          "minimum": [
+            5,
+            -2,
+            7
+          ]
+        },
+        "revision": 8,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            10,
+            2,
+            54
+          ],
+          "minimum": [
+            6,
+            -2,
+            50
+          ]
+        },
+        "revision": 9,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            11,
+            2,
+            24
+          ],
+          "minimum": [
+            7,
+            -2,
+            20
+          ]
+        },
+        "revision": 10,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            12,
+            2,
+            67
+          ],
+          "minimum": [
+            8,
+            -2,
+            63
+          ]
+        },
+        "revision": 11,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            13,
+            2,
+            37
+          ],
+          "minimum": [
+            9,
+            -2,
+            33
+          ]
+        },
+        "revision": 12,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            14,
+            2,
+            7
+          ],
+          "minimum": [
+            10,
+            -2,
+            3
+          ]
+        },
+        "revision": 13,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            15,
+            2,
+            50
+          ],
+          "minimum": [
+            11,
+            -2,
+            46
+          ]
+        },
+        "revision": 14,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            16,
+            2,
+            20
+          ],
+          "minimum": [
+            12,
+            -2,
+            16
+          ]
+        },
+        "revision": 15,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            17,
+            2,
+            63
+          ],
+          "minimum": [
+            13,
+            -2,
+            59
+          ]
+        },
+        "revision": 16,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            18,
+            2,
+            33
+          ],
+          "minimum": [
+            14,
+            -2,
+            29
+          ]
+        },
+        "revision": 17,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            19,
+            2,
+            3
+          ],
+          "minimum": [
+            15,
+            -2,
+            -1
+          ]
+        },
+        "revision": 18,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            20,
+            2,
+            46
+          ],
+          "minimum": [
+            16,
+            -2,
+            42
+          ]
+        },
+        "revision": 19,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            21,
+            2,
+            16
+          ],
+          "minimum": [
+            17,
+            -2,
+            12
+          ]
+        },
+        "revision": 20,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            22,
+            2,
+            59
+          ],
+          "minimum": [
+            18,
+            -2,
+            55
+          ]
+        },
+        "revision": 21,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            23,
+            2,
+            29
+          ],
+          "minimum": [
+            19,
+            -2,
+            25
+          ]
+        },
+        "revision": 22,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            24,
+            2,
+            72
+          ],
+          "minimum": [
+            20,
+            -2,
+            68
+          ]
+        },
+        "revision": 23,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      },
+      {
+        "current_bake": "CURRENT-ACCEPTED",
+        "current_path": "ACCEPTED",
+        "dirty": {
+          "maximum": [
+            25,
+            2,
+            42
+          ],
+          "minimum": [
+            21,
+            -2,
+            38
+          ]
+        },
+        "revision": 24,
+        "stale_bake": "STALE-REJECTED",
+        "stale_path": "QUARANTINED"
+      }
+    ],
+    "provider_probe": {
+      "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+      "current_revision_results_published": 512,
+      "external_process": true,
+      "final_revision": 1024,
+      "injected_adapter_failures_classified": 0,
+      "outcome": "PASS",
+      "presentation_authority_dependencies": 0,
+      "process": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "PRD04-PROOF-26-W1-PROVIDER",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w1-runs\\9424d4df9e4fb78884a94db3a2f65f468fb5f27c\\builds\\client\\output\\leyforge-w1-client-probe.exe",
+            "--",
+            "--mode",
+            "provider",
+            "--proof-id",
+            "PRD04-PROOF-26",
+            "--run-id",
+            "PRD07-RUN-0023",
+            "--iterations",
+            "512"
+          ],
+          "duration_seconds": 1.2090877000000049,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W1_PROVIDER_REPORT {\"build_identity\":\"a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219\",\"current_revision_results_published\":512,\"final_revision\":1024,\"injected_adapter_failures_classified\":0,\"outcome\":\"PASS\",\"presentation_authority_dependencies\":0,\"proof_id\":\"PRD04-PROOF-26\",\"provider_class\":\"VoxelBuffer\",\"provider_edition\":\"zylann-voxel-tools-gdextension-v1.7x\",\"provider_ready\":true,\"readback_errors\":0,\"real_provider_operations\":512,\"role\":\"client\",\"run_id\":\"PRD07-RUN-0023\",\"schema_version\":\"prd07-w1-provider-report-v1\",\"stale_revision_results_rejected\":512}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-26",
+        "role": "client",
+        "run_id": "PRD07-RUN-0023"
+      },
+      "proof_id": "PRD04-PROOF-26",
+      "provider_class": "VoxelBuffer",
+      "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+      "provider_ready": true,
+      "readback_errors": 0,
+      "real_provider_operations": 512,
+      "role": "client",
+      "run_id": "PRD07-RUN-0023",
+      "schema_version": "prd07-w1-provider-report-v1",
+      "stale_revision_results_rejected": 512
+    }
+  },
+  "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+  "duration_ms": 35.988899999999546,
+  "evidence_id": "PRD07-EVID-0023",
+  "fixture_schema": "leyforge-r7-w1-owner-spatial-runtime-v1",
+  "gameplay_permission": "CLOSED",
+  "limitations": [
+    "The proof-only nav bridge does not select a production navigation implementation."
+  ],
+  "metrics": {
+    "dirty_region_errors": 0,
+    "edit_path_bake_cases": 5000,
+    "maximum_rebuild_lag_ticks": 23,
+    "real_provider_probe": true,
+    "stale_bake_accepts": 0,
+    "stale_path_accepts": 0,
+    "unsafe_traversals": 0
+  },
+  "observations": [
+    "Path authorization consulted canonical-linked nav readiness and rejected out-of-order bakes."
+  ],
+  "outcome": "PASS",
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-26",
+  "run_id": "PRD07-RUN-0023",
+  "schema_version": "prd07-w1-observed-result-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+}

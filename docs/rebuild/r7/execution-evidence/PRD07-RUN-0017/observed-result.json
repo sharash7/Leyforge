@@ -1,0 +1,438 @@
+{
+  "acceptance_reason": "Persistent timers and production advanced for 4,096 records with zero Nodes and identity-preserving promotion.",
+  "artifacts": {
+    "canonical_snapshots": {
+      "after": "460bb333fa5c8386089409df5b4a237655e7dbdef2e5e51be23fd034d75f7539",
+      "before": "e47cb9b48e79ceeb32358c37770a27598e62a90de790487d291f85d9a9420999"
+    },
+    "node_count_proof": {
+      "count": 0
+    },
+    "promotion_diffs": [
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000000"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000037"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000074"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000111"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000148"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000185"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000222"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000259"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000296"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000333"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000370"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000407"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000444"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000481"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000518"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000555"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000592"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000629"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000666"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000703"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000740"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000777"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000814"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000851"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000888"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000925"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000962"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.000999"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001036"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001073"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001110"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001147"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001184"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001221"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001258"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001295"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001332"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001369"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001406"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001443"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001480"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001517"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001554"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001591"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001628"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001665"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001702"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001739"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001776"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001813"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001850"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001887"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001924"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001961"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.001998"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002035"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002072"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002109"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002146"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002183"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002220"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002257"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002294"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002331"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002368"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002405"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002442"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002479"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002516"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002553"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002590"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002627"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002664"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002701"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002738"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002775"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002812"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002849"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002886"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002923"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002960"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.002997"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003034"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003071"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003108"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003145"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003182"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003219"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003256"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003293"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003330"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003367"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003404"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003441"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003478"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003515"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003552"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003589"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003626"
+      },
+      {
+        "equal": true,
+        "semantic_id": "actor.w1.00150015.003663"
+      }
+    ]
+  },
+  "build_identity": "a36930d75d5705566d16b0cd15bf7add9107e5a0afe3706600cf30c7e95f9219",
+  "duration_ms": 25.812799999997083,
+  "evidence_id": "PRD07-EVID-0017",
+  "fixture_schema": "leyforge-r7-w1-owner-spatial-runtime-v1",
+  "gameplay_permission": "CLOSED",
+  "limitations": [],
+  "metrics": {
+    "live_entity_nodes": 0,
+    "population": 4096,
+    "produced_resources": 344036,
+    "promotion_checks": 100,
+    "promotion_differences": 0,
+    "simulated_days": 28,
+    "world_ticks": 672
+  },
+  "observations": [
+    "Four weeks of domain progression completed with no SceneTree/entity Node representation."
+  ],
+  "outcome": "PASS",
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-15",
+  "run_id": "PRD07-RUN-0017",
+  "schema_version": "prd07-w1-observed-result-v1",
+  "source_revision": "9424d4df9e4fb78884a94db3a2f65f468fb5f27c"
+}
