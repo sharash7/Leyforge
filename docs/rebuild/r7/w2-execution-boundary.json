@@ -4,9 +4,9 @@
   "artifacts": [
     {
       "bytes": 6704,
-      "git_blob": "438d5787f35cf61721d3ce0b063fb8131ce7cfb3",
+      "git_blob": "050b143696123297f5e0472706fa76ef27381c6b",
       "path": "docs/rebuild/r7/w2-readiness.json",
-      "sha256": "2517fcba70f53c0ddbd9fae8245cfec413e7dbffcfb7256039377efd0677539d"
+      "sha256": "fcd64341a2f9d7df1985823eaf0e9c2fbf698f2c03febe9c11dc35278c881130"
     },
     {
       "bytes": 657,
@@ -128,7 +128,7 @@
     "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
   },
   "gameplay_permission": "CLOSED",
-  "implementation_commit": "045da26ca055ebf15904a3a0601a17792590186d",
+  "implementation_commit": "dbf68bdf8aa387fe76fec818d83b11cd41043b8e",
   "manifest_version": 1,
   "package": "R7-W2-NETWORK-PERSISTENCE-RECOVERY-MIGRATION-READINESS",
   "proof_execution": "NOT-STARTED",
