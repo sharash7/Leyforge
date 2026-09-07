@@ -6,7 +6,7 @@ title: "Godot Engine"
 status: "proposed"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-06"
+updated: "2026-09-07"
 authority_domain: "implementation_state"
 authority_role: "provisional_record"
 authority_status: "proposed"
@@ -29,6 +29,9 @@ related_to:
   - "ADR-0001"
   - "TASK-20260906-005"
   - "WORK-20260906-005"
+  - "EVID-0006"
+  - "AUDIT-0006"
+  - "HANDOFF-20260906-005"
   - "DEP-ZYLANN"
   - "SYS-ENGINEERING-GOVERNANCE"
 ---
@@ -72,6 +75,10 @@ Godot is MIT licensed. Licence status is resolved for the R7 W0 proof lane; prod
 ## Ownership and Update Policy
 
 The dependency remains externally owned. Leyforge owns the build manifest, adapter boundary and proof evidence. Any version, source, template, build-flag or artifact-hash change requires a new governed lock plus re-execution of affected continuing proofs, including PRD04-PROOF-70 and PRD04-PROOF-74.
+
+## Observed R7 W0 Result
+
+Six real Windows x86_64 exports built and smoked successfully: three client and three dedicated/headless. Exported runtimes self-reported `4.8.dev4.official.b56a91878`, exact build identity and the loaded Voxel Tools provider. [[EVID-0006]] retains the hashes and measurements. This proves the bounded W0 surfaces only; it does not accept [[ADR-0001]] or activate a production engine.
 
 ## Production Activation Conditions
 

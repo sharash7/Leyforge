@@ -6,7 +6,7 @@ title: "Zylann Voxel"
 status: "proposed"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-06"
+updated: "2026-09-07"
 authority_domain: "implementation_state"
 authority_role: "provisional_record"
 authority_status: "proposed"
@@ -32,6 +32,9 @@ related_to:
   - "ADR-0003"
   - "TASK-20260906-005"
   - "WORK-20260906-005"
+  - "EVID-0006"
+  - "AUDIT-0006"
+  - "HANDOFF-20260906-005"
   - "DEP-GODOT"
   - "SYS-ENGINEERING-GOVERNANCE"
 ---
@@ -79,6 +82,10 @@ The selected archive contains the upstream MIT licence, copyright 2016–2024 Ma
 ## Update Policy
 
 Any upstream tag/commit, archive, staged binary, compatibility or adapter-boundary change requires an updated lock and rerun of affected provider/export/architecture continuing proofs. Local modifications require a new patch identity and PRD04-PROOF-73 re-execution; none exist now.
+
+## Observed R7 W0 Result
+
+The exact `v1.7x` GDExtension loaded in all six exported runtime smokes and passed the bounded fake/real adapter and provider-contract scenarios. Editor shutdown still exits `0xC0000005` and remains outside the certified lane. [[EVID-0006]] retains both outcomes. This does not accept [[ADR-0002]] or [[ADR-0003]] or establish production edition parity.
 
 ## Production Activation Conditions
 

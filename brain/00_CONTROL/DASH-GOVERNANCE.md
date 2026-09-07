@@ -6,7 +6,7 @@ title: "Engineering Governance Health"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-06"
+updated: "2026-09-07"
 authority_domain: "engineering_governance"
 authority_role: "derived_record"
 authority_status: "authoritative"
@@ -24,12 +24,15 @@ related_to:
   - "EVID-0003"
   - "EVID-0004"
   - "EVID-0005"
+  - "EVID-0006"
   - "AUDIT-0003"
   - "AUDIT-0004"
   - "AUDIT-0005"
+  - "AUDIT-0006"
   - "CHANGE-20260906-003"
   - "CHANGE-20260906-004"
-  - "HANDOFF-20260906-004"
+  - "CHANGE-20260906-005"
+  - "HANDOFF-20260906-005"
   - "ADR-0008"
 ---
 
@@ -43,7 +46,7 @@ related_to:
 - Governance metadata and references: active.
 - Waiver expiry: active.
 - Stable build, focused-test and full-validation entrypoints: active.
-- CI: active; both workflows passed after the portable generated-source hash repair at `263e3f1810c08c1cd0197cc140fed5d6f45fbb16`.
+- CI: active; both workflows pass on W0 evidence commit `d57332db98c80051f3e15ce7b52fcaaf56eca391`.
 - Brain integration: active.
 
 ## R6 Operating Pilot
@@ -65,14 +68,22 @@ related_to:
 ## R7 W0 Harness Bootstrap Certification
 
 - Certified state commit: `c25daedd33dc33ece3f70ab6867f6477a40c4ea1`.
-- Stable verification: 46/46 Brain/governance/R6 tests plus 28/28 W0 tests PASS.
-- Brain and Governance Doctors, controlled ingestion, index drift, link validation and clean-rebuild boundary: PASS.
-- Architecture lint: 15 harness Python files, six rules and zero violations; the seeded forbidden dependency is detected in its negative fixture.
-- Boundary: 24 exact hash-pinned development-tool paths; zero active POC dependencies.
-- Portability: Git-clean blob plus canonical LF digest checks pass in a fresh 446-source checkout.
-- Readiness: 13 `HARNESS-BLOCKED`, zero `READY`, zero proof-run IDs and zero proof-evidence IDs.
-- [[ADR-0008]]: **ACCEPTED** by the project owner on 2026-09-06 for the development-only proof-harness boundary.
+- Reusable development harness: 28/28 bootstrap tests PASS.
+- Boundary: 24 exact Git-clean development-tool paths and zero active POC dependencies.
+- [[ADR-0008]]: ACCEPTED by the project owner on 2026-09-06.
 - Evidence and audit: [[EVID-0005]] and [[AUDIT-0005]].
+
+## R7 W0 Dependency, Export and Execution Certification
+
+- Implementation commit: `7e28c92e2c656b1afcbf96c75c3b969edf74494e`; evidence commit: `d57332db98c80051f3e15ce7b52fcaaf56eca391`.
+- Exact proof-only Godot and Voxel Tools identities: verified; all selected components `NO-LOCAL-PATCH`; no production activation.
+- Real exports: three client plus three headless, all hash/self-report/smoke checks PASS.
+- Execution: 13/13 W0 proofs run; 12 PASS, zero FAIL, one INCONCLUSIVE, zero INVALIDATED.
+- Stable verification: 46/46 Brain/governance/R6 tests plus 35/35 harness/runtime tests PASS.
+- Brain and Governance Doctors, controlled ingestion, index drift, links and clean-rebuild boundary: PASS.
+- Boundary: 95 exact runtime/evidence paths, 4,151 checks and zero active POC dependencies.
+- GitHub Actions: Brain integrity and Engineering governance integrity PASS on the evidence commit.
+- Evidence and audit: [[EVID-0006]] and [[AUDIT-0006]].
 
 ## Later Activation Milestones
 
@@ -82,4 +93,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 dependency/export readiness is active under [[TASK-20260906-005]] and [[WORK-20260906-005]]. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, and R8 gameplay permission remains closed. Planned validators do not claim active protection before their owning system exists.
+R7 continues through [[HANDOFF-20260906-005]] with W1 readiness. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

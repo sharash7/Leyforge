@@ -7,8 +7,26 @@
   },
   "audit": "AUDIT-0006",
   "branch": "codex/chore/brain-governance-pilot",
-  "certification": "LOCAL_PASS_CI_PENDING",
+  "certification": "PASS",
+  "certified_date": "2026-09-07",
+  "certified_state_commit": "d57332db98c80051f3e15ce7b52fcaaf56eca391",
   "change": "CHANGE-20260906-005",
+  "ci": [
+    {
+      "commit": "d57332db98c80051f3e15ce7b52fcaaf56eca391",
+      "run_id": 34042887037,
+      "status": "SUCCESS",
+      "url": "https://github.com/sharash7/Leyforge/actions/runs/34042887037",
+      "workflow": "Engineering governance integrity"
+    },
+    {
+      "commit": "d57332db98c80051f3e15ce7b52fcaaf56eca391",
+      "run_id": 34042887026,
+      "status": "SUCCESS",
+      "url": "https://github.com/sharash7/Leyforge/actions/runs/34042887026",
+      "workflow": "Brain integrity"
+    }
+  ],
   "dependencies": {
     "godot_build_driver": {
       "commit": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
@@ -32,6 +50,7 @@
     }
   },
   "evidence": "EVID-0006",
+  "evidence_commit": "d57332db98c80051f3e15ce7b52fcaaf56eca391",
   "exports": {
     "clean_builds_per_lane": 3,
     "provider_runtime_included": true,
@@ -158,5 +177,29 @@
   "starting_commit": "0c087f4ac692ce309c35fc65760be903cd3761b6",
   "status": "W0_DEPENDENCY_EXPORT_AND_EXECUTION_COMPLETE",
   "task_contract": "TASK-20260906-005",
+  "verification": {
+    "boundary": {
+      "active_poc_dependencies": 0,
+      "admitted_paths": 95,
+      "checks": 4151,
+      "status": "PASS"
+    },
+    "brain_doctor": "PASS",
+    "brain_governance_r6_tests": {
+      "passed": 46,
+      "total": 46
+    },
+    "brain_index": "PASS",
+    "brain_ingest": "PASS",
+    "brain_links": "PASS",
+    "build": "PASS",
+    "focused": "PASS",
+    "full": "PASS",
+    "governance_doctor": "PASS",
+    "harness_runtime_tests": {
+      "passed": 35,
+      "total": 35
+    }
+  },
   "work_record": "WORK-20260906-005"
 }
