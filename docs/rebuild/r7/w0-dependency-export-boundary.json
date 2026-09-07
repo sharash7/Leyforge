@@ -523,10 +523,10 @@
       "sha256": "87a8c96692a1ba00ee073041929b088dfcd4715e6796bba77fdf4e4a70c29148"
     },
     {
-      "bytes": 3811,
-      "git_blob": "1b7f251346a40afc641f0ac6145ae25e0587b18f",
+      "bytes": 3801,
+      "git_blob": "81e631df1da17f077bca2dfdffd4036319148cb6",
       "path": "tools/r7_w0_runtime/admission.py",
-      "sha256": "4a9f6a8d818bddd79009a4e90090a0dba22f4c77b1a0bd4906cb8af938cd43ff"
+      "sha256": "35c44d9ac45784e18398be41358cbf97c90e4c6946663a15c9f61906e6d6eacd"
     },
     {
       "bytes": 1337,
@@ -587,18 +587,6 @@
       "git_blob": "a3984e9fa7bd3898c9ad4a608c7f83b82561dad6",
       "path": "tools/tests/test_r7_w0_runtime.py",
       "sha256": "7d0716482a8ff9e4dc497092daac02b8584da0481e57ba30f1649f890772612e"
-    },
-    {
-      "bytes": 4174,
-      "git_blob": "168a4292a2adf10f17e7e7ab0ea1e073554981c5",
-      "path": "tools/verify.py",
-      "sha256": "8a08516ec7fccd56a0c73fffd06f9a4c857e25b594c32beea0046b64758073bf"
-    },
-    {
-      "bytes": 14328,
-      "git_blob": "f741020135d223cc6e8b8e53bb72546cea6c8bf7",
-      "path": "tools/verify_rebuild_boundary.py",
-      "sha256": "9b0047bab9df31ce7b4b7684c644dbe985dec996ed9f0cccab9d97559814fbf9"
     }
   ],
   "authority": [

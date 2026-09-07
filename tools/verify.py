@@ -13,9 +13,26 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PROOF_HARNESS_PYTHON = sorted(
     str(path.relative_to(ROOT))
-    for base in (ROOT / "tools" / "proof_harness", ROOT / "tools" / "r7_w0_runtime", ROOT / "tools" / "tests")
+    for base in (
+        ROOT / "tools" / "proof_harness",
+        ROOT / "tools" / "r7_w0_runtime",
+        ROOT / "tools" / "r7_w1_runtime",
+        ROOT / "tools" / "tests",
+        ROOT / "proofs" / "r7" / "w1" / "runtime",
+    )
     for path in base.rglob("*.py")
 )
+
+
+def w1_implementation_commit() -> str:
+    path = ROOT / "docs/rebuild/r7/w1-readiness.json"
+    if path.is_file():
+        value = json.loads(path.read_text(encoding="utf-8-sig"))
+        commit = str(value.get("implementation_commit", ""))
+        if len(commit) == 40:
+            return commit
+    result = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True)
+    return result.stdout.strip()
 
 
 def run(command: list[str]) -> dict[str, object]:
@@ -53,6 +70,7 @@ def commands_for(tier: str) -> list[list[str]]:
             [python, "-m", "unittest", "discover", "tools/tests", "-v"],
             [python, "-m", "tools.proof_harness", "self-check", "--format", "json"],
             [python, "-m", "tools.r7_w0_runtime", "preflight", "--static-only", "--format", "json"],
+            [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
             [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "full", "--format", "json"],
         ]
     return [
@@ -61,6 +79,7 @@ def commands_for(tier: str) -> list[list[str]]:
         [python, "-m", "unittest", "discover", "tools/tests", "-v"],
         [python, "-m", "tools.proof_harness", "self-check", "--format", "json"],
         [python, "-m", "tools.r7_w0_runtime", "preflight", "--static-only", "--format", "json"],
+        [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
         [python, "brain/92_SCRIPTS/brain.py", "ingest", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "index", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "links", "--format", "json"],

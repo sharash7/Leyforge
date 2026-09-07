@@ -11,17 +11,16 @@ from typing import Any, Dict, Iterable
 from .dependencies import ROOT, load_lock
 
 MANIFEST_PATH = ROOT / "docs/rebuild/r7/w0-dependency-export-boundary.json"
-FIXED_FILES = (
-    "tools/tests/test_r7_w0_runtime.py",
-    "tools/verify.py",
-    "tools/verify_rebuild_boundary.py",
-)
+FIXED_FILES = ("tools/tests/test_r7_w0_runtime.py",)
 FIXED_TREES = (
     "proofs/r7/w0",
     "tools/r7_w0_runtime",
     "tools/tests/fixtures/r7_architecture",
 )
-OPTIONAL_TREES = ("docs/rebuild/r7/execution-evidence",)
+W0_RUN_TREES = tuple(
+    f"docs/rebuild/r7/execution-evidence/PRD07-RUN-{index:04d}"
+    for index in range(1, 14)
+)
 OPTIONAL_FILES = (
     "docs/rebuild/r7/w0-execution-state.json",
     "docs/rebuild/r7/w0-dependency-export-completion-receipt.json",
@@ -37,7 +36,7 @@ def admitted_paths() -> list[str]:
     for value in FIXED_FILES:
         if (ROOT / value).is_file():
             paths.add(value)
-    for value in FIXED_TREES + OPTIONAL_TREES:
+    for value in FIXED_TREES + W0_RUN_TREES:
         base = ROOT / value
         if base.is_dir():
             for path in base.rglob("*"):

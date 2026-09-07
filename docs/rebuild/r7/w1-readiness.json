@@ -1,0 +1,214 @@
+{
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "dependency_check": {
+    "issues": [],
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "paths": {
+      "godot_driver": "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+      "godot_template_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\Godot_v4.8-dev4_export_templates.tpz",
+      "godot_template_runtime": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\godot-4.8-dev4-templates\\templates\\windows_release_x86_64.exe",
+      "voxel_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\GodotVoxelExtension-v1.7x.zip",
+      "voxel_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\v1.7x\\addons\\zylann.voxel"
+    },
+    "schema_version": "leyforge-r7-w0-local-dependency-verification-v1",
+    "status": "PASS"
+  },
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "128d18da4dd9cb9152e88f9c8bc3c92d055fbca3",
+  "issues": [],
+  "package": "R7-W1-OWNER-SPATIAL-PROOFS",
+  "package_state": "READY",
+  "prd08_evaluation": "CLOSED",
+  "proofs": [
+    {
+      "blockers": [],
+      "prerequisites": [
+        "owner/revision fixture",
+        "idempotent transaction engine",
+        "fault matrix"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-04",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "versioned proposals",
+        "controllable completion order",
+        "classification vocabulary"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-13",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "ownership epochs",
+        "stable partition identity",
+        "in-flight command fixture"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-14",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "zero-Node domain records",
+        "governed clock",
+        "promotion projection"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-15",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "fidelity tiers",
+        "declared conservation invariants",
+        "transition control"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-16",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "transaction engine",
+        "canonical spatial edit",
+        "resource and permission owner"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-17",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "independent bounded worker queues",
+        "CPU/time-series diagnostics",
+        "realistic W1 workload profile"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-18",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "pure-domain scheduler",
+        "variable cadence profiles",
+        "real client/headless exports"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-19",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "explicit RNG context",
+        "canonical hashing",
+        "worker order control"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-21",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "canonical edit API",
+        "independent dirty-region oracle",
+        "revisioned consumers"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-23",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "delayed generation proposal",
+        "canonical edit revision",
+        "reload representation"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-24",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "collision readiness revisions",
+        "authoritative interaction query",
+        "real provider probe"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-25",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "nav dirty bridge",
+        "path readiness query",
+        "real provider probe"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-26",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "structure integrity trigger",
+        "owner-mediated collapse transaction",
+        "derived readiness"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-33",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "injectable provider adapter failures",
+        "canonical/provider separation",
+        "real provider probe"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-34",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "structured correlation graph",
+        "minimal persistence/network projections",
+        "real external provider process"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-63",
+      "state": "READY"
+    },
+    {
+      "blockers": [],
+      "prerequisites": [
+        "randomized completion control",
+        "owner/revision invariants",
+        "conservation oracle"
+      ],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-68",
+      "state": "READY"
+    }
+  ],
+  "schema_version": "prd07-w1-readiness-v1",
+  "status": "PASS"
+}

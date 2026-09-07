@@ -1,0 +1,142 @@
+{
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "artifacts": [
+    {
+      "bytes": 5887,
+      "git_blob": "51e81b99116d08cf8f1e32cf72891b988b96b74a",
+      "path": "docs/rebuild/r7/w1-readiness.json",
+      "sha256": "6f50642581b36deaf127a8b94781329bd5503db92e19cbf2d3fb6eb8c69fcf73"
+    },
+    {
+      "bytes": 646,
+      "git_blob": "7aa95cd243e2e9cb427736084a8633bd8b1597ab",
+      "path": "proofs/r7/w1/README.md",
+      "sha256": "8f60753df9aadd52411ce8aa8d26928a81a27573e5338a5cd1125a02e2703b52"
+    },
+    {
+      "bytes": 778,
+      "git_blob": "21f198a9c6a8e51a4796bc71d590334cac1321da",
+      "path": "proofs/r7/w1/dependency-reference.json",
+      "sha256": "b028239bf4a92c45c891a897a3bc774b5b541d84df79f2f843cbb0b54a035d8a"
+    },
+    {
+      "bytes": 176,
+      "git_blob": "586090a0bf312191fb8fd3a1261a5c9f2050dd62",
+      "path": "proofs/r7/w1/provider_probe/main.tscn",
+      "sha256": "4698828293292d4546445386eba54b254d2a493bb0bfd09c5f67b751c4f20b4c"
+    },
+    {
+      "bytes": 503,
+      "git_blob": "0d69447aa9123529e5dbf4a3c27d62bbf4e83e93",
+      "path": "proofs/r7/w1/provider_probe/project.godot",
+      "sha256": "165b3cbe2d8e208566c1c860b73e93374beba6590d23ac7fcd0c29ff08cba104"
+    },
+    {
+      "bytes": 2110,
+      "git_blob": "c0fc2fde3119b0d57d03e16e3b95059bc6839428",
+      "path": "proofs/r7/w1/provider_probe/src/main.gd",
+      "sha256": "cea278022050e3801266b3803a6b55f850540b3600e75019b32d91233d2ef236"
+    },
+    {
+      "bytes": 3756,
+      "git_blob": "6014b1b06526eb2b677fb5f4fc37e6291bf6f85b",
+      "path": "proofs/r7/w1/provider_probe/src/provider_probe.gd",
+      "sha256": "a27c8c331b60ef0fa17f18751e662f485f14478f1c7c26d3c0497516028da7b1"
+    },
+    {
+      "bytes": 161,
+      "git_blob": "164fb79fee3d0f3a54d2ef3ac2ba4922d0169f2b",
+      "path": "proofs/r7/w1/runtime/__init__.py",
+      "sha256": "87b67de70ea5f058b68763f6378e2bc30585e23d4bcde3a01a3639ed9dff2a3f"
+    },
+    {
+      "bytes": 12390,
+      "git_blob": "dcce72fc0b4d7a6c917a1d67f4fa937798334a55",
+      "path": "proofs/r7/w1/runtime/model.py",
+      "sha256": "ca1feac5e9b4ca52274f3162d412b0e587c91da10b487e70b77b0db18ab67076"
+    },
+    {
+      "bytes": 43568,
+      "git_blob": "b2b76ab8c0cd4bb1ea83b7bd9147497998fb13e0",
+      "path": "proofs/r7/w1/runtime/runner.py",
+      "sha256": "94464fe90c4070bf73570873dcb6fb8cd3f184a18fb97a8ce8c98477b81825d2"
+    },
+    {
+      "bytes": 117,
+      "git_blob": "277adc529081d2267da1ca40f64ac4c4ec018801",
+      "path": "tools/r7_w1_runtime/__init__.py",
+      "sha256": "98b0fdaa516ced3ff2c81e14ad4166e3022aaf456cfac523ce2089266ace103f"
+    },
+    {
+      "bytes": 135,
+      "git_blob": "58666956c5867343dc24daedaaf7994e9c02927f",
+      "path": "tools/r7_w1_runtime/__main__.py",
+      "sha256": "948c7d8dfda373543917e48a129a654f4939ca41f2cea3bbab29b7ad6d18cb73"
+    },
+    {
+      "bytes": 3554,
+      "git_blob": "2080451d5bee15b6d9fca1219f15208a0911663e",
+      "path": "tools/r7_w1_runtime/admission.py",
+      "sha256": "9d9642e3632ced07cc4362e40985f66f55ca2423cf1d0a284a2079d496ba6fcf"
+    },
+    {
+      "bytes": 10785,
+      "git_blob": "de59fbc965f50a8eb083ce8e366c410b62288043",
+      "path": "tools/r7_w1_runtime/builds.py",
+      "sha256": "78b90b5140315768a834a29e7ce567c96f681dcaa6e0d406c2488f910699423d"
+    },
+    {
+      "bytes": 3575,
+      "git_blob": "2b0ed64343e79f75f3ef321facaf4f23e05235f2",
+      "path": "tools/r7_w1_runtime/cli.py",
+      "sha256": "bb00029503f465750f48f41747fe614d3821f489509c936dad50b349adf74b53"
+    },
+    {
+      "bytes": 2540,
+      "git_blob": "525f875ed88765035bfd507d7d0bdbc36d96876c",
+      "path": "tools/r7_w1_runtime/dependencies.py",
+      "sha256": "e421787959f9468bc35c866104b01c2ebc7448a0d5b89c19b92b8204f9c15288"
+    },
+    {
+      "bytes": 13954,
+      "git_blob": "814477256a13b5c55502db99c88e431d563df74d",
+      "path": "tools/r7_w1_runtime/execution.py",
+      "sha256": "e1848179d077a0ee8f920b42c56bff68201a169908d0234aeb71298e01e1b1a9"
+    },
+    {
+      "bytes": 1189,
+      "git_blob": "38c93fdbe2fc2c702d39bcbfb37f8374664e857e",
+      "path": "tools/r7_w1_runtime/execution_plan.py",
+      "sha256": "101357c6f3155d007ad25f407833a9e88c313ced1bfba7f0607c00b2d5c68baa"
+    },
+    {
+      "bytes": 5496,
+      "git_blob": "11e515a4d48d09845c24c8cc1067d38f1644fdee",
+      "path": "tools/r7_w1_runtime/readiness.py",
+      "sha256": "291837f472d67d9b2eb4110bd3ba6e00273ec43c3bc3f92158837b6f24f10d3b"
+    },
+    {
+      "bytes": 3664,
+      "git_blob": "4cc85c52109a5a4b534e1c0270523e23ee900a42",
+      "path": "tools/tests/test_r7_w1_runtime.py",
+      "sha256": "b9733c70eb674b0ee82ed7096d682c790ae1d712cfa278a21abb71d59e38057f"
+    }
+  ],
+  "authority": [
+    "TASK-20260906-006",
+    "WORK-20260906-006",
+    "DOC-PRD-07"
+  ],
+  "dependency_identity": {
+    "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_export_template": "4.8.dev4.official.b56a91878",
+    "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+  },
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "128d18da4dd9cb9152e88f9c8bc3c92d055fbca3",
+  "manifest_version": 1,
+  "package": "R7-W1-OWNER-SPATIAL-PROOFS",
+  "proof_execution": "NOT-STARTED",
+  "scope": "development-only-prd07-proof-runtime"
+}

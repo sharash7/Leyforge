@@ -1,0 +1,16 @@
+{
+  "schema_version": "leyforge-r7-w1-dependency-reference-v1",
+  "scope": "development-only-prd07-proof-runtime",
+  "gameplay_permission": "CLOSED",
+  "source_lock": "proofs/r7/w0/dependencies.lock.json",
+  "source_lock_sha256": "f42407b74cc08b91a34aa7b9a57f856b6e4c4dbe642385401d2b8da10eb927a2",
+  "source_lock_git_blob": "5d8bfeb3031557b927074f74cebc7101148edab1",
+  "component_revisions": {
+    "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_export_template": "4.8.dev4.official.b56a91878",
+    "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+  },
+  "local_patch_status": "NO-LOCAL-PATCH",
+  "permitted_use": "R7 W1 proof-only export and provider-boundary evidence",
+  "production_dependency_state": "UNCHANGED-PLANNED-UNINSTALLED"
+}
