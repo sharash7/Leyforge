@@ -156,7 +156,7 @@ related_to:
 ## R7 W3 Technical Environment Execution Rerun
 
 - Fresh owner authorization is active under [[TASK-20260909-001]] / [[WORK-20260909-001]].
-- Repository and lifecycle opening gates pass; actual proof execution and RUN/EVID allocation remain closed until exact repaired-boundary, pinned-engine, dependency, registry, immutability and clean-rebuild revalidation passes.
+- Repository/lifecycle and complete pre-execution gates pass: exact repaired source/readiness/admission, real pinned-engine export/runtime, dependencies, registry/quarantine, immutability, tests, Brain/governance, Git and 8,464 clean-rebuild checks are valid.
 - The repaired executor must persist one pair just in time before execution and retain standard evidence only after an actual validated observation.
 - Quarantined 0051-0057 remain non-reusable. W4, PRD-08, R8 gameplay and production activation remain closed.
 
@@ -168,4 +168,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260908-003]]. W0-W2 execution is certified; the attempted W3 execution is a certified controlled package failure before proof observation; the bounded repair/re-certification is complete; and the actual rerun is now owner-authorized under [[TASK-20260909-001]]. No rerun identity may be allocated before the full pre-execution gate. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260908-003]]. W0-W2 execution is certified; the attempted W3 execution is a certified controlled package failure before proof observation; the bounded repair/re-certification is complete; and the owner-authorized rerun under [[TASK-20260909-001]] has passed its complete pre-execution gate without allocating an identity. The repaired executor is next. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

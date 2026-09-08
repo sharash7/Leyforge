@@ -12,6 +12,8 @@ authority_role: "delegated"
 authority_status: "authoritative"
 current_handoff: "HANDOFF-20260908-003"
 related_to:
+  - "WORK-20260909-001"
+  - "TASK-20260909-001"
   - "HANDOFF-20260908-003"
   - "HANDOFF-20260908-002"
   - "WORK-20260908-002"
@@ -37,4 +39,4 @@ The active formal handoff is [[HANDOFF-20260908-003]]. The owner-authorized W3 r
 
 The prior authorized executor failure remains preserved by [[EVID-0009]] / [[AUDIT-0009]]. The 0051-0057 transaction is now authoritatively quarantined, evidence-ineligible and non-reusable. Issued high-water is 0057, while 0058 is only the first future preview and is not allocated.
 
-R7 remains active with **W3 REPAIR/RECERTIFICATION COMPLETE — SAFE FOR FRESH OWNER-AUTHORIZED W3 RERUN**. Fresh owner authority is required to open the bounded execution-rerun package and allocate any rerun identity. W4 execution, W5 and FINAL remain open; PRD-08 evaluation and R8 gameplay permission remain closed.
+Fresh owner authority opened the bounded execution rerun under [[TASK-20260909-001]] / [[WORK-20260909-001]]. Its complete mandatory pre-execution gate passes with no identity allocation: exact source/readiness/admission, real pinned-engine export/runtime, dependencies, registry/quarantine, immutable history, verification and the clean-rebuild boundary are valid. The next permitted action is the single repaired executor invocation. W4 execution, W5 and FINAL remain open; PRD-08 evaluation and R8 gameplay permission remain closed.

@@ -1,8 +1,8 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active handoff:** `HANDOFF-20260908-003`. `WORK-20260908-002` and `TASK-20260908-002` completed the bounded W3 repair/re-certification; the prior execution records remain cancelled after their controlled abort.
+**Active handoff:** `HANDOFF-20260908-003`. `WORK-20260909-001` and `TASK-20260909-001` govern the owner-authorized W3 execution rerun; the repaired boundary has passed complete pre-execution revalidation without allocation.
 
-**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. The first authorized W3 executor failed before any proof ran; the resulting source/control-plane repair and repaired readiness/admission are now complete and certified. A fresh owner-authorized W3 execution rerun is the next bounded action. W4, W5 and FINAL remain open.
+**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. The first authorized W3 executor failed before any proof ran; the resulting source/control-plane repair is complete and certified. The fresh owner-authorized W3 rerun has passed its complete pre-execution gate; the single repaired executor invocation is next. W4, W5 and FINAL remain open, but W4 execution is not authorized.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
@@ -87,10 +87,18 @@ The exact pinned Godot driver parsed and loaded the repaired source, produced a 
 
 `docs/rebuild/r7/w3-allocation-reconciliation.json` now governs 0051-0057 as issued, evidence-ineligible and permanently non-reusable without fabricating proof outcomes or packs. The retained registry remains 50 W0-W2 pairs/packs through 0050; issued high-water is 0057; 0058 is only the first future preview and is not allocated.
 
+## W3 Execution Rerun
+
+Fresh owner authorization opened `TASK-20260909-001` / `WORK-20260909-001`. The lifecycle opening is published at `d3ff9930757e3fbe91498444fe97de1649811545`. Repaired readiness and admission independently regenerate exactly; all 23 admitted artifacts and source-tree identity `e2216c2d6ee85671025214600bfe8cb3d21981db6ce974f47ae5772d72d9d73b` remain exact.
+
+The exact fixed Godot driver again parsed/loaded the repaired source, clean-exported it and ran the exported runtime. Six collision cases, frame conversion and provider checks pass with zero errors. Dependency identity remains exact with `NO-LOCAL-PATCH`. The live registry contains 50 retained pairs/packs through 0050 plus quarantined 0051-0057, no W3 state and no 0058+ allocation. W3 tests pass 35/35; build/focused/full, both Doctors, indexes, links, governance controls, immutable-path comparison and 8,464 clean-rebuild checks pass.
+
+The pre-execution gate is therefore open for the single repository-governed executor. It must allocate one pair at a time beginning from the live next identity, persist each transition durably and retain only actual observations. W4, PRD-08, R8, gameplay and production remain closed.
+
 ## Remaining R7 Work
 
-W3 repair/re-certification is complete. A fresh governed execution-rerun package under `HANDOFF-20260908-003` is required before executing any W3 proof or allocating 0058. W4, W5 and FINAL remain open, but W4 is not the present next action. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W3 repair/re-certification is complete and the owner-authorized execution-rerun package has passed pre-execution revalidation. Execute and reconcile the seven W3 proofs next. W4, W5 and FINAL remain open, but W4 execution is not authorized. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue only through [[HANDOFF-20260908-003]]. Do not execute/rerun W3, allocate 0058, reuse 0051-0057, begin W4, evaluate PRD-08 or open R8 without the fresh authority required by that handoff.
+Continue only through [[HANDOFF-20260908-003]] and [[TASK-20260909-001]]. W3 execution/allocation is authorized only through the passed pre-execution gate and repaired executor. Do not reuse 0051-0057, begin W4, evaluate PRD-08 or open R8.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**
