@@ -2,5 +2,5 @@
 
 [ext_resource path="res://src/main.gd" type="Script" id="1"]
 
-[node name="W2ServerProbe" type="Node"]
+[node name="W3FluidVesselProbe" type="Node"]
 script = ExtResource("1")

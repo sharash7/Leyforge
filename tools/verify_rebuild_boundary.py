@@ -280,6 +280,123 @@ check(
     'R7 W2 evidence identities are not empty or the complete append-only W2 range',
 )
 
+w3_manifest_path = root / 'docs/rebuild/r7/w3-execution-boundary-corrected.json'
+w3_manifest = json.loads(w3_manifest_path.read_text(encoding='utf-8')) if w3_manifest_path.is_file() else {}
+check(w3_manifest.get('manifest_version') == 1, 'R7 W3 boundary manifest is missing or unsupported')
+check(w3_manifest.get('package') == 'R7-W3-TECHNICAL-ENVIRONMENT-READINESS', 'R7 W3 package identity changed')
+check(w3_manifest.get('scope') == 'development-only-prd07-proof-runtime', 'R7 W3 scope must remain proof-only')
+check(w3_manifest.get('gameplay_permission') == 'CLOSED', 'R7 W3 cannot open gameplay permission')
+check(re.fullmatch(r'[0-9a-f]{40}', str(w3_manifest.get('implementation_commit', ''))) is not None, 'R7 W3 implementation commit is not exact')
+check(re.fullmatch(r'[0-9a-f]{64}', str(w3_manifest.get('source_tree_identity', ''))) is not None, 'R7 W3 source-tree identity is not exact')
+check(w3_manifest.get('proof_execution') in {'NOT-STARTED', 'OBSERVED'}, 'R7 W3 proof execution state is invalid')
+w3_authority = set(w3_manifest.get('authority', []))
+check({'TASK-20260907-001', 'WORK-20260907-001', 'HANDOFF-20260906-007', 'DOC-PRD-07'}.issubset(w3_authority), 'R7 W3 authority set is incomplete')
+w3_readiness_path = root / 'docs/rebuild/r7/w3-readiness-corrected.json'
+w3_readiness = json.loads(w3_readiness_path.read_text(encoding='utf-8')) if w3_readiness_path.is_file() else {}
+expected_w3_proofs = [
+    'PRD04-PROOF-08', 'PRD04-PROOF-27', 'PRD04-PROOF-28', 'PRD04-PROOF-29',
+    'PRD04-PROOF-30', 'PRD04-PROOF-31', 'PRD04-PROOF-32',
+]
+check(w3_readiness.get('schema_version') == 'prd07-w3-readiness-v2', 'Corrected R7 W3 readiness is missing or unsupported')
+check(w3_readiness.get('status') == 'PASS', 'Corrected R7 W3 readiness does not pass')
+check(w3_readiness.get('implementation_commit_source_match') is True, 'Corrected R7 W3 readiness does not match its implementation commit')
+check(w3_readiness.get('gameplay_permission') == 'CLOSED', 'Corrected R7 W3 readiness opened gameplay permission')
+check(w3_readiness.get('allocated_run_ids') == [], 'R7 W3 readiness consumed run identities')
+check(w3_readiness.get('allocated_evidence_ids') == [], 'R7 W3 readiness consumed evidence identities')
+check([row.get('proof_id') for row in w3_readiness.get('proofs', [])] == expected_w3_proofs, 'Corrected R7 W3 readiness proof set or order changed')
+check(all(row.get('state') == 'READY' for row in w3_readiness.get('proofs', [])), 'Corrected R7 W3 readiness contains a non-ready proof')
+check(w3_readiness.get('prior_readiness_disposition', {}).get('state') == 'SUPERSEDED-INVALID', 'Earlier R7 W3 readiness was not explicitly superseded')
+check(w3_manifest.get('source_tree_identity') == w3_readiness.get('source_tree_identity'), 'R7 W3 boundary and readiness source-tree identities differ')
+check(w3_manifest.get('implementation_commit') == w3_readiness.get('implementation_commit'), 'R7 W3 boundary and readiness implementation commits differ')
+check(w3_manifest.get('prior_boundary_disposition', {}).get('state') == 'SUPERSEDED-INVALID', 'Earlier R7 W3 boundary was not explicitly superseded')
+w3_reference_path = root / 'proofs/r7/w3/dependency-reference.json'
+w3_reference = json.loads(w3_reference_path.read_text(encoding='utf-8')) if w3_reference_path.is_file() else {}
+check(w3_manifest.get('dependency_identity') == w3_reference.get('component_revisions'), 'R7 W3 admitted dependency identity differs from its governed reference')
+
+w3_run_ids = w3_manifest.get('allocated_run_ids', [])
+w3_evidence_ids = w3_manifest.get('allocated_evidence_ids', [])
+check(isinstance(w3_run_ids, list), 'R7 W3 run identities are not a list')
+check(isinstance(w3_evidence_ids, list), 'R7 W3 evidence identities are not a list')
+w3_run_ids = w3_run_ids if isinstance(w3_run_ids, list) else []
+w3_evidence_ids = w3_evidence_ids if isinstance(w3_evidence_ids, list) else []
+check(len(w3_run_ids) == len(set(w3_run_ids)), 'R7 W3 contains duplicate run identities')
+check(len(w3_evidence_ids) == len(set(w3_evidence_ids)), 'R7 W3 contains duplicate evidence identities')
+check(len(w3_run_ids) == len(w3_evidence_ids), 'R7 W3 run/evidence identity counts differ')
+prior_run_ids = list(r7_manifest.get('allocated_run_ids', [])) + list(w1_run_ids) + list(w2_run_ids)
+prior_evidence_ids = list(r7_manifest.get('allocated_evidence_ids', [])) + list(w1_evidence_ids) + list(w2_evidence_ids)
+prior_run_numbers = [int(match.group(1)) for value in prior_run_ids for match in [re.fullmatch(r'PRD07-RUN-(\d{4})', str(value))] if match]
+prior_evidence_numbers = [int(match.group(1)) for value in prior_evidence_ids for match in [re.fullmatch(r'PRD07-EVID-(\d{4})', str(value))] if match]
+check(len(prior_run_numbers) == len(prior_run_ids), 'Prior R7 run registry contains a malformed identity')
+check(len(prior_evidence_numbers) == len(prior_evidence_ids), 'Prior R7 evidence registry contains a malformed identity')
+prior_run_max = max(prior_run_numbers, default=0)
+prior_evidence_max = max(prior_evidence_numbers, default=0)
+check(prior_run_max == prior_evidence_max, 'Prior R7 run/evidence registry high-water marks differ')
+w3_run_numbers = [int(match.group(1)) for value in w3_run_ids for match in [re.fullmatch(r'PRD07-RUN-(\d{4})', str(value))] if match]
+w3_evidence_numbers = [int(match.group(1)) for value in w3_evidence_ids for match in [re.fullmatch(r'PRD07-EVID-(\d{4})', str(value))] if match]
+check(len(w3_run_numbers) == len(w3_run_ids), 'R7 W3 contains a malformed run identity')
+check(len(w3_evidence_numbers) == len(w3_evidence_ids), 'R7 W3 contains a malformed evidence identity')
+expected_w3_numbers = list(range(prior_run_max + 1, prior_run_max + len(w3_run_numbers) + 1))
+check(w3_run_numbers == expected_w3_numbers, 'R7 W3 run identities do not extend the authoritative registry contiguously')
+check(w3_evidence_numbers == expected_w3_numbers, 'R7 W3 evidence identities do not extend the authoritative registry contiguously')
+check(len(w3_run_ids) <= len(expected_w3_proofs), 'R7 W3 allocated more identities than authorised proofs')
+if w3_manifest.get('proof_execution') == 'NOT-STARTED':
+    check(w3_run_ids == [] and w3_evidence_ids == [], 'R7 W3 NOT-STARTED boundary allocated execution identities')
+else:
+    check(0 < len(w3_run_ids) <= len(expected_w3_proofs), 'R7 W3 OBSERVED boundary has no valid observed identity range')
+
+w3_admitted_paths = set()
+w3_admitted_artifacts = []
+w3_prefixes = ('proofs/r7/w3/', 'tools/r7_w3_runtime/')
+w3_exact_paths = {
+    'tools/tests/test_r7_w3_runtime.py',
+    'docs/rebuild/r7/w3-readiness-corrected.json',
+    'docs/rebuild/r7/w3-execution-state.json',
+    'docs/rebuild/r7/w3-execution-completion-receipt.json',
+}
+expected_w3_runs = {f'docs/rebuild/r7/execution-evidence/{run_id}/' for run_id in w3_run_ids}
+for artifact in w3_manifest.get('artifacts', []):
+    rel = artifact.get('path')
+    valid_path = (
+        isinstance(rel, str)
+        and (
+            rel.startswith(w3_prefixes)
+            or rel in w3_exact_paths
+            or any(rel.startswith(prefix) for prefix in expected_w3_runs)
+        )
+        and '..' not in Path(rel).parts
+        and not Path(rel).is_absolute()
+    )
+    check(valid_path, 'Invalid R7 W3 admission path: ' + str(rel))
+    if not valid_path:
+        continue
+    check(rel not in w3_admitted_paths, 'Duplicate R7 W3 admission path: ' + rel)
+    w3_admitted_paths.add(rel)
+    candidate = root / rel
+    check(candidate.is_file(), 'Admitted R7 W3 path is missing: ' + rel)
+    check(candidate.suffix.lower() in {'.py', '.json', '.md', '.gd', '.tscn', '.godot'}, 'Unsupported R7 W3 file type: ' + rel)
+    check(candidate.suffix.lower() not in {'.exe', '.dll', '.pck', '.res', '.tres'}, 'Binary or production resource admitted through R7 W3: ' + rel)
+    if candidate.is_file():
+        w3_admitted_artifacts.append((rel, candidate, artifact))
+w3_hash_result = subprocess.run(
+    ['git', 'hash-object', '--stdin-paths'], cwd=root,
+    input=chr(10).join(rel for rel, _, _ in w3_admitted_artifacts) + chr(10),
+    text=True, capture_output=True,
+)
+check(w3_hash_result.returncode == 0, 'R7 W3 Git-clean blob hashing failed')
+w3_blob_hashes = w3_hash_result.stdout.splitlines() if w3_hash_result.returncode == 0 else []
+check(len(w3_blob_hashes) == len(w3_admitted_artifacts), 'R7 W3 Git-clean blob count differs')
+for index, (rel, candidate, artifact) in enumerate(w3_admitted_artifacts):
+    expected_blob = artifact.get('git_blob')
+    actual_blob = w3_blob_hashes[index] if index < len(w3_blob_hashes) else ''
+    check(isinstance(expected_blob, str) and re.fullmatch(r'[0-9a-f]{40}', expected_blob) is not None, 'Admitted R7 W3 Git blob is missing or invalid: ' + rel)
+    check(actual_blob == expected_blob, 'Admitted R7 W3 Git-clean blob changed: ' + rel)
+    raw_data = candidate.read_bytes()
+    canonical_data = raw_data.replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
+    check(len(canonical_data) == artifact.get('bytes'), 'Admitted R7 W3 canonical size changed: ' + rel)
+    check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'Admitted R7 W3 canonical SHA-256 changed: ' + rel)
+check(not any(path.endswith(('.exe', '.dll', '.pck')) for path in w3_admitted_paths), 'R7 W3 boundary admitted dependency/runtime binaries')
+check('docs/rebuild/r7/w3-readiness-corrected.json' in w3_admitted_paths, 'Corrected R7 W3 readiness is not hash-pinned by its boundary')
+
 baseline_docs = manifest['source_document_blobs']
 intake_docs = {}
 intake_manifests = []
@@ -337,11 +454,11 @@ for directory, dirnames, filenames in os.walk(root, topdown=True):
         path = Path(directory) / filename
         rel = path.relative_to(root).as_posix()
         check(not path.is_symlink(), 'Unexpected filesystem link: '+rel)
-        allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'} or rel.startswith('.trae/') or rel.startswith('.vscode/') or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('proofs/r7/w3/') or rel.startswith('tools/r7_w3_runtime/') or rel.startswith('tools/tests/test_r7_w3_runtime') or rel.startswith('tools/ai-orchestration/')
+        allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel in w3_admitted_paths or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'} or rel.startswith('.trae/') or rel.startswith('.vscode/') or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('tools/ai-orchestration/')
         check(allowed, 'Unadmitted active path: '+rel)
         executable = path.suffix.lower() in {'.gd','.gdshader','.tscn','.tres','.res','.exe','.dll','.pck','.ps1','.bat','.cmd','.py'}
         brain_tool = rel.startswith('brain/92_SCRIPTS/') and path.suffix.lower() == '.py'
-        check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('proofs/r7/w3/') or rel.startswith('tools/r7_w3_runtime/') or rel.startswith('tools/tests/test_r7_w3_runtime') or rel.startswith('tools/ai-orchestration/'), 'Legacy executable/resource admitted: '+rel)
+        check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel in w3_admitted_paths or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('tools/ai-orchestration/'), 'Legacy executable/resource admitted: '+rel)
         if path.suffix.lower() not in {'.md','.json','.txt','.csv','.py'} or rel.endswith('leakage-result.json'):
             continue
         content = path.read_text(encoding='utf-8-sig',errors='replace')
@@ -354,5 +471,5 @@ check(not (root/'project.godot').exists(), 'Unexpected Godot runtime entry point
 for name in ['addons','assets','content','data','generated','scripts','development','.profiles','.tmp']:
     check(not (root/name).exists(), 'Retired root remains: '+name)
 check((root/'tools/verify_rebuild_boundary.py').is_file(), 'Controlled validator missing')
-print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
+print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,r7_w3_manifest=w3_manifest_path.relative_to(root).as_posix(),r7_w3_paths=len(w3_admitted_paths),r7_w3_proof_run_ids=w3_run_ids,r7_w3_proof_evidence_ids=w3_evidence_ids,active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
 sys.exit(1 if failures else 0)

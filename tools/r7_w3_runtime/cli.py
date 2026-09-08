@@ -23,7 +23,7 @@ def _emit(value: object, output_format: str) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Leyforge governed R7 W3 durability/network proof runner")
+    parser = argparse.ArgumentParser(description="Leyforge governed R7 W3 fluid/vessel/moving-frame proof runner")
     commands = parser.add_subparsers(dest="command", required=True)
     preflight = commands.add_parser("preflight")
     preflight.add_argument("--implementation-commit", required=True)

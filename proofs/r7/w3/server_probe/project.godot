@@ -1,6 +1,6 @@
 [application]
-config/name="Leyforge R7 W2 Server Probe"
-config/description="Development-only governed PRD-07 W2 crash and session probe"
+config/name="Leyforge R7 W3 Fluid Vessel Probe"
+config/description="Development-only governed PRD-07 W3 fluid, vessel, frame and collision fixture"
 run/main_scene="res://main.tscn"
 
 [display]

@@ -9,10 +9,10 @@ from pathlib import Path
 from typing import Any, Dict
 
 from .dependencies import ROOT, load_reference
-from .execution_plan import PROOF_PLAN
-
-MANIFEST_PATH = ROOT / "docs/rebuild/r7/w3-execution-boundary.json"
-FIXED_FILES = ("tools/tests/test_r7_w3_runtime.py", "docs/rebuild/r7/w3-readiness.json")
+from .readiness import READINESS_PATH, readiness_report
+MANIFEST_PATH = ROOT / "docs/rebuild/r7/w3-execution-boundary-corrected.json"
+SUPERSEDED_MANIFEST_PATH = ROOT / "docs/rebuild/r7/w3-execution-boundary.json"
+FIXED_FILES = ("tools/tests/test_r7_w3_runtime.py", "docs/rebuild/r7/w3-readiness-corrected.json")
 FIXED_TREES = ("proofs/r7/w3", "tools/r7_w3_runtime")
 OPTIONAL_FILES = ("docs/rebuild/r7/w3-execution-state.json", "docs/rebuild/r7/w3-execution-completion-receipt.json")
 
@@ -32,7 +32,9 @@ def admitted_paths() -> list[str]:
             for path in base.rglob("*"):
                 if path.is_file() and "__pycache__" not in path.parts and path.suffix.lower() not in {".pyc", ".exe", ".dll", ".pck"}:
                     paths.add(path.relative_to(ROOT).as_posix())
-    for _, run_id, _ in PROOF_PLAN:
+    state_path = ROOT / "docs/rebuild/r7/w3-execution-state.json"
+    state = json.loads(state_path.read_text(encoding="utf-8-sig")) if state_path.is_file() else {}
+    for run_id in state.get("allocated_run_ids", []):
         base = ROOT / "docs/rebuild/r7/execution-evidence" / run_id
         if base.is_dir():
             for path in base.rglob("*"):
@@ -43,6 +45,23 @@ def admitted_paths() -> list[str]:
 
 
 def build_manifest(implementation_commit: str) -> Dict[str, Any]:
+    if not READINESS_PATH.is_file():
+        raise RuntimeError("corrected W3 readiness must exist before admission")
+    readiness = json.loads(READINESS_PATH.read_text(encoding="utf-8-sig"))
+    if (
+        readiness.get("status") != "PASS"
+        or readiness.get("implementation_commit") != implementation_commit
+        or readiness.get("implementation_commit_source_match") is not True
+        or readiness.get("allocated_run_ids") != []
+        or readiness.get("allocated_evidence_ids") != []
+    ):
+        raise RuntimeError("corrected W3 readiness does not certify this exact source commit without allocations")
+    current_readiness = readiness_report(implementation_commit, check_local=False)
+    if (
+        current_readiness.get("status") != "PASS"
+        or current_readiness.get("source_tree_identity") != readiness.get("source_tree_identity")
+    ):
+        raise RuntimeError("corrected W3 readiness is stale for the current governed source tree")
     paths = admitted_paths()
     result = subprocess.run(["git", "hash-object", "--stdin-paths"], cwd=ROOT, input="\n".join(paths) + "\n", text=True, capture_output=True)
     if result.returncode:
@@ -63,11 +82,17 @@ def build_manifest(implementation_commit: str) -> Dict[str, Any]:
         "scope": "development-only-prd07-proof-runtime",
         "gameplay_permission": "CLOSED",
         "implementation_commit": implementation_commit,
+        "source_tree_identity": readiness.get("source_tree_identity", ""),
         "proof_execution": "OBSERVED" if state else "NOT-STARTED",
         "allocated_run_ids": state.get("allocated_run_ids", []),
         "allocated_evidence_ids": state.get("allocated_evidence_ids", []),
-        "authority": ["TASK-20260906-007", "WORK-20260906-007", "DOC-PRD-07"],
+        "authority": ["TASK-20260907-001", "WORK-20260907-001", "HANDOFF-20260906-007", "DOC-PRD-07"],
         "dependency_identity": reference["component_revisions"],
+        "prior_boundary_disposition": {
+            "path": SUPERSEDED_MANIFEST_PATH.relative_to(ROOT).as_posix(),
+            "state": "SUPERSEDED-INVALID",
+            "reason": "It admitted historical W2 execution packs beneath an empty W3 allocation set.",
+        },
         "artifacts": artifacts,
     }
 

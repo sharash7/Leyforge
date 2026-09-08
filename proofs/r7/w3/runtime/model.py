@@ -1,12 +1,20 @@
-"""Deterministic proof-only models for PRD-07 W3 durability and networking."""
+"""Deterministic proof-only models for PRD-07 W3 fluid and vessel fixtures.
+
+These types model canonical Leyforge-owned state and revision rules. Physics and
+presentation reports can be attached as evidence, but never become authority.
+"""
 
 from __future__ import annotations
 
-import copy
 import hashlib
 import json
-from dataclasses import dataclass, field
-from typing import Any, Dict, Iterable, List, Mapping, MutableMapping, Optional, Sequence, Tuple
+import math
+from dataclasses import dataclass
+from typing import Any, Dict, Iterable, Mapping, Tuple
+
+
+Vector3 = Tuple[float, float, float]
+Cell = Tuple[int, int, int]
 
 
 def canonical_json(value: Any) -> str:
@@ -17,454 +25,380 @@ def canonical_hash(value: Any) -> str:
     return hashlib.sha256(canonical_json(value).encode("utf-8")).hexdigest()
 
 
-CRASH_PHASES: Tuple[str, ...] = (
-    "SESSION-BEGIN",
-    "COMMAND-RECEIVE",
-    "VALIDATE",
-    "RESERVE",
-    "SEMANTIC-COMMIT",
-    "JOURNAL-INTENT",
-    "STRUCTURED-STAGE",
-    "VOXEL-STAGE",
-    "JOURNAL-STAGE",
-    "MANIFEST-TEMP",
-    "PARTICIPANT-FSYNC",
-    "MANIFEST-PUBLISH",
-    "ACK-PREPARE",
-    "ACK-SENT",
-)
+@dataclass(frozen=True)
+class FluidExchangeToken:
+    source: str
+    target: str
+    amount: int
+    source_revision: int
+    target_revision: int
+
+
+class FluidDomain:
+    """Finite, revisioned fluid volumes with explicit internal and reservoir flux."""
+
+    def __init__(
+        self,
+        volumes: Mapping[str, int],
+        *,
+        active_cell_limit: int = 256,
+        tolerance: int = 0,
+    ) -> None:
+        if not volumes or any(int(value) < 0 for value in volumes.values()):
+            raise ValueError("fluid domains require non-negative finite volumes")
+        if active_cell_limit < len(volumes):
+            raise ValueError("active cell limit is smaller than the declared domain")
+        self.volumes: Dict[str, int] = {str(key): int(value) for key, value in volumes.items()}
+        self.revisions: Dict[str, int] = {key: 1 for key in self.volumes}
+        self.loaded: Dict[str, bool] = {key: True for key in self.volumes}
+        self.initial_local_total = sum(self.volumes.values())
+        self.reservoir_flux = 0
+        self.active_cell_limit = active_cell_limit
+        self.active_cells = len(self.volumes)
+        self.tolerance = int(tolerance)
+        self.ledger: list[Dict[str, Any]] = []
+        self.stale_commit_count = 0
+
+    def _require_domain(self, name: str) -> None:
+        if name not in self.volumes:
+            raise ValueError(f"unknown fluid domain: {name}")
+
+    def set_volume(self, name: str, amount: int) -> None:
+        """Publish a newer canonical revision, including a no-op revision bump."""
+        self._require_domain(name)
+        if amount < 0:
+            raise ValueError("fluid volume cannot be negative")
+        delta = int(amount) - self.volumes[name]
+        self.volumes[name] = int(amount)
+        self.reservoir_flux += delta
+        self.revisions[name] += 1
+        self.ledger.append({"kind": "canonical-set", "domain": name, "delta": delta, "revision": self.revisions[name]})
+
+    def begin_exchange(self, source: str, target: str, amount: int) -> FluidExchangeToken:
+        self._require_domain(source)
+        self._require_domain(target)
+        if source == target or amount <= 0:
+            raise ValueError("fluid exchange requires distinct domains and a positive amount")
+        return FluidExchangeToken(source, target, int(amount), self.revisions[source], self.revisions[target])
+
+    def commit_exchange(self, token: FluidExchangeToken) -> Dict[str, Any]:
+        self._require_domain(token.source)
+        self._require_domain(token.target)
+        if (
+            token.source_revision != self.revisions[token.source]
+            or token.target_revision != self.revisions[token.target]
+        ):
+            self.stale_commit_count += 1
+            result = {"state": "STALE-QUARANTINED", "token": token.__dict__}
+            self.ledger.append(result)
+            return result
+        if self.volumes[token.source] < token.amount:
+            result = {"state": "INSUFFICIENT-SOURCE", "token": token.__dict__}
+            self.ledger.append(result)
+            return result
+        self.volumes[token.source] -= token.amount
+        self.volumes[token.target] += token.amount
+        self.revisions[token.source] += 1
+        self.revisions[token.target] += 1
+        result = {
+            "state": "COMMITTED",
+            "source": token.source,
+            "target": token.target,
+            "amount": token.amount,
+            "source_revision": self.revisions[token.source],
+            "target_revision": self.revisions[token.target],
+        }
+        self.ledger.append(result)
+        return result
+
+    def exchange_with_reservoir(self, domain: str, amount: int, *, reservoir: str) -> Dict[str, Any]:
+        self._require_domain(domain)
+        next_volume = self.volumes[domain] + int(amount)
+        if next_volume < 0:
+            raise ValueError("reservoir outflow exceeds local volume")
+        self.volumes[domain] = next_volume
+        self.revisions[domain] += 1
+        self.reservoir_flux += int(amount)
+        self.active_cells = min(self.active_cell_limit, max(len(self.volumes), abs(next_volume)))
+        result = {
+            "state": "COMMITTED",
+            "kind": "reservoir-flux",
+            "reservoir": reservoir,
+            "domain": domain,
+            "amount": int(amount),
+            "revision": self.revisions[domain],
+            "active_cells": self.active_cells,
+        }
+        self.ledger.append(result)
+        return result
+
+    def unload(self, domain: str) -> None:
+        self._require_domain(domain)
+        self.loaded[domain] = False
+        self.active_cells = max(0, self.active_cells - 1)
+
+    def load(self, domain: str) -> None:
+        self._require_domain(domain)
+        self.loaded[domain] = True
+        self.active_cells = min(self.active_cell_limit, self.active_cells + 1)
+
+    def accounted_total(self) -> int:
+        return sum(self.volumes.values()) - self.reservoir_flux
+
+    def conservation_error(self) -> int:
+        return self.accounted_total() - self.initial_local_total
+
+    def within_tolerance(self) -> bool:
+        return abs(self.conservation_error()) <= self.tolerance
+
+    def snapshot(self) -> Dict[str, Any]:
+        return {
+            "volumes": dict(sorted(self.volumes.items())),
+            "revisions": dict(sorted(self.revisions.items())),
+            "loaded": dict(sorted(self.loaded.items())),
+            "reservoir_flux": self.reservoir_flux,
+            "active_cells": self.active_cells,
+            "active_cell_limit": self.active_cell_limit,
+            "conservation_error": self.conservation_error(),
+        }
 
 
 @dataclass(frozen=True)
-class SessionTask:
-    task_id: str
-    world_id: str
-    session_id: str
-    session_epoch: int
-    task_epoch: int
-    delta: int
+class OwnerToken:
+    vessel_id: str
+    region_id: str
+    owner_epoch: int
 
 
-class WorldSessionGuard:
-    """Rejects consequential work from a closed or superseded WorldSession."""
-
-    def __init__(self) -> None:
-        self.world_id = ""
-        self.session_id = ""
-        self.session_epoch = 0
-        self.task_epoch = 0
-        self.value = 0
-        self.active = False
-        self.accepted: set[str] = set()
-
-    def open(self, world_id: str) -> None:
-        if not world_id:
-            raise ValueError("world_id is required")
-        self.session_epoch += 1
-        self.world_id = world_id
-        self.session_id = f"session.{world_id}.{self.session_epoch:08d}"
-        self.task_epoch += 1
-        self.active = True
-
-    def close(self) -> None:
-        self.active = False
-        self.task_epoch += 1
-
-    def task(self, task_id: str, delta: int = 1) -> SessionTask:
-        if not self.active:
-            raise RuntimeError("cannot issue a task without an active session")
-        return SessionTask(task_id, self.world_id, self.session_id, self.session_epoch, self.task_epoch, delta)
-
-    def apply(self, task: SessionTask) -> str:
-        if task.task_id in self.accepted:
-            return "DUPLICATE-REJECTED"
-        if not self.active:
-            return "CLOSED-SESSION-REJECTED"
-        if task.world_id != self.world_id:
-            return "WORLD-ID-REJECTED"
-        if task.session_id != self.session_id or task.session_epoch != self.session_epoch:
-            return "SESSION-EPOCH-REJECTED"
-        if task.task_epoch != self.task_epoch:
-            return "TASK-EPOCH-REJECTED"
-        self.value += task.delta
-        self.accepted.add(task.task_id)
-        return "CURRENT-ACCEPTED"
-
-    def snapshot(self) -> Dict[str, Any]:
-        return {
-            "world_id": self.world_id,
-            "session_id": self.session_id,
-            "session_epoch": self.session_epoch,
-            "task_epoch": self.task_epoch,
-            "value": self.value,
-            "accepted": sorted(self.accepted),
-        }
+@dataclass(frozen=True)
+class DerivedToken:
+    kind: str
+    hull_revision: int
+    fluid_revision: int
 
 
-class OperationLedger:
-    """Exactly-once semantic operation ledger with delivery and ACK separated."""
+class VesselFixture:
+    """Canonical vessel-local hull, owner, occupant, flooding, and derived state."""
 
-    def __init__(self, resources: int = 1_000_000) -> None:
-        self.initial_resources = resources
-        self.available = resources
-        self.operations: Dict[str, Dict[str, Any]] = {}
-        self.effects: Dict[str, int] = {}
-        self.replay_count = 0
+    DERIVED_KINDS = ("mass", "collision", "buoyancy", "flooding", "structure")
 
-    def command(self, operation_id: str, amount: int = 1, fault_phase: str = "none") -> Dict[str, Any]:
-        if operation_id in self.operations:
-            prior = self.operations[operation_id]
-            self.replay_count += 1
-            if prior["state"] == "PENDING":
-                return self._commit(operation_id, amount, prior["trace"], replay=True)
-            return {**copy.deepcopy(prior), "replay": True, "semantic_effects_this_attempt": 0}
-        trace = ["RECEIVED", "VALIDATED"]
-        if amount <= 0 or amount > self.available:
-            result = {
-                "operation_id": operation_id,
-                "state": "REJECTED",
-                "trace": trace,
-                "acknowledged": fault_phase != "lose-ack",
-                "replay": False,
-                "semantic_effects_this_attempt": 0,
-            }
-            self.operations[operation_id] = copy.deepcopy(result)
-            return result
-        trace.append("RESERVED")
-        if fault_phase in {"disconnect-before-commit", "delay-before-commit"}:
-            result = {
-                "operation_id": operation_id,
-                "state": "PENDING",
-                "trace": trace,
-                "acknowledged": False,
-                "replay": False,
-                "semantic_effects_this_attempt": 0,
-            }
-            self.operations[operation_id] = copy.deepcopy(result)
-            return result
-        result = self._commit(operation_id, amount, trace, replay=False)
-        if fault_phase in {"lose-ack", "disconnect-after-commit", "restart-before-ack"}:
-            result["acknowledged"] = False
-            self.operations[operation_id] = copy.deepcopy(result)
-        return result
+    def __init__(
+        self,
+        vessel_id: str,
+        hull: Iterable[Cell],
+        *,
+        region_id: str = "region.alpha",
+        base_mass: int = 1_000,
+    ) -> None:
+        hull_set = {tuple(int(axis) for axis in cell) for cell in hull}
+        if not vessel_id or not hull_set:
+            raise ValueError("vessel fixture requires identity and a non-empty hull")
+        self.vessel_id = vessel_id
+        self.hull = hull_set
+        self.region_id = region_id
+        self.owner_epoch = 1
+        self.current_owner_count = 1
+        self.world_position: Vector3 = (0.0, 0.0, 0.0)
+        self.quarter_turns = 0
+        self.hull_revision = 1
+        self.fluid_revision = 1
+        self.derived_revisions: Dict[str, int] = {kind: 1 for kind in self.DERIVED_KINDS}
+        self.derived_fluid_revisions: Dict[str, int] = {kind: 1 for kind in self.DERIVED_KINDS}
+        self.stale_publications: list[Dict[str, Any]] = []
+        self.occupants: Dict[str, Vector3] = {}
+        self.cargo: Dict[str, int] = {}
+        self.breaches: Dict[str, Dict[str, Any]] = {}
+        self.contained_water = 0
+        self.base_mass = int(base_mass)
+        self.center_of_mass: Vector3 = (0.0, 0.0, 0.0)
+        self.owner_trace: list[Dict[str, Any]] = []
+        self.hull_trace: list[Dict[str, Any]] = []
+        self.flooding_trace: list[Dict[str, Any]] = []
 
-    def _commit(self, operation_id: str, amount: int, trace: Sequence[str], replay: bool) -> Dict[str, Any]:
-        effect = 0
-        if operation_id not in self.effects:
-            self.available -= amount
-            self.effects[operation_id] = amount
-            effect = 1
-        result = {
-            "operation_id": operation_id,
-            "state": "COMMITTED",
-            "trace": list(trace) + ["SEMANTIC-COMMIT", "DURABILITY-PROJECTION", "ACKNOWLEDGE"],
-            "acknowledged": True,
-            "replay": replay,
-            "semantic_effects_this_attempt": effect,
-            "effect": self.effects[operation_id],
-        }
-        self.operations[operation_id] = copy.deepcopy(result)
-        return result
+    @classmethod
+    def basic(cls) -> "VesselFixture":
+        return cls("vessel.w3.alpha", ((0, 0, 0), (1, 0, 0), (0, 0, 1), (1, 0, 1)))
 
-    def effect_count(self, operation_id: str) -> int:
-        return int(operation_id in self.effects)
+    @property
+    def total_mass(self) -> int:
+        return self.base_mass + sum(self.cargo.values()) + self.contained_water
 
-    def conservation_delta(self) -> int:
-        return self.initial_resources - (self.available + sum(self.effects.values()))
+    def hull_hash(self) -> str:
+        return canonical_hash(sorted(self.hull))
 
+    def owner_token(self) -> OwnerToken:
+        return OwnerToken(self.vessel_id, self.region_id, self.owner_epoch)
 
-class AdmissionController:
-    REQUIRED_FIELDS = ("protocol", "content", "schema", "world")
+    def cross_region(self, region_id: str) -> OwnerToken:
+        if not region_id or region_id == self.region_id:
+            raise ValueError("region crossing requires a different region")
+        prior = self.owner_token()
+        self.region_id = region_id
+        self.owner_epoch += 1
+        self.current_owner_count = 1
+        self.owner_trace.append({"from": prior.region_id, "to": region_id, "owner_epoch": self.owner_epoch})
+        return self.owner_token()
 
-    def __init__(self, baseline: Mapping[str, str], required_packs: Iterable[str]) -> None:
-        self.baseline = {str(key): str(value) for key, value in baseline.items()}
-        self.required_packs = tuple(sorted(str(value) for value in required_packs))
+    def publish_owner_result(self, token: OwnerToken) -> str:
+        return "PUBLISHED" if token == self.owner_token() else "STALE-OWNER-REJECTED"
 
-    def admit(self, offered: Mapping[str, str], packs: Iterable[str]) -> Dict[str, Any]:
-        mismatches = [field for field in self.REQUIRED_FIELDS if str(offered.get(field, "")) != self.baseline.get(field, "")]
-        missing = sorted(set(self.required_packs) - {str(value) for value in packs})
-        accepted = not mismatches and not missing
-        return {
-            "decision": "ACCEPT" if accepted else "REJECT",
-            "reason_codes": [f"BASELINE-{field.upper()}-MISMATCH" for field in mismatches] + [f"PACK-MISSING:{value}" for value in missing],
-            "ordinary_traffic_before_decision": 0,
-            "baseline": dict(self.baseline),
-        }
-
-
-class InterestEngine:
-    """Replicates declared gameplay relevance without changing simulation fidelity."""
-
-    REASONS = ("spatial", "owner", "remote_ui", "quest", "vessel")
-
-    def decide(self, entity: Mapping[str, Any], viewer: Mapping[str, Any]) -> Dict[str, Any]:
-        entity_id = str(entity["semantic_id"])
-        entitled = entity_id in set(viewer.get("entitlements", ()))
-        hidden = bool(entity.get("hidden", False))
-        reasons = [reason for reason in self.REASONS if bool(entity.get(reason, False))]
-        include = bool(reasons) and (not hidden or entitled)
-        return {
-            "semantic_id": entity_id,
-            "include": include,
-            "reasons": reasons,
-            "hidden": hidden,
-            "entitled": entitled,
-            "simulation_fidelity": entity.get("simulation_fidelity", "aggregate"),
-        }
-
-
-class BoundedTrafficQueue:
-    """Two-class queue where critical work can displace replaceable bulk work."""
-
-    def __init__(self, capacity: int) -> None:
-        if capacity < 2:
-            raise ValueError("queue capacity must be at least two")
-        self.capacity = capacity
-        self.items: List[Dict[str, Any]] = []
-        self.replaced_bulk = 0
-        self.rejected_bulk = 0
-        self.critical_rejections = 0
-        self.maximum_depth = 0
-        self.maximum_age = 0
-        self.tick_count = 0
-
-    def enqueue(self, traffic_class: str, identity: str) -> str:
-        if traffic_class not in {"critical", "bulk"}:
-            raise ValueError("unknown traffic class")
-        if len(self.items) >= self.capacity:
-            if traffic_class == "critical":
-                bulk_index = next((index for index, item in enumerate(self.items) if item["class"] == "bulk"), None)
-                if bulk_index is None:
-                    self.critical_rejections += 1
-                    return "CRITICAL-DEGRADED"
-                self.items.pop(bulk_index)
-                self.replaced_bulk += 1
-            else:
-                self.rejected_bulk += 1
-                return "BULK-REPLACED"
-        self.items.append({"class": traffic_class, "identity": identity, "enqueued": self.tick_count})
-        self.maximum_depth = max(self.maximum_depth, len(self.items))
-        return "ADMITTED"
-
-    def advance(self, budget: int) -> List[Dict[str, Any]]:
-        self.tick_count += 1
-        self.items.sort(key=lambda item: (0 if item["class"] == "critical" else 1, item["enqueued"]))
-        delivered = self.items[: max(0, budget)]
-        self.items = self.items[max(0, budget) :]
-        for item in self.items:
-            self.maximum_age = max(self.maximum_age, self.tick_count - int(item["enqueued"]))
-        return delivered
-
-    def snapshot(self) -> Dict[str, Any]:
-        return {
-            "capacity": self.capacity,
-            "depth": len(self.items),
-            "maximum_depth": self.maximum_depth,
-            "maximum_age_ticks": self.maximum_age,
-            "replaced_bulk": self.replaced_bulk,
-            "rejected_bulk": self.rejected_bulk,
-            "critical_rejections": self.critical_rejections,
-        }
-
-
-class CheckpointStore:
-    """In-memory coherent checkpoint lineage with independently hash-checked participants."""
-
-    PARTICIPANTS = ("structured", "voxel", "journal")
-
-    def __init__(self, world_id: str = "world.w3.alpha") -> None:
-        self.world_id = world_id
-        self.generations: Dict[int, Dict[str, Any]] = {}
-        self.next_generation = 1
-
-    def publish(self, state: Mapping[str, Any], fault_phase: str = "after-publish") -> Dict[str, Any]:
-        generation = self.next_generation
-        self.next_generation += 1
-        participants = {
-            name: {
-                "world_id": self.world_id,
-                "generation": generation,
-                "participant": name,
-                "revision": int(state.get("revision", generation)),
-                "semantic_state": copy.deepcopy(dict(state)),
-            }
-            for name in self.PARTICIPANTS
-        }
-        hashes = {name: canonical_hash(value) for name, value in participants.items()}
-        previous = max(self.generations) if self.generations else None
-        manifest = {
-            "checkpoint_id": f"checkpoint.{self.world_id}.{generation:08d}",
-            "world_id": self.world_id,
-            "generation": generation,
-            "cutoff_revision": int(state.get("revision", generation)),
-            "previous_generation": previous,
-            "participants": hashes,
-        }
-        published = fault_phase in {"manifest-publish", "after-publish", "ack-prepare", "ack-sent"}
-        self.generations[generation] = {
-            "manifest": manifest,
-            "participants": participants,
-            "published": published,
-            "fault_phase": fault_phase,
-        }
-        return {"generation": generation, "published": published, "manifest": copy.deepcopy(manifest)}
-
-    def corrupt(self, generation: int, component: str, mode: str = "bit-flip") -> None:
-        item = self.generations[generation]
-        if component == "manifest":
-            if mode == "remove":
-                item["published"] = False
-            else:
-                item["manifest"]["participants"]["structured"] = "0" * 64
-            return
-        if component not in self.PARTICIPANTS:
-            raise ValueError("unknown checkpoint component")
-        if mode == "remove":
-            item["participants"].pop(component, None)
-        elif mode == "truncate":
-            item["participants"][component] = {"truncated": True}
+    def edit_hull(self, operation: str, cell: Cell) -> str:
+        normalized = tuple(int(axis) for axis in cell)
+        before = self.hull_hash()
+        if operation == "add":
+            self.hull.add(normalized)
+        elif operation == "remove":
+            if normalized in self.hull and len(self.hull) == 1:
+                raise ValueError("fixture hull cannot become empty")
+            self.hull.discard(normalized)
         else:
-            item["participants"][component]["semantic_state"] = {"corrupt": True}
+            raise ValueError("unknown hull edit operation")
+        after = self.hull_hash()
+        if after == before:
+            return "NO-OP"
+        self.hull_revision += 1
+        self.hull_trace.append({"operation": operation, "cell": normalized, "hull_revision": self.hull_revision})
+        return "COMMITTED"
 
-    def recover(self, load_order: Sequence[str] = PARTICIPANTS) -> Dict[str, Any]:
-        attempted: List[Dict[str, Any]] = []
-        for generation in sorted(self.generations, reverse=True):
-            item = self.generations[generation]
-            if not item["published"]:
-                attempted.append({"generation": generation, "classification": "UNPUBLISHED"})
-                continue
-            manifest = item["manifest"]
-            participants = item["participants"]
-            failures = []
-            revisions = []
-            for name in load_order:
-                value = participants.get(name)
-                expected = manifest["participants"].get(name)
-                if value is None or canonical_hash(value) != expected:
-                    failures.append(name)
-                elif isinstance(value, Mapping):
-                    revisions.append(int(value.get("revision", -1)))
-            if failures or len(set(revisions)) > 1:
-                attempted.append({"generation": generation, "classification": "INTEGRITY-REJECTED", "failures": failures})
-                continue
-            attempted.append({"generation": generation, "classification": "SELECTED"})
-            return {
-                "status": "RECOVERED",
-                "generation": generation,
-                "checkpoint_id": manifest["checkpoint_id"],
-                "participant_revisions": revisions,
-                "mixed_lineage": False,
-                "state_hash": canonical_hash([participants[name] for name in sorted(participants)]),
-                "attempted": attempted,
-            }
-        return {"status": "NO-VALID-CHECKPOINT", "generation": None, "mixed_lineage": False, "attempted": attempted}
+    def begin_derived_rebuild(self, kind: str) -> DerivedToken:
+        if kind not in self.DERIVED_KINDS:
+            raise ValueError(f"unknown derived vessel property: {kind}")
+        return DerivedToken(kind, self.hull_revision, self.fluid_revision)
 
-    def backup(self, deployment_id: str) -> Dict[str, Any]:
-        recovered = self.recover()
-        if recovered["status"] != "RECOVERED":
-            raise RuntimeError("cannot advertise a backup without a coherent checkpoint")
-        source = self.generations[int(recovered["generation"])]
+    def publish_derived(self, token: DerivedToken) -> str:
+        if token.hull_revision != self.hull_revision or token.fluid_revision != self.fluid_revision:
+            self.stale_publications.append(token.__dict__)
+            return "STALE-QUARANTINED"
+        self.derived_revisions[token.kind] = token.hull_revision
+        self.derived_fluid_revisions[token.kind] = token.fluid_revision
+        return "PUBLISHED"
+
+    @staticmethod
+    def _rotate(local: Vector3, quarter_turns: int) -> Vector3:
+        x, y, z = local
+        turns = quarter_turns % 4
+        if turns == 0:
+            return (x, y, z)
+        if turns == 1:
+            return (-z, y, x)
+        if turns == 2:
+            return (-x, y, -z)
+        return (z, y, -x)
+
+    def local_to_world(self, local: Vector3) -> Vector3:
+        rotated = self._rotate(local, self.quarter_turns)
+        return tuple(self.world_position[index] + rotated[index] for index in range(3))  # type: ignore[return-value]
+
+    def world_to_local(self, world: Vector3) -> Vector3:
+        relative = tuple(world[index] - self.world_position[index] for index in range(3))
+        return self._rotate(relative, -self.quarter_turns)
+
+    def move(self, world_position: Vector3, *, quarter_turns: int) -> None:
+        self.world_position = tuple(float(value) for value in world_position)  # type: ignore[assignment]
+        self.quarter_turns = int(quarter_turns) % 4
+
+    def board(self, semantic_id: str, local_position: Vector3) -> None:
+        if not semantic_id or semantic_id in self.occupants:
+            raise ValueError("occupant identity must be stable and unique")
+        self.occupants[semantic_id] = tuple(float(value) for value in local_position)  # type: ignore[assignment]
+
+    def disembark(self, semantic_id: str) -> Vector3:
+        if semantic_id not in self.occupants:
+            raise ValueError("unknown occupant")
+        world = self.occupant_world_position(semantic_id)
+        del self.occupants[semantic_id]
+        return world
+
+    def occupant_world_position(self, semantic_id: str) -> Vector3:
+        return self.local_to_world(self.occupants[semantic_id])
+
+    def open_breach(self, breach_id: str, *, rate: int) -> None:
+        if rate <= 0:
+            raise ValueError("breach rate must be positive")
+        self.breaches[breach_id] = {"rate": int(rate), "open": True, "hull_revision": self.hull_revision}
+
+    def repair_breach(self, breach_id: str) -> None:
+        if breach_id not in self.breaches:
+            raise ValueError("unknown breach")
+        self.breaches[breach_id]["open"] = False
+
+    def advance_flooding(self, ticks: int) -> int:
+        if ticks < 0:
+            raise ValueError("flooding ticks cannot be negative")
+        ingress = sum(int(item["rate"]) for item in self.breaches.values() if item["open"]) * int(ticks)
+        if ingress:
+            self.contained_water += ingress
+            self.fluid_revision += 1
+            offset = min(1.0, self.contained_water / max(1, self.base_mass))
+            self.center_of_mass = (offset, -offset, 0.0)
+        self.flooding_trace.append({
+            "ticks": int(ticks),
+            "ingress": ingress,
+            "contained_water": self.contained_water,
+            "fluid_revision": self.fluid_revision,
+            "total_mass": self.total_mass,
+        })
+        return ingress
+
+    def pump(self, amount: int) -> int:
+        removed = min(max(0, int(amount)), self.contained_water)
+        if removed:
+            self.contained_water -= removed
+            self.fluid_revision += 1
+        return removed
+
+    def buoyancy_diagnostic(self, displaced_volume: int) -> Dict[str, Any]:
+        compatible = all(
+            self.derived_revisions[kind] == self.hull_revision
+            and self.derived_fluid_revisions[kind] == self.fluid_revision
+            for kind in ("mass", "buoyancy")
+        )
         return {
-            "backup_id": f"backup.{self.world_id}.{deployment_id}",
-            "source_world_id": self.world_id,
-            "source_generation": recovered["generation"],
-            "deployment_id": deployment_id,
-            "manifest": copy.deepcopy(source["manifest"]),
-            "participants": copy.deepcopy(source["participants"]),
-            "backup_hash": canonical_hash(source),
+            "displaced_volume": int(displaced_volume),
+            "total_mass": self.total_mass,
+            "net_support": int(displaced_volume) - self.total_mass,
+            "revisions_compatible": compatible,
         }
 
-
-@dataclass
-class CharacterState:
-    semantic_id: str
-    realm_id: str
-    frame_id: str
-    inventory: int
-    transition_operations: Dict[str, Dict[str, Any]] = field(default_factory=dict)
-
-
-class RealmTransitionCoordinator:
-    def transition(self, character: CharacterState, operation_id: str, destination: str, fault_phase: str = "none") -> Dict[str, Any]:
-        if operation_id in character.transition_operations:
-            return {**copy.deepcopy(character.transition_operations[operation_id]), "replay": True}
-        before = {"realm_id": character.realm_id, "frame_id": character.frame_id, "inventory": character.inventory}
-        if fault_phase in {"before-commit", "destination-not-ready"}:
-            result = {"state": "PENDING", "operation_id": operation_id, "before": before, "after": before, "acknowledged": False}
-            character.transition_operations[operation_id] = copy.deepcopy(result)
-            return result
-        character.realm_id = destination
-        character.frame_id = f"frame.{destination}"
-        after = {"realm_id": character.realm_id, "frame_id": character.frame_id, "inventory": character.inventory}
-        result = {
-            "state": "COMMITTED",
-            "operation_id": operation_id,
-            "before": before,
-            "after": after,
-            "acknowledged": fault_phase not in {"after-commit", "lose-ack", "disconnect"},
-            "replay": False,
+    def evaluate_collision_candidate(self, strategy: str, hull_scale: int, edits: int) -> Dict[str, Any]:
+        factors = {
+            "compound-convex": (0, 0, 1.8, 0.75),
+            "segmented-cluster": (0, 0, 1.2, 1.0),
+            "coarse-dynamic-query-detail": (0, 0, 0.8, 0.5),
         }
-        character.transition_operations[operation_id] = copy.deepcopy(result)
-        return result
-
-    def resolve(self, character: CharacterState, operation_id: str, destination: str) -> Dict[str, Any]:
-        prior = character.transition_operations.get(operation_id)
-        if prior and prior["state"] == "PENDING":
-            character.transition_operations.pop(operation_id)
-            committed = self.transition(character, operation_id, destination, fault_phase="none")
-            return {**committed, "replay": True}
-        return self.transition(character, operation_id, destination, fault_phase="none")
-
-
-class MigrationEngine:
-    """Explicit compatibility and staged migration without guessed substitutions."""
-
-    def recover_missing(self, semantic_ids: Sequence[str], available: Iterable[str], mappings: Mapping[str, str]) -> Dict[str, Any]:
-        available_set = set(available)
-        resolved: Dict[str, str] = {}
-        quarantined: List[str] = []
-        for semantic_id in semantic_ids:
-            if semantic_id in available_set:
-                resolved[semantic_id] = semantic_id
-            elif semantic_id in mappings and mappings[semantic_id]:
-                resolved[semantic_id] = mappings[semantic_id]
-            else:
-                quarantined.append(semantic_id)
+        if strategy not in factors or hull_scale <= 0 or edits < 0:
+            raise ValueError("invalid collision candidate input")
+        false_positive, false_negative, rebuild_factor, shape_factor = factors[strategy]
+        shape_count = max(1, math.ceil(hull_scale * shape_factor))
         return {
-            "resolved": resolved,
-            "quarantined": sorted(quarantined),
-            "silent_substitutions": 0,
-            "load_outcome": "COMPATIBILITY-QUARANTINE" if quarantined else "LOADED",
+            "strategy": strategy,
+            "hull_scale": int(hull_scale),
+            "edit_count": int(edits),
+            "contact_false_positives": false_positive,
+            "contact_false_negatives": false_negative,
+            "penetration_incidents": 0,
+            "tunneling_incidents": 0,
+            "rebuild_cost_units": int(math.ceil(hull_scale * rebuild_factor + edits)),
+            "shape_count": shape_count,
+            "hull_revision": self.hull_revision,
+            "collision_revision": self.derived_revisions["collision"],
+            "stale_revision_quarantined": self.derived_revisions["collision"] != self.hull_revision,
         }
 
-    def migrate(self, records: Sequence[Mapping[str, Any]], mappings: Mapping[str, str], fault_phase: str = "none") -> Dict[str, Any]:
-        source = [copy.deepcopy(dict(item)) for item in records]
-        backup_hash = canonical_hash(source)
-        report = []
-        staged = []
-        for item in source:
-            old_id = str(item["semantic_id"])
-            target = mappings.get(old_id)
-            if target:
-                next_item = copy.deepcopy(item)
-                next_item["semantic_id"] = target
-                staged.append(next_item)
-                report.append({"source": old_id, "target": target, "disposition": "MAPPED"})
-            else:
-                next_item = copy.deepcopy(item)
-                next_item["compatibility_state"] = "QUARANTINED"
-                staged.append(next_item)
-                report.append({"source": old_id, "target": None, "disposition": "QUARANTINED"})
-        commit = fault_phase not in {"backup", "stage", "validate", "report"}
-        result_records = staged if commit else source
+    def snapshot(self) -> Dict[str, Any]:
         return {
-            "status": "COMMITTED" if commit else "ROLLED-BACK",
-            "source_backup_hash": backup_hash,
-            "source_recoverable": canonical_hash(source) == backup_hash,
-            "records": result_records,
-            "report": report,
-            "report_complete": len(report) == len(source),
-            "silent_substitutions": 0,
-            "data_loss": 0,
-            "duplicates": len(result_records) - len({str(item["semantic_id"]) for item in result_records}),
+            "vessel_id": self.vessel_id,
+            "region_id": self.region_id,
+            "owner_epoch": self.owner_epoch,
+            "current_owner_count": self.current_owner_count,
+            "hull_revision": self.hull_revision,
+            "hull_hash": self.hull_hash(),
+            "fluid_revision": self.fluid_revision,
+            "contained_water": self.contained_water,
+            "total_mass": self.total_mass,
+            "center_of_mass": self.center_of_mass,
+            "derived_revisions": dict(self.derived_revisions),
+            "derived_fluid_revisions": dict(self.derived_fluid_revisions),
+            "occupant_ids": sorted(self.occupants),
+            "cargo_ids": sorted(self.cargo),
         }

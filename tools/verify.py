@@ -18,9 +18,11 @@ PROOF_HARNESS_PYTHON = sorted(
         ROOT / "tools" / "r7_w0_runtime",
         ROOT / "tools" / "r7_w1_runtime",
         ROOT / "tools" / "r7_w2_runtime",
+        ROOT / "tools" / "r7_w3_runtime",
         ROOT / "tools" / "tests",
         ROOT / "proofs" / "r7" / "w1" / "runtime",
         ROOT / "proofs" / "r7" / "w2" / "runtime",
+        ROOT / "proofs" / "r7" / "w3" / "runtime",
     )
     for path in base.rglob("*.py")
 )
@@ -39,6 +41,17 @@ def w1_implementation_commit() -> str:
 
 def w2_implementation_commit() -> str:
     path = ROOT / "docs/rebuild/r7/w2-readiness.json"
+    if path.is_file():
+        value = json.loads(path.read_text(encoding="utf-8-sig"))
+        commit = str(value.get("implementation_commit", ""))
+        if len(commit) == 40:
+            return commit
+    result = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True)
+    return result.stdout.strip()
+
+
+def w3_implementation_commit() -> str:
+    path = ROOT / "docs/rebuild/r7/w3-readiness-corrected.json"
     if path.is_file():
         value = json.loads(path.read_text(encoding="utf-8-sig"))
         commit = str(value.get("implementation_commit", ""))
@@ -85,6 +98,7 @@ def commands_for(tier: str) -> list[list[str]]:
             [python, "-m", "tools.r7_w0_runtime", "preflight", "--static-only", "--format", "json"],
             [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
             [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
+            [python, "-m", "tools.r7_w3_runtime", "preflight", "--implementation-commit", w3_implementation_commit(), "--static-only", "--format", "json"],
             [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "full", "--format", "json"],
         ]
     return [
@@ -95,6 +109,7 @@ def commands_for(tier: str) -> list[list[str]]:
         [python, "-m", "tools.r7_w0_runtime", "preflight", "--static-only", "--format", "json"],
         [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
         [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
+        [python, "-m", "tools.r7_w3_runtime", "preflight", "--implementation-commit", w3_implementation_commit(), "--static-only", "--format", "json"],
         [python, "brain/92_SCRIPTS/brain.py", "ingest", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "index", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "links", "--format", "json"],

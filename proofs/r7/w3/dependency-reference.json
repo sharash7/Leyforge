@@ -11,6 +11,6 @@
     "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
   },
   "local_patch_status": "NO-LOCAL-PATCH",
-  "permitted_use": "R7 W3 proof-only network, persistence, recovery, migration and real-crash evidence",
+  "permitted_use": "R7 W3 proof-only fluid, editable-vessel, collision and moving-frame evidence",
   "production_dependency_state": "UNCHANGED-PLANNED-UNINSTALLED"
 }

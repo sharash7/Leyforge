@@ -1,21 +1,15 @@
-"""Clean W3 proof export plus real concurrent and external-crash process control."""
+"""Clean W3 fluid/vessel fixture export and exact external-process probes."""
 
 from __future__ import annotations
 
 import hashlib
 import json
-import os
 import platform
 import shutil
-import subprocess
-import time
-from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Mapping, Optional, Sequence
 
-from proofs.r7.w3.runtime.model import CRASH_PHASES
 from tools.proof_harness.build import BuildController, CleanExportPlan
 from tools.proof_harness.manifests import ArtifactManifest, BuildManifest, sha256_file
 from tools.proof_harness.process import ProcessController, SmokeLane
@@ -23,16 +17,39 @@ from tools.proof_harness.state import ProofExecution
 
 from .dependencies import ROOT, execution_components, iter_staged_voxel_files, load_lock, verify_local_dependencies
 
+
 PROBE_SOURCE = ROOT / "proofs/r7/w3/server_probe"
 W3_SOURCE = ROOT / "proofs/r7/w3"
+REQUIRED_CAPABILITIES = {
+    "stable-vessel-semantic-id",
+    "vessel-local-frame",
+    "world-vessel-frame-conversion",
+    "owner-region-epochs",
+    "editable-local-hull",
+    "revisioned-derived-properties",
+    "bounded-local-fluid",
+    "explicit-ocean-reservoir",
+    "breach-repair-pump",
+    "contained-water-mass",
+    "buoyancy-diagnostic",
+    "controlled-motion",
+    "board-disembark",
+    "physics-shape-collision-corpus",
+    "stale-result-quarantine",
+}
 
 
 class EnvironmentProcessController(ProcessController):
     def __init__(self, environment: Mapping[str, str]) -> None:
         self.environment = {str(key): str(value) for key, value in environment.items()}
 
-    def run(self, argv: Sequence[str], timeout_seconds: float, cwd: Optional[Path] = None,
-            environment: Optional[Mapping[str, str]] = None):
+    def run(
+        self,
+        argv: Sequence[str],
+        timeout_seconds: float,
+        cwd: Optional[Path] = None,
+        environment: Optional[Mapping[str, str]] = None,
+    ):
         merged = dict(self.environment)
         if environment:
             merged.update({str(key): str(value) for key, value in environment.items()})
@@ -159,11 +176,11 @@ def export_one(source_revision: str, role: str, run_root: Path, execution: Proof
     build = BuildManifest(
         source_revision=source_revision,
         role=role,
-        profile="release-like-w3-network-persistence-proof",
-        precision="canonical-identities-with-explicit-durability-revisions",
+        profile="release-like-w3-fluid-vessel-proof",
+        precision="integer-fluid-units-with-explicit-hull-fluid-derived-revisions",
         platform="windows-x86_64",
         content_identity=_tree_identity(W3_SOURCE),
-        schema_identity="leyforge-r7-w3-network-persistence-runtime-v1",
+        schema_identity="leyforge-r7-w3-fluid-vessel-runtime-v1",
         clean_export=True,
         invocation=invocation,
         components=execution_components(lock),
@@ -179,24 +196,42 @@ def export_one(source_revision: str, role: str, run_root: Path, execution: Proof
         "APPDATA": str((profile / "appdata").resolve()),
         "LOCALAPPDATA": str((profile / "localappdata").resolve()),
     })
-    export_result = BuildController(controller).execute(CleanExportPlan(build=build, output_root=output_root, argv=invocation), timeout_seconds=180.0)
+    export_result = BuildController(controller).execute(
+        CleanExportPlan(build=build, output_root=output_root, argv=invocation), timeout_seconds=180.0
+    )
     if export_result.process.exit_code != 0 or export_result.process.timed_out or not artifact_path.is_file():
         raise RuntimeError("W3 Godot export failed: " + json.dumps(export_result.to_dict(), ensure_ascii=True))
     artifact = ArtifactManifest.from_path(
-        artifact_path, build, artifact_kind="leyforge-export", exported_runtime=True,
-        synthetic_fixture=False, runtime_self_report_build_identity=build.build_identity,
+        artifact_path,
+        build,
+        artifact_kind="leyforge-export",
+        exported_runtime=True,
+        synthetic_fixture=False,
+        runtime_self_report_build_identity=build.build_identity,
     )
     argv = [str(artifact_path.resolve())]
     if role == "headless":
         argv.append("--headless")
     argv.extend(["--", "--mode", "smoke"])
-    lane = SmokeLane(lane_id=f"W3-{role.upper()}-EXPORT-SMOKE", proof_id=execution.proof_id, role=role, build=build, artifact=artifact, argv=tuple(argv))
+    lane = SmokeLane(
+        lane_id=f"W3-{role.upper()}-EXPORT-SMOKE",
+        proof_id=execution.proof_id,
+        role=role,
+        build=build,
+        artifact=artifact,
+        argv=tuple(argv),
+    )
     smoke = lane.execute(controller, timeout_seconds=60.0, proof_execution=execution)
     report = _parse_prefixed_json(smoke.process.stdout, "LEYFORGE_W3_SELF_REPORT ")
-    if report.get("status") != "PASS" or report.get("build_identity") != build.build_identity or report.get("role") != role:
-        raise RuntimeError("W3 runtime self-report did not match its build")
-    if int(report.get("crash_phase_count", 0)) != len(CRASH_PHASES) or not smoke.evidence_eligible:
-        raise RuntimeError("W3 export smoke did not expose the governed crash-phase contract")
+    capabilities = set(report.get("fixture_capabilities", []))
+    if (
+        report.get("status") != "PASS"
+        or report.get("build_identity") != build.build_identity
+        or report.get("role") != role
+        or not REQUIRED_CAPABILITIES.issubset(capabilities)
+        or not smoke.evidence_eligible
+    ):
+        raise RuntimeError("W3 runtime self-report did not match its build and fixture contract")
     files = [
         {"path": path.relative_to(output_root).as_posix(), "bytes": path.stat().st_size, "sha256": sha256_file(path)}
         for path in sorted(output_root.rglob("*")) if path.is_file()
@@ -212,231 +247,34 @@ def export_one(source_revision: str, role: str, run_root: Path, execution: Proof
     return ExportedBuild(build, artifact, export_result.to_dict(), smoke.to_dict(), report, content, workspace, output_root)
 
 
-def _process_environment(profile: Path) -> Dict[str, str]:
-    environment = dict(os.environ)
-    environment["APPDATA"] = str((profile / "appdata").resolve())
-    environment["LOCALAPPDATA"] = str((profile / "localappdata").resolve())
-    return environment
-
-
-def _hidden_process_flags() -> int:
-    return int(getattr(subprocess, "CREATE_NO_WINDOW", 0))
-
-
-def run_concurrent_backup_smoke(exported: ExportedBuild, execution: ProofExecution, run_root: Path) -> Dict[str, Any]:
-    root = run_root.resolve() / "real-processes" / str(execution.run_id) / "backup-pair"
-    root.mkdir(parents=True, exist_ok=False)
-    artifact = str(Path(exported.artifact.artifact_path).resolve())
-    processes = []
-    started = []
-    for role in ("source", "copy"):
-        data_root = root / role
-        argv = [artifact, "--headless", "--", "--mode", "session-smoke", "--session-role", role, "--data-root", str(data_root.resolve())]
-        start = time.time()
-        process = subprocess.Popen(
-            argv,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            env=_process_environment(root / "profiles" / role),
-            creationflags=_hidden_process_flags(),
-        )
-        processes.append((role, process))
-        started.append(start)
-    reports = []
-    ended = []
-    for role, process in processes:
-        stdout, stderr = process.communicate(timeout=30)
-        ended.append(time.time())
-        report = _parse_prefixed_json(stdout, "LEYFORGE_W3_SESSION_REPORT ")
-        report["exit_code"] = process.returncode
-        report["stderr_sha256"] = hashlib.sha256(stderr.encode("utf-8")).hexdigest()
-        reports.append(report)
-    distinct = len({item.get("pid") for item in reports}) == 2 and len({item.get("session_id") for item in reports}) == 2
-    semantic_same = len({item.get("world_semantic_id") for item in reports}) == 1
-    overlap = max(started) < min(ended)
-    passed = all(item.get("status") == "PASS" and item.get("exit_code") == 0 for item in reports) and distinct and semantic_same and overlap
-    return {
-        "schema_version": "prd07-w3-concurrent-backup-process-report-v1",
-        "outcome": "PASS" if passed else "FAIL",
-        "concurrent_processes": len(reports),
-        "process_overlap": overlap,
-        "distinct_runtime_sessions": distinct,
-        "preserved_world_semantic_identity": semantic_same,
-        "build_identity": exported.build.build_identity,
-        "artifact_sha256": exported.artifact.artifact_sha256,
-        "processes": reports,
-    }
-
-
-def _wait_for_marker(path: Path, target_phase: str, process: subprocess.Popen[str], timeout_seconds: float) -> Dict[str, Any]:
-    deadline = time.monotonic() + timeout_seconds
-    last_error = ""
-    while time.monotonic() < deadline:
-        if path.is_file():
-            try:
-                value = json.loads(path.read_text(encoding="utf-8-sig"))
-                if value.get("phase") == target_phase and value.get("target_phase") == target_phase:
-                    return value
-            except (OSError, json.JSONDecodeError) as exc:
-                last_error = str(exc)
-        if process.poll() is not None:
-            raise RuntimeError(f"crash worker exited before target marker: {process.returncode}")
-        time.sleep(0.01)
-    raise TimeoutError(f"timed out waiting for {target_phase} marker: {last_error}")
-
-
-def _checkpoint_inventory(data_root: Path) -> list[Dict[str, Any]]:
-    rows = []
-    for path in sorted(data_root.rglob("*")):
-        if path.is_file():
-            rows.append({
-                "path": path.relative_to(data_root).as_posix(),
-                "bytes": path.stat().st_size,
-                "sha256": sha256_file(path),
-            })
-    return rows
-
-
-def _run_crash_case(exported: ExportedBuild, execution: ProofExecution, root: Path, phase: str, repetition: int) -> Dict[str, Any]:
-    case_id = f"{phase.lower()}.{repetition:02d}"
-    case_root = root / case_id
-    data_root = case_root / "world"
-    profile = case_root / "profile"
-    case_root.mkdir(parents=True, exist_ok=False)
-    artifact = str(Path(exported.artifact.artifact_path).resolve())
-    argv = [
-        artifact, "--headless", "--", "--mode", "crash-worker",
-        "--data-root", str(data_root.resolve()), "--target-phase", phase,
-        "--case-id", case_id, "--run-id", str(execution.run_id),
-    ]
-    started_at = datetime.now(timezone.utc).isoformat()
-    process = subprocess.Popen(
-        argv,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        env=_process_environment(profile / "worker"),
-        creationflags=_hidden_process_flags(),
+def run_fixture_probe(exported: ExportedBuild, execution: ProofExecution, iterations: int = 512) -> Dict[str, Any]:
+    profile = exported.output_root.parent / "runtime-profile" / str(execution.run_id)
+    controller = EnvironmentProcessController({
+        "APPDATA": str((profile / "appdata").resolve()),
+        "LOCALAPPDATA": str((profile / "localappdata").resolve()),
+    })
+    artifact_path = Path(exported.artifact.path)
+    argv = [str(artifact_path.resolve())]
+    if exported.build.role == "headless":
+        argv.append("--headless")
+    argv.extend([
+        "--", "--mode", "fixture", "--proof-id", execution.proof_id,
+        "--run-id", str(execution.run_id), "--iterations", str(iterations),
+    ])
+    lane = SmokeLane(
+        lane_id=f"{execution.proof_id}-W3-FLUID-VESSEL-FIXTURE",
+        proof_id=execution.proof_id,
+        role=exported.build.role,
+        build=exported.build,
+        artifact=exported.artifact,
+        argv=tuple(argv),
     )
-    marker = _wait_for_marker(data_root / "kill-ready.json", phase, process, 20.0)
-    killed_at = datetime.now(timezone.utc).isoformat()
-    process.kill()
-    stdout, stderr = process.communicate(timeout=10)
-    forced_exit_code = process.returncode
-    recovery_argv = [artifact, "--headless", "--", "--mode", "recover", "--data-root", str(data_root.resolve())]
-    recovery = subprocess.run(
-        recovery_argv,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        capture_output=True,
-        timeout=30,
-        env=_process_environment(profile / "recovery"),
-        creationflags=_hidden_process_flags(),
-    )
-    report = _parse_prefixed_json(recovery.stdout, "LEYFORGE_W3_RECOVERY_REPORT ")
-    publish_index = CRASH_PHASES.index("MANIFEST-PUBLISH")
-    expected_generation = 2 if CRASH_PHASES.index(phase) >= publish_index else 1
-    valid = (
-        forced_exit_code not in {0, None}
-        and recovery.returncode == 0
-        and report.get("status") == "PASS"
-        and report.get("build_identity") == exported.build.build_identity
-        and int(report.get("selected_generation", 0)) == expected_generation
-        and report.get("mixed_lineage") is False
-    )
-    return {
-        "case_id": case_id,
-        "phase": phase,
-        "repetition": repetition,
-        "expected_generation": expected_generation,
-        "selected_generation": int(report.get("selected_generation", 0)),
-        "valid": valid,
-        "external_kill": True,
-        "worker_pid": process.pid,
-        "started_at": started_at,
-        "killed_at": killed_at,
-        "forced_exit_code": forced_exit_code,
-        "worker_stdout_sha256": hashlib.sha256(stdout.encode("utf-8")).hexdigest(),
-        "worker_stderr_sha256": hashlib.sha256(stderr.encode("utf-8")).hexdigest(),
-        "recovery_exit_code": recovery.returncode,
-        "recovery_stdout_sha256": hashlib.sha256(recovery.stdout.encode("utf-8")).hexdigest(),
-        "recovery_stderr_sha256": hashlib.sha256(recovery.stderr.encode("utf-8")).hexdigest(),
-        "marker": marker,
-        "recovery": report,
-        "checkpoint_inventory": _checkpoint_inventory(data_root),
-    }
-
-
-def run_real_crash_matrix(
-    exported: ExportedBuild,
-    execution: ProofExecution,
-    run_root: Path,
-    repetitions_per_phase: int = 16,
-) -> Dict[str, Any]:
-    if exported.build.role != "headless":
-        raise ValueError("real crash matrix requires the W3 headless export")
-    if repetitions_per_phase < 15:
-        raise ValueError("real crash matrix must retain at least two hundred total cases")
-    root = run_root.resolve() / "real-processes" / str(execution.run_id) / "crash-matrix"
-    root.mkdir(parents=True, exist_ok=False)
-    schedule = [(phase, repetition) for phase in CRASH_PHASES for repetition in range(repetitions_per_phase)]
-    with ThreadPoolExecutor(max_workers=4, thread_name_prefix="w3-real-crash") as pool:
-        cases = list(pool.map(lambda item: _run_crash_case(exported, execution, root, item[0], item[1]), schedule))
-    wrong = sum(item["selected_generation"] != item["expected_generation"] for item in cases)
-    mixed = sum(bool(item["recovery"].get("mixed_lineage")) for item in cases)
-    restart_failures = sum(item["recovery_exit_code"] != 0 or item["recovery"].get("status") != "PASS" for item in cases)
-    non_forced = sum(item["forced_exit_code"] in {0, None} for item in cases)
-    unexplained = sum(not item["valid"] for item in cases)
-    compact_cases = [
-        {
-            "case_id": item["case_id"],
-            "phase": item["phase"],
-            "repetition": item["repetition"],
-            "expected_generation": item["expected_generation"],
-            "selected_generation": item["selected_generation"],
-            "external_kill": item["external_kill"],
-            "valid": item["valid"],
-            "state_hash": item["recovery"].get("state_hash"),
-        }
-        for item in cases
-    ]
-    process_exit = [
-        {
-            "case_id": item["case_id"],
-            "worker_pid": item["worker_pid"],
-            "started_at": item["started_at"],
-            "killed_at": item["killed_at"],
-            "forced_exit_code": item["forced_exit_code"],
-            "recovery_exit_code": item["recovery_exit_code"],
-            "worker_stdout_sha256": item["worker_stdout_sha256"],
-            "worker_stderr_sha256": item["worker_stderr_sha256"],
-        }
-        for item in cases
-    ]
-    sample_indexes = [index * repetitions_per_phase for index in range(len(CRASH_PHASES))]
-    passed = wrong == mixed == restart_failures == non_forced == unexplained == 0 and len(cases) >= 200
-    return {
-        "schema_version": "prd07-w3-real-crash-matrix-v1",
-        "outcome": "PASS" if passed else "FAIL",
-        "case_count": len(cases),
-        "fault_phase_count": len(CRASH_PHASES),
-        "repetitions_per_phase": repetitions_per_phase,
-        "external_forced_termination": True,
-        "build_identity": exported.build.build_identity,
-        "artifact_sha256": exported.artifact.artifact_sha256,
-        "wrong_generation_selections": wrong,
-        "mixed_lineages": mixed,
-        "restart_failures": restart_failures,
-        "non_forced_exits": non_forced,
-        "unexplained_recoveries": unexplained,
-        "cases": compact_cases,
-        "process_exit_evidence": process_exit,
-        "checkpoint_samples": [cases[index]["checkpoint_inventory"] for index in sample_indexes],
-        "recovery_samples": [cases[index]["recovery"] for index in sample_indexes],
-    }
+    result = lane.execute(controller, timeout_seconds=120.0, proof_execution=execution)
+    report = _parse_prefixed_json(result.process.stdout, "LEYFORGE_W3_FIXTURE_REPORT ")
+    if report.get("proof_id") != execution.proof_id or report.get("run_id") != execution.run_id:
+        raise RuntimeError("W3 fixture report execution identity differs")
+    if report.get("build_identity") != exported.build.build_identity:
+        raise RuntimeError("W3 fixture report build identity differs")
+    report["external_process"] = True
+    report["process"] = result.to_dict()
+    return report

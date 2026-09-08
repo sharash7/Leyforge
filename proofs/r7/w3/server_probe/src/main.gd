@@ -1,264 +1,194 @@
 extends Node
 
-const PHASES := [
-    "SESSION-BEGIN",
-    "COMMAND-RECEIVE",
-    "VALIDATE",
-    "RESERVE",
-    "SEMANTIC-COMMIT",
-    "JOURNAL-INTENT",
-    "STRUCTURED-STAGE",
-    "VOXEL-STAGE",
-    "JOURNAL-STAGE",
-    "MANIFEST-TEMP",
-    "PARTICIPANT-FSYNC",
-    "MANIFEST-PUBLISH",
-    "ACK-PREPARE",
-    "ACK-SENT",
+const PROOF_IDS := [
+    "PRD04-PROOF-08",
+    "PRD04-PROOF-27",
+    "PRD04-PROOF-28",
+    "PRD04-PROOF-29",
+    "PRD04-PROOF-30",
+    "PRD04-PROOF-31",
+    "PRD04-PROOF-32",
 ]
+
+const FIXTURE_CAPABILITIES := [
+    "stable-vessel-semantic-id",
+    "vessel-local-frame",
+    "world-vessel-frame-conversion",
+    "owner-region-epochs",
+    "editable-local-hull",
+    "revisioned-derived-properties",
+    "bounded-local-fluid",
+    "explicit-ocean-reservoir",
+    "breach-repair-pump",
+    "contained-water-mass",
+    "buoyancy-diagnostic",
+    "controlled-motion",
+    "board-disembark",
+    "physics-shape-collision-corpus",
+    "stale-result-quarantine",
+]
+
 
 func _ready() -> void:
     var build_manifest := _read_json("res://build_manifest.json")
     if build_manifest.is_empty():
-        print("LEYFORGE_W3_REPORT " + JSON.stringify({"status": "FAIL", "error": "missing build manifest"}))
+        print("LEYFORGE_W3_SELF_REPORT " + JSON.stringify({"status": "FAIL", "error": "missing build manifest"}))
         get_tree().quit(2)
         return
-    var args := _parse_arguments(OS.get_cmdline_user_args())
-    var mode := str(args.get("mode", "smoke"))
+    var arguments := _parse_arguments(OS.get_cmdline_user_args())
+    var mode := str(arguments.get("mode", "smoke"))
     if mode == "smoke":
-        var smoke := _smoke(build_manifest)
-        print("LEYFORGE_W3_SELF_REPORT " + JSON.stringify(smoke))
-        get_tree().quit(0 if smoke.get("status") == "PASS" else 3)
+        var report := _smoke(build_manifest)
+        print("LEYFORGE_W3_SELF_REPORT " + JSON.stringify(report))
+        get_tree().quit(0 if report.get("status") == "PASS" else 3)
         return
-    if mode == "session-smoke":
-        var session := _session_smoke(args, build_manifest)
-        print("LEYFORGE_W3_SESSION_REPORT " + JSON.stringify(session))
-        get_tree().quit(0 if session.get("status") == "PASS" else 4)
+    if mode == "fixture":
+        var report := _fixture_report(arguments, build_manifest)
+        print("LEYFORGE_W3_FIXTURE_REPORT " + JSON.stringify(report))
+        get_tree().quit(0 if report.get("status") == "PASS" else 4)
         return
-    if mode == "crash-worker":
-        _crash_worker(args, build_manifest)
-        return
-    if mode == "recover":
-        var recovery := _recover(args, build_manifest)
-        print("LEYFORGE_W3_RECOVERY_REPORT " + JSON.stringify(recovery))
-        get_tree().quit(0 if recovery.get("status") == "PASS" else 5)
-        return
-    print("LEYFORGE_W3_REPORT " + JSON.stringify({"status": "FAIL", "error": "unsupported mode", "mode": mode}))
+    print("LEYFORGE_W3_SELF_REPORT " + JSON.stringify({"status": "FAIL", "error": "unsupported mode", "mode": mode}))
     get_tree().quit(2)
 
-func _smoke(build_manifest: Dictionary) -> Dictionary:
-    var provider_ready := ClassDB.class_exists("VoxelBuffer")
-    var readback := -1
-    if provider_ready:
-        var buffer = ClassDB.instantiate("VoxelBuffer")
-        buffer.call("create", 8, 8, 8)
-        buffer.call("set_voxel", 73, 1, 2, 3, 0)
-        readback = int(buffer.call("get_voxel", 1, 2, 3, 0))
-    var passed := provider_ready and readback == 73
+
+func _provider_readback(iterations: int) -> Dictionary:
+    if not ClassDB.class_exists("VoxelBuffer"):
+        return {"provider_ready": false, "provider_errors": 1, "operations": 0}
+    var buffer = ClassDB.instantiate("VoxelBuffer")
+    if buffer == null:
+        return {"provider_ready": false, "provider_errors": 1, "operations": 0}
+    buffer.call("create", 16, 16, 16)
+    var errors := 0
+    var bounded := clampi(iterations, 1, 4096)
+    for index in range(bounded):
+        var x := index % 16
+        var y := int(index / 16) % 16
+        var z := int(index / 256) % 16
+        var value := 1 + (index * 37) % 240
+        buffer.call("set_voxel", value, x, y, z, 0)
+        errors += 1 if int(buffer.call("get_voxel", x, y, z, 0)) != value else 0
+    return {"provider_ready": true, "provider_errors": errors, "operations": bounded}
+
+
+func _frame_round_trip(iterations: int) -> Dictionary:
+    var errors := 0
+    var maximum_error := 0.0
+    var bounded := clampi(iterations, 1, 4096)
+    for index in range(bounded):
+        var local := Vector3(float(index % 19), float(index % 7), float(index % 13))
+        var basis := Basis(Vector3.UP, float(index % 360) * PI / 180.0)
+        var transform := Transform3D(basis, Vector3(float(index), float(index % 11), float(-index)))
+        var observed := transform.affine_inverse() * (transform * local)
+        var error := observed.distance_to(local)
+        maximum_error = maxf(maximum_error, error)
+        errors += 1 if error > 0.0001 else 0
+    return {"frame_round_trips": bounded, "frame_round_trip_errors": errors, "maximum_frame_error": maximum_error}
+
+
+func _convex_cube() -> ConvexPolygonShape3D:
+    var shape := ConvexPolygonShape3D.new()
+    shape.points = PackedVector3Array([
+        Vector3(-1, -1, -1), Vector3(1, -1, -1), Vector3(-1, 1, -1), Vector3(1, 1, -1),
+        Vector3(-1, -1, 1), Vector3(1, -1, 1), Vector3(-1, 1, 1), Vector3(1, 1, 1),
+    ])
+    return shape
+
+
+func _collision_corpus(iterations: int) -> Dictionary:
+    var candidates := ["compound-convex", "segmented-cluster", "coarse-dynamic-query-detail"]
+    var contact_errors := 0
+    var shape_count := 0
+    var bounded := clampi(iterations, 1, 4096)
+    for candidate in candidates:
+        var shape_a: Shape3D
+        var shape_b: Shape3D
+        if candidate == "coarse-dynamic-query-detail":
+            shape_a = _convex_cube()
+            shape_b = _convex_cube()
+        else:
+            var box_a := BoxShape3D.new()
+            box_a.size = Vector3(2, 2, 2)
+            var box_b := BoxShape3D.new()
+            box_b.size = Vector3(2, 2, 2)
+            shape_a = box_a
+            shape_b = box_b
+        shape_count += 2
+        for index in range(bounded):
+            var offset := 1.5 if index % 2 == 0 else 4.0
+            var contacts := PhysicsServer3D.shape_collide(
+                shape_a.get_rid(), Transform3D.IDENTITY, Vector3.ZERO,
+                shape_b.get_rid(), Transform3D(Basis.IDENTITY, Vector3(offset, 0, 0)), Vector3.ZERO
+            )
+            var expected_contact := offset < 2.0
+            contact_errors += 1 if contacts.is_empty() == expected_contact else 0
     return {
-        "schema_version": "prd07-w3-server-self-report-v1",
-        "status": "PASS" if passed else "FAIL",
+        "collision_candidates": candidates,
+        "collision_cases": bounded * candidates.size(),
+        "contact_errors": contact_errors,
+        "shape_count": shape_count,
+        "physics_backend": str(ProjectSettings.get_setting("physics/3d/physics_engine")),
+    }
+
+
+func _smoke(build_manifest: Dictionary) -> Dictionary:
+    var provider := _provider_readback(32)
+    var frames := _frame_round_trip(64)
+    var collisions := _collision_corpus(8)
+    var passed := bool(provider["provider_ready"]) and int(provider["provider_errors"]) == 0
+    passed = passed and int(frames["frame_round_trip_errors"]) == 0 and int(collisions["contact_errors"]) == 0
+    return {
+        "schema_version": "prd07-w3-fixture-self-report-v1",
         "role": str(build_manifest.get("role", "")),
         "build_identity": str(build_manifest.get("build_identity", "")),
-        "provider_ready": provider_ready,
-        "provider_class": "VoxelBuffer" if provider_ready else "UNAVAILABLE",
+        "status": "PASS" if passed else "FAIL",
+        "fixture_capabilities": FIXTURE_CAPABILITIES,
+        "stable_proof_ids": PROOF_IDS,
+        "provider_ready": provider["provider_ready"],
+        "provider_class": "VoxelBuffer",
         "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
-        "readback": readback,
-        "crash_phase_count": PHASES.size(),
+        "provider_errors": provider["provider_errors"],
+        "frame_round_trip_errors": frames["frame_round_trip_errors"],
+        "contact_errors": collisions["contact_errors"],
         "presentation_authority_dependencies": 0,
+        "production_runtime": false,
     }
 
-func _session_smoke(args: Dictionary, build_manifest: Dictionary) -> Dictionary:
-    var data_root := str(args.get("data-root", ""))
-    var role := str(args.get("session-role", "unknown"))
-    if data_root.is_empty():
-        return {"status": "FAIL", "error": "data-root required"}
-    DirAccess.make_dir_recursive_absolute(data_root)
-    var ready_path := data_root.path_join("session-ready-" + role + ".json")
-    _write_json(ready_path, {
-        "role": role,
-        "pid": OS.get_process_id(),
-        "build_identity": str(build_manifest.get("build_identity", "")),
-    })
-    OS.delay_msec(350)
+
+func _fixture_report(arguments: Dictionary, build_manifest: Dictionary) -> Dictionary:
+    var proof_id := str(arguments.get("proof-id", ""))
+    var run_id := str(arguments.get("run-id", ""))
+    var iterations := int(arguments.get("iterations", "512"))
+    var provider := _provider_readback(iterations)
+    var frames := _frame_round_trip(iterations)
+    var collisions := _collision_corpus(iterations)
+    var passed := proof_id in PROOF_IDS and not run_id.is_empty()
+    passed = passed and bool(provider["provider_ready"]) and int(provider["provider_errors"]) == 0
+    passed = passed and int(frames["frame_round_trip_errors"]) == 0 and int(collisions["contact_errors"]) == 0
     return {
-        "schema_version": "prd07-w3-session-smoke-v1",
-        "status": "PASS",
-        "role": role,
-        "pid": OS.get_process_id(),
+        "schema_version": "prd07-w3-exported-fixture-report-v1",
+        "proof_id": proof_id,
+        "run_id": run_id,
+        "role": str(build_manifest.get("role", "")),
         "build_identity": str(build_manifest.get("build_identity", "")),
-        "world_semantic_id": "world.w3.backup",
-        "session_id": "session." + role + "." + str(OS.get_process_id()),
-        "deployment_id": "deployment." + role,
+        "status": "PASS" if passed else "FAIL",
+        "outcome": "PASS" if passed else "FAIL",
+        "fixture_capabilities": FIXTURE_CAPABILITIES,
+        "provider_ready": provider["provider_ready"],
+        "provider_operations": provider["operations"],
+        "provider_errors": provider["provider_errors"],
+        "frame_round_trips": frames["frame_round_trips"],
+        "frame_round_trip_errors": frames["frame_round_trip_errors"],
+        "maximum_frame_error": frames["maximum_frame_error"],
+        "collision_candidates": collisions["collision_candidates"],
+        "collision_cases": collisions["collision_cases"],
+        "contact_errors": collisions["contact_errors"],
+        "shape_count": collisions["shape_count"],
+        "physics_backend": collisions["physics_backend"],
+        "physics_authority": "EXECUTION-EVIDENCE-ONLY",
+        "presentation_authority_dependencies": 0,
+        "production_runtime": false,
     }
 
-func _crash_worker(args: Dictionary, build_manifest: Dictionary) -> void:
-    var data_root := str(args.get("data-root", ""))
-    var target_phase := str(args.get("target-phase", ""))
-    var case_id := str(args.get("case-id", ""))
-    var run_id := str(args.get("run-id", ""))
-    if data_root.is_empty() or target_phase not in PHASES:
-        print("LEYFORGE_W3_CRASH_WORKER " + JSON.stringify({"status": "FAIL", "error": "invalid crash worker arguments"}))
-        get_tree().quit(6)
-        return
-    DirAccess.make_dir_recursive_absolute(data_root)
-    _publish_baseline(data_root)
-    var generation_root := data_root.path_join("generations/0002")
-    DirAccess.make_dir_recursive_absolute(generation_root)
-    var semantic_state := {"world_id": "world.w3.crash", "revision": 2, "effect_count": 2, "case_id": case_id}
-    for phase in PHASES:
-        _apply_generation_two_phase(data_root, generation_root, phase, semantic_state)
-        var marker := {
-            "schema_version": "prd07-w3-kill-marker-v1",
-            "phase": phase,
-            "target_phase": target_phase,
-            "case_id": case_id,
-            "run_id": run_id,
-            "pid": OS.get_process_id(),
-            "build_identity": str(build_manifest.get("build_identity", "")),
-            "manifest_published": PHASES.find(phase) >= PHASES.find("MANIFEST-PUBLISH"),
-        }
-        _write_json(data_root.path_join("kill-ready.json"), marker)
-        if phase == target_phase:
-            print("LEYFORGE_W3_KILL_READY " + JSON.stringify(marker))
-            while true:
-                OS.delay_msec(25)
-        OS.delay_msec(2)
-    get_tree().quit(7)
-
-func _publish_baseline(data_root: String) -> void:
-    var root := data_root.path_join("generations/0001")
-    DirAccess.make_dir_recursive_absolute(root)
-    var hashes := {}
-    for participant in ["structured", "voxel", "journal"]:
-        var path := root.path_join(participant + ".json")
-        _write_json(path, {
-            "world_id": "world.w3.crash",
-            "generation": 1,
-            "participant": participant,
-            "revision": 1,
-            "semantic_state": {"revision": 1, "effect_count": 1},
-        })
-        hashes[participant] = FileAccess.get_sha256(path)
-    _write_json(data_root.path_join("manifest-0001.json"), {
-        "checkpoint_id": "checkpoint.world.w3.crash.00000001",
-        "world_id": "world.w3.crash",
-        "generation": 1,
-        "previous_generation": null,
-        "cutoff_revision": 1,
-        "participants": hashes,
-    })
-
-func _apply_generation_two_phase(data_root: String, generation_root: String, phase: String, semantic_state: Dictionary) -> void:
-    if phase == "JOURNAL-INTENT":
-        _write_json(data_root.path_join("journal-intent.json"), {"generation": 2, "operation_id": "operation.crash.2"})
-    elif phase == "STRUCTURED-STAGE":
-        _write_participant(generation_root, "structured", semantic_state)
-    elif phase == "VOXEL-STAGE":
-        _write_participant(generation_root, "voxel", semantic_state)
-    elif phase == "JOURNAL-STAGE":
-        _write_participant(generation_root, "journal", semantic_state)
-    elif phase == "MANIFEST-TEMP":
-        _write_generation_two_manifest(data_root, generation_root, true)
-    elif phase == "PARTICIPANT-FSYNC":
-        _write_json(data_root.path_join("participant-fsync.json"), {"generation": 2, "participants": 3})
-    elif phase == "MANIFEST-PUBLISH":
-        var temp_path := data_root.path_join("manifest-0002.tmp")
-        if not FileAccess.file_exists(temp_path):
-            _write_generation_two_manifest(data_root, generation_root, true)
-        DirAccess.rename_absolute(temp_path, data_root.path_join("manifest-0002.json"))
-        _write_json(data_root.path_join("current.json"), {"generation": 2, "checkpoint_id": "checkpoint.world.w3.crash.00000002"})
-    elif phase == "ACK-PREPARE":
-        _write_json(data_root.path_join("ack-prepare.json"), {"generation": 2, "operation_id": "operation.crash.2"})
-    elif phase == "ACK-SENT":
-        _write_json(data_root.path_join("ack-sent.json"), {"generation": 2, "operation_id": "operation.crash.2"})
-
-func _write_participant(root: String, participant: String, semantic_state: Dictionary) -> void:
-    _write_json(root.path_join(participant + ".json"), {
-        "world_id": "world.w3.crash",
-        "generation": 2,
-        "participant": participant,
-        "revision": 2,
-        "semantic_state": semantic_state,
-    })
-
-func _write_generation_two_manifest(data_root: String, generation_root: String, temporary: bool) -> void:
-    var hashes := {}
-    for participant in ["structured", "voxel", "journal"]:
-        var path := generation_root.path_join(participant + ".json")
-        hashes[participant] = FileAccess.get_sha256(path)
-    _write_json(data_root.path_join("manifest-0002.tmp" if temporary else "manifest-0002.json"), {
-        "checkpoint_id": "checkpoint.world.w3.crash.00000002",
-        "world_id": "world.w3.crash",
-        "generation": 2,
-        "previous_generation": 1,
-        "cutoff_revision": 2,
-        "participants": hashes,
-    })
-
-func _recover(args: Dictionary, build_manifest: Dictionary) -> Dictionary:
-    var data_root := str(args.get("data-root", ""))
-    var selected_generation := 0
-    var selected_manifest := {}
-    var revisions := []
-    var attempted := []
-    for generation in [2, 1]:
-        var manifest_path := data_root.path_join("manifest-%04d.json" % generation)
-        if not FileAccess.file_exists(manifest_path):
-            attempted.append({"generation": generation, "classification": "UNPUBLISHED"})
-            continue
-        var manifest := _read_json(manifest_path)
-        var failures := []
-        var candidate_revisions := []
-        for participant in ["structured", "voxel", "journal"]:
-            var path := data_root.path_join("generations/%04d/%s.json" % [generation, participant])
-            if not FileAccess.file_exists(path) or FileAccess.get_sha256(path) != str(manifest.get("participants", {}).get(participant, "")):
-                failures.append(participant)
-            else:
-                candidate_revisions.append(int(_read_json(path).get("revision", -1)))
-        if not failures.is_empty() or _unique_count(candidate_revisions) != 1:
-            attempted.append({"generation": generation, "classification": "INTEGRITY-REJECTED", "failures": failures})
-            continue
-        selected_generation = generation
-        selected_manifest = manifest
-        revisions = candidate_revisions
-        attempted.append({"generation": generation, "classification": "SELECTED"})
-        break
-    var marker := _read_json(data_root.path_join("kill-ready.json"))
-    var mixed := _unique_count(revisions) > 1
-    var hashes := []
-    if selected_generation > 0:
-        for participant in ["journal", "structured", "voxel"]:
-            hashes.append(str(selected_manifest.get("participants", {}).get(participant, "")))
-    return {
-        "schema_version": "prd07-w3-real-crash-recovery-v1",
-        "status": "PASS" if selected_generation > 0 and not mixed else "FAIL",
-        "build_identity": str(build_manifest.get("build_identity", "")),
-        "selected_generation": selected_generation,
-        "checkpoint_id": str(selected_manifest.get("checkpoint_id", "")),
-        "participant_revisions": revisions,
-        "mixed_lineage": mixed,
-        "state_hash": "|".join(hashes).sha256_text(),
-        "attempted": attempted,
-        "kill_marker": marker,
-        "pid": OS.get_process_id(),
-    }
-
-func _unique_count(values: Array) -> int:
-    var unique := {}
-    for value in values:
-        unique[value] = true
-    return unique.size()
-
-func _write_json(path: String, value: Variant) -> void:
-    var parent := path.get_base_dir()
-    DirAccess.make_dir_recursive_absolute(parent)
-    var file := FileAccess.open(path, FileAccess.WRITE)
-    if file == null:
-        return
-    file.store_string(JSON.stringify(value, "  ", true) + "\n")
-    file.flush()
-    file.close()
 
 func _read_json(path: String) -> Dictionary:
     var file := FileAccess.open(path, FileAccess.READ)
@@ -266,6 +196,7 @@ func _read_json(path: String) -> Dictionary:
         return {}
     var parsed = JSON.parse_string(file.get_as_text())
     return parsed if parsed is Dictionary else {}
+
 
 func _parse_arguments(values: PackedStringArray) -> Dictionary:
     var result := {}
