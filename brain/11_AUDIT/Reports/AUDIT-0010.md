@@ -46,7 +46,7 @@ Certify the owner-authorized Class E W3 repair package against [[TASK-20260908-0
 
 ## Evidence
 
-[[EVID-0010]] records the exact implementation/source-tree identities, repaired API route, fixed-engine export/runtime measurements, quarantine mapping, transaction behavior, certification artifacts and local verification. [[EVID-0009]] / [[AUDIT-0009]] remain the immutable evidence for the actual failed attempt and are not reinterpreted.
+[[EVID-0010]] records the exact implementation/source-tree identities, repaired API route, fixed-engine export/runtime measurements, quarantine mapping, transaction behavior, certification artifacts and local verification. Certification evidence commit `48ed9f2f69beac4c07386c551d7a781d426b3b74` is published with Brain integrity #25 and Engineering governance integrity #24 successful. [[EVID-0009]] / [[AUDIT-0009]] remain the immutable evidence for the actual failed attempt and are not reinterpreted.
 
 ## Findings
 

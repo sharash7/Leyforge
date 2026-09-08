@@ -17,6 +17,7 @@
     "starting_head": "8aa07ecaf03bc840bc4834e777c1acf612d82c3e",
     "lifecycle_opening_commit": "7e85588b6818b551b334e81b03a96f1b2df6235b",
     "implementation_commit": "45b0300caa0ebd66d4c740a71db983a7a9827f3b",
+    "certification_evidence_commit": "48ed9f2f69beac4c07386c551d7a781d426b3b74",
     "branch": "codex/chore/brain-governance-pilot",
     "upstream": "origin/codex/chore/brain-governance-pilot",
     "history_rewritten": false,
@@ -162,6 +163,22 @@
     "registry_and_evidence_packs": "PASS",
     "historical_hash_immutability": "PASS",
     "git_diff_check": "PASS",
+    "remote_workflows": [
+      {
+        "workflow": "Brain integrity",
+        "run_number": 25,
+        "run_id": 34252420802,
+        "status": "SUCCESS",
+        "url": "https://github.com/sharash7/Leyforge/actions/runs/34252420802"
+      },
+      {
+        "workflow": "Engineering governance integrity",
+        "run_number": 24,
+        "run_id": 34252420789,
+        "status": "SUCCESS",
+        "url": "https://github.com/sharash7/Leyforge/actions/runs/34252420789"
+      }
+    ],
     "exceptions": [
       "The first sandboxed build invocation could not write Python bytecode caches outside the configured writable root; the identical build gate passed with the authorized repository write scope.",
       "The first post-closeout full tier exposed two stale Brain continuation assertions for the superseded abort handoff; the assertions were advanced to the certified repair handoff and the repeated full tier passed."
