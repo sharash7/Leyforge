@@ -184,22 +184,32 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(w2_to_w3_readiness.metadata["from_work"], "WORK-20260906-007")
         self.assertEqual(w2_to_w3_readiness.metadata["superseded_by"], "HANDOFF-20260908-001")
 
+        readiness_to_execution = self.by_id["HANDOFF-20260908-001"]
+        self.assertEqual(readiness_to_execution.metadata["status"], "superseded")
+        self.assertEqual(readiness_to_execution.metadata["from_work"], "WORK-20260907-001")
+        self.assertEqual(readiness_to_execution.metadata["next_package"], "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION")
+        self.assertEqual(readiness_to_execution.metadata["supersedes"], "HANDOFF-20260906-007")
+        self.assertEqual(readiness_to_execution.metadata["superseded_by"], "HANDOFF-20260908-002")
+
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260907-001")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260908-001")
         self.assertEqual(handoff.metadata["next_gate"], "R7")
         self.assertEqual(
             handoff.metadata["next_package"],
-            "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION",
+            "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
         )
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260906-007")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260908-001")
         self.assertEqual(self.by_id["TASK-20260907-001"].metadata["status"], "complete")
         self.assertEqual(self.by_id["WORK-20260907-001"].metadata["status"], "complete")
         self.assertEqual(self.by_id["TASK-20260906-008"].metadata["status"], "cancelled")
         self.assertEqual(self.by_id["WORK-20260906-008"].metadata["status"], "cancelled")
-        self.assertIn("All seven W3 proofs are individually READY", handoff.body)
-        self.assertIn("does not itself authorize execution", handoff.body)
-        self.assertIn("No W3 proof has executed", handoff.body)
+        self.assertEqual(self.by_id["TASK-20260908-001"].metadata["status"], "cancelled")
+        self.assertEqual(self.by_id["WORK-20260908-001"].metadata["status"], "cancelled")
+        self.assertEqual(self.by_id["AUDIT-0009"].metadata["result"], "FAIL")
+        self.assertIn("W3 requires repair/re-run", handoff.body)
+        self.assertIn("must not be reused or reallocated", handoff.body)
+        self.assertIn("No production/root `project.godot`", handoff.body)
         self.assertIn("PRD04-PROOF-73 remains INCONCLUSIVE", handoff.body)
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
             self.assertIn(f"## {heading}", handoff.body)

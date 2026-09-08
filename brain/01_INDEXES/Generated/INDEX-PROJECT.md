@@ -25,11 +25,11 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[CURRENT-HANDOFF|CURRENT-HANDOFF]] | dashboard | active | Current Handoff |
 | [[DASH-GOVERNANCE|DASH-GOVERNANCE]] | dashboard | active | Engineering Governance Health |
 | [[DASH-PROJECT-STATE|DASH-PROJECT-STATE]] | dashboard | active | Project State |
-| [[HANDOFF-20260908-001|HANDOFF-20260908-001]] | handoff | active | R7 W3 Readiness Certification to Governed W3 Proof Execution Handoff |
+| [[HANDOFF-20260908-002|HANDOFF-20260908-002]] | handoff | active | R7 W3 Execution Abort to Repair and Re-certification Handoff |
 | [[HOME|HOME]] | home | active | Leyforge Project Brain |
-| [[WORK-20260908-001|WORK-20260908-001]] | work | active | Execute and reconcile the R7 W3 technical environment proof package |
-| [[TASK-20260908-001|TASK-20260908-001]] | work_item | active | R7 W3 technical environment execution task contract |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
+| [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |
+| [[TASK-20260908-001|TASK-20260908-001]] | work_item | cancelled | R7 W3 technical environment execution task contract |
 | [[TASK-20260906-008|TASK-20260906-008]] | work_item | cancelled | R7 W3 technical environment proofs readiness task contract |
 | [[WORK-20260906-003|WORK-20260906-003]] | work | complete | Admit PRD-07 and establish the R7 execution boundary |
 | [[WORK-20260905-004|WORK-20260905-004]] | work | complete | Bootstrap and certify Leyforge Project Brain v0.1 |
@@ -63,3 +63,4 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[HANDOFF-20260906-004|HANDOFF-20260906-004]] | handoff | superseded | R7 W0 Harness Bootstrap to Dependency and Export Readiness Handoff |
 | [[HANDOFF-20260906-006|HANDOFF-20260906-006]] | handoff | superseded | R7 W1 Execution to W2 Network, Persistence and Recovery Readiness Handoff |
 | [[HANDOFF-20260906-007|HANDOFF-20260906-007]] | handoff | superseded | R7 W2 Execution to W3 Technical Environment Proofs Readiness Handoff |
+| [[HANDOFF-20260908-001|HANDOFF-20260908-001]] | handoff | superseded | R7 W3 Readiness Certification to Governed W3 Proof Execution Handoff |

@@ -27,6 +27,8 @@ related_to:
   - "TASK-20260907-001"
   - "WORK-20260908-001"
   - "TASK-20260908-001"
+  - "EVID-0009"
+  - "AUDIT-0009"
   - "GOV-DEBT-0007"
   - "TEST-GOVERNANCE-R6"
   - "EVID-0003"
@@ -45,6 +47,7 @@ related_to:
   - "CHANGE-20260906-006"
   - "HANDOFF-20260906-005"
   - "HANDOFF-20260906-006"
+  - "HANDOFF-20260908-002"
   - "ADR-0008"
 ---
 
@@ -127,11 +130,13 @@ related_to:
 
 ## R7 W3 Technical Environment Execution
 
-- Active under [[TASK-20260908-001]] and [[WORK-20260908-001]] after explicit owner authorization.
-- The certified source/readiness commits are published unchanged and local/upstream identity is synchronized.
-- Mandatory source, manifest, dependency, registry, immutable-evidence and clean-rebuild revalidation: PASS at `5f03ae2f598059495a8c7fb21d4386a4b047e2bf`.
-- No W3 proof has executed and no actual W3 RUN/EVID identity has been allocated under this package.
-- W4 execution, PRD-08 evaluation, R8 gameplay permission and production activation remain closed.
+- Cancelled under [[TASK-20260908-001]] and [[WORK-20260908-001]] after the explicitly authorized executor stopped before proof execution.
+- The certified source/readiness commits are published unchanged; mandatory source, manifest, dependency, registry, immutable-evidence and clean-rebuild revalidation passed at `da19ec5f05af19a29a473a6489b7da717f76b2c4`.
+- Exact admitted GDScript failed to parse under the pinned Godot runtime during the first client self-report gate; zero proofs ran and no canonical W3 result exists.
+- [[EVID-0009]] and [[AUDIT-0009]] certify immutable abort evidence at commit `e1458eb3589ca2ee844e9b5848e0226f6cdc56b5`.
+- The executor's in-memory 0051-0057 immediate-allocation transaction was not persisted atomically. RUN-0051 entered execution; no standard pack or W3 state was written. All seven pairs are quarantined from reuse.
+- Post-stop stable verification passes 46 Brain/governance/R6 and 76 tool/runtime tests; both Doctors, indexes, links, registry/immutability checks and 8,268 clean-boundary checks pass.
+- [[HANDOFF-20260908-002]] makes W3 repair/re-certification the next bounded action, subject to fresh authority. W4 execution, PRD-08 evaluation, R8 gameplay permission and production activation remain closed.
 
 ## Later Activation Milestones
 
@@ -141,4 +146,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260908-001]], [[TASK-20260908-001]] and [[WORK-20260908-001]]. W0-W2 execution and W3 readiness are certified; W3 execution is active with its pre-execution gate passed and actual execution pending. W4, W5 and FINAL remain open. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260908-002]]. W0-W2 execution and W3 readiness are certified; the attempted W3 execution is a certified controlled FAIL before proof observation and requires repair/re-run. W4, W5 and FINAL remain open, but W4 is not the current next action. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

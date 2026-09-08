@@ -1,8 +1,8 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active work:** `WORK-20260908-001` under `TASK-20260908-001`.
+**Active handoff:** `HANDOFF-20260908-002`. `WORK-20260908-001` and `TASK-20260908-001` are cancelled after a controlled execution abort.
 
-**State:** ACTIVE - PRD-07 intake and W0-W2 execution are complete and certified. W3 readiness is certified; the governed W3 execution package is active with mandatory pre-execution revalidation passed. W4, W5 and FINAL remain open.
+**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. W3 readiness was certified and mandatory execution revalidation passed, but the authorized executor failed before any proof ran. W3 repair/re-run is required. W4, W5 and FINAL remain open.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
@@ -61,7 +61,7 @@ Cumulative W0, W1 and W2 state is 50 retained run/evidence pairs: 49 PASS and on
 
 The corrected W3 package exposes exactly PRD04-PROOF-08, 27, 28, 29, 30, 31 and 32. All seven are READY against source commit 67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026. Corrected readiness is docs/rebuild/r7/w3-readiness-corrected.json and exact admission is docs/rebuild/r7/w3-execution-boundary-corrected.json.
 
-No W3 proof has executed. No W3 execution-state file exists. No W3 RUN/EVID identity has been allocated. The registry remains complete through 0050 and its 0051-0057 preview is not a reservation. The earlier W3 readiness and boundary artifacts remain preserved as SUPERSEDED-INVALID.
+At readiness certification, no W3 proof had executed, no W3 execution-state file existed and no W3 RUN/EVID identity had been allocated. The earlier W3 readiness and boundary artifacts remain preserved as SUPERSEDED-INVALID.
 
 ## W3 Readiness Certification
 
@@ -69,16 +69,18 @@ Build, focused, full, W3 regression, readiness/preflight, admission, dependency 
 
 ## W3 Execution Package
 
-The owner authorized bounded governed W3 execution on 2026-09-08. `TASK-20260908-001` and `WORK-20260908-001` are active. Commits `67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026` and `de4b1a2e42e28f9bd5511fa5bb641c8992e3eb1e` were published unchanged, followed by lifecycle-opening commit `5f03ae2f598059495a8c7fb21d4386a4b047e2bf`.
+The owner authorized bounded governed W3 execution on 2026-09-08. `TASK-20260908-001` and `WORK-20260908-001` were opened for that action and are now cancelled after the controlled abort. Commits `67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026` and `de4b1a2e42e28f9bd5511fa5bb641c8992e3eb1e` were published unchanged, followed by lifecycle-opening commit `5f03ae2f598059495a8c7fb21d4386a4b047e2bf`.
 
-Fresh revalidation proved exact source-tree identity, readiness/admission equality, all 19 artifact identities, `NO-LOCAL-PATCH` dependency identity, a unique contiguous 50-pair registry, all 50 retained historical packs, prior-evidence immutability and a clean production boundary. W3 regression passed 23/23; the full stable tier passed 46 Brain/governance/R6 and 76 tool/runtime tests; the boundary validator passed 8,253 checks with zero active POC dependencies.
+Fresh revalidation proved exact source-tree identity, readiness/admission equality, all 19 artifact identities, `NO-LOCAL-PATCH` dependency identity, a unique contiguous 50-pair registry, all 50 retained historical packs, prior-evidence immutability and a clean production boundary. W3 regression passed 23/23; the full stable tier passed 46 Brain/governance/R6 and 76 tool/runtime tests; the boundary validator passed 8,253 checks with zero active POC dependencies. The result was published at checkpoint `da19ec5f05af19a29a473a6489b7da717f76b2c4`.
 
-No actual W3 RUN/EVID identity has yet been allocated and no W3 proof has executed. The next action is the guarded admitted executor against a fresh isolated `.local` run root.
+The guarded executor then created a fresh exact client export but the exported runtime could not parse admitted `proofs/r7/w3/server_probe/src/main.gd`: line 118 calls unavailable static method `PhysicsServer3D.shape_collide`. The required self-report count was zero and the process exited before headless export or proof execution. No proof received a canonical PASS, FAIL or INCONCLUSIVE result, no standard PRD-07 evidence pack was created, and no W3 state file exists.
+
+Abort evidence is immutable at commit `e1458eb3589ca2ee844e9b5848e0226f6cdc56b5` and certified by `EVID-0009` / `AUDIT-0009`. The executor had materialized all seven 0051-0057 rows with immediate-allocation status and advanced RUN-0051 into execution in memory before failure. Although the automated persisted registry still ends at 0050, all 0051-0057 RUN/EVID pairs are quarantined and must not be reused until governed repair reconciles the transaction.
 
 ## Remaining R7 Work
 
-W3 execution is active. W4, W5 and FINAL remain open. PRD04-PROOF-57 and 58 require W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W3 requires a fresh bounded repair/re-certification package under `HANDOFF-20260908-002`; source repair and rerun are not authorized by the cancelled execution package. W4, W5 and FINAL remain open, but W4 is not the present next action. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue through [[HANDOFF-20260908-001]], [[TASK-20260908-001]] and [[WORK-20260908-001]]. W3 execution is authorized only through the exact guarded package. Do not begin W4, evaluate PRD-08 or open R8 under this authorization.
+Continue only through [[HANDOFF-20260908-002]]. Do not repair/rerun W3, reuse 0051-0057, begin W4, evaluate PRD-08 or open R8 without the fresh authority required by that handoff.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

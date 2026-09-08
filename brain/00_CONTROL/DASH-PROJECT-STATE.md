@@ -26,6 +26,8 @@ related_to:
   - "TASK-20260907-001"
   - "WORK-20260908-001"
   - "TASK-20260908-001"
+  - "AUDIT-0009"
+  - "EVID-0009"
   - "AUDIT-0001"
   - "AUDIT-0002"
   - "AUDIT-0003"
@@ -45,6 +47,7 @@ related_to:
   - "CHANGE-20260906-006"
   - "HANDOFF-20260906-005"
   - "HANDOFF-20260906-006"
+  - "HANDOFF-20260908-002"
   - "ADR-0008"
   - "CONFLICT-0002"
 ---
@@ -59,7 +62,7 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active | W0-W2 execution and W3 readiness are certified; W3 execution is active under [[WORK-20260908-001]] and [[TASK-20260908-001]]; W4, W5 and FINAL remain open |
+| R7 | Active — W3 repair/re-run required | W0-W2 execution and W3 readiness are certified; the W3 attempt aborted before proof execution and is certified by [[EVID-0009]] / [[AUDIT-0009]]; continue through [[HANDOFF-20260908-002]] |
 | R8 gameplay | Closed | No production gameplay permission is open |
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
@@ -70,6 +73,8 @@ The bounded W1 package is complete and certified under [[TASK-20260906-006]], [[
 
 The bounded W2 package is complete and certified under [[TASK-20260906-007]], [[WORK-20260906-007]] and [[AUDIT-0008]]. All 20 W2 proofs passed and retain run/evidence pairs 0031-0050. Cumulative W0/W1/W2 state remains 49 PASS and one INCONCLUSIVE across 50 pairs.
 
-W3 readiness is repaired and certified under [[TASK-20260907-001]], [[WORK-20260907-001]] and [[HANDOFF-20260908-001]] against source commit 67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026. Seven proofs were certified READY, zero were BLOCKED, and no identity was allocated during readiness. The fresh execution package is active under [[TASK-20260908-001]] and [[WORK-20260908-001]]; its mandatory pre-execution revalidation passed at `5f03ae2f598059495a8c7fb21d4386a4b047e2bf`. Actual proof execution and RUN/EVID allocation have not yet begun.
+W3 readiness is repaired and certified under [[TASK-20260907-001]], [[WORK-20260907-001]] and superseded [[HANDOFF-20260908-001]] against source commit 67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026. Seven proofs were certified READY, zero were BLOCKED, and no identity was allocated during readiness. Mandatory execution revalidation then passed at published checkpoint `da19ec5f05af19a29a473a6489b7da717f76b2c4` under [[TASK-20260908-001]] / [[WORK-20260908-001]].
 
-[[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, and R8 remains closed.
+The authorized real executor failed during the first client runtime self-report gate because the exact admitted GDScript did not parse under the pinned engine. No proof objective ran and no canonical proof outcome or standard PRD-07 pack exists. [[EVID-0009]] / [[AUDIT-0009]] certify the failure and cancelled execution package. The executor materialized 0051-0057 with immediate-allocation status and advanced RUN-0051 in memory but persisted neither W3 state nor packs; all seven pairs are quarantined from reuse through [[HANDOFF-20260908-002]]. The automated registry remains historically complete through 0050 but is not authority to reuse the quarantined transaction.
+
+[[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, and R8 remains closed. W3 repair/re-certification is the next bounded R7 action, subject to fresh owner authority; W4 is not the current next action.
