@@ -6,7 +6,7 @@ title: "Engineering Governance Health"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-07"
+updated: "2026-09-08"
 authority_domain: "engineering_governance"
 authority_role: "derived_record"
 authority_status: "authoritative"
@@ -106,13 +106,19 @@ related_to:
 - Evidence and audit: [[EVID-0007]] and [[AUDIT-0007]].
 
 ## R7 W2 Durability and Network Proof Package
+- Complete and certified under [[TASK-20260906-007]], [[WORK-20260906-007]], [[EVID-0008]] and [[AUDIT-0008]].
+- All 20 W2 proofs are PASS-OBSERVED.
+- RUN/EVID identities 0031-0050 and all retained packs remain immutable.
+- PROOF-57/58 retain mandatory W4 corpus revalidation.
 
-- Active under [[TASK-20260906-007]] and [[WORK-20260906-007]].
-- Scope: 20 session/shutdown, command/admission/interest, checkpoint/persistence, reconnect/restart/travel, technical migration and real-crash proofs.
-- Entry state: all 20 `HARNESS-BLOCKED`; zero W2 run/evidence identities allocated.
-- Packet delivery/ACK, semantic commit and durability remain distinct test states.
-- PROOF-57/58 require later W4 corpus revalidation; W2 load measurements cannot become final product limits.
-- W0/W1 evidence and exact dependency identities remain immutable inputs.
+## R7 W3 Technical Environment Readiness
+
+- Complete and certified under [[TASK-20260907-001]], [[WORK-20260907-001]] and [[HANDOFF-20260908-001]].
+- Repaired source commit: 67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026.
+- Corrected readiness and hash-pinned admission: PASS.
+- Seven W3 proofs READY; zero BLOCKED; zero NOT APPLICABLE.
+- No W3 proof executed and zero W3 RUN/EVID identities allocated.
+- The aborted pre-repair [[TASK-20260906-008]] and [[WORK-20260906-008]] are cancelled.
 - PRD-08 evaluation and R8 gameplay permission remain closed.
 
 ## Later Activation Milestones
@@ -123,4 +129,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 W2 is active under [[TASK-20260906-007]] and [[WORK-20260906-007]]. W0/W1 remain certified. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260908-001]]. W0-W2 execution and W3 readiness are certified. W3 execution, W4, W5 and FINAL remain open. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

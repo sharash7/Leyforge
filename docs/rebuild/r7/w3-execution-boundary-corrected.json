@@ -1,0 +1,143 @@
+{
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "artifacts": [
+    {
+      "bytes": 11664,
+      "git_blob": "1d0ff29bb87bc98583ce57b2d612bb0a0a351b93",
+      "path": "docs/rebuild/r7/w3-readiness-corrected.json",
+      "sha256": "9747c51ab5733a4aec5b5ed06f08bc29bc8b4e4ad7c51140209f0496c0a15b9b"
+    },
+    {
+      "bytes": 919,
+      "git_blob": "a33b9e040d21047a31ce5de7f17a79b3297ec27a",
+      "path": "proofs/r7/w3/README.md",
+      "sha256": "324117c0fb548f7e62213d2ccd5c1d20743975f266ef74739699d2f5578faaec"
+    },
+    {
+      "bytes": 800,
+      "git_blob": "9364a0bd6189366ee1b51318bc367e4689c3bdc0",
+      "path": "proofs/r7/w3/dependency-reference.json",
+      "sha256": "12aaba3507d6620698092f5ba7231790fce6db8b810fccb334b659bc80492571"
+    },
+    {
+      "bytes": 181,
+      "git_blob": "c81bc7f1814d5742559f3a4b613a6d617d77f7a7",
+      "path": "proofs/r7/w3/runtime/__init__.py",
+      "sha256": "9ae10c193f02875ae5044434e2c19ea791c425839a56089bb46c2262434c040f"
+    },
+    {
+      "bytes": 16413,
+      "git_blob": "b38a9fc06f1c7d72815936741a861460ecaca976",
+      "path": "proofs/r7/w3/runtime/model.py",
+      "sha256": "309c288847d0b1405c4650ff6510446e2e5eaf7d7de8a3dd9b4109bea7475bf2"
+    },
+    {
+      "bytes": 30199,
+      "git_blob": "96f1b0cd8bd6db6e87d6e984f5b36188b3f0f793",
+      "path": "proofs/r7/w3/runtime/runner.py",
+      "sha256": "bb9a84a0136b260e4109b0694d1ac40c63e63204a7e19918f4d6a9712f8e17eb"
+    },
+    {
+      "bytes": 167,
+      "git_blob": "d4eb50e339eed278df94ecf651446673cde28f4d",
+      "path": "proofs/r7/w3/server_probe/main.tscn",
+      "sha256": "cebdd9c946e15b122efaf2a4916100f1c6da7dd7c8d5a34bf253df03b1a067af"
+    },
+    {
+      "bytes": 525,
+      "git_blob": "26a4ab8dd1e25eaba2755eaab730f7050ed52334",
+      "path": "proofs/r7/w3/server_probe/project.godot",
+      "sha256": "154a1abb5bc4b94f6c66307bb12c96db85fc69cfa97fdcf6efc9db7d648b1738"
+    },
+    {
+      "bytes": 8840,
+      "git_blob": "24554c7da0d17ddbefd29bada195528bf3087a75",
+      "path": "proofs/r7/w3/server_probe/src/main.gd",
+      "sha256": "38707b67aa14a34d61250c91a30a609ceeb4ee02c42a3c1f0ca72d0a055bc599"
+    },
+    {
+      "bytes": 69,
+      "git_blob": "fca96617cf8fc35dcd197af604ee9fd585a39dff",
+      "path": "tools/r7_w3_runtime/__init__.py",
+      "sha256": "cd535402b7c433254761994988746bb516cbe61c2f3cf0a88a54d07091429fd9"
+    },
+    {
+      "bytes": 112,
+      "git_blob": "12adbd6dbacdbce01bcf28f89da6b7c2f98eabdb",
+      "path": "tools/r7_w3_runtime/__main__.py",
+      "sha256": "682fb2e4a51aef358a73e8385ce278b69f2260836cfc88d12c74928dd21d06b4"
+    },
+    {
+      "bytes": 5199,
+      "git_blob": "b7d81a46c5696debbbddc460761815982891536a",
+      "path": "tools/r7_w3_runtime/admission.py",
+      "sha256": "6a3232d07adf5f53df3ea0c999b6dbb5a262bb722d23271caa5ddb6a568ffec6"
+    },
+    {
+      "bytes": 11573,
+      "git_blob": "388dfca8a6bb6d70d0387b2a32fc685b8153c2cd",
+      "path": "tools/r7_w3_runtime/builds.py",
+      "sha256": "19cb64723d28b46666bd272107c592989c87e24b4c2504f9342a45f7ac9c7845"
+    },
+    {
+      "bytes": 3587,
+      "git_blob": "c34b43c822efa4f0673896288eca7253bbc75c07",
+      "path": "tools/r7_w3_runtime/cli.py",
+      "sha256": "fc8c9f772fe02785b7849e4b62454befe45b985c32d77aa127f7e613d0808319"
+    },
+    {
+      "bytes": 2479,
+      "git_blob": "89f29f8024ceb75dddad0ac100e748cc2b1ac3e5",
+      "path": "tools/r7_w3_runtime/dependencies.py",
+      "sha256": "723fbb4c3847d1c563473d7c4b4946508ee24a7fd2ce0e9201788923343bbcc9"
+    },
+    {
+      "bytes": 15373,
+      "git_blob": "1e56ff401755b99f6d6b7ffce32a4d7eb20a703c",
+      "path": "tools/r7_w3_runtime/execution.py",
+      "sha256": "fb4794d1f176e06d4e596e9ec9142fc5e44c9343f76846a059348bd4d67b3232"
+    },
+    {
+      "bytes": 11875,
+      "git_blob": "82a55572030c83d6575acc6dd73eb406c734f761",
+      "path": "tools/r7_w3_runtime/execution_plan.py",
+      "sha256": "45ec93b6a1a3a43bb8028a3163ba6c657fd280052ff13b06738a781577fe58a0"
+    },
+    {
+      "bytes": 13049,
+      "git_blob": "c656d33bd6d15ac2c66e93aebd988139bfde9797",
+      "path": "tools/r7_w3_runtime/readiness.py",
+      "sha256": "034c0a4f722343978be9b8cf179110ae47ea7a1863cf53b7c7065cefe6f4f59f"
+    },
+    {
+      "bytes": 15858,
+      "git_blob": "febbf938aac33c20fd220ab3f0e9984b44fccb12",
+      "path": "tools/tests/test_r7_w3_runtime.py",
+      "sha256": "fca1bba739cecaca55b511826107574c816fad93c332724a7e2c47ff06750808"
+    }
+  ],
+  "authority": [
+    "TASK-20260907-001",
+    "WORK-20260907-001",
+    "HANDOFF-20260906-007",
+    "DOC-PRD-07"
+  ],
+  "dependency_identity": {
+    "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_export_template": "4.8.dev4.official.b56a91878",
+    "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+  },
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026",
+  "manifest_version": 1,
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-READINESS",
+  "prior_boundary_disposition": {
+    "path": "docs/rebuild/r7/w3-execution-boundary.json",
+    "reason": "It admitted historical W2 execution packs beneath an empty W3 allocation set.",
+    "state": "SUPERSEDED-INVALID"
+  },
+  "proof_execution": "NOT-STARTED",
+  "scope": "development-only-prd07-proof-runtime",
+  "source_tree_identity": "03f3e47198baf95ea129d9e186916a0c87cfc343ff0286e468004f530bc920d5"
+}

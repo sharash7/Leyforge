@@ -6,7 +6,7 @@ title: "Project State"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-07"
+updated: "2026-09-08"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
@@ -55,11 +55,15 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active | W0 and W1 are certified; W2 is active under [[WORK-20260906-007]] and [[TASK-20260906-007]]; W3–W5 and FINAL remain open |
+| R7 | Active | W0-W2 execution is certified; W3 readiness is certified with all seven proofs unexecuted; W3 execution, W4, W5 and FINAL remain open |
 | R8 gameplay | Closed | No production gameplay permission is open |
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
 
 The `R7-W0-DEPENDENCY-EXPORT-READINESS` package is complete and certified. All 13 W0 proofs were individually readied and executed: 12 `PASS-OBSERVED`, zero `FAIL-OBSERVED`, one `INCONCLUSIVE` and zero `INVALIDATED`. Thirteen `PRD07-RUN-*` and 13 `PRD07-EVID-*` IDs are retained; none is submitted to PRD-08.
 
-The bounded W1 package is complete and certified under [[TASK-20260906-006]], [[WORK-20260906-006]] and [[AUDIT-0007]]. All 17 W1 proofs were individually readied and executed: 17 `PASS-OBSERVED`, zero FAIL, zero INCONCLUSIVE and zero INVALIDATED. Seventeen new run/evidence pairs (`0014`–`0030`) are retained and none is submitted to PRD-08. Cumulative W0/W1 state is 29 PASS and one INCONCLUSIVE across 30 pairs. The bounded `R7-W2-NETWORK-PERSISTENCE-RECOVERY-MIGRATION-READINESS` package is active under [[TASK-20260906-007]] and [[WORK-20260906-007]]. All 20 W2 proofs remain `HARNESS-BLOCKED`; no W2 run or evidence ID has been allocated. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, and R8 remains closed.
+The bounded W1 package is complete and certified under [[TASK-20260906-006]], [[WORK-20260906-006]] and [[AUDIT-0007]]. All 17 W1 proofs passed and retain run/evidence pairs 0014-0030.
+
+The bounded W2 package is complete and certified under [[TASK-20260906-007]], [[WORK-20260906-007]] and [[AUDIT-0008]]. All 20 W2 proofs passed and retain run/evidence pairs 0031-0050. Cumulative W0/W1/W2 state remains 49 PASS and one INCONCLUSIVE across 50 pairs.
+
+W3 readiness is repaired and certified under [[TASK-20260907-001]], [[WORK-20260907-001]] and [[HANDOFF-20260908-001]] against source commit 67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026. Seven proofs are READY, zero are BLOCKED, no proof has executed and no RUN/EVID identity has been allocated. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, and R8 remains closed.

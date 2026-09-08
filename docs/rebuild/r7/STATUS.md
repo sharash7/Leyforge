@@ -1,10 +1,12 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Last completed work:** `WORK-20260906-007`.
+**Last completed work:** `WORK-20260907-001`.
 
-**State:** ACTIVE — PRD-07 intake, W0, W1 and W2 are complete and certified. W3, W4, W5 and FINAL remain open.
+**State:** ACTIVE - PRD-07 intake and W0-W2 execution are complete and certified. W3 readiness is certified; W3 execution, W4, W5 and FINAL remain open.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
+
+**W3 repaired source commit:** `67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026`.
 
 **W1 package starting commit:** `b531168b7c3b18a8d2126d8ac064260ecd6ff425`.
 
@@ -55,10 +57,20 @@ Cumulative W0, W1 and W2 state is 50 retained run/evidence pairs: 49 PASS and on
 
 [[EVID-0008]] and [[AUDIT-0008]] certify W2 evidence commit `7fa9858a682c1f32f2e70381f78c4a891e492693`.
 
+## W3 Readiness State
+
+The corrected W3 package exposes exactly PRD04-PROOF-08, 27, 28, 29, 30, 31 and 32. All seven are READY against source commit 67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026. Corrected readiness is docs/rebuild/r7/w3-readiness-corrected.json and exact admission is docs/rebuild/r7/w3-execution-boundary-corrected.json.
+
+No W3 proof has executed. No W3 execution-state file exists. No W3 RUN/EVID identity has been allocated. The registry remains complete through 0050 and its 0051-0057 preview is not a reservation. The earlier W3 readiness and boundary artifacts remain preserved as SUPERSEDED-INVALID.
+
+## W3 Readiness Certification
+
+Build, focused, full, W3 regression, readiness/preflight, admission, dependency identity, registry, immutable evidence, Brain, Governance Doctor, clean-rebuild boundary, Git integrity and diff checks pass. Root project.godot and production runtime remain absent. Gameplay permission and PRD-08 evaluation remain closed.
+
 ## Remaining R7 Work
 
-W3, W4, W5 and FINAL remain open. PRD04-PROOF-57 and 58 require W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W3 execution, W4, W5 and FINAL remain open. PRD04-PROOF-57 and 58 require W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue through [[HANDOFF-20260906-007]]. The next bounded action is W3 prerequisite reconciliation and minimum proof-fixture readiness under the next valid Task and Work records. Do not begin PRD-08 evaluation or R8 gameplay.
+Continue through [[HANDOFF-20260908-001]]. The next bounded action is to open a fresh W3 execution Task/Work package only after explicit owner authorization. Do not execute W3, begin W4, evaluate PRD-08 or open R8 under this readiness certification.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

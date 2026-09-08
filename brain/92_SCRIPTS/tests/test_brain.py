@@ -179,17 +179,28 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(w1_to_w2.metadata["supersedes"], "HANDOFF-20260906-005")
         self.assertEqual(w1_to_w2.metadata["superseded_by"], "HANDOFF-20260906-007")
 
+        w2_to_w3_readiness = self.by_id["HANDOFF-20260906-007"]
+        self.assertEqual(w2_to_w3_readiness.metadata["status"], "superseded")
+        self.assertEqual(w2_to_w3_readiness.metadata["from_work"], "WORK-20260906-007")
+        self.assertEqual(w2_to_w3_readiness.metadata["superseded_by"], "HANDOFF-20260908-001")
+
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260906-007")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260907-001")
         self.assertEqual(handoff.metadata["next_gate"], "R7")
         self.assertEqual(
             handoff.metadata["next_package"],
-            "R7-W3-TECHNICAL-ENVIRONMENT-READINESS",
+            "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION",
         )
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260906-006")
-        self.assertIn("all 20 W2 proof executions are complete", handoff.body)
-        self.assertIn("PRD04-PROOF-73 remains inconclusive", handoff.body)
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260906-007")
+        self.assertEqual(self.by_id["TASK-20260907-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["WORK-20260907-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["TASK-20260906-008"].metadata["status"], "cancelled")
+        self.assertEqual(self.by_id["WORK-20260906-008"].metadata["status"], "cancelled")
+        self.assertIn("All seven W3 proofs are individually READY", handoff.body)
+        self.assertIn("does not itself authorize execution", handoff.body)
+        self.assertIn("No W3 proof has executed", handoff.body)
+        self.assertIn("PRD04-PROOF-73 remains INCONCLUSIVE", handoff.body)
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
             self.assertIn(f"## {heading}", handoff.body)
 

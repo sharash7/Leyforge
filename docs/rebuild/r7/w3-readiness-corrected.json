@@ -1,0 +1,326 @@
+{
+  "actual_w3_execution": "NOT-AUTHORIZED-BY-THIS-READINESS-TASK",
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "certification_blockers": [],
+  "dependency_check": {
+    "issues": [],
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "paths": {
+      "godot_driver": "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+      "godot_template_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\Godot_v4.8-dev4_export_templates.tpz",
+      "godot_template_runtime": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\godot-4.8-dev4-templates\\templates\\windows_release_x86_64.exe",
+      "voxel_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\GodotVoxelExtension-v1.7x.zip",
+      "voxel_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\v1.7x\\addons\\zylann.voxel"
+    },
+    "schema_version": "leyforge-r7-w0-local-dependency-verification-v1",
+    "status": "PASS"
+  },
+  "execution_gate": "OPEN-FOR-FUTURE-AUTHORIZED-W3",
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026",
+  "implementation_commit_source_match": true,
+  "issues": [],
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-READINESS",
+  "package_state": "READY",
+  "prd08_evaluation": "CLOSED",
+  "prior_readiness_disposition": {
+    "path": "docs/rebuild/r7/w3-readiness.json",
+    "reason": "It certified READY from file presence while W2 handlers and issued W2 identities remained mapped beneath W3 labels.",
+    "state": "SUPERSEDED-INVALID"
+  },
+  "proofs": [
+    {
+      "area": "W3-B - VESSEL FRAME / OWNERSHIP",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-08",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.1"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0053",
+        "proof_id": "PRD04-PROOF-08",
+        "run_id": "PRD07-RUN-0053"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-08",
+      "readiness_classification": "READY — MINIMUM FIXTURE ADDED",
+      "risk_consumers": [
+        "PRD06-RISK-A07",
+        "PRD06-RISK-J01",
+        "PRD06-RISK-J06",
+        "PRD06-RISK-J07",
+        "PRD06-RISK-J08",
+        "PRD06-RISK-J14"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Vessel Region Crossing"
+    },
+    {
+      "area": "W3-A - LOCAL FLUID CONSERVATION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-27",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.2"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-02",
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0051",
+        "proof_id": "PRD04-PROOF-27",
+        "run_id": "PRD07-RUN-0051"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-27",
+      "readiness_classification": "READY — MINIMUM FIXTURE ADDED",
+      "risk_consumers": [
+        "PRD06-RISK-I01",
+        "PRD06-RISK-I03",
+        "PRD06-RISK-I06",
+        "PRD06-RISK-I07",
+        "PRD06-RISK-I08",
+        "PRD06-RISK-I09",
+        "PRD06-RISK-I11"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Fluid Boundary Breach"
+    },
+    {
+      "area": "W3-A - LOCAL FLUID CONSERVATION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-28",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.3"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-02",
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0052",
+        "proof_id": "PRD04-PROOF-28",
+        "run_id": "PRD07-RUN-0052"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-28",
+      "readiness_classification": "READY — MINIMUM FIXTURE ADDED",
+      "risk_consumers": [
+        "PRD06-RISK-I01",
+        "PRD06-RISK-I02",
+        "PRD06-RISK-I03",
+        "PRD06-RISK-I04",
+        "PRD06-RISK-I05",
+        "PRD06-RISK-I08",
+        "PRD06-RISK-I09",
+        "PRD06-RISK-I10"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Ocean / Local Fluid Boundary"
+    },
+    {
+      "area": "W3-C - EDITABLE HULL / COLLISION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-29",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.4"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0055",
+        "proof_id": "PRD04-PROOF-29",
+        "run_id": "PRD07-RUN-0055"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-29",
+      "readiness_classification": "READY — MINIMUM FIXTURE ADDED",
+      "risk_consumers": [
+        "PRD06-RISK-I12",
+        "PRD06-RISK-J01",
+        "PRD06-RISK-J02",
+        "PRD06-RISK-J04",
+        "PRD06-RISK-J09",
+        "PRD06-RISK-J10",
+        "PRD06-RISK-J11",
+        "PRD06-RISK-J13",
+        "PRD06-RISK-J15",
+        "PRD06-RISK-J16",
+        "PRD06-RISK-J17",
+        "PRD06-RISK-J18"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Vessel Hull Edit Underway"
+    },
+    {
+      "area": "W3-B - VESSEL FRAME / OWNERSHIP",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-30",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.5"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06",
+        "FIXTURE-05"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0054",
+        "proof_id": "PRD04-PROOF-30",
+        "run_id": "PRD07-RUN-0054"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-30",
+      "readiness_classification": "READY — MINIMUM FIXTURE ADDED",
+      "risk_consumers": [
+        "PRD06-RISK-A07",
+        "PRD06-RISK-I12",
+        "PRD06-RISK-J06",
+        "PRD06-RISK-J08",
+        "PRD06-RISK-J14",
+        "PRD06-RISK-J16",
+        "PRD06-RISK-J18"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Moving Vessel Occupants"
+    },
+    {
+      "area": "W3-C - EDITABLE HULL / COLLISION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-31",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.6"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06",
+        "FIXTURE-09"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0056",
+        "proof_id": "PRD04-PROOF-31",
+        "run_id": "PRD07-RUN-0056"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-31",
+      "readiness_classification": "READY — MINIMUM FIXTURE ADDED",
+      "risk_consumers": [
+        "PRD06-RISK-J01",
+        "PRD06-RISK-J02",
+        "PRD06-RISK-J03",
+        "PRD06-RISK-J09",
+        "PRD06-RISK-J11",
+        "PRD06-RISK-J12",
+        "PRD06-RISK-J14",
+        "PRD06-RISK-J15",
+        "PRD06-RISK-J18"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Vessel Collision Strategy Matrix"
+    },
+    {
+      "area": "W3-D - FLOODING / BUOYANCY INTEGRATION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-32",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.7"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0057",
+        "proof_id": "PRD04-PROOF-32",
+        "run_id": "PRD07-RUN-0057"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-32",
+      "readiness_classification": "READY — MINIMUM FIXTURE ADDED",
+      "risk_consumers": [
+        "PRD06-RISK-I01",
+        "PRD06-RISK-I04",
+        "PRD06-RISK-I05",
+        "PRD06-RISK-I09",
+        "PRD06-RISK-I10",
+        "PRD06-RISK-I12",
+        "PRD06-RISK-J04",
+        "PRD06-RISK-J05",
+        "PRD06-RISK-J10",
+        "PRD06-RISK-J11",
+        "PRD06-RISK-J13",
+        "PRD06-RISK-J16",
+        "PRD06-RISK-J17",
+        "PRD06-RISK-J18"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Vessel Flooding / Buoyancy"
+    }
+  ],
+  "readiness_counts": {
+    "BLOCKED": 0,
+    "NOT_APPLICABLE": 0,
+    "READY": 7
+  },
+  "registry": {
+    "issued_evidence_count": 50,
+    "issued_run_count": 50,
+    "max_evidence_number": 50,
+    "max_run_number": 50,
+    "next_future_sequence": 51,
+    "retained_pack_count": 50,
+    "state_paths": [
+      "docs/rebuild/r7/w0-execution-state.json",
+      "docs/rebuild/r7/w1-execution-state.json",
+      "docs/rebuild/r7/w2-execution-state.json"
+    ]
+  },
+  "schema_version": "prd07-w3-readiness-v2",
+  "source_tree_identity": "03f3e47198baf95ea129d9e186916a0c87cfc343ff0286e468004f530bc920d5",
+  "status": "PASS",
+  "w4_fcc13e_revalidation": "REQUIRED"
+}
