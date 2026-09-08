@@ -1,0 +1,266 @@
+{
+  "schema_version": "leyforge-r7-w3-execution-abort-v1",
+  "captured_date": "2026-09-08",
+  "status": "FAIL",
+  "disposition": "W3-REPAIR-AND-RERUN-REQUIRED",
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION",
+  "lifecycle": {
+    "task_id": "TASK-20260908-001",
+    "work_id": "WORK-20260908-001",
+    "evidence_id": "EVID-0009",
+    "audit_id": "AUDIT-0009",
+    "next_handoff_id": "HANDOFF-20260908-002"
+  },
+  "certified_inputs": {
+    "certified_head": "de4b1a2e42e28f9bd5511fa5bb641c8992e3eb1e",
+    "source_implementation_commit": "67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026",
+    "source_tree_identity": "03f3e47198baf95ea129d9e186916a0c87cfc343ff0286e468004f530bc920d5",
+    "readiness": {
+      "path": "docs/rebuild/r7/w3-readiness-corrected.json",
+      "git_blob": "1d0ff29bb87bc98583ce57b2d612bb0a0a351b93",
+      "canonical_sha256": "9747c51ab5733a4aec5b5ed06f08bc29bc8b4e4ad7c51140209f0496c0a15b9b",
+      "value_equal_at_pre_execution": true
+    },
+    "admission": {
+      "path": "docs/rebuild/r7/w3-execution-boundary-corrected.json",
+      "git_blob": "c20ce6472c62a15f50cde470f9209a3f6131b25b",
+      "canonical_sha256": "1cf0af9d514c1b6f342e524dc162172eab36444ce78fccbbaadcfd61cb378407",
+      "admitted_artifact_count": 19,
+      "value_equal_at_pre_execution": true
+    },
+    "dependency_identity": {
+      "godot_build_driver_commit": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_export_template": "4.8.dev4.official.b56a91878",
+      "voxel_tools_commit": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+      "local_patch": "NO-LOCAL-PATCH",
+      "preflight_status": "PASS"
+    },
+    "pre_execution_checkpoint": "da19ec5f05af19a29a473a6489b7da717f76b2c4",
+    "pre_execution_gate": "PASS"
+  },
+  "execution": {
+    "command": [
+      "python",
+      "-m",
+      "tools.r7_w3_runtime",
+      "execute",
+      "--source-revision",
+      "da19ec5f05af19a29a473a6489b7da717f76b2c4",
+      "--run-root",
+      ".local/r7-w3-execution-0051-0057-da19ec5",
+      "--retained-root",
+      "docs/rebuild/r7/execution-evidence",
+      "--state-path",
+      "docs/rebuild/r7/w3-execution-state.json",
+      "--actual-execution-authorized",
+      "--format",
+      "json"
+    ],
+    "exit_code": 1,
+    "error_type": "ValueError",
+    "error": "expected exactly one LEYFORGE_W3_SELF_REPORT line; found 0",
+    "failure_stage": "client-export-runtime-self-report",
+    "actual_proof_results_produced": 0,
+    "headless_export_attempted": false,
+    "state_path_written": false,
+    "retained_prd07_pack_written": false
+  },
+  "observed_failure": {
+    "classification": "ADMITTED-SOURCE-RUNTIME-PARSE-DEFECT",
+    "admitted_source_path": "proofs/r7/w3/server_probe/src/main.gd",
+    "admitted_source_git_blob": "24554c7da0d17ddbefd29bada195528bf3087a75",
+    "admitted_source_sha256": "38707b67aa14a34d61250c91a30a609ceeb4ee02c42a3c1f0ca72d0a055bc599",
+    "admitted_source_bytes": 8840,
+    "source_line": 118,
+    "primary_diagnostic": "Parse Error: Static function shape_collide() not found in base GDScriptNativeClass.",
+    "secondary_diagnostic": "Parse Error: Cannot infer the type of contacts because the value does not have a set type.",
+    "load_result": "Failed to load res://src/main.gd with parse error",
+    "expected_self_report_lines": 1,
+    "observed_self_report_lines": 0,
+    "dependency_drift_observed": false,
+    "independent_diagnostic_reproduction": {
+      "status": "REPRODUCED",
+      "scope": "one isolated rerun of the already-exported client artifact",
+      "engine_log_sha256": "e2d999e906862b9a6a36d9143b03edb3ac90d8b555128e5fa894337d973a84f4"
+    }
+  },
+  "client_export": {
+    "completed": true,
+    "role": "client",
+    "build_identity": "9010db49f49c92bda08bd3267f9567064cb98ce9d2a8a35e15f7d2aa8a23a632",
+    "content_identity": "b7cee846d4a9b610dea2cdf0f8f8fb48b381bbe24f41ecf5ed4820296fe03ec7",
+    "artifact": {
+      "local_ignored_path": ".local/r7-w3-execution-0051-0057-da19ec5/builds/client/output/leyforge-w3-client-probe.exe",
+      "bytes": 110443104,
+      "sha256": "93d1820d0f1b876f88d00b31cde931ebee119c4ea55f824a8012ddb8e4f2926f"
+    },
+    "voxel_runtime": {
+      "local_ignored_path": ".local/r7-w3-execution-0051-0057-da19ec5/builds/client/output/libvoxel.windows.template_release.x86_64.dll",
+      "bytes": 10173952,
+      "sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0"
+    },
+    "build_manifest": {
+      "local_ignored_path": ".local/r7-w3-execution-0051-0057-da19ec5/builds/client/project/build_manifest.json",
+      "bytes": 2925,
+      "sha256": "e1d97a343f218fea054af2050b613e91f998fe90530ea6efbcc80157cdcf7f80"
+    },
+    "environment": {
+      "os": "Windows",
+      "os_release": "10",
+      "machine": "AMD64",
+      "python": "3.9.5",
+      "godot_runtime": "4.8.dev4.official.b56a91878",
+      "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+      "local_patch_status": "NO-LOCAL-PATCH",
+      "renderer": "OpenGL API 3.3.0 Compatibility",
+      "device": "NVIDIA GeForce RTX 2080 Ti"
+    }
+  },
+  "allocation_transaction": {
+    "registry_before": {
+      "run_high_water": "PRD07-RUN-0050",
+      "evidence_high_water": "PRD07-EVID-0050",
+      "issued_pair_count": 50,
+      "retained_pack_count": 50
+    },
+    "plan_materialization": "All seven rows were returned in memory with ALLOCATED-FOR-IMMEDIATE-ACTUAL-EXECUTION status after revalidation passed.",
+    "planned_pairs": [
+      {
+        "allocation_order": 1,
+        "proof_id": "PRD04-PROOF-27",
+        "run_id": "PRD07-RUN-0051",
+        "evidence_id": "PRD07-EVID-0051",
+        "runtime_transition": "RUN_ALLOCATED-THEN-EXECUTING-IN-MEMORY",
+        "execution_result": "NO-PROOF-RESULT",
+        "retained_pack": false
+      },
+      {
+        "allocation_order": 2,
+        "proof_id": "PRD04-PROOF-28",
+        "run_id": "PRD07-RUN-0052",
+        "evidence_id": "PRD07-EVID-0052",
+        "runtime_transition": "PLAN-ROW-ONLY-NOT-INSTANTIATED",
+        "execution_result": "NOT-RUN",
+        "retained_pack": false
+      },
+      {
+        "allocation_order": 3,
+        "proof_id": "PRD04-PROOF-08",
+        "run_id": "PRD07-RUN-0053",
+        "evidence_id": "PRD07-EVID-0053",
+        "runtime_transition": "PLAN-ROW-ONLY-NOT-INSTANTIATED",
+        "execution_result": "NOT-RUN",
+        "retained_pack": false
+      },
+      {
+        "allocation_order": 4,
+        "proof_id": "PRD04-PROOF-30",
+        "run_id": "PRD07-RUN-0054",
+        "evidence_id": "PRD07-EVID-0054",
+        "runtime_transition": "PLAN-ROW-ONLY-NOT-INSTANTIATED",
+        "execution_result": "NOT-RUN",
+        "retained_pack": false
+      },
+      {
+        "allocation_order": 5,
+        "proof_id": "PRD04-PROOF-29",
+        "run_id": "PRD07-RUN-0055",
+        "evidence_id": "PRD07-EVID-0055",
+        "runtime_transition": "PLAN-ROW-ONLY-NOT-INSTANTIATED",
+        "execution_result": "NOT-RUN",
+        "retained_pack": false
+      },
+      {
+        "allocation_order": 6,
+        "proof_id": "PRD04-PROOF-31",
+        "run_id": "PRD07-RUN-0056",
+        "evidence_id": "PRD07-EVID-0056",
+        "runtime_transition": "PLAN-ROW-ONLY-NOT-INSTANTIATED",
+        "execution_result": "NOT-RUN",
+        "retained_pack": false
+      },
+      {
+        "allocation_order": 7,
+        "proof_id": "PRD04-PROOF-32",
+        "run_id": "PRD07-RUN-0057",
+        "evidence_id": "PRD07-EVID-0057",
+        "runtime_transition": "PLAN-ROW-ONLY-NOT-INSTANTIATED",
+        "execution_result": "NOT-RUN",
+        "retained_pack": false
+      }
+    ],
+    "authoritative_persisted_registry_after_abort": {
+      "run_high_water": "PRD07-RUN-0050",
+      "evidence_high_water": "PRD07-EVID-0050",
+      "issued_pair_count": 50,
+      "retained_pack_count": 50,
+      "w3_state_path_exists": false
+    },
+    "quarantine": {
+      "identities": "PRD07-RUN/EVID-0051-through-0057",
+      "disposition": "DO-NOT-REUSE-OR-REALLOCATE",
+      "reason": "The executor materialized the seven-row actual plan and moved RUN-0051 into execution without atomically persisting the failed attempt, its paired evidence identity, or the remaining transaction boundary. Repair governance must explicitly reconcile these identities before any rerun."
+    },
+    "allocation_invariant_result": "FAIL-NOT-AUDITABLE-OR-ATOMIC-ON-PRE-PROOF-EXPORT-FAILURE"
+  },
+  "proof_results": [
+    {
+      "proof_id": "PRD04-PROOF-27",
+      "outcome": "NO-OBSERVED-PROOF-RESULT",
+      "reason": "Client runtime could not load the admitted GDScript, so the fixture and proof logic never ran."
+    },
+    {
+      "proof_id": "PRD04-PROOF-28",
+      "outcome": "NOT-RUN"
+    },
+    {
+      "proof_id": "PRD04-PROOF-08",
+      "outcome": "NOT-RUN"
+    },
+    {
+      "proof_id": "PRD04-PROOF-30",
+      "outcome": "NOT-RUN"
+    },
+    {
+      "proof_id": "PRD04-PROOF-29",
+      "outcome": "NOT-RUN"
+    },
+    {
+      "proof_id": "PRD04-PROOF-31",
+      "outcome": "NOT-RUN"
+    },
+    {
+      "proof_id": "PRD04-PROOF-32",
+      "outcome": "NOT-RUN"
+    }
+  ],
+  "preserved_evidence": {
+    "engine_log": {
+      "path": "brain/10_TESTING/Evidence/r7-w3-execution-abort-20260908-engine-log.txt",
+      "bytes": 619,
+      "sha256": "e2d999e906862b9a6a36d9143b03edb3ac90d8b555128e5fa894337d973a84f4"
+    },
+    "ignored_reproducer_root": ".local/r7-w3-execution-0051-0057-da19ec5",
+    "portable_prd07_pack_status": "NOT-CREATED-BECAUSE-NO-VALID-PROOF-OBSERVATION-OR-RUNTIME-SELF-REPORT-EXISTS"
+  },
+  "boundary": {
+    "gameplay_permission": "CLOSED",
+    "prd08_evaluation": "CLOSED",
+    "r8": "CLOSED",
+    "w4_execution": "NOT-AUTHORIZED-NOT-STARTED",
+    "root_project_godot": "ABSENT",
+    "production_runtime": "ABSENT",
+    "production_boundary_crossed": false,
+    "prior_w0_w1_w2_evidence_modified": false,
+    "superseded_invalid_w3_artifacts_modified": false
+  },
+  "required_repair": [
+    "Repair the admitted W3 GDScript against the pinned Godot API and recertify source, readiness and exact admission.",
+    "Add a pinned-engine parse/load/export-smoke gate that exercises the admitted server-probe script before execution readiness can pass.",
+    "Make RUN/EVID allocation and failure retention auditable and atomic when export or runtime self-report fails before the first proof observation.",
+    "Explicitly reconcile the quarantined 0051-0057 identity transaction before computing any rerun identities.",
+    "Revalidate post-execution readiness/admission generation when W3 identities already exist."
+  ]
+}
