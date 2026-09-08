@@ -1,0 +1,212 @@
+{
+  "allocated_evidence_ids": [
+    "PRD07-EVID-0058"
+  ],
+  "allocated_run_ids": [
+    "PRD07-RUN-0058"
+  ],
+  "allocation_history": [
+    {
+      "allocation_order": 1,
+      "attempt_number_for_proof": 1,
+      "evidence_id": "PRD07-EVID-0058",
+      "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+      "failure": {
+        "error": "'ArtifactManifest' object has no attribute 'path'",
+        "error_type": "AttributeError",
+        "interrupted": false,
+        "phase": "fixture-runtime-self-report"
+      },
+      "prd07_evidence_eligible": false,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-27",
+      "proof_observation_produced": false,
+      "run_id": "PRD07-RUN-0058",
+      "state": "INVALIDATED",
+      "state_history": [
+        {
+          "from": "SPECIFIED",
+          "reason": "prerequisites evaluated",
+          "to": "READY"
+        },
+        {
+          "from": "READY",
+          "reason": "run identity allocated",
+          "to": "PRD07-RUN-ALLOCATED"
+        },
+        {
+          "from": "PRD07-RUN-ALLOCATED",
+          "reason": "execution started",
+          "to": "EXECUTING"
+        },
+        {
+          "from": "EXECUTING",
+          "reason": "failure during fixture-runtime-self-report",
+          "to": "INVALIDATED"
+        }
+      ],
+      "terminal_disposition": "ABORTED-BEFORE-PROOF-OBSERVATION"
+    }
+  ],
+  "export_lanes": {
+    "client": {
+      "artifact_sha256": "a7ba948a3ef0639723e8c13c5636cf011366cd109829c6d35720e6e8b094bebe",
+      "artifact_size_bytes": 110444496,
+      "build_identity": "c5795b9b33ad560d222841c98e3d5c7b42c825ba641ef5442a91caf4825e3130",
+      "runtime_self_report": {
+        "build_identity": "c5795b9b33ad560d222841c98e3d5c7b42c825ba641ef5442a91caf4825e3130",
+        "contact_errors": 0,
+        "fixture_capabilities": [
+          "stable-vessel-semantic-id",
+          "vessel-local-frame",
+          "world-vessel-frame-conversion",
+          "owner-region-epochs",
+          "editable-local-hull",
+          "revisioned-derived-properties",
+          "bounded-local-fluid",
+          "explicit-ocean-reservoir",
+          "breach-repair-pump",
+          "contained-water-mass",
+          "buoyancy-diagnostic",
+          "controlled-motion",
+          "board-disembark",
+          "physics-shape-collision-corpus",
+          "stale-result-quarantine"
+        ],
+        "frame_round_trip_errors": 0,
+        "presentation_authority_dependencies": 0,
+        "production_runtime": false,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_errors": 0,
+        "provider_ready": true,
+        "role": "client",
+        "schema_version": "prd07-w3-fixture-self-report-v1",
+        "stable_proof_ids": [
+          "PRD04-PROOF-08",
+          "PRD04-PROOF-27",
+          "PRD04-PROOF-28",
+          "PRD04-PROOF-29",
+          "PRD04-PROOF-30",
+          "PRD04-PROOF-31",
+          "PRD04-PROOF-32"
+        ],
+        "status": "PASS"
+      },
+      "state": "PASS"
+    },
+    "headless": {
+      "artifact_sha256": "ea0ca06c40a52fb6e39d281b0bbaef284ad49fb0e81ba825722126503e3278b6",
+      "artifact_size_bytes": 110444528,
+      "build_identity": "c2fbd7aba766d4419e7a77e3cd18873e410db27d772efd0a074146ada4d12fce",
+      "runtime_self_report": {
+        "build_identity": "c2fbd7aba766d4419e7a77e3cd18873e410db27d772efd0a074146ada4d12fce",
+        "contact_errors": 0,
+        "fixture_capabilities": [
+          "stable-vessel-semantic-id",
+          "vessel-local-frame",
+          "world-vessel-frame-conversion",
+          "owner-region-epochs",
+          "editable-local-hull",
+          "revisioned-derived-properties",
+          "bounded-local-fluid",
+          "explicit-ocean-reservoir",
+          "breach-repair-pump",
+          "contained-water-mass",
+          "buoyancy-diagnostic",
+          "controlled-motion",
+          "board-disembark",
+          "physics-shape-collision-corpus",
+          "stale-result-quarantine"
+        ],
+        "frame_round_trip_errors": 0,
+        "presentation_authority_dependencies": 0,
+        "production_runtime": false,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_errors": 0,
+        "provider_ready": true,
+        "role": "headless",
+        "schema_version": "prd07-w3-fixture-self-report-v1",
+        "stable_proof_ids": [
+          "PRD04-PROOF-08",
+          "PRD04-PROOF-27",
+          "PRD04-PROOF-28",
+          "PRD04-PROOF-29",
+          "PRD04-PROOF-30",
+          "PRD04-PROOF-31",
+          "PRD04-PROOF-32"
+        ],
+        "status": "PASS"
+      },
+      "state": "PASS"
+    }
+  },
+  "gameplay_permission": "CLOSED",
+  "package": "R7-W3-FLUID-VESSEL-MOVING-FRAME-PROOFS",
+  "package_state": "ABORTED-BEFORE-PROOF-OBSERVATION",
+  "prd08_evaluation": "CLOSED",
+  "prior_readiness_source": "docs/rebuild/r7/w3-readiness-repaired.json",
+  "proofs": [
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-08",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [
+        "PRD07-RUN-0058"
+      ],
+      "blockers": [],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-27",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-28",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-29",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-30",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-31",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-32",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    }
+  ],
+  "schema_version": "prd07-w3-execution-state-v2",
+  "source_revision": "f92445e2b432b568327cd16685b6c6fceaf355b4"
+}
