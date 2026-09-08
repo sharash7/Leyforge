@@ -27,6 +27,8 @@ related_to:
   - "TASK-20260907-001"
   - "WORK-20260908-001"
   - "TASK-20260908-001"
+  - "WORK-20260908-002"
+  - "TASK-20260908-002"
   - "EVID-0009"
   - "AUDIT-0009"
   - "GOV-DEBT-0007"
@@ -138,6 +140,12 @@ related_to:
 - Post-stop stable verification passes 46 Brain/governance/R6 and 76 tool/runtime tests; both Doctors, indexes, links, registry/immutability checks and 8,268 clean-boundary checks pass.
 - [[HANDOFF-20260908-002]] makes W3 repair/re-certification the next bounded action, subject to fresh authority. W4 execution, PRD-08 evaluation, R8 gameplay permission and production activation remain closed.
 
+## R7 W3 Technical Environment Repair and Re-certification
+
+- Active under owner-authorized [[TASK-20260908-002]] and [[WORK-20260908-002]].
+- Scope is limited to authoritative 0051-0057 quarantine reconciliation, admitted-source/executor repair, real pinned-engine readiness validation, regression coverage and new readiness/admission certification.
+- No W3 proof rerun or new rerun RUN/EVID allocation is authorized. W4, PRD-08, R8 gameplay and production activation remain closed.
+
 ## Later Activation Milestones
 
 - G1 registry and core identity: planned in [[GOV-DEBT-0002]].
@@ -146,4 +154,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260908-002]]. W0-W2 execution and W3 readiness are certified; the attempted W3 execution is a certified controlled FAIL before proof observation and requires repair/re-run. W4, W5 and FINAL remain open, but W4 is not the current next action. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260908-002]] with [[TASK-20260908-002]] / [[WORK-20260908-002]] executing the bounded W3 repair and re-certification package. W0-W2 execution is certified; the attempted W3 execution is a certified controlled FAIL before proof observation. Actual W3 rerun remains unopened pending repaired certification and fresh owner authorization. W4, W5 and FINAL remain open, but W4 is not the current next action. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
