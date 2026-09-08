@@ -129,7 +129,7 @@ related_to:
 
 - Active under [[TASK-20260908-001]] and [[WORK-20260908-001]] after explicit owner authorization.
 - The certified source/readiness commits are published unchanged and local/upstream identity is synchronized.
-- Mandatory source, manifest, dependency, registry, immutable-evidence and clean-rebuild revalidation is pending.
+- Mandatory source, manifest, dependency, registry, immutable-evidence and clean-rebuild revalidation: PASS at `5f03ae2f598059495a8c7fb21d4386a4b047e2bf`.
 - No W3 proof has executed and no actual W3 RUN/EVID identity has been allocated under this package.
 - W4 execution, PRD-08 evaluation, R8 gameplay permission and production activation remain closed.
 
@@ -141,4 +141,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260908-001]], [[TASK-20260908-001]] and [[WORK-20260908-001]]. W0-W2 execution and W3 readiness are certified; W3 execution is active at its pre-execution revalidation boundary. W4, W5 and FINAL remain open. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260908-001]], [[TASK-20260908-001]] and [[WORK-20260908-001]]. W0-W2 execution and W3 readiness are certified; W3 execution is active with its pre-execution gate passed and actual execution pending. W4, W5 and FINAL remain open. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

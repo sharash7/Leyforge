@@ -1,8 +1,8 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Last completed work:** `WORK-20260907-001`.
+**Active work:** `WORK-20260908-001` under `TASK-20260908-001`.
 
-**State:** ACTIVE - PRD-07 intake and W0-W2 execution are complete and certified. W3 readiness is certified; W3 execution, W4, W5 and FINAL remain open.
+**State:** ACTIVE - PRD-07 intake and W0-W2 execution are complete and certified. W3 readiness is certified; the governed W3 execution package is active with mandatory pre-execution revalidation passed. W4, W5 and FINAL remain open.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
@@ -67,10 +67,18 @@ No W3 proof has executed. No W3 execution-state file exists. No W3 RUN/EVID iden
 
 Build, focused, full, W3 regression, readiness/preflight, admission, dependency identity, registry, immutable evidence, Brain, Governance Doctor, clean-rebuild boundary, Git integrity and diff checks pass. Root project.godot and production runtime remain absent. Gameplay permission and PRD-08 evaluation remain closed.
 
+## W3 Execution Package
+
+The owner authorized bounded governed W3 execution on 2026-09-08. `TASK-20260908-001` and `WORK-20260908-001` are active. Commits `67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026` and `de4b1a2e42e28f9bd5511fa5bb641c8992e3eb1e` were published unchanged, followed by lifecycle-opening commit `5f03ae2f598059495a8c7fb21d4386a4b047e2bf`.
+
+Fresh revalidation proved exact source-tree identity, readiness/admission equality, all 19 artifact identities, `NO-LOCAL-PATCH` dependency identity, a unique contiguous 50-pair registry, all 50 retained historical packs, prior-evidence immutability and a clean production boundary. W3 regression passed 23/23; the full stable tier passed 46 Brain/governance/R6 and 76 tool/runtime tests; the boundary validator passed 8,253 checks with zero active POC dependencies.
+
+No actual W3 RUN/EVID identity has yet been allocated and no W3 proof has executed. The next action is the guarded admitted executor against a fresh isolated `.local` run root.
+
 ## Remaining R7 Work
 
-W3 execution, W4, W5 and FINAL remain open. PRD04-PROOF-57 and 58 require W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W3 execution is active. W4, W5 and FINAL remain open. PRD04-PROOF-57 and 58 require W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue through [[HANDOFF-20260908-001]]. The next bounded action is to open a fresh W3 execution Task/Work package only after explicit owner authorization. Do not execute W3, begin W4, evaluate PRD-08 or open R8 under this readiness certification.
+Continue through [[HANDOFF-20260908-001]], [[TASK-20260908-001]] and [[WORK-20260908-001]]. W3 execution is authorized only through the exact guarded package. Do not begin W4, evaluate PRD-08 or open R8 under this authorization.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

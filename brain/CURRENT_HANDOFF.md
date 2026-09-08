@@ -27,6 +27,6 @@ related_to:
 
 The active formal handoff is [[HANDOFF-20260908-001]]. W3 readiness is repaired and certified against source commit 67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026. All seven W3 proofs are READY, no W3 proof has executed and no W3 RUN/EVID identity has been allocated.
 
-The owner has authorized that bounded action. [[TASK-20260908-001]] and [[WORK-20260908-001]] are active for exact-boundary revalidation and governed W3 execution. Mandatory pre-execution revalidation remains pending; no W3 proof has executed and no W3 RUN/EVID identity has been allocated under the new package.
+The owner has authorized that bounded action. [[TASK-20260908-001]] and [[WORK-20260908-001]] are active for governed W3 execution. Mandatory pre-execution revalidation passed at lifecycle checkpoint `5f03ae2f598059495a8c7fb21d4386a4b047e2bf`; no W3 proof has executed and no W3 RUN/EVID identity has yet been allocated under the new package.
 
 R7 remains active. W4 execution, W5 and FINAL remain open; PRD-08 evaluation and R8 gameplay permission remain closed.
