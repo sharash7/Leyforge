@@ -55,6 +55,9 @@ related_to:
   - "HANDOFF-20260908-003"
   - "WORK-20260909-001"
   - "TASK-20260909-001"
+  - "EVID-0011"
+  - "AUDIT-0011"
+  - "HANDOFF-20260909-001"
   - "ADR-0008"
 ---
 
@@ -155,10 +158,14 @@ related_to:
 
 ## R7 W3 Technical Environment Execution Rerun
 
-- Fresh owner authorization is active under [[TASK-20260909-001]] / [[WORK-20260909-001]].
-- Repository/lifecycle and complete pre-execution gates pass: exact repaired source/readiness/admission, real pinned-engine export/runtime, dependencies, registry/quarantine, immutability, tests, Brain/governance, Git and 8,464 clean-rebuild checks are valid.
-- The repaired executor must persist one pair just in time before execution and retain standard evidence only after an actual validated observation.
-- Quarantined 0051-0057 remain non-reusable. W4, PRD-08, R8 gameplay and production activation remain closed.
+- Cancelled under [[TASK-20260909-001]] / [[WORK-20260909-001]] after the single authorized executor stopped before proof observation.
+- Complete pre-execution gates passed at `f92445e2b432b568327cd16685b6c6fceaf355b4`; both exact client/headless exports and build self-reports then passed.
+- The repaired journal durably allocated only 0058 for PRD04-PROOF-27 and retained it as `INVALIDATED`, evidence-ineligible and without a standard pack.
+- The admitted fixture launcher dereferenced nonexistent `ArtifactManifest.path` instead of `artifact_path`; no fixture process or proof observation occurred.
+- [[EVID-0011]] / [[AUDIT-0011]] certify the abort from immutable evidence commit `7e6ddbf75bada68855a3390f2d9810cd13975fad` and state commit `21cdbbc9d3c5552ed7018536f0c36159b66a61ee`.
+- Registry validation passes through issued high-water 0058; quarantined 0051-0057 remain non-reusable and no 0059+ identity exists.
+- The unchanged pre-execution admission now fails five clean-boundary state-equality checks; post-stop W3 regression is 34/35 with one stale assertion expecting high-water 0057 instead of 0058. Both are required repair findings, not grounds for silent re-certification.
+- [[HANDOFF-20260909-001]] requires fresh owner authority for fixture-launch repair/re-certification. W4, PRD-08, R8 gameplay and production activation remain closed.
 
 ## Later Activation Milestones
 
@@ -168,4 +175,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260908-003]]. W0-W2 execution is certified; the attempted W3 execution is a certified controlled package failure before proof observation; the bounded repair/re-certification is complete; and the owner-authorized rerun under [[TASK-20260909-001]] has passed its complete pre-execution gate without allocating an identity. The repaired executor is next. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260909-001]]. W0-W2 execution is certified; both W3 execution attempts are certified controlled failures before proof observation; and the second attempt durably consumes invalidated pair 0058. Fixture-launch repair and re-certification is next, subject to fresh owner authority. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

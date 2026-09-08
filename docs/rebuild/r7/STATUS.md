@@ -1,8 +1,8 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active handoff:** `HANDOFF-20260908-003`. `WORK-20260909-001` and `TASK-20260909-001` govern the owner-authorized W3 execution rerun; the repaired boundary has passed complete pre-execution revalidation without allocation.
+**Active handoff:** `HANDOFF-20260909-001`. `WORK-20260909-001` and `TASK-20260909-001` are cancelled after the owner-authorized W3 rerun aborted before proof observation; fixture-launch repair/re-certification is the next bounded action subject to fresh authority.
 
-**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. The first authorized W3 executor failed before any proof ran; the resulting source/control-plane repair is complete and certified. The fresh owner-authorized W3 rerun has passed its complete pre-execution gate; the single repaired executor invocation is next. W4, W5 and FINAL remain open, but W4 execution is not authorized.
+**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. Both authorized W3 attempts stopped before proof observation. The second attempt durably invalidated pair 0058 after an admitted fixture-launch manifest-field defect. W3 requires repair/re-certification and a future separately authorized rerun. W4, W5 and FINAL remain open, but W4 execution is not authorized.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
@@ -93,12 +93,20 @@ Fresh owner authorization opened `TASK-20260909-001` / `WORK-20260909-001`. The 
 
 The exact fixed Godot driver again parsed/loaded the repaired source, clean-exported it and ran the exported runtime. Six collision cases, frame conversion and provider checks pass with zero errors. Dependency identity remains exact with `NO-LOCAL-PATCH`. The live registry contains 50 retained pairs/packs through 0050 plus quarantined 0051-0057, no W3 state and no 0058+ allocation. W3 tests pass 35/35; build/focused/full, both Doctors, indexes, links, governance controls, immutable-path comparison and 8,464 clean-rebuild checks pass.
 
-The pre-execution gate is therefore open for the single repository-governed executor. It must allocate one pair at a time beginning from the live next identity, persist each transition durably and retain only actual observations. W4, PRD-08, R8, gameplay and production remain closed.
+The complete pre-execution gate was published at `f92445e2b432b568327cd16685b6c6fceaf355b4`. The single repository-governed executor then allocated only `PRD07-RUN-0058` / `PRD07-EVID-0058` for PRD04-PROOF-27 and durably entered execution. Client and headless exports and build self-reports passed with exact pinned Godot/Voxel identities and no production runtime.
+
+The first fixture did not launch. `tools/r7_w3_runtime/builds.py:548` dereferenced nonexistent `ArtifactManifest.path` instead of the declared `artifact_path`, producing `AttributeError` during `fixture-runtime-self-report`. The journal durably marks 0058 `INVALIDATED` and `ABORTED-BEFORE-PROOF-OBSERVATION`; no standard evidence pack exists. The other six objectives were not entered and no 0059+ identity was allocated.
+
+State commit `21cdbbc9d3c5552ed7018536f0c36159b66a61ee` and evidence commit `7e6ddbf75bada68855a3390f2d9810cd13975fad` preserve the exact failure. [[EVID-0011]] / [[AUDIT-0011]] certify it. The registry validates through issued high-water 0058, with retained 0001-0050, quarantined 0051-0057 and invalidated 0058.
+
+The unchanged repaired admission was the exact pre-execution boundary and does not certify the new failed-state journal. Final post-stop clean-boundary validation therefore reports five W3 admission/state mismatches across 8,482 checks. The immutable machine abort record preserves the earlier 8,467-check observation made before the lifecycle records were added. The post-stop W3 suite completes 35 cases with 34 passing; its sole failure is the stale assertion expecting registry high-water 0057 instead of the durable invalidated 0058. Both conditions must be repaired and re-certified; neither was silently changed under the failed execution contract.
+
+Post-stop compilation, governance 18/18, R6 7/7, 87 unaffected tool/runtime tests, proof-harness/static W0-W3 preflights, Brain ingest/index/links, both certification Doctors and registry validation pass. The official focused wrapper fails on the one stale W3 assertion; the official full wrapper reaches 45/46 Brain/governance/R6 tests and fails only the test that requires the red clean-boundary validator. These controlled failures are retained, not waived.
 
 ## Remaining R7 Work
 
-W3 repair/re-certification is complete and the owner-authorized execution-rerun package has passed pre-execution revalidation. Execute and reconcile the seven W3 proofs next. W4, W5 and FINAL remain open, but W4 execution is not authorized. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W3 fixture-launch repair/re-certification is required before another rerun can be considered. Preserve invalidated 0058, repair the manifest-field use, add real fixture-launch integration coverage, reconcile the stale high-water regression assertion and align admission/boundary behavior with the durable failed state. Any repair package and any later W3 rerun require fresh owner authority. W4, W5 and FINAL remain open, but W4 execution is not authorized. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue only through [[HANDOFF-20260908-003]] and [[TASK-20260909-001]]. W3 execution/allocation is authorized only through the passed pre-execution gate and repaired executor. Do not reuse 0051-0057, begin W4, evaluate PRD-08 or open R8.
+Continue only through [[HANDOFF-20260909-001]]. Do not reuse 0051-0058, allocate 0059+, repair or rerun W3, begin W4, evaluate PRD-08 or open R8 without the required fresh authority and certification.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

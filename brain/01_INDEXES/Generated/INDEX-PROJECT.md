@@ -25,12 +25,12 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[CURRENT-HANDOFF|CURRENT-HANDOFF]] | dashboard | active | Current Handoff |
 | [[DASH-GOVERNANCE|DASH-GOVERNANCE]] | dashboard | active | Engineering Governance Health |
 | [[DASH-PROJECT-STATE|DASH-PROJECT-STATE]] | dashboard | active | Project State |
-| [[HANDOFF-20260908-003|HANDOFF-20260908-003]] | handoff | active | R7 W3 Repair Certification to Freshly Authorized W3 Rerun Handoff |
+| [[HANDOFF-20260909-001|HANDOFF-20260909-001]] | handoff | active | R7 W3 Rerun Abort to Fixture-launch Repair and Re-certification Handoff |
 | [[HOME|HOME]] | home | active | Leyforge Project Brain |
-| [[WORK-20260909-001|WORK-20260909-001]] | work | active | Execute and reconcile the repaired R7 W3 technical environment proof rerun |
-| [[TASK-20260909-001|TASK-20260909-001]] | work_item | active | R7 W3 technical environment execution rerun task contract |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
 | [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |
+| [[WORK-20260909-001|WORK-20260909-001]] | work | cancelled | Execute and reconcile the repaired R7 W3 technical environment proof rerun |
+| [[TASK-20260909-001|TASK-20260909-001]] | work_item | cancelled | R7 W3 technical environment execution rerun task contract |
 | [[TASK-20260908-001|TASK-20260908-001]] | work_item | cancelled | R7 W3 technical environment execution task contract |
 | [[TASK-20260906-008|TASK-20260906-008]] | work_item | cancelled | R7 W3 technical environment proofs readiness task contract |
 | [[WORK-20260906-003|WORK-20260906-003]] | work | complete | Admit PRD-07 and establish the R7 execution boundary |
@@ -69,3 +69,4 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[HANDOFF-20260906-007|HANDOFF-20260906-007]] | handoff | superseded | R7 W2 Execution to W3 Technical Environment Proofs Readiness Handoff |
 | [[HANDOFF-20260908-002|HANDOFF-20260908-002]] | handoff | superseded | R7 W3 Execution Abort to Repair and Re-certification Handoff |
 | [[HANDOFF-20260908-001|HANDOFF-20260908-001]] | handoff | superseded | R7 W3 Readiness Certification to Governed W3 Proof Execution Handoff |
+| [[HANDOFF-20260908-003|HANDOFF-20260908-003]] | handoff | superseded | R7 W3 Repair Certification to Freshly Authorized W3 Rerun Handoff |

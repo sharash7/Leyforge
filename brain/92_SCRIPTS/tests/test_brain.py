@@ -201,15 +201,25 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(execution_to_repair.metadata["supersedes"], "HANDOFF-20260908-001")
         self.assertEqual(execution_to_repair.metadata["superseded_by"], "HANDOFF-20260908-003")
 
+        repair_to_rerun = self.by_id["HANDOFF-20260908-003"]
+        self.assertEqual(repair_to_rerun.metadata["status"], "superseded")
+        self.assertEqual(repair_to_rerun.metadata["from_work"], "WORK-20260908-002")
+        self.assertEqual(
+            repair_to_rerun.metadata["next_package"],
+            "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN",
+        )
+        self.assertEqual(repair_to_rerun.metadata["supersedes"], "HANDOFF-20260908-002")
+        self.assertEqual(repair_to_rerun.metadata["superseded_by"], "HANDOFF-20260909-001")
+
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260908-002")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260909-001")
         self.assertEqual(handoff.metadata["next_gate"], "R7")
         self.assertEqual(
             handoff.metadata["next_package"],
-            "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN",
+            "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
         )
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260908-002")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260908-003")
         self.assertEqual(self.by_id["TASK-20260907-001"].metadata["status"], "complete")
         self.assertEqual(self.by_id["WORK-20260907-001"].metadata["status"], "complete")
         self.assertEqual(self.by_id["TASK-20260906-008"].metadata["status"], "cancelled")
@@ -220,7 +230,10 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(self.by_id["TASK-20260908-002"].metadata["status"], "complete")
         self.assertEqual(self.by_id["WORK-20260908-002"].metadata["status"], "complete")
         self.assertEqual(self.by_id["AUDIT-0010"].metadata["result"], "PASS")
-        self.assertIn("W3 REPAIR/RECERTIFICATION COMPLETE", handoff.body)
+        self.assertEqual(self.by_id["TASK-20260909-001"].metadata["status"], "cancelled")
+        self.assertEqual(self.by_id["WORK-20260909-001"].metadata["status"], "cancelled")
+        self.assertEqual(self.by_id["AUDIT-0011"].metadata["result"], "FAIL")
+        self.assertIn("W3 REPAIR/RERUN REQUIRED", handoff.body)
         self.assertIn("non-reusable", handoff.body)
         self.assertIn("Production runtime remains absent", handoff.body)
         self.assertIn("0058", handoff.body)

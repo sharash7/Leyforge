@@ -31,6 +31,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[EVID-0007|EVID-0007]] | evidence | active | R7 W1 ownership, spatial, transaction and saturation proof evidence |
 | [[EVID-0008|EVID-0008]] | evidence | active | R7 W2 network, persistence, recovery and migration proof evidence |
 | [[EVID-0009|EVID-0009]] | evidence | active | R7 W3 technical environment execution abort evidence |
+| [[EVID-0011|EVID-0011]] | evidence | active | R7 W3 technical environment execution rerun abort evidence |
 | [[EVID-0010|EVID-0010]] | evidence | active | R7 W3 technical environment repair and re-certification evidence |
 | [[TEST-BRAIN-ACCEPTANCE|TEST-BRAIN-ACCEPTANCE]] | test | active | Brain v0.1 Acceptance Suite |
 | [[TEST-GOVERNANCE-G0|TEST-GOVERNANCE-G0]] | test | active | R5 G0 Engineering Governance Acceptance Suite |

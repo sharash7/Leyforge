@@ -55,6 +55,9 @@ related_to:
   - "HANDOFF-20260908-003"
   - "WORK-20260909-001"
   - "TASK-20260909-001"
+  - "AUDIT-0011"
+  - "EVID-0011"
+  - "HANDOFF-20260909-001"
   - "ADR-0008"
   - "CONFLICT-0002"
 ---
@@ -69,7 +72,7 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active — W3 rerun pre-execution gate PASS; execution next | W0-W2 execution is certified; [[EVID-0010]] / [[AUDIT-0010]] certify the repaired W3 boundary; [[TASK-20260909-001]] / [[WORK-20260909-001]] govern the actual rerun |
+| R7 | Active — W3 repair/rerun required | W0-W2 execution is certified; [[EVID-0011]] / [[AUDIT-0011]] certify the second controlled W3 abort before proof observation; continue only through [[HANDOFF-20260909-001]] |
 | R8 gameplay | Closed | No production gameplay permission is open |
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
@@ -86,4 +89,6 @@ The authorized real executor failed during the first client runtime self-report 
 
 The owner-authorized bounded W3 repair/re-certification package is complete under [[TASK-20260908-002]] / [[WORK-20260908-002]] and certified by [[EVID-0010]] / [[AUDIT-0010]]. Exact implementation commit `45b0300caa0ebd66d4c740a71db983a7a9827f3b` passes real pinned-engine parse/load, clean export and exported-runtime validation. Repaired readiness is 7 READY / 0 BLOCKED / 0 NOT APPLICABLE and repaired admission pins 23 exact artifacts. The 0051-0057 transaction is authoritatively quarantined, non-reusable and evidence-ineligible; the issued high-water is 0057, and 0058 is only the first future preview.
 
-The owner-authorized W3 execution rerun is active under [[TASK-20260909-001]] / [[WORK-20260909-001]]. Complete pre-execution revalidation passes; proof execution remains `NOT-STARTED` and no fresh rerun identity has yet been allocated. [[HANDOFF-20260908-003]] remains the continuation boundary. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, R8 remains closed and W4 execution is not authorized.
+The owner-authorized W3 execution rerun under [[TASK-20260909-001]] / [[WORK-20260909-001]] passed complete pre-execution revalidation and then stopped during the first fixture launch. The journal durably records `PRD07-RUN-0058` / `PRD07-EVID-0058` as `INVALIDATED` before proof observation; no standard pack exists and no 0059+ identity was allocated. Both exports and build self-reports passed, but admitted `tools/r7_w3_runtime/builds.py` used nonexistent `ArtifactManifest.path` instead of `artifact_path`.
+
+[[EVID-0011]] / [[AUDIT-0011]] certify the controlled failure. [[HANDOFF-20260909-001]] is the sole active continuation boundary and requires fresh owner authority for fixture-launch repair/re-certification. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, R8 remains closed and W4 execution is not authorized.

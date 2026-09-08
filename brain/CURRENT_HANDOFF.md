@@ -10,8 +10,11 @@ updated: "2026-09-09"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260908-003"
+current_handoff: "HANDOFF-20260909-001"
 related_to:
+  - "HANDOFF-20260909-001"
+  - "EVID-0011"
+  - "AUDIT-0011"
   - "WORK-20260909-001"
   - "TASK-20260909-001"
   - "HANDOFF-20260908-003"
@@ -35,8 +38,8 @@ related_to:
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260908-003]]. The owner-authorized W3 repair/re-certification package completed under [[TASK-20260908-002]] / [[WORK-20260908-002]] and is certified by [[EVID-0010]] / [[AUDIT-0010]]. Exact implementation commit `45b0300caa0ebd66d4c740a71db983a7a9827f3b` passes real pinned-engine parse/load, clean export and exported-runtime validation; repaired readiness reports seven READY proofs and repaired admission pins 23 exact artifacts.
+The active formal handoff is [[HANDOFF-20260909-001]]. The owner-authorized W3 execution rerun under [[TASK-20260909-001]] / [[WORK-20260909-001]] passed complete pre-execution revalidation, then failed during the first fixture launch because admitted `tools/r7_w3_runtime/builds.py` uses nonexistent `ArtifactManifest.path` instead of the declared `artifact_path`.
 
-The prior authorized executor failure remains preserved by [[EVID-0009]] / [[AUDIT-0009]]. The 0051-0057 transaction is now authoritatively quarantined, evidence-ineligible and non-reusable. Issued high-water is 0057, while 0058 is only the first future preview and is not allocated.
+The repaired journal durably records only `PRD07-RUN-0058` / `PRD07-EVID-0058`, now `INVALIDATED` and evidence-ineligible after aborting before proof observation. No W3 proof result or standard pack exists and no 0059+ identity was allocated. [[EVID-0011]] / [[AUDIT-0011]] certify the failure. Historical 0051-0057 remain quarantined and non-reusable.
 
-Fresh owner authority opened the bounded execution rerun under [[TASK-20260909-001]] / [[WORK-20260909-001]]. Its complete mandatory pre-execution gate passes with no identity allocation: exact source/readiness/admission, real pinned-engine export/runtime, dependencies, registry/quarantine, immutable history, verification and the clean-rebuild boundary are valid. The next permitted action is the single repaired executor invocation. W4 execution, W5 and FINAL remain open; PRD-08 evaluation and R8 gameplay permission remain closed.
+The next bounded action is fixture-launch repair and re-certification, subject to fresh owner authorization. It must preserve 0058, add real fixture-launch coverage, reconcile the stale high-water regression assertion and align certification/boundary behavior with the failed state before another separately authorized rerun. W4 execution, W5, FINAL, PRD-08 evaluation, R8 gameplay and production remain closed.
