@@ -23,6 +23,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[HANDOFF-20260908-003|HANDOFF-20260908-003]] | handoff | active | R7 W3 Repair Certification to Freshly Authorized W3 Rerun Handoff |
+| [[WORK-20260909-001|WORK-20260909-001]] | work | active | Execute and reconcile the repaired R7 W3 technical environment proof rerun |
+| [[TASK-20260909-001|TASK-20260909-001]] | work_item | active | R7 W3 technical environment execution rerun task contract |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
 | [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |
 | [[TASK-20260908-001|TASK-20260908-001]] | work_item | cancelled | R7 W3 technical environment execution task contract |

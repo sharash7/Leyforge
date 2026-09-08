@@ -53,6 +53,8 @@ related_to:
   - "HANDOFF-20260906-006"
   - "HANDOFF-20260908-002"
   - "HANDOFF-20260908-003"
+  - "WORK-20260909-001"
+  - "TASK-20260909-001"
   - "ADR-0008"
 ---
 
@@ -149,7 +151,14 @@ related_to:
 - Exact implementation commit `45b0300caa0ebd66d4c740a71db983a7a9827f3b` uses the public pinned-engine collision-query route, and real parse/load, clean export and exported-runtime validation pass with zero collision/frame/provider errors.
 - 0051-0057 are authoritatively quarantined, evidence-ineligible and non-reusable. Registry issued high-water is 0057; 0058 is an unallocated preview.
 - Repaired readiness is 7 READY / 0 BLOCKED / 0 NOT APPLICABLE; admission pins 23 exact artifacts; W3 execution remains `NOT-STARTED`.
-- [[HANDOFF-20260908-003]] requires fresh owner authorization before any actual W3 rerun or identity allocation. W4, PRD-08, R8 gameplay and production activation remain closed.
+- [[HANDOFF-20260908-003]] required fresh owner authorization before any actual W3 rerun or identity allocation; that requirement is now satisfied only for [[TASK-20260909-001]]. W4, PRD-08, R8 gameplay and production activation remain closed.
+
+## R7 W3 Technical Environment Execution Rerun
+
+- Fresh owner authorization is active under [[TASK-20260909-001]] / [[WORK-20260909-001]].
+- Repository and lifecycle opening gates pass; actual proof execution and RUN/EVID allocation remain closed until exact repaired-boundary, pinned-engine, dependency, registry, immutability and clean-rebuild revalidation passes.
+- The repaired executor must persist one pair just in time before execution and retain standard evidence only after an actual validated observation.
+- Quarantined 0051-0057 remain non-reusable. W4, PRD-08, R8 gameplay and production activation remain closed.
 
 ## Later Activation Milestones
 
@@ -159,4 +168,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260908-003]]. W0-W2 execution is certified; the attempted W3 execution is a certified controlled package failure before proof observation; and the bounded repair/re-certification is complete. Actual W3 rerun remains unopened pending fresh owner authorization. W4, W5 and FINAL remain open, but W4 is not the current next action. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260908-003]]. W0-W2 execution is certified; the attempted W3 execution is a certified controlled package failure before proof observation; the bounded repair/re-certification is complete; and the actual rerun is now owner-authorized under [[TASK-20260909-001]]. No rerun identity may be allocated before the full pre-execution gate. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
