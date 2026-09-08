@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -23,6 +24,21 @@ EXECUTION_ORDER = (
     "PRD04-PROOF-31",
     "PRD04-PROOF-32",
 )
+QUARANTINE_PATH = ROOT / "docs/rebuild/r7/w3-allocation-reconciliation.json"
+PACK_REQUIRED_STATES = frozenset({
+    "PASS-OBSERVED",
+    "FAIL-OBSERVED",
+    "INCONCLUSIVE",
+    "RERUN-REQUIRED",
+    "PRD-08-EVALUATION",
+})
+ACTIVE_STATES = frozenset({"PRD07-RUN-ALLOCATED", "EXECUTING", "OBSERVATION-CAPTURED"})
+NON_PACK_STATES = frozenset({
+    *ACTIVE_STATES,
+    "INVALIDATED",
+    "ABORTED-BEFORE-PROOF-OBSERVATION",
+    "INTERRUPTED-BEFORE-PROOF-OBSERVATION",
+})
 
 
 class ExecutionRegistryError(ValueError):
@@ -36,7 +52,11 @@ class RegistrySnapshot:
     max_run_number: int
     max_evidence_number: int
     mappings: Mapping[str, Tuple[str, str]]
+    dispositions: Mapping[str, str]
+    retained_run_ids: Tuple[str, ...]
+    quarantined_run_ids: Tuple[str, ...]
     state_paths: Tuple[str, ...]
+    quarantine_paths: Tuple[str, ...]
     evidence_paths: Tuple[str, ...]
 
     def to_dict(self) -> Dict[str, object]:
@@ -46,7 +66,11 @@ class RegistrySnapshot:
             "max_run_number": self.max_run_number,
             "max_evidence_number": self.max_evidence_number,
             "mappings": {key: {"proof_id": value[0], "evidence_id": value[1]} for key, value in self.mappings.items()},
+            "dispositions": dict(self.dispositions),
+            "retained_run_ids": list(self.retained_run_ids),
+            "quarantined_run_ids": list(self.quarantined_run_ids),
             "state_paths": list(self.state_paths),
+            "quarantine_paths": list(self.quarantine_paths),
             "evidence_paths": list(self.evidence_paths),
         }
 
@@ -101,12 +125,74 @@ def inspect_execution_registry(root: Path = ROOT) -> RegistrySnapshot:
     run_ids: set[str] = set()
     evidence_ids: set[str] = set()
     state_sources: Dict[str, str] = {}
+    evidence_sources: Dict[str, str] = {}
+    dispositions: Dict[str, str] = {}
+    pack_required_runs: set[str] = set()
+    pack_required_evidence: set[str] = set()
+    quarantined_runs: set[str] = set()
+
+    def register(
+        row: Mapping[str, object],
+        source: Path,
+        row_run_ids: set[str],
+        row_evidence_ids: set[str],
+        *,
+        quarantine: bool = False,
+    ) -> None:
+        raw_run_id = row.get("run_id")
+        raw_evidence_id = row.get("evidence_id")
+        if raw_run_id in {None, ""} and raw_evidence_id in {None, ""}:
+            if row.get("state") != "NOT-RUN":
+                raise ExecutionRegistryError(f"execution registry row lacks issued identities: {source}")
+            return
+        if raw_run_id in {None, ""} or raw_evidence_id in {None, ""}:
+            raise ExecutionRegistryError(f"execution registry row has only one issued identity: {source}")
+        run_id, run_number = _parse_identity(raw_run_id, RUN_PATTERN, "run", source)
+        evidence_id, evidence_number = _parse_identity(raw_evidence_id, EVIDENCE_PATTERN, "evidence", source)
+        proof_id = str(row.get("proof_id", ""))
+        state = str(row.get("state", ""))
+        if not proof_id or run_number != evidence_number or not state:
+            raise ExecutionRegistryError(f"run/evidence mapping is ambiguous in {source}: {run_id}, {evidence_id}")
+        if run_id in mappings and mappings[run_id] != (proof_id, evidence_id):
+            raise ExecutionRegistryError(f"run identity maps to conflicting proof/evidence records: {run_id}")
+        if run_id in row_run_ids or evidence_id in row_evidence_ids:
+            raise ExecutionRegistryError(f"execution registry contains duplicate row identities: {source}")
+        source_name = source.as_posix()
+        if run_id in state_sources and state_sources[run_id] != source_name:
+            raise ExecutionRegistryError(f"run identity appears in multiple registry records: {run_id}")
+        if evidence_id in evidence_sources and evidence_sources[evidence_id] != source_name:
+            raise ExecutionRegistryError(f"evidence identity appears in multiple registry records: {evidence_id}")
+        evidence_status = str(row.get("evidence_pack_status", ""))
+        evidence_eligible = row.get("prd07_evidence_eligible")
+        if quarantine:
+            if state not in {
+                "INVALIDATED-BEFORE-PROOF-OBSERVATION",
+                "QUARANTINED-PLAN-MATERIALIZED-NOT-STARTED",
+            }:
+                raise ExecutionRegistryError(f"unsupported quarantine disposition for {run_id}: {state}")
+            if row.get("reusable") is not False or row.get("retained_pack") is not False or evidence_eligible is not False:
+                raise ExecutionRegistryError(f"quarantine row could be reused or mistaken for evidence: {run_id}")
+            quarantined_runs.add(run_id)
+        elif state in PACK_REQUIRED_STATES or evidence_status == "RETAINED":
+            pack_required_runs.add(run_id)
+            pack_required_evidence.add(evidence_id)
+        elif state in NON_PACK_STATES:
+            if not evidence_status.startswith("NOT-CREATED") or evidence_eligible is not False:
+                raise ExecutionRegistryError(f"non-observed allocated row lacks explicit non-evidence state: {run_id}")
+        else:
+            raise ExecutionRegistryError(f"unsupported allocated execution state for {run_id}: {state}")
+        mappings[run_id] = (proof_id, evidence_id)
+        dispositions[run_id] = "QUARANTINED-ABORTED-TRANSACTION" if quarantine else state
+        state_sources[run_id] = source_name
+        evidence_sources[evidence_id] = source_name
+        row_run_ids.add(run_id)
+        row_evidence_ids.add(evidence_id)
 
     for state_path in state_paths:
         state = _load_object(state_path)
         allocated_runs = state.get("allocated_run_ids", [])
         allocated_evidence = state.get("allocated_evidence_ids", [])
-        proofs = state.get("proofs", [])
+        proofs = state.get("allocation_history", state.get("proofs", []))
         if not isinstance(allocated_runs, list) or not isinstance(allocated_evidence, list) or not isinstance(proofs, list):
             raise ExecutionRegistryError(f"execution state has invalid collections: {state_path}")
         state_run_ids = {_parse_identity(value, RUN_PATTERN, "run", state_path)[0] for value in allocated_runs}
@@ -118,33 +204,48 @@ def inspect_execution_registry(root: Path = ROOT) -> RegistrySnapshot:
         for row in proofs:
             if not isinstance(row, dict):
                 raise ExecutionRegistryError(f"execution state proof row is not an object: {state_path}")
-            raw_run_id = row.get("run_id")
-            raw_evidence_id = row.get("evidence_id")
-            if raw_run_id in {None, ""} and raw_evidence_id in {None, ""}:
-                if row.get("state") != "NOT-RUN":
-                    raise ExecutionRegistryError(f"execution state row lacks issued identities: {state_path}")
-                continue
-            if raw_run_id in {None, ""} or raw_evidence_id in {None, ""}:
-                raise ExecutionRegistryError(f"execution state row has only one issued identity: {state_path}")
-            run_id, run_number = _parse_identity(raw_run_id, RUN_PATTERN, "run", state_path)
-            evidence_id, evidence_number = _parse_identity(raw_evidence_id, EVIDENCE_PATTERN, "evidence", state_path)
-            proof_id = str(row.get("proof_id", ""))
-            if not proof_id or run_number != evidence_number:
-                raise ExecutionRegistryError(f"run/evidence mapping is ambiguous in {state_path}: {run_id}, {evidence_id}")
-            if run_id in mappings and mappings[run_id] != (proof_id, evidence_id):
-                raise ExecutionRegistryError(f"run identity maps to conflicting proof/evidence records: {run_id}")
-            if run_id in row_run_ids or evidence_id in row_evidence_ids:
-                raise ExecutionRegistryError(f"execution state contains duplicate proof-row identities: {state_path}")
-            if run_id in state_sources and state_sources[run_id] != state_path.as_posix():
-                raise ExecutionRegistryError(f"run identity appears in multiple execution states: {run_id}")
-            mappings[run_id] = (proof_id, evidence_id)
-            state_sources[run_id] = state_path.as_posix()
-            row_run_ids.add(run_id)
-            row_evidence_ids.add(evidence_id)
+            register(row, state_path, row_run_ids, row_evidence_ids)
         if state_run_ids != row_run_ids or state_evidence_ids != row_evidence_ids:
             raise ExecutionRegistryError(f"allocated identities differ from proof rows in {state_path}")
         run_ids.update(state_run_ids)
         evidence_ids.update(state_evidence_ids)
+
+    quarantine_path = root / QUARANTINE_PATH.relative_to(ROOT)
+    quarantine_paths: Tuple[Path, ...] = (quarantine_path,) if quarantine_path.is_file() else ()
+    if quarantine_paths:
+        reconciliation = _load_object(quarantine_path)
+        if reconciliation.get("schema_version") != "prd07-w3-allocation-reconciliation-v1":
+            raise ExecutionRegistryError("unsupported W3 allocation-reconciliation schema")
+        if reconciliation.get("status") != "AUTHORITATIVE-QUARANTINE":
+            raise ExecutionRegistryError("W3 allocation reconciliation is not authoritative")
+        allocated_runs = reconciliation.get("allocated_run_ids", [])
+        allocated_evidence = reconciliation.get("allocated_evidence_ids", [])
+        allocations = reconciliation.get("allocations", [])
+        if not isinstance(allocated_runs, list) or not isinstance(allocated_evidence, list) or not isinstance(allocations, list):
+            raise ExecutionRegistryError("W3 allocation reconciliation has invalid collections")
+        quarantine_run_ids = {_parse_identity(value, RUN_PATTERN, "run", quarantine_path)[0] for value in allocated_runs}
+        quarantine_evidence_ids = {
+            _parse_identity(value, EVIDENCE_PATTERN, "evidence", quarantine_path)[0] for value in allocated_evidence
+        }
+        if len(quarantine_run_ids) != len(allocated_runs) or len(quarantine_evidence_ids) != len(allocated_evidence):
+            raise ExecutionRegistryError("W3 allocation reconciliation contains duplicate identities")
+        row_run_ids: set[str] = set()
+        row_evidence_ids: set[str] = set()
+        for row in allocations:
+            if not isinstance(row, dict):
+                raise ExecutionRegistryError("W3 allocation reconciliation row is not an object")
+            register(row, quarantine_path, row_run_ids, row_evidence_ids, quarantine=True)
+        if quarantine_run_ids != row_run_ids or quarantine_evidence_ids != row_evidence_ids:
+            raise ExecutionRegistryError("W3 quarantined identities differ from reconciliation rows")
+        evidence_record = reconciliation.get("source_evidence", {})
+        if not isinstance(evidence_record, dict):
+            raise ExecutionRegistryError("W3 allocation reconciliation lacks source evidence")
+        evidence_path = root / str(evidence_record.get("path", ""))
+        expected_hash = str(evidence_record.get("sha256", ""))
+        if not evidence_path.is_file() or hashlib.sha256(evidence_path.read_bytes()).hexdigest() != expected_hash:
+            raise ExecutionRegistryError("W3 allocation reconciliation source evidence differs")
+        run_ids.update(quarantine_run_ids)
+        evidence_ids.update(quarantine_evidence_ids)
 
     evidence_paths = tuple(sorted(path for path in evidence_root.glob("PRD07-RUN-*") if path.is_dir()))
     pack_run_ids: set[str] = set()
@@ -166,8 +267,10 @@ def inspect_execution_registry(root: Path = ROOT) -> RegistrySnapshot:
         pack_run_ids.add(run_id)
         pack_evidence_ids.add(evidence_id)
 
-    if pack_run_ids != run_ids or pack_evidence_ids != evidence_ids:
-        raise ExecutionRegistryError("execution state and append-only retained packs do not contain the same identities")
+    if pack_run_ids != pack_required_runs or pack_evidence_ids != pack_required_evidence:
+        raise ExecutionRegistryError("observed execution state and append-only retained packs do not contain the same identities")
+    if pack_run_ids & quarantined_runs:
+        raise ExecutionRegistryError("quarantined allocation unexpectedly has a retained proof pack")
     ordered_runs = _sequence(run_ids, RUN_PATTERN)
     ordered_evidence = _sequence(evidence_ids, EVIDENCE_PATTERN)
     run_numbers = [int(RUN_PATTERN.fullmatch(value).group(1)) for value in ordered_runs]  # type: ignore[union-attr]
@@ -186,7 +289,11 @@ def inspect_execution_registry(root: Path = ROOT) -> RegistrySnapshot:
         max(run_numbers),
         max(evidence_numbers),
         dict(sorted(mappings.items())),
+        dict(sorted(dispositions.items())),
+        _sequence(pack_run_ids, RUN_PATTERN),
+        _sequence(quarantined_runs, RUN_PATTERN),
         tuple(path.relative_to(root).as_posix() for path in state_paths),
+        tuple(path.relative_to(root).as_posix() for path in quarantine_paths),
         tuple(path.relative_to(root).as_posix() for path in evidence_paths),
     )
 
@@ -196,9 +303,16 @@ def preview_execution_plan(root: Path = ROOT) -> Tuple[PlannedExecution, ...]:
     if set(EXECUTION_ORDER) != set(PROOF_IDS) or len(EXECUTION_ORDER) != len(PROOF_IDS):
         raise ExecutionRegistryError("W3 execution order differs from the authoritative W3 proof set")
     registry = inspect_execution_registry(root)
-    issued_w3_proofs = sorted({proof_id for proof_id, _ in registry.mappings.values() if proof_id in PROOF_IDS})
-    if issued_w3_proofs:
-        raise ExecutionRegistryError("W3 identities already exist; initial execution planning cannot be repeated: " + ", ".join(issued_w3_proofs))
+    active_w3_runs = sorted(
+        run_id for run_id, (proof_id, _) in registry.mappings.items()
+        if proof_id in PROOF_IDS and registry.dispositions.get(run_id) in ACTIVE_STATES
+    )
+    if active_w3_runs:
+        raise ExecutionRegistryError("W3 has an unresolved active allocation: " + ", ".join(active_w3_runs))
+    observed_w3_proofs = {
+        proof_id for run_id, (proof_id, _) in registry.mappings.items()
+        if proof_id in PROOF_IDS and registry.dispositions.get(run_id) in PACK_REQUIRED_STATES
+    }
     if registry.max_run_number != registry.max_evidence_number:
         raise ExecutionRegistryError("run/evidence high-water marks differ")
     plan = tuple(
@@ -207,7 +321,10 @@ def preview_execution_plan(root: Path = ROOT) -> Tuple[PlannedExecution, ...]:
             f"PRD07-RUN-{registry.max_run_number + offset:04d}",
             f"PRD07-EVID-{registry.max_evidence_number + offset:04d}",
         )
-        for offset, proof_id in enumerate(EXECUTION_ORDER, start=1)
+        for offset, proof_id in enumerate(
+            (proof_id for proof_id in EXECUTION_ORDER if proof_id not in observed_w3_proofs),
+            start=1,
+        )
     )
     if any(row.run_id in registry.run_ids or row.evidence_id in registry.evidence_ids for row in plan):
         raise ExecutionRegistryError("future W3 plan overlaps an issued identity")
@@ -228,7 +345,10 @@ def execution_plan_for_actual_run(
     conflicts = [row.run_id for row in plan if (destination / row.run_id).exists()]
     if conflicts:
         raise ExecutionRegistryError("append-only W3 destinations already exist: " + ", ".join(conflicts))
-    return tuple(PlannedExecution(row.proof_id, row.run_id, row.evidence_id, "ALLOCATED-FOR-IMMEDIATE-ACTUAL-EXECUTION") for row in plan)
+    return tuple(
+        PlannedExecution(row.proof_id, row.run_id, row.evidence_id, "AUTHORIZED-JIT-NOT-ALLOCATED")
+        for row in plan
+    )
 
 
 # Compatibility name: this contains only stable proof identities, never RUN/EVID IDs.

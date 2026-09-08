@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 import json
+import os
 import platform
 import re
 import subprocess
+import tempfile
 import time
 from pathlib import Path
-from typing import Any, Dict, Mapping, Tuple
+from typing import Any, Callable, Dict, Mapping, Optional, Tuple
 
 from proofs.r7.w3.runtime.runner import PROOF_IDS, run_proof
 from tools.proof_harness.evidence import EvidenceFile, EvidencePack
@@ -30,6 +32,23 @@ def _write_json(path: Path, value: Any) -> None:
     path.write_text(json.dumps(value, indent=2, sort_keys=True, ensure_ascii=True) + "\n", encoding="utf-8")
 
 
+def _atomic_write_json(path: Path, value: Any) -> None:
+    """Durably replace one journal value without exposing a partial JSON document."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary_name = tempfile.mkstemp(prefix=path.name + ".", suffix=".tmp", dir=str(path.parent))
+    temporary_path = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+            json.dump(value, handle, indent=2, sort_keys=True, ensure_ascii=True)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(str(temporary_path), str(path))
+    finally:
+        if temporary_path.exists():
+            temporary_path.unlink()
+
+
 def _git(*args: str) -> str:
     completed = subprocess.run(["git", *args], cwd=ROOT, text=True, capture_output=True)
     if completed.returncode:
@@ -47,8 +66,10 @@ def source_execution_issues(source_revision: str) -> Tuple[str, ...]:
         "proofs/r7/w3",
         "tools/r7_w3_runtime",
         "tools/tests/test_r7_w3_runtime.py",
-        "docs/rebuild/r7/w3-readiness-corrected.json",
-        "docs/rebuild/r7/w3-execution-boundary-corrected.json",
+        "docs/rebuild/r7/w3-allocation-reconciliation.json",
+        "docs/rebuild/r7/w3-pinned-engine-validation.json",
+        "docs/rebuild/r7/w3-readiness-repaired.json",
+        "docs/rebuild/r7/w3-execution-boundary-repaired.json",
         "tools/verify.py",
         "tools/verify_rebuild_boundary.py",
     )
@@ -59,7 +80,7 @@ def source_execution_issues(source_revision: str) -> Tuple[str, ...]:
 
 def preflight_report(implementation_commit: str, check_local: bool) -> Dict[str, Any]:
     issues = list(reference_issues())
-    readiness = readiness_report(implementation_commit, check_local=False)
+    readiness = readiness_report(implementation_commit, check_local=check_local)
     if readiness["status"] != "PASS":
         issues.extend(readiness["issues"])
     local = verify_local_dependencies(load_lock()) if check_local else {"status": "NOT-CHECKED", "issues": [], "paths": {}}
@@ -84,14 +105,58 @@ def certification_record_issues(
 ) -> Tuple[str, ...]:
     issues = []
     proof_ids = tuple(row.get("proof_id") for row in readiness.get("proofs", []))
-    if readiness.get("status") != "PASS" or readiness.get("implementation_commit_source_match") is not True:
-        issues.append("corrected W3 readiness is not commit-certified")
+    if (
+        readiness.get("schema_version") != "prd07-w3-readiness-v3"
+        or readiness.get("package") != "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION"
+        or readiness.get("status") != "PASS"
+        or readiness.get("implementation_commit_source_match") is not True
+    ):
+        issues.append("repaired W3 readiness is not commit-certified")
     if proof_ids != tuple(PROOF_IDS) or any(row.get("state") != "READY" for row in readiness.get("proofs", [])):
-        issues.append("corrected W3 readiness does not certify the exact seven-proof set")
+        issues.append("repaired W3 readiness does not certify the exact seven-proof set")
     if readiness.get("allocated_run_ids") != [] or readiness.get("allocated_evidence_ids") != []:
         issues.append("W3 readiness allocated execution identities")
+    expected_quarantined_runs = [f"PRD07-RUN-{index:04d}" for index in range(51, 58)]
+    expected_quarantined_evidence = [f"PRD07-EVID-{index:04d}" for index in range(51, 58)]
+    if readiness.get("quarantined_run_ids") != expected_quarantined_runs:
+        issues.append("repaired W3 readiness does not preserve the exact quarantined RUN range")
+    if readiness.get("quarantined_evidence_ids") != expected_quarantined_evidence:
+        issues.append("repaired W3 readiness does not preserve the exact quarantined EVID range")
+    engine = readiness.get("pinned_engine_validation", {})
+    checks = engine.get("checks", {}) if isinstance(engine, dict) else {}
+    required_engine_checks = (
+        "source_hash_identity_valid",
+        "pinned_engine_identity_valid",
+        "script_parse_load_valid",
+        "controlled_entrypoint_reached",
+        "export_prerequisites_valid",
+        "export_completed",
+        "exported_runtime_validation_valid",
+    )
+    if (
+        not isinstance(engine, dict)
+        or engine.get("schema_version") != "prd07-w3-pinned-engine-validation-v1"
+        or engine.get("status") != "PASS"
+        or engine.get("implementation_commit") != readiness.get("implementation_commit")
+        or not isinstance(engine.get("source_identity"), dict)
+        or not isinstance(engine.get("dependency_identity"), dict)
+        or not isinstance(checks, dict)
+        or any(checks.get(key) is not True for key in required_engine_checks)
+        or checks.get("proof_execution_started") is not False
+        or engine.get("proof_execution") != "NOT-STARTED"
+        or engine.get("allocated_run_ids") != []
+        or engine.get("allocated_evidence_ids") != []
+        or engine.get("gameplay_permission") != "CLOSED"
+        or engine.get("production_runtime") != "ABSENT"
+    ):
+        issues.append("repaired W3 readiness lacks a passing non-proof pinned-engine validation")
     if boundary != expected_boundary:
-        issues.append("corrected W3 admission boundary is missing, stale or not exact")
+        issues.append("repaired W3 admission boundary is missing, stale or not exact")
+    if (
+        boundary.get("manifest_version") != 2
+        or boundary.get("package") != "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION"
+    ):
+        issues.append("repaired W3 admission identity is missing or unsupported")
     if boundary.get("implementation_commit") != readiness.get("implementation_commit"):
         issues.append("W3 readiness and admission name different implementation commits")
     if boundary.get("proof_execution") != "NOT-STARTED":
@@ -101,12 +166,215 @@ def certification_record_issues(
     return tuple(sorted(set(issues)))
 
 
-def _new_execution(plan: PlannedExecution) -> ProofExecution:
+def _allocated_execution(plan: PlannedExecution) -> ProofExecution:
     execution = ProofExecution(plan.proof_id)
     execution.evaluate_prerequisites([])
     execution.allocate_run(plan.run_id, ExecutionKind.ACTUAL, actual_execution_authorized=True)
-    execution.begin()
     return execution
+
+
+class W3ExecutionJournal:
+    """Append-only allocation history with atomic state transitions."""
+
+    SCHEMA = "prd07-w3-execution-state-v2"
+
+    def __init__(self, path: Path, source_revision: str) -> None:
+        self.path = path
+        self.source_revision = source_revision
+        if path.is_file():
+            value = json.loads(path.read_text(encoding="utf-8-sig"))
+            if not isinstance(value, dict) or value.get("schema_version") != self.SCHEMA:
+                raise ValueError("existing W3 execution journal is missing or unsupported")
+            if value.get("source_revision") != source_revision:
+                raise ValueError("existing W3 execution journal names a different source revision")
+            self.value = value
+        else:
+            self.value = {
+                "schema_version": self.SCHEMA,
+                "package": "R7-W3-FLUID-VESSEL-MOVING-FRAME-PROOFS",
+                "package_state": "READY-FOR-AUTHORIZED-EXECUTION",
+                "source_revision": source_revision,
+                "gameplay_permission": "CLOSED",
+                "prd08_evaluation": "CLOSED",
+                "prior_readiness_source": READINESS_PATH.relative_to(ROOT).as_posix(),
+                "allocated_run_ids": [],
+                "allocated_evidence_ids": [],
+                "allocation_history": [],
+                "proofs": [
+                    {
+                        "proof_id": proof_id,
+                        "prior_state": "HARNESS-BLOCKED",
+                        "readiness": "READY",
+                        "state": "NOT-RUN",
+                        "attempt_run_ids": [],
+                        "blockers": [],
+                    }
+                    for proof_id in PROOF_IDS
+                ],
+                "export_lanes": {},
+            }
+        self._validate()
+
+    @property
+    def allocation_history(self) -> list[Dict[str, Any]]:
+        return self.value["allocation_history"]
+
+    def _validate(self) -> None:
+        allocated_runs = self.value.get("allocated_run_ids")
+        allocated_evidence = self.value.get("allocated_evidence_ids")
+        history = self.value.get("allocation_history")
+        proofs = self.value.get("proofs")
+        if not all(isinstance(item, list) for item in (allocated_runs, allocated_evidence, history, proofs)):
+            raise ValueError("W3 execution journal collections are invalid")
+        history_runs = [row.get("run_id") for row in history if isinstance(row, dict)]
+        history_evidence = [row.get("evidence_id") for row in history if isinstance(row, dict)]
+        if history_runs != allocated_runs or history_evidence != allocated_evidence:
+            raise ValueError("W3 execution journal allocation history differs from allocated identities")
+        if len(set(history_runs)) != len(history_runs) or len(set(history_evidence)) != len(history_evidence):
+            raise ValueError("W3 execution journal contains duplicate allocated identities")
+        if [row.get("proof_id") for row in proofs if isinstance(row, dict)] != list(PROOF_IDS):
+            raise ValueError("W3 execution journal proof summary differs from the authorised proof set")
+
+    def _persist(self) -> None:
+        self._validate()
+        _atomic_write_json(self.path, self.value)
+
+    def _proof(self, proof_id: str) -> Dict[str, Any]:
+        return next(row for row in self.value["proofs"] if row["proof_id"] == proof_id)
+
+    def _attempt(self, run_id: str) -> Dict[str, Any]:
+        return next(row for row in self.allocation_history if row["run_id"] == run_id)
+
+    def allocate(self, planned: PlannedExecution) -> ProofExecution:
+        if any(row.get("state") in {ProofState.RUN_ALLOCATED.value, ProofState.EXECUTING.value} for row in self.allocation_history):
+            raise ValueError("W3 execution journal has an unresolved active allocation")
+        if planned.run_id in self.value["allocated_run_ids"] or planned.evidence_id in self.value["allocated_evidence_ids"]:
+            raise ValueError("W3 execution journal allocation collides with its history")
+        execution = _allocated_execution(planned)
+        attempt = {
+            "allocation_order": len(self.allocation_history) + 1,
+            "attempt_number_for_proof": 1 + sum(row.get("proof_id") == planned.proof_id for row in self.allocation_history),
+            "proof_id": planned.proof_id,
+            "run_id": planned.run_id,
+            "evidence_id": planned.evidence_id,
+            "state": execution.state.value,
+            "state_history": list(execution.history),
+            "proof_observation_produced": False,
+            "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+            "prd07_evidence_eligible": False,
+            "prd08_submission": "NOT-SUBMITTED",
+        }
+        self.allocation_history.append(attempt)
+        self.value["allocated_run_ids"].append(planned.run_id)
+        self.value["allocated_evidence_ids"].append(planned.evidence_id)
+        proof = self._proof(planned.proof_id)
+        proof["state"] = execution.state.value
+        proof["current_run_id"] = planned.run_id
+        proof["attempt_run_ids"].append(planned.run_id)
+        self.value["package_state"] = "EXECUTING"
+        self._persist()
+        return execution
+
+    def begin(self, execution: ProofExecution) -> None:
+        execution.begin()
+        attempt = self._attempt(str(execution.run_id))
+        attempt["state"] = execution.state.value
+        attempt["state_history"] = list(execution.history)
+        self._proof(execution.proof_id)["state"] = execution.state.value
+        self._persist()
+
+    def record_export(self, role: str, exported: ExportedBuild) -> None:
+        self.value["export_lanes"][role] = {
+            "state": "PASS",
+            "build_identity": exported.build.build_identity,
+            "artifact_sha256": exported.artifact.artifact_sha256,
+            "artifact_size_bytes": exported.artifact.size_bytes,
+            "runtime_self_report": exported.self_report,
+        }
+        self._persist()
+
+    def fail(self, execution: ProofExecution, phase: str, exc: BaseException, *, observation_produced: bool = False) -> None:
+        if execution.state in {ProofState.RUN_ALLOCATED, ProofState.EXECUTING} or execution.state in {
+            ProofState.PASS_OBSERVED,
+            ProofState.FAIL_OBSERVED,
+            ProofState.INCONCLUSIVE,
+        }:
+            execution.invalidate(f"failure during {phase}")
+        attempt = self._attempt(str(execution.run_id))
+        attempt.update({
+            "state": execution.state.value,
+            "state_history": list(execution.history),
+            "terminal_disposition": (
+                "INVALIDATED-UNRETAINED-PROOF-OBSERVATION"
+                if observation_produced else "ABORTED-BEFORE-PROOF-OBSERVATION"
+            ),
+            "failure": {
+                "phase": phase,
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "interrupted": isinstance(exc, KeyboardInterrupt),
+            },
+            "proof_observation_produced": observation_produced,
+            "evidence_pack_status": (
+                "NOT-CREATED-OBSERVATION-NOT-RETAINED"
+                if observation_produced else "NOT-CREATED-NO-PROOF-OBSERVATION"
+            ),
+            "prd07_evidence_eligible": False,
+        })
+        proof = self._proof(execution.proof_id)
+        proof["state"] = "NOT-RUN" if not observation_produced else ProofState.RERUN_REQUIRED.value
+        proof.pop("current_run_id", None)
+        self.value["package_state"] = (
+            "INVALIDATED-UNRETAINED-PROOF-OBSERVATION"
+            if observation_produced else "ABORTED-BEFORE-PROOF-OBSERVATION"
+        )
+        self._persist()
+
+    def complete(self, execution: ProofExecution, row: Dict[str, Any]) -> None:
+        attempt = self._attempt(str(execution.run_id))
+        attempt.update(row)
+        attempt.update({
+            "state": execution.state.value,
+            "state_history": list(execution.history),
+            "proof_observation_produced": True,
+            "evidence_pack_status": "RETAINED",
+            "prd07_evidence_eligible": True,
+        })
+        proof = self._proof(execution.proof_id)
+        attempt_run_ids = proof["attempt_run_ids"]
+        proof.update(row)
+        proof["attempt_run_ids"] = attempt_run_ids
+        proof["current_run_id"] = execution.run_id
+        complete = all(item["state"] in {"PASS-OBSERVED", "FAIL-OBSERVED", "INCONCLUSIVE"} for item in self.value["proofs"])
+        self.value["package_state"] = "W3-EXECUTION-COMPLETE" if complete else "EXECUTING"
+        self._persist()
+
+
+def recover_interrupted_transaction(path: Path, source_revision: str) -> bool:
+    """Convert a hard-stop active row into an explicit non-evidence interruption."""
+    if not path.is_file():
+        return False
+    journal = W3ExecutionJournal(path, source_revision)
+    active = [
+        row for row in journal.allocation_history
+        if row.get("state") in {ProofState.RUN_ALLOCATED.value, ProofState.EXECUTING.value}
+    ]
+    if not active:
+        return False
+    if len(active) != 1:
+        raise ValueError("W3 execution journal contains multiple active allocations")
+    row = active[0]
+    execution = ProofExecution(str(row["proof_id"]))
+    execution.evaluate_prerequisites([])
+    execution.allocate_run(str(row["run_id"]), ExecutionKind.ACTUAL, actual_execution_authorized=True)
+    if row["state"] == ProofState.EXECUTING.value:
+        execution.begin()
+    journal.fail(execution, "process-interruption-recovery", KeyboardInterrupt())
+    attempt = journal._attempt(str(row["run_id"]))
+    attempt["terminal_disposition"] = "INTERRUPTED-BEFORE-PROOF-OBSERVATION"
+    journal.value["package_state"] = "INTERRUPTED-BEFORE-PROOF-OBSERVATION"
+    journal._persist()
+    return True
 
 
 def _observed_state(outcome: str) -> ProofState:
@@ -211,41 +479,117 @@ def _retain(
     return {"portable_path": str(portable), "local_pack": str(local_pack), "run": run_record}
 
 
-def _write_state(
-    path: Path,
+def _execute_plan(
     source_revision: str,
-    rows: list[Dict[str, Any]],
-    builds: Mapping[str, ExportedBuild],
+    run_root: Path,
+    retained_root: Path,
+    state_path: Path,
     plan: Tuple[PlannedExecution, ...],
-) -> None:
-    complete = {row["proof_id"] for row in rows}
-    pending = [row.proof_id for row in plan if row.proof_id not in complete]
-    value = {
-        "schema_version": "prd07-w3-execution-state-v1",
-        "package": "R7-W3-FLUID-VESSEL-MOVING-FRAME-PROOFS",
-        "package_state": "EXECUTING" if pending else "W3-EXECUTION-COMPLETE",
-        "source_revision": source_revision,
-        "gameplay_permission": "CLOSED",
-        "prd08_evaluation": "CLOSED",
-        "prior_readiness_source": READINESS_PATH.relative_to(ROOT).as_posix(),
-        "allocated_run_ids": [row["run_id"] for row in rows],
-        "allocated_evidence_ids": [row["evidence_id"] for row in rows],
-        "proofs": rows + [
-            {"proof_id": proof_id, "prior_state": "READY", "readiness": "READY", "state": "NOT-RUN", "blockers": []}
-            for proof_id in pending
-        ],
-        "export_lanes": {
-            role: {
-                "state": "PASS",
-                "build_identity": item.build.build_identity,
-                "artifact_sha256": item.artifact.artifact_sha256,
-                "artifact_size_bytes": item.artifact.size_bytes,
-                "runtime_self_report": item.self_report,
+    *,
+    failure_injector: Optional[Callable[[str], None]] = None,
+    exporter: Callable[[str, str, Path, ProofExecution], ExportedBuild] = export_one,
+    fixture_probe: Callable[[ExportedBuild, ProofExecution, int], Dict[str, Any]] = run_fixture_probe,
+    proof_runner: Callable[[str, Dict[str, Any]], Dict[str, Any]] = run_proof,
+    retainer: Callable[[ProofExecution, str, ExportedBuild, Dict[str, Any], Path, Path], Dict[str, Any]] = _retain,
+) -> Dict[str, Any]:
+    if run_root.exists():
+        raise ValueError("W3 run root must be absent for append-only execution")
+    if not plan:
+        raise ValueError("W3 execution plan contains no proof requiring execution")
+    run_root.mkdir(parents=True)
+    journal = W3ExecutionJournal(state_path, source_revision)
+    builds: Dict[str, ExportedBuild] = {}
+    completed_rows: list[Dict[str, Any]] = []
+    newly_allocated_runs: list[str] = []
+    newly_allocated_evidence: list[str] = []
+    started = time.time()
+
+    def inject(phase: str) -> None:
+        if failure_injector is not None:
+            failure_injector(phase)
+
+    for planned in plan:
+        execution = journal.allocate(planned)
+        newly_allocated_runs.append(planned.run_id)
+        newly_allocated_evidence.append(planned.evidence_id)
+        phase = "after-allocation"
+        observation_produced = False
+        try:
+            inject(phase)
+            journal.begin(execution)
+            phase = "after-execution-start"
+            inject(phase)
+            if not builds:
+                for role in ("client", "headless"):
+                    phase = f"{role}-export-build-self-report"
+                    inject(f"before-{role}-export")
+                    exported = exporter(source_revision, role, run_root, execution)
+                    builds[role] = exported
+                    journal.record_export(role, exported)
+                    inject(f"after-{role}-export")
+            exported = (
+                builds["client"]
+                if planned.proof_id in {"PRD04-PROOF-30", "PRD04-PROOF-31", "PRD04-PROOF-32"}
+                else builds["headless"]
+            )
+            phase = "fixture-runtime-self-report"
+            fixture_report = fixture_probe(exported, execution, 512)
+            phase = "proof-observation"
+            observed = proof_runner(planned.proof_id, {"physics_report": fixture_report})
+            observed.update(
+                run_id=planned.run_id,
+                evidence_id=planned.evidence_id,
+                source_revision=source_revision,
+                build_identity=exported.build.build_identity,
+            )
+            execution.observe(_observed_state(str(observed.get("outcome", "FAIL"))))
+            observation_produced = True
+            phase = "evidence-retention"
+            retained = retainer(execution, planned.evidence_id, exported, observed, run_root, retained_root)
+            row = {
+                "proof_id": planned.proof_id,
+                "prior_state": "HARNESS-BLOCKED",
+                "readiness": "READY",
+                "state": execution.state.value,
+                "run_id": planned.run_id,
+                "evidence_id": planned.evidence_id,
+                "build_identity": exported.build.build_identity,
+                "artifact_sha256": exported.artifact.artifact_sha256,
+                "key_metrics": observed["metrics"],
+                "acceptance_reason": observed["acceptance_reason"],
+                "limitations": observed.get("limitations", []),
+                "portable_path": retained["portable_path"],
+                "prd08_submission": "NOT-SUBMITTED",
+                "blockers": [],
             }
-            for role, item in builds.items()
-        },
+            journal.complete(execution, row)
+            completed_rows.append(row)
+        except BaseException as exc:
+            journal.fail(execution, phase, exc, observation_produced=observation_produced)
+            raise
+
+    proofs = journal.value["proofs"]
+    result_counts = {
+        state: sum(row["state"] == state for row in proofs)
+        for state in ("PASS-OBSERVED", "FAIL-OBSERVED", "INCONCLUSIVE", "INVALIDATED")
     }
-    _write_json(path, value)
+    return {
+        "schema_version": "prd07-w3-execution-result-v2",
+        "status": "COMPLETE",
+        "package": "R7-W3-FLUID-VESSEL-MOVING-FRAME-PROOFS",
+        "source_revision": source_revision,
+        "duration_seconds": time.time() - started,
+        "proofs": proofs,
+        "completed_in_this_invocation": completed_rows,
+        "result_counts": result_counts,
+        "allocated_run_ids": list(journal.value["allocated_run_ids"]),
+        "allocated_evidence_ids": list(journal.value["allocated_evidence_ids"]),
+        "newly_allocated_run_ids": newly_allocated_runs,
+        "newly_allocated_evidence_ids": newly_allocated_evidence,
+        "exports": {role: item.to_dict() for role, item in builds.items()},
+        "prd08_submission": "NOT-SUBMITTED",
+        "gameplay_permission": "CLOSED",
+    }
 
 
 def execute_w3(
@@ -254,6 +598,8 @@ def execute_w3(
     retained_root: Path,
     state_path: Path,
     actual_execution_authorized: bool,
+    *,
+    failure_injector: Optional[Callable[[str], None]] = None,
 ) -> Dict[str, Any]:
     if not actual_execution_authorized:
         raise ValueError("actual W3 proof execution requires the explicit authorization flag")
@@ -261,10 +607,10 @@ def execute_w3(
     if source_issues:
         raise ValueError("W3 source is not execution ready: " + "; ".join(source_issues))
     if not READINESS_PATH.is_file():
-        raise ValueError("corrected W3 readiness evidence is missing")
+        raise ValueError("repaired W3 readiness evidence is missing")
     tracked_readiness = json.loads(READINESS_PATH.read_text(encoding="utf-8-sig"))
     if not MANIFEST_PATH.is_file():
-        raise ValueError("corrected W3 admission boundary is missing")
+        raise ValueError("repaired W3 admission boundary is missing")
     tracked_boundary = json.loads(MANIFEST_PATH.read_text(encoding="utf-8-sig"))
     implementation_commit = str(tracked_readiness.get("implementation_commit", ""))
     expected_boundary = build_manifest(implementation_commit)
@@ -279,65 +625,17 @@ def execute_w3(
     state_path = state_path.resolve()
     if run_root.exists():
         raise ValueError("W3 run root must be absent for append-only execution")
+    recover_interrupted_transaction(state_path, source_revision)
     plan = execution_plan_for_actual_run(
         ROOT,
         actual_execution_authorized=True,
         retained_root=retained_root,
     )
-    run_root.mkdir(parents=True)
-    first = _new_execution(plan[0])
-    builds = {
-        "client": export_one(source_revision, "client", run_root, first),
-        "headless": export_one(source_revision, "headless", run_root, first),
-    }
-    rows: list[Dict[str, Any]] = []
-    started = time.time()
-    for index, planned in enumerate(plan):
-        execution = first if index == 0 else _new_execution(planned)
-        exported = builds["client"] if planned.proof_id in {"PRD04-PROOF-30", "PRD04-PROOF-31", "PRD04-PROOF-32"} else builds["headless"]
-        fixture_report = run_fixture_probe(exported, execution, iterations=512)
-        observed = run_proof(planned.proof_id, {"physics_report": fixture_report})
-        observed.update(
-            run_id=planned.run_id,
-            evidence_id=planned.evidence_id,
-            source_revision=source_revision,
-            build_identity=exported.build.build_identity,
-        )
-        execution.observe(_observed_state(str(observed.get("outcome", "FAIL"))))
-        retained = _retain(execution, planned.evidence_id, exported, observed, run_root, retained_root)
-        row = {
-            "proof_id": planned.proof_id,
-            "prior_state": "HARNESS-BLOCKED",
-            "readiness": "READY",
-            "state": execution.state.value,
-            "run_id": planned.run_id,
-            "evidence_id": planned.evidence_id,
-            "build_identity": exported.build.build_identity,
-            "artifact_sha256": exported.artifact.artifact_sha256,
-            "key_metrics": observed["metrics"],
-            "acceptance_reason": observed["acceptance_reason"],
-            "limitations": observed.get("limitations", []),
-            "portable_path": retained["portable_path"],
-            "prd08_submission": "NOT-SUBMITTED",
-            "blockers": [],
-        }
-        rows.append(row)
-        _write_state(state_path, source_revision, rows, builds, plan)
-    result_counts = {
-        state: sum(row["state"] == state for row in rows)
-        for state in ("PASS-OBSERVED", "FAIL-OBSERVED", "INCONCLUSIVE", "INVALIDATED")
-    }
-    return {
-        "schema_version": "prd07-w3-execution-result-v1",
-        "status": "COMPLETE",
-        "package": "R7-W3-FLUID-VESSEL-MOVING-FRAME-PROOFS",
-        "source_revision": source_revision,
-        "duration_seconds": time.time() - started,
-        "proofs": rows,
-        "result_counts": result_counts,
-        "allocated_run_ids": [row["run_id"] for row in rows],
-        "allocated_evidence_ids": [row["evidence_id"] for row in rows],
-        "exports": {role: item.to_dict() for role, item in builds.items()},
-        "prd08_submission": "NOT-SUBMITTED",
-        "gameplay_permission": "CLOSED",
-    }
+    return _execute_plan(
+        source_revision,
+        run_root,
+        retained_root,
+        state_path,
+        plan,
+        failure_injector=failure_injector,
+    )

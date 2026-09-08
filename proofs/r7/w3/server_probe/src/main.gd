@@ -36,7 +36,16 @@ func _ready() -> void:
         get_tree().quit(2)
         return
     var arguments := _parse_arguments(OS.get_cmdline_user_args())
+    call_deferred("_run_mode", arguments, build_manifest)
+
+
+func _run_mode(arguments: Dictionary, build_manifest: Dictionary) -> void:
     var mode := str(arguments.get("mode", "smoke"))
+    if mode == "validate":
+        var report := _validation_report(build_manifest)
+        print("LEYFORGE_W3_VALIDATION_REPORT " + JSON.stringify(report))
+        get_tree().quit(0 if report.get("status") == "PASS" else 5)
+        return
     if mode == "smoke":
         var report := _smoke(build_manifest)
         print("LEYFORGE_W3_SELF_REPORT " + JSON.stringify(report))
@@ -97,8 +106,13 @@ func _convex_cube() -> ConvexPolygonShape3D:
 func _collision_corpus(iterations: int) -> Dictionary:
     var candidates := ["compound-convex", "segmented-cluster", "coarse-dynamic-query-detail"]
     var contact_errors := 0
+    var contact_value_count := 0
     var shape_count := 0
     var bounded := clampi(iterations, 1, 4096)
+    var target_body := StaticBody3D.new()
+    var target_collision := CollisionShape3D.new()
+    target_body.add_child(target_collision)
+    add_child(target_body)
     for candidate in candidates:
         var shape_a: Shape3D
         var shape_b: Shape3D
@@ -113,20 +127,52 @@ func _collision_corpus(iterations: int) -> Dictionary:
             shape_a = box_a
             shape_b = box_b
         shape_count += 2
+        target_collision.shape = shape_b
         for index in range(bounded):
             var offset := 1.5 if index % 2 == 0 else 4.0
-            var contacts := PhysicsServer3D.shape_collide(
-                shape_a.get_rid(), Transform3D.IDENTITY, Vector3.ZERO,
-                shape_b.get_rid(), Transform3D(Basis.IDENTITY, Vector3(offset, 0, 0)), Vector3.ZERO
-            )
+            target_body.position = Vector3(offset, 0, 0)
+            target_body.force_update_transform()
+            var query := PhysicsShapeQueryParameters3D.new()
+            query.shape = shape_a
+            query.transform = Transform3D.IDENTITY
+            query.collide_with_bodies = true
+            query.collide_with_areas = false
+            var contacts: Array[Vector3] = get_viewport().world_3d.direct_space_state.collide_shape(query, 8)
             var expected_contact := offset < 2.0
+            contact_value_count += contacts.size()
             contact_errors += 1 if contacts.is_empty() == expected_contact else 0
+    target_body.queue_free()
     return {
         "collision_candidates": candidates,
         "collision_cases": bounded * candidates.size(),
         "contact_errors": contact_errors,
+        "contact_value_count": contact_value_count,
         "shape_count": shape_count,
         "physics_backend": str(ProjectSettings.get_setting("physics/3d/physics_engine")),
+        "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+    }
+
+
+func _validation_report(build_manifest: Dictionary) -> Dictionary:
+    var provider := _provider_readback(4)
+    var frames := _frame_round_trip(4)
+    var collisions := _collision_corpus(2)
+    var passed := int(frames["frame_round_trip_errors"]) == 0 and int(collisions["contact_errors"]) == 0
+    return {
+        "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+        "role": str(build_manifest.get("role", "")),
+        "build_identity": str(build_manifest.get("build_identity", "")),
+        "status": "PASS" if passed else "FAIL",
+        "script_parse_load_valid": true,
+        "controlled_entrypoint_reached": true,
+        "provider_ready": provider["provider_ready"],
+        "provider_errors": provider["provider_errors"],
+        "frame_round_trip_errors": frames["frame_round_trip_errors"],
+        "collision_cases": collisions["collision_cases"],
+        "contact_errors": collisions["contact_errors"],
+        "physics_query_api": collisions["physics_query_api"],
+        "proof_execution_started": false,
+        "production_runtime": false,
     }
 
 
@@ -182,8 +228,10 @@ func _fixture_report(arguments: Dictionary, build_manifest: Dictionary) -> Dicti
         "collision_candidates": collisions["collision_candidates"],
         "collision_cases": collisions["collision_cases"],
         "contact_errors": collisions["contact_errors"],
+        "contact_value_count": collisions["contact_value_count"],
         "shape_count": collisions["shape_count"],
         "physics_backend": collisions["physics_backend"],
+        "physics_query_api": collisions["physics_query_api"],
         "physics_authority": "EXECUTION-EVIDENCE-ONLY",
         "presentation_authority_dependencies": 0,
         "production_runtime": false,

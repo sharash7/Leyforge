@@ -9,10 +9,18 @@ from pathlib import Path
 from typing import Any, Dict
 
 from .dependencies import ROOT, load_reference
+from .execution_plan import inspect_execution_registry
 from .readiness import READINESS_PATH, readiness_report
-MANIFEST_PATH = ROOT / "docs/rebuild/r7/w3-execution-boundary-corrected.json"
-SUPERSEDED_MANIFEST_PATH = ROOT / "docs/rebuild/r7/w3-execution-boundary.json"
-FIXED_FILES = ("tools/tests/test_r7_w3_runtime.py", "docs/rebuild/r7/w3-readiness-corrected.json")
+MANIFEST_PATH = ROOT / "docs/rebuild/r7/w3-execution-boundary-repaired.json"
+SUPERSEDED_MANIFEST_PATH = ROOT / "docs/rebuild/r7/w3-execution-boundary-corrected.json"
+FIXED_FILES = (
+    "tools/tests/test_r7_w3_runtime.py",
+    "tools/verify.py",
+    "tools/verify_rebuild_boundary.py",
+    "docs/rebuild/r7/w3-allocation-reconciliation.json",
+    "docs/rebuild/r7/w3-pinned-engine-validation.json",
+    "docs/rebuild/r7/w3-readiness-repaired.json",
+)
 FIXED_TREES = ("proofs/r7/w3", "tools/r7_w3_runtime")
 OPTIONAL_FILES = ("docs/rebuild/r7/w3-execution-state.json", "docs/rebuild/r7/w3-execution-completion-receipt.json")
 
@@ -46,7 +54,7 @@ def admitted_paths() -> list[str]:
 
 def build_manifest(implementation_commit: str) -> Dict[str, Any]:
     if not READINESS_PATH.is_file():
-        raise RuntimeError("corrected W3 readiness must exist before admission")
+        raise RuntimeError("repaired W3 readiness must exist before admission")
     readiness = json.loads(READINESS_PATH.read_text(encoding="utf-8-sig"))
     if (
         readiness.get("status") != "PASS"
@@ -55,13 +63,13 @@ def build_manifest(implementation_commit: str) -> Dict[str, Any]:
         or readiness.get("allocated_run_ids") != []
         or readiness.get("allocated_evidence_ids") != []
     ):
-        raise RuntimeError("corrected W3 readiness does not certify this exact source commit without allocations")
+        raise RuntimeError("repaired W3 readiness does not certify this exact source commit without rerun allocations")
     current_readiness = readiness_report(implementation_commit, check_local=False)
     if (
         current_readiness.get("status") != "PASS"
-        or current_readiness.get("source_tree_identity") != readiness.get("source_tree_identity")
+        or current_readiness != readiness
     ):
-        raise RuntimeError("corrected W3 readiness is stale for the current governed source tree")
+        raise RuntimeError("repaired W3 readiness is stale or differs from independent regeneration")
     paths = admitted_paths()
     result = subprocess.run(["git", "hash-object", "--stdin-paths"], cwd=ROOT, input="\n".join(paths) + "\n", text=True, capture_output=True)
     if result.returncode:
@@ -76,22 +84,49 @@ def build_manifest(implementation_commit: str) -> Dict[str, Any]:
     state_path = ROOT / "docs/rebuild/r7/w3-execution-state.json"
     state = json.loads(state_path.read_text(encoding="utf-8-sig")) if state_path.is_file() else {}
     reference = load_reference()
+    registry = inspect_execution_registry(ROOT)
+    allocation_history = state.get("allocation_history", state.get("proofs", [])) if isinstance(state, dict) else []
+    observed = any(
+        isinstance(row, dict) and row.get("state") in {"PASS-OBSERVED", "FAIL-OBSERVED", "INCONCLUSIVE"}
+        for row in allocation_history
+    )
+    execution_state = "OBSERVED" if observed else "ABORTED" if state else "NOT-STARTED"
     return {
-        "manifest_version": 1,
-        "package": "R7-W3-TECHNICAL-ENVIRONMENT-READINESS",
+        "manifest_version": 2,
+        "package": "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
         "scope": "development-only-prd07-proof-runtime",
         "gameplay_permission": "CLOSED",
         "implementation_commit": implementation_commit,
         "source_tree_identity": readiness.get("source_tree_identity", ""),
-        "proof_execution": "OBSERVED" if state else "NOT-STARTED",
+        "proof_execution": execution_state,
         "allocated_run_ids": state.get("allocated_run_ids", []),
         "allocated_evidence_ids": state.get("allocated_evidence_ids", []),
-        "authority": ["TASK-20260907-001", "WORK-20260907-001", "HANDOFF-20260906-007", "DOC-PRD-07"],
+        "quarantined_run_ids": list(registry.quarantined_run_ids),
+        "quarantined_evidence_ids": [registry.mappings[run_id][1] for run_id in registry.quarantined_run_ids],
+        "registry": {
+            "run_high_water": registry.max_run_number,
+            "evidence_high_water": registry.max_evidence_number,
+            "issued_identity_count": len(registry.run_ids),
+            "retained_identity_count": len(registry.retained_run_ids),
+            "quarantined_identity_count": len(registry.quarantined_run_ids),
+            "next_future_sequence": registry.max_run_number + 1,
+            "state_paths": list(registry.state_paths),
+            "quarantine_paths": list(registry.quarantine_paths),
+        },
+        "pinned_engine_validation": readiness.get("pinned_engine_validation", {}),
+        "authority": [
+            "TASK-20260908-002",
+            "WORK-20260908-002",
+            "HANDOFF-20260908-002",
+            "EVID-0009",
+            "AUDIT-0009",
+            "DOC-PRD-07",
+        ],
         "dependency_identity": reference["component_revisions"],
         "prior_boundary_disposition": {
             "path": SUPERSEDED_MANIFEST_PATH.relative_to(ROOT).as_posix(),
-            "state": "SUPERSEDED-INVALID",
-            "reason": "It admitted historical W2 execution packs beneath an empty W3 allocation set.",
+            "state": "SUPERSEDED-INSUFFICIENT",
+            "reason": "It admitted source without a real pinned-engine parse/load/export gate and predates authoritative 0051-0057 quarantine reconciliation.",
         },
         "artifacts": artifacts,
     }

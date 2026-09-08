@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from .admission import build_manifest, write_manifest
+from .builds import pinned_engine_validation_report, write_pinned_engine_validation
 from .execution import execute_w3, preflight_report
 from .readiness import readiness_report, write_readiness
 
@@ -38,6 +39,10 @@ def build_parser() -> argparse.ArgumentParser:
     admission.add_argument("--implementation-commit", required=True)
     admission.add_argument("--write", action="store_true")
     admission.add_argument("--format", choices=("text", "json"), default="text")
+    engine_validation = commands.add_parser("engine-validation")
+    engine_validation.add_argument("--implementation-commit", required=True)
+    engine_validation.add_argument("--write", action="store_true")
+    engine_validation.add_argument("--format", choices=("text", "json"), default="text")
     execute = commands.add_parser("execute")
     execute.add_argument("--source-revision", required=True)
     execute.add_argument("--run-root", type=Path, required=True)
@@ -59,6 +64,12 @@ def main() -> int:
         elif args.command == "admission":
             result = write_manifest(args.implementation_commit) if args.write else build_manifest(args.implementation_commit)
             result["status"] = "PASS"
+        elif args.command == "engine-validation":
+            result = (
+                write_pinned_engine_validation(args.implementation_commit)
+                if args.write
+                else pinned_engine_validation_report(args.implementation_commit, perform_export=True)
+            )
         else:
             result = execute_w3(args.source_revision, args.run_root, args.retained_root, args.state_path, args.actual_execution_authorized)
         _emit(result, args.format)

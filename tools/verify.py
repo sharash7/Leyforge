@@ -51,7 +51,7 @@ def w2_implementation_commit() -> str:
 
 
 def w3_implementation_commit() -> str:
-    path = ROOT / "docs/rebuild/r7/w3-readiness-corrected.json"
+    path = ROOT / "docs/rebuild/r7/w3-readiness-repaired.json"
     if path.is_file():
         value = json.loads(path.read_text(encoding="utf-8-sig"))
         commit = str(value.get("implementation_commit", ""))

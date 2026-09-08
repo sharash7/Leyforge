@@ -11,12 +11,23 @@ from typing import Any, Dict, Tuple
 
 from proofs.r7.w3.runtime.runner import PROOF_DEFINITIONS, PROOF_IDS, PRD07_SOURCE, RUNNERS
 
+from .builds import (
+    PINNED_ENGINE_VALIDATION_PATH,
+    pinned_engine_validation_issues,
+    pinned_engine_validation_report,
+)
 from .dependencies import ROOT, load_lock, reference_issues, verify_local_dependencies
-from .execution_plan import ExecutionRegistryError, inspect_execution_registry, preview_execution_plan
+from .execution_plan import (
+    PACK_REQUIRED_STATES,
+    QUARANTINE_PATH,
+    ExecutionRegistryError,
+    inspect_execution_registry,
+    preview_execution_plan,
+)
 
 
-READINESS_PATH = ROOT / "docs/rebuild/r7/w3-readiness-corrected.json"
-SUPERSEDED_READINESS_PATH = ROOT / "docs/rebuild/r7/w3-readiness.json"
+READINESS_PATH = ROOT / "docs/rebuild/r7/w3-readiness-repaired.json"
+SUPERSEDED_READINESS_PATH = ROOT / "docs/rebuild/r7/w3-readiness-corrected.json"
 W0_STATE = ROOT / "docs/rebuild/r7/w0-execution-state.json"
 W1_STATE = ROOT / "docs/rebuild/r7/w1-execution-state.json"
 W2_STATE = ROOT / "docs/rebuild/r7/w2-execution-state.json"
@@ -139,6 +150,7 @@ def _static_context() -> Dict[str, Any]:
         ROOT / "tools/tests/test_r7_w3_runtime.py",
         ROOT / "tools/verify.py",
         ROOT / "tools/verify_rebuild_boundary.py",
+        QUARANTINE_PATH,
     )
     for path in required:
         if not path.is_file():
@@ -180,6 +192,21 @@ def _static_context() -> Dict[str, Any]:
     }
 
 
+def _engine_validation_context(implementation_commit: str, check_local: bool) -> tuple[Dict[str, Any], list[str]]:
+    if check_local:
+        value = pinned_engine_validation_report(implementation_commit, perform_export=True)
+    elif PINNED_ENGINE_VALIDATION_PATH.is_file():
+        try:
+            loaded = json.loads(PINNED_ENGINE_VALIDATION_PATH.read_text(encoding="utf-8-sig"))
+        except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+            return {}, [f"cannot read pinned-engine validation receipt: {exc}"]
+        value = loaded if isinstance(loaded, dict) else {}
+    else:
+        return {}, ["pinned-engine validation receipt is missing"]
+    issues = list(pinned_engine_validation_issues(value, implementation_commit))
+    return value, issues
+
+
 def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str, Any]:
     context = _static_context()
     technical_common_issues = list(context["issues"])
@@ -187,8 +214,17 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
     local = verify_local_dependencies(load_lock()) if check_local else {"status": "NOT-CHECKED", "issues": [], "paths": {}}
     if check_local and local["status"] != "PASS":
         technical_common_issues.extend(local["issues"])
+    engine_validation, engine_validation_issues = _engine_validation_context(implementation_commit, check_local)
+    technical_common_issues.extend(engine_validation_issues)
     plan_by_proof = {row.proof_id: row for row in context["plan"]}
     registry = context["registry"]
+    observed_proofs = set()
+    if registry:
+        observed_proofs = {
+            proof_id
+            for run_id, (proof_id, _) in registry.mappings.items()
+            if proof_id in PROOF_IDS and registry.dispositions.get(run_id) in PACK_REQUIRED_STATES
+        }
     rows = []
     for proof_id in PROOF_IDS:
         definition = PROOF_DEFINITIONS[proof_id]
@@ -202,10 +238,13 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
         if not runner_mapping_present:
             blockers.append(f"W3 runner mapping is missing for {proof_id}")
         planned = plan_by_proof.get(proof_id)
-        execution_plan_mapping_valid = planned is not None and planned.allocation_state == "PREVIEW-NOT-ALLOCATED"
+        previously_observed = proof_id in observed_proofs
+        execution_plan_mapping_valid = previously_observed or (
+            planned is not None and planned.allocation_state == "PREVIEW-NOT-ALLOCATED"
+        )
         if not execution_plan_mapping_valid:
             blockers.append(f"future W3 execution-plan mapping is invalid for {proof_id}")
-        future_safe = bool(
+        future_safe = previously_observed or bool(
             registry
             and planned
             and planned.run_id not in registry.run_ids
@@ -214,6 +253,7 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
         if not future_safe:
             blockers.append(f"future RUN/EVID allocation is not proven safe for {proof_id}")
         blockers = sorted(set(blockers))
+        state = "OBSERVED" if previously_observed and not blockers else "READY" if not blockers else "HARNESS-BLOCKED"
         rows.append({
             "proof_id": proof_id,
             "title": definition.title,
@@ -228,15 +268,20 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
             "future_evidence_allocation_safe": future_safe,
             "future_identity_preview": planned.to_dict() if planned else None,
             "prior_state": "HARNESS-BLOCKED",
-            "state": "READY" if not blockers else "HARNESS-BLOCKED",
-            "readiness_classification": "READY — MINIMUM FIXTURE ADDED" if not blockers else "BLOCKED",
+            "state": state,
+            "readiness_classification": (
+                "OBSERVED — RETAINED" if state == "OBSERVED"
+                else "READY — PINNED ENGINE VALIDATED" if state == "READY"
+                else "BLOCKED"
+            ),
             "blockers": blockers,
         })
     technical_issues = sorted({issue for row in rows for issue in row["blockers"]})
     issues = sorted(set(technical_issues + source_commit_issues))
     counts = {
         "READY": sum(row["state"] == "READY" for row in rows),
-        "BLOCKED": sum(row["state"] != "READY" for row in rows),
+        "OBSERVED": sum(row["state"] == "OBSERVED" for row in rows),
+        "BLOCKED": sum(row["state"] == "HARNESS-BLOCKED" for row in rows),
         "NOT_APPLICABLE": 0,
     }
     registry_summary = None
@@ -247,13 +292,46 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
             "issued_run_count": len(registry.run_ids),
             "issued_evidence_count": len(registry.evidence_ids),
             "state_paths": list(registry.state_paths),
+            "quarantine_paths": list(registry.quarantine_paths),
             "retained_pack_count": len(registry.evidence_paths),
+            "retained_identity_count": len(registry.retained_run_ids),
+            "quarantined_identity_count": len(registry.quarantined_run_ids),
+            "quarantined_run_ids": list(registry.quarantined_run_ids),
             "next_future_sequence": registry.max_run_number + 1,
         }
+    validation_summary = {
+        key: engine_validation.get(key)
+        for key in (
+            "schema_version",
+            "status",
+            "implementation_commit",
+            "source_identity",
+            "dependency_identity",
+            "checks",
+            "source_process",
+            "export_process",
+            "export_artifact",
+            "exported_runtime_process",
+            "source_runtime_report",
+            "exported_runtime_report",
+            "proof_execution",
+            "allocated_run_ids",
+            "allocated_evidence_ids",
+            "gameplay_permission",
+            "production_runtime",
+        )
+        if key in engine_validation
+    }
+    execution_started = bool(observed_proofs)
     return {
-        "schema_version": "prd07-w3-readiness-v2",
-        "package": "R7-W3-TECHNICAL-ENVIRONMENT-READINESS",
-        "package_state": "READY" if not issues else "READY-PENDING-SOURCE-COMMIT" if not technical_issues else "HARNESS-BLOCKED",
+        "schema_version": "prd07-w3-readiness-v3",
+        "package": "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+        "package_state": (
+            "POST-EXECUTION-VALIDATED" if not issues and execution_started
+            else "READY" if not issues
+            else "READY-PENDING-SOURCE-COMMIT" if not technical_issues
+            else "HARNESS-BLOCKED"
+        ),
         "implementation_commit": implementation_commit,
         "implementation_commit_source_match": not source_commit_issues,
         "source_tree_identity": context["source_identity"],
@@ -262,19 +340,30 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
         "certification_blockers": source_commit_issues,
         "allocated_run_ids": [],
         "allocated_evidence_ids": [],
+        "quarantined_run_ids": list(registry.quarantined_run_ids) if registry else [],
+        "quarantined_evidence_ids": [
+            registry.mappings[run_id][1] for run_id in registry.quarantined_run_ids
+        ] if registry else [],
         "registry": registry_summary,
         "dependency_check": local,
+        "pinned_engine_validation_source": PINNED_ENGINE_VALIDATION_PATH.relative_to(ROOT).as_posix(),
+        "pinned_engine_validation": validation_summary,
         "issues": issues,
         "status": "PASS" if not issues else "FAIL",
         "prior_readiness_disposition": {
             "path": SUPERSEDED_READINESS_PATH.relative_to(ROOT).as_posix(),
-            "state": "SUPERSEDED-INVALID",
-            "reason": "It certified READY from file presence while W2 handlers and issued W2 identities remained mapped beneath W3 labels.",
+            "state": "SUPERSEDED-INSUFFICIENT",
+            "reason": "It did not require a real pinned-engine parse/load/export validation and admitted source that failed before proof observation.",
         },
         "prd08_evaluation": "CLOSED",
         "gameplay_permission": "CLOSED",
-        "actual_w3_execution": "NOT-AUTHORIZED-BY-THIS-READINESS-TASK",
-        "execution_gate": "OPEN-FOR-FUTURE-AUTHORIZED-W3" if not issues else "CLOSED",
+        "actual_w3_execution": "NOT-AUTHORIZED-BY-THIS-REPAIR-TASK",
+        "proof_execution": "OBSERVED" if execution_started else "NOT-STARTED",
+        "execution_gate": (
+            "CLOSED-EXECUTION-ALREADY-OBSERVED" if not issues and not context["plan"]
+            else "OPEN-FOR-FUTURE-SEPARATELY-AUTHORIZED-W3-RERUN" if not issues
+            else "CLOSED"
+        ),
         "w4_fcc13e_revalidation": "REQUIRED",
     }
 

@@ -1,0 +1,139 @@
+{
+  "schema_version": "prd07-w3-allocation-reconciliation-v1",
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+  "status": "AUTHORITATIVE-QUARANTINE",
+  "reconciliation_basis": {
+    "task": "TASK-20260908-002",
+    "work": "WORK-20260908-002",
+    "failed_execution_task": "TASK-20260908-001",
+    "failed_execution_work": "WORK-20260908-001",
+    "evidence": "EVID-0009",
+    "audit": "AUDIT-0009",
+    "evidence_commit": "e1458eb3589ca2ee844e9b5848e0226f6cdc56b5"
+  },
+  "source_evidence": {
+    "path": "brain/10_TESTING/Evidence/r7-w3-execution-abort-20260908.json",
+    "sha256": "48829ae029cdbed6ab299b96d8671aac41dc5fb69f44d4f72c19ca77d92a86aa"
+  },
+  "source_engine_log": {
+    "path": "brain/10_TESTING/Evidence/r7-w3-execution-abort-20260908-engine-log.txt",
+    "sha256": "e2d999e906862b9a6a36d9143b03edb3ac90d8b555128e5fa894337d973a84f4"
+  },
+  "failed_transaction": {
+    "source_revision": "da19ec5f05af19a29a473a6489b7da717f76b2c4",
+    "failure_stage": "client-export-runtime-self-report",
+    "proof_observations": 0,
+    "portable_prd07_packs": 0,
+    "state_was_persisted_during_attempt": false
+  },
+  "allocated_run_ids": [
+    "PRD07-RUN-0051",
+    "PRD07-RUN-0052",
+    "PRD07-RUN-0053",
+    "PRD07-RUN-0054",
+    "PRD07-RUN-0055",
+    "PRD07-RUN-0056",
+    "PRD07-RUN-0057"
+  ],
+  "allocated_evidence_ids": [
+    "PRD07-EVID-0051",
+    "PRD07-EVID-0052",
+    "PRD07-EVID-0053",
+    "PRD07-EVID-0054",
+    "PRD07-EVID-0055",
+    "PRD07-EVID-0056",
+    "PRD07-EVID-0057"
+  ],
+  "allocations": [
+    {
+      "allocation_order": 1,
+      "proof_id": "PRD04-PROOF-27",
+      "run_id": "PRD07-RUN-0051",
+      "evidence_id": "PRD07-EVID-0051",
+      "state": "INVALIDATED-BEFORE-PROOF-OBSERVATION",
+      "prior_runtime_transition": "PRD07-RUN-ALLOCATED-THEN-EXECUTING-IN-MEMORY",
+      "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+      "prd07_evidence_eligible": false,
+      "retained_pack": false,
+      "reusable": false
+    },
+    {
+      "allocation_order": 2,
+      "proof_id": "PRD04-PROOF-28",
+      "run_id": "PRD07-RUN-0052",
+      "evidence_id": "PRD07-EVID-0052",
+      "state": "QUARANTINED-PLAN-MATERIALIZED-NOT-STARTED",
+      "prior_runtime_transition": "PLAN-ROW-MATERIALIZED-IN-MEMORY",
+      "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+      "prd07_evidence_eligible": false,
+      "retained_pack": false,
+      "reusable": false
+    },
+    {
+      "allocation_order": 3,
+      "proof_id": "PRD04-PROOF-08",
+      "run_id": "PRD07-RUN-0053",
+      "evidence_id": "PRD07-EVID-0053",
+      "state": "QUARANTINED-PLAN-MATERIALIZED-NOT-STARTED",
+      "prior_runtime_transition": "PLAN-ROW-MATERIALIZED-IN-MEMORY",
+      "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+      "prd07_evidence_eligible": false,
+      "retained_pack": false,
+      "reusable": false
+    },
+    {
+      "allocation_order": 4,
+      "proof_id": "PRD04-PROOF-30",
+      "run_id": "PRD07-RUN-0054",
+      "evidence_id": "PRD07-EVID-0054",
+      "state": "QUARANTINED-PLAN-MATERIALIZED-NOT-STARTED",
+      "prior_runtime_transition": "PLAN-ROW-MATERIALIZED-IN-MEMORY",
+      "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+      "prd07_evidence_eligible": false,
+      "retained_pack": false,
+      "reusable": false
+    },
+    {
+      "allocation_order": 5,
+      "proof_id": "PRD04-PROOF-29",
+      "run_id": "PRD07-RUN-0055",
+      "evidence_id": "PRD07-EVID-0055",
+      "state": "QUARANTINED-PLAN-MATERIALIZED-NOT-STARTED",
+      "prior_runtime_transition": "PLAN-ROW-MATERIALIZED-IN-MEMORY",
+      "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+      "prd07_evidence_eligible": false,
+      "retained_pack": false,
+      "reusable": false
+    },
+    {
+      "allocation_order": 6,
+      "proof_id": "PRD04-PROOF-31",
+      "run_id": "PRD07-RUN-0056",
+      "evidence_id": "PRD07-EVID-0056",
+      "state": "QUARANTINED-PLAN-MATERIALIZED-NOT-STARTED",
+      "prior_runtime_transition": "PLAN-ROW-MATERIALIZED-IN-MEMORY",
+      "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+      "prd07_evidence_eligible": false,
+      "retained_pack": false,
+      "reusable": false
+    },
+    {
+      "allocation_order": 7,
+      "proof_id": "PRD04-PROOF-32",
+      "run_id": "PRD07-RUN-0057",
+      "evidence_id": "PRD07-EVID-0057",
+      "state": "QUARANTINED-PLAN-MATERIALIZED-NOT-STARTED",
+      "prior_runtime_transition": "PLAN-ROW-MATERIALIZED-IN-MEMORY",
+      "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+      "prd07_evidence_eligible": false,
+      "retained_pack": false,
+      "reusable": false
+    }
+  ],
+  "proof_execution": "NOT-STARTED",
+  "reuse_policy": "DO-NOT-REUSE-OR-REALLOCATE",
+  "retained_pack_policy": "DO-NOT-FABRICATE-PROOF-EVIDENCE",
+  "gameplay_permission": "CLOSED",
+  "prd08_evaluation": "CLOSED",
+  "r8": "CLOSED"
+}
