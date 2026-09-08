@@ -23,6 +23,10 @@ related_to:
   - "TASK-20260906-006"
   - "WORK-20260906-007"
   - "TASK-20260906-007"
+  - "WORK-20260907-001"
+  - "TASK-20260907-001"
+  - "WORK-20260908-001"
+  - "TASK-20260908-001"
   - "GOV-DEBT-0007"
   - "TEST-GOVERNANCE-R6"
   - "EVID-0003"
@@ -121,6 +125,14 @@ related_to:
 - The aborted pre-repair [[TASK-20260906-008]] and [[WORK-20260906-008]] are cancelled.
 - PRD-08 evaluation and R8 gameplay permission remain closed.
 
+## R7 W3 Technical Environment Execution
+
+- Active under [[TASK-20260908-001]] and [[WORK-20260908-001]] after explicit owner authorization.
+- The certified source/readiness commits are published unchanged and local/upstream identity is synchronized.
+- Mandatory source, manifest, dependency, registry, immutable-evidence and clean-rebuild revalidation is pending.
+- No W3 proof has executed and no actual W3 RUN/EVID identity has been allocated under this package.
+- W4 execution, PRD-08 evaluation, R8 gameplay permission and production activation remain closed.
+
 ## Later Activation Milestones
 
 - G1 registry and core identity: planned in [[GOV-DEBT-0002]].
@@ -129,4 +141,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260908-001]]. W0-W2 execution and W3 readiness are certified. W3 execution, W4, W5 and FINAL remain open. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260908-001]], [[TASK-20260908-001]] and [[WORK-20260908-001]]. W0-W2 execution and W3 readiness are certified; W3 execution is active at its pre-execution revalidation boundary. W4, W5 and FINAL remain open. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

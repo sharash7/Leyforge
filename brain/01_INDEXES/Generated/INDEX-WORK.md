@@ -23,6 +23,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[HANDOFF-20260908-001|HANDOFF-20260908-001]] | handoff | active | R7 W3 Readiness Certification to Governed W3 Proof Execution Handoff |
+| [[WORK-20260908-001|WORK-20260908-001]] | work | active | Execute and reconcile the R7 W3 technical environment proof package |
+| [[TASK-20260908-001|TASK-20260908-001]] | work_item | active | R7 W3 technical environment execution task contract |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
 | [[TASK-20260906-008|TASK-20260906-008]] | work_item | cancelled | R7 W3 technical environment proofs readiness task contract |
 | [[WORK-20260906-003|WORK-20260906-003]] | work | complete | Admit PRD-07 and establish the R7 execution boundary |
