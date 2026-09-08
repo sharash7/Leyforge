@@ -1,0 +1,6 @@
+{
+  "command": "execute",
+  "error": "'ArtifactManifest' object has no attribute 'path'",
+  "error_type": "AttributeError",
+  "status": "FAIL"
+}

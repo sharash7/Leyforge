@@ -1,0 +1,327 @@
+{
+  "schema_version": "leyforge-r7-w3-execution-rerun-abort-v1",
+  "captured_date": "2026-09-09",
+  "status": "FAIL",
+  "disposition": "W3-REPAIR-AND-RERUN-REQUIRED",
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN",
+  "lifecycle": {
+    "task_id": "TASK-20260909-001",
+    "work_id": "WORK-20260909-001",
+    "evidence_id": "EVID-0011",
+    "audit_id": "AUDIT-0011",
+    "next_handoff_id": "HANDOFF-20260909-001"
+  },
+  "repository": {
+    "starting_head": "baf2b4fb777a21587e8c0aa22571e90b7b423d65",
+    "lifecycle_opening_commit": "d3ff9930757e3fbe91498444fe97de1649811545",
+    "pre_execution_checkpoint": "f92445e2b432b568327cd16685b6c6fceaf355b4",
+    "execution_state_commit": "21cdbbc9d3c5552ed7018536f0c36159b66a61ee",
+    "branch": "codex/chore/brain-governance-pilot",
+    "upstream": "origin/codex/chore/brain-governance-pilot"
+  },
+  "certified_inputs": {
+    "source_implementation_commit": "45b0300caa0ebd66d4c740a71db983a7a9827f3b",
+    "source_tree_identity": "e2216c2d6ee85671025214600bfe8cb3d21981db6ce974f47ae5772d72d9d73b",
+    "readiness": {
+      "path": "docs/rebuild/r7/w3-readiness-repaired.json",
+      "git_blob": "46410e3808d7e840e773a594f5471e04f313d1d1",
+      "canonical_sha256": "795c260812bcbd9362d089594b601551714b88d52816a78a32794349bd68b258",
+      "ready": 7,
+      "blocked": 0,
+      "not_applicable": 0,
+      "value_equal_at_pre_execution": true
+    },
+    "admission": {
+      "path": "docs/rebuild/r7/w3-execution-boundary-repaired.json",
+      "git_blob": "9ecc03d0f8a6cff278de537a81f4b3bc60018bac",
+      "canonical_sha256": "90af508c949a9039d6a147331417140c18c88a2ca475c5438c0a0c03cc14c799",
+      "admitted_artifact_count": 23,
+      "value_equal_at_pre_execution": true
+    },
+    "dependency_identity": {
+      "godot_build_driver_commit": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "godot_export_template": "4.8.dev4.official.b56a91878",
+      "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "voxel_tools_commit": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+      "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+      "local_patch": "NO-LOCAL-PATCH",
+      "preflight_status": "PASS"
+    },
+    "pre_execution_gate": "PASS"
+  },
+  "execution": {
+    "command": [
+      "python",
+      "-m",
+      "tools.r7_w3_runtime",
+      "execute",
+      "--source-revision",
+      "f92445e2b432b568327cd16685b6c6fceaf355b4",
+      "--run-root",
+      ".local/r7-w3-execution-0058-0064-f92445e",
+      "--retained-root",
+      "docs/rebuild/r7/execution-evidence",
+      "--state-path",
+      "docs/rebuild/r7/w3-execution-state.json",
+      "--actual-execution-authorized",
+      "--format",
+      "json"
+    ],
+    "exit_code": 1,
+    "error_type": "AttributeError",
+    "error": "'ArtifactManifest' object has no attribute 'path'",
+    "failure_stage": "fixture-runtime-self-report",
+    "actual_proof_results_produced": 0,
+    "retained_prd07_packs_written": 0,
+    "rerun_attempted_after_failure": false
+  },
+  "observed_failure": {
+    "classification": "ADMITTED-EXECUTOR-ARTIFACT-MANIFEST-API-MISMATCH",
+    "call_site": {
+      "path": "tools/r7_w3_runtime/builds.py",
+      "git_blob": "497b2af47ed8a58f8a886185e641b969c5d76422",
+      "sha256": "1ea8794693febb8bf366c1fa428067f58fc81b6574c4603c50cefa66b9f380f7",
+      "bytes": 26358,
+      "line": 548,
+      "expression": "Path(exported.artifact.path)"
+    },
+    "manifest_contract": {
+      "path": "tools/proof_harness/manifests.py",
+      "git_blob": "55840bde06011e859607a78f351bbe366e305808",
+      "sha256": "62609e4266f4669cbb3d1047278a66e7f4867679cdcb505bbb12efd5008c714d",
+      "bytes": 10782,
+      "field": "artifact_path"
+    },
+    "cause": "The real fixture launcher dereferenced artifact.path even though ArtifactManifest exposes artifact_path. The failure occurred after both exports and export self-reports, but before the first fixture process or proof observation.",
+    "dependency_drift_observed": false,
+    "godot_failure_observed": false,
+    "voxel_tools_failure_observed": false
+  },
+  "allocation_transaction": {
+    "registry_before": {
+      "run_high_water": "PRD07-RUN-0057",
+      "evidence_high_water": "PRD07-EVID-0057",
+      "issued_pair_count": 57,
+      "retained_pack_count": 50,
+      "quarantined_pairs": "0051-0057"
+    },
+    "materialized": [
+      {
+        "allocation_order": 1,
+        "proof_id": "PRD04-PROOF-27",
+        "run_id": "PRD07-RUN-0058",
+        "evidence_id": "PRD07-EVID-0058",
+        "durable_allocation_state": "PRD07-RUN-ALLOCATED",
+        "durable_execution_state": "EXECUTING",
+        "final_state": "INVALIDATED",
+        "terminal_disposition": "ABORTED-BEFORE-PROOF-OBSERVATION",
+        "proof_observation_produced": false,
+        "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+        "prd07_evidence_eligible": false
+      }
+    ],
+    "registry_after": {
+      "run_high_water": "PRD07-RUN-0058",
+      "evidence_high_water": "PRD07-EVID-0058",
+      "issued_pair_count": 58,
+      "retained_pack_count": 50,
+      "invalidated_pairs": [
+        "0058"
+      ],
+      "next_preview_range": "0059-0065",
+      "next_preview_allocation_state": "PREVIEW-NOT-ALLOCATED"
+    },
+    "unused_or_speculative_ids_allocated": false,
+    "pairs_0059_through_0065_allocated": false
+  },
+  "exports": {
+    "environment": {
+      "os": "Windows",
+      "os_release": "10",
+      "machine": "AMD64",
+      "python": "3.9.5",
+      "godot_runtime": "4.8.dev4.official.b56a91878",
+      "local_patch_status": "NO-LOCAL-PATCH"
+    },
+    "client": {
+      "state": "PASS",
+      "build_identity": "c5795b9b33ad560d222841c98e3d5c7b42c825ba641ef5442a91caf4825e3130",
+      "content_identity": "2fb43ff46a88d10dcdfa042f3bded8a049292d61b8ce54283fd16b1876ae4e3b",
+      "artifact": {
+        "local_ignored_path": ".local/r7-w3-execution-0058-0064-f92445e/builds/client/output/leyforge-w3-client-probe.exe",
+        "bytes": 110444496,
+        "sha256": "a7ba948a3ef0639723e8c13c5636cf011366cd109829c6d35720e6e8b094bebe"
+      },
+      "build_manifest": {
+        "local_ignored_path": ".local/r7-w3-execution-0058-0064-f92445e/builds/client/project/build_manifest.json",
+        "bytes": 2925,
+        "sha256": "553335e35850cee255c192b663be5f8e2f84c04849aa0dca266f10e97056eb2a"
+      },
+      "runtime_self_report": {
+        "status": "PASS",
+        "provider_ready": true,
+        "provider_errors": 0,
+        "contact_errors": 0,
+        "frame_round_trip_errors": 0,
+        "production_runtime": false
+      }
+    },
+    "headless": {
+      "state": "PASS",
+      "build_identity": "c2fbd7aba766d4419e7a77e3cd18873e410db27d772efd0a074146ada4d12fce",
+      "content_identity": "2fb43ff46a88d10dcdfa042f3bded8a049292d61b8ce54283fd16b1876ae4e3b",
+      "artifact": {
+        "local_ignored_path": ".local/r7-w3-execution-0058-0064-f92445e/builds/headless/output/leyforge-w3-headless-probe.exe",
+        "bytes": 110444528,
+        "sha256": "ea0ca06c40a52fb6e39d281b0bbaef284ad49fb0e81ba825722126503e3278b6"
+      },
+      "build_manifest": {
+        "local_ignored_path": ".local/r7-w3-execution-0058-0064-f92445e/builds/headless/project/build_manifest.json",
+        "bytes": 2938,
+        "sha256": "59c8d3d2e4a02641f572ae484d1fe4240dc8d08565050329d602da6ea3e3f677"
+      },
+      "runtime_self_report": {
+        "status": "PASS",
+        "provider_ready": true,
+        "provider_errors": 0,
+        "contact_errors": 0,
+        "frame_round_trip_errors": 0,
+        "production_runtime": false
+      }
+    },
+    "voxel_runtime": {
+      "filename": "libvoxel.windows.template_release.x86_64.dll",
+      "bytes": 10173952,
+      "sha256": "cff4fdefa8d3348860bc241ed9eb86f96d31c2e6e7da8a304c890ec018115bf0"
+    }
+  },
+  "proof_results": [
+    {
+      "proof_id": "PRD04-PROOF-27",
+      "objective": "Fluid Boundary Breach",
+      "execution_status": "ABORTED-BEFORE-PROOF-OBSERVATION",
+      "outcome": "NO-OBSERVED-PROOF-RESULT",
+      "measurements": null,
+      "acceptance_threshold_evaluated": false,
+      "evidence_pack": null
+    },
+    {
+      "proof_id": "PRD04-PROOF-28",
+      "objective": "Ocean / Local Fluid Boundary",
+      "execution_status": "NOT-RUN",
+      "outcome": "NOT-RUN",
+      "measurements": null,
+      "acceptance_threshold_evaluated": false,
+      "evidence_pack": null
+    },
+    {
+      "proof_id": "PRD04-PROOF-08",
+      "objective": "Vessel Region Crossing",
+      "execution_status": "NOT-RUN",
+      "outcome": "NOT-RUN",
+      "measurements": null,
+      "acceptance_threshold_evaluated": false,
+      "evidence_pack": null
+    },
+    {
+      "proof_id": "PRD04-PROOF-30",
+      "objective": "Moving Vessel Occupants",
+      "execution_status": "NOT-RUN",
+      "outcome": "NOT-RUN",
+      "measurements": null,
+      "acceptance_threshold_evaluated": false,
+      "evidence_pack": null
+    },
+    {
+      "proof_id": "PRD04-PROOF-29",
+      "objective": "Vessel Hull Edit Underway",
+      "execution_status": "NOT-RUN",
+      "outcome": "NOT-RUN",
+      "measurements": null,
+      "acceptance_threshold_evaluated": false,
+      "evidence_pack": null
+    },
+    {
+      "proof_id": "PRD04-PROOF-31",
+      "objective": "Vessel Collision Strategy Matrix",
+      "execution_status": "NOT-RUN",
+      "outcome": "NOT-RUN",
+      "measurements": null,
+      "acceptance_threshold_evaluated": false,
+      "evidence_pack": null
+    },
+    {
+      "proof_id": "PRD04-PROOF-32",
+      "objective": "Vessel Flooding / Buoyancy",
+      "execution_status": "NOT-RUN",
+      "outcome": "NOT-RUN",
+      "measurements": null,
+      "acceptance_threshold_evaluated": false,
+      "evidence_pack": null
+    }
+  ],
+  "aggregate": {
+    "pass_observed": 0,
+    "inconclusive": 0,
+    "proof_fail": 0,
+    "technical_environment_failure": 1,
+    "not_run": 7,
+    "standard_evidence_packs": 0
+  },
+  "preserved_evidence": {
+    "execution_state": {
+      "path": "docs/rebuild/r7/w3-execution-state.json",
+      "git_blob": "b2c53bdb5d7a8563e7dc1b925f4b2ad7827c7fac",
+      "bytes": 6505,
+      "sha256": "09d8ea9d47d3fedc074d9426b8a6602e5c471b58c898e0c3dcace8ace881d4a1",
+      "commit": "21cdbbc9d3c5552ed7018536f0c36159b66a61ee"
+    },
+    "cli_error": {
+      "path": "brain/10_TESTING/Evidence/r7-w3-execution-rerun-abort-20260909-error.txt",
+      "bytes": 145,
+      "sha256": "8a04efaa1b78a8d09cdbc7567ad6b132501855d4baa2a5b6e791955536714675"
+    },
+    "ignored_reproducer_root": ".local/r7-w3-execution-0058-0064-f92445e",
+    "portable_prd07_pack_status": "NOT-CREATED-BECAUSE-NO-VALID-PROOF-OBSERVATION-EXISTS"
+  },
+  "post_abort_observations": {
+    "registry_validation": "PASS",
+    "registry_high_water": "0058",
+    "next_plan": "0059-0065 PREVIEW-NOT-ALLOCATED",
+    "clean_rebuild_boundary": {
+      "status": "FAIL",
+      "checks": 8467,
+      "failures": [
+        "R7 W3 boundary RUN identities differ from execution state",
+        "R7 W3 boundary EVID identities differ from execution state",
+        "R7 W3 allocation-history RUN order differs",
+        "R7 W3 allocation-history EVID order differs",
+        "R7 W3 boundary proof-execution disposition differs from its state"
+      ],
+      "reason": "The immutable pre-execution repaired admission has empty W3 allocation state and cannot certify the newly retained invalidated 0058 journal. It was not silently regenerated after a known executor defect."
+    },
+    "repaired_readiness_modified": false,
+    "repaired_admission_modified": false
+  },
+  "boundary": {
+    "r7": "ACTIVE-BLOCKED-ON-W3-REPAIR",
+    "w3": "ABORTED-BEFORE-PROOF-OBSERVATION",
+    "w4_execution": "NOT-AUTHORIZED-NOT-STARTED",
+    "gameplay_permission": "CLOSED",
+    "prd08_evaluation": "CLOSED",
+    "r8": "CLOSED",
+    "root_project_godot": "ABSENT",
+    "production_runtime": "ABSENT",
+    "production_boundary_crossed": false,
+    "prior_w0_w1_w2_evidence_modified": false,
+    "historical_failed_w3_evidence_modified": false,
+    "superseded_invalid_w3_artifacts_modified": false
+  },
+  "required_repair": [
+    "Repair the admitted fixture launcher to use ArtifactManifest.artifact_path and recertify every affected source and admission identity.",
+    "Add a real ExportedBuild plus ArtifactManifest fixture-launch integration regression that reaches the external fixture process before readiness can pass.",
+    "Reconcile post-failure readiness/admission and clean-boundary behavior around the durable invalidated 0058 state without rewriting it or fabricating a proof pack.",
+    "Revalidate source, dependencies, registry and the clean rebuild boundary after repair, then require fresh owner authorization for any W3 rerun beginning from a newly derived identity."
+  ]
+}
