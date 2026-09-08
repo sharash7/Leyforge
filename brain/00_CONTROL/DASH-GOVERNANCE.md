@@ -6,7 +6,7 @@ title: "Engineering Governance Health"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-08"
+updated: "2026-09-09"
 authority_domain: "engineering_governance"
 authority_role: "derived_record"
 authority_status: "authoritative"
@@ -29,6 +29,8 @@ related_to:
   - "TASK-20260908-001"
   - "WORK-20260908-002"
   - "TASK-20260908-002"
+  - "EVID-0010"
+  - "AUDIT-0010"
   - "EVID-0009"
   - "AUDIT-0009"
   - "GOV-DEBT-0007"
@@ -50,6 +52,7 @@ related_to:
   - "HANDOFF-20260906-005"
   - "HANDOFF-20260906-006"
   - "HANDOFF-20260908-002"
+  - "HANDOFF-20260908-003"
   - "ADR-0008"
 ---
 
@@ -142,9 +145,11 @@ related_to:
 
 ## R7 W3 Technical Environment Repair and Re-certification
 
-- Active under owner-authorized [[TASK-20260908-002]] and [[WORK-20260908-002]].
-- Scope is limited to authoritative 0051-0057 quarantine reconciliation, admitted-source/executor repair, real pinned-engine readiness validation, regression coverage and new readiness/admission certification.
-- No W3 proof rerun or new rerun RUN/EVID allocation is authorized. W4, PRD-08, R8 gameplay and production activation remain closed.
+- Complete under owner-authorized [[TASK-20260908-002]] and [[WORK-20260908-002]]; certified by [[EVID-0010]] and [[AUDIT-0010]].
+- Exact implementation commit `45b0300caa0ebd66d4c740a71db983a7a9827f3b` uses the public pinned-engine collision-query route, and real parse/load, clean export and exported-runtime validation pass with zero collision/frame/provider errors.
+- 0051-0057 are authoritatively quarantined, evidence-ineligible and non-reusable. Registry issued high-water is 0057; 0058 is an unallocated preview.
+- Repaired readiness is 7 READY / 0 BLOCKED / 0 NOT APPLICABLE; admission pins 23 exact artifacts; W3 execution remains `NOT-STARTED`.
+- [[HANDOFF-20260908-003]] requires fresh owner authorization before any actual W3 rerun or identity allocation. W4, PRD-08, R8 gameplay and production activation remain closed.
 
 ## Later Activation Milestones
 
@@ -154,4 +159,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260908-002]] with [[TASK-20260908-002]] / [[WORK-20260908-002]] executing the bounded W3 repair and re-certification package. W0-W2 execution is certified; the attempted W3 execution is a certified controlled FAIL before proof observation. Actual W3 rerun remains unopened pending repaired certification and fresh owner authorization. W4, W5 and FINAL remain open, but W4 is not the current next action. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260908-003]]. W0-W2 execution is certified; the attempted W3 execution is a certified controlled package failure before proof observation; and the bounded repair/re-certification is complete. Actual W3 rerun remains unopened pending fresh owner authorization. W4, W5 and FINAL remain open, but W4 is not the current next action. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

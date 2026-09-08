@@ -1,0 +1,182 @@
+{
+  "schema_version": "leyforge-r7-w3-repair-recertification-v1",
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+  "date": "2026-09-08",
+  "completed_date": "2026-09-09",
+  "status": "PASS",
+  "final_determination": "W3 REPAIR/RECERTIFICATION COMPLETE - SAFE FOR FRESH OWNER-AUTHORIZED W3 RERUN",
+  "authority": {
+    "task": "TASK-20260908-002",
+    "work": "WORK-20260908-002",
+    "incoming_handoff": "HANDOFF-20260908-002",
+    "evidence": "EVID-0010",
+    "audit": "AUDIT-0010",
+    "outgoing_handoff": "HANDOFF-20260908-003"
+  },
+  "repository": {
+    "starting_head": "8aa07ecaf03bc840bc4834e777c1acf612d82c3e",
+    "lifecycle_opening_commit": "7e85588b6818b551b334e81b03a96f1b2df6235b",
+    "implementation_commit": "45b0300caa0ebd66d4c740a71db983a7a9827f3b",
+    "branch": "codex/chore/brain-governance-pilot",
+    "upstream": "origin/codex/chore/brain-governance-pilot",
+    "history_rewritten": false,
+    "unrelated_preserved_path": "brain/.obsidian/graph.json"
+  },
+  "runtime_repair": {
+    "root_cause": "The admitted GDScript called unavailable static method PhysicsServer3D.shape_collide, so the pinned exported runtime could not parse the script or emit its self-report.",
+    "repaired_api": "PhysicsDirectSpaceState3D.collide_shape",
+    "query_context": "get_viewport().world_3d.direct_space_state",
+    "collision_authority": "real pinned-engine physics query against governed StaticBody3D and CollisionShape3D fixtures",
+    "source_main_gd_sha256": "3d205457bd8014954cfc3744606e7862de82a03971e1016de0b87167e82da15b",
+    "source_main_gd_bytes": 11080,
+    "source_tree_identity": "e2216c2d6ee85671025214600bfe8cb3d21981db6ce974f47ae5772d72d9d73b"
+  },
+  "allocation_reconciliation": {
+    "source": "docs/rebuild/r7/w3-allocation-reconciliation.json",
+    "canonical_sha256": "6d35b7ecf5c31fa1235c4e795b91a35948f73df60b6db4f2d499de3de848859e",
+    "retained_pairs": 50,
+    "retained_high_water": 50,
+    "quarantined_run_ids": [
+      "PRD07-RUN-0051",
+      "PRD07-RUN-0052",
+      "PRD07-RUN-0053",
+      "PRD07-RUN-0054",
+      "PRD07-RUN-0055",
+      "PRD07-RUN-0056",
+      "PRD07-RUN-0057"
+    ],
+    "quarantined_evidence_ids": [
+      "PRD07-EVID-0051",
+      "PRD07-EVID-0052",
+      "PRD07-EVID-0053",
+      "PRD07-EVID-0054",
+      "PRD07-EVID-0055",
+      "PRD07-EVID-0056",
+      "PRD07-EVID-0057"
+    ],
+    "quarantine_disposition": "DO-NOT-REUSE-OR-REALLOCATE",
+    "portable_packs_for_quarantine": 0,
+    "proof_observations_for_quarantine": 0,
+    "issued_high_water": 57,
+    "next_future_sequence": 58,
+    "next_future_run_preview": "PRD07-RUN-0058",
+    "next_future_evidence_preview": "PRD07-EVID-0058",
+    "preview_allocated": false,
+    "actual_rerun_allocations": []
+  },
+  "pinned_environment": {
+    "godot_build_driver_revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "godot_export_template_revision": "4.8.dev4.official.b56a91878",
+    "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+    "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+    "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+    "local_patch_status": "NO-LOCAL-PATCH"
+  },
+  "pinned_engine_validation": {
+    "source": "docs/rebuild/r7/w3-pinned-engine-validation.json",
+    "git_blob": "cd407485ee3ff40d27207dbccc004d90716ea015",
+    "canonical_bytes": 4495,
+    "canonical_sha256": "73988e7fe0d12f6dde6ac0a12e147915007d0378e88be8ffcec952eb13e39650",
+    "status": "PASS",
+    "build_identity": "8f03cb3557a8a624ee2379e5d320ee50e78c7872acaba35fb936621eba44497e",
+    "export_artifact_sha256": "e512df89aea6af8449f5a95203303aeb1717d61e7b753d757c1bd16d19445e57",
+    "export_artifact_bytes": 110441904,
+    "source_parse_load": "PASS",
+    "clean_release_export": "PASS",
+    "exported_runtime_validation": "PASS",
+    "provider_ready_exported": true,
+    "provider_errors_exported": 0,
+    "frame_round_trip_errors": 0,
+    "collision_cases": 6,
+    "contact_errors": 0,
+    "proof_execution_started": false,
+    "allocated_run_ids": [],
+    "allocated_evidence_ids": []
+  },
+  "certification": {
+    "readiness": {
+      "path": "docs/rebuild/r7/w3-readiness-repaired.json",
+      "git_blob": "46410e3808d7e840e773a594f5471e04f313d1d1",
+      "canonical_bytes": 15952,
+      "canonical_sha256": "795c260812bcbd9362d089594b601551714b88d52816a78a32794349bd68b258",
+      "status": "PASS",
+      "ready": 7,
+      "blocked": 0,
+      "not_applicable": 0
+    },
+    "admission": {
+      "path": "docs/rebuild/r7/w3-execution-boundary-repaired.json",
+      "git_blob": "9ecc03d0f8a6cff278de537a81f4b3bc60018bac",
+      "canonical_bytes": 11379,
+      "canonical_sha256": "90af508c949a9039d6a147331417140c18c88a2ca475c5438c0a0c03cc14c799",
+      "status": "PASS",
+      "admitted_artifacts": 23
+    },
+    "historical_readiness_canonical_sha256": "9747c51ab5733a4aec5b5ed06f08bc29bc8b4e4ad7c51140209f0496c0a15b9b",
+    "historical_admission_canonical_sha256": "1cf0af9d514c1b6f342e524dc162172eab36444ce78fccbbaadcfd61cb378407",
+    "independent_regeneration_equal": true,
+    "proof_execution": "NOT-STARTED",
+    "execution_gate": "OPEN-FOR-FUTURE-SEPARATELY-AUTHORIZED-W3-RERUN"
+  },
+  "verification": {
+    "python_compilation": "PASS",
+    "w3_focused_tests": {
+      "status": "PASS",
+      "passed": 35
+    },
+    "repository_focused_tier": {
+      "status": "PASS",
+      "governance_tests": 18,
+      "r6_tests": 7,
+      "tool_tests": 88
+    },
+    "repository_full_tier": {
+      "status": "PASS",
+      "brain_governance_r6_tests": 46,
+      "tool_tests": 88
+    },
+    "rebuild_boundary": {
+      "status": "PASS",
+      "checks_after_closeout_records": 8458,
+      "failures": 0,
+      "active_poc_dependencies": 0
+    },
+    "brain_after_closeout_records": {
+      "status": "PASS",
+      "records": 173,
+      "errors": 0,
+      "warnings": 0,
+      "optional_info": 1
+    },
+    "governance": {
+      "status": "PASS",
+      "authority_sources": 23,
+      "records": 49,
+      "templates": 12,
+      "diagnostics": 0
+    },
+    "brain_ingest": "PASS",
+    "brain_indexes": "PASS",
+    "brain_links": "PASS",
+    "registry_and_evidence_packs": "PASS",
+    "historical_hash_immutability": "PASS",
+    "git_diff_check": "PASS",
+    "exceptions": [
+      "The first sandboxed build invocation could not write Python bytecode caches outside the configured writable root; the identical build gate passed with the authorized repository write scope.",
+      "The first post-closeout full tier exposed two stale Brain continuation assertions for the superseded abort handoff; the assertions were advanced to the certified repair handoff and the repeated full tier passed."
+    ]
+  },
+  "boundary": {
+    "w3_execution_state": "NOT-STARTED",
+    "gameplay_permission": "CLOSED",
+    "w4": "NOT-OPENED",
+    "prd08": "CLOSED",
+    "prd09": "NOT-OPENED",
+    "r8": "CLOSED",
+    "production_root_project_godot": "ABSENT",
+    "production_runtime": "ABSENT",
+    "production_dependencies_activated": false,
+    "prohibited_boundary_crossed": false
+  }
+}

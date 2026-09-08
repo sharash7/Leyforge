@@ -6,7 +6,7 @@ title: "Project State"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-08"
+updated: "2026-09-09"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
@@ -28,6 +28,8 @@ related_to:
   - "TASK-20260908-001"
   - "WORK-20260908-002"
   - "TASK-20260908-002"
+  - "AUDIT-0010"
+  - "EVID-0010"
   - "AUDIT-0009"
   - "EVID-0009"
   - "AUDIT-0001"
@@ -50,6 +52,7 @@ related_to:
   - "HANDOFF-20260906-005"
   - "HANDOFF-20260906-006"
   - "HANDOFF-20260908-002"
+  - "HANDOFF-20260908-003"
   - "ADR-0008"
   - "CONFLICT-0002"
 ---
@@ -64,7 +67,7 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active — W3 repair/re-certification underway | W0-W2 execution is certified; [[TASK-20260908-002]] / [[WORK-20260908-002]] are repairing the failed W3 boundary under [[HANDOFF-20260908-002]] without rerunning proofs |
+| R7 | Active — W3 repair/re-certification complete; rerun awaits fresh authority | W0-W2 execution is certified; [[EVID-0010]] / [[AUDIT-0010]] certify the repaired W3 boundary, and [[HANDOFF-20260908-003]] requires fresh owner authorization before any proof or 0058 allocation |
 | R8 gameplay | Closed | No production gameplay permission is open |
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
@@ -79,4 +82,6 @@ W3 readiness is repaired and certified under [[TASK-20260907-001]], [[WORK-20260
 
 The authorized real executor failed during the first client runtime self-report gate because the exact admitted GDScript did not parse under the pinned engine. No proof objective ran and no canonical proof outcome or standard PRD-07 pack exists. [[EVID-0009]] / [[AUDIT-0009]] certify the failure and cancelled execution package. The executor materialized 0051-0057 with immediate-allocation status and advanced RUN-0051 in memory but persisted neither W3 state nor packs; all seven pairs are quarantined from reuse through [[HANDOFF-20260908-002]]. The automated registry remains historically complete through 0050 but is not authority to reuse the quarantined transaction.
 
-The owner authorized the bounded W3 repair/re-certification package on 2026-09-08. [[TASK-20260908-002]] and [[WORK-20260908-002]] are active; actual proof rerun and new rerun identity allocation remain unauthorized. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, R8 remains closed and W4 is not the current next action.
+The owner-authorized bounded W3 repair/re-certification package is complete under [[TASK-20260908-002]] / [[WORK-20260908-002]] and certified by [[EVID-0010]] / [[AUDIT-0010]]. Exact implementation commit `45b0300caa0ebd66d4c740a71db983a7a9827f3b` passes real pinned-engine parse/load, clean export and exported-runtime validation. Repaired readiness is 7 READY / 0 BLOCKED / 0 NOT APPLICABLE and repaired admission pins 23 exact artifacts. The 0051-0057 transaction is authoritatively quarantined, non-reusable and evidence-ineligible; the issued high-water is 0057, and 0058 is only the first future preview.
+
+Actual W3 proof execution remains `NOT-STARTED`, no fresh rerun identity is allocated and [[HANDOFF-20260908-003]] is the sole active continuation boundary. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, R8 remains closed and W4 is not the current next action.

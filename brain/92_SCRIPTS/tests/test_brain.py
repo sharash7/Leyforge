@@ -191,15 +191,25 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(readiness_to_execution.metadata["supersedes"], "HANDOFF-20260906-007")
         self.assertEqual(readiness_to_execution.metadata["superseded_by"], "HANDOFF-20260908-002")
 
+        execution_to_repair = self.by_id["HANDOFF-20260908-002"]
+        self.assertEqual(execution_to_repair.metadata["status"], "superseded")
+        self.assertEqual(execution_to_repair.metadata["from_work"], "WORK-20260908-001")
+        self.assertEqual(
+            execution_to_repair.metadata["next_package"],
+            "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+        )
+        self.assertEqual(execution_to_repair.metadata["supersedes"], "HANDOFF-20260908-001")
+        self.assertEqual(execution_to_repair.metadata["superseded_by"], "HANDOFF-20260908-003")
+
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260908-001")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260908-002")
         self.assertEqual(handoff.metadata["next_gate"], "R7")
         self.assertEqual(
             handoff.metadata["next_package"],
-            "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+            "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN",
         )
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260908-001")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260908-002")
         self.assertEqual(self.by_id["TASK-20260907-001"].metadata["status"], "complete")
         self.assertEqual(self.by_id["WORK-20260907-001"].metadata["status"], "complete")
         self.assertEqual(self.by_id["TASK-20260906-008"].metadata["status"], "cancelled")
@@ -207,9 +217,13 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(self.by_id["TASK-20260908-001"].metadata["status"], "cancelled")
         self.assertEqual(self.by_id["WORK-20260908-001"].metadata["status"], "cancelled")
         self.assertEqual(self.by_id["AUDIT-0009"].metadata["result"], "FAIL")
-        self.assertIn("W3 requires repair/re-run", handoff.body)
-        self.assertIn("must not be reused or reallocated", handoff.body)
-        self.assertIn("No production/root `project.godot`", handoff.body)
+        self.assertEqual(self.by_id["TASK-20260908-002"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["WORK-20260908-002"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["AUDIT-0010"].metadata["result"], "PASS")
+        self.assertIn("W3 REPAIR/RECERTIFICATION COMPLETE", handoff.body)
+        self.assertIn("non-reusable", handoff.body)
+        self.assertIn("Production runtime remains absent", handoff.body)
+        self.assertIn("0058", handoff.body)
         self.assertIn("PRD04-PROOF-73 remains INCONCLUSIVE", handoff.body)
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
             self.assertIn(f"## {heading}", handoff.body)

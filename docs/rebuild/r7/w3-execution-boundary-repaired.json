@@ -1,0 +1,300 @@
+{
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "artifacts": [
+    {
+      "bytes": 4870,
+      "git_blob": "02ac2fc52eef3a3cd7fe16d9d34ee841ff83bf76",
+      "path": "docs/rebuild/r7/w3-allocation-reconciliation.json",
+      "sha256": "6d35b7ecf5c31fa1235c4e795b91a35948f73df60b6db4f2d499de3de848859e"
+    },
+    {
+      "bytes": 4495,
+      "git_blob": "cd407485ee3ff40d27207dbccc004d90716ea015",
+      "path": "docs/rebuild/r7/w3-pinned-engine-validation.json",
+      "sha256": "73988e7fe0d12f6dde6ac0a12e147915007d0378e88be8ffcec952eb13e39650"
+    },
+    {
+      "bytes": 15952,
+      "git_blob": "46410e3808d7e840e773a594f5471e04f313d1d1",
+      "path": "docs/rebuild/r7/w3-readiness-repaired.json",
+      "sha256": "795c260812bcbd9362d089594b601551714b88d52816a78a32794349bd68b258"
+    },
+    {
+      "bytes": 919,
+      "git_blob": "a33b9e040d21047a31ce5de7f17a79b3297ec27a",
+      "path": "proofs/r7/w3/README.md",
+      "sha256": "324117c0fb548f7e62213d2ccd5c1d20743975f266ef74739699d2f5578faaec"
+    },
+    {
+      "bytes": 800,
+      "git_blob": "9364a0bd6189366ee1b51318bc367e4689c3bdc0",
+      "path": "proofs/r7/w3/dependency-reference.json",
+      "sha256": "12aaba3507d6620698092f5ba7231790fce6db8b810fccb334b659bc80492571"
+    },
+    {
+      "bytes": 181,
+      "git_blob": "c81bc7f1814d5742559f3a4b613a6d617d77f7a7",
+      "path": "proofs/r7/w3/runtime/__init__.py",
+      "sha256": "9ae10c193f02875ae5044434e2c19ea791c425839a56089bb46c2262434c040f"
+    },
+    {
+      "bytes": 16413,
+      "git_blob": "b38a9fc06f1c7d72815936741a861460ecaca976",
+      "path": "proofs/r7/w3/runtime/model.py",
+      "sha256": "309c288847d0b1405c4650ff6510446e2e5eaf7d7de8a3dd9b4109bea7475bf2"
+    },
+    {
+      "bytes": 30199,
+      "git_blob": "96f1b0cd8bd6db6e87d6e984f5b36188b3f0f793",
+      "path": "proofs/r7/w3/runtime/runner.py",
+      "sha256": "bb9a84a0136b260e4109b0694d1ac40c63e63204a7e19918f4d6a9712f8e17eb"
+    },
+    {
+      "bytes": 167,
+      "git_blob": "d4eb50e339eed278df94ecf651446673cde28f4d",
+      "path": "proofs/r7/w3/server_probe/main.tscn",
+      "sha256": "cebdd9c946e15b122efaf2a4916100f1c6da7dd7c8d5a34bf253df03b1a067af"
+    },
+    {
+      "bytes": 525,
+      "git_blob": "26a4ab8dd1e25eaba2755eaab730f7050ed52334",
+      "path": "proofs/r7/w3/server_probe/project.godot",
+      "sha256": "154a1abb5bc4b94f6c66307bb12c96db85fc69cfa97fdcf6efc9db7d648b1738"
+    },
+    {
+      "bytes": 11080,
+      "git_blob": "82ba4f8d30521563589b59a2bd94f4abae9a3b42",
+      "path": "proofs/r7/w3/server_probe/src/main.gd",
+      "sha256": "3d205457bd8014954cfc3744606e7862de82a03971e1016de0b87167e82da15b"
+    },
+    {
+      "bytes": 69,
+      "git_blob": "fca96617cf8fc35dcd197af604ee9fd585a39dff",
+      "path": "tools/r7_w3_runtime/__init__.py",
+      "sha256": "cd535402b7c433254761994988746bb516cbe61c2f3cf0a88a54d07091429fd9"
+    },
+    {
+      "bytes": 112,
+      "git_blob": "12adbd6dbacdbce01bcf28f89da6b7c2f98eabdb",
+      "path": "tools/r7_w3_runtime/__main__.py",
+      "sha256": "682fb2e4a51aef358a73e8385ce278b69f2260836cfc88d12c74928dd21d06b4"
+    },
+    {
+      "bytes": 6795,
+      "git_blob": "38822ee9115973f764b22c8061b4d23638de0f70",
+      "path": "tools/r7_w3_runtime/admission.py",
+      "sha256": "cf31039ed1d56a0b214c555e6fd7dd7557e23c508c8eec9065af8f8760ce89a4"
+    },
+    {
+      "bytes": 26358,
+      "git_blob": "497b2af47ed8a58f8a886185e641b969c5d76422",
+      "path": "tools/r7_w3_runtime/builds.py",
+      "sha256": "1ea8794693febb8bf366c1fa428067f58fc81b6574c4603c50cefa66b9f380f7"
+    },
+    {
+      "bytes": 4263,
+      "git_blob": "83f415d48b3b5a1dd870c4e6268289d778f466d1",
+      "path": "tools/r7_w3_runtime/cli.py",
+      "sha256": "2ea9b3506de59feed4e4d6ce3134d0975bd85baa4053c5e453682ec3b859fca9"
+    },
+    {
+      "bytes": 2479,
+      "git_blob": "89f29f8024ceb75dddad0ac100e748cc2b1ac3e5",
+      "path": "tools/r7_w3_runtime/dependencies.py",
+      "sha256": "723fbb4c3847d1c563473d7c4b4946508ee24a7fd2ce0e9201788923343bbcc9"
+    },
+    {
+      "bytes": 29690,
+      "git_blob": "be75d0dcf9961c9111c8c0a2ea5b897d4dcd3f29",
+      "path": "tools/r7_w3_runtime/execution.py",
+      "sha256": "5cf0623296d1e3193538af02873010def87842e3b208d866f0359a943f718be4"
+    },
+    {
+      "bytes": 18282,
+      "git_blob": "ce278fc18252492888a64f89d8887643d7b189db",
+      "path": "tools/r7_w3_runtime/execution_plan.py",
+      "sha256": "d6ad335c05d47548f3cf8d08e3de35d6ca2818f4e5854684f01a2f1dd578458a"
+    },
+    {
+      "bytes": 16714,
+      "git_blob": "14968fe6ce7d8c18a9b78fd8d10cfbc4c10d71af",
+      "path": "tools/r7_w3_runtime/readiness.py",
+      "sha256": "bb7dbc1a79a428c66d88bc94267023287d01a4d8653fed7e13baff92ff93ceef"
+    },
+    {
+      "bytes": 28557,
+      "git_blob": "c8df155916b4c84bda8abb31161626da04304061",
+      "path": "tools/tests/test_r7_w3_runtime.py",
+      "sha256": "bdd593f9d50443333bbbfa90b3928e0e703345543c246d9ac82c6353e810a214"
+    },
+    {
+      "bytes": 6716,
+      "git_blob": "a366c794a4aa84ca77440c73419edf711b42a30f",
+      "path": "tools/verify.py",
+      "sha256": "51b42fe8a8407ef9d6200980b10c1fb5b2e1b367d3996c3e213fedcd9400b34f"
+    },
+    {
+      "bytes": 45251,
+      "git_blob": "31649873a0c3e0f2fc562f7e7e89f45de03ef40c",
+      "path": "tools/verify_rebuild_boundary.py",
+      "sha256": "b86c07f791556fdbe715103e02c5fea6982b1c67d4f5c9ecf3597b456751d758"
+    }
+  ],
+  "authority": [
+    "TASK-20260908-002",
+    "WORK-20260908-002",
+    "HANDOFF-20260908-002",
+    "EVID-0009",
+    "AUDIT-0009",
+    "DOC-PRD-07"
+  ],
+  "dependency_identity": {
+    "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_export_template": "4.8.dev4.official.b56a91878",
+    "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+  },
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "45b0300caa0ebd66d4c740a71db983a7a9827f3b",
+  "manifest_version": 2,
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+  "pinned_engine_validation": {
+    "allocated_evidence_ids": [],
+    "allocated_run_ids": [],
+    "checks": {
+      "controlled_entrypoint_reached": true,
+      "export_completed": true,
+      "export_prerequisites_valid": true,
+      "exported_runtime_validation_valid": true,
+      "pinned_engine_identity_valid": true,
+      "proof_execution_started": false,
+      "script_parse_load_valid": true,
+      "source_hash_identity_valid": true
+    },
+    "dependency_identity": {
+      "godot_build_driver_revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "godot_export_template_revision": "4.8.dev4.official.b56a91878",
+      "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "local_patch_status": "NO-LOCAL-PATCH",
+      "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+      "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+    },
+    "export_artifact": {
+      "bytes": 110441904,
+      "sha256": "e512df89aea6af8449f5a95203303aeb1717d61e7b753d757c1bd16d19445e57"
+    },
+    "export_process": {
+      "exit_code": 0,
+      "stderr_line_count": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_line_count": 24,
+      "stdout_sha256": "2d05488a846dd0b347aef5b6ad55119eb00cf7636d15b91652b2dc1f755d7af8",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "exported_runtime_process": {
+      "exit_code": 0,
+      "stderr_line_count": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_line_count": 3,
+      "stdout_sha256": "5569caebf351f49987528adad76a3e2c8be86671e32d0d1c50baaa9cf3612342",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "exported_runtime_report": {
+      "build_identity": "8f03cb3557a8a624ee2379e5d320ee50e78c7872acaba35fb936621eba44497e",
+      "collision_cases": 6,
+      "contact_errors": 0,
+      "controlled_entrypoint_reached": true,
+      "frame_round_trip_errors": 0,
+      "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+      "production_runtime": false,
+      "proof_execution_started": false,
+      "provider_errors": 0,
+      "provider_ready": true,
+      "role": "validation",
+      "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+      "script_parse_load_valid": true,
+      "status": "PASS"
+    },
+    "gameplay_permission": "CLOSED",
+    "implementation_commit": "45b0300caa0ebd66d4c740a71db983a7a9827f3b",
+    "production_runtime": "ABSENT",
+    "proof_execution": "NOT-STARTED",
+    "schema_version": "prd07-w3-pinned-engine-validation-v1",
+    "source_identity": {
+      "main_gd_bytes": 11080,
+      "main_gd_sha256": "3d205457bd8014954cfc3744606e7862de82a03971e1016de0b87167e82da15b",
+      "probe_tree_sha256": "9c672bb44671f1325964072be8d69b3a7535dbb17eaf7e1a29e4d5162c437e8a"
+    },
+    "source_process": {
+      "exit_code": 0,
+      "stderr_line_count": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_line_count": 3,
+      "stdout_sha256": "222b0d8469b5e477a8fd4dc769a5685ef8115784ba20b5faba462274d40d71cd",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "source_runtime_report": {
+      "build_identity": "8f03cb3557a8a624ee2379e5d320ee50e78c7872acaba35fb936621eba44497e",
+      "collision_cases": 6,
+      "contact_errors": 0,
+      "controlled_entrypoint_reached": true,
+      "frame_round_trip_errors": 0,
+      "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+      "production_runtime": false,
+      "proof_execution_started": false,
+      "provider_errors": 1,
+      "provider_ready": false,
+      "role": "validation",
+      "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+      "script_parse_load_valid": true,
+      "status": "PASS"
+    },
+    "status": "PASS"
+  },
+  "prior_boundary_disposition": {
+    "path": "docs/rebuild/r7/w3-execution-boundary-corrected.json",
+    "reason": "It admitted source without a real pinned-engine parse/load/export gate and predates authoritative 0051-0057 quarantine reconciliation.",
+    "state": "SUPERSEDED-INSUFFICIENT"
+  },
+  "proof_execution": "NOT-STARTED",
+  "quarantined_evidence_ids": [
+    "PRD07-EVID-0051",
+    "PRD07-EVID-0052",
+    "PRD07-EVID-0053",
+    "PRD07-EVID-0054",
+    "PRD07-EVID-0055",
+    "PRD07-EVID-0056",
+    "PRD07-EVID-0057"
+  ],
+  "quarantined_run_ids": [
+    "PRD07-RUN-0051",
+    "PRD07-RUN-0052",
+    "PRD07-RUN-0053",
+    "PRD07-RUN-0054",
+    "PRD07-RUN-0055",
+    "PRD07-RUN-0056",
+    "PRD07-RUN-0057"
+  ],
+  "registry": {
+    "evidence_high_water": 57,
+    "issued_identity_count": 57,
+    "next_future_sequence": 58,
+    "quarantine_paths": [
+      "docs/rebuild/r7/w3-allocation-reconciliation.json"
+    ],
+    "quarantined_identity_count": 7,
+    "retained_identity_count": 50,
+    "run_high_water": 57,
+    "state_paths": [
+      "docs/rebuild/r7/w0-execution-state.json",
+      "docs/rebuild/r7/w1-execution-state.json",
+      "docs/rebuild/r7/w2-execution-state.json"
+    ]
+  },
+  "scope": "development-only-prd07-proof-runtime",
+  "source_tree_identity": "e2216c2d6ee85671025214600bfe8cb3d21981db6ce974f47ae5772d72d9d73b"
+}

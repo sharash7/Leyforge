@@ -1,12 +1,14 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active handoff:** `HANDOFF-20260908-002`. `WORK-20260908-001` and `TASK-20260908-001` are cancelled after a controlled execution abort.
+**Active handoff:** `HANDOFF-20260908-003`. `WORK-20260908-002` and `TASK-20260908-002` completed the bounded W3 repair/re-certification; the prior execution records remain cancelled after their controlled abort.
 
-**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. W3 readiness was certified and mandatory execution revalidation passed, but the authorized executor failed before any proof ran. W3 repair/re-run is required. W4, W5 and FINAL remain open.
+**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. The first authorized W3 executor failed before any proof ran; the resulting source/control-plane repair and repaired readiness/admission are now complete and certified. A fresh owner-authorized W3 execution rerun is the next bounded action. W4, W5 and FINAL remain open.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
-**W3 repaired source commit:** `67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026`.
+**W3 pre-abort repaired source commit:** `67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026`.
+
+**W3 repair/re-certification implementation commit:** `45b0300caa0ebd66d4c740a71db983a7a9827f3b`.
 
 **W1 package starting commit:** `b531168b7c3b18a8d2126d8ac064260ecd6ff425`.
 
@@ -77,10 +79,18 @@ The guarded executor then created a fresh exact client export but the exported r
 
 Abort evidence is immutable at commit `e1458eb3589ca2ee844e9b5848e0226f6cdc56b5` and certified by `EVID-0009` / `AUDIT-0009`. The executor had materialized all seven 0051-0057 rows with immediate-allocation status and advanced RUN-0051 into execution in memory before failure. Although the automated persisted registry still ends at 0050, all 0051-0057 RUN/EVID pairs are quarantined and must not be reused until governed repair reconciles the transaction.
 
+## W3 Repair and Re-certification
+
+The owner-authorized `R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION` package is complete under `TASK-20260908-002` / `WORK-20260908-002` and certified by `EVID-0010` / `AUDIT-0010`. Implementation commit `45b0300caa0ebd66d4c740a71db983a7a9827f3b` replaces the unavailable collision call with an actual-world `PhysicsDirectSpaceState3D.collide_shape` query, adds a proof-inert validation mode, makes future allocation/failure transitions durable and covers failure/recovery behavior with 35 focused W3 tests.
+
+The exact pinned Godot driver parsed and loaded the repaired source, produced a clean release export and ran its validation self-report. Six collision cases, frame round trips and the pinned Voxel Tools provider checks reported zero errors; proof execution remained false and no identity was allocated. Repaired readiness reports 7 READY / 0 BLOCKED / 0 NOT APPLICABLE. Repaired admission pins 23 exact source, tooling, certification and quarantine artifacts.
+
+`docs/rebuild/r7/w3-allocation-reconciliation.json` now governs 0051-0057 as issued, evidence-ineligible and permanently non-reusable without fabricating proof outcomes or packs. The retained registry remains 50 W0-W2 pairs/packs through 0050; issued high-water is 0057; 0058 is only the first future preview and is not allocated.
+
 ## Remaining R7 Work
 
-W3 requires a fresh bounded repair/re-certification package under `HANDOFF-20260908-002`; source repair and rerun are not authorized by the cancelled execution package. W4, W5 and FINAL remain open, but W4 is not the present next action. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W3 repair/re-certification is complete. A fresh governed execution-rerun package under `HANDOFF-20260908-003` is required before executing any W3 proof or allocating 0058. W4, W5 and FINAL remain open, but W4 is not the present next action. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue only through [[HANDOFF-20260908-002]]. Do not repair/rerun W3, reuse 0051-0057, begin W4, evaluate PRD-08 or open R8 without the fresh authority required by that handoff.
+Continue only through [[HANDOFF-20260908-003]]. Do not execute/rerun W3, allocate 0058, reuse 0051-0057, begin W4, evaluate PRD-08 or open R8 without the fresh authority required by that handoff.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

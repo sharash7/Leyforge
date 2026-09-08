@@ -1,0 +1,450 @@
+{
+  "actual_w3_execution": "NOT-AUTHORIZED-BY-THIS-REPAIR-TASK",
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "certification_blockers": [],
+  "dependency_check": {
+    "issues": [],
+    "paths": {},
+    "status": "NOT-CHECKED"
+  },
+  "execution_gate": "OPEN-FOR-FUTURE-SEPARATELY-AUTHORIZED-W3-RERUN",
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "45b0300caa0ebd66d4c740a71db983a7a9827f3b",
+  "implementation_commit_source_match": true,
+  "issues": [],
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+  "package_state": "READY",
+  "pinned_engine_validation": {
+    "allocated_evidence_ids": [],
+    "allocated_run_ids": [],
+    "checks": {
+      "controlled_entrypoint_reached": true,
+      "export_completed": true,
+      "export_prerequisites_valid": true,
+      "exported_runtime_validation_valid": true,
+      "pinned_engine_identity_valid": true,
+      "proof_execution_started": false,
+      "script_parse_load_valid": true,
+      "source_hash_identity_valid": true
+    },
+    "dependency_identity": {
+      "godot_build_driver_revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "godot_export_template_revision": "4.8.dev4.official.b56a91878",
+      "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "local_patch_status": "NO-LOCAL-PATCH",
+      "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+      "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+    },
+    "export_artifact": {
+      "bytes": 110441904,
+      "sha256": "e512df89aea6af8449f5a95203303aeb1717d61e7b753d757c1bd16d19445e57"
+    },
+    "export_process": {
+      "exit_code": 0,
+      "stderr_line_count": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_line_count": 24,
+      "stdout_sha256": "2d05488a846dd0b347aef5b6ad55119eb00cf7636d15b91652b2dc1f755d7af8",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "exported_runtime_process": {
+      "exit_code": 0,
+      "stderr_line_count": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_line_count": 3,
+      "stdout_sha256": "5569caebf351f49987528adad76a3e2c8be86671e32d0d1c50baaa9cf3612342",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "exported_runtime_report": {
+      "build_identity": "8f03cb3557a8a624ee2379e5d320ee50e78c7872acaba35fb936621eba44497e",
+      "collision_cases": 6,
+      "contact_errors": 0,
+      "controlled_entrypoint_reached": true,
+      "frame_round_trip_errors": 0,
+      "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+      "production_runtime": false,
+      "proof_execution_started": false,
+      "provider_errors": 0,
+      "provider_ready": true,
+      "role": "validation",
+      "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+      "script_parse_load_valid": true,
+      "status": "PASS"
+    },
+    "gameplay_permission": "CLOSED",
+    "implementation_commit": "45b0300caa0ebd66d4c740a71db983a7a9827f3b",
+    "production_runtime": "ABSENT",
+    "proof_execution": "NOT-STARTED",
+    "schema_version": "prd07-w3-pinned-engine-validation-v1",
+    "source_identity": {
+      "main_gd_bytes": 11080,
+      "main_gd_sha256": "3d205457bd8014954cfc3744606e7862de82a03971e1016de0b87167e82da15b",
+      "probe_tree_sha256": "9c672bb44671f1325964072be8d69b3a7535dbb17eaf7e1a29e4d5162c437e8a"
+    },
+    "source_process": {
+      "exit_code": 0,
+      "stderr_line_count": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_line_count": 3,
+      "stdout_sha256": "222b0d8469b5e477a8fd4dc769a5685ef8115784ba20b5faba462274d40d71cd",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "source_runtime_report": {
+      "build_identity": "8f03cb3557a8a624ee2379e5d320ee50e78c7872acaba35fb936621eba44497e",
+      "collision_cases": 6,
+      "contact_errors": 0,
+      "controlled_entrypoint_reached": true,
+      "frame_round_trip_errors": 0,
+      "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+      "production_runtime": false,
+      "proof_execution_started": false,
+      "provider_errors": 1,
+      "provider_ready": false,
+      "role": "validation",
+      "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+      "script_parse_load_valid": true,
+      "status": "PASS"
+    },
+    "status": "PASS"
+  },
+  "pinned_engine_validation_source": "docs/rebuild/r7/w3-pinned-engine-validation.json",
+  "prd08_evaluation": "CLOSED",
+  "prior_readiness_disposition": {
+    "path": "docs/rebuild/r7/w3-readiness-corrected.json",
+    "reason": "It did not require a real pinned-engine parse/load/export validation and admitted source that failed before proof observation.",
+    "state": "SUPERSEDED-INSUFFICIENT"
+  },
+  "proof_execution": "NOT-STARTED",
+  "proofs": [
+    {
+      "area": "W3-B - VESSEL FRAME / OWNERSHIP",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-08",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.1"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0060",
+        "proof_id": "PRD04-PROOF-08",
+        "run_id": "PRD07-RUN-0060"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-08",
+      "readiness_classification": "READY — PINNED ENGINE VALIDATED",
+      "risk_consumers": [
+        "PRD06-RISK-A07",
+        "PRD06-RISK-J01",
+        "PRD06-RISK-J06",
+        "PRD06-RISK-J07",
+        "PRD06-RISK-J08",
+        "PRD06-RISK-J14"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Vessel Region Crossing"
+    },
+    {
+      "area": "W3-A - LOCAL FLUID CONSERVATION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-27",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.2"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-02",
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0058",
+        "proof_id": "PRD04-PROOF-27",
+        "run_id": "PRD07-RUN-0058"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-27",
+      "readiness_classification": "READY — PINNED ENGINE VALIDATED",
+      "risk_consumers": [
+        "PRD06-RISK-I01",
+        "PRD06-RISK-I03",
+        "PRD06-RISK-I06",
+        "PRD06-RISK-I07",
+        "PRD06-RISK-I08",
+        "PRD06-RISK-I09",
+        "PRD06-RISK-I11"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Fluid Boundary Breach"
+    },
+    {
+      "area": "W3-A - LOCAL FLUID CONSERVATION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-28",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.3"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-02",
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0059",
+        "proof_id": "PRD04-PROOF-28",
+        "run_id": "PRD07-RUN-0059"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-28",
+      "readiness_classification": "READY — PINNED ENGINE VALIDATED",
+      "risk_consumers": [
+        "PRD06-RISK-I01",
+        "PRD06-RISK-I02",
+        "PRD06-RISK-I03",
+        "PRD06-RISK-I04",
+        "PRD06-RISK-I05",
+        "PRD06-RISK-I08",
+        "PRD06-RISK-I09",
+        "PRD06-RISK-I10"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Ocean / Local Fluid Boundary"
+    },
+    {
+      "area": "W3-C - EDITABLE HULL / COLLISION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-29",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.4"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0062",
+        "proof_id": "PRD04-PROOF-29",
+        "run_id": "PRD07-RUN-0062"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-29",
+      "readiness_classification": "READY — PINNED ENGINE VALIDATED",
+      "risk_consumers": [
+        "PRD06-RISK-I12",
+        "PRD06-RISK-J01",
+        "PRD06-RISK-J02",
+        "PRD06-RISK-J04",
+        "PRD06-RISK-J09",
+        "PRD06-RISK-J10",
+        "PRD06-RISK-J11",
+        "PRD06-RISK-J13",
+        "PRD06-RISK-J15",
+        "PRD06-RISK-J16",
+        "PRD06-RISK-J17",
+        "PRD06-RISK-J18"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Vessel Hull Edit Underway"
+    },
+    {
+      "area": "W3-B - VESSEL FRAME / OWNERSHIP",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-30",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.5"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06",
+        "FIXTURE-05"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0061",
+        "proof_id": "PRD04-PROOF-30",
+        "run_id": "PRD07-RUN-0061"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-30",
+      "readiness_classification": "READY — PINNED ENGINE VALIDATED",
+      "risk_consumers": [
+        "PRD06-RISK-A07",
+        "PRD06-RISK-I12",
+        "PRD06-RISK-J06",
+        "PRD06-RISK-J08",
+        "PRD06-RISK-J14",
+        "PRD06-RISK-J16",
+        "PRD06-RISK-J18"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Moving Vessel Occupants"
+    },
+    {
+      "area": "W3-C - EDITABLE HULL / COLLISION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-31",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.6"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06",
+        "FIXTURE-09"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0063",
+        "proof_id": "PRD04-PROOF-31",
+        "run_id": "PRD07-RUN-0063"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-31",
+      "readiness_classification": "READY — PINNED ENGINE VALIDATED",
+      "risk_consumers": [
+        "PRD06-RISK-J01",
+        "PRD06-RISK-J02",
+        "PRD06-RISK-J03",
+        "PRD06-RISK-J09",
+        "PRD06-RISK-J11",
+        "PRD06-RISK-J12",
+        "PRD06-RISK-J14",
+        "PRD06-RISK-J15",
+        "PRD06-RISK-J18"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Vessel Collision Strategy Matrix"
+    },
+    {
+      "area": "W3-D - FLOODING / BUOYANCY INTEGRATION",
+      "authoritative_definition_present": true,
+      "authoritative_sources": [
+        ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-32",
+        ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.7"
+      ],
+      "blockers": [],
+      "execution_plan_mapping_valid": true,
+      "fixture_present": true,
+      "fixtures": [
+        "FIXTURE-06"
+      ],
+      "future_evidence_allocation_safe": true,
+      "future_identity_preview": {
+        "allocation_state": "PREVIEW-NOT-ALLOCATED",
+        "evidence_id": "PRD07-EVID-0064",
+        "proof_id": "PRD04-PROOF-32",
+        "run_id": "PRD07-RUN-0064"
+      },
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-32",
+      "readiness_classification": "READY — PINNED ENGINE VALIDATED",
+      "risk_consumers": [
+        "PRD06-RISK-I01",
+        "PRD06-RISK-I04",
+        "PRD06-RISK-I05",
+        "PRD06-RISK-I09",
+        "PRD06-RISK-I10",
+        "PRD06-RISK-I12",
+        "PRD06-RISK-J04",
+        "PRD06-RISK-J05",
+        "PRD06-RISK-J10",
+        "PRD06-RISK-J11",
+        "PRD06-RISK-J13",
+        "PRD06-RISK-J16",
+        "PRD06-RISK-J17",
+        "PRD06-RISK-J18"
+      ],
+      "runner_mapping_present": true,
+      "state": "READY",
+      "title": "Vessel Flooding / Buoyancy"
+    }
+  ],
+  "quarantined_evidence_ids": [
+    "PRD07-EVID-0051",
+    "PRD07-EVID-0052",
+    "PRD07-EVID-0053",
+    "PRD07-EVID-0054",
+    "PRD07-EVID-0055",
+    "PRD07-EVID-0056",
+    "PRD07-EVID-0057"
+  ],
+  "quarantined_run_ids": [
+    "PRD07-RUN-0051",
+    "PRD07-RUN-0052",
+    "PRD07-RUN-0053",
+    "PRD07-RUN-0054",
+    "PRD07-RUN-0055",
+    "PRD07-RUN-0056",
+    "PRD07-RUN-0057"
+  ],
+  "readiness_counts": {
+    "BLOCKED": 0,
+    "NOT_APPLICABLE": 0,
+    "OBSERVED": 0,
+    "READY": 7
+  },
+  "registry": {
+    "issued_evidence_count": 57,
+    "issued_run_count": 57,
+    "max_evidence_number": 57,
+    "max_run_number": 57,
+    "next_future_sequence": 58,
+    "quarantine_paths": [
+      "docs/rebuild/r7/w3-allocation-reconciliation.json"
+    ],
+    "quarantined_identity_count": 7,
+    "quarantined_run_ids": [
+      "PRD07-RUN-0051",
+      "PRD07-RUN-0052",
+      "PRD07-RUN-0053",
+      "PRD07-RUN-0054",
+      "PRD07-RUN-0055",
+      "PRD07-RUN-0056",
+      "PRD07-RUN-0057"
+    ],
+    "retained_identity_count": 50,
+    "retained_pack_count": 50,
+    "state_paths": [
+      "docs/rebuild/r7/w0-execution-state.json",
+      "docs/rebuild/r7/w1-execution-state.json",
+      "docs/rebuild/r7/w2-execution-state.json"
+    ]
+  },
+  "schema_version": "prd07-w3-readiness-v3",
+  "source_tree_identity": "e2216c2d6ee85671025214600bfe8cb3d21981db6ce974f47ae5772d72d9d73b",
+  "status": "PASS",
+  "w4_fcc13e_revalidation": "REQUIRED"
+}
