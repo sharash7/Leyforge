@@ -1,0 +1,37 @@
+{
+  "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+  "artifact_size_bytes": 110444512,
+  "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+  "evidence_artifacts": [
+    {
+      "bytes": 77395,
+      "kind": "boarding_state_ledger",
+      "path": "artifacts/boarding-state-ledger.json",
+      "sha256": "5b7edee69b3bfc5bd5218cef7bf06d8c36034dc09820392eb222efe7c0d2717a"
+    },
+    {
+      "bytes": 3729,
+      "kind": "physics_report",
+      "path": "artifacts/physics-report.json",
+      "sha256": "5adbee3f91f78921ca76bf557afd0934bf9a1d5a69aa2ffa43ea0847533a70d2"
+    },
+    {
+      "bytes": 21564,
+      "kind": "vessel_world_occupant_transform_trace",
+      "path": "artifacts/vessel-world-occupant-transform-trace.json",
+      "sha256": "743226faeee0ef4e1e4c60633ef2bd60c419c4e8aa77fd1bad60cc03c2103334"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0062",
+  "evidence_sha256": "58548df5ee8b68b3f46f456448678ab525ea8b0109068b175ab3648393f1f773",
+  "execution_kind": "actual-governed-execution",
+  "gameplay_permission": "CLOSED",
+  "outcome": "PASS-OBSERVED",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-30",
+  "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w3-execution-0059-0065-cc61b5d\\validated-evidence\\PRD07-RUN-0062",
+  "run_id": "PRD07-RUN-0062",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489"
+}

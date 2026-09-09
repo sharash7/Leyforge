@@ -1,0 +1,31 @@
+{
+  "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+  "artifact_size_bytes": 110444544,
+  "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+  "evidence_artifacts": [
+    {
+      "bytes": 453901,
+      "kind": "region_owner_epoch_trace",
+      "path": "artifacts/region-owner-epoch-trace.json",
+      "sha256": "1b0ebad15f0db1efbe3cd64709fcdb27218c09fdbe42ec3bca9c6d5ab54298e6"
+    },
+    {
+      "bytes": 61729,
+      "kind": "vessel_local_state_snapshots",
+      "path": "artifacts/vessel-local-state-snapshots.json",
+      "sha256": "732d129f783c5d86ba12eccb477e9afb074b407c082c5a422e42da11635a5981"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0061",
+  "evidence_sha256": "147239f48cc97764698379ea5aafb2d4d39b88443be87f32530951947e3dc2c1",
+  "execution_kind": "actual-governed-execution",
+  "gameplay_permission": "CLOSED",
+  "outcome": "PASS-OBSERVED",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-08",
+  "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w3-execution-0059-0065-cc61b5d\\validated-evidence\\PRD07-RUN-0061",
+  "run_id": "PRD07-RUN-0061",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489"
+}

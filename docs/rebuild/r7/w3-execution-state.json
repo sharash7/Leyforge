@@ -1,9 +1,23 @@
 {
   "allocated_evidence_ids": [
-    "PRD07-EVID-0058"
+    "PRD07-EVID-0058",
+    "PRD07-EVID-0059",
+    "PRD07-EVID-0060",
+    "PRD07-EVID-0061",
+    "PRD07-EVID-0062",
+    "PRD07-EVID-0063",
+    "PRD07-EVID-0064",
+    "PRD07-EVID-0065"
   ],
   "allocated_run_ids": [
-    "PRD07-RUN-0058"
+    "PRD07-RUN-0058",
+    "PRD07-RUN-0059",
+    "PRD07-RUN-0060",
+    "PRD07-RUN-0061",
+    "PRD07-RUN-0062",
+    "PRD07-RUN-0063",
+    "PRD07-RUN-0064",
+    "PRD07-RUN-0065"
   ],
   "allocation_history": [
     {
@@ -46,15 +60,365 @@
         }
       ],
       "terminal_disposition": "ABORTED-BEFORE-PROOF-OBSERVATION"
+    },
+    {
+      "acceptance_reason": "Total governed fluid amount remains conserved within the declared numeric representation tolerance; cross-boundary exchange is symmetric/explainable and stale work cannot replace newer state.",
+      "allocation_order": 2,
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "attempt_number_for_proof": 2,
+      "blockers": [],
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "evidence_id": "PRD07-EVID-0059",
+      "evidence_pack_status": "RETAINED",
+      "key_metrics": {
+        "boundary_exchanges": 10000,
+        "failed_current_exchanges": 0,
+        "maximum_conservation_error": 0,
+        "numeric_tolerance_units": 0,
+        "stale_state_commits": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0059",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-27",
+      "proof_observation_produced": true,
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0059",
+      "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        {
+          "from": "SPECIFIED",
+          "reason": "prerequisites evaluated",
+          "to": "READY"
+        },
+        {
+          "from": "READY",
+          "reason": "run identity allocated",
+          "to": "PRD07-RUN-ALLOCATED"
+        },
+        {
+          "from": "PRD07-RUN-ALLOCATED",
+          "reason": "execution started",
+          "to": "EXECUTING"
+        },
+        {
+          "from": "EXECUTING",
+          "reason": "execution outcome retained",
+          "to": "PASS-OBSERVED"
+        }
+      ]
+    },
+    {
+      "acceptance_reason": "Only bounded local regions simulate dynamically; ocean interaction follows explicit reservoir/level rules; all local volume change is attributable to measured reservoir exchange; no infinite-spread activation occurs.",
+      "allocation_order": 3,
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "attempt_number_for_proof": 1,
+      "blockers": [],
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "evidence_id": "PRD07-EVID-0060",
+      "evidence_pack_status": "RETAINED",
+      "key_metrics": {
+        "active_cell_limit": 256,
+        "breach_reseal_cycles": 500,
+        "maximum_active_cells": 1,
+        "maximum_unaccounted_volume": 0,
+        "unbounded_propagation_count": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0060",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-28",
+      "proof_observation_produced": true,
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0060",
+      "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        {
+          "from": "SPECIFIED",
+          "reason": "prerequisites evaluated",
+          "to": "READY"
+        },
+        {
+          "from": "READY",
+          "reason": "run identity allocated",
+          "to": "PRD07-RUN-ALLOCATED"
+        },
+        {
+          "from": "PRD07-RUN-ALLOCATED",
+          "reason": "execution started",
+          "to": "EXECUTING"
+        },
+        {
+          "from": "EXECUTING",
+          "reason": "execution outcome retained",
+          "to": "PASS-OBSERVED"
+        }
+      ]
+    },
+    {
+      "acceptance_reason": "Vessel keeps one semantic identity and unchanged local hull state; exactly one current owner exists; world placement changes coherently; old-region work cannot mutate the post-crossing vessel.",
+      "allocation_order": 4,
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "attempt_number_for_proof": 1,
+      "blockers": [],
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "evidence_id": "PRD07-EVID-0061",
+      "evidence_pack_status": "RETAINED",
+      "key_metrics": {
+        "crossings": 5000,
+        "hull_state_errors": 0,
+        "identity_errors": 0,
+        "owner_count_errors": 0,
+        "stale_old_region_commits": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0061",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-08",
+      "proof_observation_produced": true,
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0061",
+      "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        {
+          "from": "SPECIFIED",
+          "reason": "prerequisites evaluated",
+          "to": "READY"
+        },
+        {
+          "from": "READY",
+          "reason": "run identity allocated",
+          "to": "PRD07-RUN-ALLOCATED"
+        },
+        {
+          "from": "PRD07-RUN-ALLOCATED",
+          "reason": "execution started",
+          "to": "EXECUTING"
+        },
+        {
+          "from": "EXECUTING",
+          "reason": "execution outcome retained",
+          "to": "PASS-OBSERVED"
+        }
+      ]
+    },
+    {
+      "acceptance_reason": "Occupants retain stable identity and coherent vessel-local/world positions; vessel motion is applied exactly once; transitions on/off vessel are explicit and reversible.",
+      "allocation_order": 5,
+      "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+      "attempt_number_for_proof": 1,
+      "blockers": [],
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "evidence_id": "PRD07-EVID-0062",
+      "evidence_pack_status": "RETAINED",
+      "key_metrics": {
+        "boarding_transitions": 500,
+        "double_motion_count": 0,
+        "exported_physics_report_present": true,
+        "frame_round_trip_errors": 0,
+        "identity_errors": 0,
+        "movement_steps": 10000
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0062",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-30",
+      "proof_observation_produced": true,
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0062",
+      "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        {
+          "from": "SPECIFIED",
+          "reason": "prerequisites evaluated",
+          "to": "READY"
+        },
+        {
+          "from": "READY",
+          "reason": "run identity allocated",
+          "to": "PRD07-RUN-ALLOCATED"
+        },
+        {
+          "from": "PRD07-RUN-ALLOCATED",
+          "reason": "execution started",
+          "to": "EXECUTING"
+        },
+        {
+          "from": "EXECUTING",
+          "reason": "execution outcome retained",
+          "to": "PASS-OBSERVED"
+        }
+      ]
+    },
+    {
+      "acceptance_reason": "Hull edit commits exactly once; every derived property either matches the current hull revision or is explicitly stale/quarantined; old results cannot replace current vessel state.",
+      "allocation_order": 6,
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "attempt_number_for_proof": 1,
+      "blockers": [],
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "evidence_id": "PRD07-EVID-0063",
+      "evidence_pack_status": "RETAINED",
+      "key_metrics": {
+        "current_projection_publish_failures": 0,
+        "duplicate_or_lost_hull_elements": 0,
+        "stale_publications_accepted": 0,
+        "underway_hull_edits": 2000
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0063",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-29",
+      "proof_observation_produced": true,
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0063",
+      "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        {
+          "from": "SPECIFIED",
+          "reason": "prerequisites evaluated",
+          "to": "READY"
+        },
+        {
+          "from": "READY",
+          "reason": "run identity allocated",
+          "to": "PRD07-RUN-ALLOCATED"
+        },
+        {
+          "from": "PRD07-RUN-ALLOCATED",
+          "reason": "execution started",
+          "to": "EXECUTING"
+        },
+        {
+          "from": "EXECUTING",
+          "reason": "execution outcome retained",
+          "to": "PASS-OBSERVED"
+        }
+      ]
+    },
+    {
+      "acceptance_reason": "At least one candidate preserves the required contact semantics, respects stale-revision quarantine and demonstrates a plausible scaling path for larger editable vessels without hidden authority inversion.",
+      "allocation_order": 7,
+      "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+      "attempt_number_for_proof": 1,
+      "blockers": [],
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "evidence_id": "PRD07-EVID-0064",
+      "evidence_pack_status": "RETAINED",
+      "key_metrics": {
+        "candidate_rows": 9,
+        "physics_report_errors": 0,
+        "semantic_contact_errors": 0,
+        "stale_rebuilds_accepted": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0064",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-31",
+      "proof_observation_produced": true,
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0064",
+      "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        {
+          "from": "SPECIFIED",
+          "reason": "prerequisites evaluated",
+          "to": "READY"
+        },
+        {
+          "from": "READY",
+          "reason": "run identity allocated",
+          "to": "PRD07-RUN-ALLOCATED"
+        },
+        {
+          "from": "PRD07-RUN-ALLOCATED",
+          "reason": "execution started",
+          "to": "EXECUTING"
+        },
+        {
+          "from": "EXECUTING",
+          "reason": "execution outcome retained",
+          "to": "PASS-OBSERVED"
+        }
+      ]
+    },
+    {
+      "acceptance_reason": "Water exchange is conserved/accounted; total mass and COM reflect current contained water/cargo/hull state; buoyancy consumes compatible current revisions or explicitly degrades; repairs stop future ingress without deleting existing water.",
+      "allocation_order": 8,
+      "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+      "attempt_number_for_proof": 1,
+      "blockers": [],
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "evidence_id": "PRD07-EVID-0065",
+      "evidence_pack_status": "RETAINED",
+      "key_metrics": {
+        "breach_repair_cargo_scenarios": 400,
+        "exported_physics_report_present": true,
+        "mass_errors": 0,
+        "repair_water_deletions": 0,
+        "stale_buoyancy_publications": 0,
+        "water_conservation_errors": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0065",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "prior_state": "HARNESS-BLOCKED",
+      "proof_id": "PRD04-PROOF-32",
+      "proof_observation_produced": true,
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0065",
+      "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        {
+          "from": "SPECIFIED",
+          "reason": "prerequisites evaluated",
+          "to": "READY"
+        },
+        {
+          "from": "READY",
+          "reason": "run identity allocated",
+          "to": "PRD07-RUN-ALLOCATED"
+        },
+        {
+          "from": "PRD07-RUN-ALLOCATED",
+          "reason": "execution started",
+          "to": "EXECUTING"
+        },
+        {
+          "from": "EXECUTING",
+          "reason": "execution outcome retained",
+          "to": "PASS-OBSERVED"
+        }
+      ]
     }
   ],
   "export_lanes": {
     "client": {
-      "artifact_sha256": "a7ba948a3ef0639723e8c13c5636cf011366cd109829c6d35720e6e8b094bebe",
-      "artifact_size_bytes": 110444496,
-      "build_identity": "c5795b9b33ad560d222841c98e3d5c7b42c825ba641ef5442a91caf4825e3130",
+      "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+      "artifact_size_bytes": 110444512,
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
       "runtime_self_report": {
-        "build_identity": "c5795b9b33ad560d222841c98e3d5c7b42c825ba641ef5442a91caf4825e3130",
+        "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
         "contact_errors": 0,
         "fixture_capabilities": [
           "stable-vessel-semantic-id",
@@ -76,6 +440,7 @@
         "frame_round_trip_errors": 0,
         "presentation_authority_dependencies": 0,
         "production_runtime": false,
+        "proof_execution_started": false,
         "provider_class": "VoxelBuffer",
         "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
         "provider_errors": 0,
@@ -96,11 +461,11 @@
       "state": "PASS"
     },
     "headless": {
-      "artifact_sha256": "ea0ca06c40a52fb6e39d281b0bbaef284ad49fb0e81ba825722126503e3278b6",
-      "artifact_size_bytes": 110444528,
-      "build_identity": "c2fbd7aba766d4419e7a77e3cd18873e410db27d772efd0a074146ada4d12fce",
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "artifact_size_bytes": 110444544,
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
       "runtime_self_report": {
-        "build_identity": "c2fbd7aba766d4419e7a77e3cd18873e410db27d772efd0a074146ada4d12fce",
+        "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
         "contact_errors": 0,
         "fixture_capabilities": [
           "stable-vessel-semantic-id",
@@ -122,6 +487,7 @@
         "frame_round_trip_errors": 0,
         "presentation_authority_dependencies": 0,
         "production_runtime": false,
+        "proof_execution_started": false,
         "provider_class": "VoxelBuffer",
         "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
         "provider_errors": 0,
@@ -143,68 +509,194 @@
     }
   },
   "gameplay_permission": "CLOSED",
+  "latest_source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
   "package": "R7-W3-FLUID-VESSEL-MOVING-FRAME-PROOFS",
-  "package_state": "ABORTED-BEFORE-PROOF-OBSERVATION",
+  "package_state": "W3-EXECUTION-COMPLETE",
   "prd08_evaluation": "CLOSED",
   "prior_readiness_source": "docs/rebuild/r7/w3-readiness-repaired.json",
   "proofs": [
     {
-      "attempt_run_ids": [],
+      "acceptance_reason": "Vessel keeps one semantic identity and unchanged local hull state; exactly one current owner exists; world placement changes coherently; old-region work cannot mutate the post-crossing vessel.",
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "attempt_run_ids": [
+        "PRD07-RUN-0061"
+      ],
       "blockers": [],
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "current_run_id": "PRD07-RUN-0061",
+      "evidence_id": "PRD07-EVID-0061",
+      "key_metrics": {
+        "crossings": 5000,
+        "hull_state_errors": 0,
+        "identity_errors": 0,
+        "owner_count_errors": 0,
+        "stale_old_region_commits": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0061",
+      "prd08_submission": "NOT-SUBMITTED",
       "prior_state": "HARNESS-BLOCKED",
       "proof_id": "PRD04-PROOF-08",
       "readiness": "READY",
-      "state": "NOT-RUN"
+      "run_id": "PRD07-RUN-0061",
+      "state": "PASS-OBSERVED"
     },
     {
+      "acceptance_reason": "Total governed fluid amount remains conserved within the declared numeric representation tolerance; cross-boundary exchange is symmetric/explainable and stale work cannot replace newer state.",
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
       "attempt_run_ids": [
-        "PRD07-RUN-0058"
+        "PRD07-RUN-0058",
+        "PRD07-RUN-0059"
       ],
       "blockers": [],
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "current_run_id": "PRD07-RUN-0059",
+      "evidence_id": "PRD07-EVID-0059",
+      "key_metrics": {
+        "boundary_exchanges": 10000,
+        "failed_current_exchanges": 0,
+        "maximum_conservation_error": 0,
+        "numeric_tolerance_units": 0,
+        "stale_state_commits": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0059",
+      "prd08_submission": "NOT-SUBMITTED",
       "prior_state": "HARNESS-BLOCKED",
       "proof_id": "PRD04-PROOF-27",
       "readiness": "READY",
-      "state": "NOT-RUN"
+      "run_id": "PRD07-RUN-0059",
+      "state": "PASS-OBSERVED"
     },
     {
-      "attempt_run_ids": [],
+      "acceptance_reason": "Only bounded local regions simulate dynamically; ocean interaction follows explicit reservoir/level rules; all local volume change is attributable to measured reservoir exchange; no infinite-spread activation occurs.",
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "attempt_run_ids": [
+        "PRD07-RUN-0060"
+      ],
       "blockers": [],
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "current_run_id": "PRD07-RUN-0060",
+      "evidence_id": "PRD07-EVID-0060",
+      "key_metrics": {
+        "active_cell_limit": 256,
+        "breach_reseal_cycles": 500,
+        "maximum_active_cells": 1,
+        "maximum_unaccounted_volume": 0,
+        "unbounded_propagation_count": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0060",
+      "prd08_submission": "NOT-SUBMITTED",
       "prior_state": "HARNESS-BLOCKED",
       "proof_id": "PRD04-PROOF-28",
       "readiness": "READY",
-      "state": "NOT-RUN"
+      "run_id": "PRD07-RUN-0060",
+      "state": "PASS-OBSERVED"
     },
     {
-      "attempt_run_ids": [],
+      "acceptance_reason": "Hull edit commits exactly once; every derived property either matches the current hull revision or is explicitly stale/quarantined; old results cannot replace current vessel state.",
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "attempt_run_ids": [
+        "PRD07-RUN-0063"
+      ],
       "blockers": [],
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "current_run_id": "PRD07-RUN-0063",
+      "evidence_id": "PRD07-EVID-0063",
+      "key_metrics": {
+        "current_projection_publish_failures": 0,
+        "duplicate_or_lost_hull_elements": 0,
+        "stale_publications_accepted": 0,
+        "underway_hull_edits": 2000
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0063",
+      "prd08_submission": "NOT-SUBMITTED",
       "prior_state": "HARNESS-BLOCKED",
       "proof_id": "PRD04-PROOF-29",
       "readiness": "READY",
-      "state": "NOT-RUN"
+      "run_id": "PRD07-RUN-0063",
+      "state": "PASS-OBSERVED"
     },
     {
-      "attempt_run_ids": [],
+      "acceptance_reason": "Occupants retain stable identity and coherent vessel-local/world positions; vessel motion is applied exactly once; transitions on/off vessel are explicit and reversible.",
+      "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+      "attempt_run_ids": [
+        "PRD07-RUN-0062"
+      ],
       "blockers": [],
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "current_run_id": "PRD07-RUN-0062",
+      "evidence_id": "PRD07-EVID-0062",
+      "key_metrics": {
+        "boarding_transitions": 500,
+        "double_motion_count": 0,
+        "exported_physics_report_present": true,
+        "frame_round_trip_errors": 0,
+        "identity_errors": 0,
+        "movement_steps": 10000
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0062",
+      "prd08_submission": "NOT-SUBMITTED",
       "prior_state": "HARNESS-BLOCKED",
       "proof_id": "PRD04-PROOF-30",
       "readiness": "READY",
-      "state": "NOT-RUN"
+      "run_id": "PRD07-RUN-0062",
+      "state": "PASS-OBSERVED"
     },
     {
-      "attempt_run_ids": [],
+      "acceptance_reason": "At least one candidate preserves the required contact semantics, respects stale-revision quarantine and demonstrates a plausible scaling path for larger editable vessels without hidden authority inversion.",
+      "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+      "attempt_run_ids": [
+        "PRD07-RUN-0064"
+      ],
       "blockers": [],
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "current_run_id": "PRD07-RUN-0064",
+      "evidence_id": "PRD07-EVID-0064",
+      "key_metrics": {
+        "candidate_rows": 9,
+        "physics_report_errors": 0,
+        "semantic_contact_errors": 0,
+        "stale_rebuilds_accepted": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0064",
+      "prd08_submission": "NOT-SUBMITTED",
       "prior_state": "HARNESS-BLOCKED",
       "proof_id": "PRD04-PROOF-31",
       "readiness": "READY",
-      "state": "NOT-RUN"
+      "run_id": "PRD07-RUN-0064",
+      "state": "PASS-OBSERVED"
     },
     {
-      "attempt_run_ids": [],
+      "acceptance_reason": "Water exchange is conserved/accounted; total mass and COM reflect current contained water/cargo/hull state; buoyancy consumes compatible current revisions or explicitly degrades; repairs stop future ingress without deleting existing water.",
+      "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+      "attempt_run_ids": [
+        "PRD07-RUN-0065"
+      ],
       "blockers": [],
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "current_run_id": "PRD07-RUN-0065",
+      "evidence_id": "PRD07-EVID-0065",
+      "key_metrics": {
+        "breach_repair_cargo_scenarios": 400,
+        "exported_physics_report_present": true,
+        "mass_errors": 0,
+        "repair_water_deletions": 0,
+        "stale_buoyancy_publications": 0,
+        "water_conservation_errors": 0
+      },
+      "limitations": [],
+      "portable_path": "D:\\AI\\Projects\\leyforge-rebuild\\docs\\rebuild\\r7\\execution-evidence\\PRD07-RUN-0065",
+      "prd08_submission": "NOT-SUBMITTED",
       "prior_state": "HARNESS-BLOCKED",
       "proof_id": "PRD04-PROOF-32",
       "readiness": "READY",
-      "state": "NOT-RUN"
+      "run_id": "PRD07-RUN-0065",
+      "state": "PASS-OBSERVED"
     }
   ],
   "schema_version": "prd07-w3-execution-state-v2",

@@ -1,0 +1,6457 @@
+{
+  "acceptance_reason": "Occupants retain stable identity and coherent vessel-local/world positions; vessel motion is applied exactly once; transitions on/off vessel are explicit and reversible.",
+  "artifacts": {
+    "boarding_state_ledger": [
+      {
+        "semantic_id": "occupant.transition.0",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.1",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.2",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.3",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.4",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.5",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.6",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.7",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.8",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.9",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.10",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.11",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.12",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.13",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.14",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.15",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.16",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.17",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.18",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.19",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.20",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.21",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.22",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.23",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.24",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.25",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.26",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.27",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.28",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.29",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.30",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.31",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.32",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.33",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.34",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.35",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.36",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.37",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.38",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.39",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.40",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.41",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.42",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.43",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.44",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.45",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.46",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.47",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.48",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.49",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.50",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.51",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.52",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.53",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.54",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.55",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.56",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.57",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.58",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.59",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.60",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.61",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.62",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.63",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.64",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.65",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.66",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.67",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.68",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.69",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.70",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.71",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.72",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.73",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.74",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.75",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.76",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.77",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.78",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.79",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.80",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.81",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.82",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.83",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.84",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.85",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.86",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.87",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.88",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.89",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.90",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.91",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.92",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.93",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.94",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.95",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.96",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.97",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.98",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.99",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.100",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.101",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.102",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.103",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.104",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.105",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.106",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.107",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.108",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.109",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.110",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.111",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.112",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.113",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.114",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.115",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.116",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.117",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.118",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.119",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.120",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.121",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.122",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.123",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.124",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.125",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.126",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.127",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.128",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.129",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.130",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.131",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.132",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.133",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.134",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.135",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.136",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.137",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.138",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.139",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.140",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.141",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.142",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.143",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.144",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.145",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.146",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.147",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.148",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.149",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.150",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.151",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.152",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.153",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.154",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.155",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.156",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.157",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.158",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.159",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.160",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.161",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.162",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.163",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.164",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.165",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.166",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.167",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.168",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.169",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.170",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.171",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.172",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.173",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.174",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.175",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.176",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.177",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.178",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.179",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.180",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.181",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.182",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.183",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.184",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.185",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.186",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.187",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.188",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.189",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.190",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.191",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.192",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.193",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.194",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.195",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.196",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.197",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.198",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.199",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.200",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.201",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.202",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.203",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.204",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.205",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.206",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.207",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.208",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.209",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.210",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.211",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.212",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.213",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.214",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.215",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.216",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.217",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.218",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.219",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.220",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.221",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.222",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.223",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.224",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.225",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.226",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.227",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.228",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.229",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.230",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.231",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.232",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.233",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.234",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.235",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.236",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.237",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.238",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.239",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.240",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.241",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.242",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.243",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.244",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.245",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.246",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.247",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.248",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.249",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.250",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.251",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.252",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.253",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.254",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.255",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.256",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.257",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.258",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.259",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.260",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.261",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.262",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.263",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.264",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.265",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.266",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.267",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.268",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.269",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.270",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.271",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.272",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.273",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.274",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.275",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.276",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.277",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.278",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.279",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.280",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.281",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.282",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.283",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.284",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.285",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.286",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.287",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.288",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.289",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.290",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.291",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.292",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.293",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.294",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.295",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.296",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.297",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.298",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.299",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.300",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.301",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.302",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.303",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.304",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.305",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.306",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.307",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.308",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.309",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.310",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.311",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.312",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.313",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.314",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.315",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.316",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.317",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.318",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.319",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.320",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.321",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.322",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.323",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.324",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.325",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.326",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.327",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.328",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.329",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.330",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.331",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.332",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.333",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.334",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.335",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.336",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.337",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.338",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.339",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.340",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.341",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.342",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.343",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.344",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.345",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.346",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.347",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.348",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.349",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.350",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.351",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.352",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.353",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.354",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.355",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.356",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.357",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.358",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.359",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.360",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.361",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.362",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.363",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.364",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.365",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.366",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.367",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.368",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.369",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.370",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.371",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.372",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.373",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.374",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.375",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.376",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.377",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.378",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.379",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.380",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.381",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.382",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.383",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.384",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.385",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.386",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.387",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.388",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.389",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.390",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.391",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.392",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.393",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.394",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.395",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.396",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.397",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.398",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.399",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.400",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.401",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.402",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.403",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.404",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.405",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.406",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.407",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.408",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.409",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.410",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.411",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.412",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.413",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.414",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.415",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.416",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.417",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.418",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.419",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.420",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.421",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.422",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.423",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.424",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.425",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.426",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.427",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.428",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.429",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.430",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.431",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.432",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.433",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.434",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.435",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.436",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.437",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.438",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.439",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.440",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.441",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.442",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.443",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.444",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.445",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.446",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.447",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.448",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.449",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.450",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.451",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.452",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.453",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.454",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.455",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.456",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.457",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.458",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.459",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.460",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.461",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.462",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.463",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.464",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.465",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.466",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.467",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.468",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.469",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.470",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.471",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.472",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.473",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.474",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.475",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.476",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.477",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.478",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.479",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.480",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.481",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.482",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.483",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.484",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.485",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.486",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.487",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.488",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.489",
+        "state": "DISEMBARKED",
+        "world": [
+          2504.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.490",
+        "state": "DISEMBARKED",
+        "world": [
+          2505.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.491",
+        "state": "DISEMBARKED",
+        "world": [
+          2506.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.492",
+        "state": "DISEMBARKED",
+        "world": [
+          2507.75,
+          1.0,
+          -1251.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.493",
+        "state": "DISEMBARKED",
+        "world": [
+          2508.75,
+          1.0,
+          -1252.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.494",
+        "state": "DISEMBARKED",
+        "world": [
+          2509.75,
+          1.0,
+          -1253.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.495",
+        "state": "DISEMBARKED",
+        "world": [
+          2499.75,
+          1.0,
+          -1254.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.496",
+        "state": "DISEMBARKED",
+        "world": [
+          2500.75,
+          1.0,
+          -1255.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.497",
+        "state": "DISEMBARKED",
+        "world": [
+          2501.75,
+          1.0,
+          -1249.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.498",
+        "state": "DISEMBARKED",
+        "world": [
+          2502.75,
+          1.0,
+          -1250.875
+        ]
+      },
+      {
+        "semantic_id": "occupant.transition.499",
+        "state": "DISEMBARKED",
+        "world": [
+          2503.75,
+          1.0,
+          -1251.875
+        ]
+      }
+    ],
+    "physics_report": {
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "collision_candidates": [
+        "compound-convex",
+        "segmented-cluster",
+        "coarse-dynamic-query-detail"
+      ],
+      "collision_cases": 1536,
+      "contact_errors": 0,
+      "contact_value_count": 6144,
+      "external_process": true,
+      "fixture_capabilities": [
+        "stable-vessel-semantic-id",
+        "vessel-local-frame",
+        "world-vessel-frame-conversion",
+        "owner-region-epochs",
+        "editable-local-hull",
+        "revisioned-derived-properties",
+        "bounded-local-fluid",
+        "explicit-ocean-reservoir",
+        "breach-repair-pump",
+        "contained-water-mass",
+        "buoyancy-diagnostic",
+        "controlled-motion",
+        "board-disembark",
+        "physics-shape-collision-corpus",
+        "stale-result-quarantine"
+      ],
+      "frame_round_trip_errors": 0,
+      "frame_round_trips": 512,
+      "maximum_frame_error": 7.62939453125e-05,
+      "outcome": "PASS",
+      "physics_authority": "EXECUTION-EVIDENCE-ONLY",
+      "physics_backend": "DEFAULT",
+      "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+      "presentation_authority_dependencies": 0,
+      "process": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "PRD04-PROOF-30-W3-FLUID-VESSEL-FIXTURE",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w3-execution-0059-0065-cc61b5d\\builds\\client\\output\\leyforge-w3-client-probe.exe",
+            "--",
+            "--mode",
+            "fixture",
+            "--proof-id",
+            "PRD04-PROOF-30",
+            "--run-id",
+            "PRD07-RUN-0062",
+            "--iterations",
+            "512"
+          ],
+          "duration_seconds": 1.1294187000000022,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W3_FIXTURE_REPORT {\"build_identity\":\"5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455\",\"collision_candidates\":[\"compound-convex\",\"segmented-cluster\",\"coarse-dynamic-query-detail\"],\"collision_cases\":1536,\"contact_errors\":0,\"contact_value_count\":6144,\"fixture_capabilities\":[\"stable-vessel-semantic-id\",\"vessel-local-frame\",\"world-vessel-frame-conversion\",\"owner-region-epochs\",\"editable-local-hull\",\"revisioned-derived-properties\",\"bounded-local-fluid\",\"explicit-ocean-reservoir\",\"breach-repair-pump\",\"contained-water-mass\",\"buoyancy-diagnostic\",\"controlled-motion\",\"board-disembark\",\"physics-shape-collision-corpus\",\"stale-result-quarantine\"],\"frame_round_trip_errors\":0,\"frame_round_trips\":512,\"maximum_frame_error\":0.0000762939453125,\"outcome\":\"PASS\",\"physics_authority\":\"EXECUTION-EVIDENCE-ONLY\",\"physics_backend\":\"DEFAULT\",\"physics_query_api\":\"PhysicsDirectSpaceState3D.collide_shape\",\"presentation_authority_dependencies\":0,\"production_runtime\":false,\"proof_id\":\"PRD04-PROOF-30\",\"provider_errors\":0,\"provider_operations\":512,\"provider_ready\":true,\"role\":\"client\",\"run_id\":\"PRD07-RUN-0062\",\"schema_version\":\"prd07-w3-exported-fixture-report-v1\",\"shape_count\":6,\"status\":\"PASS\"}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-30",
+        "role": "client",
+        "run_id": "PRD07-RUN-0062"
+      },
+      "production_runtime": false,
+      "proof_id": "PRD04-PROOF-30",
+      "provider_errors": 0,
+      "provider_operations": 512,
+      "provider_ready": true,
+      "role": "client",
+      "run_id": "PRD07-RUN-0062",
+      "schema_version": "prd07-w3-exported-fixture-report-v1",
+      "shape_count": 6,
+      "status": "PASS"
+    },
+    "vessel_world_occupant_transform_trace": [
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 0,
+        "world": [
+          2.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 1,
+        "world": [
+          0.25,
+          2.0,
+          1.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 2,
+        "world": [
+          -1.5,
+          3.0,
+          -0.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 3,
+        "world": [
+          0.75,
+          1.0,
+          -2.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 4,
+        "world": [
+          3.0,
+          2.0,
+          -0.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 5,
+        "world": [
+          1.25,
+          3.0,
+          1.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 6,
+        "world": [
+          -0.5,
+          1.0,
+          -0.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 7,
+        "world": [
+          1.75,
+          2.0,
+          -2.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 8,
+        "world": [
+          4.0,
+          3.0,
+          -1.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 9,
+        "world": [
+          2.25,
+          1.0,
+          0.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 10,
+        "world": [
+          0.5,
+          2.0,
+          -1.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 11,
+        "world": [
+          2.75,
+          3.0,
+          -3.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 12,
+        "world": [
+          5.0,
+          1.0,
+          -1.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 13,
+        "world": [
+          3.25,
+          2.0,
+          0.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 14,
+        "world": [
+          1.5,
+          3.0,
+          -1.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 15,
+        "world": [
+          3.75,
+          1.0,
+          -3.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 16,
+        "world": [
+          6.0,
+          2.0,
+          -2.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 17,
+        "world": [
+          4.25,
+          3.0,
+          -0.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 18,
+        "world": [
+          2.5,
+          1.0,
+          -2.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 19,
+        "world": [
+          4.75,
+          2.0,
+          -4.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 20,
+        "world": [
+          7.0,
+          3.0,
+          -2.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 21,
+        "world": [
+          5.25,
+          1.0,
+          -0.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 22,
+        "world": [
+          3.5,
+          2.0,
+          -2.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 23,
+        "world": [
+          5.75,
+          3.0,
+          -4.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 24,
+        "world": [
+          8.0,
+          1.0,
+          -3.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 25,
+        "world": [
+          6.25,
+          2.0,
+          -1.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 26,
+        "world": [
+          4.5,
+          3.0,
+          -3.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 27,
+        "world": [
+          6.75,
+          1.0,
+          -5.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 28,
+        "world": [
+          9.0,
+          2.0,
+          -3.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 29,
+        "world": [
+          7.25,
+          3.0,
+          -1.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 30,
+        "world": [
+          5.5,
+          1.0,
+          -3.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 31,
+        "world": [
+          7.75,
+          2.0,
+          -5.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 32,
+        "world": [
+          10.0,
+          3.0,
+          -4.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 33,
+        "world": [
+          8.25,
+          1.0,
+          -2.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 34,
+        "world": [
+          6.5,
+          2.0,
+          -4.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 35,
+        "world": [
+          8.75,
+          3.0,
+          -6.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 36,
+        "world": [
+          11.0,
+          1.0,
+          -4.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 37,
+        "world": [
+          9.25,
+          2.0,
+          -2.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 38,
+        "world": [
+          7.5,
+          3.0,
+          -4.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 39,
+        "world": [
+          9.75,
+          1.0,
+          -6.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 40,
+        "world": [
+          12.0,
+          2.0,
+          -5.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 41,
+        "world": [
+          10.25,
+          3.0,
+          -3.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 42,
+        "world": [
+          8.5,
+          1.0,
+          -5.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 43,
+        "world": [
+          10.75,
+          2.0,
+          -7.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 44,
+        "world": [
+          13.0,
+          3.0,
+          -5.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 45,
+        "world": [
+          11.25,
+          1.0,
+          -3.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 46,
+        "world": [
+          9.5,
+          2.0,
+          -5.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 47,
+        "world": [
+          11.75,
+          3.0,
+          -7.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 48,
+        "world": [
+          14.0,
+          1.0,
+          -6.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 49,
+        "world": [
+          12.25,
+          2.0,
+          -4.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 50,
+        "world": [
+          10.5,
+          3.0,
+          -6.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 51,
+        "world": [
+          12.75,
+          1.0,
+          -8.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 52,
+        "world": [
+          15.0,
+          2.0,
+          -6.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 53,
+        "world": [
+          13.25,
+          3.0,
+          -4.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 54,
+        "world": [
+          11.5,
+          1.0,
+          -6.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 55,
+        "world": [
+          13.75,
+          2.0,
+          -8.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 56,
+        "world": [
+          16.0,
+          3.0,
+          -7.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 57,
+        "world": [
+          14.25,
+          1.0,
+          -5.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 58,
+        "world": [
+          12.5,
+          2.0,
+          -7.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 59,
+        "world": [
+          14.75,
+          3.0,
+          -9.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 60,
+        "world": [
+          17.0,
+          1.0,
+          -7.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 61,
+        "world": [
+          15.25,
+          2.0,
+          -5.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 62,
+        "world": [
+          13.5,
+          3.0,
+          -7.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 63,
+        "world": [
+          15.75,
+          1.0,
+          -9.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 64,
+        "world": [
+          18.0,
+          2.0,
+          -8.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 65,
+        "world": [
+          16.25,
+          3.0,
+          -6.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 66,
+        "world": [
+          14.5,
+          1.0,
+          -8.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 67,
+        "world": [
+          16.75,
+          2.0,
+          -10.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 68,
+        "world": [
+          19.0,
+          3.0,
+          -8.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 69,
+        "world": [
+          17.25,
+          1.0,
+          -6.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 70,
+        "world": [
+          15.5,
+          2.0,
+          -8.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 71,
+        "world": [
+          17.75,
+          3.0,
+          -10.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 72,
+        "world": [
+          20.0,
+          1.0,
+          -9.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 73,
+        "world": [
+          18.25,
+          2.0,
+          -7.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 74,
+        "world": [
+          16.5,
+          3.0,
+          -9.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 75,
+        "world": [
+          18.75,
+          1.0,
+          -11.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 76,
+        "world": [
+          21.0,
+          2.0,
+          -9.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 77,
+        "world": [
+          19.25,
+          3.0,
+          -7.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 78,
+        "world": [
+          17.5,
+          1.0,
+          -9.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 79,
+        "world": [
+          19.75,
+          2.0,
+          -11.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 80,
+        "world": [
+          22.0,
+          3.0,
+          -10.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 81,
+        "world": [
+          20.25,
+          1.0,
+          -8.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 82,
+        "world": [
+          18.5,
+          2.0,
+          -10.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 83,
+        "world": [
+          20.75,
+          3.0,
+          -12.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 84,
+        "world": [
+          23.0,
+          1.0,
+          -10.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 85,
+        "world": [
+          21.25,
+          2.0,
+          -8.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 86,
+        "world": [
+          19.5,
+          3.0,
+          -10.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 87,
+        "world": [
+          21.75,
+          1.0,
+          -12.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 88,
+        "world": [
+          24.0,
+          2.0,
+          -11.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 89,
+        "world": [
+          22.25,
+          3.0,
+          -9.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 90,
+        "world": [
+          20.5,
+          1.0,
+          -11.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 91,
+        "world": [
+          22.75,
+          2.0,
+          -13.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 92,
+        "world": [
+          25.0,
+          3.0,
+          -11.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 93,
+        "world": [
+          23.25,
+          1.0,
+          -9.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 94,
+        "world": [
+          21.5,
+          2.0,
+          -11.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 95,
+        "world": [
+          23.75,
+          3.0,
+          -13.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 96,
+        "world": [
+          26.0,
+          1.0,
+          -12.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 97,
+        "world": [
+          24.25,
+          2.0,
+          -10.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 98,
+        "world": [
+          22.5,
+          3.0,
+          -12.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 99,
+        "world": [
+          24.75,
+          1.0,
+          -14.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 100,
+        "world": [
+          27.0,
+          2.0,
+          -12.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 101,
+        "world": [
+          25.25,
+          3.0,
+          -10.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 102,
+        "world": [
+          23.5,
+          1.0,
+          -12.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 103,
+        "world": [
+          25.75,
+          2.0,
+          -14.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 104,
+        "world": [
+          28.0,
+          3.0,
+          -13.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 105,
+        "world": [
+          26.25,
+          1.0,
+          -11.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 106,
+        "world": [
+          24.5,
+          2.0,
+          -13.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 107,
+        "world": [
+          26.75,
+          3.0,
+          -15.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 108,
+        "world": [
+          29.0,
+          1.0,
+          -13.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 109,
+        "world": [
+          27.25,
+          2.0,
+          -11.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 110,
+        "world": [
+          25.5,
+          3.0,
+          -13.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 111,
+        "world": [
+          27.75,
+          1.0,
+          -15.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 112,
+        "world": [
+          30.0,
+          2.0,
+          -14.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 113,
+        "world": [
+          28.25,
+          3.0,
+          -12.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 114,
+        "world": [
+          26.5,
+          1.0,
+          -14.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 115,
+        "world": [
+          28.75,
+          2.0,
+          -16.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 116,
+        "world": [
+          31.0,
+          3.0,
+          -14.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 117,
+        "world": [
+          29.25,
+          1.0,
+          -12.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 118,
+        "world": [
+          27.5,
+          2.0,
+          -14.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 119,
+        "world": [
+          29.75,
+          3.0,
+          -16.875
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 120,
+        "world": [
+          32.0,
+          1.0,
+          -15.0
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 121,
+        "world": [
+          30.25,
+          2.0,
+          -13.125
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 122,
+        "world": [
+          28.5,
+          3.0,
+          -15.25
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 123,
+        "world": [
+          30.75,
+          1.0,
+          -17.375
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 124,
+        "world": [
+          33.0,
+          2.0,
+          -15.5
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 125,
+        "world": [
+          31.25,
+          3.0,
+          -13.625
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          -0.0
+        ],
+        "step": 126,
+        "world": [
+          29.5,
+          1.0,
+          -15.75
+        ]
+      },
+      {
+        "error": 0.0,
+        "local": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "step": 127,
+        "world": [
+          31.75,
+          2.0,
+          -17.875
+        ]
+      }
+    ]
+  },
+  "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+  "definition": {
+    "area": "W3-B - VESSEL FRAME / OWNERSHIP",
+    "authority": [
+      ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-30",
+      ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.5"
+    ],
+    "dependencies": [],
+    "evidence": [
+      "vessel/world/occupant transform traces",
+      "local-position error data",
+      "boarding state ledger",
+      "network observer logs where applicable",
+      "interaction/projectile results"
+    ],
+    "fail_criteria": "Occupants drift/teleport/double-move, authoritative location becomes ambiguous, or boarding changes semantic identity.",
+    "fixtures": [
+      "FIXTURE-06",
+      "FIXTURE-05"
+    ],
+    "inconclusive_conditions": "Test uses only visual parenting with no authoritative interaction/physics consequence.",
+    "inputs": [
+      "stationary vessel",
+      "constant translation",
+      "acceleration/deceleration",
+      "rotation",
+      "combined translation+rotation",
+      "boarding/disembarking",
+      "jump/projectile while moving",
+      "networked observer/authority variant"
+    ],
+    "invalidation_conditions": [
+      "Evidence is unusable due to wrong build/configuration, measurement defect or contamination.",
+      "A proof run without adequate exact build identity may be INVALIDATED."
+    ],
+    "observables": [
+      "vessel-local position error",
+      "world-space continuity",
+      "double-motion count",
+      "occupant identity/owner changes",
+      "boarding/disembark conservation",
+      "projectile/interaction frame correctness"
+    ],
+    "pass_criteria": "Occupants retain stable identity and coherent vessel-local/world positions; vessel motion is applied exactly once; transitions on/off vessel are explicit and reversible.",
+    "procedure": [
+      "Move multiple stable occupants/cargo/transient objects relative to a moving vessel.",
+      "Exercise board/disembark and vessel-world frame conversion under translation and rotation.",
+      "Delay one transform projection and cross a region while occupied."
+    ],
+    "proof_id": "PRD04-PROOF-30",
+    "question": "Can occupants, cargo and transient objects remain semantically and spatially coherent on a translating/rotating vessel without double-applying motion or losing world/vessel frame identity?",
+    "required_repetition": "At least 10,000 movement steps across motion profiles and hundreds of board/disembark transitions.",
+    "risk_consumers": [
+      "PRD06-RISK-A07",
+      "PRD06-RISK-I12",
+      "PRD06-RISK-J06",
+      "PRD06-RISK-J08",
+      "PRD06-RISK-J14",
+      "PRD06-RISK-J16",
+      "PRD06-RISK-J18"
+    ],
+    "title": "Moving Vessel Occupants"
+  },
+  "evidence_id": "PRD07-EVID-0062",
+  "fixture_schema": "leyforge-r7-w3-fluid-vessel-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "boarding_transitions": 500,
+    "double_motion_count": 0,
+    "exported_physics_report_present": true,
+    "frame_round_trip_errors": 0,
+    "identity_errors": 0,
+    "movement_steps": 10000
+  },
+  "observations": [
+    "Occupant semantic identity and vessel-local position remained stable across explicit frame projection."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-30",
+  "run_id": "PRD07-RUN-0062",
+  "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489"
+}

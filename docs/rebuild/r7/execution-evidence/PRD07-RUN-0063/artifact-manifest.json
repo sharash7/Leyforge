@@ -1,0 +1,17 @@
+{
+  "artifact_kind": "leyforge-export",
+  "artifact_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w3-execution-0059-0065-cc61b5d\\builds\\headless\\output\\leyforge-w3-headless-probe.exe",
+  "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+  "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+  "exported_runtime": true,
+  "manifest_schema": "prd07-artifact-manifest-v1",
+  "retention": {
+    "binary": "local ignored build output; exact hash and reproducer retained",
+    "reproducer": "python -m tools.r7_w3_runtime execute --actual-execution-authorized ..."
+  },
+  "role": "headless",
+  "runtime_self_report_build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+  "size_bytes": 110444544,
+  "symbol_sha256": null,
+  "synthetic_fixture": false
+}

@@ -1,0 +1,24 @@
+{
+  "active_cell_limit": 256,
+  "active_cells": 4,
+  "conservation_error": 0,
+  "loaded": {
+    "east": true,
+    "north": true,
+    "south": true,
+    "west": true
+  },
+  "reservoir_flux": 0,
+  "revisions": {
+    "east": 4991,
+    "north": 4996,
+    "south": 4928,
+    "west": 4985
+  },
+  "volumes": {
+    "east": 250481,
+    "north": 249500,
+    "south": 248200,
+    "west": 251819
+  }
+}

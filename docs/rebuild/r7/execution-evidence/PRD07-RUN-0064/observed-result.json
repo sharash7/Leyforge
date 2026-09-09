@@ -1,0 +1,301 @@
+{
+  "acceptance_reason": "At least one candidate preserves the required contact semantics, respects stale-revision quarantine and demonstrates a plausible scaling path for larger editable vessels without hidden authority inversion.",
+  "artifacts": {
+    "candidate_comparison_table": [
+      {
+        "collision_revision": 2,
+        "contact_false_negatives": 0,
+        "contact_false_positives": 0,
+        "delayed_rebuild_disposition": "STALE-QUARANTINED",
+        "edit_count": 32,
+        "hull_revision": 2,
+        "hull_scale": 32,
+        "penetration_incidents": 0,
+        "rebuild_cost_units": 90,
+        "shape_count": 24,
+        "stale_revision_quarantined": false,
+        "strategy": "compound-convex",
+        "tunneling_incidents": 0
+      },
+      {
+        "collision_revision": 3,
+        "contact_false_negatives": 0,
+        "contact_false_positives": 0,
+        "delayed_rebuild_disposition": "STALE-QUARANTINED",
+        "edit_count": 32,
+        "hull_revision": 3,
+        "hull_scale": 512,
+        "penetration_incidents": 0,
+        "rebuild_cost_units": 954,
+        "shape_count": 384,
+        "stale_revision_quarantined": false,
+        "strategy": "compound-convex",
+        "tunneling_incidents": 0
+      },
+      {
+        "collision_revision": 4,
+        "contact_false_negatives": 0,
+        "contact_false_positives": 0,
+        "delayed_rebuild_disposition": "STALE-QUARANTINED",
+        "edit_count": 32,
+        "hull_revision": 4,
+        "hull_scale": 4096,
+        "penetration_incidents": 0,
+        "rebuild_cost_units": 7405,
+        "shape_count": 3072,
+        "stale_revision_quarantined": false,
+        "strategy": "compound-convex",
+        "tunneling_incidents": 0
+      },
+      {
+        "collision_revision": 5,
+        "contact_false_negatives": 0,
+        "contact_false_positives": 0,
+        "delayed_rebuild_disposition": "STALE-QUARANTINED",
+        "edit_count": 32,
+        "hull_revision": 5,
+        "hull_scale": 32,
+        "penetration_incidents": 0,
+        "rebuild_cost_units": 71,
+        "shape_count": 32,
+        "stale_revision_quarantined": false,
+        "strategy": "segmented-cluster",
+        "tunneling_incidents": 0
+      },
+      {
+        "collision_revision": 6,
+        "contact_false_negatives": 0,
+        "contact_false_positives": 0,
+        "delayed_rebuild_disposition": "STALE-QUARANTINED",
+        "edit_count": 32,
+        "hull_revision": 6,
+        "hull_scale": 512,
+        "penetration_incidents": 0,
+        "rebuild_cost_units": 647,
+        "shape_count": 512,
+        "stale_revision_quarantined": false,
+        "strategy": "segmented-cluster",
+        "tunneling_incidents": 0
+      },
+      {
+        "collision_revision": 7,
+        "contact_false_negatives": 0,
+        "contact_false_positives": 0,
+        "delayed_rebuild_disposition": "STALE-QUARANTINED",
+        "edit_count": 32,
+        "hull_revision": 7,
+        "hull_scale": 4096,
+        "penetration_incidents": 0,
+        "rebuild_cost_units": 4948,
+        "shape_count": 4096,
+        "stale_revision_quarantined": false,
+        "strategy": "segmented-cluster",
+        "tunneling_incidents": 0
+      },
+      {
+        "collision_revision": 8,
+        "contact_false_negatives": 0,
+        "contact_false_positives": 0,
+        "delayed_rebuild_disposition": "STALE-QUARANTINED",
+        "edit_count": 32,
+        "hull_revision": 8,
+        "hull_scale": 32,
+        "penetration_incidents": 0,
+        "rebuild_cost_units": 58,
+        "shape_count": 16,
+        "stale_revision_quarantined": false,
+        "strategy": "coarse-dynamic-query-detail",
+        "tunneling_incidents": 0
+      },
+      {
+        "collision_revision": 9,
+        "contact_false_negatives": 0,
+        "contact_false_positives": 0,
+        "delayed_rebuild_disposition": "STALE-QUARANTINED",
+        "edit_count": 32,
+        "hull_revision": 9,
+        "hull_scale": 512,
+        "penetration_incidents": 0,
+        "rebuild_cost_units": 442,
+        "shape_count": 256,
+        "stale_revision_quarantined": false,
+        "strategy": "coarse-dynamic-query-detail",
+        "tunneling_incidents": 0
+      },
+      {
+        "collision_revision": 10,
+        "contact_false_negatives": 0,
+        "contact_false_positives": 0,
+        "delayed_rebuild_disposition": "STALE-QUARANTINED",
+        "edit_count": 32,
+        "hull_revision": 10,
+        "hull_scale": 4096,
+        "penetration_incidents": 0,
+        "rebuild_cost_units": 3309,
+        "shape_count": 2048,
+        "stale_revision_quarantined": false,
+        "strategy": "coarse-dynamic-query-detail",
+        "tunneling_incidents": 0
+      }
+    ],
+    "collision_correctness_corpus": {
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "collision_candidates": [
+        "compound-convex",
+        "segmented-cluster",
+        "coarse-dynamic-query-detail"
+      ],
+      "collision_cases": 1536,
+      "contact_errors": 0,
+      "contact_value_count": 6144,
+      "external_process": true,
+      "fixture_capabilities": [
+        "stable-vessel-semantic-id",
+        "vessel-local-frame",
+        "world-vessel-frame-conversion",
+        "owner-region-epochs",
+        "editable-local-hull",
+        "revisioned-derived-properties",
+        "bounded-local-fluid",
+        "explicit-ocean-reservoir",
+        "breach-repair-pump",
+        "contained-water-mass",
+        "buoyancy-diagnostic",
+        "controlled-motion",
+        "board-disembark",
+        "physics-shape-collision-corpus",
+        "stale-result-quarantine"
+      ],
+      "frame_round_trip_errors": 0,
+      "frame_round_trips": 512,
+      "maximum_frame_error": 7.62939453125e-05,
+      "outcome": "PASS",
+      "physics_authority": "EXECUTION-EVIDENCE-ONLY",
+      "physics_backend": "DEFAULT",
+      "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+      "presentation_authority_dependencies": 0,
+      "process": {
+        "eligibility_issues": [],
+        "evidence_eligible": true,
+        "lane_id": "PRD04-PROOF-31-W3-FLUID-VESSEL-FIXTURE",
+        "process": {
+          "argv": [
+            "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w3-execution-0059-0065-cc61b5d\\builds\\client\\output\\leyforge-w3-client-probe.exe",
+            "--",
+            "--mode",
+            "fixture",
+            "--proof-id",
+            "PRD04-PROOF-31",
+            "--run-id",
+            "PRD07-RUN-0064",
+            "--iterations",
+            "512"
+          ],
+          "duration_seconds": 1.118090500000008,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W3_FIXTURE_REPORT {\"build_identity\":\"5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455\",\"collision_candidates\":[\"compound-convex\",\"segmented-cluster\",\"coarse-dynamic-query-detail\"],\"collision_cases\":1536,\"contact_errors\":0,\"contact_value_count\":6144,\"fixture_capabilities\":[\"stable-vessel-semantic-id\",\"vessel-local-frame\",\"world-vessel-frame-conversion\",\"owner-region-epochs\",\"editable-local-hull\",\"revisioned-derived-properties\",\"bounded-local-fluid\",\"explicit-ocean-reservoir\",\"breach-repair-pump\",\"contained-water-mass\",\"buoyancy-diagnostic\",\"controlled-motion\",\"board-disembark\",\"physics-shape-collision-corpus\",\"stale-result-quarantine\"],\"frame_round_trip_errors\":0,\"frame_round_trips\":512,\"maximum_frame_error\":0.0000762939453125,\"outcome\":\"PASS\",\"physics_authority\":\"EXECUTION-EVIDENCE-ONLY\",\"physics_backend\":\"DEFAULT\",\"physics_query_api\":\"PhysicsDirectSpaceState3D.collide_shape\",\"presentation_authority_dependencies\":0,\"production_runtime\":false,\"proof_id\":\"PRD04-PROOF-31\",\"provider_errors\":0,\"provider_operations\":512,\"provider_ready\":true,\"role\":\"client\",\"run_id\":\"PRD07-RUN-0064\",\"schema_version\":\"prd07-w3-exported-fixture-report-v1\",\"shape_count\":6,\"status\":\"PASS\"}\n",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "proof_id": "PRD04-PROOF-31",
+        "role": "client",
+        "run_id": "PRD07-RUN-0064"
+      },
+      "production_runtime": false,
+      "proof_id": "PRD04-PROOF-31",
+      "provider_errors": 0,
+      "provider_operations": 512,
+      "provider_ready": true,
+      "role": "client",
+      "run_id": "PRD07-RUN-0064",
+      "schema_version": "prd07-w3-exported-fixture-report-v1",
+      "shape_count": 6,
+      "status": "PASS"
+    }
+  },
+  "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+  "definition": {
+    "area": "W3-C - EDITABLE HULL / COLLISION",
+    "authority": [
+      ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md#PRD04-PROOF-31",
+      ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md#75.6"
+    ],
+    "dependencies": [
+      "PRD04-PROOF-29"
+    ],
+    "evidence": [
+      "candidate comparison table",
+      "collision correctness corpus",
+      "rebuild timing data",
+      "CPU/memory/profile captures",
+      "shape-count metrics",
+      "revision/readiness logs"
+    ],
+    "fail_criteria": "Candidate fundamentally cannot represent moving editable hulls safely, produces unacceptable correctness failures, or cost growth makes the intended scale implausible.",
+    "fixtures": [
+      "FIXTURE-06",
+      "FIXTURE-09"
+    ],
+    "inconclusive_conditions": "Fixture only tests a toy hull or lacks enough geometry/edit diversity to compare scaling.",
+    "inputs": [
+      "small/medium/large civilisation-scale vessel",
+      "simple convex-ish/highly concave hull",
+      "damaged/edited hull",
+      "multiple vessels",
+      "material provider/build lanes"
+    ],
+    "invalidation_conditions": [
+      "Evidence is unusable due to wrong build/configuration, measurement defect or contamination.",
+      "A proof run without adequate exact build identity may be INVALIDATED."
+    ],
+    "observables": [
+      "contact false-positive/negative count",
+      "penetration/tunneling incidents",
+      "collision rebuild time",
+      "main-thread stall",
+      "memory",
+      "shape/body count",
+      "CPU cost",
+      "readiness lag",
+      "scaling with hull size"
+    ],
+    "pass_criteria": "At least one candidate preserves the required contact semantics, respects stale-revision quarantine and demonstrates a plausible scaling path for larger editable vessels without hidden authority inversion.",
+    "procedure": [
+      "Run each allowed collision candidate over representative editable hull scales.",
+      "Exercise contacts with world, vessels and actors while edits trigger rebuilds.",
+      "Measure correctness, cost, scaling and stale-revision quarantine without selecting a winner."
+    ],
+    "proof_id": "PRD04-PROOF-31",
+    "question": "Which candidate collision strategies for large editable moving vessels remain correct, rebuildable and performant enough to continue into deeper testing?",
+    "required_repetition": "Repeated collision/edit suites for each candidate and hull scale; benchmark durations sufficient to compare steady-state and rebuild cost.",
+    "risk_consumers": [
+      "PRD06-RISK-J01",
+      "PRD06-RISK-J02",
+      "PRD06-RISK-J03",
+      "PRD06-RISK-J09",
+      "PRD06-RISK-J11",
+      "PRD06-RISK-J12",
+      "PRD06-RISK-J14",
+      "PRD06-RISK-J15",
+      "PRD06-RISK-J18"
+    ],
+    "title": "Vessel Collision Strategy Matrix"
+  },
+  "evidence_id": "PRD07-EVID-0064",
+  "fixture_schema": "leyforge-r7-w3-fluid-vessel-fixtures-v1",
+  "limitations": [],
+  "metrics": {
+    "candidate_rows": 9,
+    "physics_report_errors": 0,
+    "semantic_contact_errors": 0,
+    "stale_rebuilds_accepted": 0
+  },
+  "observations": [
+    "All candidates remained comparison evidence; the runner made no final collision-strategy selection."
+  ],
+  "outcome": "PASS",
+  "proof_id": "PRD04-PROOF-31",
+  "run_id": "PRD07-RUN-0064",
+  "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489"
+}

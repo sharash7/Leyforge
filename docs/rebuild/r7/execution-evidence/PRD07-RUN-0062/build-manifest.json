@@ -1,0 +1,64 @@
+{
+  "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+  "clean_export": true,
+  "components": [
+    {
+      "edition": "official-windows-release-template-x86_64",
+      "installation_status": "installed",
+      "licence_status": "resolved",
+      "local_patch": "NO-LOCAL-PATCH",
+      "name": "godot",
+      "provenance_status": "verified",
+      "revision": "4.8.dev4.official.b56a91878",
+      "source": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev4/Godot_v4.8-dev4_export_templates.tpz"
+    },
+    {
+      "edition": "4.8.dev.custom_build.a9c94cd21",
+      "installation_status": "installed",
+      "licence_status": "resolved",
+      "local_patch": "NO-LOCAL-PATCH; clean upstream commit with two upstream lifetime fixes",
+      "name": "godot-build-driver",
+      "provenance_status": "verified",
+      "revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "source": "https://github.com/godotengine/godot/commit/a9c94cd21fc1e95c56a17aca0b310c346e6c41fa"
+    },
+    {
+      "edition": "GDExtension for Godot 4.5+",
+      "installation_status": "installed",
+      "licence_status": "resolved",
+      "local_patch": "NO-LOCAL-PATCH",
+      "name": "voxel-tools",
+      "provenance_status": "verified",
+      "revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+      "source": "https://github.com/Zylann/godot_voxel/releases/download/v1.7x/GodotVoxelExtension.zip"
+    }
+  ],
+  "content_identity": "3e7dd65077487f72df04bc182c75d47ac7722b946a170116ae692521ce597af8",
+  "environment": {
+    "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "machine": "AMD64",
+    "os": "Windows",
+    "os_release": "10",
+    "python": "3.9.5",
+    "role": "client",
+    "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+  },
+  "invocation": [
+    "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+    "--headless",
+    "--path",
+    "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w3-execution-0059-0065-cc61b5d\\builds\\client\\project",
+    "--export-release",
+    "W3 Client Probe",
+    "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w3-execution-0059-0065-cc61b5d\\builds\\client\\output\\leyforge-w3-client-probe.exe"
+  ],
+  "manifest_schema": "prd07-build-manifest-v1",
+  "platform": "windows-x86_64",
+  "precision": "integer-fluid-units-with-explicit-hull-fluid-derived-revisions",
+  "profile": "release-like-w3-fluid-vessel-proof",
+  "role": "client",
+  "schema_identity": "leyforge-r7-w3-fluid-vessel-runtime-v1",
+  "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489"
+}

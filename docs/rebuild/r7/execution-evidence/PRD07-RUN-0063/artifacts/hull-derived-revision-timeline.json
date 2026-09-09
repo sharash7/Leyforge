@@ -1,0 +1,3074 @@
+[
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 2,
+      "collision": 2,
+      "flooding": 2,
+      "mass": 2,
+      "structure": 2
+    },
+    "fluid_revision": 1,
+    "hull_hash": "6b142b677486337f1bf90bdf71b2bc5809e4a4d5e123984e589103628e840330",
+    "hull_revision": 2,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 3,
+      "collision": 3,
+      "flooding": 3,
+      "mass": 3,
+      "structure": 3
+    },
+    "fluid_revision": 1,
+    "hull_hash": "2fee7e2ca5bc058c0dcb14f358732c1ce71f42422d949cbc22dc1c698e186fbe",
+    "hull_revision": 3,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 4,
+      "collision": 4,
+      "flooding": 4,
+      "mass": 4,
+      "structure": 4
+    },
+    "fluid_revision": 1,
+    "hull_hash": "467bda694dbfc4531ce95c2d00ce5e412d25cab0d4223e5fe919d70211d46474",
+    "hull_revision": 4,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 5,
+      "collision": 5,
+      "flooding": 5,
+      "mass": 5,
+      "structure": 5
+    },
+    "fluid_revision": 1,
+    "hull_hash": "a6d634905794390374dc1384765ecdac70bc1d68b50324460a5ed26904aacb16",
+    "hull_revision": 5,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 6,
+      "collision": 6,
+      "flooding": 6,
+      "mass": 6,
+      "structure": 6
+    },
+    "fluid_revision": 1,
+    "hull_hash": "93149548c7c55a26c3268ae9b0e94a13d98d88c15dfe9959a1f4368951a44b2e",
+    "hull_revision": 6,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 7,
+      "collision": 7,
+      "flooding": 7,
+      "mass": 7,
+      "structure": 7
+    },
+    "fluid_revision": 1,
+    "hull_hash": "cc6882b087730c4a696e6d131eb53d1f4d591eb2686c2fc69512eb8b518e95f6",
+    "hull_revision": 7,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 8,
+      "collision": 8,
+      "flooding": 8,
+      "mass": 8,
+      "structure": 8
+    },
+    "fluid_revision": 1,
+    "hull_hash": "6c798f0c3bafe373466692e9029b61937d1487caf9b7aa610a2740ac3a1ec55d",
+    "hull_revision": 8,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 9,
+      "collision": 9,
+      "flooding": 9,
+      "mass": 9,
+      "structure": 9
+    },
+    "fluid_revision": 1,
+    "hull_hash": "e8a5bd8a37df00ac82aff19d8ed30c030a038965851a3bd9157e566d5e2035ba",
+    "hull_revision": 9,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 10,
+      "collision": 10,
+      "flooding": 10,
+      "mass": 10,
+      "structure": 10
+    },
+    "fluid_revision": 1,
+    "hull_hash": "53567c1eeea117b2dd307143be2956c7b403e527fb8db4a11a27be16a1e0d994",
+    "hull_revision": 10,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 11,
+      "collision": 11,
+      "flooding": 11,
+      "mass": 11,
+      "structure": 11
+    },
+    "fluid_revision": 1,
+    "hull_hash": "2117fc4c3fa9adefce0168db065abc3f6d087e42f097367de002401e9906c3e1",
+    "hull_revision": 11,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 12,
+      "collision": 12,
+      "flooding": 12,
+      "mass": 12,
+      "structure": 12
+    },
+    "fluid_revision": 1,
+    "hull_hash": "db6e399d9dbf37afb96011f52c8a99fdad4f8a3fbe596b686b0b11260824f390",
+    "hull_revision": 12,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 13,
+      "collision": 13,
+      "flooding": 13,
+      "mass": 13,
+      "structure": 13
+    },
+    "fluid_revision": 1,
+    "hull_hash": "6afa3e6bd367ae37229596c7b61f041d0682afd8b2890c46b0899e4093ccf452",
+    "hull_revision": 13,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 14,
+      "collision": 14,
+      "flooding": 14,
+      "mass": 14,
+      "structure": 14
+    },
+    "fluid_revision": 1,
+    "hull_hash": "b13ee65717a3d91e2969640536978a800e7f31bd305034fc81cd2f8b4eb23196",
+    "hull_revision": 14,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 15,
+      "collision": 15,
+      "flooding": 15,
+      "mass": 15,
+      "structure": 15
+    },
+    "fluid_revision": 1,
+    "hull_hash": "6314ef1a01ed9a986bdbfd19efbbe7a395b0da7894b6d38caad17b40eae8cfe0",
+    "hull_revision": 15,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 16,
+      "collision": 16,
+      "flooding": 16,
+      "mass": 16,
+      "structure": 16
+    },
+    "fluid_revision": 1,
+    "hull_hash": "71b723d34771b2766d441eebd4d196b3f94360fff3ebb929b2dfc713823a0c9c",
+    "hull_revision": 16,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 17,
+      "collision": 17,
+      "flooding": 17,
+      "mass": 17,
+      "structure": 17
+    },
+    "fluid_revision": 1,
+    "hull_hash": "dcee9d70672c3315daaa83b74ac9f82a58f463eb7cdeb8cb1ab333b8f6083c39",
+    "hull_revision": 17,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 18,
+      "collision": 18,
+      "flooding": 18,
+      "mass": 18,
+      "structure": 18
+    },
+    "fluid_revision": 1,
+    "hull_hash": "7b31fe680023b373f7437308e2251d707cd5cabe23f7b33dc1c41185fbbd7613",
+    "hull_revision": 18,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 19,
+      "collision": 19,
+      "flooding": 19,
+      "mass": 19,
+      "structure": 19
+    },
+    "fluid_revision": 1,
+    "hull_hash": "79557ca666d7728a991734fd16a22164cfd5e8e615ec6b187a272c31c9778da5",
+    "hull_revision": 19,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 20,
+      "collision": 20,
+      "flooding": 20,
+      "mass": 20,
+      "structure": 20
+    },
+    "fluid_revision": 1,
+    "hull_hash": "13476f61481153b2b2ae2b9d226694c9f46ed028ac3375f5867d0e348cfa1fff",
+    "hull_revision": 20,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 21,
+      "collision": 21,
+      "flooding": 21,
+      "mass": 21,
+      "structure": 21
+    },
+    "fluid_revision": 1,
+    "hull_hash": "07b2ba71b5d91ef388ce76c324a102aa4c8aa5f263684d427239002e840f3328",
+    "hull_revision": 21,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 22,
+      "collision": 22,
+      "flooding": 22,
+      "mass": 22,
+      "structure": 22
+    },
+    "fluid_revision": 1,
+    "hull_hash": "b63e1501903f0a0b7d998d29892c729cdd5fbc1325e5a092affb5af6bf0f1ccd",
+    "hull_revision": 22,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 23,
+      "collision": 23,
+      "flooding": 23,
+      "mass": 23,
+      "structure": 23
+    },
+    "fluid_revision": 1,
+    "hull_hash": "7af07da0803d3d9666e931c5029f772075efa381c9de1500ca87222c449c2da9",
+    "hull_revision": 23,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 24,
+      "collision": 24,
+      "flooding": 24,
+      "mass": 24,
+      "structure": 24
+    },
+    "fluid_revision": 1,
+    "hull_hash": "6a35bf0788b98bcdf13a8ddfdc0f0faf7daacff72ddd1e156a3cbf8e442b5194",
+    "hull_revision": 24,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 25,
+      "collision": 25,
+      "flooding": 25,
+      "mass": 25,
+      "structure": 25
+    },
+    "fluid_revision": 1,
+    "hull_hash": "952d4e57e5f0cd1ebda5b2187e036ffee142e4c77d9ec9c8b3c407e7325d66ac",
+    "hull_revision": 25,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 26,
+      "collision": 26,
+      "flooding": 26,
+      "mass": 26,
+      "structure": 26
+    },
+    "fluid_revision": 1,
+    "hull_hash": "eb545796da25e6ccbf784cf25da771136a9f31dafafe5f4eeb328be3e116e33b",
+    "hull_revision": 26,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 27,
+      "collision": 27,
+      "flooding": 27,
+      "mass": 27,
+      "structure": 27
+    },
+    "fluid_revision": 1,
+    "hull_hash": "19765bef03bca119f55809da448c9cc90d853289be3275bed6b8d19e03252327",
+    "hull_revision": 27,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 28,
+      "collision": 28,
+      "flooding": 28,
+      "mass": 28,
+      "structure": 28
+    },
+    "fluid_revision": 1,
+    "hull_hash": "9c1050afd4559ce987da4fdb7cda47aa5b49552e33f324a8c6f21e6e45373535",
+    "hull_revision": 28,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 29,
+      "collision": 29,
+      "flooding": 29,
+      "mass": 29,
+      "structure": 29
+    },
+    "fluid_revision": 1,
+    "hull_hash": "07bfd0225f033b8809615ce25271a6fde45ef15740e1ef3512603016c6618ba1",
+    "hull_revision": 29,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 30,
+      "collision": 30,
+      "flooding": 30,
+      "mass": 30,
+      "structure": 30
+    },
+    "fluid_revision": 1,
+    "hull_hash": "ad7ec3246b7d12df139b40ec453540b645338297104761e3648f016c3f27d4f1",
+    "hull_revision": 30,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 31,
+      "collision": 31,
+      "flooding": 31,
+      "mass": 31,
+      "structure": 31
+    },
+    "fluid_revision": 1,
+    "hull_hash": "f576aba990e81201ed37e6980c59892d87e7bd4164feab90ef716daa5acbe526",
+    "hull_revision": 31,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 32,
+      "collision": 32,
+      "flooding": 32,
+      "mass": 32,
+      "structure": 32
+    },
+    "fluid_revision": 1,
+    "hull_hash": "a25b3dfd3be1e70fe38270f8559fa9b30cd929c0beb9e2de5fc98df89086d7bb",
+    "hull_revision": 32,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 33,
+      "collision": 33,
+      "flooding": 33,
+      "mass": 33,
+      "structure": 33
+    },
+    "fluid_revision": 1,
+    "hull_hash": "9c644cf601e368dbebd2309c2f992e6b2af3b89145a4b337f155028e954c59e1",
+    "hull_revision": 33,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 34,
+      "collision": 34,
+      "flooding": 34,
+      "mass": 34,
+      "structure": 34
+    },
+    "fluid_revision": 1,
+    "hull_hash": "40f30feaea96799b55777fb8f1e5d717abaaa0f7beca8c2a866bc7142b74cf78",
+    "hull_revision": 34,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 35,
+      "collision": 35,
+      "flooding": 35,
+      "mass": 35,
+      "structure": 35
+    },
+    "fluid_revision": 1,
+    "hull_hash": "33fba651f0986abd3d8276bdf08c2d42679485894037a849ad51d926f8834a83",
+    "hull_revision": 35,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 36,
+      "collision": 36,
+      "flooding": 36,
+      "mass": 36,
+      "structure": 36
+    },
+    "fluid_revision": 1,
+    "hull_hash": "f92bfe75c394e7339c766fcdd35cb07f86fa61a59196155aea6f85884472f27e",
+    "hull_revision": 36,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 37,
+      "collision": 37,
+      "flooding": 37,
+      "mass": 37,
+      "structure": 37
+    },
+    "fluid_revision": 1,
+    "hull_hash": "1775c5e5122f90313db6c58453495ed066e80c8d9311b1acd2d4452c26fc7d6a",
+    "hull_revision": 37,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 38,
+      "collision": 38,
+      "flooding": 38,
+      "mass": 38,
+      "structure": 38
+    },
+    "fluid_revision": 1,
+    "hull_hash": "5afc4ff3e75b2a3687232165ea7faaf282b826c93fcbcf20a4c5f988e122c53e",
+    "hull_revision": 38,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 39,
+      "collision": 39,
+      "flooding": 39,
+      "mass": 39,
+      "structure": 39
+    },
+    "fluid_revision": 1,
+    "hull_hash": "02541df2729633f4edbc173c91ed22b32747bd3d64651af5c42c6ed82207401d",
+    "hull_revision": 39,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 40,
+      "collision": 40,
+      "flooding": 40,
+      "mass": 40,
+      "structure": 40
+    },
+    "fluid_revision": 1,
+    "hull_hash": "09424bf20f0fce66a5abeed8beb7bcaf73ca212532cbad0b2fe5c77ad66be00f",
+    "hull_revision": 40,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 41,
+      "collision": 41,
+      "flooding": 41,
+      "mass": 41,
+      "structure": 41
+    },
+    "fluid_revision": 1,
+    "hull_hash": "1426e3e4c0464d097242b0f5356a34fc72dd0a56acd16b4d43d3725d0566651c",
+    "hull_revision": 41,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 42,
+      "collision": 42,
+      "flooding": 42,
+      "mass": 42,
+      "structure": 42
+    },
+    "fluid_revision": 1,
+    "hull_hash": "80a273e4968b20ec8da11ed0082ecb49612744fbc03a5807372d18c6a1cb78af",
+    "hull_revision": 42,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 43,
+      "collision": 43,
+      "flooding": 43,
+      "mass": 43,
+      "structure": 43
+    },
+    "fluid_revision": 1,
+    "hull_hash": "643c3de0d54e8659e07a38fa8627037dd25e7a0077671648e2176143a71675ad",
+    "hull_revision": 43,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 44,
+      "collision": 44,
+      "flooding": 44,
+      "mass": 44,
+      "structure": 44
+    },
+    "fluid_revision": 1,
+    "hull_hash": "b34e22cae785c6ce243eaa1ae2c6c2839e50832805401ccec6cd1508a0943a59",
+    "hull_revision": 44,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 45,
+      "collision": 45,
+      "flooding": 45,
+      "mass": 45,
+      "structure": 45
+    },
+    "fluid_revision": 1,
+    "hull_hash": "7cf21c31782061cb69d764ee9acce34ae0f4c8bbcebb0bf886352df95482c5a2",
+    "hull_revision": 45,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 46,
+      "collision": 46,
+      "flooding": 46,
+      "mass": 46,
+      "structure": 46
+    },
+    "fluid_revision": 1,
+    "hull_hash": "0df7ce7e1ba5384c5e32da1de43bc056dc5cb5080e4a76e75d5ff67152ef238c",
+    "hull_revision": 46,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 47,
+      "collision": 47,
+      "flooding": 47,
+      "mass": 47,
+      "structure": 47
+    },
+    "fluid_revision": 1,
+    "hull_hash": "40bbaeae10c5faf0df5494729f7f9664c8494402fd275facef35537ab99b81b7",
+    "hull_revision": 47,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 48,
+      "collision": 48,
+      "flooding": 48,
+      "mass": 48,
+      "structure": 48
+    },
+    "fluid_revision": 1,
+    "hull_hash": "81f0d654106b42235c5afddf75467cb483392520cf626bad794e540381ba0f50",
+    "hull_revision": 48,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 49,
+      "collision": 49,
+      "flooding": 49,
+      "mass": 49,
+      "structure": 49
+    },
+    "fluid_revision": 1,
+    "hull_hash": "692091ff3de7267d160f5ff760b315b91c300c8c16feacdae9ba9c42c8cd036b",
+    "hull_revision": 49,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 50,
+      "collision": 50,
+      "flooding": 50,
+      "mass": 50,
+      "structure": 50
+    },
+    "fluid_revision": 1,
+    "hull_hash": "b760397d78d3a6ed6ad8c9604c8c33871c08273b037550ee02fc0663aa120872",
+    "hull_revision": 50,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 51,
+      "collision": 51,
+      "flooding": 51,
+      "mass": 51,
+      "structure": 51
+    },
+    "fluid_revision": 1,
+    "hull_hash": "536c092d450aa25debab0e929d22fe3ac6d989c71b20a8d305a87ad185bb6498",
+    "hull_revision": 51,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 52,
+      "collision": 52,
+      "flooding": 52,
+      "mass": 52,
+      "structure": 52
+    },
+    "fluid_revision": 1,
+    "hull_hash": "f28e2da3b043cd6ce68db85202a5461c95c1f02677a5e880dccba560c6f30bce",
+    "hull_revision": 52,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 53,
+      "collision": 53,
+      "flooding": 53,
+      "mass": 53,
+      "structure": 53
+    },
+    "fluid_revision": 1,
+    "hull_hash": "5db3601d4226029c5745f08e30c111822811245a9f3b2db9b705e38665ffea65",
+    "hull_revision": 53,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 54,
+      "collision": 54,
+      "flooding": 54,
+      "mass": 54,
+      "structure": 54
+    },
+    "fluid_revision": 1,
+    "hull_hash": "a0577129962be35fe5eddcdc57f784ac61dff9db961acb9fa21909f264470224",
+    "hull_revision": 54,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 55,
+      "collision": 55,
+      "flooding": 55,
+      "mass": 55,
+      "structure": 55
+    },
+    "fluid_revision": 1,
+    "hull_hash": "82e199211a512ffbbcd500e4f9afe40fab5c0533de67f5f6a0ee51aa7772b4de",
+    "hull_revision": 55,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 56,
+      "collision": 56,
+      "flooding": 56,
+      "mass": 56,
+      "structure": 56
+    },
+    "fluid_revision": 1,
+    "hull_hash": "91f402e972e1e6b07a647958abec63d1616c45f100c96cf08c9f1f64100c7f20",
+    "hull_revision": 56,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 57,
+      "collision": 57,
+      "flooding": 57,
+      "mass": 57,
+      "structure": 57
+    },
+    "fluid_revision": 1,
+    "hull_hash": "cb8e65001f0dceba75edb219e977665f910bac088d46e69e74a817d21a6beb59",
+    "hull_revision": 57,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 58,
+      "collision": 58,
+      "flooding": 58,
+      "mass": 58,
+      "structure": 58
+    },
+    "fluid_revision": 1,
+    "hull_hash": "0eb364ef89a387aa0484e568b6adad0bf221d6a1ec469670db30855d420d61d5",
+    "hull_revision": 58,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 59,
+      "collision": 59,
+      "flooding": 59,
+      "mass": 59,
+      "structure": 59
+    },
+    "fluid_revision": 1,
+    "hull_hash": "1dd2369c46afb58a93c07848877eaa1ffc5e08c78d4028b0a2ad7c9f9f57debc",
+    "hull_revision": 59,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 60,
+      "collision": 60,
+      "flooding": 60,
+      "mass": 60,
+      "structure": 60
+    },
+    "fluid_revision": 1,
+    "hull_hash": "e51804febe66b48482d17cf501f33b2fa7264cbadedb31dc8691c339ea807a32",
+    "hull_revision": 60,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 61,
+      "collision": 61,
+      "flooding": 61,
+      "mass": 61,
+      "structure": 61
+    },
+    "fluid_revision": 1,
+    "hull_hash": "3aceea169512f4abde2d0f059a0574a692f0f21b4fd5cb6bf9f959466aa194ac",
+    "hull_revision": 61,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 62,
+      "collision": 62,
+      "flooding": 62,
+      "mass": 62,
+      "structure": 62
+    },
+    "fluid_revision": 1,
+    "hull_hash": "8dc7bb4a4119f6d2a21b7562eacc0365f29759dbe6f5162e80b1f75fc2705ef6",
+    "hull_revision": 62,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 63,
+      "collision": 63,
+      "flooding": 63,
+      "mass": 63,
+      "structure": 63
+    },
+    "fluid_revision": 1,
+    "hull_hash": "2aa51ee92518233ff12e87a3b59ebdf5261065c51818517e5c6302f55c856fcb",
+    "hull_revision": 63,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 64,
+      "collision": 64,
+      "flooding": 64,
+      "mass": 64,
+      "structure": 64
+    },
+    "fluid_revision": 1,
+    "hull_hash": "aea73150df6de29df6849913cf077f1da523084481b50b5ffcf8c5547ac44e0c",
+    "hull_revision": 64,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 65,
+      "collision": 65,
+      "flooding": 65,
+      "mass": 65,
+      "structure": 65
+    },
+    "fluid_revision": 1,
+    "hull_hash": "ea0ef5f82492f9e9f911bc435c5f60f1583ed433eb03657acd84a0d3247507e5",
+    "hull_revision": 65,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 66,
+      "collision": 66,
+      "flooding": 66,
+      "mass": 66,
+      "structure": 66
+    },
+    "fluid_revision": 1,
+    "hull_hash": "780ed488b1710e565cece74b29c6a1cf34c126eeeef7ae39911e25306cebc8f1",
+    "hull_revision": 66,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 67,
+      "collision": 67,
+      "flooding": 67,
+      "mass": 67,
+      "structure": 67
+    },
+    "fluid_revision": 1,
+    "hull_hash": "1465b37a03da674e1e2da4e064fa04d667f4ca40e6e73b64fd7caa188bd8b084",
+    "hull_revision": 67,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 68,
+      "collision": 68,
+      "flooding": 68,
+      "mass": 68,
+      "structure": 68
+    },
+    "fluid_revision": 1,
+    "hull_hash": "bc9210a6915da5276780c080a818c453713868671446051e522ff620b184601e",
+    "hull_revision": 68,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 69,
+      "collision": 69,
+      "flooding": 69,
+      "mass": 69,
+      "structure": 69
+    },
+    "fluid_revision": 1,
+    "hull_hash": "8c4ca8e0ff3eecef4c16a6fdb60f6f1b35ca2646ca9cc1e41373acb84d58f070",
+    "hull_revision": 69,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 70,
+      "collision": 70,
+      "flooding": 70,
+      "mass": 70,
+      "structure": 70
+    },
+    "fluid_revision": 1,
+    "hull_hash": "952f53e860bc057629c1f108c75f435b0348440519789c783f93079152f155ef",
+    "hull_revision": 70,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 71,
+      "collision": 71,
+      "flooding": 71,
+      "mass": 71,
+      "structure": 71
+    },
+    "fluid_revision": 1,
+    "hull_hash": "aadb49d3e4c488f1b396d8353916491b48c181f2e14d2b5e2d0e0ad00ba4c2b4",
+    "hull_revision": 71,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 72,
+      "collision": 72,
+      "flooding": 72,
+      "mass": 72,
+      "structure": 72
+    },
+    "fluid_revision": 1,
+    "hull_hash": "3d25935eb47b116c50813877a66565bfc15a9d3a5ce62e5edb55d1fb855c9671",
+    "hull_revision": 72,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 73,
+      "collision": 73,
+      "flooding": 73,
+      "mass": 73,
+      "structure": 73
+    },
+    "fluid_revision": 1,
+    "hull_hash": "3012ff12c1ef6abdeef324e2ddfd2e47a8a3787c1c70c60ea0673f78fbe2f56d",
+    "hull_revision": 73,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 74,
+      "collision": 74,
+      "flooding": 74,
+      "mass": 74,
+      "structure": 74
+    },
+    "fluid_revision": 1,
+    "hull_hash": "80f5bdeda7266ca44f1fba38f44b292223870ac3d1599882fc26956fdc09e7ad",
+    "hull_revision": 74,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 75,
+      "collision": 75,
+      "flooding": 75,
+      "mass": 75,
+      "structure": 75
+    },
+    "fluid_revision": 1,
+    "hull_hash": "2be56a3de22662565577f9b1e0eff5edc97d55586d729dd9a0e148dda81a182d",
+    "hull_revision": 75,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 76,
+      "collision": 76,
+      "flooding": 76,
+      "mass": 76,
+      "structure": 76
+    },
+    "fluid_revision": 1,
+    "hull_hash": "0fcbe3a9301664e5e842edf88eb4c5b6589f4115c9f95f69a2c8bfc0f9213bdf",
+    "hull_revision": 76,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 77,
+      "collision": 77,
+      "flooding": 77,
+      "mass": 77,
+      "structure": 77
+    },
+    "fluid_revision": 1,
+    "hull_hash": "306a02d19858649cec34ed79459c362b6651d71205c4527d081916df31e5fa68",
+    "hull_revision": 77,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 78,
+      "collision": 78,
+      "flooding": 78,
+      "mass": 78,
+      "structure": 78
+    },
+    "fluid_revision": 1,
+    "hull_hash": "1ad5a71b2c60f009fd4ef75e9c9a861908d7e8c45132b040a4809ee74dec0ea1",
+    "hull_revision": 78,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 79,
+      "collision": 79,
+      "flooding": 79,
+      "mass": 79,
+      "structure": 79
+    },
+    "fluid_revision": 1,
+    "hull_hash": "19ed46e929f885c493d36c6ea1bdf622dbabd312ed1852456a47b1f0612f8cb3",
+    "hull_revision": 79,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 80,
+      "collision": 80,
+      "flooding": 80,
+      "mass": 80,
+      "structure": 80
+    },
+    "fluid_revision": 1,
+    "hull_hash": "fc4b6537529b97245731589ab81e8e7d33cafb952b894d44f1af2a00b90ea39e",
+    "hull_revision": 80,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 81,
+      "collision": 81,
+      "flooding": 81,
+      "mass": 81,
+      "structure": 81
+    },
+    "fluid_revision": 1,
+    "hull_hash": "db4dae7c1b08477635048f0dfaba70022daaac7e8bf1d684d5fdafbea553c4db",
+    "hull_revision": 81,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 82,
+      "collision": 82,
+      "flooding": 82,
+      "mass": 82,
+      "structure": 82
+    },
+    "fluid_revision": 1,
+    "hull_hash": "3b2e32929d1c04c93f1b8dd3d179dce2890193587c7254d6d2ef2c455d40ea2b",
+    "hull_revision": 82,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 83,
+      "collision": 83,
+      "flooding": 83,
+      "mass": 83,
+      "structure": 83
+    },
+    "fluid_revision": 1,
+    "hull_hash": "592f33bed689d7da8acdf94a142e17011048331efa27ad3d3c94d600b6452c6c",
+    "hull_revision": 83,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 84,
+      "collision": 84,
+      "flooding": 84,
+      "mass": 84,
+      "structure": 84
+    },
+    "fluid_revision": 1,
+    "hull_hash": "d746888f1e245cbbaf9aef573b40328f559237a6fdab4837104a1817baf0907a",
+    "hull_revision": 84,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 85,
+      "collision": 85,
+      "flooding": 85,
+      "mass": 85,
+      "structure": 85
+    },
+    "fluid_revision": 1,
+    "hull_hash": "fe12288b1f2750d84f4b3a209dfd4c3dbbd8a9876999b87a24e3f8eb2056cdc2",
+    "hull_revision": 85,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 86,
+      "collision": 86,
+      "flooding": 86,
+      "mass": 86,
+      "structure": 86
+    },
+    "fluid_revision": 1,
+    "hull_hash": "e0b4df27e767e65c70e54d240bea73e09b6759e36fa7f26d5e80801c913ca196",
+    "hull_revision": 86,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 87,
+      "collision": 87,
+      "flooding": 87,
+      "mass": 87,
+      "structure": 87
+    },
+    "fluid_revision": 1,
+    "hull_hash": "b9bfa41bf93c9d38d756d32dc4fe3467c390cba2be4f2cdfc3a54b90c4d0f6c4",
+    "hull_revision": 87,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 88,
+      "collision": 88,
+      "flooding": 88,
+      "mass": 88,
+      "structure": 88
+    },
+    "fluid_revision": 1,
+    "hull_hash": "495000d658abdb36113daa0b2da2bdcaaf92aca1c5117e9033248d1c45023a04",
+    "hull_revision": 88,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 89,
+      "collision": 89,
+      "flooding": 89,
+      "mass": 89,
+      "structure": 89
+    },
+    "fluid_revision": 1,
+    "hull_hash": "2e37d113c64bfe7f418ebaef96f6841d093a2a4321f7158ad4f251b147c69534",
+    "hull_revision": 89,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 90,
+      "collision": 90,
+      "flooding": 90,
+      "mass": 90,
+      "structure": 90
+    },
+    "fluid_revision": 1,
+    "hull_hash": "089330f2325e691e03e03e486d9af64d37873951e0d899b7862fac399a4b6f0f",
+    "hull_revision": 90,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 91,
+      "collision": 91,
+      "flooding": 91,
+      "mass": 91,
+      "structure": 91
+    },
+    "fluid_revision": 1,
+    "hull_hash": "a87ed4dff6ff7682dae3b47350755d12d6fc160617acb2596c48e6d2ca31e006",
+    "hull_revision": 91,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 92,
+      "collision": 92,
+      "flooding": 92,
+      "mass": 92,
+      "structure": 92
+    },
+    "fluid_revision": 1,
+    "hull_hash": "7efa900426c21a2b003a2635a9ca266be9f7ecb913df4fca9d7d3476963f3e2d",
+    "hull_revision": 92,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 93,
+      "collision": 93,
+      "flooding": 93,
+      "mass": 93,
+      "structure": 93
+    },
+    "fluid_revision": 1,
+    "hull_hash": "81e43a7ef332b9ce4883873dc7326ac775f0cf73e61f473714e07c3e4ed79751",
+    "hull_revision": 93,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 94,
+      "collision": 94,
+      "flooding": 94,
+      "mass": 94,
+      "structure": 94
+    },
+    "fluid_revision": 1,
+    "hull_hash": "8abf712e689a2795419869934293b3598d6a0218c81496f654c0bf24f7d82c83",
+    "hull_revision": 94,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 95,
+      "collision": 95,
+      "flooding": 95,
+      "mass": 95,
+      "structure": 95
+    },
+    "fluid_revision": 1,
+    "hull_hash": "b2c491586dab6adc2520242fc552149b3a12d95fda765abe4a994b3f3ee33b02",
+    "hull_revision": 95,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 96,
+      "collision": 96,
+      "flooding": 96,
+      "mass": 96,
+      "structure": 96
+    },
+    "fluid_revision": 1,
+    "hull_hash": "4d6faf4108a474e30f5dc07899de506ce9a3fbf8a9a77d42b044e9ea64a5471e",
+    "hull_revision": 96,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  },
+  {
+    "cargo_ids": [],
+    "center_of_mass": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contained_water": 0,
+    "current_owner_count": 1,
+    "derived_fluid_revisions": {
+      "buoyancy": 1,
+      "collision": 1,
+      "flooding": 1,
+      "mass": 1,
+      "structure": 1
+    },
+    "derived_revisions": {
+      "buoyancy": 97,
+      "collision": 97,
+      "flooding": 97,
+      "mass": 97,
+      "structure": 97
+    },
+    "fluid_revision": 1,
+    "hull_hash": "c055f5cb132bd48ce6d3828df3e1278825c9a721dc7b59165af5933103e22586",
+    "hull_revision": 97,
+    "occupant_ids": [],
+    "owner_epoch": 1,
+    "region_id": "region.alpha",
+    "total_mass": 1000,
+    "vessel_id": "vessel.w3.alpha"
+  }
+]

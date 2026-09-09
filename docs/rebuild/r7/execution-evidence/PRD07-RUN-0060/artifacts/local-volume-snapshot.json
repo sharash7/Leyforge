@@ -1,0 +1,15 @@
+{
+  "active_cell_limit": 256,
+  "active_cells": 1,
+  "conservation_error": 0,
+  "loaded": {
+    "coastal-cave": true
+  },
+  "reservoir_flux": 0,
+  "revisions": {
+    "coastal-cave": 1001
+  },
+  "volumes": {
+    "coastal-cave": 0
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+  "artifact_size_bytes": 110444512,
+  "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+  "evidence_artifacts": [
+    {
+      "bytes": 144766,
+      "kind": "fluid_exchange_ledger",
+      "path": "artifacts/fluid-exchange-ledger.json",
+      "sha256": "77c9eb580c9592449c1e091df3339e17d1e07b4e5758c2898b75bcbf1b381e40"
+    },
+    {
+      "bytes": 3728,
+      "kind": "physics_report",
+      "path": "artifacts/physics-report.json",
+      "sha256": "bffbaa09ce5c55e7e2da84ebfb0e076e00446fe79c0e432369f8e8394b051121"
+    },
+    {
+      "bytes": 68,
+      "kind": "scenario_digest",
+      "path": "artifacts/scenario-digest.json",
+      "sha256": "8123c2e3f38515e0251c30c3a869dc09e676df57b023e8395b9ca9d9aa59a72c"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0065",
+  "evidence_sha256": "f44c1dc12f27330370910009be043271420c072987aec9f49494ff6bd9c6a741",
+  "execution_kind": "actual-governed-execution",
+  "gameplay_permission": "CLOSED",
+  "outcome": "PASS-OBSERVED",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "proof_id": "PRD04-PROOF-32",
+  "retained_local_pack": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w3-execution-0059-0065-cc61b5d\\validated-evidence\\PRD07-RUN-0065",
+  "run_id": "PRD07-RUN-0065",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489"
+}
