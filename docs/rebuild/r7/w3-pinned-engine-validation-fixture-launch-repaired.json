@@ -1,0 +1,115 @@
+{
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "checks": {
+    "controlled_entrypoint_reached": true,
+    "export_completed": true,
+    "export_prerequisites_valid": true,
+    "exported_runtime_validation_valid": true,
+    "pinned_engine_identity_valid": true,
+    "proof_execution_started": false,
+    "script_parse_load_valid": true,
+    "source_hash_identity_valid": true
+  },
+  "dependency_identity": {
+    "godot_build_driver_revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "godot_export_template_revision": "4.8.dev4.official.b56a91878",
+    "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+    "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+  },
+  "export_artifact": {
+    "bytes": 110441920,
+    "sha256": "d4e47cd26ec2c5ed9be62a90f0baf028398a0151f8590461925cca42317c5f31"
+  },
+  "export_process": {
+    "exit_code": 0,
+    "stderr_line_count": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_line_count": 24,
+    "stdout_sha256": "2d05488a846dd0b347aef5b6ad55119eb00cf7636d15b91652b2dc1f755d7af8",
+    "terminated_externally": false,
+    "timed_out": false
+  },
+  "exported_runtime_process": {
+    "exit_code": 0,
+    "stderr_line_count": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_line_count": 3,
+    "stdout_sha256": "9d1f6834a2def6fbe846a996c4eae8f9de9cb5f192d8f1092ffd0e9094cef016",
+    "terminated_externally": false,
+    "timed_out": false
+  },
+  "exported_runtime_report": {
+    "build_identity": "728f6bdabf04712985c2a99fa3fbae4044c3f9981db04aae99b7ca2ac2c1ab0a",
+    "collision_cases": 6,
+    "contact_errors": 0,
+    "controlled_entrypoint_reached": true,
+    "frame_round_trip_errors": 0,
+    "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+    "production_runtime": false,
+    "proof_execution_started": false,
+    "provider_errors": 0,
+    "provider_ready": true,
+    "role": "validation",
+    "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+    "script_parse_load_valid": true,
+    "status": "PASS"
+  },
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+  "issues": [],
+  "prd08_evaluation": "CLOSED",
+  "production_runtime": "ABSENT",
+  "proof_execution": "NOT-STARTED",
+  "runtime_report": {
+    "build_identity": "728f6bdabf04712985c2a99fa3fbae4044c3f9981db04aae99b7ca2ac2c1ab0a",
+    "collision_cases": 6,
+    "contact_errors": 0,
+    "controlled_entrypoint_reached": true,
+    "frame_round_trip_errors": 0,
+    "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+    "production_runtime": false,
+    "proof_execution_started": false,
+    "provider_errors": 0,
+    "provider_ready": true,
+    "role": "validation",
+    "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+    "script_parse_load_valid": true,
+    "status": "PASS"
+  },
+  "schema_version": "prd07-w3-pinned-engine-validation-v1",
+  "source_identity": {
+    "main_gd_bytes": 11122,
+    "main_gd_sha256": "3d05040656740c60538eb0b3cadb6a4235fce020a840b7d74741a4494a4b03c3",
+    "probe_tree_sha256": "5adb941afebd7407b7f206fe7ba7009e28dcfc08e69bbd7fd5cb66b6dde064b5"
+  },
+  "source_process": {
+    "exit_code": 0,
+    "stderr_line_count": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_line_count": 3,
+    "stdout_sha256": "03f12686a5b0051aeaf8bd8d7831d38445b90c6c6cbd61a2f8ea6efb81826ba2",
+    "terminated_externally": false,
+    "timed_out": false
+  },
+  "source_runtime_report": {
+    "build_identity": "728f6bdabf04712985c2a99fa3fbae4044c3f9981db04aae99b7ca2ac2c1ab0a",
+    "collision_cases": 6,
+    "contact_errors": 0,
+    "controlled_entrypoint_reached": true,
+    "frame_round_trip_errors": 0,
+    "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+    "production_runtime": false,
+    "proof_execution_started": false,
+    "provider_errors": 1,
+    "provider_ready": false,
+    "role": "validation",
+    "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+    "script_parse_load_valid": true,
+    "status": "PASS"
+  },
+  "status": "PASS"
+}
