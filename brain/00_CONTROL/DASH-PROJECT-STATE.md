@@ -63,6 +63,8 @@ related_to:
   - "AUDIT-0012"
   - "EVID-0012"
   - "HANDOFF-20260909-002"
+  - "WORK-20260909-003"
+  - "TASK-20260909-003"
   - "ADR-0008"
   - "CONFLICT-0002"
 ---
@@ -77,7 +79,7 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active — W3 fixture-launch repair/re-certification complete | W0-W2 execution is certified; [[EVID-0012]] / [[AUDIT-0012]] certify an allocation-free repair and exact current boundary; [[HANDOFF-20260909-002]] requires fresh authority before another W3 rerun |
+| R7 | Active — W3 technical-environment execution rerun authorized | W0-W2 execution is certified; [[EVID-0012]] / [[AUDIT-0012]] certify the repaired boundary; [[TASK-20260909-003]] / [[WORK-20260909-003]] govern the exact seven-proof rerun |
 | R8 gameplay | Closed | No production gameplay permission is open |
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
@@ -98,4 +100,4 @@ The owner-authorized W3 execution rerun under [[TASK-20260909-001]] / [[WORK-202
 
 [[EVID-0011]] / [[AUDIT-0011]] certify the controlled failure. The subsequent owner-authorized fixture-launch repair/re-certification is complete under [[TASK-20260909-002]] / [[WORK-20260909-002]] and certified by [[EVID-0012]] / [[AUDIT-0012]]. Exact implementation `05f5e8934cc0e99044117e1af4166bb424272e2f` uses authoritative `artifact_path`; real client/headless fixture integration passes without proof execution or allocation; and the current 25-artifact boundary reconciles immutable admission with invalidated 0058 while rejecting drift. Readiness is 7 READY / 0 BLOCKED / 0 NOT APPLICABLE / 0 OBSERVED.
 
-[[HANDOFF-20260909-002]] is the active continuation boundary. A fresh owner-authorized W3 rerun is the next bounded action, but no rerun or 0059+ allocation is authorized now. Issued high-water remains 0058 and 0059-0065 are previews only. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 evaluation remains closed, R8 remains closed and W4 execution is not authorized.
+[[HANDOFF-20260909-002]] remains the active continuation boundary and the owner-authorized rerun is active under [[TASK-20260909-003]] / [[WORK-20260909-003]]. Exact starting authority, initial repaired-boundary/dependency/registry checks, allocation-free client/headless fixture integration, W3 regression and clean full verification pass. No proof has executed and no 0059+ identity is allocated until the published pre-execution gate repeats successfully; issued high-water remains 0058 and 0059-0065 are previews only. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 remains closed, R8 remains closed and W4 execution is not authorized.
