@@ -430,10 +430,10 @@
       "sha256": "3d05040656740c60538eb0b3cadb6a4235fce020a840b7d74741a4494a4b03c3"
     },
     {
-      "bytes": 51406,
-      "git_blob": "47dd1021a5849d9318afc0a3f17123b71099dda1",
+      "bytes": 51395,
+      "git_blob": "b24297d6e5aefe6bb9ebac9914dd2c6ab60cdb62",
       "path": "tools/r7_w3_reconciliation.py",
-      "sha256": "6206ded6c6a13dc7c5893ddb0e530ec252b286f6b9859e86f9c7dd9c2099d782"
+      "sha256": "306b2ffb2c9e53b18f544ea233c0f9116036823e7e7fb311df6be970ac7e34d2"
     },
     {
       "bytes": 69,
@@ -502,10 +502,10 @@
       "sha256": "51ae4a25d2c9219740d291a7460ae2fb180bbd604020b84ee07dd9ff23463b5c"
     },
     {
-      "bytes": 6731,
-      "git_blob": "31450580d0ebbbf805cdd4c361d5d1a053a669e4",
+      "bytes": 7249,
+      "git_blob": "28dd6e22f03d726ac96fef32d124b81819a4e9c3",
       "path": "tools/verify.py",
-      "sha256": "1f6a676b1a0ea16d494032d99c2263e7f1bee7a33087214381b462c9d8cae5d6"
+      "sha256": "af81e263530d25e2f6f73d3b22476f318df920f1a782ffda06729f3f889b1d41"
     },
     {
       "bytes": 69944,
@@ -806,7 +806,7 @@
     "PRD07-RUN-0057"
   ],
   "r7_state": "ACTIVE-AWAITING-W4-GOVERNED-ACTION",
-  "reconciliation_commit": "b31acad4478a34b58df341c718ebcb2879f44c54",
+  "reconciliation_commit": "861da104efb3c22383e330edbd2877299ae55725",
   "registry": {
     "evidence_high_water": 65,
     "invalidated_identities": [
