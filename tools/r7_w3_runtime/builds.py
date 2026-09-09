@@ -446,12 +446,18 @@ texture_format/etc2_astc=false
 '''
 
 
-def _export_artifact(source_revision: str, role: str, run_root: Path) -> ExportedBuild:
+def _export_artifact(
+    source_revision: str,
+    role: str,
+    run_root: Path,
+    *,
+    verified_local: Optional[Mapping[str, Any]] = None,
+) -> ExportedBuild:
     """Build one real proof fixture export without entering proof execution."""
     if role not in {"client", "headless"}:
         raise ValueError("unsupported W3 export role")
     lock = load_lock()
-    local = verify_local_dependencies(lock)
+    local = dict(verified_local) if verified_local is not None else verify_local_dependencies(lock)
     if local["status"] != "PASS":
         raise ValueError("local dependencies are not execution ready: " + "; ".join(local["issues"]))
     allowed = (ROOT / ".local").resolve()
@@ -767,7 +773,7 @@ def fixture_launch_validation_report(
             run_root = Path(raw) / "run"
             for role in ("client", "headless"):
                 try:
-                    exported = _export_artifact(source_revision, role, run_root)
+                    exported = _export_artifact(source_revision, role, run_root, verified_local=local)
                     checks[f"{role}_export_completed"] = True
                     argv = _artifact_launch_argv(exported, ("--mode", "smoke"))
                     manifest_path = Path(exported.artifact.artifact_path).resolve()

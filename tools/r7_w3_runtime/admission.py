@@ -193,10 +193,13 @@ def build_manifest(implementation_commit: str) -> Dict[str, Any]:
         if isinstance(row, dict) and row.get("state") in {"PASS-OBSERVED", "FAIL-OBSERVED", "INCONCLUSIVE"}
     ]
     invalidated_rows = [row for row in allocation_history if isinstance(row, dict) and row.get("state") == "INVALIDATED"]
-    previews = [
-        row.get("future_identity_preview") for row in readiness.get("proofs", [])
-        if isinstance(row, dict) and isinstance(row.get("future_identity_preview"), dict)
-    ]
+    previews = sorted(
+        (
+            row.get("future_identity_preview") for row in readiness.get("proofs", [])
+            if isinstance(row, dict) and isinstance(row.get("future_identity_preview"), dict)
+        ),
+        key=lambda row: str(row.get("run_id", "")),
+    )
     manifest = {
         "manifest_version": 3,
         "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",

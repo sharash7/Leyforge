@@ -329,15 +329,15 @@ w3_superseded_artifacts = {
     ),
     'docs/rebuild/r7/w3-readiness-repaired.json': (
         '46410e3808d7e840e773a594f5471e04f313d1d1',
-        'a55e8f5f5b150a06d119394619a87ff4862fe766fbc329c3d039b3ae9cc719f7',
+        '795c260812bcbd9362d089594b601551714b88d52816a78a32794349bd68b258',
     ),
     'docs/rebuild/r7/w3-execution-boundary-repaired.json': (
         '9ecc03d0f8a6cff278de537a81f4b3bc60018bac',
-        '882955007f2075be161dbc566821b1bb7f76a6688d6ee8749bbcba79ed296d25',
+        '90af508c949a9039d6a147331417140c18c88a2ca475c5438c0a0c03cc14c799',
     ),
     'docs/rebuild/r7/w3-pinned-engine-validation.json': (
         'cd407485ee3ff40d27207dbccc004d90716ea015',
-        '6d7f412b5c6bc68b5a82cd72e6970e8301a42ce8ae13be778b3c817924e61685',
+        '73988e7fe0d12f6dde6ac0a12e147915007d0378e88be8ffcec952eb13e39650',
     ),
 }
 for rel, (expected_blob, expected_sha256) in w3_superseded_artifacts.items():
@@ -617,8 +617,10 @@ check(w3_registry.get('quarantine_paths') == ['docs/rebuild/r7/w3-allocation-rec
 w3_previews = w3_manifest.get('next_identity_previews', [])
 check(isinstance(w3_previews, list) and len(w3_previews) == 7, 'R7 W3 next-rerun preview set differs')
 if isinstance(w3_previews, list):
-    check([row.get('run_id') for row in w3_previews if isinstance(row, dict)] == [f'PRD07-RUN-{index:04d}' for index in range(59, 66)], 'R7 W3 next RUN previews are not 0059-0065')
-    check([row.get('evidence_id') for row in w3_previews if isinstance(row, dict)] == [f'PRD07-EVID-{index:04d}' for index in range(59, 66)], 'R7 W3 next EVID previews are not 0059-0065')
+    expected_w3_preview_runs = [f'PRD07-RUN-{index:04d}' for index in range(59, 66)]
+    expected_w3_preview_evidence = [f'PRD07-EVID-{index:04d}' for index in range(59, 66)]
+    check([row.get('run_id') for row in w3_previews if isinstance(row, dict)] == expected_w3_preview_runs, 'R7 W3 next RUN previews are not the exact allocation order 0059-0065')
+    check([row.get('evidence_id') for row in w3_previews if isinstance(row, dict)] == expected_w3_preview_evidence, 'R7 W3 next EVID previews are not the exact allocation order 0059-0065')
     check(all(row.get('allocation_state') == 'PREVIEW-NOT-ALLOCATED' for row in w3_previews if isinstance(row, dict)), 'R7 W3 next identity previews claim allocation')
 
 w3_admitted_paths = set()

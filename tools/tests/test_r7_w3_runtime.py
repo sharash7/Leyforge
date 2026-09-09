@@ -559,7 +559,7 @@ class R7W3RuntimeTests(unittest.TestCase):
             ), patch(
                 "tools.r7_w3_runtime.builds._export_artifact",
                 side_effect=RuntimeError("injected fixture export failure"),
-            ):
+            ) as export:
             report = fixture_launch_validation_report("a" * 40, validation_parent=Path(raw))
         after = inspect_execution_registry(ROOT)
         self.assertEqual("FAIL", report["status"])
@@ -568,6 +568,8 @@ class R7W3RuntimeTests(unittest.TestCase):
         self.assertFalse(report["checks"]["identity_allocation_started"])
         self.assertTrue(any("injected fixture export failure" in issue for issue in report["issues"]))
         self.assertEqual(before, after)
+        self.assertEqual(2, export.call_count)
+        self.assertTrue(all(call.kwargs["verified_local"]["status"] == "PASS" for call in export.call_args_list))
 
     def test_real_fixture_launch_integration_builds_and_launches_without_proof_or_allocation(self) -> None:
         local = verify_local_dependencies(load_lock())
