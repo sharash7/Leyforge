@@ -35,7 +35,7 @@
       "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
     },
     "gameplay_permission": "CLOSED",
-    "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+    "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
     "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
     "production_runtime": "ABSENT",
     "proof_execution": "NOT-STARTED",
@@ -43,9 +43,9 @@
       "client": {
         "artifact_manifest": {
           "artifact_kind": "leyforge-export",
-          "artifact_sha256": "cca3d8701a3c67c7ec543fb7e41e2a443a15e41d7c0ac7d77b46d620ec0152b7",
+          "artifact_sha256": "be6a1142f3f896cee67f54fc7fcfc0698acee4e9b1ab051cad1e3c8eb23ced68",
           "authoritative_path_field": "artifact_path",
-          "build_identity": "7fc628431d283163dccf7f483555c50508fa76381c5f4d65f2ff972b35f90170",
+          "build_identity": "edcbde4aabecb4ba032b8ffd355ec77194db5e07cc4a23b2a4b1cb893175c2cd",
           "build_identity_round_trip_valid": true,
           "exported_runtime": true,
           "manifest_contract_valid": true,
@@ -54,9 +54,9 @@
           "size_bytes": 110444560,
           "synthetic_fixture": false
         },
-        "build_identity": "7fc628431d283163dccf7f483555c50508fa76381c5f4d65f2ff972b35f90170",
+        "build_identity": "edcbde4aabecb4ba032b8ffd355ec77194db5e07cc4a23b2a4b1cb893175c2cd",
         "export_process": {
-          "duration_seconds": 6.539721299999999,
+          "duration_seconds": 10.2546486,
           "exit_code": 0,
           "terminated_externally": false,
           "timed_out": false
@@ -66,13 +66,13 @@
           "stderr_line_count": 0,
           "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "stdout_line_count": 4,
-          "stdout_sha256": "986099a9fcc5987702cefa6a5688db9a1290b02d595f19d48d4fd6cb21a02c5a",
+          "stdout_sha256": "be44216db93d80b6c6762efd3df2178ac46fbca4c71a4fed1a84ac2350c20682",
           "terminated_externally": false,
           "timed_out": false
         },
         "role": "client",
         "runtime_self_report": {
-          "build_identity": "7fc628431d283163dccf7f483555c50508fa76381c5f4d65f2ff972b35f90170",
+          "build_identity": "edcbde4aabecb4ba032b8ffd355ec77194db5e07cc4a23b2a4b1cb893175c2cd",
           "contact_errors": 0,
           "fixture_capabilities": [
             "stable-vessel-semantic-id",
@@ -116,9 +116,9 @@
       "headless": {
         "artifact_manifest": {
           "artifact_kind": "leyforge-export",
-          "artifact_sha256": "146b3b4677fad02a641154a4a22bc632557818b6e2f10c4de57319ef33ce77c9",
+          "artifact_sha256": "a8b91f9400ac921c73d71f4420439bf578168a7eaf1019fce5173322e35384f3",
           "authoritative_path_field": "artifact_path",
-          "build_identity": "a2f51a35f01e53db4c9dfde3665427822519bf2dceffc33af4a658a28e573a52",
+          "build_identity": "d711e858bd091d2c644500225d6baf6ac32fda02036a2478c97f5b94dfa270c8",
           "build_identity_round_trip_valid": true,
           "exported_runtime": true,
           "manifest_contract_valid": true,
@@ -127,9 +127,9 @@
           "size_bytes": 110444592,
           "synthetic_fixture": false
         },
-        "build_identity": "a2f51a35f01e53db4c9dfde3665427822519bf2dceffc33af4a658a28e573a52",
+        "build_identity": "d711e858bd091d2c644500225d6baf6ac32fda02036a2478c97f5b94dfa270c8",
         "export_process": {
-          "duration_seconds": 7.1896764,
+          "duration_seconds": 7.3964997,
           "exit_code": 0,
           "terminated_externally": false,
           "timed_out": false
@@ -139,13 +139,13 @@
           "stderr_line_count": 0,
           "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "stdout_line_count": 3,
-          "stdout_sha256": "d02c50b39866bcf0c28ee661f03a2aa8cd0a36db295834e527f5680aec42a7d7",
+          "stdout_sha256": "6ec018561907e1449656a7fe1d99d901b95425b45b4873b6c5438bc1007d54a2",
           "terminated_externally": false,
           "timed_out": false
         },
         "role": "headless",
         "runtime_self_report": {
-          "build_identity": "a2f51a35f01e53db4c9dfde3665427822519bf2dceffc33af4a658a28e573a52",
+          "build_identity": "d711e858bd091d2c644500225d6baf6ac32fda02036a2478c97f5b94dfa270c8",
           "contact_errors": 0,
           "fixture_capabilities": [
             "stable-vessel-semantic-id",
@@ -198,7 +198,7 @@
   "fixture_launch_validation_source": "docs/rebuild/r7/w3-fixture-launch-integration.json",
   "gameplay_permission": "CLOSED",
   "historical_execution_disposition": "INVALIDATED-ABORTED-BEFORE-PROOF-OBSERVATION",
-  "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+  "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
   "implementation_commit_source_match": true,
   "invalidated_evidence_ids": [
     "PRD07-EVID-0058"
@@ -233,7 +233,7 @@
     },
     "export_artifact": {
       "bytes": 110441920,
-      "sha256": "d4e47cd26ec2c5ed9be62a90f0baf028398a0151f8590461925cca42317c5f31"
+      "sha256": "a7c17b12e18136b22bcc3868a3e9cf85bec49296f8a75d1920df312dff58a398"
     },
     "export_process": {
       "exit_code": 0,
@@ -249,12 +249,12 @@
       "stderr_line_count": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_line_count": 3,
-      "stdout_sha256": "9d1f6834a2def6fbe846a996c4eae8f9de9cb5f192d8f1092ffd0e9094cef016",
+      "stdout_sha256": "114213597aabd31c4cdd19fd6b9b52040fc2b0f676a9696b4a38e30c6b17b125",
       "terminated_externally": false,
       "timed_out": false
     },
     "exported_runtime_report": {
-      "build_identity": "728f6bdabf04712985c2a99fa3fbae4044c3f9981db04aae99b7ca2ac2c1ab0a",
+      "build_identity": "1c30dd1b148b6c69fcf9162d8918324881861f85401b2aed2ceb5eb713268c57",
       "collision_cases": 6,
       "contact_errors": 0,
       "controlled_entrypoint_reached": true,
@@ -270,7 +270,7 @@
       "status": "PASS"
     },
     "gameplay_permission": "CLOSED",
-    "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+    "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
     "production_runtime": "ABSENT",
     "proof_execution": "NOT-STARTED",
     "schema_version": "prd07-w3-pinned-engine-validation-v1",
@@ -284,12 +284,12 @@
       "stderr_line_count": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_line_count": 3,
-      "stdout_sha256": "03f12686a5b0051aeaf8bd8d7831d38445b90c6c6cbd61a2f8ea6efb81826ba2",
+      "stdout_sha256": "2652623acc0abbc64faf7aa592c38764625bdc1ecd7a9b93d4ea83af2bf2ebfa",
       "terminated_externally": false,
       "timed_out": false
     },
     "source_runtime_report": {
-      "build_identity": "728f6bdabf04712985c2a99fa3fbae4044c3f9981db04aae99b7ca2ac2c1ab0a",
+      "build_identity": "1c30dd1b148b6c69fcf9162d8918324881861f85401b2aed2ceb5eb713268c57",
       "collision_cases": 6,
       "contact_errors": 0,
       "controlled_entrypoint_reached": true,
@@ -643,7 +643,7 @@
     ]
   },
   "schema_version": "prd07-w3-readiness-v4",
-  "source_tree_identity": "0698f46b4c4a85ce423150cadd75f29d4dc5a1dc9fb939a4be3cf79cca2c8865",
+  "source_tree_identity": "ae78f07192fc7f1aa1e32d238c90303297426002556735e1c2aaacec56f93bd2",
   "status": "PASS",
   "w4_fcc13e_revalidation": "REQUIRED"
 }
