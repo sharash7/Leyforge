@@ -61,6 +61,26 @@ def w3_implementation_commit() -> str:
     return result.stdout.strip()
 
 
+def w3_verification_command(python: str) -> list[str]:
+    state_path = ROOT / "docs/rebuild/r7/w3-execution-state.json"
+    terminal_boundary = ROOT / "docs/rebuild/r7/w3-execution-boundary-execution-complete.json"
+    if state_path.is_file() and terminal_boundary.is_file():
+        state = json.loads(state_path.read_text(encoding="utf-8-sig"))
+        if state.get("package_state") == "W3-EXECUTION-COMPLETE":
+            return [python, "tools/r7_w3_reconciliation.py", "verify", "--format", "json"]
+    return [
+        python,
+        "-m",
+        "tools.r7_w3_runtime",
+        "preflight",
+        "--implementation-commit",
+        w3_implementation_commit(),
+        "--static-only",
+        "--format",
+        "json",
+    ]
+
+
 def run(command: list[str]) -> dict[str, object]:
     completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
     return {
@@ -98,7 +118,7 @@ def commands_for(tier: str) -> list[list[str]]:
             [python, "-m", "tools.r7_w0_runtime", "preflight", "--static-only", "--format", "json"],
             [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
             [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
-            [python, "-m", "tools.r7_w3_runtime", "preflight", "--implementation-commit", w3_implementation_commit(), "--static-only", "--format", "json"],
+            w3_verification_command(python),
             [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "full", "--format", "json"],
         ]
     return [
@@ -109,7 +129,7 @@ def commands_for(tier: str) -> list[list[str]]:
         [python, "-m", "tools.r7_w0_runtime", "preflight", "--static-only", "--format", "json"],
         [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
         [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
-        [python, "-m", "tools.r7_w3_runtime", "preflight", "--implementation-commit", w3_implementation_commit(), "--static-only", "--format", "json"],
+        w3_verification_command(python),
         [python, "brain/92_SCRIPTS/brain.py", "ingest", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "index", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "links", "--format", "json"],

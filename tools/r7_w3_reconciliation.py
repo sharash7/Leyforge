@@ -854,7 +854,7 @@ def build_completion_receipt(
         "prd08_submission": "NOT-SUBMITTED",
         "gameplay_permission": "CLOSED",
         "production_runtime": "ABSENT",
-        "next_handoff": "PENDING-FORMAL-CLOSEOUT-HANDOFF",
+        "next_handoff": "HANDOFF-20260909-003",
     }
 
 
