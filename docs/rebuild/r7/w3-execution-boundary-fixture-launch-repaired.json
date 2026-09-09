@@ -1,0 +1,591 @@
+{
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "artifacts": [
+    {
+      "bytes": 4870,
+      "git_blob": "02ac2fc52eef3a3cd7fe16d9d34ee841ff83bf76",
+      "path": "docs/rebuild/r7/w3-allocation-reconciliation.json",
+      "sha256": "6d35b7ecf5c31fa1235c4e795b91a35948f73df60b6db4f2d499de3de848859e"
+    },
+    {
+      "bytes": 6505,
+      "git_blob": "b2c53bdb5d7a8563e7dc1b925f4b2ad7827c7fac",
+      "path": "docs/rebuild/r7/w3-execution-state.json",
+      "sha256": "09d8ea9d47d3fedc074d9426b8a6602e5c471b58c898e0c3dcace8ace881d4a1"
+    },
+    {
+      "bytes": 43418,
+      "git_blob": "c5c608bfb864b57f825705ef0dc4a793e66db146",
+      "path": "docs/rebuild/r7/w3-fixture-launch-integration.json",
+      "sha256": "c7542d3943b8dc846bcd46843647d45fc5f96021f3026fe1795ad896562e9a7a"
+    },
+    {
+      "bytes": 4495,
+      "git_blob": "5c1875098f6b5633f5d176ee7b883f67155d2935",
+      "path": "docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json",
+      "sha256": "cd557688d0b4b255ea7ac384417bd79905f87ccb20158ba7570ca14071723bb4"
+    },
+    {
+      "bytes": 23858,
+      "git_blob": "455fa16d4d9181e5c1bfd8b510bfe8df2d963a0f",
+      "path": "docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json",
+      "sha256": "617dbd4af76c08f3b924bddd0c1575859186d5256bb0680de4ccc3802edeca9d"
+    },
+    {
+      "bytes": 1397,
+      "git_blob": "c7371a2aa67e02588d9ab2db1968b5b4910d9209",
+      "path": "proofs/r7/w3/README.md",
+      "sha256": "e678527715664434e3fd7a97deca6136216f70fe461f3a3605585fd7c82ab9e4"
+    },
+    {
+      "bytes": 800,
+      "git_blob": "9364a0bd6189366ee1b51318bc367e4689c3bdc0",
+      "path": "proofs/r7/w3/dependency-reference.json",
+      "sha256": "12aaba3507d6620698092f5ba7231790fce6db8b810fccb334b659bc80492571"
+    },
+    {
+      "bytes": 181,
+      "git_blob": "c81bc7f1814d5742559f3a4b613a6d617d77f7a7",
+      "path": "proofs/r7/w3/runtime/__init__.py",
+      "sha256": "9ae10c193f02875ae5044434e2c19ea791c425839a56089bb46c2262434c040f"
+    },
+    {
+      "bytes": 16413,
+      "git_blob": "b38a9fc06f1c7d72815936741a861460ecaca976",
+      "path": "proofs/r7/w3/runtime/model.py",
+      "sha256": "309c288847d0b1405c4650ff6510446e2e5eaf7d7de8a3dd9b4109bea7475bf2"
+    },
+    {
+      "bytes": 30199,
+      "git_blob": "96f1b0cd8bd6db6e87d6e984f5b36188b3f0f793",
+      "path": "proofs/r7/w3/runtime/runner.py",
+      "sha256": "bb9a84a0136b260e4109b0694d1ac40c63e63204a7e19918f4d6a9712f8e17eb"
+    },
+    {
+      "bytes": 167,
+      "git_blob": "d4eb50e339eed278df94ecf651446673cde28f4d",
+      "path": "proofs/r7/w3/server_probe/main.tscn",
+      "sha256": "cebdd9c946e15b122efaf2a4916100f1c6da7dd7c8d5a34bf253df03b1a067af"
+    },
+    {
+      "bytes": 525,
+      "git_blob": "26a4ab8dd1e25eaba2755eaab730f7050ed52334",
+      "path": "proofs/r7/w3/server_probe/project.godot",
+      "sha256": "154a1abb5bc4b94f6c66307bb12c96db85fc69cfa97fdcf6efc9db7d648b1738"
+    },
+    {
+      "bytes": 11122,
+      "git_blob": "01ecb28d7b28784710f58b2b2ec9dcfe2d1425f2",
+      "path": "proofs/r7/w3/server_probe/src/main.gd",
+      "sha256": "3d05040656740c60538eb0b3cadb6a4235fce020a840b7d74741a4494a4b03c3"
+    },
+    {
+      "bytes": 69,
+      "git_blob": "fca96617cf8fc35dcd197af604ee9fd585a39dff",
+      "path": "tools/r7_w3_runtime/__init__.py",
+      "sha256": "cd535402b7c433254761994988746bb516cbe61c2f3cf0a88a54d07091429fd9"
+    },
+    {
+      "bytes": 112,
+      "git_blob": "12adbd6dbacdbce01bcf28f89da6b7c2f98eabdb",
+      "path": "tools/r7_w3_runtime/__main__.py",
+      "sha256": "682fb2e4a51aef358a73e8385ce278b69f2260836cfc88d12c74928dd21d06b4"
+    },
+    {
+      "bytes": 15097,
+      "git_blob": "84de3eadd8ada7c7f4947258dd79005b435e2e33",
+      "path": "tools/r7_w3_runtime/admission.py",
+      "sha256": "0efcd5dc60efa8139d974b10ebe8c4801b7ae76225a64510932f342e2bf18192"
+    },
+    {
+      "bytes": 42933,
+      "git_blob": "3b141b94b2e3c40b2bfd3119b37ec3693f68dc78",
+      "path": "tools/r7_w3_runtime/builds.py",
+      "sha256": "104e996726841336cda364605e06bf3cfaa13b9c0af6f2afa51f7450b00baae3"
+    },
+    {
+      "bytes": 4928,
+      "git_blob": "0b2e63239e25a9ffd313ee5d415f8f7b727d6843",
+      "path": "tools/r7_w3_runtime/cli.py",
+      "sha256": "57d7d62cc8c69f826eb7241578158e6cadf568542ce807cae34d8a9a5753cc30"
+    },
+    {
+      "bytes": 2479,
+      "git_blob": "89f29f8024ceb75dddad0ac100e748cc2b1ac3e5",
+      "path": "tools/r7_w3_runtime/dependencies.py",
+      "sha256": "723fbb4c3847d1c563473d7c4b4946508ee24a7fd2ce0e9201788923343bbcc9"
+    },
+    {
+      "bytes": 31385,
+      "git_blob": "14abd4a6380533a459e14ba5e9b36a40b6605c21",
+      "path": "tools/r7_w3_runtime/execution.py",
+      "sha256": "572cfca8432902dc9c23df762d423a1fa114ebb2b168c1060a001beb43973a3b"
+    },
+    {
+      "bytes": 18282,
+      "git_blob": "ce278fc18252492888a64f89d8887643d7b189db",
+      "path": "tools/r7_w3_runtime/execution_plan.py",
+      "sha256": "d6ad335c05d47548f3cf8d08e3de35d6ca2818f4e5854684f01a2f1dd578458a"
+    },
+    {
+      "bytes": 19395,
+      "git_blob": "713e4ece8ff2c44b1cffdc30efb785136f52d47d",
+      "path": "tools/r7_w3_runtime/readiness.py",
+      "sha256": "6b0e244923fd6f22b6886a8e0df8445e14d6d97b802709da445ab641ef06bf2d"
+    },
+    {
+      "bytes": 39991,
+      "git_blob": "2f2e8eda0e5b5b42d7f644cb153e1c179297b124",
+      "path": "tools/tests/test_r7_w3_runtime.py",
+      "sha256": "b698b187c90bb13f120ee1d6fb14a532f200493b41f09f5f28931b6d548f4577"
+    },
+    {
+      "bytes": 6731,
+      "git_blob": "31450580d0ebbbf805cdd4c361d5d1a053a669e4",
+      "path": "tools/verify.py",
+      "sha256": "1f6a676b1a0ea16d494032d99c2263e7f1bee7a33087214381b462c9d8cae5d6"
+    },
+    {
+      "bytes": 60989,
+      "git_blob": "55aed1f88494134b762d2e677ac278a2e0e13f07",
+      "path": "tools/verify_rebuild_boundary.py",
+      "sha256": "c59c3a6f7e91ec037c512896cb0fa1a05f9cb13510a66dfefdb179e2d38d7e60"
+    }
+  ],
+  "authority": [
+    "TASK-20260909-002",
+    "WORK-20260909-002",
+    "HANDOFF-20260909-001",
+    "EVID-0011",
+    "AUDIT-0011",
+    "DOC-PRD-07"
+  ],
+  "dependency_identity": {
+    "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_export_template": "4.8.dev4.official.b56a91878",
+    "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+  },
+  "execution_gate": "OPEN-FOR-FUTURE-SEPARATELY-AUTHORIZED-W3-RERUN",
+  "fixture_launch_validation": {
+    "allocated_evidence_ids": [],
+    "allocated_run_ids": [],
+    "checks": {
+      "authoritative_manifest_contract_valid": true,
+      "build_identity_round_trip_valid": true,
+      "client_artifact_launch_valid": true,
+      "client_export_completed": true,
+      "client_runtime_self_report_valid": true,
+      "execution_state_unchanged": true,
+      "headless_artifact_launch_valid": true,
+      "headless_export_completed": true,
+      "headless_runtime_self_report_valid": true,
+      "identity_allocation_started": false,
+      "pinned_dependencies_valid": true,
+      "production_runtime_present": false,
+      "proof_execution_started": false,
+      "registry_unchanged": true
+    },
+    "dependency_identity": {
+      "godot_build_driver_revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_export_template_revision": "4.8.dev4.official.b56a91878",
+      "local_patch_status": "NO-LOCAL-PATCH",
+      "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+    },
+    "gameplay_permission": "CLOSED",
+    "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+    "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
+    "production_runtime": "ABSENT",
+    "proof_execution": "NOT-STARTED",
+    "roles": {
+      "client": {
+        "artifact_manifest": {
+          "artifact_kind": "leyforge-export",
+          "artifact_sha256": "cca3d8701a3c67c7ec543fb7e41e2a443a15e41d7c0ac7d77b46d620ec0152b7",
+          "authoritative_path_field": "artifact_path",
+          "build_identity": "7fc628431d283163dccf7f483555c50508fa76381c5f4d65f2ff972b35f90170",
+          "build_identity_round_trip_valid": true,
+          "exported_runtime": true,
+          "manifest_contract_valid": true,
+          "manifest_schema": "prd07-artifact-manifest-v1",
+          "path_resolved_during_validation": true,
+          "size_bytes": 110444560,
+          "synthetic_fixture": false
+        },
+        "build_identity": "7fc628431d283163dccf7f483555c50508fa76381c5f4d65f2ff972b35f90170",
+        "export_process": {
+          "duration_seconds": 6.539721299999999,
+          "exit_code": 0,
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "launch_process": {
+          "exit_code": 0,
+          "stderr_line_count": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_line_count": 4,
+          "stdout_sha256": "986099a9fcc5987702cefa6a5688db9a1290b02d595f19d48d4fd6cb21a02c5a",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "role": "client",
+        "runtime_self_report": {
+          "build_identity": "7fc628431d283163dccf7f483555c50508fa76381c5f4d65f2ff972b35f90170",
+          "contact_errors": 0,
+          "fixture_capabilities": [
+            "stable-vessel-semantic-id",
+            "vessel-local-frame",
+            "world-vessel-frame-conversion",
+            "owner-region-epochs",
+            "editable-local-hull",
+            "revisioned-derived-properties",
+            "bounded-local-fluid",
+            "explicit-ocean-reservoir",
+            "breach-repair-pump",
+            "contained-water-mass",
+            "buoyancy-diagnostic",
+            "controlled-motion",
+            "board-disembark",
+            "physics-shape-collision-corpus",
+            "stale-result-quarantine"
+          ],
+          "frame_round_trip_errors": 0,
+          "presentation_authority_dependencies": 0,
+          "production_runtime": false,
+          "proof_execution_started": false,
+          "provider_class": "VoxelBuffer",
+          "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+          "provider_errors": 0,
+          "provider_ready": true,
+          "role": "client",
+          "schema_version": "prd07-w3-fixture-self-report-v1",
+          "stable_proof_ids": [
+            "PRD04-PROOF-08",
+            "PRD04-PROOF-27",
+            "PRD04-PROOF-28",
+            "PRD04-PROOF-29",
+            "PRD04-PROOF-30",
+            "PRD04-PROOF-31",
+            "PRD04-PROOF-32"
+          ],
+          "status": "PASS"
+        }
+      },
+      "headless": {
+        "artifact_manifest": {
+          "artifact_kind": "leyforge-export",
+          "artifact_sha256": "146b3b4677fad02a641154a4a22bc632557818b6e2f10c4de57319ef33ce77c9",
+          "authoritative_path_field": "artifact_path",
+          "build_identity": "a2f51a35f01e53db4c9dfde3665427822519bf2dceffc33af4a658a28e573a52",
+          "build_identity_round_trip_valid": true,
+          "exported_runtime": true,
+          "manifest_contract_valid": true,
+          "manifest_schema": "prd07-artifact-manifest-v1",
+          "path_resolved_during_validation": true,
+          "size_bytes": 110444592,
+          "synthetic_fixture": false
+        },
+        "build_identity": "a2f51a35f01e53db4c9dfde3665427822519bf2dceffc33af4a658a28e573a52",
+        "export_process": {
+          "duration_seconds": 7.1896764,
+          "exit_code": 0,
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "launch_process": {
+          "exit_code": 0,
+          "stderr_line_count": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_line_count": 3,
+          "stdout_sha256": "d02c50b39866bcf0c28ee661f03a2aa8cd0a36db295834e527f5680aec42a7d7",
+          "terminated_externally": false,
+          "timed_out": false
+        },
+        "role": "headless",
+        "runtime_self_report": {
+          "build_identity": "a2f51a35f01e53db4c9dfde3665427822519bf2dceffc33af4a658a28e573a52",
+          "contact_errors": 0,
+          "fixture_capabilities": [
+            "stable-vessel-semantic-id",
+            "vessel-local-frame",
+            "world-vessel-frame-conversion",
+            "owner-region-epochs",
+            "editable-local-hull",
+            "revisioned-derived-properties",
+            "bounded-local-fluid",
+            "explicit-ocean-reservoir",
+            "breach-repair-pump",
+            "contained-water-mass",
+            "buoyancy-diagnostic",
+            "controlled-motion",
+            "board-disembark",
+            "physics-shape-collision-corpus",
+            "stale-result-quarantine"
+          ],
+          "frame_round_trip_errors": 0,
+          "presentation_authority_dependencies": 0,
+          "production_runtime": false,
+          "proof_execution_started": false,
+          "provider_class": "VoxelBuffer",
+          "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+          "provider_errors": 0,
+          "provider_ready": true,
+          "role": "headless",
+          "schema_version": "prd07-w3-fixture-self-report-v1",
+          "stable_proof_ids": [
+            "PRD04-PROOF-08",
+            "PRD04-PROOF-27",
+            "PRD04-PROOF-28",
+            "PRD04-PROOF-29",
+            "PRD04-PROOF-30",
+            "PRD04-PROOF-31",
+            "PRD04-PROOF-32"
+          ],
+          "status": "PASS"
+        }
+      }
+    },
+    "schema_version": "prd07-w3-fixture-launch-integration-v1",
+    "source_identity": {
+      "main_gd_bytes": 11122,
+      "main_gd_sha256": "3d05040656740c60538eb0b3cadb6a4235fce020a840b7d74741a4494a4b03c3",
+      "probe_tree_sha256": "5adb941afebd7407b7f206fe7ba7009e28dcfc08e69bbd7fd5cb66b6dde064b5"
+    },
+    "status": "PASS"
+  },
+  "gameplay_permission": "CLOSED",
+  "historical_admission": {
+    "allocated_evidence_ids": [],
+    "allocated_run_ids": [],
+    "bytes": 11379,
+    "git_blob": "9ecc03d0f8a6cff278de537a81f4b3bc60018bac",
+    "implementation_commit": "45b0300caa0ebd66d4c740a71db983a7a9827f3b",
+    "lifecycle_role": "IMMUTABLE-PRE-EXECUTION-ADMISSION",
+    "path": "docs/rebuild/r7/w3-execution-boundary-repaired.json",
+    "proof_execution": "NOT-STARTED",
+    "sha256": "90af508c949a9039d6a147331417140c18c88a2ca475c5438c0a0c03cc14c799"
+  },
+  "historical_execution": {
+    "allocated_evidence_ids": [
+      "PRD07-EVID-0058"
+    ],
+    "allocated_run_ids": [
+      "PRD07-RUN-0058"
+    ],
+    "allocation_history_evidence_ids": [
+      "PRD07-EVID-0058"
+    ],
+    "allocation_history_run_ids": [
+      "PRD07-RUN-0058"
+    ],
+    "bytes": 6505,
+    "git_blob": "b2c53bdb5d7a8563e7dc1b925f4b2ad7827c7fac",
+    "invalidated_evidence_ids": [
+      "PRD07-EVID-0058"
+    ],
+    "invalidated_run_ids": [
+      "PRD07-RUN-0058"
+    ],
+    "lifecycle_role": "IMMUTABLE-TERMINAL-EXECUTION-JOURNAL",
+    "package_state": "ABORTED-BEFORE-PROOF-OBSERVATION",
+    "path": "docs/rebuild/r7/w3-execution-state.json",
+    "proof_observation_count": 0,
+    "sha256": "09d8ea9d47d3fedc074d9426b8a6602e5c471b58c898e0c3dcace8ace881d4a1",
+    "source_revision": "f92445e2b432b568327cd16685b6c6fceaf355b4"
+  },
+  "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+  "invalidated_evidence_ids": [
+    "PRD07-EVID-0058"
+  ],
+  "invalidated_run_ids": [
+    "PRD07-RUN-0058"
+  ],
+  "lifecycle_role": "CURRENT-POST-ATTEMPT-RECERTIFICATION",
+  "manifest_version": 3,
+  "next_identity_previews": [
+    {
+      "allocation_state": "PREVIEW-NOT-ALLOCATED",
+      "evidence_id": "PRD07-EVID-0061",
+      "proof_id": "PRD04-PROOF-08",
+      "run_id": "PRD07-RUN-0061"
+    },
+    {
+      "allocation_state": "PREVIEW-NOT-ALLOCATED",
+      "evidence_id": "PRD07-EVID-0059",
+      "proof_id": "PRD04-PROOF-27",
+      "run_id": "PRD07-RUN-0059"
+    },
+    {
+      "allocation_state": "PREVIEW-NOT-ALLOCATED",
+      "evidence_id": "PRD07-EVID-0060",
+      "proof_id": "PRD04-PROOF-28",
+      "run_id": "PRD07-RUN-0060"
+    },
+    {
+      "allocation_state": "PREVIEW-NOT-ALLOCATED",
+      "evidence_id": "PRD07-EVID-0063",
+      "proof_id": "PRD04-PROOF-29",
+      "run_id": "PRD07-RUN-0063"
+    },
+    {
+      "allocation_state": "PREVIEW-NOT-ALLOCATED",
+      "evidence_id": "PRD07-EVID-0062",
+      "proof_id": "PRD04-PROOF-30",
+      "run_id": "PRD07-RUN-0062"
+    },
+    {
+      "allocation_state": "PREVIEW-NOT-ALLOCATED",
+      "evidence_id": "PRD07-EVID-0064",
+      "proof_id": "PRD04-PROOF-31",
+      "run_id": "PRD07-RUN-0064"
+    },
+    {
+      "allocation_state": "PREVIEW-NOT-ALLOCATED",
+      "evidence_id": "PRD07-EVID-0065",
+      "proof_id": "PRD04-PROOF-32",
+      "run_id": "PRD07-RUN-0065"
+    }
+  ],
+  "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
+  "pinned_engine_validation": {
+    "allocated_evidence_ids": [],
+    "allocated_run_ids": [],
+    "checks": {
+      "controlled_entrypoint_reached": true,
+      "export_completed": true,
+      "export_prerequisites_valid": true,
+      "exported_runtime_validation_valid": true,
+      "pinned_engine_identity_valid": true,
+      "proof_execution_started": false,
+      "script_parse_load_valid": true,
+      "source_hash_identity_valid": true
+    },
+    "dependency_identity": {
+      "godot_build_driver_revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "godot_export_template_revision": "4.8.dev4.official.b56a91878",
+      "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "local_patch_status": "NO-LOCAL-PATCH",
+      "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+      "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+    },
+    "export_artifact": {
+      "bytes": 110441920,
+      "sha256": "d4e47cd26ec2c5ed9be62a90f0baf028398a0151f8590461925cca42317c5f31"
+    },
+    "export_process": {
+      "exit_code": 0,
+      "stderr_line_count": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_line_count": 24,
+      "stdout_sha256": "2d05488a846dd0b347aef5b6ad55119eb00cf7636d15b91652b2dc1f755d7af8",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "exported_runtime_process": {
+      "exit_code": 0,
+      "stderr_line_count": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_line_count": 3,
+      "stdout_sha256": "9d1f6834a2def6fbe846a996c4eae8f9de9cb5f192d8f1092ffd0e9094cef016",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "exported_runtime_report": {
+      "build_identity": "728f6bdabf04712985c2a99fa3fbae4044c3f9981db04aae99b7ca2ac2c1ab0a",
+      "collision_cases": 6,
+      "contact_errors": 0,
+      "controlled_entrypoint_reached": true,
+      "frame_round_trip_errors": 0,
+      "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+      "production_runtime": false,
+      "proof_execution_started": false,
+      "provider_errors": 0,
+      "provider_ready": true,
+      "role": "validation",
+      "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+      "script_parse_load_valid": true,
+      "status": "PASS"
+    },
+    "gameplay_permission": "CLOSED",
+    "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+    "production_runtime": "ABSENT",
+    "proof_execution": "NOT-STARTED",
+    "schema_version": "prd07-w3-pinned-engine-validation-v1",
+    "source_identity": {
+      "main_gd_bytes": 11122,
+      "main_gd_sha256": "3d05040656740c60538eb0b3cadb6a4235fce020a840b7d74741a4494a4b03c3",
+      "probe_tree_sha256": "5adb941afebd7407b7f206fe7ba7009e28dcfc08e69bbd7fd5cb66b6dde064b5"
+    },
+    "source_process": {
+      "exit_code": 0,
+      "stderr_line_count": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_line_count": 3,
+      "stdout_sha256": "03f12686a5b0051aeaf8bd8d7831d38445b90c6c6cbd61a2f8ea6efb81826ba2",
+      "terminated_externally": false,
+      "timed_out": false
+    },
+    "source_runtime_report": {
+      "build_identity": "728f6bdabf04712985c2a99fa3fbae4044c3f9981db04aae99b7ca2ac2c1ab0a",
+      "collision_cases": 6,
+      "contact_errors": 0,
+      "controlled_entrypoint_reached": true,
+      "frame_round_trip_errors": 0,
+      "physics_query_api": "PhysicsDirectSpaceState3D.collide_shape",
+      "production_runtime": false,
+      "proof_execution_started": false,
+      "provider_errors": 1,
+      "provider_ready": false,
+      "role": "validation",
+      "schema_version": "prd07-w3-pinned-engine-validation-report-v1",
+      "script_parse_load_valid": true,
+      "status": "PASS"
+    },
+    "status": "PASS"
+  },
+  "prior_boundary_disposition": {
+    "path": "docs/rebuild/r7/w3-execution-boundary-repaired.json",
+    "reason": "The immutable admission remains valid for its pre-execution timepoint; this boundary additionally reconciles terminal invalidated attempt 0058 and certifies a distinct unstarted next-rerun boundary.",
+    "state": "SUPERSEDED-BY-POST-ATTEMPT-RECERTIFICATION"
+  },
+  "proof_execution": "NOT-STARTED-FOR-NEXT-RERUN",
+  "quarantined_evidence_ids": [
+    "PRD07-EVID-0051",
+    "PRD07-EVID-0052",
+    "PRD07-EVID-0053",
+    "PRD07-EVID-0054",
+    "PRD07-EVID-0055",
+    "PRD07-EVID-0056",
+    "PRD07-EVID-0057"
+  ],
+  "quarantined_run_ids": [
+    "PRD07-RUN-0051",
+    "PRD07-RUN-0052",
+    "PRD07-RUN-0053",
+    "PRD07-RUN-0054",
+    "PRD07-RUN-0055",
+    "PRD07-RUN-0056",
+    "PRD07-RUN-0057"
+  ],
+  "registry": {
+    "evidence_high_water": 58,
+    "invalidated_identity_count": 1,
+    "issued_identity_count": 58,
+    "next_future_sequence": 59,
+    "quarantine_paths": [
+      "docs/rebuild/r7/w3-allocation-reconciliation.json"
+    ],
+    "quarantined_identity_count": 7,
+    "retained_identity_count": 50,
+    "run_high_water": 58,
+    "state_paths": [
+      "docs/rebuild/r7/w0-execution-state.json",
+      "docs/rebuild/r7/w1-execution-state.json",
+      "docs/rebuild/r7/w2-execution-state.json",
+      "docs/rebuild/r7/w3-execution-state.json"
+    ]
+  },
+  "scope": "development-only-prd07-proof-runtime",
+  "source_tree_identity": "0698f46b4c4a85ce423150cadd75f29d4dc5a1dc9fb939a4be3cf79cca2c8865"
+}
