@@ -196,6 +196,7 @@ func _smoke(build_manifest: Dictionary) -> Dictionary:
         "frame_round_trip_errors": frames["frame_round_trip_errors"],
         "contact_errors": collisions["contact_errors"],
         "presentation_authority_dependencies": 0,
+        "proof_execution_started": false,
         "production_runtime": false,
     }
 

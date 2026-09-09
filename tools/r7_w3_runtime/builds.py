@@ -5,12 +5,14 @@ from __future__ import annotations
 import hashlib
 import json
 import platform
+import re
 import shutil
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Mapping, Optional, Sequence
 
+from proofs.r7.w3.runtime.runner import PROOF_IDS
 from tools.proof_harness.build import BuildController, CleanExportPlan
 from tools.proof_harness.manifests import ArtifactManifest, BuildManifest, sha256_file
 from tools.proof_harness.process import ProcessController, SmokeLane
@@ -21,7 +23,9 @@ from .dependencies import ROOT, execution_components, iter_staged_voxel_files, l
 
 PROBE_SOURCE = ROOT / "proofs/r7/w3/server_probe"
 W3_SOURCE = ROOT / "proofs/r7/w3"
-PINNED_ENGINE_VALIDATION_PATH = ROOT / "docs/rebuild/r7/w3-pinned-engine-validation.json"
+PREVIOUS_PINNED_ENGINE_VALIDATION_PATH = ROOT / "docs/rebuild/r7/w3-pinned-engine-validation.json"
+PINNED_ENGINE_VALIDATION_PATH = ROOT / "docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json"
+FIXTURE_LAUNCH_VALIDATION_PATH = ROOT / "docs/rebuild/r7/w3-fixture-launch-integration.json"
 REQUIRED_CAPABILITIES = {
     "stable-vessel-semantic-id",
     "vessel-local-frame",
@@ -116,6 +120,21 @@ def _process_summary(result: Any) -> Dict[str, Any]:
         "stderr_sha256": hashlib.sha256(result.stderr.encode("utf-8")).hexdigest(),
         "stdout_line_count": len(result.stdout.splitlines()),
         "stderr_line_count": len(result.stderr.splitlines()),
+    }
+
+
+def _governed_execution_snapshot() -> Dict[str, Any]:
+    """Capture allocation authority without changing or normalising it."""
+    from .execution_plan import inspect_execution_registry
+
+    state_path = ROOT / "docs/rebuild/r7/w3-execution-state.json"
+    state_bytes = state_path.read_bytes() if state_path.is_file() else b""
+    return {
+        "state_path": state_path.relative_to(ROOT).as_posix(),
+        "state_present": state_path.is_file(),
+        "state_bytes": len(state_bytes),
+        "state_sha256": hashlib.sha256(state_bytes).hexdigest() if state_bytes else None,
+        "registry": inspect_execution_registry(ROOT).to_dict(),
     }
 
 
@@ -427,7 +446,8 @@ texture_format/etc2_astc=false
 '''
 
 
-def export_one(source_revision: str, role: str, run_root: Path, execution: ProofExecution) -> ExportedBuild:
+def _export_artifact(source_revision: str, role: str, run_root: Path) -> ExportedBuild:
+    """Build one real proof fixture export without entering proof execution."""
     if role not in {"client", "headless"}:
         raise ValueError("unsupported W3 export role")
     lock = load_lock()
@@ -501,29 +521,6 @@ def export_one(source_revision: str, role: str, run_root: Path, execution: Proof
         synthetic_fixture=False,
         runtime_self_report_build_identity=build.build_identity,
     )
-    argv = [str(artifact_path.resolve())]
-    if role == "headless":
-        argv.append("--headless")
-    argv.extend(["--", "--mode", "smoke"])
-    lane = SmokeLane(
-        lane_id=f"W3-{role.upper()}-EXPORT-SMOKE",
-        proof_id=execution.proof_id,
-        role=role,
-        build=build,
-        artifact=artifact,
-        argv=tuple(argv),
-    )
-    smoke = lane.execute(controller, timeout_seconds=60.0, proof_execution=execution)
-    report = _parse_prefixed_json(smoke.process.stdout, "LEYFORGE_W3_SELF_REPORT ")
-    capabilities = set(report.get("fixture_capabilities", []))
-    if (
-        report.get("status") != "PASS"
-        or report.get("build_identity") != build.build_identity
-        or report.get("role") != role
-        or not REQUIRED_CAPABILITIES.issubset(capabilities)
-        or not smoke.evidence_eligible
-    ):
-        raise RuntimeError("W3 runtime self-report did not match its build and fixture contract")
     files = [
         {"path": path.relative_to(output_root).as_posix(), "bytes": path.stat().st_size, "sha256": sha256_file(path)}
         for path in sorted(output_root.rglob("*")) if path.is_file()
@@ -536,7 +533,57 @@ def export_one(source_revision: str, role: str, run_root: Path, execution: Proof
         "presentation_authority_included": False,
         "provider_runtime_included": any(item["path"].endswith("libvoxel.windows.template_release.x86_64.dll") for item in files),
     }
-    return ExportedBuild(build, artifact, export_result.to_dict(), smoke.to_dict(), report, content, workspace, output_root)
+    return ExportedBuild(build, artifact, export_result.to_dict(), {}, {}, content, workspace, output_root)
+
+
+def _artifact_launch_argv(exported: ExportedBuild, arguments: Sequence[str]) -> tuple[str, ...]:
+    """Resolve every exported W3 launch through the authoritative manifest field."""
+    artifact_path = Path(exported.artifact.artifact_path)
+    argv = [str(artifact_path.resolve())]
+    if exported.build.role == "headless":
+        argv.append("--headless")
+    argv.append("--")
+    argv.extend(str(value) for value in arguments)
+    return tuple(argv)
+
+
+def export_one(source_revision: str, role: str, run_root: Path, execution: ProofExecution) -> ExportedBuild:
+    exported = _export_artifact(source_revision, role, run_root)
+    profile = exported.output_root.parent / "profile"
+    controller = EnvironmentProcessController({
+        "APPDATA": str((profile / "appdata").resolve()),
+        "LOCALAPPDATA": str((profile / "localappdata").resolve()),
+    })
+    argv = _artifact_launch_argv(exported, ("--mode", "smoke"))
+    lane = SmokeLane(
+        lane_id=f"W3-{role.upper()}-EXPORT-SMOKE",
+        proof_id=execution.proof_id,
+        role=role,
+        build=exported.build,
+        artifact=exported.artifact,
+        argv=argv,
+    )
+    smoke = lane.execute(controller, timeout_seconds=60.0, proof_execution=execution)
+    report = _parse_prefixed_json(smoke.process.stdout, "LEYFORGE_W3_SELF_REPORT ")
+    capabilities = set(report.get("fixture_capabilities", []))
+    if (
+        report.get("status") != "PASS"
+        or report.get("build_identity") != exported.build.build_identity
+        or report.get("role") != role
+        or not REQUIRED_CAPABILITIES.issubset(capabilities)
+        or not smoke.evidence_eligible
+    ):
+        raise RuntimeError("W3 runtime self-report did not match its build and fixture contract")
+    return ExportedBuild(
+        exported.build,
+        exported.artifact,
+        exported.export_result,
+        smoke.to_dict(),
+        report,
+        exported.role_content_manifest,
+        exported.workspace,
+        exported.output_root,
+    )
 
 
 def run_fixture_probe(exported: ExportedBuild, execution: ProofExecution, iterations: int = 512) -> Dict[str, Any]:
@@ -545,12 +592,8 @@ def run_fixture_probe(exported: ExportedBuild, execution: ProofExecution, iterat
         "APPDATA": str((profile / "appdata").resolve()),
         "LOCALAPPDATA": str((profile / "localappdata").resolve()),
     })
-    artifact_path = Path(exported.artifact.path)
-    argv = [str(artifact_path.resolve())]
-    if exported.build.role == "headless":
-        argv.append("--headless")
-    argv.extend([
-        "--", "--mode", "fixture", "--proof-id", execution.proof_id,
+    argv = _artifact_launch_argv(exported, [
+        "--mode", "fixture", "--proof-id", execution.proof_id,
         "--run-id", str(execution.run_id), "--iterations", str(iterations),
     ])
     lane = SmokeLane(
@@ -559,7 +602,7 @@ def run_fixture_probe(exported: ExportedBuild, execution: ProofExecution, iterat
         role=exported.build.role,
         build=exported.build,
         artifact=exported.artifact,
-        argv=tuple(argv),
+        argv=argv,
     )
     result = lane.execute(controller, timeout_seconds=120.0, proof_execution=execution)
     report = _parse_prefixed_json(result.process.stdout, "LEYFORGE_W3_FIXTURE_REPORT ")
@@ -570,3 +613,242 @@ def run_fixture_probe(exported: ExportedBuild, execution: ProofExecution, iterat
     report["external_process"] = True
     report["process"] = result.to_dict()
     return report
+
+
+def fixture_launch_validation_issues(value: Mapping[str, Any], source_revision: str) -> tuple[str, ...]:
+    """Validate a retained certification-only build/launch receipt fail-closed."""
+    lock = load_lock()
+    expected_dependencies = {
+        "godot_build_driver_revision": lock.get("components", {}).get("godot_build_driver", {}).get("revision", ""),
+        "godot_export_template_revision": lock.get("components", {}).get("godot_export_template", {}).get("revision", ""),
+        "voxel_tools_revision": lock.get("components", {}).get("voxel_tools", {}).get("revision", ""),
+        "local_patch_status": lock.get("local_patch_status", ""),
+    }
+    issues = []
+    if value.get("schema_version") != "prd07-w3-fixture-launch-integration-v1":
+        issues.append("fixture-launch integration schema is missing or unsupported")
+    if value.get("status") != "PASS":
+        issues.append("fixture-launch integration does not pass")
+    if value.get("implementation_commit") != source_revision:
+        issues.append("fixture-launch integration names a different implementation commit")
+    if value.get("source_identity") != validation_source_identity():
+        issues.append("fixture-launch integration source identity is stale")
+    if value.get("dependency_identity") != expected_dependencies:
+        issues.append("fixture-launch integration dependency identity differs")
+    checks = value.get("checks", {})
+    required_checks = (
+        "pinned_dependencies_valid",
+        "client_export_completed",
+        "headless_export_completed",
+        "authoritative_manifest_contract_valid",
+        "client_artifact_launch_valid",
+        "headless_artifact_launch_valid",
+        "client_runtime_self_report_valid",
+        "headless_runtime_self_report_valid",
+        "build_identity_round_trip_valid",
+        "execution_state_unchanged",
+        "registry_unchanged",
+        "proof_execution_started",
+        "identity_allocation_started",
+        "production_runtime_present",
+    )
+    if not isinstance(checks, dict):
+        issues.append("fixture-launch integration checks are missing")
+    else:
+        for key in required_checks[:11]:
+            if checks.get(key) is not True:
+                issues.append(f"fixture-launch integration check did not pass: {key}")
+        for key in required_checks[11:]:
+            if checks.get(key) is not False:
+                issues.append(f"fixture-launch integration crossed a forbidden boundary: {key}")
+    roles = value.get("roles", {})
+    if not isinstance(roles, dict) or set(roles) != {"client", "headless"}:
+        issues.append("fixture-launch integration lacks the exact client/headless role set")
+    else:
+        for role in ("client", "headless"):
+            row = roles.get(role, {})
+            artifact = row.get("artifact_manifest", {}) if isinstance(row, dict) else {}
+            report = row.get("runtime_self_report", {}) if isinstance(row, dict) else {}
+            if (
+                not isinstance(row, dict)
+                or row.get("role") != role
+                or re.fullmatch(r"[0-9a-f]{64}", str(row.get("build_identity", ""))) is None
+                or not isinstance(artifact, dict)
+                or artifact.get("manifest_schema") != "prd07-artifact-manifest-v1"
+                or artifact.get("authoritative_path_field") != "artifact_path"
+                or artifact.get("path_resolved_during_validation") is not True
+                or artifact.get("manifest_contract_valid") is not True
+                or artifact.get("build_identity_round_trip_valid") is not True
+                or artifact.get("build_identity") != row.get("build_identity")
+                or re.fullmatch(r"[0-9a-f]{64}", str(artifact.get("artifact_sha256", ""))) is None
+                or int(artifact.get("size_bytes", 0)) <= 0
+                or artifact.get("exported_runtime") is not True
+                or artifact.get("synthetic_fixture") is not False
+                or not isinstance(report, dict)
+                or report.get("status") != "PASS"
+                or report.get("role") != role
+                or report.get("build_identity") != row.get("build_identity")
+                or report.get("proof_execution_started") is not False
+                or report.get("production_runtime") is not False
+                or report.get("stable_proof_ids") != list(PROOF_IDS)
+                or report.get("provider_ready") is not True
+                or int(report.get("provider_errors", 1)) != 0
+                or int(report.get("frame_round_trip_errors", 1)) != 0
+                or int(report.get("contact_errors", 1)) != 0
+                or not REQUIRED_CAPABILITIES.issubset(set(report.get("fixture_capabilities", [])))
+            ):
+                issues.append(f"fixture-launch integration role contract differs: {role}")
+    if value.get("proof_execution") != "NOT-STARTED" or value.get("allocated_run_ids") != [] or value.get("allocated_evidence_ids") != []:
+        issues.append("fixture-launch integration claims proof execution or allocation")
+    if value.get("gameplay_permission") != "CLOSED" or value.get("production_runtime") != "ABSENT":
+        issues.append("fixture-launch integration crossed the rebuild boundary")
+    if "before_execution_authority" in value or "after_execution_authority" in value:
+        before = value.get("before_execution_authority")
+        after = value.get("after_execution_authority")
+        if not isinstance(before, dict) or before != after:
+            issues.append("fixture-launch integration changed execution authority")
+    return tuple(sorted(set(issues)))
+
+
+def fixture_launch_validation_report(
+    source_revision: str,
+    *,
+    validation_parent: Optional[Path] = None,
+) -> Dict[str, Any]:
+    """Build and launch both real artifacts without allocating or observing a proof."""
+    lock = load_lock()
+    local = verify_local_dependencies(lock)
+    before = _governed_execution_snapshot()
+    checks = {
+        "pinned_dependencies_valid": local.get("status") == "PASS",
+        "client_export_completed": False,
+        "headless_export_completed": False,
+        "authoritative_manifest_contract_valid": False,
+        "client_artifact_launch_valid": False,
+        "headless_artifact_launch_valid": False,
+        "client_runtime_self_report_valid": False,
+        "headless_runtime_self_report_valid": False,
+        "build_identity_round_trip_valid": False,
+        "execution_state_unchanged": False,
+        "registry_unchanged": False,
+        "proof_execution_started": False,
+        "identity_allocation_started": False,
+        "production_runtime_present": False,
+    }
+    report: Dict[str, Any] = {
+        "schema_version": "prd07-w3-fixture-launch-integration-v1",
+        "status": "FAIL",
+        "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
+        "implementation_commit": source_revision,
+        "source_identity": validation_source_identity(),
+        "dependency_identity": {
+            "godot_build_driver_revision": lock.get("components", {}).get("godot_build_driver", {}).get("revision", ""),
+            "godot_export_template_revision": lock.get("components", {}).get("godot_export_template", {}).get("revision", ""),
+            "voxel_tools_revision": lock.get("components", {}).get("voxel_tools", {}).get("revision", ""),
+            "local_patch_status": lock.get("local_patch_status", ""),
+        },
+        "checks": checks,
+        "roles": {},
+        "before_execution_authority": before,
+        "after_execution_authority": None,
+        "issues": list(local.get("issues", [])),
+        "proof_execution": "NOT-STARTED",
+        "allocated_run_ids": [],
+        "allocated_evidence_ids": [],
+        "gameplay_permission": "CLOSED",
+        "prd08_evaluation": "CLOSED",
+        "production_runtime": "ABSENT",
+    }
+    issues = list(local.get("issues", []))
+    validation_parent = validation_parent or ROOT / ".local" / "r7-w3-fixture-launch-validation"
+    validation_parent.mkdir(parents=True, exist_ok=True)
+    if not issues:
+        with ValidationTemporaryDirectory(prefix="integration-", dir=str(validation_parent)) as raw:
+            run_root = Path(raw) / "run"
+            for role in ("client", "headless"):
+                try:
+                    exported = _export_artifact(source_revision, role, run_root)
+                    checks[f"{role}_export_completed"] = True
+                    argv = _artifact_launch_argv(exported, ("--mode", "smoke"))
+                    manifest_path = Path(exported.artifact.artifact_path).resolve()
+                    path_valid = Path(argv[0]).resolve() == manifest_path and manifest_path.is_file()
+                    role_flag_valid = (role == "headless") == ("--headless" in argv)
+                    integrity_valid = not exported.artifact.integrity_issues(exported.build)
+                    round_trip_valid = BuildManifest.from_dict(exported.build.to_dict()).build_identity == exported.build.build_identity
+                    profile = exported.output_root.parent / "fixture-launch-profile"
+                    controller = EnvironmentProcessController({
+                        "APPDATA": str((profile / "appdata").resolve()),
+                        "LOCALAPPDATA": str((profile / "localappdata").resolve()),
+                    })
+                    process = controller.run(argv, timeout_seconds=90.0, cwd=exported.output_root)
+                    runtime = _parse_prefixed_json(process.stdout, "LEYFORGE_W3_SELF_REPORT ")
+                    capabilities = set(runtime.get("fixture_capabilities", []))
+                    runtime_valid = bool(
+                        process.exit_code == 0
+                        and not process.timed_out
+                        and runtime.get("status") == "PASS"
+                        and runtime.get("role") == role
+                        and runtime.get("build_identity") == exported.build.build_identity
+                        and runtime.get("proof_execution_started") is False
+                        and runtime.get("production_runtime") is False
+                        and runtime.get("stable_proof_ids") == list(PROOF_IDS)
+                        and REQUIRED_CAPABILITIES.issubset(capabilities)
+                        and runtime.get("provider_ready") is True
+                        and int(runtime.get("provider_errors", 1)) == 0
+                        and int(runtime.get("frame_round_trip_errors", 1)) == 0
+                        and int(runtime.get("contact_errors", 1)) == 0
+                    )
+                    checks[f"{role}_artifact_launch_valid"] = path_valid and role_flag_valid and integrity_valid and process.exit_code == 0 and not process.timed_out
+                    checks[f"{role}_runtime_self_report_valid"] = runtime_valid
+                    checks["authoritative_manifest_contract_valid"] = checks["authoritative_manifest_contract_valid"] or path_valid and integrity_valid
+                    checks["build_identity_round_trip_valid"] = checks["build_identity_round_trip_valid"] or round_trip_valid
+                    checks["proof_execution_started"] = checks["proof_execution_started"] or runtime.get("proof_execution_started") is not False
+                    checks["production_runtime_present"] = checks["production_runtime_present"] or runtime.get("production_runtime") is not False
+                    report["roles"][role] = {
+                        "role": role,
+                        "build_identity": exported.build.build_identity,
+                        "artifact_manifest": {
+                            "manifest_schema": exported.artifact.manifest_schema,
+                            "authoritative_path_field": "artifact_path",
+                            "path_resolved_during_validation": path_valid,
+                            "manifest_contract_valid": path_valid and role_flag_valid and integrity_valid,
+                            "build_identity_round_trip_valid": round_trip_valid,
+                            "build_identity": exported.artifact.build_identity,
+                            "artifact_sha256": exported.artifact.artifact_sha256,
+                            "size_bytes": exported.artifact.size_bytes,
+                            "artifact_kind": exported.artifact.artifact_kind,
+                            "exported_runtime": exported.artifact.exported_runtime,
+                            "synthetic_fixture": exported.artifact.synthetic_fixture,
+                        },
+                        "export_process": {
+                            key: exported.export_result.get("process", {}).get(key)
+                            for key in ("exit_code", "timed_out", "terminated_externally", "duration_seconds")
+                        },
+                        "launch_process": _process_summary(process),
+                        "runtime_self_report": runtime,
+                    }
+                except Exception as exc:
+                    issues.append(f"{role} fixture-launch integration failed: {type(exc).__name__}: {exc}")
+    checks["authoritative_manifest_contract_valid"] = set(report["roles"]) == {"client", "headless"} and all(
+        row.get("artifact_manifest", {}).get("manifest_contract_valid") is True
+        for row in report["roles"].values()
+    )
+    checks["build_identity_round_trip_valid"] = set(report["roles"]) == {"client", "headless"} and all(
+        row.get("artifact_manifest", {}).get("build_identity_round_trip_valid") is True
+        for row in report["roles"].values()
+    )
+    after = _governed_execution_snapshot()
+    report["after_execution_authority"] = after
+    checks["execution_state_unchanged"] = before["state_sha256"] == after["state_sha256"] and before["state_bytes"] == after["state_bytes"]
+    checks["registry_unchanged"] = before["registry"] == after["registry"]
+    checks["identity_allocation_started"] = before["registry"]["run_ids"] != after["registry"]["run_ids"] or before["registry"]["evidence_ids"] != after["registry"]["evidence_ids"]
+    required_true = tuple(key for key in checks if key not in {"proof_execution_started", "identity_allocation_started", "production_runtime_present"})
+    report["issues"] = sorted(set(issues))
+    report["status"] = "PASS" if all(checks[key] for key in required_true) and not any(checks[key] for key in ("proof_execution_started", "identity_allocation_started", "production_runtime_present")) and not issues else "FAIL"
+    return report
+
+
+def write_fixture_launch_validation(source_revision: str) -> Dict[str, Any]:
+    value = fixture_launch_validation_report(source_revision)
+    _write_json(FIXTURE_LAUNCH_VALIDATION_PATH, value)
+    return value

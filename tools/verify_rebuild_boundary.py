@@ -280,37 +280,40 @@ check(
     'R7 W2 evidence identities are not empty or the complete append-only W2 range',
 )
 
-w3_manifest_path = root / 'docs/rebuild/r7/w3-execution-boundary-repaired.json'
+w3_manifest_path = root / 'docs/rebuild/r7/w3-execution-boundary-fixture-launch-repaired.json'
 w3_manifest = json.loads(w3_manifest_path.read_text(encoding='utf-8')) if w3_manifest_path.is_file() else {}
-check(w3_manifest.get('manifest_version') == 2, 'Repaired R7 W3 boundary manifest is missing or unsupported')
-check(w3_manifest.get('package') == 'R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION', 'Repaired R7 W3 package identity changed')
+check(w3_manifest.get('manifest_version') == 3, 'Current R7 W3 boundary manifest is missing or unsupported')
+check(w3_manifest.get('package') == 'R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION', 'Current R7 W3 package identity changed')
+check(w3_manifest.get('lifecycle_role') == 'CURRENT-POST-ATTEMPT-RECERTIFICATION', 'Current R7 W3 boundary lifecycle role changed')
 check(w3_manifest.get('scope') == 'development-only-prd07-proof-runtime', 'R7 W3 scope must remain proof-only')
 check(w3_manifest.get('gameplay_permission') == 'CLOSED', 'R7 W3 cannot open gameplay permission')
 check(re.fullmatch(r'[0-9a-f]{40}', str(w3_manifest.get('implementation_commit', ''))) is not None, 'R7 W3 implementation commit is not exact')
 check(re.fullmatch(r'[0-9a-f]{64}', str(w3_manifest.get('source_tree_identity', ''))) is not None, 'R7 W3 source-tree identity is not exact')
-check(w3_manifest.get('proof_execution') in {'NOT-STARTED', 'ABORTED', 'OBSERVED'}, 'R7 W3 proof execution state is invalid')
+check(w3_manifest.get('proof_execution') == 'NOT-STARTED-FOR-NEXT-RERUN', 'R7 W3 next-rerun execution state is not closed at NOT-STARTED')
+check(w3_manifest.get('execution_gate') == 'OPEN-FOR-FUTURE-SEPARATELY-AUTHORIZED-W3-RERUN', 'R7 W3 execution gate changed')
 w3_authority = set(w3_manifest.get('authority', []))
-check({'TASK-20260908-002', 'WORK-20260908-002', 'HANDOFF-20260908-002', 'EVID-0009', 'AUDIT-0009', 'DOC-PRD-07'}.issubset(w3_authority), 'Repaired R7 W3 authority set is incomplete')
-w3_readiness_path = root / 'docs/rebuild/r7/w3-readiness-repaired.json'
+check({'TASK-20260909-002', 'WORK-20260909-002', 'HANDOFF-20260909-001', 'EVID-0011', 'AUDIT-0011', 'DOC-PRD-07'}.issubset(w3_authority), 'Current R7 W3 authority set is incomplete')
+w3_readiness_path = root / 'docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json'
 w3_readiness = json.loads(w3_readiness_path.read_text(encoding='utf-8')) if w3_readiness_path.is_file() else {}
 expected_w3_proofs = [
     'PRD04-PROOF-08', 'PRD04-PROOF-27', 'PRD04-PROOF-28', 'PRD04-PROOF-29',
     'PRD04-PROOF-30', 'PRD04-PROOF-31', 'PRD04-PROOF-32',
 ]
-check(w3_readiness.get('schema_version') == 'prd07-w3-readiness-v3', 'Repaired R7 W3 readiness is missing or unsupported')
-check(w3_readiness.get('package') == 'R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION', 'Repaired R7 W3 readiness package identity changed')
-check(w3_readiness.get('status') == 'PASS', 'Repaired R7 W3 readiness does not pass')
-check(w3_readiness.get('implementation_commit_source_match') is True, 'Repaired R7 W3 readiness does not match its implementation commit')
-check(w3_readiness.get('gameplay_permission') == 'CLOSED', 'Repaired R7 W3 readiness opened gameplay permission')
-check(w3_readiness.get('actual_w3_execution') == 'NOT-AUTHORIZED-BY-THIS-REPAIR-TASK', 'Repaired R7 W3 readiness claims actual execution authority')
+check(w3_readiness.get('schema_version') == 'prd07-w3-readiness-v4', 'Current R7 W3 readiness is missing or unsupported')
+check(w3_readiness.get('package') == 'R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION', 'Current R7 W3 readiness package identity changed')
+check(w3_readiness.get('status') == 'PASS', 'Current R7 W3 readiness does not pass')
+check(w3_readiness.get('implementation_commit_source_match') is True, 'Current R7 W3 readiness does not match its implementation commit')
+check(w3_readiness.get('gameplay_permission') == 'CLOSED', 'Current R7 W3 readiness opened gameplay permission')
+check(w3_readiness.get('actual_w3_execution') == 'NOT-AUTHORIZED-BY-THIS-REPAIR-TASK', 'Current R7 W3 readiness claims actual execution authority')
 check(w3_readiness.get('allocated_run_ids') == [], 'R7 W3 readiness consumed run identities')
 check(w3_readiness.get('allocated_evidence_ids') == [], 'R7 W3 readiness consumed evidence identities')
 check([row.get('proof_id') for row in w3_readiness.get('proofs', [])] == expected_w3_proofs, 'Repaired R7 W3 readiness proof set or order changed')
-check(all(row.get('state') in {'READY', 'OBSERVED'} for row in w3_readiness.get('proofs', [])), 'Repaired R7 W3 readiness contains a blocked proof')
-check(w3_readiness.get('prior_readiness_disposition', {}).get('state') == 'SUPERSEDED-INSUFFICIENT', 'Earlier R7 W3 readiness was not explicitly superseded as insufficient')
+check(all(row.get('state') == 'READY' for row in w3_readiness.get('proofs', [])), 'Current R7 W3 readiness contains a blocked or observed proof')
+check(w3_readiness.get('proof_execution') == 'NOT-STARTED-FOR-NEXT-RERUN', 'Current R7 W3 readiness claims next-rerun proof execution')
+check(w3_readiness.get('prior_readiness_disposition', {}).get('state') == 'SUPERSEDED-BY-FIXTURE-LAUNCH-REPAIR', 'Pre-attempt R7 W3 readiness role was not preserved and superseded precisely')
 check(w3_manifest.get('source_tree_identity') == w3_readiness.get('source_tree_identity'), 'R7 W3 boundary and readiness source-tree identities differ')
 check(w3_manifest.get('implementation_commit') == w3_readiness.get('implementation_commit'), 'R7 W3 boundary and readiness implementation commits differ')
-check(w3_manifest.get('prior_boundary_disposition', {}).get('state') == 'SUPERSEDED-INSUFFICIENT', 'Earlier R7 W3 boundary was not explicitly superseded as insufficient')
+check(w3_manifest.get('prior_boundary_disposition', {}).get('state') == 'SUPERSEDED-BY-POST-ATTEMPT-RECERTIFICATION', 'Pre-attempt R7 W3 boundary role was not preserved and superseded precisely')
 w3_reference_path = root / 'proofs/r7/w3/dependency-reference.json'
 w3_reference = json.loads(w3_reference_path.read_text(encoding='utf-8')) if w3_reference_path.is_file() else {}
 check(w3_manifest.get('dependency_identity') == w3_reference.get('component_revisions'), 'R7 W3 admitted dependency identity differs from its governed reference')
@@ -324,6 +327,18 @@ w3_superseded_artifacts = {
         'c20ce6472c62a15f50cde470f9209a3f6131b25b',
         '1cf0af9d514c1b6f342e524dc162172eab36444ce78fccbbaadcfd61cb378407',
     ),
+    'docs/rebuild/r7/w3-readiness-repaired.json': (
+        '46410e3808d7e840e773a594f5471e04f313d1d1',
+        'a55e8f5f5b150a06d119394619a87ff4862fe766fbc329c3d039b3ae9cc719f7',
+    ),
+    'docs/rebuild/r7/w3-execution-boundary-repaired.json': (
+        '9ecc03d0f8a6cff278de537a81f4b3bc60018bac',
+        '882955007f2075be161dbc566821b1bb7f76a6688d6ee8749bbcba79ed296d25',
+    ),
+    'docs/rebuild/r7/w3-pinned-engine-validation.json': (
+        'cd407485ee3ff40d27207dbccc004d90716ea015',
+        '6d7f412b5c6bc68b5a82cd72e6970e8301a42ce8ae13be778b3c817924e61685',
+    ),
 }
 for rel, (expected_blob, expected_sha256) in w3_superseded_artifacts.items():
     candidate = root / rel
@@ -333,6 +348,37 @@ for rel, (expected_blob, expected_sha256) in w3_superseded_artifacts.items():
         check(hash_result.returncode == 0 and hash_result.stdout.strip() == expected_blob, 'Superseded certified W3 Git blob changed: ' + rel)
         canonical_data = candidate.read_bytes().replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
         check(hashlib.sha256(canonical_data).hexdigest() == expected_sha256, 'Superseded certified W3 canonical SHA-256 changed: ' + rel)
+
+w3_abort_artifacts = {
+    'docs/rebuild/r7/w3-execution-state.json': (
+        'b2c53bdb5d7a8563e7dc1b925f4b2ad7827c7fac',
+        '09d8ea9d47d3fedc074d9426b8a6602e5c471b58c898e0c3dcace8ace881d4a1',
+    ),
+    'brain/10_TESTING/Evidence/r7-w3-execution-rerun-abort-20260909.json': (
+        'b25f34bac8e853a0c29c52d70169db3c26d81dfd',
+        'd7aa315ff7da6aafec0cebade181420c1e6d45a6db6135cfcab8a5fb59a69517',
+    ),
+    'brain/10_TESTING/Evidence/r7-w3-execution-rerun-abort-20260909-error.txt': (
+        '6f6cb4838f9e74843fef0001250deaf945cd007d',
+        '8a04efaa1b78a8d09cdbc7567ad6b132501855d4baa2a5b6e791955536714675',
+    ),
+    'brain/10_TESTING/Evidence/EVID-0011.md': (
+        '219e9582371a4c5bca7d0f74ca05feab283a664b',
+        'a8a9aeeddd0ad0caf735499bd014d64567530c27632bbfeaaa0f1743aa949df2',
+    ),
+    'brain/11_AUDIT/Reports/AUDIT-0011.md': (
+        'dd8606f27862f57c20dc6eeacfee7a566f059098',
+        'cdffe557584eeb4a2aeae4ed67fd6035fb98529280c18d5a4e5eb48cb620bdcd',
+    ),
+}
+for rel, (expected_blob, expected_sha256) in w3_abort_artifacts.items():
+    candidate = root / rel
+    check(candidate.is_file(), 'Certified W3 rerun-abort artifact is missing: ' + rel)
+    if candidate.is_file():
+        hash_result = subprocess.run(['git', 'hash-object', '--', rel], cwd=root, text=True, capture_output=True)
+        check(hash_result.returncode == 0 and hash_result.stdout.strip() == expected_blob, 'Certified W3 rerun-abort Git blob changed: ' + rel)
+        canonical_data = candidate.read_bytes().replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
+        check(hashlib.sha256(canonical_data).hexdigest() == expected_sha256, 'Certified W3 rerun-abort canonical SHA-256 changed: ' + rel)
 
 expected_quarantine_runs = [f'PRD07-RUN-{index:04d}' for index in range(51, 58)]
 expected_quarantine_evidence = [f'PRD07-EVID-{index:04d}' for index in range(51, 58)]
@@ -382,7 +428,7 @@ check(w3_manifest.get('quarantined_evidence_ids') == expected_quarantine_evidenc
 check(w3_readiness.get('quarantined_run_ids') == expected_quarantine_runs, 'Repaired W3 readiness does not preserve the exact quarantined RUN range')
 check(w3_readiness.get('quarantined_evidence_ids') == expected_quarantine_evidence, 'Repaired W3 readiness does not preserve the exact quarantined EVID range')
 
-w3_engine_path = root / 'docs/rebuild/r7/w3-pinned-engine-validation.json'
+w3_engine_path = root / 'docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json'
 w3_engine = json.loads(w3_engine_path.read_text(encoding='utf-8')) if w3_engine_path.is_file() else {}
 check(w3_engine.get('schema_version') == 'prd07-w3-pinned-engine-validation-v1', 'W3 pinned-engine validation receipt is missing or unsupported')
 check(w3_engine.get('status') == 'PASS', 'W3 pinned-engine validation did not pass')
@@ -408,6 +454,71 @@ w3_engine_summary = {key: w3_engine.get(key) for key in w3_engine_summary_keys i
 check(w3_readiness.get('pinned_engine_validation') == w3_engine_summary, 'W3 readiness does not pin the exact engine-validation summary')
 check(w3_manifest.get('pinned_engine_validation') == w3_engine_summary, 'W3 boundary does not pin the exact engine-validation summary')
 
+w3_fixture_launch_path = root / 'docs/rebuild/r7/w3-fixture-launch-integration.json'
+w3_fixture_launch = json.loads(w3_fixture_launch_path.read_text(encoding='utf-8')) if w3_fixture_launch_path.is_file() else {}
+check(w3_fixture_launch.get('schema_version') == 'prd07-w3-fixture-launch-integration-v1', 'W3 fixture-launch integration receipt is missing or unsupported')
+check(w3_fixture_launch.get('status') == 'PASS', 'W3 fixture-launch integration did not pass')
+check(w3_fixture_launch.get('implementation_commit') == w3_manifest.get('implementation_commit'), 'W3 fixture-launch receipt names a different implementation commit')
+check(w3_fixture_launch.get('source_identity') == w3_engine.get('source_identity'), 'W3 fixture-launch source identity differs from pinned-engine validation')
+check(w3_fixture_launch.get('dependency_identity') == {
+    'godot_build_driver_revision': w3_reference.get('component_revisions', {}).get('godot_build_driver'),
+    'godot_export_template_revision': w3_reference.get('component_revisions', {}).get('godot_export_template'),
+    'voxel_tools_revision': w3_reference.get('component_revisions', {}).get('voxel_tools'),
+    'local_patch_status': 'NO-LOCAL-PATCH',
+}, 'W3 fixture-launch dependency identity differs')
+w3_fixture_checks = w3_fixture_launch.get('checks', {})
+for key in (
+    'pinned_dependencies_valid', 'client_export_completed', 'headless_export_completed',
+    'authoritative_manifest_contract_valid', 'client_artifact_launch_valid',
+    'headless_artifact_launch_valid', 'client_runtime_self_report_valid',
+    'headless_runtime_self_report_valid', 'build_identity_round_trip_valid',
+    'execution_state_unchanged', 'registry_unchanged',
+):
+    check(isinstance(w3_fixture_checks, dict) and w3_fixture_checks.get(key) is True, 'W3 fixture-launch integration check did not pass: ' + key)
+for key in ('proof_execution_started', 'identity_allocation_started', 'production_runtime_present'):
+    check(isinstance(w3_fixture_checks, dict) and w3_fixture_checks.get(key) is False, 'W3 fixture-launch integration crossed a forbidden boundary: ' + key)
+check(w3_fixture_launch.get('proof_execution') == 'NOT-STARTED', 'W3 fixture-launch integration claims proof execution')
+check(w3_fixture_launch.get('allocated_run_ids') == [] and w3_fixture_launch.get('allocated_evidence_ids') == [], 'W3 fixture-launch integration allocated PRD-07 identities')
+check(w3_fixture_launch.get('gameplay_permission') == 'CLOSED' and w3_fixture_launch.get('production_runtime') == 'ABSENT', 'W3 fixture-launch integration crossed the rebuild boundary')
+w3_fixture_before = w3_fixture_launch.get('before_execution_authority', {})
+w3_fixture_after = w3_fixture_launch.get('after_execution_authority', {})
+check(isinstance(w3_fixture_before, dict) and w3_fixture_before == w3_fixture_after, 'W3 fixture-launch integration changed execution authority')
+if isinstance(w3_fixture_before, dict):
+    check(w3_fixture_before.get('state_sha256') == hashlib.sha256((root / 'docs/rebuild/r7/w3-execution-state.json').read_bytes()).hexdigest(), 'W3 fixture-launch integration state snapshot differs')
+    fixture_registry = w3_fixture_before.get('registry', {})
+    check(isinstance(fixture_registry, dict) and fixture_registry.get('max_run_number') == 58 and fixture_registry.get('max_evidence_number') == 58, 'W3 fixture-launch integration registry high-water differs')
+w3_fixture_roles = w3_fixture_launch.get('roles', {})
+check(isinstance(w3_fixture_roles, dict) and set(w3_fixture_roles) == {'client', 'headless'}, 'W3 fixture-launch integration role set differs')
+if isinstance(w3_fixture_roles, dict):
+    for role in ('client', 'headless'):
+        row = w3_fixture_roles.get(role, {})
+        artifact = row.get('artifact_manifest', {}) if isinstance(row, dict) else {}
+        runtime_report = row.get('runtime_self_report', {}) if isinstance(row, dict) else {}
+        check(isinstance(row, dict) and row.get('role') == role, 'W3 fixture-launch role identity differs: ' + role)
+        check(isinstance(row, dict) and re.fullmatch(r'[0-9a-f]{64}', str(row.get('build_identity', ''))) is not None, 'W3 fixture-launch build identity is invalid: ' + role)
+        check(isinstance(artifact, dict) and artifact.get('manifest_schema') == 'prd07-artifact-manifest-v1', 'W3 fixture-launch artifact schema differs: ' + role)
+        check(isinstance(artifact, dict) and artifact.get('authoritative_path_field') == 'artifact_path', 'W3 fixture-launch artifact path contract differs: ' + role)
+        check(isinstance(artifact, dict) and artifact.get('path_resolved_during_validation') is True, 'W3 fixture-launch artifact path did not resolve: ' + role)
+        check(isinstance(artifact, dict) and artifact.get('manifest_contract_valid') is True, 'W3 fixture-launch artifact manifest contract failed: ' + role)
+        check(isinstance(artifact, dict) and artifact.get('build_identity_round_trip_valid') is True, 'W3 fixture-launch build identity did not round trip: ' + role)
+        check(isinstance(artifact, dict) and artifact.get('build_identity') == row.get('build_identity'), 'W3 fixture-launch artifact/build identities differ: ' + role)
+        check(isinstance(artifact, dict) and re.fullmatch(r'[0-9a-f]{64}', str(artifact.get('artifact_sha256', ''))) is not None and int(artifact.get('size_bytes', 0)) > 0, 'W3 fixture-launch artifact identity is invalid: ' + role)
+        check(isinstance(artifact, dict) and artifact.get('exported_runtime') is True and artifact.get('synthetic_fixture') is False, 'W3 fixture-launch artifact is not a real export: ' + role)
+        check(isinstance(runtime_report, dict) and runtime_report.get('status') == 'PASS', 'W3 fixture-launch runtime self-report did not pass: ' + role)
+        check(isinstance(runtime_report, dict) and runtime_report.get('proof_execution_started') is False, 'W3 fixture-launch runtime entered proof execution: ' + role)
+        check(isinstance(runtime_report, dict) and runtime_report.get('production_runtime') is False, 'W3 fixture-launch runtime crossed into production: ' + role)
+        check(isinstance(runtime_report, dict) and runtime_report.get('stable_proof_ids') == expected_w3_proofs, 'W3 fixture-launch stable proof identities differ: ' + role)
+        check(isinstance(runtime_report, dict) and runtime_report.get('provider_ready') is True and int(runtime_report.get('provider_errors', 1)) == 0, 'W3 fixture-launch provider self-report failed: ' + role)
+        check(isinstance(runtime_report, dict) and int(runtime_report.get('frame_round_trip_errors', 1)) == 0 and int(runtime_report.get('contact_errors', 1)) == 0, 'W3 fixture-launch frame/contact self-report failed: ' + role)
+w3_fixture_summary_keys = (
+    'schema_version', 'status', 'package', 'implementation_commit', 'source_identity',
+    'dependency_identity', 'checks', 'roles', 'proof_execution', 'allocated_run_ids',
+    'allocated_evidence_ids', 'gameplay_permission', 'production_runtime',
+)
+w3_fixture_summary = {key: w3_fixture_launch.get(key) for key in w3_fixture_summary_keys if key in w3_fixture_launch}
+check(w3_readiness.get('fixture_launch_validation') == w3_fixture_summary, 'W3 readiness does not pin the exact fixture-launch integration summary')
+check(w3_manifest.get('fixture_launch_validation') == w3_fixture_summary, 'W3 boundary does not pin the exact fixture-launch integration summary')
+
 w3_run_ids = w3_manifest.get('allocated_run_ids', [])
 w3_evidence_ids = w3_manifest.get('allocated_evidence_ids', [])
 check(isinstance(w3_run_ids, list), 'R7 W3 run identities are not a list')
@@ -417,6 +528,7 @@ w3_evidence_ids = w3_evidence_ids if isinstance(w3_evidence_ids, list) else []
 check(len(w3_run_ids) == len(set(w3_run_ids)), 'R7 W3 contains duplicate run identities')
 check(len(w3_evidence_ids) == len(set(w3_evidence_ids)), 'R7 W3 contains duplicate evidence identities')
 check(len(w3_run_ids) == len(w3_evidence_ids), 'R7 W3 run/evidence identity counts differ')
+check(w3_run_ids == [] and w3_evidence_ids == [], 'R7 W3 next-rerun boundary allocated execution identities')
 prior_run_ids = list(r7_manifest.get('allocated_run_ids', [])) + list(w1_run_ids) + list(w2_run_ids) + expected_quarantine_runs
 prior_evidence_ids = list(r7_manifest.get('allocated_evidence_ids', [])) + list(w1_evidence_ids) + list(w2_evidence_ids) + expected_quarantine_evidence
 prior_run_numbers = [int(match.group(1)) for value in prior_run_ids for match in [re.fullmatch(r'PRD07-RUN-(\d{4})', str(value))] if match]
@@ -426,42 +538,88 @@ check(len(prior_evidence_numbers) == len(prior_evidence_ids), 'Prior R7 evidence
 prior_run_max = max(prior_run_numbers, default=0)
 prior_evidence_max = max(prior_evidence_numbers, default=0)
 check(prior_run_max == prior_evidence_max, 'Prior R7 run/evidence registry high-water marks differ')
-w3_run_numbers = [int(match.group(1)) for value in w3_run_ids for match in [re.fullmatch(r'PRD07-RUN-(\d{4})', str(value))] if match]
-w3_evidence_numbers = [int(match.group(1)) for value in w3_evidence_ids for match in [re.fullmatch(r'PRD07-EVID-(\d{4})', str(value))] if match]
-check(len(w3_run_numbers) == len(w3_run_ids), 'R7 W3 contains a malformed run identity')
-check(len(w3_evidence_numbers) == len(w3_evidence_ids), 'R7 W3 contains a malformed evidence identity')
-expected_w3_numbers = list(range(prior_run_max + 1, prior_run_max + len(w3_run_numbers) + 1))
-check(w3_run_numbers == expected_w3_numbers, 'R7 W3 run identities do not extend the authoritative registry contiguously')
-check(w3_evidence_numbers == expected_w3_numbers, 'R7 W3 evidence identities do not extend the authoritative registry contiguously')
-if w3_manifest.get('proof_execution') == 'NOT-STARTED':
-    check(w3_run_ids == [] and w3_evidence_ids == [], 'R7 W3 NOT-STARTED boundary allocated execution identities')
-else:
-    check(len(w3_run_ids) > 0, 'R7 W3 ABORTED/OBSERVED boundary has no allocated identity')
 
 w3_state_path = root / 'docs/rebuild/r7/w3-execution-state.json'
 w3_state = json.loads(w3_state_path.read_text(encoding='utf-8')) if w3_state_path.is_file() else {}
-check(w3_run_ids == w3_state.get('allocated_run_ids', []), 'R7 W3 boundary RUN identities differ from execution state')
-check(w3_evidence_ids == w3_state.get('allocated_evidence_ids', []), 'R7 W3 boundary EVID identities differ from execution state')
+w3_state_runs = w3_state.get('allocated_run_ids', [])
+w3_state_evidence = w3_state.get('allocated_evidence_ids', [])
+check(w3_state_runs == ['PRD07-RUN-0058'], 'R7 W3 terminal state does not preserve invalidated RUN 0058')
+check(w3_state_evidence == ['PRD07-EVID-0058'], 'R7 W3 terminal state does not preserve invalidated EVID 0058')
+check(w3_manifest.get('invalidated_run_ids') == w3_state_runs, 'R7 W3 current boundary invalidated RUN identities differ from execution state')
+check(w3_manifest.get('invalidated_evidence_ids') == w3_state_evidence, 'R7 W3 current boundary invalidated EVID identities differ from execution state')
+check(w3_readiness.get('invalidated_run_ids') == w3_state_runs, 'R7 W3 readiness invalidated RUN identities differ from execution state')
+check(w3_readiness.get('invalidated_evidence_ids') == w3_state_evidence, 'R7 W3 readiness invalidated EVID identities differ from execution state')
 w3_allocation_history = w3_state.get('allocation_history', []) if isinstance(w3_state, dict) else []
 check(isinstance(w3_allocation_history, list), 'R7 W3 execution allocation history is invalid')
 if isinstance(w3_allocation_history, list):
-    check([row.get('run_id') for row in w3_allocation_history if isinstance(row, dict)] == w3_run_ids, 'R7 W3 allocation-history RUN order differs')
-    check([row.get('evidence_id') for row in w3_allocation_history if isinstance(row, dict)] == w3_evidence_ids, 'R7 W3 allocation-history EVID order differs')
+    w3_history_runs = [row.get('run_id') for row in w3_allocation_history if isinstance(row, dict)]
+    w3_history_evidence = [row.get('evidence_id') for row in w3_allocation_history if isinstance(row, dict)]
+    check(w3_history_runs == w3_state_runs, 'R7 W3 allocation-history RUN order differs from terminal state')
+    check(w3_history_evidence == w3_state_evidence, 'R7 W3 allocation-history EVID order differs from terminal state')
     check(all(row.get('proof_id') in expected_w3_proofs for row in w3_allocation_history if isinstance(row, dict)), 'R7 W3 allocation history names an unauthorized proof')
     check(not any(row.get('state') in {'PRD07-RUN-ALLOCATED', 'EXECUTING', 'OBSERVATION-CAPTURED'} for row in w3_allocation_history if isinstance(row, dict)), 'R7 W3 execution state contains an unresolved active allocation')
-    observed_w3 = any(row.get('state') in {'PASS-OBSERVED', 'FAIL-OBSERVED', 'INCONCLUSIVE'} for row in w3_allocation_history if isinstance(row, dict))
+    w3_observed_rows = [row for row in w3_allocation_history if isinstance(row, dict) and row.get('state') in {'PASS-OBSERVED', 'FAIL-OBSERVED', 'INCONCLUSIVE'}]
+    w3_invalidated_rows = [row for row in w3_allocation_history if isinstance(row, dict) and row.get('state') == 'INVALIDATED']
 else:
-    observed_w3 = False
-expected_w3_execution = 'OBSERVED' if observed_w3 else 'ABORTED' if w3_state else 'NOT-STARTED'
-check(w3_manifest.get('proof_execution') == expected_w3_execution, 'R7 W3 boundary proof-execution disposition differs from its state')
-check(w3_readiness.get('proof_execution') == ('OBSERVED' if observed_w3 else 'NOT-STARTED'), 'R7 W3 readiness proof-execution disposition differs from registry evidence')
+    w3_history_runs = []
+    w3_history_evidence = []
+    w3_observed_rows = []
+    w3_invalidated_rows = []
+check(w3_state.get('package_state') == 'ABORTED-BEFORE-PROOF-OBSERVATION', 'R7 W3 terminal execution disposition changed')
+check(len(w3_observed_rows) == 0, 'R7 W3 aborted execution state claims a proof observation')
+check(len(w3_invalidated_rows) == 1, 'R7 W3 terminal execution state does not contain exactly one invalidated attempt')
+if len(w3_invalidated_rows) == 1:
+    w3_attempt = w3_invalidated_rows[0]
+    check(w3_attempt.get('run_id') == 'PRD07-RUN-0058' and w3_attempt.get('evidence_id') == 'PRD07-EVID-0058', 'R7 W3 invalidated attempt identity changed')
+    check(w3_attempt.get('terminal_disposition') == 'ABORTED-BEFORE-PROOF-OBSERVATION', 'R7 W3 invalidated attempt terminal disposition changed')
+    check(w3_attempt.get('proof_observation_produced') is False, 'R7 W3 invalidated attempt claims a proof observation')
+    check(w3_attempt.get('evidence_pack_status') == 'NOT-CREATED-NO-PROOF-OBSERVATION' and w3_attempt.get('prd07_evidence_eligible') is False, 'R7 W3 invalidated attempt can be mistaken for retained evidence')
+check(not (root / 'docs/rebuild/r7/execution-evidence/PRD07-RUN-0058').exists(), 'Invalidated W3 identity 0058 unexpectedly has a retained proof pack')
+
+w3_historical_admission = w3_manifest.get('historical_admission', {})
+w3_pre_execution_path = root / 'docs/rebuild/r7/w3-execution-boundary-repaired.json'
+w3_pre_execution = json.loads(w3_pre_execution_path.read_text(encoding='utf-8')) if w3_pre_execution_path.is_file() else {}
+check(isinstance(w3_historical_admission, dict) and w3_historical_admission.get('lifecycle_role') == 'IMMUTABLE-PRE-EXECUTION-ADMISSION', 'R7 W3 historical admission role is missing')
+check(w3_pre_execution.get('proof_execution') == 'NOT-STARTED', 'R7 W3 historical admission no longer describes its pre-execution timepoint')
+check(w3_pre_execution.get('allocated_run_ids') == [] and w3_pre_execution.get('allocated_evidence_ids') == [], 'R7 W3 historical admission was mutated with later allocations')
+if w3_pre_execution_path.is_file() and isinstance(w3_historical_admission, dict):
+    w3_pre_data = w3_pre_execution_path.read_bytes().replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
+    w3_pre_blob = subprocess.run(['git', 'hash-object', '--', w3_pre_execution_path.relative_to(root).as_posix()], cwd=root, text=True, capture_output=True)
+    check(w3_historical_admission.get('git_blob') == w3_pre_blob.stdout.strip(), 'R7 W3 historical admission Git blob identity differs')
+    check(w3_historical_admission.get('sha256') == hashlib.sha256(w3_pre_data).hexdigest(), 'R7 W3 historical admission canonical SHA-256 differs')
+    check(w3_historical_admission.get('bytes') == len(w3_pre_data), 'R7 W3 historical admission canonical byte count differs')
+
+w3_historical_execution = w3_manifest.get('historical_execution', {})
+check(isinstance(w3_historical_execution, dict) and w3_historical_execution.get('lifecycle_role') == 'IMMUTABLE-TERMINAL-EXECUTION-JOURNAL', 'R7 W3 historical execution role is missing')
+if w3_state_path.is_file() and isinstance(w3_historical_execution, dict):
+    w3_state_data = w3_state_path.read_bytes().replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
+    w3_state_blob = subprocess.run(['git', 'hash-object', '--', w3_state_path.relative_to(root).as_posix()], cwd=root, text=True, capture_output=True)
+    check(w3_historical_execution.get('git_blob') == w3_state_blob.stdout.strip(), 'R7 W3 historical execution Git blob identity differs')
+    check(w3_historical_execution.get('sha256') == hashlib.sha256(w3_state_data).hexdigest(), 'R7 W3 historical execution canonical SHA-256 differs')
+    check(w3_historical_execution.get('bytes') == len(w3_state_data), 'R7 W3 historical execution canonical byte count differs')
+    check(w3_historical_execution.get('source_revision') == w3_state.get('source_revision'), 'R7 W3 historical execution source revision differs')
+    check(w3_historical_execution.get('package_state') == w3_state.get('package_state'), 'R7 W3 historical execution package disposition differs')
+    check(w3_historical_execution.get('allocated_run_ids') == w3_state_runs, 'R7 W3 historical execution RUN reconciliation differs')
+    check(w3_historical_execution.get('allocated_evidence_ids') == w3_state_evidence, 'R7 W3 historical execution EVID reconciliation differs')
+    check(w3_historical_execution.get('allocation_history_run_ids') == w3_history_runs, 'R7 W3 historical execution RUN order reconciliation differs')
+    check(w3_historical_execution.get('allocation_history_evidence_ids') == w3_history_evidence, 'R7 W3 historical execution EVID order reconciliation differs')
+    check(w3_historical_execution.get('proof_observation_count') == len(w3_observed_rows), 'R7 W3 historical execution proof-observation count differs')
+
 w3_registry = w3_manifest.get('registry', {})
-check(w3_registry.get('run_high_water') == 57 + len(w3_run_ids), 'R7 W3 registry RUN high-water differs')
-check(w3_registry.get('evidence_high_water') == 57 + len(w3_evidence_ids), 'R7 W3 registry EVID high-water differs')
-check(w3_registry.get('issued_identity_count') == 57 + len(w3_run_ids), 'R7 W3 registry issued-identity count differs')
+check(w3_registry.get('run_high_water') == 58, 'R7 W3 registry RUN high-water differs')
+check(w3_registry.get('evidence_high_water') == 58, 'R7 W3 registry EVID high-water differs')
+check(w3_registry.get('issued_identity_count') == 58, 'R7 W3 registry issued-identity count differs')
+check(w3_registry.get('retained_identity_count') == 50, 'R7 W3 registry retained-identity count differs')
 check(w3_registry.get('quarantined_identity_count') == 7, 'R7 W3 registry quarantine count differs')
-check(w3_registry.get('next_future_sequence') == 58 + len(w3_run_ids), 'R7 W3 registry next identity differs')
+check(w3_registry.get('invalidated_identity_count') == 1, 'R7 W3 registry invalidated-identity count differs')
+check(w3_registry.get('next_future_sequence') == 59, 'R7 W3 registry next identity differs')
 check(w3_registry.get('quarantine_paths') == ['docs/rebuild/r7/w3-allocation-reconciliation.json'], 'R7 W3 registry quarantine source differs')
+w3_previews = w3_manifest.get('next_identity_previews', [])
+check(isinstance(w3_previews, list) and len(w3_previews) == 7, 'R7 W3 next-rerun preview set differs')
+if isinstance(w3_previews, list):
+    check([row.get('run_id') for row in w3_previews if isinstance(row, dict)] == [f'PRD07-RUN-{index:04d}' for index in range(59, 66)], 'R7 W3 next RUN previews are not 0059-0065')
+    check([row.get('evidence_id') for row in w3_previews if isinstance(row, dict)] == [f'PRD07-EVID-{index:04d}' for index in range(59, 66)], 'R7 W3 next EVID previews are not 0059-0065')
+    check(all(row.get('allocation_state') == 'PREVIEW-NOT-ALLOCATED' for row in w3_previews if isinstance(row, dict)), 'R7 W3 next identity previews claim allocation')
 
 w3_admitted_paths = set()
 w3_admitted_artifacts = []
@@ -471,8 +629,9 @@ w3_exact_paths = {
     'tools/verify.py',
     'tools/verify_rebuild_boundary.py',
     'docs/rebuild/r7/w3-allocation-reconciliation.json',
-    'docs/rebuild/r7/w3-pinned-engine-validation.json',
-    'docs/rebuild/r7/w3-readiness-repaired.json',
+    'docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json',
+    'docs/rebuild/r7/w3-fixture-launch-integration.json',
+    'docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json',
     'docs/rebuild/r7/w3-execution-state.json',
     'docs/rebuild/r7/w3-execution-completion-receipt.json',
 }
@@ -522,10 +681,12 @@ for required_path in {
     'tools/verify.py',
     'tools/verify_rebuild_boundary.py',
     'docs/rebuild/r7/w3-allocation-reconciliation.json',
-    'docs/rebuild/r7/w3-pinned-engine-validation.json',
-    'docs/rebuild/r7/w3-readiness-repaired.json',
+    'docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json',
+    'docs/rebuild/r7/w3-fixture-launch-integration.json',
+    'docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json',
+    'docs/rebuild/r7/w3-execution-state.json',
 }:
-    check(required_path in w3_admitted_paths, 'Repaired R7 W3 boundary does not hash-pin: ' + required_path)
+    check(required_path in w3_admitted_paths, 'Current R7 W3 boundary does not hash-pin: ' + required_path)
 
 baseline_docs = manifest['source_document_blobs']
 intake_docs = {}

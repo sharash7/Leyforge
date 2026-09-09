@@ -12,7 +12,10 @@ from typing import Any, Dict, Tuple
 from proofs.r7.w3.runtime.runner import PROOF_DEFINITIONS, PROOF_IDS, PRD07_SOURCE, RUNNERS
 
 from .builds import (
+    FIXTURE_LAUNCH_VALIDATION_PATH,
     PINNED_ENGINE_VALIDATION_PATH,
+    fixture_launch_validation_issues,
+    fixture_launch_validation_report,
     pinned_engine_validation_issues,
     pinned_engine_validation_report,
 )
@@ -26,8 +29,8 @@ from .execution_plan import (
 )
 
 
-READINESS_PATH = ROOT / "docs/rebuild/r7/w3-readiness-repaired.json"
-SUPERSEDED_READINESS_PATH = ROOT / "docs/rebuild/r7/w3-readiness-corrected.json"
+READINESS_PATH = ROOT / "docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json"
+SUPERSEDED_READINESS_PATH = ROOT / "docs/rebuild/r7/w3-readiness-repaired.json"
 W0_STATE = ROOT / "docs/rebuild/r7/w0-execution-state.json"
 W1_STATE = ROOT / "docs/rebuild/r7/w1-execution-state.json"
 W2_STATE = ROOT / "docs/rebuild/r7/w2-execution-state.json"
@@ -207,6 +210,21 @@ def _engine_validation_context(implementation_commit: str, check_local: bool) ->
     return value, issues
 
 
+def _fixture_launch_validation_context(implementation_commit: str, check_local: bool) -> tuple[Dict[str, Any], list[str]]:
+    if check_local:
+        value = fixture_launch_validation_report(implementation_commit)
+    elif FIXTURE_LAUNCH_VALIDATION_PATH.is_file():
+        try:
+            loaded = json.loads(FIXTURE_LAUNCH_VALIDATION_PATH.read_text(encoding="utf-8-sig"))
+        except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+            return {}, [f"cannot read fixture-launch integration receipt: {exc}"]
+        value = loaded if isinstance(loaded, dict) else {}
+    else:
+        return {}, ["fixture-launch integration receipt is missing"]
+    issues = list(fixture_launch_validation_issues(value, implementation_commit))
+    return value, issues
+
+
 def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str, Any]:
     context = _static_context()
     technical_common_issues = list(context["issues"])
@@ -216,6 +234,8 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
         technical_common_issues.extend(local["issues"])
     engine_validation, engine_validation_issues = _engine_validation_context(implementation_commit, check_local)
     technical_common_issues.extend(engine_validation_issues)
+    fixture_launch_validation, fixture_launch_issues = _fixture_launch_validation_context(implementation_commit, check_local)
+    technical_common_issues.extend(fixture_launch_issues)
     plan_by_proof = {row.proof_id: row for row in context["plan"]}
     registry = context["registry"]
     observed_proofs = set()
@@ -297,6 +317,12 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
             "retained_identity_count": len(registry.retained_run_ids),
             "quarantined_identity_count": len(registry.quarantined_run_ids),
             "quarantined_run_ids": list(registry.quarantined_run_ids),
+            "invalidated_identity_count": sum(
+                registry.dispositions.get(run_id) == "INVALIDATED" for run_id in registry.run_ids
+            ),
+            "invalidated_run_ids": [
+                run_id for run_id in registry.run_ids if registry.dispositions.get(run_id) == "INVALIDATED"
+            ],
             "next_future_sequence": registry.max_run_number + 1,
         }
     validation_summary = {
@@ -322,10 +348,34 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
         )
         if key in engine_validation
     }
+    fixture_launch_summary = {
+        key: fixture_launch_validation.get(key)
+        for key in (
+            "schema_version",
+            "status",
+            "package",
+            "implementation_commit",
+            "source_identity",
+            "dependency_identity",
+            "checks",
+            "roles",
+            "proof_execution",
+            "allocated_run_ids",
+            "allocated_evidence_ids",
+            "gameplay_permission",
+            "production_runtime",
+        )
+        if key in fixture_launch_validation
+    }
     execution_started = bool(observed_proofs)
+    invalidated_run_ids = [
+        run_id for run_id in registry.run_ids
+        if registry.dispositions.get(run_id) == "INVALIDATED"
+    ] if registry else []
+    invalidated_evidence_ids = [registry.mappings[run_id][1] for run_id in invalidated_run_ids] if registry else []
     return {
-        "schema_version": "prd07-w3-readiness-v3",
-        "package": "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+        "schema_version": "prd07-w3-readiness-v4",
+        "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
         "package_state": (
             "POST-EXECUTION-VALIDATED" if not issues and execution_started
             else "READY" if not issues
@@ -344,21 +394,26 @@ def readiness_report(implementation_commit: str, check_local: bool) -> Dict[str,
         "quarantined_evidence_ids": [
             registry.mappings[run_id][1] for run_id in registry.quarantined_run_ids
         ] if registry else [],
+        "invalidated_run_ids": invalidated_run_ids,
+        "invalidated_evidence_ids": invalidated_evidence_ids,
         "registry": registry_summary,
         "dependency_check": local,
         "pinned_engine_validation_source": PINNED_ENGINE_VALIDATION_PATH.relative_to(ROOT).as_posix(),
         "pinned_engine_validation": validation_summary,
+        "fixture_launch_validation_source": FIXTURE_LAUNCH_VALIDATION_PATH.relative_to(ROOT).as_posix(),
+        "fixture_launch_validation": fixture_launch_summary,
         "issues": issues,
         "status": "PASS" if not issues else "FAIL",
         "prior_readiness_disposition": {
             "path": SUPERSEDED_READINESS_PATH.relative_to(ROOT).as_posix(),
-            "state": "SUPERSEDED-INSUFFICIENT",
-            "reason": "It did not require a real pinned-engine parse/load/export validation and admitted source that failed before proof observation.",
+            "state": "SUPERSEDED-BY-FIXTURE-LAUNCH-REPAIR",
+            "reason": "It was a valid pre-execution certificate but did not exercise the manifest-consuming fixture-launch path later exposed by invalidated attempt 0058.",
         },
         "prd08_evaluation": "CLOSED",
         "gameplay_permission": "CLOSED",
         "actual_w3_execution": "NOT-AUTHORIZED-BY-THIS-REPAIR-TASK",
-        "proof_execution": "OBSERVED" if execution_started else "NOT-STARTED",
+        "proof_execution": "OBSERVED" if execution_started else "NOT-STARTED-FOR-NEXT-RERUN",
+        "historical_execution_disposition": "INVALIDATED-ABORTED-BEFORE-PROOF-OBSERVATION" if invalidated_run_ids else "NONE",
         "execution_gate": (
             "CLOSED-EXECUTION-ALREADY-OBSERVED" if not issues and not context["plan"]
             else "OPEN-FOR-FUTURE-SEPARATELY-AUTHORIZED-W3-RERUN" if not issues

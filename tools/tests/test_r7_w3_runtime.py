@@ -7,17 +7,22 @@ import shutil
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 from proofs.r7.w3.runtime.model import FluidDomain, VesselFixture
 from proofs.r7.w3.runtime.runner import PROOF_DEFINITIONS, PROOF_IDS, RUNNERS
 from tools.r7_w3_runtime.builds import (
+    ExportedBuild,
     PROBE_SOURCE,
+    fixture_launch_validation_issues,
+    fixture_launch_validation_report,
     pinned_engine_validation_issues,
     pinned_engine_validation_report,
+    run_fixture_probe,
 )
 from tools.r7_w3_runtime.dependencies import ROOT, load_lock, reference_issues, verify_local_dependencies
-from tools.r7_w3_runtime.admission import admitted_paths
+from tools.r7_w3_runtime.admission import admitted_paths, temporal_reconciliation_issues
 from tools.r7_w3_runtime.execution_plan import (
     ExecutionRegistryError,
     PlannedExecution,
@@ -33,6 +38,8 @@ from tools.r7_w3_runtime.execution import (
     recover_interrupted_transaction,
 )
 from tools.r7_w3_runtime.readiness import readiness_report
+from tools.proof_harness.manifests import ArtifactManifest, BuildManifest
+from tools.proof_harness.state import ExecutionKind, ProofExecution
 
 
 EXPECTED_PROOFS = (
@@ -162,17 +169,70 @@ class R7W3RuntimeTests(unittest.TestCase):
         self.assertEqual(contained, vessel.contained_water)
         self.assertEqual(vessel.base_mass + contained, vessel.total_mass)
 
+    def test_fixture_launcher_consumes_authoritative_artifact_path_for_both_roles(self) -> None:
+        for index, role in enumerate(("client", "headless"), start=1):
+            with self.subTest(role=role), tempfile.TemporaryDirectory() as raw:
+                root = Path(raw)
+                artifact_path = root / f"w3-{role}.exe"
+                artifact_path.write_bytes(b"real-export-placeholder")
+                build = BuildManifest(
+                    source_revision="a" * 40,
+                    role=role,
+                    profile="fixture-launch-regression",
+                    precision="exact",
+                    platform="windows-x86_64",
+                    content_identity="fixture-launch-regression",
+                    schema_identity="fixture-launch-regression-v1",
+                    clean_export=True,
+                    invocation=(str(artifact_path),),
+                    components=(),
+                )
+                artifact = ArtifactManifest.from_path(
+                    artifact_path,
+                    build,
+                    artifact_kind="leyforge-export",
+                    exported_runtime=True,
+                    synthetic_fixture=False,
+                    runtime_self_report_build_identity=build.build_identity,
+                )
+                exported = ExportedBuild(build, artifact, {}, {}, {}, {}, root / "project", root / "output")
+                execution = ProofExecution("PRD04-PROOF-27")
+                execution.evaluate_prerequisites([])
+                execution.allocate_run(f"PRD07-RUN-{index:04d}", ExecutionKind.ACTUAL, actual_execution_authorized=True)
+                execution.begin()
+                payload = {
+                    "proof_id": execution.proof_id,
+                    "run_id": execution.run_id,
+                    "build_identity": build.build_identity,
+                    "status": "PASS",
+                }
+                result = SimpleNamespace(
+                    process=SimpleNamespace(stdout="LEYFORGE_W3_FIXTURE_REPORT " + json.dumps(payload) + "\n"),
+                    to_dict=lambda: {"process": "captured"},
+                )
+                with patch("tools.r7_w3_runtime.builds.SmokeLane.execute", autospec=True, return_value=result) as execute:
+                    report = run_fixture_probe(exported, execution, iterations=1)
+                lane = execute.call_args.args[0]
+                self.assertFalse(hasattr(artifact, "path"))
+                self.assertEqual(str(Path(artifact.artifact_path).resolve()), lane.argv[0])
+                self.assertEqual(role == "headless", "--headless" in lane.argv)
+                self.assertTrue(report["external_process"])
+
     def test_registry_high_water_and_preview_are_side_effect_free(self) -> None:
         before = sorted((ROOT / "docs/rebuild/r7/execution-evidence").iterdir())
         registry = inspect_execution_registry(ROOT)
         plan = preview_execution_plan(ROOT)
         after = sorted((ROOT / "docs/rebuild/r7/execution-evidence").iterdir())
-        self.assertEqual(57, registry.max_run_number)
-        self.assertEqual(57, registry.max_evidence_number)
+        self.assertEqual(58, registry.max_run_number)
+        self.assertEqual(58, registry.max_evidence_number)
         self.assertEqual(50, len(registry.retained_run_ids))
         self.assertEqual(tuple(f"PRD07-RUN-{number:04d}" for number in range(51, 58)), registry.quarantined_run_ids)
-        self.assertEqual("PRD07-RUN-0058", plan[0].run_id)
-        self.assertEqual("PRD07-EVID-0058", plan[0].evidence_id)
+        invalidated = tuple(run_id for run_id in registry.run_ids if registry.dispositions[run_id] == "INVALIDATED")
+        self.assertEqual(("PRD07-RUN-0058",), invalidated)
+        next_sequence = registry.max_run_number + 1
+        self.assertEqual(f"PRD07-RUN-{next_sequence:04d}", plan[0].run_id)
+        self.assertEqual(f"PRD07-EVID-{next_sequence:04d}", plan[0].evidence_id)
+        self.assertEqual(tuple(range(next_sequence, next_sequence + len(plan))), tuple(int(row.run_id[-4:]) for row in plan))
         self.assertEqual(7, len({row.run_id for row in plan}))
         self.assertEqual(7, len({row.evidence_id for row in plan}))
         self.assertFalse({row.run_id for row in plan} & set(registry.run_ids))
@@ -203,8 +263,8 @@ class R7W3RuntimeTests(unittest.TestCase):
             "proof_execution_started": False,
         }
         readiness = {
-            "schema_version": "prd07-w3-readiness-v3",
-            "package": "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+            "schema_version": "prd07-w3-readiness-v4",
+            "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
             "status": "PASS",
             "implementation_commit": implementation_commit,
             "implementation_commit_source_match": True,
@@ -212,6 +272,8 @@ class R7W3RuntimeTests(unittest.TestCase):
             "allocated_evidence_ids": [],
             "quarantined_run_ids": [f"PRD07-RUN-{index:04d}" for index in range(51, 58)],
             "quarantined_evidence_ids": [f"PRD07-EVID-{index:04d}" for index in range(51, 58)],
+            "invalidated_run_ids": ["PRD07-RUN-0058"],
+            "invalidated_evidence_ids": ["PRD07-EVID-0058"],
             "pinned_engine_validation": {
                 "schema_version": "prd07-w3-pinned-engine-validation-v1",
                 "status": "PASS",
@@ -225,19 +287,90 @@ class R7W3RuntimeTests(unittest.TestCase):
                 "gameplay_permission": "CLOSED",
                 "production_runtime": "ABSENT",
             },
+            "fixture_launch_validation": {"status": "PASS"},
             "proofs": [{"proof_id": proof_id, "state": "READY"} for proof_id in PROOF_IDS],
         }
         boundary = {
-            "manifest_version": 2,
-            "package": "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION",
+            "manifest_version": 3,
+            "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
             "implementation_commit": implementation_commit,
-            "proof_execution": "NOT-STARTED",
+            "proof_execution": "NOT-STARTED-FOR-NEXT-RERUN",
             "allocated_run_ids": [],
             "allocated_evidence_ids": [],
         }
-        self.assertEqual((), certification_record_issues(readiness, boundary, dict(boundary)))
-        stale_boundary = dict(boundary, implementation_commit="b" * 40)
-        self.assertTrue(certification_record_issues(readiness, stale_boundary, dict(boundary)))
+        with patch("tools.r7_w3_runtime.execution.fixture_launch_validation_issues", return_value=()):
+            self.assertEqual((), certification_record_issues(readiness, boundary, dict(boundary)))
+            stale_boundary = dict(boundary, implementation_commit="b" * 40)
+            self.assertTrue(certification_record_issues(readiness, stale_boundary, dict(boundary)))
+
+    def test_temporal_reconciliation_accepts_certified_pre_execution_to_invalidated_0058(self) -> None:
+        historical = {"proof_execution": "NOT-STARTED", "allocated_run_ids": [], "allocated_evidence_ids": []}
+        attempt = {
+            "proof_id": "PRD04-PROOF-27",
+            "run_id": "PRD07-RUN-0058",
+            "evidence_id": "PRD07-EVID-0058",
+            "state": "INVALIDATED",
+            "terminal_disposition": "ABORTED-BEFORE-PROOF-OBSERVATION",
+            "proof_observation_produced": False,
+            "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
+            "prd07_evidence_eligible": False,
+        }
+        state = {
+            "source_revision": "a" * 40,
+            "package_state": "ABORTED-BEFORE-PROOF-OBSERVATION",
+            "allocated_run_ids": [attempt["run_id"]],
+            "allocated_evidence_ids": [attempt["evidence_id"]],
+            "allocation_history": [attempt],
+        }
+        boundary = {
+            "manifest_version": 3,
+            "lifecycle_role": "CURRENT-POST-ATTEMPT-RECERTIFICATION",
+            "proof_execution": "NOT-STARTED-FOR-NEXT-RERUN",
+            "allocated_run_ids": [],
+            "allocated_evidence_ids": [],
+            "invalidated_run_ids": [attempt["run_id"]],
+            "invalidated_evidence_ids": [attempt["evidence_id"]],
+            "historical_execution": {
+                "source_revision": state["source_revision"],
+                "package_state": state["package_state"],
+                "allocated_run_ids": state["allocated_run_ids"],
+                "allocated_evidence_ids": state["allocated_evidence_ids"],
+                "allocation_history_run_ids": [attempt["run_id"]],
+                "allocation_history_evidence_ids": [attempt["evidence_id"]],
+                "proof_observation_count": 0,
+                "invalidated_run_ids": [attempt["run_id"]],
+                "invalidated_evidence_ids": [attempt["evidence_id"]],
+            },
+        }
+        self.assertEqual((), temporal_reconciliation_issues(boundary, state, historical))
+
+    def test_temporal_reconciliation_rejects_ungoverned_identity_and_disposition_drift(self) -> None:
+        historical = {"proof_execution": "NOT-STARTED", "allocated_run_ids": [], "allocated_evidence_ids": []}
+        state = {
+            "source_revision": "a" * 40,
+            "package_state": "ABORTED-BEFORE-PROOF-OBSERVATION",
+            "allocated_run_ids": ["PRD07-RUN-0059"],
+            "allocated_evidence_ids": ["PRD07-EVID-0059"],
+            "allocation_history": [{
+                "proof_id": "PRD04-PROOF-27",
+                "run_id": "PRD07-RUN-0058",
+                "evidence_id": "PRD07-EVID-0058",
+                "state": "PASS-OBSERVED",
+            }],
+        }
+        boundary = {
+            "manifest_version": 3,
+            "lifecycle_role": "CURRENT-POST-ATTEMPT-RECERTIFICATION",
+            "proof_execution": "NOT-STARTED-FOR-NEXT-RERUN",
+            "allocated_run_ids": [],
+            "allocated_evidence_ids": [],
+            "invalidated_run_ids": ["PRD07-RUN-0058"],
+            "invalidated_evidence_ids": ["PRD07-EVID-0058"],
+            "historical_execution": {},
+        }
+        issues = temporal_reconciliation_issues(boundary, state, historical)
+        self.assertTrue(any("RUN order differs" in issue for issue in issues))
+        self.assertTrue(any("exactly one unobserved invalidation" in issue for issue in issues))
 
     def test_live_preflight_keeps_the_live_pinned_engine_gate_enabled(self) -> None:
         readiness = {
@@ -368,6 +501,29 @@ class R7W3RuntimeTests(unittest.TestCase):
             self.assertEqual("PRD04-PROOF-27", plan[0].proof_id)
             self.assertEqual("PRD07-RUN-0002", plan[0].run_id)
 
+    def test_terminal_journal_allows_only_explicit_fresh_source_transition_without_reuse(self) -> None:
+        with tempfile.TemporaryDirectory() as raw:
+            state_path = Path(raw) / "w3-execution-state.json"
+            journal = W3ExecutionJournal(state_path, "a" * 40)
+            first = journal.allocate(self._single_plan(1)[0])
+            journal.begin(first)
+            journal.fail(first, "fixture-runtime-self-report", RuntimeError("historical abort"))
+            before = state_path.read_bytes()
+            with self.assertRaisesRegex(ValueError, "different source revision"):
+                W3ExecutionJournal(state_path, "b" * 40)
+            successor = W3ExecutionJournal(
+                state_path,
+                "b" * 40,
+                allow_terminal_source_transition=True,
+            )
+            self.assertEqual(before, state_path.read_bytes())
+            second = successor.allocate(self._single_plan(2)[0])
+            state = json.loads(state_path.read_text(encoding="utf-8"))
+            self.assertEqual("PRD07-RUN-0002", second.run_id)
+            self.assertEqual(["PRD07-RUN-0001", "PRD07-RUN-0002"], state["allocated_run_ids"])
+            self.assertEqual("b" * 40, state["latest_source_revision"])
+            self.assertEqual("b" * 40, state["allocation_history"][1]["source_revision"])
+
     def test_keyboard_interrupt_during_export_is_durably_invalidated(self) -> None:
         with tempfile.TemporaryDirectory() as raw:
             root = Path(raw)
@@ -389,6 +545,50 @@ class R7W3RuntimeTests(unittest.TestCase):
         issues = pinned_engine_validation_issues({}, "a" * 40)
         self.assertIn("pinned-engine validation does not pass", issues)
         self.assertTrue(any("check did not pass" in issue for issue in issues))
+
+    def test_fixture_launch_receipt_validator_fails_closed(self) -> None:
+        issues = fixture_launch_validation_issues({}, "a" * 40)
+        self.assertIn("fixture-launch integration does not pass", issues)
+        self.assertTrue(any("check" in issue for issue in issues))
+
+    def test_fixture_launch_integration_surfaces_export_failure_without_allocating(self) -> None:
+        before = inspect_execution_registry(ROOT)
+        with tempfile.TemporaryDirectory() as raw, patch(
+                "tools.r7_w3_runtime.builds.verify_local_dependencies",
+                return_value={"status": "PASS", "issues": [], "paths": {}},
+            ), patch(
+                "tools.r7_w3_runtime.builds._export_artifact",
+                side_effect=RuntimeError("injected fixture export failure"),
+            ):
+            report = fixture_launch_validation_report("a" * 40, validation_parent=Path(raw))
+        after = inspect_execution_registry(ROOT)
+        self.assertEqual("FAIL", report["status"])
+        self.assertEqual([], report["allocated_run_ids"])
+        self.assertEqual([], report["allocated_evidence_ids"])
+        self.assertFalse(report["checks"]["identity_allocation_started"])
+        self.assertTrue(any("injected fixture export failure" in issue for issue in report["issues"]))
+        self.assertEqual(before, after)
+
+    def test_real_fixture_launch_integration_builds_and_launches_without_proof_or_allocation(self) -> None:
+        local = verify_local_dependencies(load_lock())
+        if local["status"] != "PASS":
+            self.skipTest("exact pinned Godot/dependency environment is unavailable")
+        state_path = ROOT / "docs/rebuild/r7/w3-execution-state.json"
+        state_before = state_path.read_bytes()
+        registry_before = inspect_execution_registry(ROOT)
+        report = fixture_launch_validation_report("a" * 40)
+        registry_after = inspect_execution_registry(ROOT)
+        self.assertEqual("PASS", report["status"], report["issues"])
+        self.assertEqual({"client", "headless"}, set(report["roles"]))
+        self.assertTrue(report["checks"]["authoritative_manifest_contract_valid"])
+        self.assertTrue(report["checks"]["client_artifact_launch_valid"])
+        self.assertTrue(report["checks"]["headless_artifact_launch_valid"])
+        self.assertFalse(report["checks"]["proof_execution_started"])
+        self.assertFalse(report["checks"]["identity_allocation_started"])
+        self.assertEqual([], report["allocated_run_ids"])
+        self.assertEqual([], report["allocated_evidence_ids"])
+        self.assertEqual(state_before, state_path.read_bytes())
+        self.assertEqual(registry_before, registry_after)
 
     def test_real_pinned_engine_rejects_invalid_godot_api_before_ready(self) -> None:
         local = verify_local_dependencies(load_lock())
@@ -482,6 +682,8 @@ class R7W3RuntimeTests(unittest.TestCase):
     def test_readiness_verifies_definitions_mappings_and_consumes_no_ids(self) -> None:
         with patch("tools.r7_w3_runtime.readiness._commit_source_issues", return_value=[]), patch(
             "tools.r7_w3_runtime.readiness._engine_validation_context", return_value=({"status": "PASS"}, [])
+        ), patch(
+            "tools.r7_w3_runtime.readiness._fixture_launch_validation_context", return_value=({"status": "PASS"}, [])
         ):
             report = readiness_report("0" * 40, check_local=False)
         self.assertEqual("PASS", report["status"])
@@ -508,8 +710,9 @@ class R7W3RuntimeTests(unittest.TestCase):
             "tools/verify.py",
             "tools/verify_rebuild_boundary.py",
             "docs/rebuild/r7/w3-allocation-reconciliation.json",
-            "docs/rebuild/r7/w3-pinned-engine-validation.json",
-            "docs/rebuild/r7/w3-readiness-repaired.json",
+            "docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json",
+            "docs/rebuild/r7/w3-fixture-launch-integration.json",
+            "docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json",
             "docs/rebuild/r7/w3-execution-state.json",
             "docs/rebuild/r7/w3-execution-completion-receipt.json",
         }
@@ -522,7 +725,7 @@ class R7W3RuntimeTests(unittest.TestCase):
 
     def test_clean_rebuild_boundary_uses_hash_pinned_w3_admission(self) -> None:
         source = (ROOT / "tools/verify_rebuild_boundary.py").read_text(encoding="utf-8")
-        self.assertIn("w3-execution-boundary-repaired.json", source)
+        self.assertIn("w3-execution-boundary-fixture-launch-repaired.json", source)
         self.assertIn("or rel in w3_admitted_paths", source)
         self.assertNotIn("or rel.startswith('proofs/r7/w3/')", source)
         self.assertNotIn("or rel.startswith('tools/r7_w3_runtime/')", source)

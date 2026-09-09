@@ -7,7 +7,12 @@ import json
 from pathlib import Path
 
 from .admission import build_manifest, write_manifest
-from .builds import pinned_engine_validation_report, write_pinned_engine_validation
+from .builds import (
+    fixture_launch_validation_report,
+    pinned_engine_validation_report,
+    write_fixture_launch_validation,
+    write_pinned_engine_validation,
+)
 from .execution import execute_w3, preflight_report
 from .readiness import readiness_report, write_readiness
 
@@ -43,6 +48,10 @@ def build_parser() -> argparse.ArgumentParser:
     engine_validation.add_argument("--implementation-commit", required=True)
     engine_validation.add_argument("--write", action="store_true")
     engine_validation.add_argument("--format", choices=("text", "json"), default="text")
+    fixture_launch = commands.add_parser("fixture-launch-validation")
+    fixture_launch.add_argument("--implementation-commit", required=True)
+    fixture_launch.add_argument("--write", action="store_true")
+    fixture_launch.add_argument("--format", choices=("text", "json"), default="text")
     execute = commands.add_parser("execute")
     execute.add_argument("--source-revision", required=True)
     execute.add_argument("--run-root", type=Path, required=True)
@@ -69,6 +78,12 @@ def main() -> int:
                 write_pinned_engine_validation(args.implementation_commit)
                 if args.write
                 else pinned_engine_validation_report(args.implementation_commit, perform_export=True)
+            )
+        elif args.command == "fixture-launch-validation":
+            result = (
+                write_fixture_launch_validation(args.implementation_commit)
+                if args.write
+                else fixture_launch_validation_report(args.implementation_commit)
             )
         else:
             result = execute_w3(args.source_revision, args.run_root, args.retained_root, args.state_path, args.actual_execution_authorized)

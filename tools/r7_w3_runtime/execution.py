@@ -18,7 +18,7 @@ from tools.proof_harness.manifests import sha256_file
 from tools.proof_harness.state import ExecutionKind, ProofExecution, ProofState
 
 from .admission import MANIFEST_PATH, build_manifest
-from .builds import ExportedBuild, export_one, run_fixture_probe
+from .builds import ExportedBuild, export_one, fixture_launch_validation_issues, run_fixture_probe
 from .dependencies import ROOT, load_lock, reference_issues, verify_local_dependencies
 from .execution_plan import PlannedExecution, execution_plan_for_actual_run
 from .readiness import READINESS_PATH, readiness_report
@@ -67,9 +67,10 @@ def source_execution_issues(source_revision: str) -> Tuple[str, ...]:
         "tools/r7_w3_runtime",
         "tools/tests/test_r7_w3_runtime.py",
         "docs/rebuild/r7/w3-allocation-reconciliation.json",
-        "docs/rebuild/r7/w3-pinned-engine-validation.json",
-        "docs/rebuild/r7/w3-readiness-repaired.json",
-        "docs/rebuild/r7/w3-execution-boundary-repaired.json",
+        "docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json",
+        "docs/rebuild/r7/w3-fixture-launch-integration.json",
+        "docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json",
+        "docs/rebuild/r7/w3-execution-boundary-fixture-launch-repaired.json",
         "tools/verify.py",
         "tools/verify_rebuild_boundary.py",
     )
@@ -106,8 +107,8 @@ def certification_record_issues(
     issues = []
     proof_ids = tuple(row.get("proof_id") for row in readiness.get("proofs", []))
     if (
-        readiness.get("schema_version") != "prd07-w3-readiness-v3"
-        or readiness.get("package") != "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION"
+        readiness.get("schema_version") != "prd07-w3-readiness-v4"
+        or readiness.get("package") != "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION"
         or readiness.get("status") != "PASS"
         or readiness.get("implementation_commit_source_match") is not True
     ):
@@ -122,6 +123,10 @@ def certification_record_issues(
         issues.append("repaired W3 readiness does not preserve the exact quarantined RUN range")
     if readiness.get("quarantined_evidence_ids") != expected_quarantined_evidence:
         issues.append("repaired W3 readiness does not preserve the exact quarantined EVID range")
+    if readiness.get("invalidated_run_ids") != ["PRD07-RUN-0058"]:
+        issues.append("repaired W3 readiness does not preserve invalidated RUN 0058")
+    if readiness.get("invalidated_evidence_ids") != ["PRD07-EVID-0058"]:
+        issues.append("repaired W3 readiness does not preserve invalidated EVID 0058")
     engine = readiness.get("pinned_engine_validation", {})
     checks = engine.get("checks", {}) if isinstance(engine, dict) else {}
     required_engine_checks = (
@@ -150,17 +155,22 @@ def certification_record_issues(
         or engine.get("production_runtime") != "ABSENT"
     ):
         issues.append("repaired W3 readiness lacks a passing non-proof pinned-engine validation")
+    fixture_launch = readiness.get("fixture_launch_validation", {})
+    if not isinstance(fixture_launch, dict) or fixture_launch_validation_issues(
+        fixture_launch, str(readiness.get("implementation_commit", ""))
+    ):
+        issues.append("repaired W3 readiness lacks a passing real fixture-launch integration")
     if boundary != expected_boundary:
         issues.append("repaired W3 admission boundary is missing, stale or not exact")
     if (
-        boundary.get("manifest_version") != 2
-        or boundary.get("package") != "R7-W3-TECHNICAL-ENVIRONMENT-REPAIR-AND-RECERTIFICATION"
+        boundary.get("manifest_version") != 3
+        or boundary.get("package") != "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION"
     ):
         issues.append("repaired W3 admission identity is missing or unsupported")
     if boundary.get("implementation_commit") != readiness.get("implementation_commit"):
         issues.append("W3 readiness and admission name different implementation commits")
-    if boundary.get("proof_execution") != "NOT-STARTED":
-        issues.append("W3 admission already claims proof execution")
+    if boundary.get("proof_execution") != "NOT-STARTED-FOR-NEXT-RERUN":
+        issues.append("W3 admission does not keep the next rerun unstarted")
     if boundary.get("allocated_run_ids") != [] or boundary.get("allocated_evidence_ids") != []:
         issues.append("W3 admission allocated execution identities before actual execution")
     return tuple(sorted(set(issues)))
@@ -178,15 +188,23 @@ class W3ExecutionJournal:
 
     SCHEMA = "prd07-w3-execution-state-v2"
 
-    def __init__(self, path: Path, source_revision: str) -> None:
+    def __init__(self, path: Path, source_revision: str, *, allow_terminal_source_transition: bool = False) -> None:
         self.path = path
         self.source_revision = source_revision
+        self.prior_source_revision: Optional[str] = None
         if path.is_file():
             value = json.loads(path.read_text(encoding="utf-8-sig"))
             if not isinstance(value, dict) or value.get("schema_version") != self.SCHEMA:
                 raise ValueError("existing W3 execution journal is missing or unsupported")
-            if value.get("source_revision") != source_revision:
-                raise ValueError("existing W3 execution journal names a different source revision")
+            journal_source = str(value.get("latest_source_revision", value.get("source_revision", "")))
+            if journal_source != source_revision:
+                active = any(
+                    isinstance(row, dict) and row.get("state") in {ProofState.RUN_ALLOCATED.value, ProofState.EXECUTING.value}
+                    for row in value.get("allocation_history", [])
+                )
+                if not allow_terminal_source_transition or active:
+                    raise ValueError("existing W3 execution journal names a different source revision")
+                self.prior_source_revision = journal_source
             self.value = value
         else:
             self.value = {
@@ -263,6 +281,7 @@ class W3ExecutionJournal:
             "evidence_pack_status": "NOT-CREATED-NO-PROOF-OBSERVATION",
             "prd07_evidence_eligible": False,
             "prd08_submission": "NOT-SUBMITTED",
+            "source_revision": self.source_revision,
         }
         self.allocation_history.append(attempt)
         self.value["allocated_run_ids"].append(planned.run_id)
@@ -272,6 +291,7 @@ class W3ExecutionJournal:
         proof["current_run_id"] = planned.run_id
         proof["attempt_run_ids"].append(planned.run_id)
         self.value["package_state"] = "EXECUTING"
+        self.value["latest_source_revision"] = self.source_revision
         self._persist()
         return execution
 
@@ -354,7 +374,9 @@ def recover_interrupted_transaction(path: Path, source_revision: str) -> bool:
     """Convert a hard-stop active row into an explicit non-evidence interruption."""
     if not path.is_file():
         return False
-    journal = W3ExecutionJournal(path, source_revision)
+    value = json.loads(path.read_text(encoding="utf-8-sig"))
+    journal_source = str(value.get("latest_source_revision", value.get("source_revision", source_revision)))
+    journal = W3ExecutionJournal(path, journal_source)
     active = [
         row for row in journal.allocation_history
         if row.get("state") in {ProofState.RUN_ALLOCATED.value, ProofState.EXECUTING.value}
@@ -497,7 +519,7 @@ def _execute_plan(
     if not plan:
         raise ValueError("W3 execution plan contains no proof requiring execution")
     run_root.mkdir(parents=True)
-    journal = W3ExecutionJournal(state_path, source_revision)
+    journal = W3ExecutionJournal(state_path, source_revision, allow_terminal_source_transition=True)
     builds: Dict[str, ExportedBuild] = {}
     completed_rows: list[Dict[str, Any]] = []
     newly_allocated_runs: list[str] = []
