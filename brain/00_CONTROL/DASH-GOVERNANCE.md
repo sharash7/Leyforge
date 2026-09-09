@@ -58,6 +58,8 @@ related_to:
   - "EVID-0011"
   - "AUDIT-0011"
   - "HANDOFF-20260909-001"
+  - "WORK-20260909-002"
+  - "TASK-20260909-002"
   - "ADR-0008"
 ---
 
@@ -167,6 +169,13 @@ related_to:
 - The unchanged pre-execution admission now fails five clean-boundary state-equality checks; post-stop W3 regression is 34/35 with one stale assertion expecting high-water 0057 instead of 0058. Both are required repair findings, not grounds for silent re-certification.
 - [[HANDOFF-20260909-001]] requires fresh owner authority for fixture-launch repair/re-certification. W4, PRD-08, R8 gameplay and production activation remain closed.
 
+## R7 W3 Fixture-launch Repair and Re-certification
+
+- Fresh owner authorization is active under [[TASK-20260909-002]] / [[WORK-20260909-002]].
+- Repair scope is limited to the admitted artifact-manifest consumer, real allocation-free fixture-launch coverage, issued-high-water assertions, temporal admission/state reconciliation and exact superseding certification.
+- Invalidated 0058 and all historical W3 evidence remain immutable; no 0059+ identity, proof observation or proof pack may be created.
+- The current local/remote red boundary is a package blocker until precise governed reconciliation passes. W3 rerun, W4, PRD-08, R8 gameplay and production activation remain closed.
+
 ## Later Activation Milestones
 
 - G1 registry and core identity: planned in [[GOV-DEBT-0002]].
@@ -175,4 +184,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260909-001]]. W0-W2 execution is certified; both W3 execution attempts are certified controlled failures before proof observation; and the second attempt durably consumes invalidated pair 0058. Fixture-launch repair and re-certification is next, subject to fresh owner authority. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260909-001]] and the bounded repair authority in [[TASK-20260909-002]]. W0-W2 execution is certified; both W3 execution attempts are certified controlled failures before proof observation; and the second attempt durably consumes invalidated pair 0058. Fixture-launch repair and re-certification is active without proof or allocation authority. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.

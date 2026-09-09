@@ -27,6 +27,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[DASH-PROJECT-STATE|DASH-PROJECT-STATE]] | dashboard | active | Project State |
 | [[HANDOFF-20260909-001|HANDOFF-20260909-001]] | handoff | active | R7 W3 Rerun Abort to Fixture-launch Repair and Re-certification Handoff |
 | [[HOME|HOME]] | home | active | Leyforge Project Brain |
+| [[WORK-20260909-002|WORK-20260909-002]] | work | active | Repair and re-certify the R7 W3 fixture-launch boundary |
+| [[TASK-20260909-002|TASK-20260909-002]] | work_item | active | R7 W3 fixture-launch repair and re-certification task contract |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
 | [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |
 | [[WORK-20260909-001|WORK-20260909-001]] | work | cancelled | Execute and reconcile the repaired R7 W3 technical environment proof rerun |
