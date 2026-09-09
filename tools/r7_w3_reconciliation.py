@@ -148,6 +148,11 @@ def _canonical_bytes(path: Path) -> bytes:
     return path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
 
 
+def _execution_record_bytes(path: Path) -> bytes:
+    """Reconstruct the Windows bytes hashed by the governed execution writer."""
+    return _canonical_bytes(path).replace(b"\n", b"\r\n")
+
+
 def _load(path: Path) -> Dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8-sig"))
     if not isinstance(value, dict):
@@ -410,7 +415,7 @@ def audit_execution(
         check(run.get("prd07_evidence_eligible") is True and run.get("prd08_submission") == "NOT-SUBMITTED", f"portable pack eligibility/submission differs: {run_id}")
         check(run.get("gameplay_permission") == "CLOSED", f"portable pack opened gameplay permission: {run_id}")
         check(run.get("source_revision") == executed_source_revision and build.get("source_revision") == executed_source_revision, f"portable pack source revision differs: {run_id}")
-        check(hashlib.sha256(_canonical_bytes(pack / "observed-result.json")).hexdigest() == run.get("evidence_sha256"), f"portable observed-result hash differs: {run_id}")
+        check(hashlib.sha256(_execution_record_bytes(pack / "observed-result.json")).hexdigest() == run.get("evidence_sha256"), f"portable observed-result hash differs: {run_id}")
         check(observed.get("outcome") == "PASS", f"structured W3 observation is not PASS: {run_id}")
         check(observed.get("run_id") == run_id and observed.get("evidence_id") == evidence_id, f"structured W3 observation identity differs: {run_id}")
         check(artifact.get("manifest_schema") == "prd07-artifact-manifest-v1" and artifact.get("artifact_kind") == "leyforge-export", f"artifact manifest schema/kind differs: {run_id}")
@@ -441,7 +446,7 @@ def audit_execution(
             check(".." not in Path(relative).parts and not Path(relative).is_absolute(), f"portable evidence-artifact path escapes its pack: {run_id}")
             check(artifact_path.is_file(), f"portable evidence artifact is missing: {run_id}/{relative}")
             if artifact_path.is_file():
-                artifact_data = _canonical_bytes(artifact_path)
+                artifact_data = _execution_record_bytes(artifact_path)
                 check(len(artifact_data) == item.get("bytes"), f"portable evidence-artifact byte count differs: {run_id}/{relative}")
                 check(hashlib.sha256(artifact_data).hexdigest() == item.get("sha256"), f"portable evidence-artifact hash differs: {run_id}/{relative}")
         pack_rows.append({
