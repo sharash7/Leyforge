@@ -10,8 +10,13 @@ updated: "2026-09-09"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260909-001"
+current_handoff: "HANDOFF-20260909-002"
 related_to:
+  - "HANDOFF-20260909-002"
+  - "EVID-0012"
+  - "AUDIT-0012"
+  - "WORK-20260909-002"
+  - "TASK-20260909-002"
   - "HANDOFF-20260909-001"
   - "EVID-0011"
   - "AUDIT-0011"
@@ -38,8 +43,8 @@ related_to:
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260909-001]]. The owner-authorized W3 execution rerun under [[TASK-20260909-001]] / [[WORK-20260909-001]] passed complete pre-execution revalidation, then failed during the first fixture launch because admitted `tools/r7_w3_runtime/builds.py` uses nonexistent `ArtifactManifest.path` instead of the declared `artifact_path`.
+The active formal handoff is [[HANDOFF-20260909-002]]. The owner-authorized fixture-launch repair and re-certification under [[TASK-20260909-002]] / [[WORK-20260909-002]] is complete and certified by [[EVID-0012]] / [[AUDIT-0012]]. The W3 client/headless launcher now uses authoritative `ArtifactManifest.artifact_path`, real fixed-engine integration reaches both external fixture self-reports without proof execution or allocation, and the current boundary reconciles historical admission with invalidated 0058 while remaining fail-closed for drift.
 
-The repaired journal durably records only `PRD07-RUN-0058` / `PRD07-EVID-0058`, now `INVALIDATED` and evidence-ineligible after aborting before proof observation. No W3 proof result or standard pack exists and no 0059+ identity was allocated. [[EVID-0011]] / [[AUDIT-0011]] certify the failure. Historical 0051-0057 remain quarantined and non-reusable.
+The registry remains 50 retained pairs/packs through 0050, quarantined 0051-0057 and invalidated `PRD07-RUN-0058` / `PRD07-EVID-0058`. No W3 proof result or standard W3 pack exists. Issued high-water is 0058; 0059-0065 are previews only and no 0059+ identity has been allocated.
 
-The next bounded action is fixture-launch repair and re-certification, subject to fresh owner authorization. It must preserve 0058, add real fixture-launch coverage, reconcile the stale high-water regression assertion and align certification/boundary behavior with the failed state before another separately authorized rerun. W4 execution, W5, FINAL, PRD-08 evaluation, R8 gameplay and production remain closed.
+The next bounded action is `R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN`, subject to fresh owner authorization and a new Task/Work package. It must revalidate the entire exact certification boundary before allocating preview 0059 just in time. W3 rerun, W4 execution, W5, FINAL, R7 closure, PRD-08 evaluation, R8 gameplay and production remain closed.

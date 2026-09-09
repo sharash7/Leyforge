@@ -30,6 +30,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[AUDIT-0005|AUDIT-0005]] | audit | certified | R7 W0 Reusable Proof-Harness Bootstrap Certification |
 | [[AUDIT-0007|AUDIT-0007]] | audit | certified | R7 W1 Semantic-Safety Proof Execution Certification |
 | [[AUDIT-0008|AUDIT-0008]] | audit | certified | R7 W2 Network, Persistence, Recovery and Migration Proof Execution Certification |
+| [[AUDIT-0012|AUDIT-0012]] | audit | certified | R7 W3 Fixture-launch Repair and Re-certification Audit |
 | [[AUDIT-0009|AUDIT-0009]] | audit | certified | R7 W3 Technical Environment Execution Abort Certification |
 | [[AUDIT-0011|AUDIT-0011]] | audit | certified | R7 W3 Technical Environment Execution Rerun Abort Certification |
 | [[AUDIT-0010|AUDIT-0010]] | audit | certified | R7 W3 Technical Environment Repair and Re-certification Audit |

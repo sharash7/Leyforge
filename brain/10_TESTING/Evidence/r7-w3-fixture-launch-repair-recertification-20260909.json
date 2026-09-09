@@ -1,0 +1,300 @@
+{
+  "schema_version": "leyforge-r7-w3-fixture-launch-repair-recertification-v1",
+  "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
+  "date": "2026-09-09",
+  "status": "PASS",
+  "final_determination": "W3 FIXTURE-LAUNCH REPAIR/RECERTIFICATION COMPLETE - SAFE FOR FRESH OWNER-AUTHORIZED W3 RERUN",
+  "authority": {
+    "task": "TASK-20260909-002",
+    "work": "WORK-20260909-002",
+    "incoming_handoff": "HANDOFF-20260909-001",
+    "evidence": "EVID-0012",
+    "audit": "AUDIT-0012",
+    "outgoing_handoff": "HANDOFF-20260909-002"
+  },
+  "repository": {
+    "starting_head": "0a237270c7a9d49932e1066efd5d9817410df9d1",
+    "lifecycle_opening_commit": "3d915485d2018ab600e2acd050792ea39b574577",
+    "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
+    "readiness_commit": "92f1d52da28793712aaa613fa92102492d57a68b",
+    "current_boundary_commit": "8092873474cffd886c8590214079a1f7adeed185",
+    "branch": "codex/chore/brain-governance-pilot",
+    "upstream": "origin/codex/chore/brain-governance-pilot",
+    "history_rewritten": false,
+    "unrelated_preserved_path": "brain/.obsidian/graph.json"
+  },
+  "fixture_launch_repair": {
+    "root_cause": "The governed ArtifactManifest dataclass exposes artifact_path, but the W3 fixture launcher dereferenced nonexistent path before starting an external fixture process.",
+    "authoritative_field": "artifact_path",
+    "stale_field": "path",
+    "repair": "All client and headless artifact launch arguments are derived through one shared route from exported.artifact.artifact_path.",
+    "compatibility_alias_added": false,
+    "build_manifest_identity_deterministic": true,
+    "proof_objective_executed": false
+  },
+  "source_identity": {
+    "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
+    "source_tree_identity": "ae78f07192fc7f1aa1e32d238c90303297426002556735e1c2aaacec56f93bd2",
+    "main_gd": {
+      "path": "proofs/r7/w3/server_probe/src/main.gd",
+      "git_blob": "01ecb28d7b28784710f58b2b2ec9dcfe2d1425f2",
+      "canonical_bytes": 11122,
+      "canonical_sha256": "3d05040656740c60538eb0b3cadb6a4235fce020a840b7d74741a4494a4b03c3"
+    },
+    "tooling": {
+      "builds": {
+        "path": "tools/r7_w3_runtime/builds.py",
+        "git_blob": "8b0b25e3442191ed651226a3fc1f3521de3048f6",
+        "canonical_bytes": 43089,
+        "canonical_sha256": "c6e54c217f7d4558a2e017a2603f237d18636df7b6f25e6d06a8c562345f1a07"
+      },
+      "admission": {
+        "path": "tools/r7_w3_runtime/admission.py",
+        "git_blob": "30e3e15e0635c9ee63d4c4050a8278528ca1c3fc",
+        "canonical_bytes": 15184,
+        "canonical_sha256": "0a48eb4ffa25a5edab06b8b3006bc463564db2a06dc5d06274ed1b721bb3fbbd"
+      },
+      "boundary_validator": {
+        "path": "tools/verify_rebuild_boundary.py",
+        "git_blob": "74db60da21e9e0ec08f4bb6f27454f143dc72038",
+        "canonical_bytes": 61163,
+        "canonical_sha256": "e1c674a9fb8d341a88594d41071cb36354128f5f67298f46a8e261987db99ab0"
+      },
+      "w3_tests": {
+        "path": "tools/tests/test_r7_w3_runtime.py",
+        "git_blob": "15d64ac0b781b39886581d0621c5e5cf92821b8f",
+        "canonical_bytes": 40162,
+        "canonical_sha256": "6d754ff45f8f767a7712135229e17b0ae252de5c03511a4ba0e66976850f4932"
+      }
+    }
+  },
+  "pinned_environment": {
+    "godot_build_driver_revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "godot_export_template_revision": "4.8.dev4.official.b56a91878",
+    "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+    "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+    "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+    "local_patch_status": "NO-LOCAL-PATCH"
+  },
+  "pinned_engine_validation": {
+    "source": "docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json",
+    "git_blob": "6d3e864e0e9886f3ff3a259b5477d50947c00f4e",
+    "canonical_bytes": 4495,
+    "canonical_sha256": "cb1d788f5fe58069799f02506c73f5da03fdae37281b41693f5ba271b42af613",
+    "status": "PASS",
+    "build_identity": "1c30dd1b148b6c69fcf9162d8918324881861f85401b2aed2ceb5eb713268c57",
+    "export_artifact_bytes": 110441920,
+    "export_artifact_sha256": "a7c17b12e18136b22bcc3868a3e9cf85bec49296f8a75d1920df312dff58a398",
+    "proof_execution_started": false,
+    "allocated_run_ids": [],
+    "allocated_evidence_ids": [],
+    "production_runtime": false
+  },
+  "fixture_launch_integration": {
+    "source": "docs/rebuild/r7/w3-fixture-launch-integration.json",
+    "git_blob": "e36a19c9a259a2ce6525a1720f7bcfb4bc020390",
+    "canonical_bytes": 43411,
+    "canonical_sha256": "3346e9177ab9e5d4a1f6d506a4b77d8516f521f041f5241d561913608b28840d",
+    "status": "PASS",
+    "client": {
+      "build_identity": "edcbde4aabecb4ba032b8ffd355ec77194db5e07cc4a23b2a4b1cb893175c2cd",
+      "artifact_bytes": 110444560,
+      "artifact_sha256": "be6a1142f3f896cee67f54fc7fcfc0698acee4e9b1ab051cad1e3c8eb23ced68"
+    },
+    "headless": {
+      "build_identity": "d711e858bd091d2c644500225d6baf6ac32fda02036a2478c97f5b94dfa270c8",
+      "artifact_bytes": 110444592,
+      "artifact_sha256": "a8b91f9400ac921c73d71f4420439bf578168a7eaf1019fce5173322e35384f3"
+    },
+    "provider_ready": true,
+    "provider_errors": 0,
+    "frame_errors": 0,
+    "contact_errors": 0,
+    "stable_w3_proof_ids": 7,
+    "production_runtime": false,
+    "proof_execution_started": false,
+    "registry_equal_before_after": true,
+    "execution_state_equal_before_after": true,
+    "allocated_run_ids": [],
+    "allocated_evidence_ids": []
+  },
+  "identity_state": {
+    "retained_pairs": 50,
+    "retained_pack_high_water": 50,
+    "retained_results": {
+      "pass_observed": 49,
+      "inconclusive": 1
+    },
+    "quarantined_run_ids": [
+      "PRD07-RUN-0051",
+      "PRD07-RUN-0052",
+      "PRD07-RUN-0053",
+      "PRD07-RUN-0054",
+      "PRD07-RUN-0055",
+      "PRD07-RUN-0056",
+      "PRD07-RUN-0057"
+    ],
+    "quarantined_evidence_ids": [
+      "PRD07-EVID-0051",
+      "PRD07-EVID-0052",
+      "PRD07-EVID-0053",
+      "PRD07-EVID-0054",
+      "PRD07-EVID-0055",
+      "PRD07-EVID-0056",
+      "PRD07-EVID-0057"
+    ],
+    "invalidated_run_id": "PRD07-RUN-0058",
+    "invalidated_evidence_id": "PRD07-EVID-0058",
+    "invalidated_terminal_disposition": "ABORTED-BEFORE-PROOF-OBSERVATION",
+    "issued_high_water": 58,
+    "next_preview_run_ids": [
+      "PRD07-RUN-0059",
+      "PRD07-RUN-0060",
+      "PRD07-RUN-0061",
+      "PRD07-RUN-0062",
+      "PRD07-RUN-0063",
+      "PRD07-RUN-0064",
+      "PRD07-RUN-0065"
+    ],
+    "next_preview_evidence_ids": [
+      "PRD07-EVID-0059",
+      "PRD07-EVID-0060",
+      "PRD07-EVID-0061",
+      "PRD07-EVID-0062",
+      "PRD07-EVID-0063",
+      "PRD07-EVID-0064",
+      "PRD07-EVID-0065"
+    ],
+    "preview_status": "PREVIEW-NOT-ALLOCATED",
+    "actual_new_allocations": 0,
+    "unused_or_speculative_allocations": 0,
+    "fake_pack_for_0058": false
+  },
+  "historical_execution_state": {
+    "source": "docs/rebuild/r7/w3-execution-state.json",
+    "canonical_bytes": 6505,
+    "canonical_sha256": "09d8ea9d47d3fedc074d9426b8a6602e5c471b58c898e0c3dcace8ace881d4a1",
+    "mutated_by_repair": false
+  },
+  "boundary_reconciliation": {
+    "historical_admission_mutated": false,
+    "historical_execution_state_mutated": false,
+    "historical_admission_role": "IMMUTABLE-PRE-EXECUTION-CERTIFICATION",
+    "current_boundary_role": "CURRENT-POST-ATTEMPT-RECERTIFICATION",
+    "governed_transition": "historical empty allocation state to durable invalidated 0058 to current next-rerun empty allocation boundary",
+    "legitimate_temporal_evolution_accepted": true,
+    "ungoverned_identity_order_or_disposition_drift_rejected": true,
+    "previous_five_findings_waived": false
+  },
+  "certification": {
+    "readiness": {
+      "path": "docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json",
+      "git_blob": "482d8939faaab917fca74986e935b20915656475",
+      "canonical_bytes": 23851,
+      "canonical_sha256": "998a26443e5475cb1ab99113fb8f5ef8e232897d4be4a1dfd4d08e3ddca2bedf",
+      "status": "PASS",
+      "ready": 7,
+      "blocked": 0,
+      "not_applicable": 0,
+      "observed": 0
+    },
+    "current_boundary": {
+      "path": "docs/rebuild/r7/w3-execution-boundary-fixture-launch-repaired.json",
+      "git_blob": "c43eb6065f29fe95c0f56394e14c6788f6e0c12a",
+      "canonical_bytes": 22311,
+      "canonical_sha256": "ec3ad1decbc406110312f06160fa0d983996980859c34c251de42eba5b9c7d59",
+      "status": "PASS",
+      "admitted_artifacts": 25,
+      "temporal_reconciliation_issues": []
+    },
+    "independent_regeneration_equal": true,
+    "proof_execution": "NOT-STARTED-FOR-NEXT-RERUN",
+    "execution_gate": "OPEN-FOR-FUTURE-SEPARATELY-AUTHORIZED-W3-RERUN"
+  },
+  "verification": {
+    "python_compilation": "PASS",
+    "w3_regression": {
+      "status": "PASS",
+      "passed": 42
+    },
+    "repository_focused_tier": {
+      "status": "PASS",
+      "governance_tests": 18,
+      "r6_tests": 7,
+      "tool_runtime_tests": 95
+    },
+    "repository_full_tier": {
+      "status": "PASS",
+      "brain_governance_r6_tests": 46,
+      "tool_runtime_tests": 95
+    },
+    "rebuild_boundary_at_certification": {
+      "status": "PASS",
+      "checks": 8636,
+      "failures": 0,
+      "active_poc_dependencies": 0
+    },
+    "rebuild_boundary_after_lifecycle_reconciliation": {
+      "status": "PASS",
+      "checks": 8663,
+      "failures": 0,
+      "active_poc_dependencies": 0
+    },
+    "brain_ingest": "PASS",
+    "brain_indexes": "PASS",
+    "brain_links": "PASS",
+    "brain_doctor": {
+      "status": "PASS",
+      "records": 183,
+      "errors": 0,
+      "warnings": 0,
+      "optional_info": 1
+    },
+    "governance_doctor": {
+      "status": "PASS",
+      "authority_sources": 23,
+      "records": 53,
+      "templates": 12,
+      "diagnostics": 0
+    },
+    "registry_and_evidence_packs": "PASS",
+    "allocation_reconciliation": "PASS",
+    "historical_hash_immutability": "PASS",
+    "canonical_certification_equality": "PASS",
+    "git_diff_and_integrity": "PASS",
+    "checkpoint_remote_workflows": [
+      {
+        "workflow": "Engineering governance integrity",
+        "run_number": 32,
+        "run_id": 34313210001,
+        "status": "SUCCESS",
+        "sha": "8092873474cffd886c8590214079a1f7adeed185",
+        "url": "https://github.com/sharash7/Leyforge/actions/runs/34313210001"
+      },
+      {
+        "workflow": "Brain integrity",
+        "run_number": 33,
+        "run_id": 34313209973,
+        "status": "SUCCESS",
+        "sha": "8092873474cffd886c8590214079a1f7adeed185",
+        "url": "https://github.com/sharash7/Leyforge/actions/runs/34313209973"
+      }
+    ]
+  },
+  "boundary": {
+    "r7": "ACTIVE",
+    "w3_next_rerun": "NOT-AUTHORIZED-NOT-STARTED",
+    "w4": "NOT-OPENED",
+    "gameplay_permission": "CLOSED",
+    "prd08": "CLOSED",
+    "prd09": "NOT-OPENED",
+    "r8": "CLOSED",
+    "lfe": "FUTURE-WORK",
+    "forge_eng": "FUTURE-WORK",
+    "production_root_project_godot": "ABSENT",
+    "production_runtime": "ABSENT",
+    "production_dependencies_activated": false,
+    "prohibited_boundary_crossed": false
+  }
+}

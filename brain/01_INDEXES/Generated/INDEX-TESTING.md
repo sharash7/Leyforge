@@ -30,6 +30,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[EVID-0005|EVID-0005]] | evidence | active | R7 W0 reusable proof-harness bootstrap evidence |
 | [[EVID-0007|EVID-0007]] | evidence | active | R7 W1 ownership, spatial, transaction and saturation proof evidence |
 | [[EVID-0008|EVID-0008]] | evidence | active | R7 W2 network, persistence, recovery and migration proof evidence |
+| [[EVID-0012|EVID-0012]] | evidence | active | R7 W3 fixture-launch repair and re-certification evidence |
 | [[EVID-0009|EVID-0009]] | evidence | active | R7 W3 technical environment execution abort evidence |
 | [[EVID-0011|EVID-0011]] | evidence | active | R7 W3 technical environment execution rerun abort evidence |
 | [[EVID-0010|EVID-0010]] | evidence | active | R7 W3 technical environment repair and re-certification evidence |

@@ -1,14 +1,14 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active handoff:** `HANDOFF-20260909-001`. `WORK-20260909-001` and `TASK-20260909-001` are cancelled after the owner-authorized W3 rerun aborted before proof observation; fixture-launch repair/re-certification is the next bounded action subject to fresh authority.
+**Active handoff:** `HANDOFF-20260909-002`. `WORK-20260909-002` and `TASK-20260909-002` are complete; fixture-launch repair/re-certification is certified, and another W3 execution rerun is the next bounded action subject to fresh owner authority.
 
-**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. Both authorized W3 attempts stopped before proof observation. The second attempt durably invalidated pair 0058 after an admitted fixture-launch manifest-field defect. W3 requires repair/re-certification and a future separately authorized rerun. W4, W5 and FINAL remain open, but W4 execution is not authorized.
+**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. Both authorized W3 attempts stopped before proof observation. The second attempt durably invalidated pair 0058; its fixture-launch defect and certification gap are now repaired and certified without another proof attempt or allocation. A future W3 rerun requires fresh owner authorization. W4, W5 and FINAL remain open, but W4 execution is not authorized.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
 **W3 pre-abort repaired source commit:** `67cbda5c4a9dd6cc73f89640fdc21c5cd79b5026`.
 
-**W3 repair/re-certification implementation commit:** `45b0300caa0ebd66d4c740a71db983a7a9827f3b`.
+**W3 fixture-launch repair/re-certification implementation commit:** `05f5e8934cc0e99044117e1af4166bb424272e2f`.
 
 **W1 package starting commit:** `b531168b7c3b18a8d2126d8ac064260ecd6ff425`.
 
@@ -105,8 +105,10 @@ Post-stop compilation, governance 18/18, R6 7/7, 87 unaffected tool/runtime test
 
 ## Remaining R7 Work
 
-W3 fixture-launch repair/re-certification is required before another rerun can be considered. Preserve invalidated 0058, repair the manifest-field use, add real fixture-launch integration coverage, reconcile the stale high-water regression assertion and align admission/boundary behavior with the durable failed state. Any repair package and any later W3 rerun require fresh owner authority. W4, W5 and FINAL remain open, but W4 execution is not authorized. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+The fixture-launch repair/re-certification package is complete. Exact implementation `05f5e8934cc0e99044117e1af4166bb424272e2f` uses `ArtifactManifest.artifact_path`; real client/headless fixture integration passes allocation-free; and the current post-attempt boundary preserves historical admission plus invalidated 0058 while remaining fail-closed for drift. [[EVID-0012]] / [[AUDIT-0012]] certify the result.
 
-Continue only through [[HANDOFF-20260909-001]]. Do not reuse 0051-0058, allocate 0059+, repair or rerun W3, begin W4, evaluate PRD-08 or open R8 without the required fresh authority and certification.
+Another W3 execution rerun is the next bounded action, but it requires fresh owner authorization, a new Task/Work package and complete exact-boundary revalidation before just-in-time allocation may begin at preview 0059. W4, W5 and FINAL remain open, but W4 execution is not authorized. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+
+Continue only through [[HANDOFF-20260909-002]]. Do not reuse 0051-0058, allocate 0059+, rerun W3, begin W4, evaluate PRD-08 or open R8 without the required fresh authority and certification.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

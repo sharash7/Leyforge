@@ -60,6 +60,9 @@ related_to:
   - "HANDOFF-20260909-001"
   - "WORK-20260909-002"
   - "TASK-20260909-002"
+  - "EVID-0012"
+  - "AUDIT-0012"
+  - "HANDOFF-20260909-002"
   - "ADR-0008"
 ---
 
@@ -171,10 +174,14 @@ related_to:
 
 ## R7 W3 Fixture-launch Repair and Re-certification
 
-- Fresh owner authorization is active under [[TASK-20260909-002]] / [[WORK-20260909-002]].
-- Repair scope is limited to the admitted artifact-manifest consumer, real allocation-free fixture-launch coverage, issued-high-water assertions, temporal admission/state reconciliation and exact superseding certification.
-- Invalidated 0058 and all historical W3 evidence remain immutable; no 0059+ identity, proof observation or proof pack may be created.
-- The current local/remote red boundary is a package blocker until precise governed reconciliation passes. W3 rerun, W4, PRD-08, R8 gameplay and production activation remain closed.
+- Complete under owner-authorized [[TASK-20260909-002]] / [[WORK-20260909-002]]; certified by [[EVID-0012]] / [[AUDIT-0012]].
+- Exact implementation commit `05f5e8934cc0e99044117e1af4166bb424272e2f` replaces the stale `.path` consumer with authoritative `artifact_path` across client/headless launch and shares that route with certification integration.
+- Real fixed-engine integration builds and externally launches both roles, obtains valid fixture self-reports and proves registry/execution state unchanged, proof execution false and allocation arrays empty.
+- Retained pack high-water remains 0050; 0051-0057 remain quarantined; 0058 remains invalidated. Overall issued high-water is 0058 and 0059-0065 remain previews only.
+- Historical admission and failed journal remain immutable. The new current post-attempt boundary pins their lifecycle relationship and continues to reject identity/order/disposition drift.
+- Readiness is 7 READY / 0 BLOCKED / 0 NOT APPLICABLE / 0 OBSERVED; proof execution is `NOT-STARTED-FOR-NEXT-RERUN`; the gate opens only for a future separately authorized W3 rerun.
+- W3 regression 42/42, tool/runtime 95/95, Brain/governance/R6 46/46 and both Doctors pass. The clean boundary passes 8,636 checks at the certification checkpoint and 8,663 after lifecycle reconciliation. Both required workflows pass on published commit `8092873474cffd886c8590214079a1f7adeed185`.
+- [[HANDOFF-20260909-002]] requires fresh owner authority before W3 rerun or 0059 allocation. W4, R7 closure, PRD-08, R8 gameplay and production activation remain closed.
 
 ## Later Activation Milestones
 
@@ -184,4 +191,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260909-001]] and the bounded repair authority in [[TASK-20260909-002]]. W0-W2 execution is certified; both W3 execution attempts are certified controlled failures before proof observation; and the second attempt durably consumes invalidated pair 0058. Fixture-launch repair and re-certification is active without proof or allocation authority. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260909-002]]. W0-W2 execution is certified; both W3 execution attempts are certified controlled failures before proof observation; the second attempt durably consumes invalidated pair 0058; and the fixture-launch repair/current boundary is now certified without proof execution or allocation. A fresh owner-authorized W3 rerun is the next bounded action. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 evaluation remains closed, and R8 gameplay permission remains closed.
