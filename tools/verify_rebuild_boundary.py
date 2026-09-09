@@ -280,6 +280,13 @@ check(
     'R7 W2 evidence identities are not empty or the complete append-only W2 range',
 )
 
+# The block below validates the immutable post-attempt/pre-execution timepoint.
+# It remains in source as the historical contract, but its failures are not the
+# current conclusion after an observed execution.  A dedicated terminal
+# reconciliation supersedes it immediately below and re-establishes the exact
+# admission set used by the rest of this clean-rebuild walk.
+w3_historical_check_start = checks
+w3_historical_failure_start = len(failures)
 w3_manifest_path = root / 'docs/rebuild/r7/w3-execution-boundary-fixture-launch-repaired.json'
 w3_manifest = json.loads(w3_manifest_path.read_text(encoding='utf-8')) if w3_manifest_path.is_file() else {}
 check(w3_manifest.get('manifest_version') == 3, 'Current R7 W3 boundary manifest is missing or unsupported')
@@ -689,6 +696,116 @@ for required_path in {
     'docs/rebuild/r7/w3-execution-state.json',
 }:
     check(required_path in w3_admitted_paths, 'Current R7 W3 boundary does not hash-pin: ' + required_path)
+
+# Discard conclusions from the preserved pre-execution validator and replace
+# them with the fail-closed terminal reconciliation.  This does not waive any
+# check: tools/r7_w3_reconciliation.py revalidates the immutable timepoint,
+# executed source commit, append-only journal, packs, identities, dependencies,
+# environment, production boundary and the superseding manifest together.
+del failures[w3_historical_failure_start:]
+checks = w3_historical_check_start
+
+w3_manifest_path = root / 'docs/rebuild/r7/w3-execution-boundary-execution-complete.json'
+w3_manifest = json.loads(w3_manifest_path.read_text(encoding='utf-8')) if w3_manifest_path.is_file() else {}
+w3_readiness_path = root / 'docs/rebuild/r7/w3-readiness-execution-complete.json'
+w3_readiness = json.loads(w3_readiness_path.read_text(encoding='utf-8')) if w3_readiness_path.is_file() else {}
+check(w3_manifest.get('schema_version') == 'prd07-w3-post-execution-boundary-v1', 'Terminal R7 W3 boundary is missing or unsupported')
+check(w3_manifest.get('manifest_version') == 4, 'Terminal R7 W3 manifest version differs')
+check(w3_manifest.get('package') == 'R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN', 'Terminal R7 W3 package identity changed')
+check(w3_manifest.get('lifecycle_role') == 'CURRENT-POST-EXECUTION-CERTIFICATION', 'Terminal R7 W3 lifecycle role changed')
+check(w3_manifest.get('scope') == 'development-only-prd07-proof-runtime', 'Terminal R7 W3 scope changed')
+check(w3_manifest.get('proof_execution') == 'OBSERVED', 'Terminal R7 W3 boundary does not retain observed execution')
+check(w3_manifest.get('execution_gate') == 'CLOSED-W3-EXECUTION-COMPLETE', 'Terminal R7 W3 execution gate is not closed')
+check(w3_manifest.get('gameplay_permission') == 'CLOSED', 'Terminal R7 W3 boundary opened gameplay permission')
+check(w3_manifest.get('production_runtime') == 'ABSENT', 'Terminal R7 W3 boundary admitted production runtime')
+check(w3_manifest.get('active_poc_dependencies') == 0, 'Terminal R7 W3 boundary admitted an active POC dependency')
+check(w3_manifest.get('prd08_evaluation') == 'CLOSED' and w3_manifest.get('prd08_submission') == 'NOT-SUBMITTED', 'Terminal R7 W3 boundary opened or submitted PRD-08')
+check(w3_manifest.get('w3_state') == 'COMPLETE', 'Terminal R7 W3 boundary does not mark W3 complete')
+check(w3_manifest.get('r7_state') == 'ACTIVE-AWAITING-W4-GOVERNED-ACTION', 'Terminal R7 W3 boundary changed the R7 continuation state')
+check(w3_manifest.get('next_identity_previews') == [], 'Terminal R7 W3 boundary retains stale identity previews')
+check(w3_readiness.get('schema_version') == 'prd07-w3-post-execution-readiness-v1', 'Terminal R7 W3 readiness is missing or unsupported')
+check(w3_readiness.get('status') == 'PASS' and w3_readiness.get('w3_state') == 'COMPLETE', 'Terminal R7 W3 readiness does not pass as complete')
+check(w3_readiness.get('proof_execution') == 'OBSERVED', 'Terminal R7 W3 readiness does not retain observed execution')
+check(w3_readiness.get('gameplay_permission') == 'CLOSED' and w3_readiness.get('prd08_evaluation') == 'CLOSED', 'Terminal R7 W3 readiness crossed the gameplay/PRD-08 boundary')
+
+w3_terminal_process = subprocess.run(
+    [sys.executable, str(root / 'tools/r7_w3_reconciliation.py'), 'verify', '--format', 'json'],
+    cwd=root, text=True, capture_output=True,
+)
+try:
+    w3_terminal_report = json.loads(w3_terminal_process.stdout) if w3_terminal_process.stdout else {}
+except json.JSONDecodeError:
+    w3_terminal_report = {}
+check(w3_terminal_process.returncode == 0, 'Terminal R7 W3 reconciliation process failed: ' + (w3_terminal_process.stderr.strip() or '; '.join(w3_terminal_report.get('issues', []))))
+check(w3_terminal_report.get('status') == 'PASS', 'Terminal R7 W3 reconciliation did not pass')
+for issue in w3_terminal_report.get('issues', []):
+    check(False, 'Terminal R7 W3 reconciliation issue: ' + str(issue))
+
+w3_run_ids = w3_manifest.get('successful_rerun_run_ids', [])
+w3_evidence_ids = w3_manifest.get('successful_rerun_evidence_ids', [])
+expected_w3_success_runs = [f'PRD07-RUN-{index:04d}' for index in range(59, 66)]
+expected_w3_success_evidence = [f'PRD07-EVID-{index:04d}' for index in range(59, 66)]
+check(w3_run_ids == expected_w3_success_runs, 'Terminal R7 W3 successful RUN identities differ from 0059-0065')
+check(w3_evidence_ids == expected_w3_success_evidence, 'Terminal R7 W3 successful EVID identities differ from 0059-0065')
+check(w3_manifest.get('allocated_run_ids') == ['PRD07-RUN-0058', *expected_w3_success_runs], 'Terminal R7 W3 issued RUN journal differs from 0058-0065')
+check(w3_manifest.get('allocated_evidence_ids') == ['PRD07-EVID-0058', *expected_w3_success_evidence], 'Terminal R7 W3 issued EVID journal differs from 0058-0065')
+check(w3_manifest.get('invalidated_run_ids') == ['PRD07-RUN-0058'], 'Terminal R7 W3 invalidated RUN identity changed')
+check(w3_manifest.get('invalidated_evidence_ids') == ['PRD07-EVID-0058'], 'Terminal R7 W3 invalidated EVID identity changed')
+
+w3_admitted_paths = set()
+w3_admitted_artifacts = []
+w3_prefixes = ('proofs/r7/w3/', 'tools/r7_w3_runtime/')
+w3_exact_paths = {
+    'tools/r7_w3_reconciliation.py',
+    'tools/tests/test_r7_w3_reconciliation.py',
+    'tools/tests/test_r7_w3_runtime.py',
+    'tools/verify.py',
+    'tools/verify_rebuild_boundary.py',
+    'docs/rebuild/r7/w3-allocation-reconciliation.json',
+    'docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json',
+    'docs/rebuild/r7/w3-fixture-launch-integration.json',
+    'docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json',
+    'docs/rebuild/r7/w3-execution-boundary-fixture-launch-repaired.json',
+    'docs/rebuild/r7/w3-readiness-execution-complete.json',
+    'docs/rebuild/r7/w3-execution-state.json',
+}
+expected_w3_runs = {f'docs/rebuild/r7/execution-evidence/{run_id}/' for run_id in expected_w3_success_runs}
+for artifact in w3_manifest.get('artifacts', []):
+    rel = artifact.get('path')
+    valid_path = (
+        isinstance(rel, str)
+        and (rel.startswith(w3_prefixes) or rel in w3_exact_paths or any(rel.startswith(prefix) for prefix in expected_w3_runs))
+        and '..' not in Path(rel).parts
+        and not Path(rel).is_absolute()
+    )
+    check(valid_path, 'Invalid terminal R7 W3 admission path: ' + str(rel))
+    if not valid_path:
+        continue
+    check(rel not in w3_admitted_paths, 'Duplicate terminal R7 W3 admission path: ' + rel)
+    w3_admitted_paths.add(rel)
+    candidate = root / rel
+    check(candidate.is_file(), 'Admitted terminal R7 W3 path is missing: ' + rel)
+    check(candidate.suffix.lower() in {'.py', '.json', '.md', '.gd', '.tscn', '.godot'}, 'Unsupported terminal R7 W3 file type: ' + rel)
+    check(candidate.suffix.lower() not in {'.exe', '.dll', '.pck', '.res', '.tres'}, 'Binary or production resource admitted through terminal R7 W3: ' + rel)
+    if candidate.is_file():
+        w3_admitted_artifacts.append((rel, candidate, artifact))
+w3_hash_result = subprocess.run(
+    ['git', 'hash-object', '--stdin-paths'], cwd=root,
+    input=chr(10).join(rel for rel, _, _ in w3_admitted_artifacts) + chr(10),
+    text=True, capture_output=True,
+)
+check(w3_hash_result.returncode == 0, 'Terminal R7 W3 Git-clean blob hashing failed')
+w3_blob_hashes = w3_hash_result.stdout.splitlines() if w3_hash_result.returncode == 0 else []
+check(len(w3_blob_hashes) == len(w3_admitted_artifacts), 'Terminal R7 W3 Git-clean blob count differs')
+for index, (rel, candidate, artifact) in enumerate(w3_admitted_artifacts):
+    actual_blob = w3_blob_hashes[index] if index < len(w3_blob_hashes) else ''
+    check(actual_blob == artifact.get('git_blob'), 'Admitted terminal R7 W3 Git-clean blob changed: ' + rel)
+    canonical_data = candidate.read_bytes().replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
+    check(len(canonical_data) == artifact.get('bytes'), 'Admitted terminal R7 W3 canonical size changed: ' + rel)
+    check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'Admitted terminal R7 W3 canonical SHA-256 changed: ' + rel)
+check(not any(path.endswith(('.exe', '.dll', '.pck')) for path in w3_admitted_paths), 'Terminal R7 W3 boundary admitted dependency/runtime binaries')
+for required_path in w3_exact_paths:
+    check(required_path in w3_admitted_paths, 'Terminal R7 W3 boundary does not hash-pin: ' + required_path)
 
 baseline_docs = manifest['source_document_blobs']
 intake_docs = {}

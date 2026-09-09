@@ -223,32 +223,26 @@ class R7W3RuntimeTests(unittest.TestCase):
         registry = inspect_execution_registry(ROOT)
         plan = preview_execution_plan(ROOT)
         after = sorted((ROOT / "docs/rebuild/r7/execution-evidence").iterdir())
-        self.assertEqual(58, registry.max_run_number)
-        self.assertEqual(58, registry.max_evidence_number)
-        self.assertEqual(50, len(registry.retained_run_ids))
+        self.assertEqual(65, registry.max_run_number)
+        self.assertEqual(65, registry.max_evidence_number)
+        self.assertEqual(57, len(registry.retained_run_ids))
         self.assertEqual(tuple(f"PRD07-RUN-{number:04d}" for number in range(51, 58)), registry.quarantined_run_ids)
         invalidated = tuple(run_id for run_id in registry.run_ids if registry.dispositions[run_id] == "INVALIDATED")
         self.assertEqual(("PRD07-RUN-0058",), invalidated)
-        next_sequence = registry.max_run_number + 1
-        self.assertEqual(f"PRD07-RUN-{next_sequence:04d}", plan[0].run_id)
-        self.assertEqual(f"PRD07-EVID-{next_sequence:04d}", plan[0].evidence_id)
-        self.assertEqual(tuple(range(next_sequence, next_sequence + len(plan))), tuple(int(row.run_id[-4:]) for row in plan))
-        self.assertEqual(7, len({row.run_id for row in plan}))
-        self.assertEqual(7, len({row.evidence_id for row in plan}))
-        self.assertFalse({row.run_id for row in plan} & set(registry.run_ids))
-        self.assertFalse({row.evidence_id for row in plan} & set(registry.evidence_ids))
+        self.assertEqual(tuple(f"PRD07-RUN-{number:04d}" for number in range(59, 66)), registry.retained_run_ids[-7:])
+        self.assertEqual((), plan)
         self.assertEqual(before, after)
 
     def test_actual_allocation_requires_explicit_future_execution_authority(self) -> None:
         with self.assertRaises(ExecutionRegistryError):
             execution_plan_for_actual_run(ROOT, actual_execution_authorized=False)
 
-    def test_authorized_plan_is_still_unallocated_until_journal_commit(self) -> None:
+    def test_completed_w3_has_no_further_authorized_plan_or_side_effect(self) -> None:
         state_path = ROOT / "docs/rebuild/r7/w3-execution-state.json"
-        before = state_path.exists()
+        before = state_path.read_bytes()
         plan = execution_plan_for_actual_run(ROOT, actual_execution_authorized=True)
-        self.assertEqual("AUTHORIZED-JIT-NOT-ALLOCATED", plan[0].allocation_state)
-        self.assertEqual(before, state_path.exists())
+        self.assertEqual((), plan)
+        self.assertEqual(before, state_path.read_bytes())
 
     def test_certification_allows_a_later_exact_admission_commit(self) -> None:
         implementation_commit = "a" * 40
@@ -698,7 +692,7 @@ class R7W3RuntimeTests(unittest.TestCase):
             self.assertTrue(row["runner_mapping_present"])
             self.assertTrue(row["execution_plan_mapping_valid"])
             self.assertTrue(row["future_evidence_allocation_safe"])
-            self.assertEqual("READY — PINNED ENGINE VALIDATED", row["readiness_classification"])
+            self.assertEqual("OBSERVED — RETAINED", row["readiness_classification"])
 
     def test_readiness_rejects_an_unresolved_source_commit(self) -> None:
         report = readiness_report("0" * 40, check_local=False)
@@ -720,14 +714,24 @@ class R7W3RuntimeTests(unittest.TestCase):
         }
         self.assertTrue(paths)
         self.assertTrue(all(
-            path.startswith(("proofs/r7/w3/", "tools/r7_w3_runtime/")) or path in allowed_exact
+            path.startswith((
+                "proofs/r7/w3/",
+                "tools/r7_w3_runtime/",
+                "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059/",
+                "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060/",
+                "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061/",
+                "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062/",
+                "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063/",
+                "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064/",
+                "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065/",
+            )) or path in allowed_exact
             for path in paths
         ))
         self.assertFalse(any("PRD07-RUN-003" in path or "PRD07-RUN-004" in path or "PRD07-RUN-0050" in path for path in paths))
 
     def test_clean_rebuild_boundary_uses_hash_pinned_w3_admission(self) -> None:
         source = (ROOT / "tools/verify_rebuild_boundary.py").read_text(encoding="utf-8")
-        self.assertIn("w3-execution-boundary-fixture-launch-repaired.json", source)
+        self.assertIn("w3-execution-boundary-execution-complete.json", source)
         self.assertIn("or rel in w3_admitted_paths", source)
         self.assertNotIn("or rel.startswith('proofs/r7/w3/')", source)
         self.assertNotIn("or rel.startswith('tools/r7_w3_runtime/')", source)
