@@ -188,8 +188,8 @@ related_to:
 ## R7 W3 Technical Environment Execution Rerun — Current Authorized Package
 
 - Fresh owner authority is active under [[TASK-20260909-003]] / [[WORK-20260909-003]] for exactly `27, 28, 08, 30, 29, 31, 32` plus required reconciliation.
-- Exact starting repository, lifecycle, repaired source/readiness/current boundary, 25 artifact identities, dependencies, registry/history, production boundary and starting-SHA CI revalidate successfully.
-- Fixed-engine client/headless fixture integration and clean build/focused/full verification pass without proof execution or allocation.
+- Exact starting repository, published lifecycle, repaired source/readiness/current boundary, 25 artifact identities, dependencies, registry/history, production boundary and checkpoint CI revalidate successfully.
+- Fixed-engine client/headless fixture integration and clean build/focused/full verification pass without proof execution or allocation; the single governed executor is next.
 - Issued high-water remains 0058. The exact 0059-0065 mapping remains `PREVIEW-NOT-ALLOCATED` until each pair is durably persisted just in time after a published green checkpoint and repeated fail-closed gate.
 - 0001-0050 remain immutable, 0051-0057 quarantined and 0058 invalidated. W4, PRD-08/09, R8, gameplay and production remain closed.
 
@@ -201,4 +201,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260909-002]] and the bounded W3 rerun package [[TASK-20260909-003]]. W0-W2 execution is certified; both earlier W3 execution attempts are certified controlled failures before proof observation; 0058 remains durably invalidated; and the fixture-launch repair/current boundary is certified. The new rerun is authorized but not started and has allocated zero identities. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260909-002]] and the bounded W3 rerun package [[TASK-20260909-003]]. W0-W2 execution is certified; both earlier W3 execution attempts are certified controlled failures before proof observation; 0058 remains durably invalidated; and the fixture-launch repair/current boundary is certified. The new rerun is authorized, its complete pre-execution gate passes and it has allocated zero identities; the governed executor is next. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 remains closed, and R8 gameplay permission remains closed.

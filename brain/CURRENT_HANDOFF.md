@@ -12,6 +12,8 @@ authority_role: "delegated"
 authority_status: "authoritative"
 current_handoff: "HANDOFF-20260909-002"
 related_to:
+  - "WORK-20260909-003"
+  - "TASK-20260909-003"
   - "HANDOFF-20260909-002"
   - "EVID-0012"
   - "AUDIT-0012"
@@ -47,4 +49,4 @@ The active formal handoff is [[HANDOFF-20260909-002]]. The owner-authorized fixt
 
 The registry remains 50 retained pairs/packs through 0050, quarantined 0051-0057 and invalidated `PRD07-RUN-0058` / `PRD07-EVID-0058`. No W3 proof result or standard W3 pack exists. Issued high-water is 0058; 0059-0065 are previews only and no 0059+ identity has been allocated.
 
-The next bounded action is `R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN`, subject to fresh owner authorization and a new Task/Work package. It must revalidate the entire exact certification boundary before allocating preview 0059 just in time. W3 rerun, W4 execution, W5, FINAL, R7 closure, PRD-08 evaluation, R8 gameplay and production remain closed.
+Fresh owner authority opened `R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN` under [[TASK-20260909-003]] / [[WORK-20260909-003]]. The lifecycle is published and its complete pre-execution gate passes without allocation: exact source/readiness/current boundary, pinned environment, dependencies, registry/history, full verification, remote CI and production boundary remain valid. The single governed executor invocation is next and must begin by durably deriving preview 0059. W4 execution, W5, FINAL, R7 closure, PRD-08 evaluation, R8 gameplay and production remain closed.
