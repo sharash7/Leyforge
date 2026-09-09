@@ -15,22 +15,22 @@
       "sha256": "09d8ea9d47d3fedc074d9426b8a6602e5c471b58c898e0c3dcace8ace881d4a1"
     },
     {
-      "bytes": 43418,
-      "git_blob": "c5c608bfb864b57f825705ef0dc4a793e66db146",
+      "bytes": 43411,
+      "git_blob": "e36a19c9a259a2ce6525a1720f7bcfb4bc020390",
       "path": "docs/rebuild/r7/w3-fixture-launch-integration.json",
-      "sha256": "c7542d3943b8dc846bcd46843647d45fc5f96021f3026fe1795ad896562e9a7a"
+      "sha256": "3346e9177ab9e5d4a1f6d506a4b77d8516f521f041f5241d561913608b28840d"
     },
     {
       "bytes": 4495,
-      "git_blob": "5c1875098f6b5633f5d176ee7b883f67155d2935",
+      "git_blob": "6d3e864e0e9886f3ff3a259b5477d50947c00f4e",
       "path": "docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json",
-      "sha256": "cd557688d0b4b255ea7ac384417bd79905f87ccb20158ba7570ca14071723bb4"
+      "sha256": "cb1d788f5fe58069799f02506c73f5da03fdae37281b41693f5ba271b42af613"
     },
     {
-      "bytes": 23858,
-      "git_blob": "455fa16d4d9181e5c1bfd8b510bfe8df2d963a0f",
+      "bytes": 23851,
+      "git_blob": "482d8939faaab917fca74986e935b20915656475",
       "path": "docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json",
-      "sha256": "617dbd4af76c08f3b924bddd0c1575859186d5256bb0680de4ccc3802edeca9d"
+      "sha256": "998a26443e5475cb1ab99113fb8f5ef8e232897d4be4a1dfd4d08e3ddca2bedf"
     },
     {
       "bytes": 1397,
@@ -93,16 +93,16 @@
       "sha256": "682fb2e4a51aef358a73e8385ce278b69f2260836cfc88d12c74928dd21d06b4"
     },
     {
-      "bytes": 15097,
-      "git_blob": "84de3eadd8ada7c7f4947258dd79005b435e2e33",
+      "bytes": 15184,
+      "git_blob": "30e3e15e0635c9ee63d4c4050a8278528ca1c3fc",
       "path": "tools/r7_w3_runtime/admission.py",
-      "sha256": "0efcd5dc60efa8139d974b10ebe8c4801b7ae76225a64510932f342e2bf18192"
+      "sha256": "0a48eb4ffa25a5edab06b8b3006bc463564db2a06dc5d06274ed1b721bb3fbbd"
     },
     {
-      "bytes": 42933,
-      "git_blob": "3b141b94b2e3c40b2bfd3119b37ec3693f68dc78",
+      "bytes": 43089,
+      "git_blob": "8b0b25e3442191ed651226a3fc1f3521de3048f6",
       "path": "tools/r7_w3_runtime/builds.py",
-      "sha256": "104e996726841336cda364605e06bf3cfaa13b9c0af6f2afa51f7450b00baae3"
+      "sha256": "c6e54c217f7d4558a2e017a2603f237d18636df7b6f25e6d06a8c562345f1a07"
     },
     {
       "bytes": 4928,
@@ -135,10 +135,10 @@
       "sha256": "6b0e244923fd6f22b6886a8e0df8445e14d6d97b802709da445ab641ef06bf2d"
     },
     {
-      "bytes": 39991,
-      "git_blob": "2f2e8eda0e5b5b42d7f644cb153e1c179297b124",
+      "bytes": 40162,
+      "git_blob": "15d64ac0b781b39886581d0621c5e5cf92821b8f",
       "path": "tools/tests/test_r7_w3_runtime.py",
-      "sha256": "b698b187c90bb13f120ee1d6fb14a532f200493b41f09f5f28931b6d548f4577"
+      "sha256": "6d754ff45f8f767a7712135229e17b0ae252de5c03511a4ba0e66976850f4932"
     },
     {
       "bytes": 6731,
@@ -147,10 +147,10 @@
       "sha256": "1f6a676b1a0ea16d494032d99c2263e7f1bee7a33087214381b462c9d8cae5d6"
     },
     {
-      "bytes": 60989,
-      "git_blob": "55aed1f88494134b762d2e677ac278a2e0e13f07",
+      "bytes": 61163,
+      "git_blob": "74db60da21e9e0ec08f4bb6f27454f143dc72038",
       "path": "tools/verify_rebuild_boundary.py",
-      "sha256": "c59c3a6f7e91ec037c512896cb0fa1a05f9cb13510a66dfefdb179e2d38d7e60"
+      "sha256": "e1c674a9fb8d341a88594d41071cb36354128f5f67298f46a8e261987db99ab0"
     }
   ],
   "authority": [
@@ -193,7 +193,7 @@
       "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
     },
     "gameplay_permission": "CLOSED",
-    "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+    "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
     "package": "R7-W3-FIXTURE-LAUNCH-REPAIR-AND-RECERTIFICATION",
     "production_runtime": "ABSENT",
     "proof_execution": "NOT-STARTED",
@@ -201,9 +201,9 @@
       "client": {
         "artifact_manifest": {
           "artifact_kind": "leyforge-export",
-          "artifact_sha256": "cca3d8701a3c67c7ec543fb7e41e2a443a15e41d7c0ac7d77b46d620ec0152b7",
+          "artifact_sha256": "be6a1142f3f896cee67f54fc7fcfc0698acee4e9b1ab051cad1e3c8eb23ced68",
           "authoritative_path_field": "artifact_path",
-          "build_identity": "7fc628431d283163dccf7f483555c50508fa76381c5f4d65f2ff972b35f90170",
+          "build_identity": "edcbde4aabecb4ba032b8ffd355ec77194db5e07cc4a23b2a4b1cb893175c2cd",
           "build_identity_round_trip_valid": true,
           "exported_runtime": true,
           "manifest_contract_valid": true,
@@ -212,9 +212,9 @@
           "size_bytes": 110444560,
           "synthetic_fixture": false
         },
-        "build_identity": "7fc628431d283163dccf7f483555c50508fa76381c5f4d65f2ff972b35f90170",
+        "build_identity": "edcbde4aabecb4ba032b8ffd355ec77194db5e07cc4a23b2a4b1cb893175c2cd",
         "export_process": {
-          "duration_seconds": 6.539721299999999,
+          "duration_seconds": 10.2546486,
           "exit_code": 0,
           "terminated_externally": false,
           "timed_out": false
@@ -224,13 +224,13 @@
           "stderr_line_count": 0,
           "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "stdout_line_count": 4,
-          "stdout_sha256": "986099a9fcc5987702cefa6a5688db9a1290b02d595f19d48d4fd6cb21a02c5a",
+          "stdout_sha256": "be44216db93d80b6c6762efd3df2178ac46fbca4c71a4fed1a84ac2350c20682",
           "terminated_externally": false,
           "timed_out": false
         },
         "role": "client",
         "runtime_self_report": {
-          "build_identity": "7fc628431d283163dccf7f483555c50508fa76381c5f4d65f2ff972b35f90170",
+          "build_identity": "edcbde4aabecb4ba032b8ffd355ec77194db5e07cc4a23b2a4b1cb893175c2cd",
           "contact_errors": 0,
           "fixture_capabilities": [
             "stable-vessel-semantic-id",
@@ -274,9 +274,9 @@
       "headless": {
         "artifact_manifest": {
           "artifact_kind": "leyforge-export",
-          "artifact_sha256": "146b3b4677fad02a641154a4a22bc632557818b6e2f10c4de57319ef33ce77c9",
+          "artifact_sha256": "a8b91f9400ac921c73d71f4420439bf578168a7eaf1019fce5173322e35384f3",
           "authoritative_path_field": "artifact_path",
-          "build_identity": "a2f51a35f01e53db4c9dfde3665427822519bf2dceffc33af4a658a28e573a52",
+          "build_identity": "d711e858bd091d2c644500225d6baf6ac32fda02036a2478c97f5b94dfa270c8",
           "build_identity_round_trip_valid": true,
           "exported_runtime": true,
           "manifest_contract_valid": true,
@@ -285,9 +285,9 @@
           "size_bytes": 110444592,
           "synthetic_fixture": false
         },
-        "build_identity": "a2f51a35f01e53db4c9dfde3665427822519bf2dceffc33af4a658a28e573a52",
+        "build_identity": "d711e858bd091d2c644500225d6baf6ac32fda02036a2478c97f5b94dfa270c8",
         "export_process": {
-          "duration_seconds": 7.1896764,
+          "duration_seconds": 7.3964997,
           "exit_code": 0,
           "terminated_externally": false,
           "timed_out": false
@@ -297,13 +297,13 @@
           "stderr_line_count": 0,
           "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "stdout_line_count": 3,
-          "stdout_sha256": "d02c50b39866bcf0c28ee661f03a2aa8cd0a36db295834e527f5680aec42a7d7",
+          "stdout_sha256": "6ec018561907e1449656a7fe1d99d901b95425b45b4873b6c5438bc1007d54a2",
           "terminated_externally": false,
           "timed_out": false
         },
         "role": "headless",
         "runtime_self_report": {
-          "build_identity": "a2f51a35f01e53db4c9dfde3665427822519bf2dceffc33af4a658a28e573a52",
+          "build_identity": "d711e858bd091d2c644500225d6baf6ac32fda02036a2478c97f5b94dfa270c8",
           "contact_errors": 0,
           "fixture_capabilities": [
             "stable-vessel-semantic-id",
@@ -393,7 +393,7 @@
     "sha256": "09d8ea9d47d3fedc074d9426b8a6602e5c471b58c898e0c3dcace8ace881d4a1",
     "source_revision": "f92445e2b432b568327cd16685b6c6fceaf355b4"
   },
-  "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+  "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
   "invalidated_evidence_ids": [
     "PRD07-EVID-0058"
   ],
@@ -403,12 +403,6 @@
   "lifecycle_role": "CURRENT-POST-ATTEMPT-RECERTIFICATION",
   "manifest_version": 3,
   "next_identity_previews": [
-    {
-      "allocation_state": "PREVIEW-NOT-ALLOCATED",
-      "evidence_id": "PRD07-EVID-0061",
-      "proof_id": "PRD04-PROOF-08",
-      "run_id": "PRD07-RUN-0061"
-    },
     {
       "allocation_state": "PREVIEW-NOT-ALLOCATED",
       "evidence_id": "PRD07-EVID-0059",
@@ -423,15 +417,21 @@
     },
     {
       "allocation_state": "PREVIEW-NOT-ALLOCATED",
-      "evidence_id": "PRD07-EVID-0063",
-      "proof_id": "PRD04-PROOF-29",
-      "run_id": "PRD07-RUN-0063"
+      "evidence_id": "PRD07-EVID-0061",
+      "proof_id": "PRD04-PROOF-08",
+      "run_id": "PRD07-RUN-0061"
     },
     {
       "allocation_state": "PREVIEW-NOT-ALLOCATED",
       "evidence_id": "PRD07-EVID-0062",
       "proof_id": "PRD04-PROOF-30",
       "run_id": "PRD07-RUN-0062"
+    },
+    {
+      "allocation_state": "PREVIEW-NOT-ALLOCATED",
+      "evidence_id": "PRD07-EVID-0063",
+      "proof_id": "PRD04-PROOF-29",
+      "run_id": "PRD07-RUN-0063"
     },
     {
       "allocation_state": "PREVIEW-NOT-ALLOCATED",
@@ -471,7 +471,7 @@
     },
     "export_artifact": {
       "bytes": 110441920,
-      "sha256": "d4e47cd26ec2c5ed9be62a90f0baf028398a0151f8590461925cca42317c5f31"
+      "sha256": "a7c17b12e18136b22bcc3868a3e9cf85bec49296f8a75d1920df312dff58a398"
     },
     "export_process": {
       "exit_code": 0,
@@ -487,12 +487,12 @@
       "stderr_line_count": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_line_count": 3,
-      "stdout_sha256": "9d1f6834a2def6fbe846a996c4eae8f9de9cb5f192d8f1092ffd0e9094cef016",
+      "stdout_sha256": "114213597aabd31c4cdd19fd6b9b52040fc2b0f676a9696b4a38e30c6b17b125",
       "terminated_externally": false,
       "timed_out": false
     },
     "exported_runtime_report": {
-      "build_identity": "728f6bdabf04712985c2a99fa3fbae4044c3f9981db04aae99b7ca2ac2c1ab0a",
+      "build_identity": "1c30dd1b148b6c69fcf9162d8918324881861f85401b2aed2ceb5eb713268c57",
       "collision_cases": 6,
       "contact_errors": 0,
       "controlled_entrypoint_reached": true,
@@ -508,7 +508,7 @@
       "status": "PASS"
     },
     "gameplay_permission": "CLOSED",
-    "implementation_commit": "ce81837e2fbfbdc7b38d5357b78f3a5dd9ada16a",
+    "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
     "production_runtime": "ABSENT",
     "proof_execution": "NOT-STARTED",
     "schema_version": "prd07-w3-pinned-engine-validation-v1",
@@ -522,12 +522,12 @@
       "stderr_line_count": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_line_count": 3,
-      "stdout_sha256": "03f12686a5b0051aeaf8bd8d7831d38445b90c6c6cbd61a2f8ea6efb81826ba2",
+      "stdout_sha256": "2652623acc0abbc64faf7aa592c38764625bdc1ecd7a9b93d4ea83af2bf2ebfa",
       "terminated_externally": false,
       "timed_out": false
     },
     "source_runtime_report": {
-      "build_identity": "728f6bdabf04712985c2a99fa3fbae4044c3f9981db04aae99b7ca2ac2c1ab0a",
+      "build_identity": "1c30dd1b148b6c69fcf9162d8918324881861f85401b2aed2ceb5eb713268c57",
       "collision_cases": 6,
       "contact_errors": 0,
       "controlled_entrypoint_reached": true,
@@ -587,5 +587,5 @@
     ]
   },
   "scope": "development-only-prd07-proof-runtime",
-  "source_tree_identity": "0698f46b4c4a85ce423150cadd75f29d4dc5a1dc9fb939a4be3cf79cca2c8865"
+  "source_tree_identity": "ae78f07192fc7f1aa1e32d238c90303297426002556735e1c2aaacec56f93bd2"
 }
