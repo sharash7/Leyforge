@@ -180,7 +180,7 @@ related_to:
 - Retained pack high-water remains 0050; 0051-0057 remain quarantined; 0058 remains invalidated. Overall issued high-water is 0058 and 0059-0065 remain previews only.
 - Historical admission and failed journal remain immutable. The new current post-attempt boundary pins their lifecycle relationship and continues to reject identity/order/disposition drift.
 - Readiness is 7 READY / 0 BLOCKED / 0 NOT APPLICABLE / 0 OBSERVED; proof execution is `NOT-STARTED-FOR-NEXT-RERUN`; the gate opens only for a future separately authorized W3 rerun.
-- W3 regression 42/42, tool/runtime 95/95, Brain/governance/R6 46/46 and both Doctors pass. The clean boundary passes 8,636 checks at the certification checkpoint and 8,663 after lifecycle reconciliation. Both required workflows pass on published commit `8092873474cffd886c8590214079a1f7adeed185`.
+- W3 regression 42/42, tool/runtime 95/95, Brain/governance/R6 46/46 and both Doctors pass. The clean boundary passes 8,636 checks at the certification checkpoint and 8,663 after lifecycle reconciliation. Both required workflows pass on published certification commit `8092873474cffd886c8590214079a1f7adeed185` and lifecycle closeout `fad939afc064b12fc5c9ccedb2849256ccd51a39`.
 - [[HANDOFF-20260909-002]] requires fresh owner authority before W3 rerun or 0059 allocation. W4, R7 closure, PRD-08, R8 gameplay and production activation remain closed.
 
 ## Later Activation Milestones

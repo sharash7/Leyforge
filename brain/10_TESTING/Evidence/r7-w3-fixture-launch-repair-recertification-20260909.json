@@ -18,6 +18,7 @@
     "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
     "readiness_commit": "92f1d52da28793712aaa613fa92102492d57a68b",
     "current_boundary_commit": "8092873474cffd886c8590214079a1f7adeed185",
+    "lifecycle_closeout_commit": "fad939afc064b12fc5c9ccedb2849256ccd51a39",
     "branch": "codex/chore/brain-governance-pilot",
     "upstream": "origin/codex/chore/brain-governance-pilot",
     "history_rewritten": false,
@@ -279,6 +280,24 @@
         "status": "SUCCESS",
         "sha": "8092873474cffd886c8590214079a1f7adeed185",
         "url": "https://github.com/sharash7/Leyforge/actions/runs/34313209973"
+      }
+    ],
+    "closeout_remote_workflows": [
+      {
+        "workflow": "Engineering governance integrity",
+        "run_number": 33,
+        "run_id": 34347218536,
+        "status": "SUCCESS",
+        "sha": "fad939afc064b12fc5c9ccedb2849256ccd51a39",
+        "url": "https://github.com/sharash7/Leyforge/actions/runs/34347218536"
+      },
+      {
+        "workflow": "Brain integrity",
+        "run_number": 34,
+        "run_id": 34347218544,
+        "status": "SUCCESS",
+        "sha": "fad939afc064b12fc5c9ccedb2849256ccd51a39",
+        "url": "https://github.com/sharash7/Leyforge/actions/runs/34347218544"
       }
     ]
   },

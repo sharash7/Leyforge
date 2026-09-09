@@ -46,7 +46,7 @@ Certify the owner-authorized Class E fixture-launch repair package against [[TAS
 
 ## Evidence
 
-[[EVID-0012]] records exact implementation/source-tree identities, the `artifact_path` repair, real client/headless build and self-report measurements, issued identity state through 0058, lifecycle-aware boundary reconciliation, certification artifacts and verification. [[EVID-0011]] / [[AUDIT-0011]] remain the immutable authority for the failed rerun and are not reinterpreted as proof results.
+[[EVID-0012]] records exact implementation/source-tree identities, the `artifact_path` repair, real client/headless build and self-report measurements, issued identity state through 0058, lifecycle-aware boundary reconciliation, certification artifacts and verification. Lifecycle closeout commit `fad939afc064b12fc5c9ccedb2849256ccd51a39` is published with Brain integrity #34 and Engineering governance integrity #33 successful. [[EVID-0011]] / [[AUDIT-0011]] remain the immutable authority for the failed rerun and are not reinterpreted as proof results.
 
 ## Findings
 
