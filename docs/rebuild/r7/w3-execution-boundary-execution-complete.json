@@ -1,0 +1,872 @@
+{
+  "active_poc_dependencies": 0,
+  "allocated_evidence_ids": [
+    "PRD07-EVID-0058",
+    "PRD07-EVID-0059",
+    "PRD07-EVID-0060",
+    "PRD07-EVID-0061",
+    "PRD07-EVID-0062",
+    "PRD07-EVID-0063",
+    "PRD07-EVID-0064",
+    "PRD07-EVID-0065"
+  ],
+  "allocated_run_ids": [
+    "PRD07-RUN-0058",
+    "PRD07-RUN-0059",
+    "PRD07-RUN-0060",
+    "PRD07-RUN-0061",
+    "PRD07-RUN-0062",
+    "PRD07-RUN-0063",
+    "PRD07-RUN-0064",
+    "PRD07-RUN-0065"
+  ],
+  "artifacts": [
+    {
+      "bytes": 861,
+      "git_blob": "6fe4a7c079685a1ba8c300f19f8da772d7448241",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059/artifact-manifest.json",
+      "sha256": "3c68e537671e49a58a7be2f8f14475a93413bd7fa0c7d48c1f1d0e083e528606"
+    },
+    {
+      "bytes": 390,
+      "git_blob": "0a89ab5a739bcb4fe2c4f20e9b766541a57c8d8c",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059/artifacts/final-volume-map.json",
+      "sha256": "5af2e247cbd7d6ff8230317a2f6fef7166a5cd55156907c4d356ff833d26457d"
+    },
+    {
+      "bytes": 1555829,
+      "git_blob": "c89667bdfd4ebb395aacd336096428de304a0ae5",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059/artifacts/fluid-conservation-ledger.json",
+      "sha256": "459b854344536725c7f85fa1afe7a6fd0451308e89927f555eb2de0aaa6bceba"
+    },
+    {
+      "bytes": 11254,
+      "git_blob": "cbe8f16032863f53e27781d2d27c4c3165dd270b",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059/artifacts/revision-order-seeds.json",
+      "sha256": "cbad6c93c3fb1332889df5040d9a58612213dab337200f87894f1e451ae8f286"
+    },
+    {
+      "bytes": 2874,
+      "git_blob": "7278ccd0ce16aad66dc88a79acd7488b267c3bc8",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059/build-manifest.json",
+      "sha256": "c6d6b77c1744dd7e35f209cd4d8210661e46919e5371c1004a1b531024482bb5"
+    },
+    {
+      "bytes": 1897598,
+      "git_blob": "b58d08e2f0ee37c418b42e7f940f3b7f75aad3c2",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059/observed-result.json",
+      "sha256": "55c45cf41add59962fcef433535008d46abe4a1c3050751b65a1efaaa4549827"
+    },
+    {
+      "bytes": 1509,
+      "git_blob": "2aa7307321cf11c76b91e4b6b040d41cb4d2c38c",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059/run.json",
+      "sha256": "71c1b5b6b43a6b356bdd79f205c1576072f8ef8433c89892e64fe987dc99c54f"
+    },
+    {
+      "bytes": 381,
+      "git_blob": "c793d9bd2f96706af72f3dae35d9682db9f8939f",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059/summary.md",
+      "sha256": "6918723a10f06a9522c569812734ddab72bb2fcf743bac3fee95805af8cdc573"
+    },
+    {
+      "bytes": 861,
+      "git_blob": "6fe4a7c079685a1ba8c300f19f8da772d7448241",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060/artifact-manifest.json",
+      "sha256": "3c68e537671e49a58a7be2f8f14475a93413bd7fa0c7d48c1f1d0e083e528606"
+    },
+    {
+      "bytes": 36893,
+      "git_blob": "04a6b9682406110492aa575d4d32636796ce55e1",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060/artifacts/active-cell-time-series.json",
+      "sha256": "c8210009a29a3398722767486e3d592f0568752a0985f271474fde8ae2810d8f"
+    },
+    {
+      "bytes": 235,
+      "git_blob": "4fa1d5c59d4388225d23f3c0fe9ef585627aab2b",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060/artifacts/local-volume-snapshot.json",
+      "sha256": "5222e1c8e6e54f7d3af817eb1c82d58c385f22f02fd01bd69cfaec124d71c93c"
+    },
+    {
+      "bytes": 182719,
+      "git_blob": "37151491c6177e501ae87e6a35337af1b4c0594e",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060/artifacts/reservoir-flux-ledger.json",
+      "sha256": "aa7b5498559075658129d38e1958260c762bcc9798b5840bc0eedfd739a7f6fd"
+    },
+    {
+      "bytes": 2874,
+      "git_blob": "7278ccd0ce16aad66dc88a79acd7488b267c3bc8",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060/build-manifest.json",
+      "sha256": "c6d6b77c1744dd7e35f209cd4d8210661e46919e5371c1004a1b531024482bb5"
+    },
+    {
+      "bytes": 269696,
+      "git_blob": "aec3b8acd9010225006324cc689ab85ebc792260",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060/observed-result.json",
+      "sha256": "d80b4270de31cd49063048ac967123f9ce76f42ea33bb4d2385b8724751e0cc0"
+    },
+    {
+      "bytes": 1516,
+      "git_blob": "ec59db1dddc5b2303bd1008a0f7503d8cf26f437",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060/run.json",
+      "sha256": "62f2be58c8ff23d4744046c9ae0f812f7f2c868034c710c2512e4ca5f515dae8"
+    },
+    {
+      "bytes": 381,
+      "git_blob": "7b5105050ab6936ff485ff310c4c38527ca19f50",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060/summary.md",
+      "sha256": "a569546a0c57087553d2ae041c1b98ddde4bf2ddf15bbd65e0cab475d11cbc61"
+    },
+    {
+      "bytes": 861,
+      "git_blob": "6fe4a7c079685a1ba8c300f19f8da772d7448241",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061/artifact-manifest.json",
+      "sha256": "3c68e537671e49a58a7be2f8f14475a93413bd7fa0c7d48c1f1d0e083e528606"
+    },
+    {
+      "bytes": 428899,
+      "git_blob": "d3e28fc646f558df6004f9d1fad7862310525a88",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061/artifacts/region-owner-epoch-trace.json",
+      "sha256": "cc139cb134ce7422798dbcd020e1ead0f139dd1262b9fadc7b7f64a28e9a78e8"
+    },
+    {
+      "bytes": 58911,
+      "git_blob": "88afa0361af851841e0fc6a534ad6fbd9e2a196e",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061/artifacts/vessel-local-state-snapshots.json",
+      "sha256": "73a050965d950ad5eec7b3646d26380f8df46b8454820549779663e4ee9820b1"
+    },
+    {
+      "bytes": 2874,
+      "git_blob": "7278ccd0ce16aad66dc88a79acd7488b267c3bc8",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061/build-manifest.json",
+      "sha256": "c6d6b77c1744dd7e35f209cd4d8210661e46919e5371c1004a1b531024482bb5"
+    },
+    {
+      "bytes": 602715,
+      "git_blob": "5923bc4bec38a7f35e4939dea504a45294be28f3",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061/observed-result.json",
+      "sha256": "c2e4d51e555d9104cd0d0b9d8eba3205d3c5420f4b2b549cf5b64d4d46b5bff5"
+    },
+    {
+      "bytes": 1323,
+      "git_blob": "d9adcc2a411cef9989c198a12e5ff5c9966aade2",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061/run.json",
+      "sha256": "8bf583c10ba37a9f8453d28fe9b9d96b96324deadd88ab29be478f365094868c"
+    },
+    {
+      "bytes": 381,
+      "git_blob": "81d077b7546d2233800683f63dda855c27272980",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061/summary.md",
+      "sha256": "36aa163578cd4f222f8cf8588f9133506755c34aff5e332e7beb8cfddc4b5ace"
+    },
+    {
+      "bytes": 855,
+      "git_blob": "eb138a4218efc0948c689e14a2368f91b563fcc8",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062/artifact-manifest.json",
+      "sha256": "51e0e4d47277e59546440937ce998b0d9dcdbfb3772ded891d13635d39ec1f1c"
+    },
+    {
+      "bytes": 72893,
+      "git_blob": "0a33995b565508b9ecd96f00222e8c05f49e57c7",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062/artifacts/boarding-state-ledger.json",
+      "sha256": "b35318b26d6aef49d151408dd00902699484e42b0685787f644605754b27d085"
+    },
+    {
+      "bytes": 3654,
+      "git_blob": "c7ce6f9669457bcc51c802cba94ec420ff648b7b",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062/artifacts/physics-report.json",
+      "sha256": "8b960730be67f1e9774a04909990afac81a5749a697d9f01c5945749fd25a109"
+    },
+    {
+      "bytes": 19770,
+      "git_blob": "683a4f59731140169626900324ec72a4cc0b272e",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062/artifacts/vessel-world-occupant-transform-trace.json",
+      "sha256": "9e933e20e239d12b6ade2aaca548d2ef79fc86a255df940cca9e5b674bf233b3"
+    },
+    {
+      "bytes": 2861,
+      "git_blob": "7f7e8f00b08da2258f2322eac39c5d119f9580b1",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062/build-manifest.json",
+      "sha256": "0e6dafe9358f4c1257547cd5def5f930661748e3b5e0bed44b163dde257efbfc"
+    },
+    {
+      "bytes": 125592,
+      "git_blob": "71777916bac8ae3a35bc00ba809184cc3454853a",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062/observed-result.json",
+      "sha256": "c881f2622d3d2f06ffece198d74fdf549ac73c3552b85e5338c95453abad4f93"
+    },
+    {
+      "bytes": 1530,
+      "git_blob": "cc9f7ef9feb848dda3b292737bed4a74df06eff6",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062/run.json",
+      "sha256": "d48895d061ccd5a50d868333d8248fd0d14751ef5379947b37da7bf254e74b6e"
+    },
+    {
+      "bytes": 381,
+      "git_blob": "76e1c167bd89ea2a10c375bed944adf5bbea55d2",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062/summary.md",
+      "sha256": "5c333dd677eed8d2fe67b0f54957e6b6c834824ec61e350b8ca7eb56d10ae071"
+    },
+    {
+      "bytes": 861,
+      "git_blob": "6fe4a7c079685a1ba8c300f19f8da772d7448241",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063/artifact-manifest.json",
+      "sha256": "3c68e537671e49a58a7be2f8f14475a93413bd7fa0c7d48c1f1d0e083e528606"
+    },
+    {
+      "bytes": 67635,
+      "git_blob": "6b7a11d0b49b37d503f816c07beabbeeffe27110",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063/artifacts/hull-derived-revision-timeline.json",
+      "sha256": "d2d1941bf72a026580a4c4666b44fde17d7e844231f8de1e40698f5904cae752"
+    },
+    {
+      "bytes": 830468,
+      "git_blob": "a32561fa8ad2f768f4a583e4a7256487288730d0",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063/artifacts/stale-result-diagnostics.json",
+      "sha256": "240eb6c0f8afa30df2c8f44daad86704733332bae17ceee1a928710454aee5d5"
+    },
+    {
+      "bytes": 2874,
+      "git_blob": "7278ccd0ce16aad66dc88a79acd7488b267c3bc8",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063/build-manifest.json",
+      "sha256": "c6d6b77c1744dd7e35f209cd4d8210661e46919e5371c1004a1b531024482bb5"
+    },
+    {
+      "bytes": 1114080,
+      "git_blob": "5c701da4d59f45d82f1b4ada9940135ae9342d12",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063/observed-result.json",
+      "sha256": "020a20ed089c2c076e45f83a55cf92d838a5376a122e2b3a36241126968c1232"
+    },
+    {
+      "bytes": 1327,
+      "git_blob": "ae3b6aa6e5e3d036e24881cfbd3bc9b1b74b6337",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063/run.json",
+      "sha256": "8548a1537a19170a301ba43d2dd1123dd3b2e85315849cb3fe3bf6af6cd4abe4"
+    },
+    {
+      "bytes": 381,
+      "git_blob": "936ed4d0fb9f5f05988d099b081e602c9a5d5b5e",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063/summary.md",
+      "sha256": "7a123f7e808f3e8250ab7e5bcbd764ff6184989c58ea7f243a06581144f120f7"
+    },
+    {
+      "bytes": 855,
+      "git_blob": "eb138a4218efc0948c689e14a2368f91b563fcc8",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064/artifact-manifest.json",
+      "sha256": "51e0e4d47277e59546440937ce998b0d9dcdbfb3772ded891d13635d39ec1f1c"
+    },
+    {
+      "bytes": 3854,
+      "git_blob": "dfc39b20d593bb17a2411c0d66e494a3639dff1d",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064/artifacts/candidate-comparison-table.json",
+      "sha256": "e2bc1609632b005ceac97f623f15446f9ebb97f8e33d9604c84af83b2bb5e7cb"
+    },
+    {
+      "bytes": 3653,
+      "git_blob": "201673668788661f5d3e587963e2a730b2191977",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064/artifacts/collision-correctness-corpus.json",
+      "sha256": "548fc1fecfcecac78baf6a07f0e3e0475ed088181f9aa9cb7cd5d0a12f98f21c"
+    },
+    {
+      "bytes": 2861,
+      "git_blob": "7f7e8f00b08da2258f2322eac39c5d119f9580b1",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064/build-manifest.json",
+      "sha256": "0e6dafe9358f4c1257547cd5def5f930661748e3b5e0bed44b163dde257efbfc"
+    },
+    {
+      "bytes": 12236,
+      "git_blob": "89674c2d92ee9fb78e403bbe0743d3bbe8a3ce1d",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064/observed-result.json",
+      "sha256": "ba33427357b44e2853fda1aaa44eec3becff1020a7621ecdb2735e97810195c2"
+    },
+    {
+      "bytes": 1324,
+      "git_blob": "a3f562826acce2e42250a851e3e03d08be01c98d",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064/run.json",
+      "sha256": "1710d902fc212426b7638d3ae5857aac863b82d426f0ce20d6e52cb2d9255a55"
+    },
+    {
+      "bytes": 381,
+      "git_blob": "2979315ad0cf070dfa094910b8dd1197f02ba909",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064/summary.md",
+      "sha256": "465f0e4f8213e6bd10d40a8be4f875b8cc852a0cddfadd9b0ca960d09286d267"
+    },
+    {
+      "bytes": 855,
+      "git_blob": "eb138a4218efc0948c689e14a2368f91b563fcc8",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065/artifact-manifest.json",
+      "sha256": "51e0e4d47277e59546440937ce998b0d9dcdbfb3772ded891d13635d39ec1f1c"
+    },
+    {
+      "bytes": 138428,
+      "git_blob": "ca4e05735a8a65df88df0fa81694ab6df2a0d7da",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065/artifacts/fluid-exchange-ledger.json",
+      "sha256": "4af52ee17be713a1b1d3a7c95e20bf35e6bd37250d7f2c8b8a87c15249485a17"
+    },
+    {
+      "bytes": 3653,
+      "git_blob": "d4560a618ddeb3421469fecc5fda80d1cb62b948",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065/artifacts/physics-report.json",
+      "sha256": "3c008dac23d6ed15126323e777da6916d6a37135a195486435fe216226eb0918"
+    },
+    {
+      "bytes": 67,
+      "git_blob": "07b190bc926b4a8eb2faf5eafad26bad5371d15d",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065/artifacts/scenario-digest.json",
+      "sha256": "cc628838b98b8e0e6256e298629e5cc993c534901fa2e4fc10b802cd1742836e"
+    },
+    {
+      "bytes": 2861,
+      "git_blob": "7f7e8f00b08da2258f2322eac39c5d119f9580b1",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065/build-manifest.json",
+      "sha256": "0e6dafe9358f4c1257547cd5def5f930661748e3b5e0bed44b163dde257efbfc"
+    },
+    {
+      "bytes": 171970,
+      "git_blob": "2016ec2a98cfb7fe11c23bfb74fbf23521266ebc",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065/observed-result.json",
+      "sha256": "7ba17d60349bc9f65686a1ca317c7d4e8e78604113a5e5b4fa5f0822b7e362cd"
+    },
+    {
+      "bytes": 1484,
+      "git_blob": "33efe9542e3e2d2a4668d2bb91bd808594bff813",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065/run.json",
+      "sha256": "5994b7fb7f3ad94891341a38e0fc4a2addf65802c04b179b5d01e3a115422b53"
+    },
+    {
+      "bytes": 381,
+      "git_blob": "bc43c66b1037be785ba25a9baef9946196e09158",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065/summary.md",
+      "sha256": "0421ea362c6813f00e48454bba5d9b00a1f4c6ae1c34ffa7677fba4d99b75239"
+    },
+    {
+      "bytes": 4870,
+      "git_blob": "02ac2fc52eef3a3cd7fe16d9d34ee841ff83bf76",
+      "path": "docs/rebuild/r7/w3-allocation-reconciliation.json",
+      "sha256": "6d35b7ecf5c31fa1235c4e795b91a35948f73df60b6db4f2d499de3de848859e"
+    },
+    {
+      "bytes": 22311,
+      "git_blob": "c43eb6065f29fe95c0f56394e14c6788f6e0c12a",
+      "path": "docs/rebuild/r7/w3-execution-boundary-fixture-launch-repaired.json",
+      "sha256": "ec3ad1decbc406110312f06160fa0d983996980859c34c251de42eba5b9c7d59"
+    },
+    {
+      "bytes": 26872,
+      "git_blob": "cbc2929ee34eaa5384e6c9641471a3eb5698a4b6",
+      "path": "docs/rebuild/r7/w3-execution-state.json",
+      "sha256": "adfe096c8bc657989738d84efb9cecff4b8afc0279050b04f6dcda21a1fd4880"
+    },
+    {
+      "bytes": 43411,
+      "git_blob": "e36a19c9a259a2ce6525a1720f7bcfb4bc020390",
+      "path": "docs/rebuild/r7/w3-fixture-launch-integration.json",
+      "sha256": "3346e9177ab9e5d4a1f6d506a4b77d8516f521f041f5241d561913608b28840d"
+    },
+    {
+      "bytes": 4495,
+      "git_blob": "6d3e864e0e9886f3ff3a259b5477d50947c00f4e",
+      "path": "docs/rebuild/r7/w3-pinned-engine-validation-fixture-launch-repaired.json",
+      "sha256": "cb1d788f5fe58069799f02506c73f5da03fdae37281b41693f5ba271b42af613"
+    },
+    {
+      "bytes": 16045,
+      "git_blob": "837864b3a359a8786b3dffb73461961613c8ac67",
+      "path": "docs/rebuild/r7/w3-readiness-execution-complete.json",
+      "sha256": "4c5067cbb2940cba1530adc9b67bd60b3d502766b246d9bd0acdf780fa7e25b0"
+    },
+    {
+      "bytes": 23851,
+      "git_blob": "482d8939faaab917fca74986e935b20915656475",
+      "path": "docs/rebuild/r7/w3-readiness-fixture-launch-repaired.json",
+      "sha256": "998a26443e5475cb1ab99113fb8f5ef8e232897d4be4a1dfd4d08e3ddca2bedf"
+    },
+    {
+      "bytes": 1397,
+      "git_blob": "c7371a2aa67e02588d9ab2db1968b5b4910d9209",
+      "path": "proofs/r7/w3/README.md",
+      "sha256": "e678527715664434e3fd7a97deca6136216f70fe461f3a3605585fd7c82ab9e4"
+    },
+    {
+      "bytes": 800,
+      "git_blob": "9364a0bd6189366ee1b51318bc367e4689c3bdc0",
+      "path": "proofs/r7/w3/dependency-reference.json",
+      "sha256": "12aaba3507d6620698092f5ba7231790fce6db8b810fccb334b659bc80492571"
+    },
+    {
+      "bytes": 181,
+      "git_blob": "c81bc7f1814d5742559f3a4b613a6d617d77f7a7",
+      "path": "proofs/r7/w3/runtime/__init__.py",
+      "sha256": "9ae10c193f02875ae5044434e2c19ea791c425839a56089bb46c2262434c040f"
+    },
+    {
+      "bytes": 16413,
+      "git_blob": "b38a9fc06f1c7d72815936741a861460ecaca976",
+      "path": "proofs/r7/w3/runtime/model.py",
+      "sha256": "309c288847d0b1405c4650ff6510446e2e5eaf7d7de8a3dd9b4109bea7475bf2"
+    },
+    {
+      "bytes": 30199,
+      "git_blob": "96f1b0cd8bd6db6e87d6e984f5b36188b3f0f793",
+      "path": "proofs/r7/w3/runtime/runner.py",
+      "sha256": "bb9a84a0136b260e4109b0694d1ac40c63e63204a7e19918f4d6a9712f8e17eb"
+    },
+    {
+      "bytes": 167,
+      "git_blob": "d4eb50e339eed278df94ecf651446673cde28f4d",
+      "path": "proofs/r7/w3/server_probe/main.tscn",
+      "sha256": "cebdd9c946e15b122efaf2a4916100f1c6da7dd7c8d5a34bf253df03b1a067af"
+    },
+    {
+      "bytes": 525,
+      "git_blob": "26a4ab8dd1e25eaba2755eaab730f7050ed52334",
+      "path": "proofs/r7/w3/server_probe/project.godot",
+      "sha256": "154a1abb5bc4b94f6c66307bb12c96db85fc69cfa97fdcf6efc9db7d648b1738"
+    },
+    {
+      "bytes": 11122,
+      "git_blob": "01ecb28d7b28784710f58b2b2ec9dcfe2d1425f2",
+      "path": "proofs/r7/w3/server_probe/src/main.gd",
+      "sha256": "3d05040656740c60538eb0b3cadb6a4235fce020a840b7d74741a4494a4b03c3"
+    },
+    {
+      "bytes": 51157,
+      "git_blob": "6dbe5c146970f34e68a3012c42ea4bc88fa87fda",
+      "path": "tools/r7_w3_reconciliation.py",
+      "sha256": "efc66156cd82a2a6a2b2771cc06ecf4ecb23497e8b2b90c5c1f9656029fe64e5"
+    },
+    {
+      "bytes": 69,
+      "git_blob": "fca96617cf8fc35dcd197af604ee9fd585a39dff",
+      "path": "tools/r7_w3_runtime/__init__.py",
+      "sha256": "cd535402b7c433254761994988746bb516cbe61c2f3cf0a88a54d07091429fd9"
+    },
+    {
+      "bytes": 112,
+      "git_blob": "12adbd6dbacdbce01bcf28f89da6b7c2f98eabdb",
+      "path": "tools/r7_w3_runtime/__main__.py",
+      "sha256": "682fb2e4a51aef358a73e8385ce278b69f2260836cfc88d12c74928dd21d06b4"
+    },
+    {
+      "bytes": 15184,
+      "git_blob": "30e3e15e0635c9ee63d4c4050a8278528ca1c3fc",
+      "path": "tools/r7_w3_runtime/admission.py",
+      "sha256": "0a48eb4ffa25a5edab06b8b3006bc463564db2a06dc5d06274ed1b721bb3fbbd"
+    },
+    {
+      "bytes": 43089,
+      "git_blob": "8b0b25e3442191ed651226a3fc1f3521de3048f6",
+      "path": "tools/r7_w3_runtime/builds.py",
+      "sha256": "c6e54c217f7d4558a2e017a2603f237d18636df7b6f25e6d06a8c562345f1a07"
+    },
+    {
+      "bytes": 4928,
+      "git_blob": "0b2e63239e25a9ffd313ee5d415f8f7b727d6843",
+      "path": "tools/r7_w3_runtime/cli.py",
+      "sha256": "57d7d62cc8c69f826eb7241578158e6cadf568542ce807cae34d8a9a5753cc30"
+    },
+    {
+      "bytes": 2479,
+      "git_blob": "89f29f8024ceb75dddad0ac100e748cc2b1ac3e5",
+      "path": "tools/r7_w3_runtime/dependencies.py",
+      "sha256": "723fbb4c3847d1c563473d7c4b4946508ee24a7fd2ce0e9201788923343bbcc9"
+    },
+    {
+      "bytes": 31385,
+      "git_blob": "14abd4a6380533a459e14ba5e9b36a40b6605c21",
+      "path": "tools/r7_w3_runtime/execution.py",
+      "sha256": "572cfca8432902dc9c23df762d423a1fa114ebb2b168c1060a001beb43973a3b"
+    },
+    {
+      "bytes": 18282,
+      "git_blob": "ce278fc18252492888a64f89d8887643d7b189db",
+      "path": "tools/r7_w3_runtime/execution_plan.py",
+      "sha256": "d6ad335c05d47548f3cf8d08e3de35d6ca2818f4e5854684f01a2f1dd578458a"
+    },
+    {
+      "bytes": 19395,
+      "git_blob": "713e4ece8ff2c44b1cffdc30efb785136f52d47d",
+      "path": "tools/r7_w3_runtime/readiness.py",
+      "sha256": "6b0e244923fd6f22b6886a8e0df8445e14d6d97b802709da445ab641ef06bf2d"
+    },
+    {
+      "bytes": 3921,
+      "git_blob": "ee1be20be85c8e859173a9d5e516ef912770344a",
+      "path": "tools/tests/test_r7_w3_reconciliation.py",
+      "sha256": "ad352a711fd1db712f1525f25d4e06da633dc464f365cfe4ecc619db26c7975f"
+    },
+    {
+      "bytes": 40164,
+      "git_blob": "d44cbe1c6b51d6ba934da988d189727fb0fa6251",
+      "path": "tools/tests/test_r7_w3_runtime.py",
+      "sha256": "51ae4a25d2c9219740d291a7460ae2fb180bbd604020b84ee07dd9ff23463b5c"
+    },
+    {
+      "bytes": 6731,
+      "git_blob": "31450580d0ebbbf805cdd4c361d5d1a053a669e4",
+      "path": "tools/verify.py",
+      "sha256": "1f6a676b1a0ea16d494032d99c2263e7f1bee7a33087214381b462c9d8cae5d6"
+    },
+    {
+      "bytes": 69944,
+      "git_blob": "a62d5d4df15b6ebdb4ed52d2389d92f819bb202f",
+      "path": "tools/verify_rebuild_boundary.py",
+      "sha256": "8e5c10faa8fe22ab91946c89a3d238402fefa9420bf6b25a6fddb59a2d19872c"
+    }
+  ],
+  "authority": [
+    "TASK-20260909-003",
+    "WORK-20260909-003",
+    "HANDOFF-20260909-002",
+    "TASK-20260909-002",
+    "WORK-20260909-002",
+    "EVID-0012",
+    "AUDIT-0012",
+    "DOC-PRD-07"
+  ],
+  "dependency_identity": {
+    "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_export_template": "4.8.dev4.official.b56a91878",
+    "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+  },
+  "environment_hashes": {
+    "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+    "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+  },
+  "executed_source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+  "execution_evidence_commit": "5605ea1157ff8129a8cdef555c81f1a14a27e021",
+  "execution_gate": "CLOSED-W3-EXECUTION-COMPLETE",
+  "execution_journal": {
+    "allocated_evidence_ids": [
+      "PRD07-EVID-0058",
+      "PRD07-EVID-0059",
+      "PRD07-EVID-0060",
+      "PRD07-EVID-0061",
+      "PRD07-EVID-0062",
+      "PRD07-EVID-0063",
+      "PRD07-EVID-0064",
+      "PRD07-EVID-0065"
+    ],
+    "allocated_run_ids": [
+      "PRD07-RUN-0058",
+      "PRD07-RUN-0059",
+      "PRD07-RUN-0060",
+      "PRD07-RUN-0061",
+      "PRD07-RUN-0062",
+      "PRD07-RUN-0063",
+      "PRD07-RUN-0064",
+      "PRD07-RUN-0065"
+    ],
+    "bytes": 26872,
+    "git_blob": "cbc2929ee34eaa5384e6c9641471a3eb5698a4b6",
+    "latest_source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+    "lifecycle_role": "IMMUTABLE-COMPLETE-EXECUTION-JOURNAL",
+    "original_source_revision": "f92445e2b432b568327cd16685b6c6fceaf355b4",
+    "package_state": "W3-EXECUTION-COMPLETE",
+    "path": "docs/rebuild/r7/w3-execution-state.json",
+    "proof_observation_count": 7,
+    "sha256": "adfe096c8bc657989738d84efb9cecff4b8afc0279050b04f6dcda21a1fd4880"
+  },
+  "exports": {
+    "client": {
+      "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+      "artifact_size_bytes": 110444512,
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "runtime_self_report": {
+        "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+        "contact_errors": 0,
+        "fixture_capabilities": [
+          "stable-vessel-semantic-id",
+          "vessel-local-frame",
+          "world-vessel-frame-conversion",
+          "owner-region-epochs",
+          "editable-local-hull",
+          "revisioned-derived-properties",
+          "bounded-local-fluid",
+          "explicit-ocean-reservoir",
+          "breach-repair-pump",
+          "contained-water-mass",
+          "buoyancy-diagnostic",
+          "controlled-motion",
+          "board-disembark",
+          "physics-shape-collision-corpus",
+          "stale-result-quarantine"
+        ],
+        "frame_round_trip_errors": 0,
+        "presentation_authority_dependencies": 0,
+        "production_runtime": false,
+        "proof_execution_started": false,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_errors": 0,
+        "provider_ready": true,
+        "role": "client",
+        "schema_version": "prd07-w3-fixture-self-report-v1",
+        "stable_proof_ids": [
+          "PRD04-PROOF-08",
+          "PRD04-PROOF-27",
+          "PRD04-PROOF-28",
+          "PRD04-PROOF-29",
+          "PRD04-PROOF-30",
+          "PRD04-PROOF-31",
+          "PRD04-PROOF-32"
+        ],
+        "status": "PASS"
+      },
+      "state": "PASS"
+    },
+    "headless": {
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "artifact_size_bytes": 110444544,
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "runtime_self_report": {
+        "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+        "contact_errors": 0,
+        "fixture_capabilities": [
+          "stable-vessel-semantic-id",
+          "vessel-local-frame",
+          "world-vessel-frame-conversion",
+          "owner-region-epochs",
+          "editable-local-hull",
+          "revisioned-derived-properties",
+          "bounded-local-fluid",
+          "explicit-ocean-reservoir",
+          "breach-repair-pump",
+          "contained-water-mass",
+          "buoyancy-diagnostic",
+          "controlled-motion",
+          "board-disembark",
+          "physics-shape-collision-corpus",
+          "stale-result-quarantine"
+        ],
+        "frame_round_trip_errors": 0,
+        "presentation_authority_dependencies": 0,
+        "production_runtime": false,
+        "proof_execution_started": false,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_errors": 0,
+        "provider_ready": true,
+        "role": "headless",
+        "schema_version": "prd07-w3-fixture-self-report-v1",
+        "stable_proof_ids": [
+          "PRD04-PROOF-08",
+          "PRD04-PROOF-27",
+          "PRD04-PROOF-28",
+          "PRD04-PROOF-29",
+          "PRD04-PROOF-30",
+          "PRD04-PROOF-31",
+          "PRD04-PROOF-32"
+        ],
+        "status": "PASS"
+      },
+      "state": "PASS"
+    }
+  },
+  "gameplay_permission": "CLOSED",
+  "historical_abort_execution": {
+    "allocated_evidence_ids": [
+      "PRD07-EVID-0058"
+    ],
+    "allocated_run_ids": [
+      "PRD07-RUN-0058"
+    ],
+    "bytes": 6505,
+    "git_blob": "b2c53bdb5d7a8563e7dc1b925f4b2ad7827c7fac",
+    "lifecycle_role": "IMMUTABLE-PRIOR-ABORT-JOURNAL-SNAPSHOT",
+    "package_state": "ABORTED-BEFORE-PROOF-OBSERVATION",
+    "path": "docs/rebuild/r7/w3-execution-state.json",
+    "proof_observation_count": 0,
+    "sha256": "09d8ea9d47d3fedc074d9426b8a6602e5c471b58c898e0c3dcace8ace881d4a1",
+    "source_revision": "f92445e2b432b568327cd16685b6c6fceaf355b4"
+  },
+  "invalidated_evidence_ids": [
+    "PRD07-EVID-0058"
+  ],
+  "invalidated_run_ids": [
+    "PRD07-RUN-0058"
+  ],
+  "lifecycle_role": "CURRENT-POST-EXECUTION-CERTIFICATION",
+  "manifest_version": 4,
+  "next_identity_previews": [],
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN",
+  "prd08_evaluation": "CLOSED",
+  "prd08_submission": "NOT-SUBMITTED",
+  "pre_execution_boundary": {
+    "allocated_evidence_ids": [],
+    "allocated_run_ids": [],
+    "bytes": 22311,
+    "git_blob": "c43eb6065f29fe95c0f56394e14c6788f6e0c12a",
+    "implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
+    "lifecycle_role": "CURRENT-POST-ATTEMPT-RECERTIFICATION",
+    "path": "docs/rebuild/r7/w3-execution-boundary-fixture-launch-repaired.json",
+    "proof_execution": "NOT-STARTED-FOR-NEXT-RERUN",
+    "sha256": "ec3ad1decbc406110312f06160fa0d983996980859c34c251de42eba5b9c7d59",
+    "source_tree_identity": "ae78f07192fc7f1aa1e32d238c90303297426002556735e1c2aaacec56f93bd2"
+  },
+  "prior_boundary_disposition": {
+    "path": "docs/rebuild/r7/w3-execution-boundary-fixture-launch-repaired.json",
+    "reason": "The certified allocation-free boundary remains immutable for its pre-execution timepoint; this boundary reconciles the later append-only execution journal and retained observations.",
+    "state": "SUPERSEDED-BY-W3-EXECUTION-COMPLETION"
+  },
+  "production_dependencies": "PLANNED-UNINSTALLED",
+  "production_runtime": "ABSENT",
+  "proof_execution": "OBSERVED",
+  "proof_implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
+  "proof_results": [
+    {
+      "allocation_order": 2,
+      "evidence_id": "PRD07-EVID-0059",
+      "evidence_pack_status": "RETAINED",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-27",
+      "run_id": "PRD07-RUN-0059",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "allocation_order": 3,
+      "evidence_id": "PRD07-EVID-0060",
+      "evidence_pack_status": "RETAINED",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-28",
+      "run_id": "PRD07-RUN-0060",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "allocation_order": 4,
+      "evidence_id": "PRD07-EVID-0061",
+      "evidence_pack_status": "RETAINED",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-08",
+      "run_id": "PRD07-RUN-0061",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "allocation_order": 5,
+      "evidence_id": "PRD07-EVID-0062",
+      "evidence_pack_status": "RETAINED",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-30",
+      "run_id": "PRD07-RUN-0062",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "allocation_order": 6,
+      "evidence_id": "PRD07-EVID-0063",
+      "evidence_pack_status": "RETAINED",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-29",
+      "run_id": "PRD07-RUN-0063",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "allocation_order": 7,
+      "evidence_id": "PRD07-EVID-0064",
+      "evidence_pack_status": "RETAINED",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-31",
+      "run_id": "PRD07-RUN-0064",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "allocation_order": 8,
+      "evidence_id": "PRD07-EVID-0065",
+      "evidence_pack_status": "RETAINED",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-32",
+      "run_id": "PRD07-RUN-0065",
+      "state": "PASS-OBSERVED"
+    }
+  ],
+  "proof_source_tree_identity": "ae78f07192fc7f1aa1e32d238c90303297426002556735e1c2aaacec56f93bd2",
+  "quarantined_evidence_ids": [
+    "PRD07-EVID-0051",
+    "PRD07-EVID-0052",
+    "PRD07-EVID-0053",
+    "PRD07-EVID-0054",
+    "PRD07-EVID-0055",
+    "PRD07-EVID-0056",
+    "PRD07-EVID-0057"
+  ],
+  "quarantined_run_ids": [
+    "PRD07-RUN-0051",
+    "PRD07-RUN-0052",
+    "PRD07-RUN-0053",
+    "PRD07-RUN-0054",
+    "PRD07-RUN-0055",
+    "PRD07-RUN-0056",
+    "PRD07-RUN-0057"
+  ],
+  "r7_state": "ACTIVE-AWAITING-W4-GOVERNED-ACTION",
+  "reconciliation_commit": "a914c84063972a8a0d8851f5dde9d28cdaf89f2d",
+  "registry": {
+    "evidence_high_water": 65,
+    "invalidated_identities": [
+      "PRD07-RUN-0058",
+      "PRD07-EVID-0058"
+    ],
+    "invalidated_identity_count": 1,
+    "issued_identity_count": 65,
+    "next_future_sequence": 66,
+    "quarantine_paths": [
+      "docs/rebuild/r7/w3-allocation-reconciliation.json"
+    ],
+    "quarantined_identity_count": 7,
+    "quarantined_range": "0051-0057",
+    "retained_identity_count": 57,
+    "retained_ranges": [
+      "0001-0050",
+      "0059-0065"
+    ],
+    "run_high_water": 65,
+    "state_paths": [
+      "docs/rebuild/r7/w0-execution-state.json",
+      "docs/rebuild/r7/w1-execution-state.json",
+      "docs/rebuild/r7/w2-execution-state.json",
+      "docs/rebuild/r7/w3-execution-state.json"
+    ]
+  },
+  "result_counts": {
+    "FAIL-OBSERVED": 0,
+    "HISTORICAL-INVALIDATED": 1,
+    "INCONCLUSIVE": 0,
+    "INVALIDATED-IN-THIS-RERUN": 0,
+    "PASS-OBSERVED": 7
+  },
+  "schema_version": "prd07-w3-post-execution-boundary-v1",
+  "scope": "development-only-prd07-proof-runtime",
+  "successful_rerun_evidence_ids": [
+    "PRD07-EVID-0059",
+    "PRD07-EVID-0060",
+    "PRD07-EVID-0061",
+    "PRD07-EVID-0062",
+    "PRD07-EVID-0063",
+    "PRD07-EVID-0064",
+    "PRD07-EVID-0065"
+  ],
+  "successful_rerun_run_ids": [
+    "PRD07-RUN-0059",
+    "PRD07-RUN-0060",
+    "PRD07-RUN-0061",
+    "PRD07-RUN-0062",
+    "PRD07-RUN-0063",
+    "PRD07-RUN-0064",
+    "PRD07-RUN-0065"
+  ],
+  "terminal_readiness": {
+    "bytes": 16045,
+    "git_blob": "837864b3a359a8786b3dffb73461961613c8ac67",
+    "path": "docs/rebuild/r7/w3-readiness-execution-complete.json",
+    "sha256": "4c5067cbb2940cba1530adc9b67bd60b3d502766b246d9bd0acdf780fa7e25b0"
+  },
+  "w3_state": "COMPLETE",
+  "w4_transition": "TECHNICAL-SEQUENCE-READY; OPENING-AND-EXECUTION-REQUIRE-SEPARATE-AUTHORITY"
+}
