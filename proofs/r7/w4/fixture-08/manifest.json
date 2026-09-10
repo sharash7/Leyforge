@@ -1,0 +1,30 @@
+{
+  "schema_version": "prd07-w4-fixture-08-v1",
+  "fixture_id": "FIXTURE-08",
+  "fixture_revision": "W4-R1",
+  "scope": "non-production-proof-readiness-infrastructure",
+  "deterministic": true,
+  "reproducible": true,
+  "production_runtime": false,
+  "gameplay_permission": "CLOSED",
+  "proof_execution": "NOT-STARTED",
+  "capabilities": [
+    "representative-art-golden-runtime-scenes",
+    "candidate-renderer-profile-lanes",
+    "reduced-quality-effects",
+    "colour-accessibility-cases",
+    "reduced-motion-flash-particle-cases",
+    "muted-audio-caption-alternatives",
+    "large-ui-text-scale",
+    "controller-keyboard-input-remap",
+    "long-localization-layout-stress",
+    "split-screen-per-view-variants",
+    "invalid-saved-graphics-configurations",
+    "map00-field-surveyed-magical-relief-modes",
+    "authorised-map-knowledge-separated-from-live-truth",
+    "flat-nondrag-list-map-alternatives",
+    "task-based-semantic-readability-scoring"
+  ],
+  "resources": {"presentation_cases":"proofs/r7/w4/fixture-08/presentation-cases.json","readiness_project":"proofs/r7/w4/presentation_probe/project.godot"},
+  "bound_proofs": ["PRD04-PROOF-50","PRD04-PROOF-53","PRD04-PROOF-59","PRD04-PROOF-60","PRD04-PROOF-61","PRD04-PROOF-71"]
+}

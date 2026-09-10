@@ -1,0 +1,46 @@
+{
+  "schema_version": "prd07-w4-future-execution-rules-v1",
+  "current_authorization": "READINESS-ONLY-NO-EXECUTION-NO-ALLOCATION",
+  "proof_order_authority": "PRD-07 Round-6 proofs_specified order and Wave-4 dependency spine",
+  "proof_order": [
+    "PRD04-PROOF-49", "PRD04-PROOF-50", "PRD04-PROOF-51", "PRD04-PROOF-52",
+    "PRD04-PROOF-53", "PRD04-PROOF-54", "PRD04-PROOF-55", "PRD04-PROOF-56",
+    "PRD04-PROOF-57", "PRD04-PROOF-58", "PRD04-PROOF-59", "PRD04-PROOF-60",
+    "PRD04-PROOF-61", "PRD04-PROOF-62", "PRD04-PROOF-71"
+  ],
+  "first_possible_sequence": 66,
+  "last_preview_sequence": 80,
+  "preview_state": "PREVIEW-NOT-ALLOCATED",
+  "allocation_mode": "JUST-IN-TIME-ONE-PAIR-AFTER-FULL-REVALIDATION",
+  "batch_reservation_permitted": false,
+  "identity_reuse_permitted": false,
+  "preallocation_gates": [
+    "fresh-separate-owner-execution-authorization",
+    "exact-published-source-and-admission-SHA",
+    "all-required-W4-proofs-READY",
+    "W3-terminal-reconciliation-PASS",
+    "registry-high-water-and-order-revalidated",
+    "dependency-and-environment-identities-revalidated",
+    "fixture-and-FCC-canonical-equality-PASS",
+    "rebuild-production-boundary-PASS",
+    "required-starting-CI-PASS"
+  ],
+  "transaction_rules": [
+    "persist exactly one unique RUN/EVID pair before that proof attempt",
+    "transition allocated identity through explicit durable states",
+    "never return an issued identity to the pool",
+    "retain failure or interruption immediately and fail the package closed",
+    "create a standard evidence pack only after a legitimate proof observation",
+    "preserve FAIL, INCONCLUSIVE, INVALIDATED and BLOCKED truthfully",
+    "stop on any proof-order, source, fixture, dependency, registry or authority drift"
+  ],
+  "reconciliation_rules": [
+    "allocation history order equals issued identity arrays",
+    "every observed terminal row has one matching standard pack",
+    "every non-observed invalidation is evidence-ineligible and has no standard pack",
+    "result, RUN and EVID registries agree exactly",
+    "FCC-13E proof 57/58 evidence covers all 312 rows without omission or sampling",
+    "historical 0001-0065 dispositions remain immutable",
+    "production runtime and gameplay permission remain closed"
+  ]
+}

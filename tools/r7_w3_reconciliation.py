@@ -142,6 +142,14 @@ FIXED_ADMISSION_FILES = (
     "docs/rebuild/r7/w3-execution-state.json",
 )
 FIXED_ADMISSION_TREES = ("proofs/r7/w3", "tools/r7_w3_runtime")
+# These shared governance entrypoints are expected to evolve in later waves.
+# Their W3 admission is therefore checked at W3's exact reconciliation commit;
+# every current successor version must be pinned by the later wave boundary.
+LIFECYCLE_SHARED_PATHS = {
+    "tools/r7_w3_reconciliation.py",
+    "tools/verify.py",
+    "tools/verify_rebuild_boundary.py",
+}
 
 
 def _canonical_bytes(path: Path) -> bytes:
@@ -188,6 +196,18 @@ def _artifact_identity(path: Path) -> Dict[str, Any]:
         "git_blob": _git_blob(path),
         "sha256": hashlib.sha256(data).hexdigest(),
         "bytes": len(data),
+    }
+
+
+def _artifact_identity_at(commit: str, relative: str) -> Dict[str, Any]:
+    blob = _blob_at(commit, relative)
+    data = _git("cat-file", "blob", blob, binary=True)
+    canonical = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return {
+        "path": relative,
+        "git_blob": blob,
+        "sha256": hashlib.sha256(canonical).hexdigest(),
+        "bytes": len(canonical),
     }
 
 
@@ -788,7 +808,7 @@ def terminal_reconciliation_issues(root: Path = ROOT) -> Tuple[str, ...]:
         if not path.is_file():
             issues.append("terminal W3 admitted path is missing: " + relative)
             continue
-        identity = _artifact_identity(path)
+        identity = _artifact_identity_at(reconciliation_commit, relative) if relative in LIFECYCLE_SHARED_PATHS else _artifact_identity(path)
         if any(identity.get(key) != artifact.get(key) for key in ("git_blob", "sha256", "bytes")):
             issues.append("terminal W3 admitted identity differs: " + relative)
     expected_admitted = set(_admitted_paths(root))

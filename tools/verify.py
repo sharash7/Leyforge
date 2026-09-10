@@ -19,6 +19,7 @@ PROOF_HARNESS_PYTHON = sorted(
         ROOT / "tools" / "r7_w1_runtime",
         ROOT / "tools" / "r7_w2_runtime",
         ROOT / "tools" / "r7_w3_runtime",
+        ROOT / "tools" / "r7_w4_runtime",
         ROOT / "tools" / "tests",
         ROOT / "proofs" / "r7" / "w1" / "runtime",
         ROOT / "proofs" / "r7" / "w2" / "runtime",
@@ -81,6 +82,25 @@ def w3_verification_command(python: str) -> list[str]:
     ]
 
 
+def w4_implementation_commit() -> str:
+    path = ROOT / "docs/rebuild/r7/w4-readiness.json"
+    if path.is_file():
+        value = json.loads(path.read_text(encoding="utf-8-sig"))
+        commit = str(value.get("implementation_commit", ""))
+        if len(commit) == 40:
+            return commit
+    result = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True)
+    return result.stdout.strip()
+
+
+def w4_verification_commands(python: str) -> list[list[str]]:
+    commit = w4_implementation_commit()
+    return [
+        [python, "-m", "tools.r7_w4_runtime", "verify", "--implementation-commit", commit, "--format", "json"],
+        [python, "tools/r7_w4_audit.py", "--implementation-commit", commit, "--format", "json"],
+    ]
+
+
 def run(command: list[str]) -> dict[str, object]:
     completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
     return {
@@ -105,6 +125,7 @@ def commands_for(tier: str) -> list[list[str]]:
         "brain/92_SCRIPTS/tests/test_r6_pilot.py",
         "tools/verify.py",
         "tools/verify_rebuild_boundary.py",
+        "tools/r7_w4_audit.py",
     ] + PROOF_HARNESS_PYTHON
     if tier == "build":
         return [compile_command]
@@ -119,6 +140,7 @@ def commands_for(tier: str) -> list[list[str]]:
             [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
             [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
             w3_verification_command(python),
+            *w4_verification_commands(python),
             [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "full", "--format", "json"],
         ]
     return [
@@ -130,6 +152,7 @@ def commands_for(tier: str) -> list[list[str]]:
         [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
         [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
         w3_verification_command(python),
+        *w4_verification_commands(python),
         [python, "brain/92_SCRIPTS/brain.py", "ingest", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "index", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "links", "--format", "json"],

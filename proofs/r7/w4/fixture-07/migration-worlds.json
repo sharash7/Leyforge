@@ -1,0 +1,16 @@
+{
+  "schema_version": "prd07-w4-fixture-07-migration-worlds-v1",
+  "state": "EXPECTED-MIGRATION-INPUT-NOT-OBSERVED",
+  "missing_pack_worlds": [
+    {"world_id":"W4-WORLD-MISSING-TEST","namespace":"leyforge_test","unknown_ids":["leyforge_test:removed_machine","leyforge_test:removed_block"],"expected_contract":"preserve opaque IDs and data; placeholder is explicit; never recycle or reinterpret"},
+    {"world_id":"W4-WORLD-MISSING-COMPAT","namespace":"leyforge_compat","unknown_ids":["terrain.grass.basic","natural.log.oak"],"expected_contract":"preserve original identity and migration provenance; no automatic normal-canon promotion"}
+  ],
+  "upgrade_cases": [
+    {"case_id":"UPGRADE-ADDITIVE","change_class":"additive","expected_route":"HOT-RELOAD-WHEN-CONTRACT-ALLOWS"},
+    {"case_id":"UPGRADE-ART","change_class":"compatible-art-only","expected_route":"ROLE-PRESENTATION-REBUILD"},
+    {"case_id":"UPGRADE-DEPRECATION","change_class":"deprecated-definition","expected_route":"EXPLICIT-DEPRECATION-AND-IDENTITY-PRESERVATION"},
+    {"case_id":"UPGRADE-BREAKING","change_class":"breaking-schema","expected_route":"GOVERNED-MIGRATION-OR-RESTART; NEVER-SILENT-REINTERPRETATION"}
+  ],
+  "fcc13e": {"source":".summer/00_Docs/FCC-01-14/FCC13/Leyforge_FCC-13_Definitive_Registry_LOCKED/FCC-13E_Final_312-Row_Legacy_Migration_Matrix_v0_1.csv","required_rows":312,"coverage":"FULL-NO-SAMPLING","proofs":["PRD04-PROOF-57","PRD04-PROOF-58"],"expected_ledger":"proofs/r7/w4/fixture-07/fcc13e-expected.json"},
+  "observation_status": "NOT-EXECUTED"
+}

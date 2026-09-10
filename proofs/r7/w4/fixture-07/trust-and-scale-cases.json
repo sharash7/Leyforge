@@ -1,0 +1,24 @@
+{
+  "schema_version": "prd07-w4-fixture-07-trust-scale-v1",
+  "state": "EXPECTED-POLICY-INPUT-NOT-OBSERVED",
+  "trust_graph": {"roots":["governed-source","canonical-binding"],"allowed_edges":["source-to-binding","source-to-data-dependency","logical-pack-to-role-artifact"],"forbidden_edges":["data-pack-to-executable","presentation-to-authority","compat-to-normal-canon","baked-output-to-source-authority"]},
+  "isolation_namespaces": [{"id":"leyforge_test","normal_canon":false},{"id":"leyforge_compat","normal_canon":false}],
+  "smuggling_cases": [
+    {"case_id":"SMUGGLE-SCRIPT","payload":"hidden-gdscript","expected_policy_disposition":"REJECT-OR-QUARANTINE"},
+    {"case_id":"SMUGGLE-NATIVE","payload":"native-library","expected_policy_disposition":"REJECT-OR-QUARANTINE"},
+    {"case_id":"SMUGGLE-EDITOR","payload":"editor-plugin","expected_policy_disposition":"REJECT-OR-QUARANTINE"},
+    {"case_id":"SMUGGLE-URI","payload":"external-uri","expected_policy_disposition":"REJECT-OR-QUARANTINE"},
+    {"case_id":"SMUGGLE-TRAVERSAL","payload":"parent-path-archive-entry","expected_policy_disposition":"REJECT-OR-QUARANTINE"},
+    {"case_id":"SMUGGLE-ABSOLUTE","payload":"absolute-path-archive-entry","expected_policy_disposition":"REJECT-OR-QUARANTINE"}
+  ],
+  "resource_bomb_cases": [
+    {"case_id":"BOMB-TEXTURE","declaration":{"texture_edge_px":131072},"expected_policy_disposition":"BUDGET-REJECT-BEFORE-ALLOCATION"},
+    {"case_id":"BOMB-DEFINITIONS","declaration":{"definition_count":1000000},"expected_policy_disposition":"BUDGET-REJECT-BEFORE-INSTANTIATION"},
+    {"case_id":"BOMB-RECURSION","declaration":{"blueprint_cycle":["A","B","A"]},"expected_policy_disposition":"CYCLE-REJECT"},
+    {"case_id":"BOMB-MESH","declaration":{"vertices":1000000000},"expected_policy_disposition":"BUDGET-REJECT-BEFORE-MESH-BUILD"},
+    {"case_id":"BOMB-DEPTH","declaration":{"dependency_depth":10000},"expected_policy_disposition":"DEPTH-REJECT"},
+    {"case_id":"BOMB-DECOMPRESSION","declaration":{"compressed_bytes":1024,"declared_expanded_bytes":1099511627776},"expected_policy_disposition":"RATIO-AND-SIZE-REJECT"}
+  ],
+  "generated_family": {"materials":32,"forms":8,"states":4,"expected_combination_count":1024,"semantic_id_rule":"material identity plus form/state projection; presentation variants do not create semantic IDs"},
+  "observation_status": "NOT-EXECUTED"
+}

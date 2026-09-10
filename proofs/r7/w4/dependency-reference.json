@@ -1,0 +1,27 @@
+{
+  "schema_version": "leyforge-r7-w4-dependency-reference-v1",
+  "scope": "development-only-prd07-proof-runtime",
+  "gameplay_permission": "CLOSED",
+  "source_lock": "proofs/r7/w0/dependencies.lock.json",
+  "source_lock_sha256": "f42407b74cc08b91a34aa7b9a57f856b6e4c4dbe642385401d2b8da10eb927a2",
+  "source_lock_git_blob": "5d8bfeb3031557b927074f74cebc7101148edab1",
+  "component_revisions": {
+    "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_export_template": "4.8.dev4.official.b56a91878",
+    "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+  },
+  "component_hashes": {
+    "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "godot_export_template_runtime_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+    "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+  },
+  "local_patch_status": "NO-LOCAL-PATCH",
+  "host_lane": "windows-x86_64",
+  "python_tooling": "CPython-3.9-or-later-standard-library",
+  "renderer_candidates": ["Forward+", "Mobile", "Compatibility-if-targeted"],
+  "roles": ["client", "dedicated-server", "forge-ci"],
+  "isolation_requirements": ["clean-export-root", "clean-import-cache", "isolated-APPDATA", "isolated-LOCALAPPDATA", "no-shared-user-state"],
+  "hardware_identity_rule": "Capture exact OS, CPU, GPU/device, driver, renderer, resolution, display and settings identity at future execution; readiness makes no support-tier claim.",
+  "permitted_use": "R7 W4 proof-only Forge, trust, presentation, accessibility and migration evidence",
+  "production_dependency_state": "UNCHANGED-PLANNED-UNINSTALLED"
+}

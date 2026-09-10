@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:leyforge:prd07:w4:future-evidence-pack:v1",
+  "title": "Leyforge R7 W4 future standard proof evidence pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","run_id","evidence_id","proof_id","source_revision","admission_boundary_sha256","fixture_identities","dependency_identity","environment_identity","observation","evaluation","lifecycle"],
+  "properties": {
+    "schema_version": {"const":"prd07-w4-standard-evidence-pack-v1"},
+    "run_id": {"pattern":"^PRD07-RUN-[0-9]{4}$"},
+    "evidence_id": {"pattern":"^PRD07-EVID-[0-9]{4}$"},
+    "proof_id": {"enum":["PRD04-PROOF-49","PRD04-PROOF-50","PRD04-PROOF-51","PRD04-PROOF-52","PRD04-PROOF-53","PRD04-PROOF-54","PRD04-PROOF-55","PRD04-PROOF-56","PRD04-PROOF-57","PRD04-PROOF-58","PRD04-PROOF-59","PRD04-PROOF-60","PRD04-PROOF-61","PRD04-PROOF-62","PRD04-PROOF-71"]},
+    "source_revision": {"pattern":"^[0-9a-f]{40}$"},
+    "admission_boundary_sha256": {"pattern":"^[0-9a-f]{64}$"},
+    "fixture_identities": {"type":"object","required":["paths","sha256"],"properties":{"paths":{"type":"array","minItems":1,"items":{"type":"string"}},"sha256":{"type":"array","minItems":1,"items":{"pattern":"^[0-9a-f]{64}$"}}}},
+    "dependency_identity": {"type":"object","required":["godot_build_driver","godot_export_template","voxel_tools","local_patch_status"]},
+    "environment_identity": {"type":"object","required":["os","machine","python","role","isolated_profile","artifact_identity"],"properties":{"os":{"type":"string"},"machine":{"type":"string"},"python":{"type":"string"},"role":{"enum":["client","dedicated-server","forge-ci"]},"isolated_profile":{"const":true},"artifact_identity":{"type":"string"},"renderer":{"type":"string"},"gpu_device":{"type":"string"},"gpu_driver":{"type":"string"},"resolution":{"type":"string"},"settings_identity":{"type":"string"}}},
+    "observation": {"type":"object","required":["state","started_at","finished_at","raw_artifacts","measurements","repetitions","fcc13e_rows"],"properties":{"state":{"enum":["PASS-OBSERVED","FAIL-OBSERVED","INCONCLUSIVE"]},"started_at":{"type":"string"},"finished_at":{"type":"string"},"raw_artifacts":{"type":"array","minItems":1,"items":{"type":"object"}},"measurements":{"type":"object"},"repetitions":{"type":"object"},"fcc13e_rows":{"type":"array","items":{"type":"object","required":["numeric_id","unique_id","disposition","observed_state"]}}}},
+    "evaluation": {"type":"object","required":["canonical_success_criterion","canonical_failure_criterion","canonical_inconclusive_conditions","actual_disposition","reason","blockers","limitations"],"properties":{"actual_disposition":{"enum":["PASS-OBSERVED","FAIL-OBSERVED","INCONCLUSIVE"]},"blockers":{"type":"array","items":{"type":"string"}},"limitations":{"type":"array","items":{"type":"string"}}}},
+    "human_judgement": {"type":"object","required":["required","observer_ids","task_scores","capture_refs","disagreements","adjudication"],"properties":{"required":{"type":"boolean"},"observer_ids":{"type":"array","items":{"type":"string"}},"task_scores":{"type":"array","items":{"type":"object"}},"capture_refs":{"type":"array","items":{"type":"string"}},"disagreements":{"type":"array","items":{"type":"string"}},"adjudication":{"type":"string"}}},
+    "lifecycle": {"type":"object","required":["allocated_before_execution","identity_retained","registry_reconciled","prd07_evidence_eligible","prd08_submission","gameplay_permission","production_runtime"],"properties":{"allocated_before_execution":{"const":true},"identity_retained":{"const":true},"registry_reconciled":{"const":true},"prd07_evidence_eligible":{"const":true},"prd08_submission":{"const":"NOT-SUBMITTED"},"gameplay_permission":{"const":"CLOSED"},"production_runtime":{"const":"ABSENT"}}}
+  },
+  "allOf": [
+    {"if":{"properties":{"proof_id":{"enum":["PRD04-PROOF-53","PRD04-PROOF-59","PRD04-PROOF-60","PRD04-PROOF-61","PRD04-PROOF-71"]}}},"then":{"required":["human_judgement"]}},
+    {"if":{"properties":{"proof_id":{"enum":["PRD04-PROOF-57","PRD04-PROOF-58"]}}},"then":{"properties":{"observation":{"properties":{"fcc13e_rows":{"minItems":312,"maxItems":312}}}}}}
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "prd07-w4-fixture-07-v1",
+  "fixture_id": "FIXTURE-07",
+  "fixture_revision": "W4-R1",
+  "scope": "non-production-proof-readiness-infrastructure",
+  "deterministic": true,
+  "reproducible": true,
+  "production_runtime": false,
+  "gameplay_permission": "CLOSED",
+  "proof_execution": "NOT-STARTED",
+  "capabilities": [
+    "governed-editable-source-packages",
+    "canonical-registry-source-bindings",
+    "source-provenance-metadata",
+    "deterministic-reproducible-bake-manifest",
+    "client-server-logical-pack-role-artifact-identity",
+    "dependency-trust-graph",
+    "leyforge-test-compat-isolation",
+    "hostile-capability-smuggling-fixtures",
+    "declarative-resource-bomb-fixtures",
+    "generated-material-form-state-families",
+    "ai-human-matched-authoring-tasks",
+    "art-golden-reference-source-packages",
+    "clean-cache-clean-environment-bake",
+    "missing-pack-world-fixtures",
+    "fcc13e-full-312-row-migration-corpus",
+    "machine-readable-validator-results"
+  ],
+  "resources": {
+    "source_packages": "proofs/r7/w4/fixture-07/source-packages.json",
+    "trust_and_scale_cases": "proofs/r7/w4/fixture-07/trust-and-scale-cases.json",
+    "migration_worlds": "proofs/r7/w4/fixture-07/migration-worlds.json",
+    "fcc13e_expected_ledger": "proofs/r7/w4/fixture-07/fcc13e-expected.json"
+  },
+  "logical_pack_identity_rule": "SHA-256 over canonical source-package, binding, provenance and dependency graph content",
+  "role_artifact_identity_rule": "logical pack identity plus role and presentation inclusion manifest; role artifacts must never redefine logical semantics",
+  "bake_manifest_state": "EXPECTED-INPUT-CONTRACT-NOT-OBSERVED",
+  "validator_result_path": "docs/rebuild/r7/w4-readiness.json",
+  "bound_proofs": [
+    "PRD04-PROOF-49", "PRD04-PROOF-50", "PRD04-PROOF-51", "PRD04-PROOF-52",
+    "PRD04-PROOF-54", "PRD04-PROOF-55", "PRD04-PROOF-56", "PRD04-PROOF-57",
+    "PRD04-PROOF-58", "PRD04-PROOF-62"
+  ]
+}

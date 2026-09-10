@@ -798,14 +798,110 @@ check(w3_hash_result.returncode == 0, 'Terminal R7 W3 Git-clean blob hashing fai
 w3_blob_hashes = w3_hash_result.stdout.splitlines() if w3_hash_result.returncode == 0 else []
 check(len(w3_blob_hashes) == len(w3_admitted_artifacts), 'Terminal R7 W3 Git-clean blob count differs')
 for index, (rel, candidate, artifact) in enumerate(w3_admitted_artifacts):
-    actual_blob = w3_blob_hashes[index] if index < len(w3_blob_hashes) else ''
+    lifecycle_shared = rel in {'tools/r7_w3_reconciliation.py', 'tools/verify.py', 'tools/verify_rebuild_boundary.py'}
+    if lifecycle_shared:
+        historical_blob_result = subprocess.run(
+            ['git', 'rev-parse', f"{w3_manifest.get('reconciliation_commit', '')}:{rel}"],
+            cwd=root, text=True, capture_output=True,
+        )
+        actual_blob = historical_blob_result.stdout.strip() if historical_blob_result.returncode == 0 else ''
+        historical_data_result = subprocess.run(
+            ['git', 'cat-file', 'blob', actual_blob], cwd=root, capture_output=True,
+        ) if actual_blob else None
+        canonical_data = historical_data_result.stdout.replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10])) if historical_data_result and historical_data_result.returncode == 0 else b''
+        check(historical_blob_result.returncode == 0 and historical_data_result is not None and historical_data_result.returncode == 0, 'Terminal R7 W3 historical shared-tool lookup failed: ' + rel)
+    else:
+        actual_blob = w3_blob_hashes[index] if index < len(w3_blob_hashes) else ''
+        canonical_data = candidate.read_bytes().replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
     check(actual_blob == artifact.get('git_blob'), 'Admitted terminal R7 W3 Git-clean blob changed: ' + rel)
-    canonical_data = candidate.read_bytes().replace(bytes([13, 10]), bytes([10])).replace(bytes([13]), bytes([10]))
     check(len(canonical_data) == artifact.get('bytes'), 'Admitted terminal R7 W3 canonical size changed: ' + rel)
     check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'Admitted terminal R7 W3 canonical SHA-256 changed: ' + rel)
 check(not any(path.endswith(('.exe', '.dll', '.pck')) for path in w3_admitted_paths), 'Terminal R7 W3 boundary admitted dependency/runtime binaries')
 for required_path in w3_exact_paths:
     check(required_path in w3_admitted_paths, 'Terminal R7 W3 boundary does not hash-pin: ' + required_path)
+
+w4_manifest_path = root / 'docs/rebuild/r7/w4-readiness-admission-boundary.json'
+w4_manifest = json.loads(w4_manifest_path.read_text(encoding='utf-8')) if w4_manifest_path.is_file() else {}
+check(w4_manifest.get('schema_version') == 'prd07-w4-readiness-admission-boundary-v1', 'R7 W4 readiness/admission boundary is missing or unsupported')
+check(w4_manifest.get('manifest_version') == 1, 'R7 W4 readiness/admission manifest version differs')
+check(w4_manifest.get('package') == 'R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION', 'R7 W4 package identity changed')
+check(w4_manifest.get('lifecycle_role') == 'CURRENT-PRE-EXECUTION-ADMISSION', 'R7 W4 lifecycle role changed')
+check(w4_manifest.get('scope') == 'development-only-prd07-proof-readiness-runtime', 'R7 W4 scope is not proof-only readiness')
+check(re.fullmatch(r'[0-9a-f]{40}', str(w4_manifest.get('implementation_commit', ''))) is not None, 'R7 W4 implementation commit is not exact')
+expected_w4_proofs = [f'PRD04-PROOF-{number:02d}' for number in (49,50,51,52,53,54,55,56,57,58,59,60,61,62,71)]
+check(w4_manifest.get('proof_roster') == expected_w4_proofs, 'R7 W4 proof roster/order differs')
+check(w4_manifest.get('readiness_counts') == {'READY': 15, 'BLOCKED': 0, 'NOT APPLICABLE': 0}, 'R7 W4 readiness counts differ')
+check(w4_manifest.get('proof_execution') == 'NOT-STARTED', 'R7 W4 boundary claims proof execution')
+check(w4_manifest.get('execution_gate') == 'CLOSED-PENDING-SEPARATE-OWNER-AUTHORIZATION', 'R7 W4 execution gate is not closed')
+check(w4_manifest.get('allocated_run_ids') == [] and w4_manifest.get('allocated_evidence_ids') == [], 'R7 W4 boundary allocated identities')
+w4_previews = w4_manifest.get('next_identity_previews', [])
+check([row.get('run_id') for row in w4_previews if isinstance(row, dict)] == [f'PRD07-RUN-{number:04d}' for number in range(66,81)], 'R7 W4 RUN previews differ from 0066-0080')
+check([row.get('evidence_id') for row in w4_previews if isinstance(row, dict)] == [f'PRD07-EVID-{number:04d}' for number in range(66,81)], 'R7 W4 EVID previews differ from 0066-0080')
+check(all(row.get('identity_state') == 'PREVIEW-NOT-ALLOCATED' and row.get('reserved') is False and row.get('registry_entry_created') is False for row in w4_previews if isinstance(row, dict)), 'R7 W4 preview state is not allocation-free')
+check(w4_manifest.get('fcc13e', {}).get('covered_rows') == 312 and w4_manifest.get('fcc13e', {}).get('coverage_rule') == '312/312-REQUIRED-NO-SAMPLING-NO-WAIVER', 'R7 W4 FCC-13E boundary is not full 312/312')
+check(w4_manifest.get('gameplay_permission') == 'CLOSED', 'R7 W4 boundary opened gameplay permission')
+check(w4_manifest.get('production_runtime') == 'ABSENT' and w4_manifest.get('production_dependency_activation') == 'INACTIVE', 'R7 W4 boundary crossed production runtime/dependency state')
+check(w4_manifest.get('active_poc_dependencies') == 0, 'R7 W4 boundary admitted active POC dependencies')
+check(w4_manifest.get('w5') == 'CLOSED' and w4_manifest.get('prd08_evaluation') == 'CLOSED' and w4_manifest.get('prd09') == 'CLOSED' and w4_manifest.get('r8') == 'CLOSED', 'R7 W4 boundary opened a prohibited later gate')
+
+w4_admitted_paths = set()
+w4_admitted_artifacts = []
+w4_prefixes = ('proofs/r7/w4/', 'tools/r7_w4_runtime/')
+w4_exact_paths = {
+    'tools/tests/test_r7_w4_runtime.py',
+    'tools/r7_w4_audit.py',
+    'tools/r7_w3_reconciliation.py',
+    'tools/verify.py',
+    'tools/verify_rebuild_boundary.py',
+    'docs/rebuild/r7/w4-fixture-readiness-validation.json',
+    'docs/rebuild/r7/w4-readiness.json',
+}
+for artifact in w4_manifest.get('artifacts', []):
+    rel = artifact.get('path')
+    valid_path = (
+        isinstance(rel, str)
+        and (rel.startswith(w4_prefixes) or rel in w4_exact_paths)
+        and '..' not in Path(rel).parts
+        and not Path(rel).is_absolute()
+    )
+    check(valid_path, 'Invalid R7 W4 admission path: ' + str(rel))
+    if not valid_path:
+        continue
+    check(rel not in w4_admitted_paths, 'Duplicate R7 W4 admission path: ' + rel)
+    w4_admitted_paths.add(rel)
+    candidate = root / rel
+    check(candidate.is_file(), 'Admitted R7 W4 path is missing: ' + rel)
+    check(candidate.suffix.lower() in {'.py','.json','.md','.gd','.tscn','.godot'}, 'Unsupported R7 W4 file type: ' + rel)
+    check(candidate.suffix.lower() not in {'.exe','.dll','.pck','.res','.tres'}, 'Binary/production resource admitted through R7 W4: ' + rel)
+    if candidate.is_file():
+        w4_admitted_artifacts.append((rel, candidate, artifact))
+w4_hash_result = subprocess.run(
+    ['git','hash-object','--stdin-paths'], cwd=root,
+    input=chr(10).join(rel for rel, _, _ in w4_admitted_artifacts) + chr(10),
+    text=True, capture_output=True,
+)
+check(w4_hash_result.returncode == 0, 'R7 W4 Git-clean blob hashing failed')
+w4_blob_hashes = w4_hash_result.stdout.splitlines() if w4_hash_result.returncode == 0 else []
+check(len(w4_blob_hashes) == len(w4_admitted_artifacts), 'R7 W4 Git-clean blob count differs')
+for index, (rel, candidate, artifact) in enumerate(w4_admitted_artifacts):
+    actual_blob = w4_blob_hashes[index] if index < len(w4_blob_hashes) else ''
+    canonical_data = candidate.read_bytes().replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10]))
+    check(actual_blob == artifact.get('git_blob'), 'Admitted R7 W4 Git-clean blob changed: ' + rel)
+    check(len(canonical_data) == artifact.get('bytes'), 'Admitted R7 W4 canonical size changed: ' + rel)
+    check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'Admitted R7 W4 canonical SHA-256 changed: ' + rel)
+for required_path in w4_exact_paths:
+    check(required_path in w4_admitted_paths, 'R7 W4 boundary does not hash-pin: ' + required_path)
+check(not any(path.startswith('docs/rebuild/r7/execution-evidence/PRD07-RUN-00') for path in w4_admitted_paths), 'R7 W4 readiness boundary admitted a standard execution pack')
+
+w4_verify = subprocess.run(
+    [sys.executable, '-m', 'tools.r7_w4_runtime', 'verify', '--implementation-commit', str(w4_manifest.get('implementation_commit', '')), '--format', 'json'],
+    cwd=root, text=True, capture_output=True,
+)
+try:
+    w4_verify_report = json.loads(w4_verify.stdout) if w4_verify.stdout else {}
+except json.JSONDecodeError:
+    w4_verify_report = {}
+check(w4_verify.returncode == 0 and w4_verify_report.get('status') == 'PASS', 'R7 W4 canonical readiness/admission verification failed: ' + (w4_verify.stderr.strip() or '; '.join(w4_verify_report.get('issues', []))))
 
 baseline_docs = manifest['source_document_blobs']
 intake_docs = {}
@@ -864,11 +960,11 @@ for directory, dirnames, filenames in os.walk(root, topdown=True):
         path = Path(directory) / filename
         rel = path.relative_to(root).as_posix()
         check(not path.is_symlink(), 'Unexpected filesystem link: '+rel)
-        allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel in w3_admitted_paths or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'} or rel.startswith('.trae/') or rel.startswith('.vscode/') or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('tools/ai-orchestration/')
+        allowed = rel in root_files or rel == '.summer/AGENTS.md' or rel in expected_docs or rel.startswith(('docs/rebuild/','brain/')) or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel in w3_admitted_paths or rel in w4_admitted_paths or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py', '.github/workflows/brain.yml', '.github/workflows/governance.yml'} or rel.startswith('.trae/') or rel.startswith('.vscode/') or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('tools/ai-orchestration/')
         check(allowed, 'Unadmitted active path: '+rel)
         executable = path.suffix.lower() in {'.gd','.gdshader','.tscn','.tres','.res','.exe','.dll','.pck','.ps1','.bat','.cmd','.py'}
         brain_tool = rel.startswith('brain/92_SCRIPTS/') and path.suffix.lower() == '.py'
-        check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel in w3_admitted_paths or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('tools/ai-orchestration/'), 'Legacy executable/resource admitted: '+rel)
+        check(not executable or rel in {'tools/verify_rebuild_boundary.py', 'tools/verify.py'} or brain_tool or rel in w0_admitted_paths or rel in r7_admitted_paths or rel in w1_admitted_paths or rel in w2_admitted_paths or rel in w3_admitted_paths or rel in w4_admitted_paths or rel.startswith('Leyforge-AI-Minimal-Setup-Qwen/') or rel.startswith('tools/ai-orchestration/'), 'Legacy executable/resource admitted: '+rel)
         if path.suffix.lower() not in {'.md','.json','.txt','.csv','.py'} or rel.endswith('leakage-result.json'):
             continue
         content = path.read_text(encoding='utf-8-sig',errors='replace')
@@ -881,5 +977,5 @@ check(not (root/'project.godot').exists(), 'Unexpected Godot runtime entry point
 for name in ['addons','assets','content','data','generated','scripts','development','.profiles','.tmp']:
     check(not (root/name).exists(), 'Retired root remains: '+name)
 check((root/'tools/verify_rebuild_boundary.py').is_file(), 'Controlled validator missing')
-print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,r7_w3_manifest=w3_manifest_path.relative_to(root).as_posix(),r7_w3_paths=len(w3_admitted_paths),r7_w3_proof_run_ids=w3_run_ids,r7_w3_proof_evidence_ids=w3_evidence_ids,active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
+print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,r7_w3_manifest=w3_manifest_path.relative_to(root).as_posix(),r7_w3_paths=len(w3_admitted_paths),r7_w3_proof_run_ids=w3_run_ids,r7_w3_proof_evidence_ids=w3_evidence_ids,r7_w4_manifest=w4_manifest_path.relative_to(root).as_posix(),r7_w4_paths=len(w4_admitted_paths),r7_w4_proof_run_ids=w4_manifest.get('allocated_run_ids', []),r7_w4_proof_evidence_ids=w4_manifest.get('allocated_evidence_ids', []),r7_w4_identity_previews=w4_previews,active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
 sys.exit(1 if failures else 0)

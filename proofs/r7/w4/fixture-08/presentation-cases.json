@@ -1,0 +1,33 @@
+{
+  "schema_version": "prd07-w4-fixture-08-presentation-cases-v1",
+  "state": "EXPECTED-SCENE-AND-PROFILE-INPUT-NOT-OBSERVED",
+  "knowledge_fixture": {"source":"MAP-00","authorised_cells":["A1","A2","B2"],"unknown_live_truth_cells":["C7","D8"],"rule":"no presentation mode may reveal unknown live truth"},
+  "golden_scenes": [
+    {"scene_id":"W4-SCENE-BLOCK-MACHINE","asset_classes":["block-material","item-machine-structure"],"semantic_tasks":["distinguish-active-damaged","identify-interaction"]},
+    {"scene_id":"W4-SCENE-CREATURE","asset_classes":["character-creature-animation"],"semantic_tasks":["identify-threat-state","read-motion-with-reduction"]},
+    {"scene_id":"W4-SCENE-VFX-WEATHER","asset_classes":["vfx-magic-weather"],"semantic_tasks":["identify-hazard-without-particles","identify-hazard-without-colour"]},
+    {"scene_id":"W4-SCENE-AUDIO","asset_classes":["audio-cue"],"semantic_tasks":["identify-hazard-muted","match-caption-to-event"]},
+    {"scene_id":"W4-SCENE-UI","asset_classes":["ui-icon-cartography"],"semantic_tasks":["complete-scaled-menu","complete-long-localized-layout","complete-input-remap"]},
+    {"scene_id":"W4-SCENE-MAP","asset_classes":["ui-icon-cartography"],"semantic_tasks":["field-navigation","surveyed-route","magical-relief-route","flat-alternative","list-alternative","knowledge-boundary"]},
+    {"scene_id":"W4-SCENE-SPLIT","asset_classes":["block-material","character-creature-animation","ui-icon-cartography"],"semantic_tasks":["per-view-readability","per-player-ui-scope"]}
+  ],
+  "renderer_profiles": [
+    {"profile_id":"PROFILE-FORWARD-PLUS","renderer":"Forward+","claim_state":"CANDIDATE-NOT-SUPPORT-CERTIFIED"},
+    {"profile_id":"PROFILE-MOBILE","renderer":"Mobile","claim_state":"CANDIDATE-NOT-SUPPORT-CERTIFIED"},
+    {"profile_id":"PROFILE-COMPAT","renderer":"Compatibility","claim_state":"ONLY-IF-TARGETED-NOT-SUPPORT-CERTIFIED"}
+  ],
+  "configuration_cases": [
+    {"case_id":"QUALITY-LOW","changes":["particles-off","shadows-off","post-fx-off","low-resolution-scale"]},
+    {"case_id":"COLOUR-ACCESS","changes":["deuteranopia-simulation","non-colour-markers"]},
+    {"case_id":"MOTION-REDUCED","changes":["reduced-motion","flash-off","particles-off"]},
+    {"case_id":"AUDIO-MUTED","changes":["master-muted","captions-on","visual-cues-on"]},
+    {"case_id":"UI-SCALE","changes":["text-200-percent","ui-200-percent"]},
+    {"case_id":"INPUT-REMAP","changes":["controller-remap","keyboard-remap","non-drag-map"]},
+    {"case_id":"LOCALIZATION-STRESS","changes":["long-labels","rtl-layout","missing-glyph-sentinel"]},
+    {"case_id":"SPLIT-SCREEN","changes":["two-views","per-view-profile","per-player-input"]},
+    {"case_id":"INVALID-GRAPHICS","changes":["invalid-renderer","invalid-resolution","invalid-shader-cache"],"expected_route":"safe-settings-recovery-without-project-file-edit"}
+  ],
+  "map_modes": ["field","surveyed","magical-relief","flat","non-drag","list"],
+  "score_contract": {"unit":"task outcome","required_fields":["task_id","profile_id","completion","semantic_errors","assistance","observer","capture_refs"],"final_thresholds":"NOT-SET-BY-READINESS; use canonical proof criterion and retain raw evidence"},
+  "observation_status": "NOT-EXECUTED"
+}
