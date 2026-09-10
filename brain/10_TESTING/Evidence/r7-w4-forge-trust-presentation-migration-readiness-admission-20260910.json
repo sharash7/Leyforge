@@ -1,0 +1,137 @@
+{
+  "schema_version": "leyforge-r7-w4-readiness-admission-evidence-v1",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION",
+  "result": "PASS",
+  "determination": "READY-FOR-SEPARATELY-AUTHORIZED-GOVERNED-EXECUTION",
+  "lifecycle": {
+    "incoming_handoff": "HANDOFF-20260910-001",
+    "task": "TASK-20260910-001",
+    "work": "WORK-20260910-001",
+    "evidence": "EVID-0014",
+    "audit": "AUDIT-0014",
+    "outgoing_handoff": "HANDOFF-20260910-002"
+  },
+  "repository": {
+    "workspace": "D:/AI/Projects/leyforge-rebuild",
+    "branch": "codex/chore/brain-governance-pilot",
+    "upstream": "origin/codex/chore/brain-governance-pilot",
+    "starting_head": "a2f5255bee3ad202d6be7847ecd6a9ab88e53e5a",
+    "implementation_commits": [
+      "d44de7c71eca3318ae405095ef44a374d51c7720",
+      "7ff70fae0bad97287602e946deae409ac3df74b8"
+    ],
+    "admission_artifact_commit": "b110f71c49c43a7d0af50fd73a385e13c60283ec",
+    "history_rewritten": false
+  },
+  "canonical_artifacts": {
+    "fixture_readiness": {
+      "path": "docs/rebuild/r7/w4-fixture-readiness-validation.json",
+      "sha256": "9e03e0e6e1b163dd77fd6119b4aaae59a6b493f2b03cb6d052de985753713549"
+    },
+    "readiness": {
+      "path": "docs/rebuild/r7/w4-readiness.json",
+      "sha256": "5a85cf2dfbba56367479183bc46ce66238f5d0b4e4222acd3f73eb14c2b04e8c",
+      "source_tree_identity": "a8c44988293279ded102b6cc4f6a4a62fdff461e5fefbf351a58306b2a86beb5"
+    },
+    "admission": {
+      "path": "docs/rebuild/r7/w4-readiness-admission-boundary.json",
+      "sha256": "954aced12b98b364bf2f43d611b52f4aa0660c07f23068a5fb53da2f86d96d7c",
+      "admitted_artifact_count": 30
+    }
+  },
+  "proofs": [
+    {"order": 1, "proof_id": "PRD04-PROOF-49", "title": "Source → Bake Reproducibility", "principal_fixtures": ["FIXTURE-07", "FIXTURE-09"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0066", "preview_evidence": "PRD07-EVID-0066", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 2, "proof_id": "PRD04-PROOF-50", "title": "Art Production Handoff Fixture", "principal_fixtures": ["FIXTURE-07", "FIXTURE-08"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0067", "preview_evidence": "PRD07-EVID-0067", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 3, "proof_id": "PRD04-PROOF-51", "title": "AI vs Human Source Parity", "principal_fixtures": ["FIXTURE-07"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0068", "preview_evidence": "PRD07-EVID-0068", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 4, "proof_id": "PRD04-PROOF-52", "title": "Generated Form Explosion", "principal_fixtures": ["FIXTURE-07", "FIXTURE-09"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0069", "preview_evidence": "PRD07-EVID-0069", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 5, "proof_id": "PRD04-PROOF-53", "title": "Renderer/Profile Certification", "principal_fixtures": ["FIXTURE-08", "FIXTURE-09"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0070", "preview_evidence": "PRD07-EVID-0070", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 6, "proof_id": "PRD04-PROOF-54", "title": "Server/Client Pack Split", "principal_fixtures": ["FIXTURE-07", "FIXTURE-05", "FIXTURE-09"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0071", "preview_evidence": "PRD07-EVID-0071", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 7, "proof_id": "PRD04-PROOF-55", "title": "Safe Mod Smuggling", "principal_fixtures": ["FIXTURE-07"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0072", "preview_evidence": "PRD07-EVID-0072", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 8, "proof_id": "PRD04-PROOF-56", "title": "Data Mod Resource Bomb", "principal_fixtures": ["FIXTURE-07", "FIXTURE-09"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0073", "preview_evidence": "PRD07-EVID-0073", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 9, "proof_id": "PRD04-PROOF-57", "title": "Missing Pack World Recovery", "principal_fixtures": ["FIXTURE-04", "FIXTURE-07"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0074", "preview_evidence": "PRD07-EVID-0074", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 10, "proof_id": "PRD04-PROOF-58", "title": "Pack Upgrade / World Migration", "principal_fixtures": ["FIXTURE-04", "FIXTURE-07"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0075", "preview_evidence": "PRD07-EVID-0075", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 11, "proof_id": "PRD04-PROOF-59", "title": "Settings Scope Isolation", "principal_fixtures": ["FIXTURE-08"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0076", "preview_evidence": "PRD07-EVID-0076", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 12, "proof_id": "PRD04-PROOF-60", "title": "Safe Graphics Recovery", "principal_fixtures": ["FIXTURE-08", "FIXTURE-09"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0077", "preview_evidence": "PRD07-EVID-0077", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 13, "proof_id": "PRD04-PROOF-61", "title": "Accessibility Semantic Torture", "principal_fixtures": ["FIXTURE-08"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0078", "preview_evidence": "PRD07-EVID-0078", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 14, "proof_id": "PRD04-PROOF-62", "title": "Forge CI Build", "principal_fixtures": ["FIXTURE-07", "FIXTURE-09"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0079", "preview_evidence": "PRD07-EVID-0079", "preview_state": "PREVIEW-NOT-ALLOCATED"},
+    {"order": 15, "proof_id": "PRD04-PROOF-71", "title": "Renderer / Hardware Lane", "principal_fixtures": ["FIXTURE-08", "FIXTURE-09"], "readiness": "READY", "observation": "NOT-EXECUTED", "preview_run": "PRD07-RUN-0080", "preview_evidence": "PRD07-EVID-0080", "preview_state": "PREVIEW-NOT-ALLOCATED"}
+  ],
+  "readiness_counts": {"READY": 15, "BLOCKED": 0, "NOT APPLICABLE": 0},
+  "fixtures": {
+    "FIXTURE-07": {"revision": "W4-R1", "state": "READY", "scope": "non-production-proof-readiness-infrastructure"},
+    "FIXTURE-08": {"revision": "W4-R1", "state": "READY", "scope": "non-production-proof-readiness-infrastructure"}
+  },
+  "fcc13e": {
+    "canonical_csv": ".summer/00_Docs/FCC-01-14/FCC13/Leyforge_FCC-13_Definitive_Registry_LOCKED/FCC-13E_Final_312-Row_Legacy_Migration_Matrix_v0_1.csv",
+    "canonical_csv_sha256": "8ecd4f8ec4a78e7e651de295a337a02e435852cdddea036040a0f69d1cc58036",
+    "required_rows": 312,
+    "covered_rows": 312,
+    "unresolved_rows": 0,
+    "duplicate_numeric_ids": 0,
+    "duplicate_unique_ids": 0,
+    "duplicate_original_ids": 0,
+    "readiness": "READY",
+    "observation": "NOT-EXECUTED",
+    "coverage_rule": "312/312-REQUIRED-NO-SAMPLING-NO-WAIVER",
+    "final_status_counts": {
+      "CANONICAL CONTEXTUAL MIGRATION": 7,
+      "CANONICAL NON-MATERIAL REBIND": 3,
+      "CANONICAL REBIND / GENERATED FORM / STATE": 107,
+      "CANONICAL SYSTEM ARCHETYPE REBIND": 13,
+      "CANONICAL TOOL ARCHETYPE REBIND": 4,
+      "CATEGORY MIGRATION + OWNER REVIEW": 2,
+      "LEGACY ECONOMY OBJECT — NOT UNIVERSAL CURRENCY": 3,
+      "MIGRATION-ONLY / FUTURE-DEFERRED": 2,
+      "POC-ONLY / NOT PROMOTED": 168,
+      "REJECT / REMOVE FROM NORMAL CANON": 1,
+      "RETIRED / ALIAS OR CONTEXTUAL MIGRATION": 2
+    }
+  },
+  "dependency_identity": {
+    "godot_build_driver_revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "godot_export_template_revision": "4.8.dev4.official.b56a91878",
+    "godot_export_template_runtime_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+    "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+    "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "production_dependency_state": "UNCHANGED-PLANNED-UNINSTALLED"
+  },
+  "identity_state": {
+    "run_high_water": 65,
+    "evidence_high_water": 65,
+    "retained_ranges": ["0001-0050", "0059-0065"],
+    "quarantined_range": "0051-0057",
+    "invalidated": {"number": "0058", "state": "ABORTED-BEFORE-PROOF-OBSERVATION"},
+    "registry_sha256": "7336c7f0be993a75eec5532f606908136bc62a059c228da460414c2d7295a79e",
+    "w3_state_sha256": "adfe096c8bc657989738d84efb9cecff4b8afc0279050b04f6dcda21a1fd4880",
+    "allocated_run_ids": [],
+    "allocated_evidence_ids": [],
+    "next_possible_identity": "0066",
+    "next_identity_state": "PREVIEW-NOT-ALLOCATED"
+  },
+  "validation": {
+    "python_compilation": "PASS",
+    "w4_readiness_regeneration_and_equality": "PASS",
+    "w4_independent_audit": {"status": "PASS", "checks": 132, "failures": []},
+    "w3_terminal_reconciliation": "PASS",
+    "fixture_08_fixed_godot_readiness_self_report": "PASS",
+    "brain_and_engineering_governance": "PASS",
+    "rebuild_boundary": {"status": "PASS", "checks": 9421, "failures": [], "w4_paths": 30},
+    "final_published_remote_ci": "POST-PUBLICATION-REQUIRED-NOT-INFERRED"
+  },
+  "side_effects": {
+    "w4_proof_execution": false,
+    "proof_observation_results_generated": false,
+    "identity_allocation": false,
+    "identity_reservation": false,
+    "identity_burn": false,
+    "standard_execution_evidence_packs_created": false,
+    "production_runtime_crossed": false,
+    "gameplay_permission": "CLOSED",
+    "w5": "UNOPENED",
+    "prd08": "UNOPENED",
+    "prd09": "UNOPENED",
+    "r8": "UNOPENED"
+  }
+}

@@ -13,6 +13,11 @@ authority_status: "authoritative"
 depends_on:
   - "SYS-ENGINEERING-GOVERNANCE"
 related_to:
+  - "WORK-20260910-001"
+  - "TASK-20260910-001"
+  - "EVID-0014"
+  - "AUDIT-0014"
+  - "HANDOFF-20260910-002"
   - "WORK-20260906-001"
   - "WORK-20260906-002"
   - "WORK-20260906-003"
@@ -197,6 +202,16 @@ related_to:
 - Clean W3 runtime/reconciliation 46/46, tool/runtime 99/99, Brain/governance/R6 46/46 and rebuild boundary 9,013/9,013 pass. Brain integrity #38 and Engineering governance integrity #37 pass on terminal checkpoint `325fe1fe3bcbf9faa17684143421eef0fb1f8deb`.
 - W3 is COMPLETE. [[HANDOFF-20260910-001]] keeps W4 closed pending fresh owner authority for readiness/admission; W4 execution/0066 allocation, PRD-08/09, R8, gameplay and production remain closed.
 
+## R7 W4 Forge Trust Presentation Migration Readiness and Admission
+
+- Complete under owner-authorized [[TASK-20260910-001]] / [[WORK-20260910-001]]; certified by [[EVID-0014]] / [[AUDIT-0014]].
+- Exact W4 roster `49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 71`: 15 READY / 0 BLOCKED / 0 NOT APPLICABLE / 0 OBSERVED.
+- FIXTURE-07 and FIXTURE-08 revision `W4-R1` are READY, deterministic, independently identifiable and strictly non-production.
+- FCC-13E readiness covers all 312/312 exact rows; each remains required and not observed. No sampling or waiver is admitted.
+- Exact W4 source identity `a8c44988293279ded102b6cc4f6a4a62fdff461e5fefbf351a58306b2a86beb5`; admission pins 30 paths.
+- All future pairs 0066-0080 are `PREVIEW-NOT-ALLOCATED`. Registry/W3 state remain unchanged through issued high-water 0065.
+- W4 independent audit 132/132 and global rebuild boundary 9,421/9,421 pass. W4 proof execution and allocation remain closed through [[HANDOFF-20260910-002]].
+
 ## Later Activation Milestones
 
 - G1 registry and core identity: planned in [[GOV-DEBT-0002]].
@@ -205,4 +220,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260910-001]]. W0-W3 execution is certified; both earlier W3 controlled failures remain immutable, 0058 remains durably invalidated and the successful rerun is retained through 0065. W4, W5 and FINAL remain open programme work, but no W4 Task Contract, readiness state, execution authority or 0066 allocation exists. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260910-002]]. W0-W3 execution and W4 readiness/admission are certified; both earlier W3 controlled failures remain immutable, 0058 remains durably invalidated and the successful rerun is retained through 0065. W4 execution, W5 and FINAL remain open programme work, but no W4 proof observation, execution authority or 0066 allocation exists. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08/09 remain closed, and R8 gameplay permission remains closed.

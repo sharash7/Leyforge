@@ -10,8 +10,13 @@ updated: "2026-09-10"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260910-001"
+current_handoff: "HANDOFF-20260910-002"
 related_to:
+  - "HANDOFF-20260910-002"
+  - "EVID-0014"
+  - "AUDIT-0014"
+  - "WORK-20260910-001"
+  - "TASK-20260910-001"
   - "HANDOFF-20260910-001"
   - "EVID-0013"
   - "AUDIT-0013"
@@ -48,8 +53,8 @@ related_to:
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260910-001]]. The owner-authorized `R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN` is complete under [[TASK-20260909-003]] / [[WORK-20260909-003]] and certified by [[EVID-0013]] / [[AUDIT-0013]]. All seven W3 proofs are `PASS-OBSERVED` under retained `PRD07-RUN/EVID-0059` through `0065`; W3 is COMPLETE.
+The active formal handoff is [[HANDOFF-20260910-002]]. The owner-authorized `R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION` package is complete under [[TASK-20260910-001]] / [[WORK-20260910-001]] and certified by [[EVID-0014]] / [[AUDIT-0014]]. All 15 W4 proofs are READY; zero are BLOCKED or NOT APPLICABLE. FIXTURE-07 and FIXTURE-08 are READY, and the FCC-13E expected-input boundary covers exactly 312/312 rows. No proof observation occurred.
 
-The registry high-water is 0065: 0001-0050 and 0059-0065 are retained standard evidence, 0051-0057 remain quarantined/evidence-ineligible, and 0058 remains invalidated as `ABORTED-BEFORE-PROOF-OBSERVATION`. Historical states are immutable and no 0066 identity is allocated.
+The registry high-water remains 0065: 0001-0050 and 0059-0065 are retained standard evidence, 0051-0057 remain permanently quarantined/evidence-ineligible, and 0058 remains invalidated as `ABORTED-BEFORE-PROOF-OBSERVATION`. Preview pairs 0066-0080 are all `PREVIEW-NOT-ALLOCATED`; no 0066+ identity is allocated, reserved or burned.
 
-R7 remains ACTIVE. The next optional governed action requires fresh owner authority for a bounded `R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION` package only. W4 execution/identity allocation, W5, FINAL, R7 closure, PRD-08/09, R8 gameplay and production remain closed.
+R7 remains ACTIVE at `ACTIVE-AWAITING-W4-EXECUTION-AUTHORIZATION`. The next optional governed action requires fresh owner authority for the bounded `R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION` package. W4 execution/allocation, W5, FINAL, R7 closure, PRD-08/09, R8 gameplay and production remain closed.

@@ -1,8 +1,8 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active handoff:** `HANDOFF-20260910-001`. `WORK-20260909-003` and `TASK-20260909-003` are complete; `EVID-0013` / `AUDIT-0013` certify the W3 execution rerun.
+**Active handoff:** `HANDOFF-20260910-002`. `WORK-20260910-001` and `TASK-20260910-001` are complete; `EVID-0014` / `AUDIT-0014` certify W4 readiness/admission.
 
-**State:** ACTIVE — PRD-07 intake and W0-W3 execution are complete and certified. Pair 0058 remains durably invalidated; successful W3 proof packs 0059-0065 are retained. W4 is the next technical wave but remains unopened pending separate readiness/admission authority; W4 execution, W5 and FINAL remain unexecuted.
+**State:** ACTIVE — PRD-07 intake and W0-W3 execution are complete and certified. W4 readiness/admission is certified 15 READY / 0 BLOCKED / 0 NOT APPLICABLE; no W4 proof has executed. Pair 0058 remains durably invalidated; successful W3 proof packs 0059-0065 are retained; 0066-0080 remain preview-only. W4 execution, W5 and FINAL remain unexecuted.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
@@ -113,10 +113,18 @@ Terminal reconciliation reports W3 COMPLETE, RUN/EVID high-water 0065, 57 retain
 
 `EVID-0013` / `AUDIT-0013` certify completion. W4, PRD-08/09, R8, gameplay and production remain closed.
 
+## W4 Readiness and Admission — Certified
+
+The owner-authorized `R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION` package is complete under `TASK-20260910-001` / `WORK-20260910-001` and certified by `EVID-0014` / `AUDIT-0014`. Canonical W4 proofs 49-62 and 71 are all READY; every proof observation remains `NOT-EXECUTED`.
+
+FIXTURE-07 and FIXTURE-08 revision `W4-R1` are deterministic, reproducible, non-production proof/readiness fixtures. The FCC-13E ledger covers exactly all 312 rows without sampling or waiver and remains unobserved. Readiness/admission pins 30 exact artifacts at source-tree identity `a8c44988293279ded102b6cc4f6a4a62fdff461e5fefbf351a58306b2a86beb5`.
+
+The durable identity high-water remains 0065. Proposed pairs 0066-0080 follow PRD-07 W4 order and are all `PREVIEW-NOT-ALLOCATED`; no registry entry, standard pack, reservation, burn, timestamp or execution transition exists. W4 execution requires fresh owner authority through `HANDOFF-20260910-002`.
+
 ## Remaining R7 Work
 
-W4, W5 and FINAL remain open programme work. Before any W4 proof can be READY or allocate 0066, a fresh owner-authorized readiness/admission package must implement and certify FIXTURE-07/FIXTURE-08 expansion, all 15 W4 mappings including PRD04-PROOF-57/58 full-corpus revalidation, exact dependencies and a hash-pinned boundary. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W4 execution, W5 and FINAL remain open programme work. Before any W4 proof executes or allocates 0066, a fresh owner-authorized governed execution package must revalidate all 15 readiness rows, exact dependencies/source/fixtures, the full 312-row FCC-13E boundary, registry state and production boundary. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue only through [[HANDOFF-20260910-001]]. W3 is COMPLETE. Do not reuse 0051-0058, allocate 0066, open/execute W4, evaluate/open PRD-08 or open R8 without the applicable fresh authority.
+Continue only through [[HANDOFF-20260910-002]]. W3 is COMPLETE and W4 readiness/admission is CERTIFIED. Do not reuse 0051-0058, allocate 0066, execute W4, open W5, evaluate/open PRD-08/09 or open R8 without the applicable fresh authority.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

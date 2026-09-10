@@ -223,13 +223,18 @@ class BrainAcceptanceTests(unittest.TestCase):
 
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260909-003")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260910-001")
         self.assertEqual(handoff.metadata["next_gate"], "R7")
         self.assertEqual(
             handoff.metadata["next_package"],
-            "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION",
+            "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
         )
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260909-002")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260910-001")
+        self.assertEqual(self.by_id["HANDOFF-20260910-001"].metadata["status"], "superseded")
+        self.assertEqual(
+            self.by_id["HANDOFF-20260910-001"].metadata["superseded_by"],
+            "HANDOFF-20260910-002",
+        )
         self.assertEqual(self.by_id["HANDOFF-20260909-002"].metadata["status"], "superseded")
         self.assertEqual(
             self.by_id["HANDOFF-20260909-002"].metadata["superseded_by"],
@@ -254,10 +259,15 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(self.by_id["TASK-20260909-003"].metadata["status"], "complete")
         self.assertEqual(self.by_id["WORK-20260909-003"].metadata["status"], "complete")
         self.assertEqual(self.by_id["AUDIT-0013"].metadata["result"], "PASS")
-        self.assertIn("W3 COMPLETE", handoff.body)
+        self.assertEqual(self.by_id["TASK-20260910-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["WORK-20260910-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["AUDIT-0014"].metadata["result"], "PASS")
+        self.assertIn("W4 READINESS/ADMISSION CERTIFIED", handoff.body)
         self.assertIn("permanently quarantined", handoff.body)
         self.assertIn("0058", handoff.body)
         self.assertIn("0065", handoff.body)
+        self.assertIn("PREVIEW-NOT-ALLOCATED", handoff.body)
+        self.assertIn("312/312", handoff.body)
         self.assertIn("Production runtime", handoff.body)
         self.assertIn("PRD04-PROOF-73 remains INCONCLUSIVE", handoff.body)
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
