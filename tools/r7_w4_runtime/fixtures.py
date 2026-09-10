@@ -6,6 +6,7 @@ import csv
 import hashlib
 import json
 import os
+import platform
 import shutil
 import subprocess
 import tempfile
@@ -291,6 +292,12 @@ def fixture_validation_report(implementation_commit: str, run_dynamic: bool = Fa
         "fixture_08": {"fixture_id": "FIXTURE-08", "revision": "W4-R1", "capabilities": sorted(FIXTURE_08_CAPABILITIES), "status": "READY" if not fixture_issues() else "BLOCKED"},
         "fcc13e": {"rows_required": 312, "rows_present": len(canonical_fcc_rows()), "coverage": "312/312" if not any("FCC-13E" in issue for issue in issues) else "BLOCKED", "observation_status": "NOT-EXECUTED"},
         "dynamic_readiness_self_report": dynamic,
+        "validation_host_snapshot": {
+            "os": platform.system(),
+            "os_release": platform.release(),
+            "machine": platform.machine(),
+            "python": platform.python_version(),
+        },
         "before_execution_authority": before,
         "after_execution_authority": after,
         "issues": sorted(set(issues)),

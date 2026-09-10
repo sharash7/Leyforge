@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import platform
 import re
 import subprocess
 from collections import Counter
@@ -14,7 +13,7 @@ from typing import Any, Dict, List, Mapping, Tuple
 from .authority import ROOT, W4_PROOF_IDS, authority_issues, proof_contracts, source_identities
 from .dependencies import load_reference, local_dependency_report, reference_issues
 from .execution_plan import allocation_issues, future_rule_issues, preview_execution_plan, registry_snapshot
-from .fixtures import FIXTURE_VALIDATION_PATH, fixture_issues, fixture_source_identity
+from .fixtures import FIXTURE_VALIDATION_PATH, fixture_issues
 
 
 READINESS_PATH = ROOT / "docs/rebuild/r7/w4-readiness.json"
@@ -52,6 +51,18 @@ def governed_source_paths() -> Tuple[Path, ...]:
         if path.is_file():
             paths.add(path)
     return tuple(sorted(paths))
+
+
+def _governed_source_identity() -> Dict[str, Any]:
+    digest = hashlib.sha256()
+    artifacts = []
+    for path in governed_source_paths():
+        relative = path.relative_to(ROOT).as_posix()
+        data = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        sha256 = hashlib.sha256(data).hexdigest()
+        digest.update(relative.encode("utf-8") + b"\0" + data + b"\0")
+        artifacts.append({"path": relative, "bytes": len(data), "sha256": sha256})
+    return {"sha256": digest.hexdigest(), "artifacts": artifacts}
 
 
 def _commit_source_issues(implementation_commit: str) -> List[str]:
@@ -210,9 +221,10 @@ def readiness_report(implementation_commit: str, check_local: bool = False) -> D
             "execution_authorized": False,
         })
     counts = Counter(row["readiness_disposition"] for row in proof_rows)
-    identity = fixture_source_identity()
+    identity = _governed_source_identity()
     reference = load_reference()
     registry = registry_snapshot()
+    fixture_receipt = json.loads(FIXTURE_VALIDATION_PATH.read_text(encoding="utf-8-sig")) if FIXTURE_VALIDATION_PATH.is_file() else {}
     issues = sorted(set(global_issues + [item for row in proof_rows for item in row["blockers"]]))
     return {
         "schema_version": "prd07-w4-readiness-admission-v1",
@@ -235,7 +247,7 @@ def readiness_report(implementation_commit: str, check_local: bool = False) -> D
         "fcc13e": {"required_rows": 312, "covered_rows": 312 if not fixture_issues() else 0, "coverage_rule": "312/312-REQUIRED-NO-SAMPLING-NO-WAIVER", "disposition": "READY" if not fixture_issues() else "BLOCKED", "observation_status": "NOT-EXECUTED"},
         "dependency_identity": reference,
         "local_dependency_check": local,
-        "execution_environment_contract": {"host_lane": reference["host_lane"], "roles": reference["roles"], "renderers": reference["renderer_candidates"], "isolation": reference["isolation_requirements"], "hardware_identity_rule": reference["hardware_identity_rule"], "current_host_snapshot": {"os": platform.system(), "os_release": platform.release(), "machine": platform.machine(), "python": platform.python_version()}},
+        "execution_environment_contract": {"host_lane": reference["host_lane"], "roles": reference["roles"], "renderers": reference["renderer_candidates"], "isolation": reference["isolation_requirements"], "hardware_identity_rule": reference["hardware_identity_rule"], "readiness_validation_host_snapshot": fixture_receipt.get("validation_host_snapshot", {})},
         "registry_before_and_after_readiness": registry,
         "next_identity_previews": previews,
         "preview_state": "PREVIEW-NOT-ALLOCATED",
