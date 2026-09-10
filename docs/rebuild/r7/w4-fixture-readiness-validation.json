@@ -1,0 +1,1333 @@
+{
+  "after_execution_authority": {
+    "registry": {
+      "dispositions": {
+        "PRD07-RUN-0001": "PASS-OBSERVED",
+        "PRD07-RUN-0002": "INCONCLUSIVE",
+        "PRD07-RUN-0003": "PASS-OBSERVED",
+        "PRD07-RUN-0004": "PASS-OBSERVED",
+        "PRD07-RUN-0005": "PASS-OBSERVED",
+        "PRD07-RUN-0006": "PASS-OBSERVED",
+        "PRD07-RUN-0007": "PASS-OBSERVED",
+        "PRD07-RUN-0008": "PASS-OBSERVED",
+        "PRD07-RUN-0009": "PASS-OBSERVED",
+        "PRD07-RUN-0010": "PASS-OBSERVED",
+        "PRD07-RUN-0011": "PASS-OBSERVED",
+        "PRD07-RUN-0012": "PASS-OBSERVED",
+        "PRD07-RUN-0013": "PASS-OBSERVED",
+        "PRD07-RUN-0014": "PASS-OBSERVED",
+        "PRD07-RUN-0015": "PASS-OBSERVED",
+        "PRD07-RUN-0016": "PASS-OBSERVED",
+        "PRD07-RUN-0017": "PASS-OBSERVED",
+        "PRD07-RUN-0018": "PASS-OBSERVED",
+        "PRD07-RUN-0019": "PASS-OBSERVED",
+        "PRD07-RUN-0020": "PASS-OBSERVED",
+        "PRD07-RUN-0021": "PASS-OBSERVED",
+        "PRD07-RUN-0022": "PASS-OBSERVED",
+        "PRD07-RUN-0023": "PASS-OBSERVED",
+        "PRD07-RUN-0024": "PASS-OBSERVED",
+        "PRD07-RUN-0025": "PASS-OBSERVED",
+        "PRD07-RUN-0026": "PASS-OBSERVED",
+        "PRD07-RUN-0027": "PASS-OBSERVED",
+        "PRD07-RUN-0028": "PASS-OBSERVED",
+        "PRD07-RUN-0029": "PASS-OBSERVED",
+        "PRD07-RUN-0030": "PASS-OBSERVED",
+        "PRD07-RUN-0031": "PASS-OBSERVED",
+        "PRD07-RUN-0032": "PASS-OBSERVED",
+        "PRD07-RUN-0033": "PASS-OBSERVED",
+        "PRD07-RUN-0034": "PASS-OBSERVED",
+        "PRD07-RUN-0035": "PASS-OBSERVED",
+        "PRD07-RUN-0036": "PASS-OBSERVED",
+        "PRD07-RUN-0037": "PASS-OBSERVED",
+        "PRD07-RUN-0038": "PASS-OBSERVED",
+        "PRD07-RUN-0039": "PASS-OBSERVED",
+        "PRD07-RUN-0040": "PASS-OBSERVED",
+        "PRD07-RUN-0041": "PASS-OBSERVED",
+        "PRD07-RUN-0042": "PASS-OBSERVED",
+        "PRD07-RUN-0043": "PASS-OBSERVED",
+        "PRD07-RUN-0044": "PASS-OBSERVED",
+        "PRD07-RUN-0045": "PASS-OBSERVED",
+        "PRD07-RUN-0046": "PASS-OBSERVED",
+        "PRD07-RUN-0047": "PASS-OBSERVED",
+        "PRD07-RUN-0048": "PASS-OBSERVED",
+        "PRD07-RUN-0049": "PASS-OBSERVED",
+        "PRD07-RUN-0050": "PASS-OBSERVED",
+        "PRD07-RUN-0051": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0052": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0053": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0054": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0055": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0056": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0057": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0058": "INVALIDATED",
+        "PRD07-RUN-0059": "PASS-OBSERVED",
+        "PRD07-RUN-0060": "PASS-OBSERVED",
+        "PRD07-RUN-0061": "PASS-OBSERVED",
+        "PRD07-RUN-0062": "PASS-OBSERVED",
+        "PRD07-RUN-0063": "PASS-OBSERVED",
+        "PRD07-RUN-0064": "PASS-OBSERVED",
+        "PRD07-RUN-0065": "PASS-OBSERVED"
+      },
+      "evidence_ids": [
+        "PRD07-EVID-0001",
+        "PRD07-EVID-0002",
+        "PRD07-EVID-0003",
+        "PRD07-EVID-0004",
+        "PRD07-EVID-0005",
+        "PRD07-EVID-0006",
+        "PRD07-EVID-0007",
+        "PRD07-EVID-0008",
+        "PRD07-EVID-0009",
+        "PRD07-EVID-0010",
+        "PRD07-EVID-0011",
+        "PRD07-EVID-0012",
+        "PRD07-EVID-0013",
+        "PRD07-EVID-0014",
+        "PRD07-EVID-0015",
+        "PRD07-EVID-0016",
+        "PRD07-EVID-0017",
+        "PRD07-EVID-0018",
+        "PRD07-EVID-0019",
+        "PRD07-EVID-0020",
+        "PRD07-EVID-0021",
+        "PRD07-EVID-0022",
+        "PRD07-EVID-0023",
+        "PRD07-EVID-0024",
+        "PRD07-EVID-0025",
+        "PRD07-EVID-0026",
+        "PRD07-EVID-0027",
+        "PRD07-EVID-0028",
+        "PRD07-EVID-0029",
+        "PRD07-EVID-0030",
+        "PRD07-EVID-0031",
+        "PRD07-EVID-0032",
+        "PRD07-EVID-0033",
+        "PRD07-EVID-0034",
+        "PRD07-EVID-0035",
+        "PRD07-EVID-0036",
+        "PRD07-EVID-0037",
+        "PRD07-EVID-0038",
+        "PRD07-EVID-0039",
+        "PRD07-EVID-0040",
+        "PRD07-EVID-0041",
+        "PRD07-EVID-0042",
+        "PRD07-EVID-0043",
+        "PRD07-EVID-0044",
+        "PRD07-EVID-0045",
+        "PRD07-EVID-0046",
+        "PRD07-EVID-0047",
+        "PRD07-EVID-0048",
+        "PRD07-EVID-0049",
+        "PRD07-EVID-0050",
+        "PRD07-EVID-0051",
+        "PRD07-EVID-0052",
+        "PRD07-EVID-0053",
+        "PRD07-EVID-0054",
+        "PRD07-EVID-0055",
+        "PRD07-EVID-0056",
+        "PRD07-EVID-0057",
+        "PRD07-EVID-0058",
+        "PRD07-EVID-0059",
+        "PRD07-EVID-0060",
+        "PRD07-EVID-0061",
+        "PRD07-EVID-0062",
+        "PRD07-EVID-0063",
+        "PRD07-EVID-0064",
+        "PRD07-EVID-0065"
+      ],
+      "evidence_paths": [
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0001",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0002",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0003",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0004",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0005",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0006",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0007",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0008",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0009",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0010",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0011",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0012",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0013",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0014",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0015",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0016",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0017",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0018",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0019",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0020",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0021",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0022",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0023",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0024",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0025",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0026",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0027",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0028",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0029",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0030",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0031",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0032",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0033",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0034",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0035",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0036",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0037",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0038",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0039",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0040",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0041",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0042",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0043",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0044",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0045",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0046",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0047",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0048",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0049",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0050",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065"
+      ],
+      "mappings": {
+        "PRD07-RUN-0001": {
+          "evidence_id": "PRD07-EVID-0001",
+          "proof_id": "PRD04-PROOF-70"
+        },
+        "PRD07-RUN-0002": {
+          "evidence_id": "PRD07-EVID-0002",
+          "proof_id": "PRD04-PROOF-73"
+        },
+        "PRD07-RUN-0003": {
+          "evidence_id": "PRD07-EVID-0003",
+          "proof_id": "PRD04-PROOF-74"
+        },
+        "PRD07-RUN-0004": {
+          "evidence_id": "PRD07-EVID-0004",
+          "proof_id": "PRD04-PROOF-02"
+        },
+        "PRD07-RUN-0005": {
+          "evidence_id": "PRD07-EVID-0005",
+          "proof_id": "PRD04-PROOF-01"
+        },
+        "PRD07-RUN-0006": {
+          "evidence_id": "PRD07-EVID-0006",
+          "proof_id": "PRD04-PROOF-12"
+        },
+        "PRD07-RUN-0007": {
+          "evidence_id": "PRD07-EVID-0007",
+          "proof_id": "PRD04-PROOF-22"
+        },
+        "PRD07-RUN-0008": {
+          "evidence_id": "PRD07-EVID-0008",
+          "proof_id": "PRD04-PROOF-03"
+        },
+        "PRD07-RUN-0009": {
+          "evidence_id": "PRD07-EVID-0009",
+          "proof_id": "PRD04-PROOF-67"
+        },
+        "PRD07-RUN-0010": {
+          "evidence_id": "PRD07-EVID-0010",
+          "proof_id": "PRD04-PROOF-05"
+        },
+        "PRD07-RUN-0011": {
+          "evidence_id": "PRD07-EVID-0011",
+          "proof_id": "PRD04-PROOF-06"
+        },
+        "PRD07-RUN-0012": {
+          "evidence_id": "PRD07-EVID-0012",
+          "proof_id": "PRD04-PROOF-11"
+        },
+        "PRD07-RUN-0013": {
+          "evidence_id": "PRD07-EVID-0013",
+          "proof_id": "PRD04-PROOF-10"
+        },
+        "PRD07-RUN-0014": {
+          "evidence_id": "PRD07-EVID-0014",
+          "proof_id": "PRD04-PROOF-13"
+        },
+        "PRD07-RUN-0015": {
+          "evidence_id": "PRD07-EVID-0015",
+          "proof_id": "PRD04-PROOF-14"
+        },
+        "PRD07-RUN-0016": {
+          "evidence_id": "PRD07-EVID-0016",
+          "proof_id": "PRD04-PROOF-19"
+        },
+        "PRD07-RUN-0017": {
+          "evidence_id": "PRD07-EVID-0017",
+          "proof_id": "PRD04-PROOF-15"
+        },
+        "PRD07-RUN-0018": {
+          "evidence_id": "PRD07-EVID-0018",
+          "proof_id": "PRD04-PROOF-16"
+        },
+        "PRD07-RUN-0019": {
+          "evidence_id": "PRD07-EVID-0019",
+          "proof_id": "PRD04-PROOF-21"
+        },
+        "PRD07-RUN-0020": {
+          "evidence_id": "PRD07-EVID-0020",
+          "proof_id": "PRD04-PROOF-23"
+        },
+        "PRD07-RUN-0021": {
+          "evidence_id": "PRD07-EVID-0021",
+          "proof_id": "PRD04-PROOF-24"
+        },
+        "PRD07-RUN-0022": {
+          "evidence_id": "PRD07-EVID-0022",
+          "proof_id": "PRD04-PROOF-25"
+        },
+        "PRD07-RUN-0023": {
+          "evidence_id": "PRD07-EVID-0023",
+          "proof_id": "PRD04-PROOF-26"
+        },
+        "PRD07-RUN-0024": {
+          "evidence_id": "PRD07-EVID-0024",
+          "proof_id": "PRD04-PROOF-34"
+        },
+        "PRD07-RUN-0025": {
+          "evidence_id": "PRD07-EVID-0025",
+          "proof_id": "PRD04-PROOF-04"
+        },
+        "PRD07-RUN-0026": {
+          "evidence_id": "PRD07-EVID-0026",
+          "proof_id": "PRD04-PROOF-17"
+        },
+        "PRD07-RUN-0027": {
+          "evidence_id": "PRD07-EVID-0027",
+          "proof_id": "PRD04-PROOF-33"
+        },
+        "PRD07-RUN-0028": {
+          "evidence_id": "PRD07-EVID-0028",
+          "proof_id": "PRD04-PROOF-63"
+        },
+        "PRD07-RUN-0029": {
+          "evidence_id": "PRD07-EVID-0029",
+          "proof_id": "PRD04-PROOF-68"
+        },
+        "PRD07-RUN-0030": {
+          "evidence_id": "PRD07-EVID-0030",
+          "proof_id": "PRD04-PROOF-18"
+        },
+        "PRD07-RUN-0031": {
+          "evidence_id": "PRD07-EVID-0031",
+          "proof_id": "PRD04-PROOF-07"
+        },
+        "PRD07-RUN-0032": {
+          "evidence_id": "PRD07-EVID-0032",
+          "proof_id": "PRD04-PROOF-20"
+        },
+        "PRD07-RUN-0033": {
+          "evidence_id": "PRD07-EVID-0033",
+          "proof_id": "PRD04-PROOF-35"
+        },
+        "PRD07-RUN-0034": {
+          "evidence_id": "PRD07-EVID-0034",
+          "proof_id": "PRD04-PROOF-36"
+        },
+        "PRD07-RUN-0035": {
+          "evidence_id": "PRD07-EVID-0035",
+          "proof_id": "PRD04-PROOF-38"
+        },
+        "PRD07-RUN-0036": {
+          "evidence_id": "PRD07-EVID-0036",
+          "proof_id": "PRD04-PROOF-37"
+        },
+        "PRD07-RUN-0037": {
+          "evidence_id": "PRD07-EVID-0037",
+          "proof_id": "PRD04-PROOF-44"
+        },
+        "PRD07-RUN-0038": {
+          "evidence_id": "PRD07-EVID-0038",
+          "proof_id": "PRD04-PROOF-46"
+        },
+        "PRD07-RUN-0039": {
+          "evidence_id": "PRD07-EVID-0039",
+          "proof_id": "PRD04-PROOF-39"
+        },
+        "PRD07-RUN-0040": {
+          "evidence_id": "PRD07-EVID-0040",
+          "proof_id": "PRD04-PROOF-40"
+        },
+        "PRD07-RUN-0041": {
+          "evidence_id": "PRD07-EVID-0041",
+          "proof_id": "PRD04-PROOF-41"
+        },
+        "PRD07-RUN-0042": {
+          "evidence_id": "PRD07-EVID-0042",
+          "proof_id": "PRD04-PROOF-47"
+        },
+        "PRD07-RUN-0043": {
+          "evidence_id": "PRD07-EVID-0043",
+          "proof_id": "PRD04-PROOF-48"
+        },
+        "PRD07-RUN-0044": {
+          "evidence_id": "PRD07-EVID-0044",
+          "proof_id": "PRD04-PROOF-09"
+        },
+        "PRD07-RUN-0045": {
+          "evidence_id": "PRD07-EVID-0045",
+          "proof_id": "PRD04-PROOF-42"
+        },
+        "PRD07-RUN-0046": {
+          "evidence_id": "PRD07-EVID-0046",
+          "proof_id": "PRD04-PROOF-43"
+        },
+        "PRD07-RUN-0047": {
+          "evidence_id": "PRD07-EVID-0047",
+          "proof_id": "PRD04-PROOF-45"
+        },
+        "PRD07-RUN-0048": {
+          "evidence_id": "PRD07-EVID-0048",
+          "proof_id": "PRD04-PROOF-57"
+        },
+        "PRD07-RUN-0049": {
+          "evidence_id": "PRD07-EVID-0049",
+          "proof_id": "PRD04-PROOF-58"
+        },
+        "PRD07-RUN-0050": {
+          "evidence_id": "PRD07-EVID-0050",
+          "proof_id": "PRD04-PROOF-69"
+        },
+        "PRD07-RUN-0051": {
+          "evidence_id": "PRD07-EVID-0051",
+          "proof_id": "PRD04-PROOF-27"
+        },
+        "PRD07-RUN-0052": {
+          "evidence_id": "PRD07-EVID-0052",
+          "proof_id": "PRD04-PROOF-28"
+        },
+        "PRD07-RUN-0053": {
+          "evidence_id": "PRD07-EVID-0053",
+          "proof_id": "PRD04-PROOF-08"
+        },
+        "PRD07-RUN-0054": {
+          "evidence_id": "PRD07-EVID-0054",
+          "proof_id": "PRD04-PROOF-30"
+        },
+        "PRD07-RUN-0055": {
+          "evidence_id": "PRD07-EVID-0055",
+          "proof_id": "PRD04-PROOF-29"
+        },
+        "PRD07-RUN-0056": {
+          "evidence_id": "PRD07-EVID-0056",
+          "proof_id": "PRD04-PROOF-31"
+        },
+        "PRD07-RUN-0057": {
+          "evidence_id": "PRD07-EVID-0057",
+          "proof_id": "PRD04-PROOF-32"
+        },
+        "PRD07-RUN-0058": {
+          "evidence_id": "PRD07-EVID-0058",
+          "proof_id": "PRD04-PROOF-27"
+        },
+        "PRD07-RUN-0059": {
+          "evidence_id": "PRD07-EVID-0059",
+          "proof_id": "PRD04-PROOF-27"
+        },
+        "PRD07-RUN-0060": {
+          "evidence_id": "PRD07-EVID-0060",
+          "proof_id": "PRD04-PROOF-28"
+        },
+        "PRD07-RUN-0061": {
+          "evidence_id": "PRD07-EVID-0061",
+          "proof_id": "PRD04-PROOF-08"
+        },
+        "PRD07-RUN-0062": {
+          "evidence_id": "PRD07-EVID-0062",
+          "proof_id": "PRD04-PROOF-30"
+        },
+        "PRD07-RUN-0063": {
+          "evidence_id": "PRD07-EVID-0063",
+          "proof_id": "PRD04-PROOF-29"
+        },
+        "PRD07-RUN-0064": {
+          "evidence_id": "PRD07-EVID-0064",
+          "proof_id": "PRD04-PROOF-31"
+        },
+        "PRD07-RUN-0065": {
+          "evidence_id": "PRD07-EVID-0065",
+          "proof_id": "PRD04-PROOF-32"
+        }
+      },
+      "max_evidence_number": 65,
+      "max_run_number": 65,
+      "quarantine_paths": [
+        "docs/rebuild/r7/w3-allocation-reconciliation.json"
+      ],
+      "quarantined_run_ids": [
+        "PRD07-RUN-0051",
+        "PRD07-RUN-0052",
+        "PRD07-RUN-0053",
+        "PRD07-RUN-0054",
+        "PRD07-RUN-0055",
+        "PRD07-RUN-0056",
+        "PRD07-RUN-0057"
+      ],
+      "retained_run_ids": [
+        "PRD07-RUN-0001",
+        "PRD07-RUN-0002",
+        "PRD07-RUN-0003",
+        "PRD07-RUN-0004",
+        "PRD07-RUN-0005",
+        "PRD07-RUN-0006",
+        "PRD07-RUN-0007",
+        "PRD07-RUN-0008",
+        "PRD07-RUN-0009",
+        "PRD07-RUN-0010",
+        "PRD07-RUN-0011",
+        "PRD07-RUN-0012",
+        "PRD07-RUN-0013",
+        "PRD07-RUN-0014",
+        "PRD07-RUN-0015",
+        "PRD07-RUN-0016",
+        "PRD07-RUN-0017",
+        "PRD07-RUN-0018",
+        "PRD07-RUN-0019",
+        "PRD07-RUN-0020",
+        "PRD07-RUN-0021",
+        "PRD07-RUN-0022",
+        "PRD07-RUN-0023",
+        "PRD07-RUN-0024",
+        "PRD07-RUN-0025",
+        "PRD07-RUN-0026",
+        "PRD07-RUN-0027",
+        "PRD07-RUN-0028",
+        "PRD07-RUN-0029",
+        "PRD07-RUN-0030",
+        "PRD07-RUN-0031",
+        "PRD07-RUN-0032",
+        "PRD07-RUN-0033",
+        "PRD07-RUN-0034",
+        "PRD07-RUN-0035",
+        "PRD07-RUN-0036",
+        "PRD07-RUN-0037",
+        "PRD07-RUN-0038",
+        "PRD07-RUN-0039",
+        "PRD07-RUN-0040",
+        "PRD07-RUN-0041",
+        "PRD07-RUN-0042",
+        "PRD07-RUN-0043",
+        "PRD07-RUN-0044",
+        "PRD07-RUN-0045",
+        "PRD07-RUN-0046",
+        "PRD07-RUN-0047",
+        "PRD07-RUN-0048",
+        "PRD07-RUN-0049",
+        "PRD07-RUN-0050",
+        "PRD07-RUN-0059",
+        "PRD07-RUN-0060",
+        "PRD07-RUN-0061",
+        "PRD07-RUN-0062",
+        "PRD07-RUN-0063",
+        "PRD07-RUN-0064",
+        "PRD07-RUN-0065"
+      ],
+      "run_ids": [
+        "PRD07-RUN-0001",
+        "PRD07-RUN-0002",
+        "PRD07-RUN-0003",
+        "PRD07-RUN-0004",
+        "PRD07-RUN-0005",
+        "PRD07-RUN-0006",
+        "PRD07-RUN-0007",
+        "PRD07-RUN-0008",
+        "PRD07-RUN-0009",
+        "PRD07-RUN-0010",
+        "PRD07-RUN-0011",
+        "PRD07-RUN-0012",
+        "PRD07-RUN-0013",
+        "PRD07-RUN-0014",
+        "PRD07-RUN-0015",
+        "PRD07-RUN-0016",
+        "PRD07-RUN-0017",
+        "PRD07-RUN-0018",
+        "PRD07-RUN-0019",
+        "PRD07-RUN-0020",
+        "PRD07-RUN-0021",
+        "PRD07-RUN-0022",
+        "PRD07-RUN-0023",
+        "PRD07-RUN-0024",
+        "PRD07-RUN-0025",
+        "PRD07-RUN-0026",
+        "PRD07-RUN-0027",
+        "PRD07-RUN-0028",
+        "PRD07-RUN-0029",
+        "PRD07-RUN-0030",
+        "PRD07-RUN-0031",
+        "PRD07-RUN-0032",
+        "PRD07-RUN-0033",
+        "PRD07-RUN-0034",
+        "PRD07-RUN-0035",
+        "PRD07-RUN-0036",
+        "PRD07-RUN-0037",
+        "PRD07-RUN-0038",
+        "PRD07-RUN-0039",
+        "PRD07-RUN-0040",
+        "PRD07-RUN-0041",
+        "PRD07-RUN-0042",
+        "PRD07-RUN-0043",
+        "PRD07-RUN-0044",
+        "PRD07-RUN-0045",
+        "PRD07-RUN-0046",
+        "PRD07-RUN-0047",
+        "PRD07-RUN-0048",
+        "PRD07-RUN-0049",
+        "PRD07-RUN-0050",
+        "PRD07-RUN-0051",
+        "PRD07-RUN-0052",
+        "PRD07-RUN-0053",
+        "PRD07-RUN-0054",
+        "PRD07-RUN-0055",
+        "PRD07-RUN-0056",
+        "PRD07-RUN-0057",
+        "PRD07-RUN-0058",
+        "PRD07-RUN-0059",
+        "PRD07-RUN-0060",
+        "PRD07-RUN-0061",
+        "PRD07-RUN-0062",
+        "PRD07-RUN-0063",
+        "PRD07-RUN-0064",
+        "PRD07-RUN-0065"
+      ],
+      "state_paths": [
+        "docs/rebuild/r7/w0-execution-state.json",
+        "docs/rebuild/r7/w1-execution-state.json",
+        "docs/rebuild/r7/w2-execution-state.json",
+        "docs/rebuild/r7/w3-execution-state.json"
+      ]
+    },
+    "registry_sha256": "7336c7f0be993a75eec5532f606908136bc62a059c228da460414c2d7295a79e",
+    "w3_state_bytes": 26872,
+    "w3_state_path": "docs/rebuild/r7/w3-execution-state.json",
+    "w3_state_sha256": "adfe096c8bc657989738d84efb9cecff4b8afc0279050b04f6dcda21a1fd4880"
+  },
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "before_execution_authority": {
+    "registry": {
+      "dispositions": {
+        "PRD07-RUN-0001": "PASS-OBSERVED",
+        "PRD07-RUN-0002": "INCONCLUSIVE",
+        "PRD07-RUN-0003": "PASS-OBSERVED",
+        "PRD07-RUN-0004": "PASS-OBSERVED",
+        "PRD07-RUN-0005": "PASS-OBSERVED",
+        "PRD07-RUN-0006": "PASS-OBSERVED",
+        "PRD07-RUN-0007": "PASS-OBSERVED",
+        "PRD07-RUN-0008": "PASS-OBSERVED",
+        "PRD07-RUN-0009": "PASS-OBSERVED",
+        "PRD07-RUN-0010": "PASS-OBSERVED",
+        "PRD07-RUN-0011": "PASS-OBSERVED",
+        "PRD07-RUN-0012": "PASS-OBSERVED",
+        "PRD07-RUN-0013": "PASS-OBSERVED",
+        "PRD07-RUN-0014": "PASS-OBSERVED",
+        "PRD07-RUN-0015": "PASS-OBSERVED",
+        "PRD07-RUN-0016": "PASS-OBSERVED",
+        "PRD07-RUN-0017": "PASS-OBSERVED",
+        "PRD07-RUN-0018": "PASS-OBSERVED",
+        "PRD07-RUN-0019": "PASS-OBSERVED",
+        "PRD07-RUN-0020": "PASS-OBSERVED",
+        "PRD07-RUN-0021": "PASS-OBSERVED",
+        "PRD07-RUN-0022": "PASS-OBSERVED",
+        "PRD07-RUN-0023": "PASS-OBSERVED",
+        "PRD07-RUN-0024": "PASS-OBSERVED",
+        "PRD07-RUN-0025": "PASS-OBSERVED",
+        "PRD07-RUN-0026": "PASS-OBSERVED",
+        "PRD07-RUN-0027": "PASS-OBSERVED",
+        "PRD07-RUN-0028": "PASS-OBSERVED",
+        "PRD07-RUN-0029": "PASS-OBSERVED",
+        "PRD07-RUN-0030": "PASS-OBSERVED",
+        "PRD07-RUN-0031": "PASS-OBSERVED",
+        "PRD07-RUN-0032": "PASS-OBSERVED",
+        "PRD07-RUN-0033": "PASS-OBSERVED",
+        "PRD07-RUN-0034": "PASS-OBSERVED",
+        "PRD07-RUN-0035": "PASS-OBSERVED",
+        "PRD07-RUN-0036": "PASS-OBSERVED",
+        "PRD07-RUN-0037": "PASS-OBSERVED",
+        "PRD07-RUN-0038": "PASS-OBSERVED",
+        "PRD07-RUN-0039": "PASS-OBSERVED",
+        "PRD07-RUN-0040": "PASS-OBSERVED",
+        "PRD07-RUN-0041": "PASS-OBSERVED",
+        "PRD07-RUN-0042": "PASS-OBSERVED",
+        "PRD07-RUN-0043": "PASS-OBSERVED",
+        "PRD07-RUN-0044": "PASS-OBSERVED",
+        "PRD07-RUN-0045": "PASS-OBSERVED",
+        "PRD07-RUN-0046": "PASS-OBSERVED",
+        "PRD07-RUN-0047": "PASS-OBSERVED",
+        "PRD07-RUN-0048": "PASS-OBSERVED",
+        "PRD07-RUN-0049": "PASS-OBSERVED",
+        "PRD07-RUN-0050": "PASS-OBSERVED",
+        "PRD07-RUN-0051": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0052": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0053": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0054": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0055": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0056": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0057": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0058": "INVALIDATED",
+        "PRD07-RUN-0059": "PASS-OBSERVED",
+        "PRD07-RUN-0060": "PASS-OBSERVED",
+        "PRD07-RUN-0061": "PASS-OBSERVED",
+        "PRD07-RUN-0062": "PASS-OBSERVED",
+        "PRD07-RUN-0063": "PASS-OBSERVED",
+        "PRD07-RUN-0064": "PASS-OBSERVED",
+        "PRD07-RUN-0065": "PASS-OBSERVED"
+      },
+      "evidence_ids": [
+        "PRD07-EVID-0001",
+        "PRD07-EVID-0002",
+        "PRD07-EVID-0003",
+        "PRD07-EVID-0004",
+        "PRD07-EVID-0005",
+        "PRD07-EVID-0006",
+        "PRD07-EVID-0007",
+        "PRD07-EVID-0008",
+        "PRD07-EVID-0009",
+        "PRD07-EVID-0010",
+        "PRD07-EVID-0011",
+        "PRD07-EVID-0012",
+        "PRD07-EVID-0013",
+        "PRD07-EVID-0014",
+        "PRD07-EVID-0015",
+        "PRD07-EVID-0016",
+        "PRD07-EVID-0017",
+        "PRD07-EVID-0018",
+        "PRD07-EVID-0019",
+        "PRD07-EVID-0020",
+        "PRD07-EVID-0021",
+        "PRD07-EVID-0022",
+        "PRD07-EVID-0023",
+        "PRD07-EVID-0024",
+        "PRD07-EVID-0025",
+        "PRD07-EVID-0026",
+        "PRD07-EVID-0027",
+        "PRD07-EVID-0028",
+        "PRD07-EVID-0029",
+        "PRD07-EVID-0030",
+        "PRD07-EVID-0031",
+        "PRD07-EVID-0032",
+        "PRD07-EVID-0033",
+        "PRD07-EVID-0034",
+        "PRD07-EVID-0035",
+        "PRD07-EVID-0036",
+        "PRD07-EVID-0037",
+        "PRD07-EVID-0038",
+        "PRD07-EVID-0039",
+        "PRD07-EVID-0040",
+        "PRD07-EVID-0041",
+        "PRD07-EVID-0042",
+        "PRD07-EVID-0043",
+        "PRD07-EVID-0044",
+        "PRD07-EVID-0045",
+        "PRD07-EVID-0046",
+        "PRD07-EVID-0047",
+        "PRD07-EVID-0048",
+        "PRD07-EVID-0049",
+        "PRD07-EVID-0050",
+        "PRD07-EVID-0051",
+        "PRD07-EVID-0052",
+        "PRD07-EVID-0053",
+        "PRD07-EVID-0054",
+        "PRD07-EVID-0055",
+        "PRD07-EVID-0056",
+        "PRD07-EVID-0057",
+        "PRD07-EVID-0058",
+        "PRD07-EVID-0059",
+        "PRD07-EVID-0060",
+        "PRD07-EVID-0061",
+        "PRD07-EVID-0062",
+        "PRD07-EVID-0063",
+        "PRD07-EVID-0064",
+        "PRD07-EVID-0065"
+      ],
+      "evidence_paths": [
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0001",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0002",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0003",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0004",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0005",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0006",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0007",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0008",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0009",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0010",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0011",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0012",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0013",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0014",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0015",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0016",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0017",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0018",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0019",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0020",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0021",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0022",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0023",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0024",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0025",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0026",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0027",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0028",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0029",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0030",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0031",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0032",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0033",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0034",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0035",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0036",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0037",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0038",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0039",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0040",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0041",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0042",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0043",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0044",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0045",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0046",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0047",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0048",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0049",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0050",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065"
+      ],
+      "mappings": {
+        "PRD07-RUN-0001": {
+          "evidence_id": "PRD07-EVID-0001",
+          "proof_id": "PRD04-PROOF-70"
+        },
+        "PRD07-RUN-0002": {
+          "evidence_id": "PRD07-EVID-0002",
+          "proof_id": "PRD04-PROOF-73"
+        },
+        "PRD07-RUN-0003": {
+          "evidence_id": "PRD07-EVID-0003",
+          "proof_id": "PRD04-PROOF-74"
+        },
+        "PRD07-RUN-0004": {
+          "evidence_id": "PRD07-EVID-0004",
+          "proof_id": "PRD04-PROOF-02"
+        },
+        "PRD07-RUN-0005": {
+          "evidence_id": "PRD07-EVID-0005",
+          "proof_id": "PRD04-PROOF-01"
+        },
+        "PRD07-RUN-0006": {
+          "evidence_id": "PRD07-EVID-0006",
+          "proof_id": "PRD04-PROOF-12"
+        },
+        "PRD07-RUN-0007": {
+          "evidence_id": "PRD07-EVID-0007",
+          "proof_id": "PRD04-PROOF-22"
+        },
+        "PRD07-RUN-0008": {
+          "evidence_id": "PRD07-EVID-0008",
+          "proof_id": "PRD04-PROOF-03"
+        },
+        "PRD07-RUN-0009": {
+          "evidence_id": "PRD07-EVID-0009",
+          "proof_id": "PRD04-PROOF-67"
+        },
+        "PRD07-RUN-0010": {
+          "evidence_id": "PRD07-EVID-0010",
+          "proof_id": "PRD04-PROOF-05"
+        },
+        "PRD07-RUN-0011": {
+          "evidence_id": "PRD07-EVID-0011",
+          "proof_id": "PRD04-PROOF-06"
+        },
+        "PRD07-RUN-0012": {
+          "evidence_id": "PRD07-EVID-0012",
+          "proof_id": "PRD04-PROOF-11"
+        },
+        "PRD07-RUN-0013": {
+          "evidence_id": "PRD07-EVID-0013",
+          "proof_id": "PRD04-PROOF-10"
+        },
+        "PRD07-RUN-0014": {
+          "evidence_id": "PRD07-EVID-0014",
+          "proof_id": "PRD04-PROOF-13"
+        },
+        "PRD07-RUN-0015": {
+          "evidence_id": "PRD07-EVID-0015",
+          "proof_id": "PRD04-PROOF-14"
+        },
+        "PRD07-RUN-0016": {
+          "evidence_id": "PRD07-EVID-0016",
+          "proof_id": "PRD04-PROOF-19"
+        },
+        "PRD07-RUN-0017": {
+          "evidence_id": "PRD07-EVID-0017",
+          "proof_id": "PRD04-PROOF-15"
+        },
+        "PRD07-RUN-0018": {
+          "evidence_id": "PRD07-EVID-0018",
+          "proof_id": "PRD04-PROOF-16"
+        },
+        "PRD07-RUN-0019": {
+          "evidence_id": "PRD07-EVID-0019",
+          "proof_id": "PRD04-PROOF-21"
+        },
+        "PRD07-RUN-0020": {
+          "evidence_id": "PRD07-EVID-0020",
+          "proof_id": "PRD04-PROOF-23"
+        },
+        "PRD07-RUN-0021": {
+          "evidence_id": "PRD07-EVID-0021",
+          "proof_id": "PRD04-PROOF-24"
+        },
+        "PRD07-RUN-0022": {
+          "evidence_id": "PRD07-EVID-0022",
+          "proof_id": "PRD04-PROOF-25"
+        },
+        "PRD07-RUN-0023": {
+          "evidence_id": "PRD07-EVID-0023",
+          "proof_id": "PRD04-PROOF-26"
+        },
+        "PRD07-RUN-0024": {
+          "evidence_id": "PRD07-EVID-0024",
+          "proof_id": "PRD04-PROOF-34"
+        },
+        "PRD07-RUN-0025": {
+          "evidence_id": "PRD07-EVID-0025",
+          "proof_id": "PRD04-PROOF-04"
+        },
+        "PRD07-RUN-0026": {
+          "evidence_id": "PRD07-EVID-0026",
+          "proof_id": "PRD04-PROOF-17"
+        },
+        "PRD07-RUN-0027": {
+          "evidence_id": "PRD07-EVID-0027",
+          "proof_id": "PRD04-PROOF-33"
+        },
+        "PRD07-RUN-0028": {
+          "evidence_id": "PRD07-EVID-0028",
+          "proof_id": "PRD04-PROOF-63"
+        },
+        "PRD07-RUN-0029": {
+          "evidence_id": "PRD07-EVID-0029",
+          "proof_id": "PRD04-PROOF-68"
+        },
+        "PRD07-RUN-0030": {
+          "evidence_id": "PRD07-EVID-0030",
+          "proof_id": "PRD04-PROOF-18"
+        },
+        "PRD07-RUN-0031": {
+          "evidence_id": "PRD07-EVID-0031",
+          "proof_id": "PRD04-PROOF-07"
+        },
+        "PRD07-RUN-0032": {
+          "evidence_id": "PRD07-EVID-0032",
+          "proof_id": "PRD04-PROOF-20"
+        },
+        "PRD07-RUN-0033": {
+          "evidence_id": "PRD07-EVID-0033",
+          "proof_id": "PRD04-PROOF-35"
+        },
+        "PRD07-RUN-0034": {
+          "evidence_id": "PRD07-EVID-0034",
+          "proof_id": "PRD04-PROOF-36"
+        },
+        "PRD07-RUN-0035": {
+          "evidence_id": "PRD07-EVID-0035",
+          "proof_id": "PRD04-PROOF-38"
+        },
+        "PRD07-RUN-0036": {
+          "evidence_id": "PRD07-EVID-0036",
+          "proof_id": "PRD04-PROOF-37"
+        },
+        "PRD07-RUN-0037": {
+          "evidence_id": "PRD07-EVID-0037",
+          "proof_id": "PRD04-PROOF-44"
+        },
+        "PRD07-RUN-0038": {
+          "evidence_id": "PRD07-EVID-0038",
+          "proof_id": "PRD04-PROOF-46"
+        },
+        "PRD07-RUN-0039": {
+          "evidence_id": "PRD07-EVID-0039",
+          "proof_id": "PRD04-PROOF-39"
+        },
+        "PRD07-RUN-0040": {
+          "evidence_id": "PRD07-EVID-0040",
+          "proof_id": "PRD04-PROOF-40"
+        },
+        "PRD07-RUN-0041": {
+          "evidence_id": "PRD07-EVID-0041",
+          "proof_id": "PRD04-PROOF-41"
+        },
+        "PRD07-RUN-0042": {
+          "evidence_id": "PRD07-EVID-0042",
+          "proof_id": "PRD04-PROOF-47"
+        },
+        "PRD07-RUN-0043": {
+          "evidence_id": "PRD07-EVID-0043",
+          "proof_id": "PRD04-PROOF-48"
+        },
+        "PRD07-RUN-0044": {
+          "evidence_id": "PRD07-EVID-0044",
+          "proof_id": "PRD04-PROOF-09"
+        },
+        "PRD07-RUN-0045": {
+          "evidence_id": "PRD07-EVID-0045",
+          "proof_id": "PRD04-PROOF-42"
+        },
+        "PRD07-RUN-0046": {
+          "evidence_id": "PRD07-EVID-0046",
+          "proof_id": "PRD04-PROOF-43"
+        },
+        "PRD07-RUN-0047": {
+          "evidence_id": "PRD07-EVID-0047",
+          "proof_id": "PRD04-PROOF-45"
+        },
+        "PRD07-RUN-0048": {
+          "evidence_id": "PRD07-EVID-0048",
+          "proof_id": "PRD04-PROOF-57"
+        },
+        "PRD07-RUN-0049": {
+          "evidence_id": "PRD07-EVID-0049",
+          "proof_id": "PRD04-PROOF-58"
+        },
+        "PRD07-RUN-0050": {
+          "evidence_id": "PRD07-EVID-0050",
+          "proof_id": "PRD04-PROOF-69"
+        },
+        "PRD07-RUN-0051": {
+          "evidence_id": "PRD07-EVID-0051",
+          "proof_id": "PRD04-PROOF-27"
+        },
+        "PRD07-RUN-0052": {
+          "evidence_id": "PRD07-EVID-0052",
+          "proof_id": "PRD04-PROOF-28"
+        },
+        "PRD07-RUN-0053": {
+          "evidence_id": "PRD07-EVID-0053",
+          "proof_id": "PRD04-PROOF-08"
+        },
+        "PRD07-RUN-0054": {
+          "evidence_id": "PRD07-EVID-0054",
+          "proof_id": "PRD04-PROOF-30"
+        },
+        "PRD07-RUN-0055": {
+          "evidence_id": "PRD07-EVID-0055",
+          "proof_id": "PRD04-PROOF-29"
+        },
+        "PRD07-RUN-0056": {
+          "evidence_id": "PRD07-EVID-0056",
+          "proof_id": "PRD04-PROOF-31"
+        },
+        "PRD07-RUN-0057": {
+          "evidence_id": "PRD07-EVID-0057",
+          "proof_id": "PRD04-PROOF-32"
+        },
+        "PRD07-RUN-0058": {
+          "evidence_id": "PRD07-EVID-0058",
+          "proof_id": "PRD04-PROOF-27"
+        },
+        "PRD07-RUN-0059": {
+          "evidence_id": "PRD07-EVID-0059",
+          "proof_id": "PRD04-PROOF-27"
+        },
+        "PRD07-RUN-0060": {
+          "evidence_id": "PRD07-EVID-0060",
+          "proof_id": "PRD04-PROOF-28"
+        },
+        "PRD07-RUN-0061": {
+          "evidence_id": "PRD07-EVID-0061",
+          "proof_id": "PRD04-PROOF-08"
+        },
+        "PRD07-RUN-0062": {
+          "evidence_id": "PRD07-EVID-0062",
+          "proof_id": "PRD04-PROOF-30"
+        },
+        "PRD07-RUN-0063": {
+          "evidence_id": "PRD07-EVID-0063",
+          "proof_id": "PRD04-PROOF-29"
+        },
+        "PRD07-RUN-0064": {
+          "evidence_id": "PRD07-EVID-0064",
+          "proof_id": "PRD04-PROOF-31"
+        },
+        "PRD07-RUN-0065": {
+          "evidence_id": "PRD07-EVID-0065",
+          "proof_id": "PRD04-PROOF-32"
+        }
+      },
+      "max_evidence_number": 65,
+      "max_run_number": 65,
+      "quarantine_paths": [
+        "docs/rebuild/r7/w3-allocation-reconciliation.json"
+      ],
+      "quarantined_run_ids": [
+        "PRD07-RUN-0051",
+        "PRD07-RUN-0052",
+        "PRD07-RUN-0053",
+        "PRD07-RUN-0054",
+        "PRD07-RUN-0055",
+        "PRD07-RUN-0056",
+        "PRD07-RUN-0057"
+      ],
+      "retained_run_ids": [
+        "PRD07-RUN-0001",
+        "PRD07-RUN-0002",
+        "PRD07-RUN-0003",
+        "PRD07-RUN-0004",
+        "PRD07-RUN-0005",
+        "PRD07-RUN-0006",
+        "PRD07-RUN-0007",
+        "PRD07-RUN-0008",
+        "PRD07-RUN-0009",
+        "PRD07-RUN-0010",
+        "PRD07-RUN-0011",
+        "PRD07-RUN-0012",
+        "PRD07-RUN-0013",
+        "PRD07-RUN-0014",
+        "PRD07-RUN-0015",
+        "PRD07-RUN-0016",
+        "PRD07-RUN-0017",
+        "PRD07-RUN-0018",
+        "PRD07-RUN-0019",
+        "PRD07-RUN-0020",
+        "PRD07-RUN-0021",
+        "PRD07-RUN-0022",
+        "PRD07-RUN-0023",
+        "PRD07-RUN-0024",
+        "PRD07-RUN-0025",
+        "PRD07-RUN-0026",
+        "PRD07-RUN-0027",
+        "PRD07-RUN-0028",
+        "PRD07-RUN-0029",
+        "PRD07-RUN-0030",
+        "PRD07-RUN-0031",
+        "PRD07-RUN-0032",
+        "PRD07-RUN-0033",
+        "PRD07-RUN-0034",
+        "PRD07-RUN-0035",
+        "PRD07-RUN-0036",
+        "PRD07-RUN-0037",
+        "PRD07-RUN-0038",
+        "PRD07-RUN-0039",
+        "PRD07-RUN-0040",
+        "PRD07-RUN-0041",
+        "PRD07-RUN-0042",
+        "PRD07-RUN-0043",
+        "PRD07-RUN-0044",
+        "PRD07-RUN-0045",
+        "PRD07-RUN-0046",
+        "PRD07-RUN-0047",
+        "PRD07-RUN-0048",
+        "PRD07-RUN-0049",
+        "PRD07-RUN-0050",
+        "PRD07-RUN-0059",
+        "PRD07-RUN-0060",
+        "PRD07-RUN-0061",
+        "PRD07-RUN-0062",
+        "PRD07-RUN-0063",
+        "PRD07-RUN-0064",
+        "PRD07-RUN-0065"
+      ],
+      "run_ids": [
+        "PRD07-RUN-0001",
+        "PRD07-RUN-0002",
+        "PRD07-RUN-0003",
+        "PRD07-RUN-0004",
+        "PRD07-RUN-0005",
+        "PRD07-RUN-0006",
+        "PRD07-RUN-0007",
+        "PRD07-RUN-0008",
+        "PRD07-RUN-0009",
+        "PRD07-RUN-0010",
+        "PRD07-RUN-0011",
+        "PRD07-RUN-0012",
+        "PRD07-RUN-0013",
+        "PRD07-RUN-0014",
+        "PRD07-RUN-0015",
+        "PRD07-RUN-0016",
+        "PRD07-RUN-0017",
+        "PRD07-RUN-0018",
+        "PRD07-RUN-0019",
+        "PRD07-RUN-0020",
+        "PRD07-RUN-0021",
+        "PRD07-RUN-0022",
+        "PRD07-RUN-0023",
+        "PRD07-RUN-0024",
+        "PRD07-RUN-0025",
+        "PRD07-RUN-0026",
+        "PRD07-RUN-0027",
+        "PRD07-RUN-0028",
+        "PRD07-RUN-0029",
+        "PRD07-RUN-0030",
+        "PRD07-RUN-0031",
+        "PRD07-RUN-0032",
+        "PRD07-RUN-0033",
+        "PRD07-RUN-0034",
+        "PRD07-RUN-0035",
+        "PRD07-RUN-0036",
+        "PRD07-RUN-0037",
+        "PRD07-RUN-0038",
+        "PRD07-RUN-0039",
+        "PRD07-RUN-0040",
+        "PRD07-RUN-0041",
+        "PRD07-RUN-0042",
+        "PRD07-RUN-0043",
+        "PRD07-RUN-0044",
+        "PRD07-RUN-0045",
+        "PRD07-RUN-0046",
+        "PRD07-RUN-0047",
+        "PRD07-RUN-0048",
+        "PRD07-RUN-0049",
+        "PRD07-RUN-0050",
+        "PRD07-RUN-0051",
+        "PRD07-RUN-0052",
+        "PRD07-RUN-0053",
+        "PRD07-RUN-0054",
+        "PRD07-RUN-0055",
+        "PRD07-RUN-0056",
+        "PRD07-RUN-0057",
+        "PRD07-RUN-0058",
+        "PRD07-RUN-0059",
+        "PRD07-RUN-0060",
+        "PRD07-RUN-0061",
+        "PRD07-RUN-0062",
+        "PRD07-RUN-0063",
+        "PRD07-RUN-0064",
+        "PRD07-RUN-0065"
+      ],
+      "state_paths": [
+        "docs/rebuild/r7/w0-execution-state.json",
+        "docs/rebuild/r7/w1-execution-state.json",
+        "docs/rebuild/r7/w2-execution-state.json",
+        "docs/rebuild/r7/w3-execution-state.json"
+      ]
+    },
+    "registry_sha256": "7336c7f0be993a75eec5532f606908136bc62a059c228da460414c2d7295a79e",
+    "w3_state_bytes": 26872,
+    "w3_state_path": "docs/rebuild/r7/w3-execution-state.json",
+    "w3_state_sha256": "adfe096c8bc657989738d84efb9cecff4b8afc0279050b04f6dcda21a1fd4880"
+  },
+  "dynamic_readiness_self_report": {
+    "command_role": "proof-free-fixture-readiness-self-report",
+    "exit_code": 0,
+    "performed": true,
+    "report": {
+      "authorised_knowledge_separate_from_live_truth": true,
+      "configuration_case_count": 9,
+      "fixture_id": "FIXTURE-08",
+      "fixture_revision": "W4-R1",
+      "gameplay_permission": "CLOSED",
+      "identity_allocation_started": false,
+      "map_modes": [
+        "field",
+        "surveyed",
+        "magical-relief",
+        "flat",
+        "non-drag",
+        "list"
+      ],
+      "presentation_case_count": 7,
+      "production_runtime": false,
+      "proof_execution_started": false,
+      "schema_version": "prd07-w4-fixture-08-readiness-self-report-v1",
+      "stable_proof_ids": [
+        "PRD04-PROOF-49",
+        "PRD04-PROOF-50",
+        "PRD04-PROOF-51",
+        "PRD04-PROOF-52",
+        "PRD04-PROOF-53",
+        "PRD04-PROOF-54",
+        "PRD04-PROOF-55",
+        "PRD04-PROOF-56",
+        "PRD04-PROOF-57",
+        "PRD04-PROOF-58",
+        "PRD04-PROOF-59",
+        "PRD04-PROOF-60",
+        "PRD04-PROOF-61",
+        "PRD04-PROOF-62",
+        "PRD04-PROOF-71"
+      ],
+      "status": "PASS"
+    },
+    "status": "PASS",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "a545d9d522a4027c96cda9fa9e16fa784c6080bd3a52e1d742419a9b53104849"
+  },
+  "fcc13e": {
+    "coverage": "312/312",
+    "observation_status": "NOT-EXECUTED",
+    "rows_present": 312,
+    "rows_required": 312
+  },
+  "fixture_07": {
+    "capabilities": [
+      "ai-human-matched-authoring-tasks",
+      "art-golden-reference-source-packages",
+      "canonical-registry-source-bindings",
+      "clean-cache-clean-environment-bake",
+      "client-server-logical-pack-role-artifact-identity",
+      "declarative-resource-bomb-fixtures",
+      "dependency-trust-graph",
+      "deterministic-reproducible-bake-manifest",
+      "fcc13e-full-312-row-migration-corpus",
+      "generated-material-form-state-families",
+      "governed-editable-source-packages",
+      "hostile-capability-smuggling-fixtures",
+      "leyforge-test-compat-isolation",
+      "machine-readable-validator-results",
+      "missing-pack-world-fixtures",
+      "source-provenance-metadata"
+    ],
+    "fixture_id": "FIXTURE-07",
+    "revision": "W4-R1",
+    "status": "READY"
+  },
+  "fixture_08": {
+    "capabilities": [
+      "authorised-map-knowledge-separated-from-live-truth",
+      "candidate-renderer-profile-lanes",
+      "colour-accessibility-cases",
+      "controller-keyboard-input-remap",
+      "flat-nondrag-list-map-alternatives",
+      "invalid-saved-graphics-configurations",
+      "large-ui-text-scale",
+      "long-localization-layout-stress",
+      "map00-field-surveyed-magical-relief-modes",
+      "muted-audio-caption-alternatives",
+      "reduced-motion-flash-particle-cases",
+      "reduced-quality-effects",
+      "representative-art-golden-runtime-scenes",
+      "split-screen-per-view-variants",
+      "task-based-semantic-readability-scoring"
+    ],
+    "fixture_id": "FIXTURE-08",
+    "revision": "W4-R1",
+    "status": "READY"
+  },
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "7ff70fae0bad97287602e946deae409ac3df74b8",
+  "issues": [],
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION",
+  "production_runtime": "ABSENT",
+  "proof_execution": "NOT-STARTED",
+  "schema_version": "prd07-w4-fixture-readiness-validation-v1",
+  "status": "PASS",
+  "validation_host_snapshot": {
+    "machine": "AMD64",
+    "os": "Windows",
+    "os_release": "10",
+    "python": "3.9.5"
+  }
+}

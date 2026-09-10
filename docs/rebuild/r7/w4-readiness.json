@@ -1,0 +1,3501 @@
+{
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "authority": [
+    {
+      "authority": "PRD-04",
+      "bytes": 345494,
+      "path": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+      "sha256": "747c6681d521dc0483e9b8c1c622bb705aa3fbaff7f2a9b494965835f191e2b4"
+    },
+    {
+      "authority": "PRD-05",
+      "bytes": 1312444,
+      "path": ".summer/00_Docs/PRD/PRD-05_Leyforge_Research_Evidence_Crosswalk_v1_0_CLOSURE_CANDIDATE_Round10.md",
+      "sha256": "30af0861a801158459820d1756fb49cdf223015b682de8df5f7acbb89add766e"
+    },
+    {
+      "authority": "PRD-06",
+      "bytes": 574732,
+      "path": ".summer/00_Docs/PRD/PRD-06_Leyforge_Technical_Risk_and_Proof_Register_v1_0_CLOSURE_CANDIDATE_Round10.md",
+      "sha256": "001f748875e63760d22fda5e4fa8fb71f9a7f9cf465f285f019a3ba5a8ba3fba"
+    },
+    {
+      "authority": "PRD-07",
+      "bytes": 393546,
+      "path": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+      "sha256": "c36296278d0c9f09c78931c0bfeaa7a2b2a5aa4b71c741c17fcd7b473259b88e"
+    },
+    {
+      "authority": "ART-09",
+      "bytes": 55932,
+      "path": ".summer/00_Docs/ART/ART-09_Leyforge_Codex_and_The_Forge_Asset_Production_Execution_Contract_v0.1.md",
+      "sha256": "6a229ff749bc0013911471df34f5352d63928224ac81f16f15c7d4a11b3fed8d"
+    },
+    {
+      "authority": "ART-10",
+      "bytes": 45354,
+      "path": ".summer/00_Docs/ART/ART-10_Leyforge_Golden_References_Visual_Audio_QA_and_Production_Certification_v0.1.md",
+      "sha256": "06f39cab47a7ced4bb3b32bc8d6671ad37f9104e53a2413fe493b1fcf1f39854"
+    },
+    {
+      "authority": "MAP-00",
+      "bytes": 42019,
+      "path": ".summer/00_Docs/Additional/MAP-00_Leyforge_In-World_Cartography_Surveying_and_Magical_Relief_Map_System_v0.1.md",
+      "sha256": "a1b18ae01a8cc63ff06cf0297b0ae25fee165116f3a30d05b051c0c41480edad"
+    },
+    {
+      "authority": "FCC-13E-CSV",
+      "bytes": 161890,
+      "path": ".summer/00_Docs/FCC-01-14/FCC13/Leyforge_FCC-13_Definitive_Registry_LOCKED/FCC-13E_Final_312-Row_Legacy_Migration_Matrix_v0_1.csv",
+      "sha256": "8ecd4f8ec4a78e7e651de295a337a02e435852cdddea036040a0f69d1cc58036"
+    },
+    {
+      "authority": "FCC-13E-AUDIT",
+      "bytes": 119408,
+      "path": ".summer/00_Docs/FCC-01-14/FCC13/Leyforge_FCC-13_Definitive_Registry_LOCKED/FCC-13E_Legacy_Migration_Matrix_Completeness_Audit_and_FCC-14_Handoff_v0_1.md",
+      "sha256": "aa334414ab509e3e7674336f3d62767d3064f29ea1292ccea2ab9a452c6a5610"
+    }
+  ],
+  "dependency_identity": {
+    "component_hashes": {
+      "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "godot_export_template_runtime_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+    },
+    "component_revisions": {
+      "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_export_template": "4.8.dev4.official.b56a91878",
+      "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+    },
+    "gameplay_permission": "CLOSED",
+    "hardware_identity_rule": "Capture exact OS, CPU, GPU/device, driver, renderer, resolution, display and settings identity at future execution; readiness makes no support-tier claim.",
+    "host_lane": "windows-x86_64",
+    "isolation_requirements": [
+      "clean-export-root",
+      "clean-import-cache",
+      "isolated-APPDATA",
+      "isolated-LOCALAPPDATA",
+      "no-shared-user-state"
+    ],
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "permitted_use": "R7 W4 proof-only Forge, trust, presentation, accessibility and migration evidence",
+    "production_dependency_state": "UNCHANGED-PLANNED-UNINSTALLED",
+    "python_tooling": "CPython-3.9-or-later-standard-library",
+    "renderer_candidates": [
+      "Forward+",
+      "Mobile",
+      "Compatibility-if-targeted"
+    ],
+    "roles": [
+      "client",
+      "dedicated-server",
+      "forge-ci"
+    ],
+    "schema_version": "leyforge-r7-w4-dependency-reference-v1",
+    "scope": "development-only-prd07-proof-runtime",
+    "source_lock": "proofs/r7/w0/dependencies.lock.json",
+    "source_lock_git_blob": "5d8bfeb3031557b927074f74cebc7101148edab1",
+    "source_lock_sha256": "f42407b74cc08b91a34aa7b9a57f856b6e4c4dbe642385401d2b8da10eb927a2"
+  },
+  "evidence_pack_schema": "proofs/r7/w4/future-evidence-pack.schema.json",
+  "execution_environment_contract": {
+    "hardware_identity_rule": "Capture exact OS, CPU, GPU/device, driver, renderer, resolution, display and settings identity at future execution; readiness makes no support-tier claim.",
+    "host_lane": "windows-x86_64",
+    "isolation": [
+      "clean-export-root",
+      "clean-import-cache",
+      "isolated-APPDATA",
+      "isolated-LOCALAPPDATA",
+      "no-shared-user-state"
+    ],
+    "readiness_validation_host_snapshot": {
+      "machine": "AMD64",
+      "os": "Windows",
+      "os_release": "10",
+      "python": "3.9.5"
+    },
+    "renderers": [
+      "Forward+",
+      "Mobile",
+      "Compatibility-if-targeted"
+    ],
+    "roles": [
+      "client",
+      "dedicated-server",
+      "forge-ci"
+    ]
+  },
+  "execution_gate": "CLOSED-PENDING-SEPARATE-OWNER-AUTHORIZATION",
+  "fcc13e": {
+    "coverage_rule": "312/312-REQUIRED-NO-SAMPLING-NO-WAIVER",
+    "covered_rows": 312,
+    "disposition": "READY",
+    "observation_status": "NOT-EXECUTED",
+    "required_rows": 312
+  },
+  "fixtures": {
+    "FIXTURE-07": "READY",
+    "FIXTURE-08": "READY",
+    "validation_receipt": "docs/rebuild/r7/w4-fixture-readiness-validation.json"
+  },
+  "future_execution_rules": "proofs/r7/w4/future-execution-rules.json",
+  "gameplay_permission": "CLOSED",
+  "implementation_commit": "7ff70fae0bad97287602e946deae409ac3df74b8",
+  "implementation_commit_source_match": true,
+  "issues": [],
+  "local_dependency_check": {
+    "issues": [],
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "paths": {
+      "godot_driver": "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+      "godot_template_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\Godot_v4.8-dev4_export_templates.tpz",
+      "godot_template_runtime": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\godot-4.8-dev4-templates\\templates\\windows_release_x86_64.exe",
+      "voxel_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\GodotVoxelExtension-v1.7x.zip",
+      "voxel_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\v1.7x\\addons\\zylann.voxel"
+    },
+    "schema_version": "leyforge-r7-w0-local-dependency-verification-v1",
+    "status": "PASS"
+  },
+  "next_identity_previews": [
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0066",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 1,
+      "proof_id": "PRD04-PROOF-49",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0066"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0067",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 2,
+      "proof_id": "PRD04-PROOF-50",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0067"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0068",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 3,
+      "proof_id": "PRD04-PROOF-51",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0068"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0069",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 4,
+      "proof_id": "PRD04-PROOF-52",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0069"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0070",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 5,
+      "proof_id": "PRD04-PROOF-53",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0070"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0071",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 6,
+      "proof_id": "PRD04-PROOF-54",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0071"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0072",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 7,
+      "proof_id": "PRD04-PROOF-55",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0072"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0073",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 8,
+      "proof_id": "PRD04-PROOF-56",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0073"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0074",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 9,
+      "proof_id": "PRD04-PROOF-57",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0074"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0075",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 10,
+      "proof_id": "PRD04-PROOF-58",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0075"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0076",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 11,
+      "proof_id": "PRD04-PROOF-59",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0076"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0077",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 12,
+      "proof_id": "PRD04-PROOF-60",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0077"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0078",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 13,
+      "proof_id": "PRD04-PROOF-61",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0078"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0079",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 14,
+      "proof_id": "PRD04-PROOF-62",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0079"
+    },
+    {
+      "burned": false,
+      "evidence_id": "PRD07-EVID-0080",
+      "evidence_pack_created": false,
+      "execution_timestamp_created": false,
+      "identity_state": "PREVIEW-NOT-ALLOCATED",
+      "order": 15,
+      "proof_id": "PRD04-PROOF-71",
+      "registry_entry_created": false,
+      "reserved": false,
+      "run_id": "PRD07-RUN-0080"
+    }
+  ],
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION",
+  "prd08_evaluation": "CLOSED",
+  "prd09": "CLOSED",
+  "preview_state": "PREVIEW-NOT-ALLOCATED",
+  "production_dependency_activation": "INACTIVE",
+  "production_runtime": "ABSENT",
+  "proof_count": 15,
+  "proof_execution": "NOT-STARTED",
+  "proof_roster": [
+    "PRD04-PROOF-49",
+    "PRD04-PROOF-50",
+    "PRD04-PROOF-51",
+    "PRD04-PROOF-52",
+    "PRD04-PROOF-53",
+    "PRD04-PROOF-54",
+    "PRD04-PROOF-55",
+    "PRD04-PROOF-56",
+    "PRD04-PROOF-57",
+    "PRD04-PROOF-58",
+    "PRD04-PROOF-59",
+    "PRD04-PROOF-60",
+    "PRD04-PROOF-61",
+    "PRD04-PROOF-62",
+    "PRD04-PROOF-71"
+  ],
+  "proofs": [
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "clean rebuild same machine",
+        "clean rebuild second environment/CI",
+        "cache warm vs cold",
+        "source move/path change",
+        "provider-local ID regeneration"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: deterministic source\u2192validate\u2192bake\u2192manifest pipeline.",
+        "CANDIDATE-B: content-addressed/incremental bake cache, provided a clean no-cache rebuild remains equivalent."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.1 PRD04-PROOF-49 \u2014 Source \u2192 Bake Reproducibility"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Clean rebuild cannot reproduce approved product meaning, product edits must be preserved manually, or runtime identity changes due to path/provider-local IDs.",
+      "fault_hostility_matrix": [
+        "Delete generated output.",
+        "Clear importer/bake caches.",
+        "Change irrelevant filesystem path.",
+        "Tamper one baked product without source change."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0066",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 1,
+        "proof_id": "PRD04-PROOF-49",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0066"
+      },
+      "hypotheses": [
+        "H1: Editable Forge source + canonical bindings + tool/config identity are sufficient to reproduce governed baked products.",
+        "H0: Runtime products contain hidden/manual authority or bake results depend on undocumented local state."
+      ],
+      "inconclusive_conditions": "Fixture uses only trivial pass-through files with no actual Forge validation/bake transformation.",
+      "measurement": [
+        "product manifest equality/equivalence",
+        "semantic binding equality",
+        "untracked manual product mutation count",
+        "rebuild success",
+        "cache hit/miss diagnostic"
+      ],
+      "prd04_title": "Source \u2192 Bake Reproducibility",
+      "prd06_consumer_count_declared": 10,
+      "prd06_consumers": [
+        "PRD06-RISK-C03",
+        "PRD06-RISK-C08",
+        "PRD06-RISK-M08",
+        "PRD06-RISK-M09",
+        "PRD06-RISK-N01",
+        "PRD06-RISK-N02",
+        "PRD06-RISK-N06",
+        "PRD06-RISK-N09",
+        "PRD06-RISK-N14",
+        "PRD06-RISK-R04"
+      ],
+      "prd08_decision_relevance": "Supports N01/N02/N09/N14 and future Forge serialization/cache ADRs.",
+      "prerequisites": [
+        "FIXTURE-07 representative governed source assets.",
+        "Exact tool/build/content identity from FIXTURE-09.",
+        "Canonical registry bindings available.",
+        "Ability to delete all generated outputs/cache and rebuild."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-07",
+        "FIXTURE-09"
+      ],
+      "proof_id": "PRD04-PROOF-49",
+      "proof_number": 49,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Can approved editable Forge source be cleanly rebuilt into equivalent governed runtime products without manual edits to baked outputs?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "source manifest",
+        "bake manifest",
+        "artifact hashes/equivalence report",
+        "binding table",
+        "clean-build logs"
+      ],
+      "required_repetition": "At least 20 clean rebuilds per representative asset class across two controlled environments.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "clean-CI-worker-or-controlled-second-environment"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-07",
+          "FIXTURE-09"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "Clean rebuild cannot reproduce approved product meaning, product edits must be preserved manually, or runtime identity changes due to path/provider-local IDs.",
+          "inconclusive": "Fixture uses only trivial pass-through files with no actual Forge validation/bake transformation.",
+          "measurements": [
+            "product manifest equality/equivalence",
+            "semantic binding equality",
+            "untracked manual product mutation count",
+            "rebuild success",
+            "cache hit/miss diagnostic"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Approved source recreates equivalent governed products and semantic bindings; tampered/manual product changes are overwritten/detected rather than becoming authority.",
+          "question": "Can approved editable Forge source be cleanly rebuilt into equivalent governed runtime products without manual edits to baked outputs?",
+          "required_evidence_artifacts": [
+            "source manifest",
+            "bake manifest",
+            "artifact hashes/equivalence report",
+            "binding table",
+            "clean-build logs"
+          ],
+          "required_repetition": "At least 20 clean rebuilds per representative asset class across two controlled environments."
+        },
+        "runtime_roles": [
+          "forge-ci"
+        ],
+        "source_authorities": [
+          "ART-09",
+          "ART-10",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture07-source-validate-bake-manifest-equivalence"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Approved source recreates equivalent governed products and semantic bindings; tampered/manual product changes are overwritten/detected rather than becoming authority.",
+      "title": "Source \u2192 Bake Reproducibility",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Representative blocks/items/machines/vessel part/character or creature/UI asset sufficient to exercise multiple production classes."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "block/material",
+        "item/machine/structure",
+        "character/creature/animation",
+        "VFX/magic/weather",
+        "audio cue",
+        "UI/icon/cartography"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: ART-09 common execution path + ART-10 golden-reference certification matrix.",
+        "CANDIDATE-B: refined per-asset-class execution templates if one common path needs controlled specialization."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.2 PRD04-PROOF-50 \u2014 Art Production Handoff Fixture"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Required production meaning depends on undocumented manual fixes, missing validation authority, or preview-only approval that fails in context.",
+      "fault_hostility_matrix": [
+        "Remove required source metadata.",
+        "Break canonical binding.",
+        "Use wrong material/profile.",
+        "Test isolated preview versus real runtime context."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0067",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 2,
+        "proof_id": "PRD04-PROOF-50",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0067"
+      },
+      "hypotheses": [
+        "H1: ART authority can be translated into concrete source, validation, bake, runtime and certification evidence.",
+        "H0: The theoretical handoff contains gaps that prevent representative assets from reaching approved runtime use."
+      ],
+      "inconclusive_conditions": "Only one narrow/easy asset class is tested.",
+      "measurement": [
+        "handoff stage pass/fail",
+        "validator coverage",
+        "runtime-context defect count",
+        "manual exception count",
+        "provenance/binding completeness"
+      ],
+      "prd04_title": "Art Production Handoff Fixture",
+      "prd06_consumer_count_declared": 8,
+      "prd06_consumers": [
+        "PRD06-RISK-M06",
+        "PRD06-RISK-N04",
+        "PRD06-RISK-N07",
+        "PRD06-RISK-N08",
+        "PRD06-RISK-N09",
+        "PRD06-RISK-N10",
+        "PRD06-RISK-N11",
+        "PRD06-RISK-N12"
+      ],
+      "prd08_decision_relevance": "Tests implementation completeness of the locked art handoff; does not itself certify mass production.",
+      "prerequisites": [
+        "Locked ART-00\u219210 corpus available.",
+        "Representative golden source candidates across multiple asset classes.",
+        "FIXTURE-07 source/bake harness and FIXTURE-08 runtime/presentation scenes."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-07",
+        "FIXTURE-08"
+      ],
+      "proof_id": "PRD04-PROOF-50",
+      "proof_number": 50,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Can the locked ART-00\u219210 production handoff be executed end-to-end on representative golden assets in real runtime contexts?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "golden source packages",
+        "validation reports",
+        "runtime captures",
+        "ART rule traceability matrix",
+        "certification observations"
+      ],
+      "required_repetition": "Golden set covers each major ART production class and at least one known hard case per applicable class.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "exact-renderer-profile",
+          "exact-resolution-and-settings",
+          "exact-GPU-device-and-driver-captured-at-execution",
+          "clean-CI-worker-or-controlled-second-environment"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-07",
+          "FIXTURE-08"
+        ],
+        "human_judgement_fields": [
+          "observer_ids",
+          "task_scores",
+          "capture_refs",
+          "disagreements",
+          "adjudication"
+        ],
+        "human_judgement_required": true,
+        "observation_contract": {
+          "fail": "Required production meaning depends on undocumented manual fixes, missing validation authority, or preview-only approval that fails in context.",
+          "inconclusive": "Only one narrow/easy asset class is tested.",
+          "measurements": [
+            "handoff stage pass/fail",
+            "validator coverage",
+            "runtime-context defect count",
+            "manual exception count",
+            "provenance/binding completeness"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Representative assets traverse the complete governed chain with traceable source/provenance/bindings and pass declared ART-10 runtime-context checks.",
+          "question": "Can the locked ART-00\u219210 production handoff be executed end-to-end on representative golden assets in real runtime contexts?",
+          "required_evidence_artifacts": [
+            "golden source packages",
+            "validation reports",
+            "runtime captures",
+            "ART rule traceability matrix",
+            "certification observations"
+          ],
+          "required_repetition": "Golden set covers each major ART production class and at least one known hard case per applicable class."
+        },
+        "runtime_roles": [
+          "forge-ci",
+          "client"
+        ],
+        "source_authorities": [
+          "ART-09",
+          "ART-10",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture07-art09-handoff-to-fixture08-runtime-context"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Representative assets traverse the complete governed chain with traceable source/provenance/bindings and pass declared ART-10 runtime-context checks.",
+      "title": "Art Production Handoff Fixture",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Golden-reference bootstrap set deliberately including easy and difficult/high-risk production examples."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "AI-created source",
+        "human-created source",
+        "AI source manually corrected",
+        "human source with intentional invalid case"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: common Forge source schema/validation path for AI and human authoring.",
+        "CANDIDATE-B: source-specific authoring UX adapters feeding one identical governed validation/bake contract."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.3 PRD04-PROOF-51 \u2014 AI vs Human Source Parity"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "One origin can bypass source/provenance/validation rules or successful human output depends on tacit steps unavailable to the governed pipeline.",
+      "fault_hostility_matrix": [
+        "Attempt AI-only direct runtime output.",
+        "Attempt human-only manual post-bake fix.",
+        "Remove provenance or required metadata."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0068",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 3,
+        "proof_id": "PRD04-PROOF-51",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0068"
+      },
+      "hypotheses": [
+        "H1: Source origin does not change the acceptance contract.",
+        "H0: AI or human workflows rely on privileged bypasses or undocumented manual knowledge."
+      ],
+      "inconclusive_conditions": "Tasks are not comparable in scope/complexity.",
+      "measurement": [
+        "validator rule set equality",
+        "bypass count",
+        "manual exception count",
+        "source-to-product traceability",
+        "runtime certification outcome"
+      ],
+      "prd04_title": "AI vs Human Source Parity",
+      "prd06_consumer_count_declared": 3,
+      "prd06_consumers": [
+        "PRD06-RISK-M06",
+        "PRD06-RISK-N03",
+        "PRD06-RISK-N04"
+      ],
+      "prd08_decision_relevance": "Supports N03/N04 and AI authoring integration decisions.",
+      "prerequisites": [
+        "Two matched production tasks with the same ART/canonical target.",
+        "Human and AI/Codex source creation paths.",
+        "FIXTURE-07 common validator/bake pipeline."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-07"
+      ],
+      "proof_id": "PRD04-PROOF-51",
+      "proof_number": 51,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Do AI/Codex-authored and human-authored source assets pass through the same governed source, provenance, validation and certification rules?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "paired source packages",
+        "validator reports",
+        "provenance records",
+        "bake outputs",
+        "exception log"
+      ],
+      "required_repetition": "Multiple matched tasks across at least three materially different asset classes.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "clean-CI-worker-or-controlled-second-environment"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-07"
+        ],
+        "human_judgement_fields": [
+          "observer_ids",
+          "task_scores",
+          "capture_refs",
+          "disagreements",
+          "adjudication"
+        ],
+        "human_judgement_required": true,
+        "observation_contract": {
+          "fail": "One origin can bypass source/provenance/validation rules or successful human output depends on tacit steps unavailable to the governed pipeline.",
+          "inconclusive": "Tasks are not comparable in scope/complexity.",
+          "measurements": [
+            "validator rule set equality",
+            "bypass count",
+            "manual exception count",
+            "source-to-product traceability",
+            "runtime certification outcome"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Both origins are evaluated by the same acceptance gates; any source-specific helper affects authoring ergonomics only, not authority or validation strength.",
+          "question": "Do AI/Codex-authored and human-authored source assets pass through the same governed source, provenance, validation and certification rules?",
+          "required_evidence_artifacts": [
+            "paired source packages",
+            "validator reports",
+            "provenance records",
+            "bake outputs",
+            "exception log"
+          ],
+          "required_repetition": "Multiple matched tasks across at least three materially different asset classes."
+        },
+        "runtime_roles": [
+          "forge-ci"
+        ],
+        "source_authorities": [
+          "ART-09",
+          "ART-10",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture07-common-ai-human-validator-parity"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Both origins are evaluated by the same acceptance gates; any source-specific helper affects authoring ergonomics only, not authority or validation strength.",
+      "title": "AI vs Human Source Parity",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Matched assets of comparable complexity, including canonical bindings, material/profile requirements and provenance metadata."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "small family",
+        "medium family",
+        "large stress family",
+        "many cosmetic/LOD variants",
+        "sparse valid-combination matrix",
+        "invalid combination rejection"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: generated semantic form + shared/profiled products with lazy/on-demand bake where useful.",
+        "CANDIDATE-B: bounded eager generation for certified common combinations plus lazy long tail."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.4 PRD04-PROOF-52 \u2014 Generated Form Explosion"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Combinatorics create duplicate physical identities, unbounded generated products, or implausible bake/runtime growth.",
+      "fault_hostility_matrix": [
+        "Maximize valid combination count.",
+        "Inject duplicate semantic binding.",
+        "Force rebuild from cold cache."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0069",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 4,
+        "proof_id": "PRD04-PROOF-52",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0069"
+      },
+      "hypotheses": [
+        "H1: Generated forms preserve stable semantic derivation and bound product generation/storage/runtime cost.",
+        "H0: Eager combinatorics or variant identity multiplication makes Forge/runtime scale infeasible."
+      ],
+      "inconclusive_conditions": "Stress family is too small to expose combinatorial behavior.",
+      "measurement": [
+        "semantic ID count",
+        "source record count",
+        "baked product count",
+        "shader/material/icon/model counts",
+        "bake time",
+        "disk/memory",
+        "duplicate identity count"
+      ],
+      "prd04_title": "Generated Form Explosion",
+      "prd06_consumer_count_declared": 9,
+      "prd06_consumers": [
+        "PRD06-RISK-C08",
+        "PRD06-RISK-M09",
+        "PRD06-RISK-M14",
+        "PRD06-RISK-N05",
+        "PRD06-RISK-N06",
+        "PRD06-RISK-N08",
+        "PRD06-RISK-N09",
+        "PRD06-RISK-N13",
+        "PRD06-RISK-R14"
+      ],
+      "prd08_decision_relevance": "Supports M14/N05/N06/N13 and generated-form strategy ADRs.",
+      "prerequisites": [
+        "FIXTURE-07 generated material/form family generator.",
+        "Representative material and form cardinalities.",
+        "Canonical single-definition/generated-form rules.",
+        "FIXTURE-09 bake/runtime count and resource metrics."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-07",
+        "FIXTURE-09"
+      ],
+      "proof_id": "PRD04-PROOF-52",
+      "proof_number": 52,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Can generated material\u00d7form/state families scale without exploding semantic IDs, source assets, baked products, registry entries or runtime resources?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "generation manifest",
+        "count curves",
+        "binding audit",
+        "bake/runtime metrics",
+        "duplicate-ID report"
+      ],
+      "required_repetition": "Several cardinality scales sufficient to determine growth curve, with cold/warm bake comparison.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "exact-renderer-profile",
+          "exact-resolution-and-settings",
+          "exact-GPU-device-and-driver-captured-at-execution",
+          "clean-CI-worker-or-controlled-second-environment"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-07",
+          "FIXTURE-09"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "Combinatorics create duplicate physical identities, unbounded generated products, or implausible bake/runtime growth.",
+          "inconclusive": "Stress family is too small to expose combinatorial behavior.",
+          "measurements": [
+            "semantic ID count",
+            "source record count",
+            "baked product count",
+            "shader/material/icon/model counts",
+            "bake time",
+            "disk/memory",
+            "duplicate identity count"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Semantic identity remains canonical/derived rather than multiplying per visual variant; product/resource counts remain within explicit experiment bounds and demonstrate a plausible scaling path.",
+          "question": "Can generated material\u00d7form/state families scale without exploding semantic IDs, source assets, baked products, registry entries or runtime resources?",
+          "required_evidence_artifacts": [
+            "generation manifest",
+            "count curves",
+            "binding audit",
+            "bake/runtime metrics",
+            "duplicate-ID report"
+          ],
+          "required_repetition": "Several cardinality scales sufficient to determine growth curve, with cold/warm bake comparison."
+        },
+        "runtime_roles": [
+          "forge-ci",
+          "client"
+        ],
+        "source_authorities": [
+          "ART-09",
+          "ART-10",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture07-generated-material-form-state-family"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Semantic identity remains canonical/derived rather than multiplying per visual variant; product/resource counts remain within explicit experiment bounds and demonstrate a plausible scaling path.",
+      "title": "Generated Form Explosion",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Generate representative blocks/items/forms from material\u00d7form\u00d7state rules, including derived presentation variants."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "high-quality lane",
+        "lower-cost/mobile-like lane",
+        "compatibility/fallback lane where under consideration",
+        "reduced effects",
+        "multiple quality presets"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A/B/C: each renderer/profile lane actually under support consideration; no lane is pre-certified by this document."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.5 PRD04-PROOF-53 \u2014 Renderer/Profile Certification"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Critical meaning disappears/misleads or lane relies on an unavailable feature with no valid fallback.",
+      "fault_hostility_matrix": [
+        "Disable advanced feature.",
+        "Force fallback profile.",
+        "Lower effects/quality aggressively."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0070",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 5,
+        "proof_id": "PRD04-PROOF-53",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0070"
+      },
+      "hypotheses": [
+        "H1: Supported renderer/profile candidates can present all critical semantics with bounded visual degradation/fallback.",
+        "H0: A lane launches but loses required material, VFX, UI, cartography or state readability."
+      ],
+      "inconclusive_conditions": "Only launch/screenshot similarity is checked without semantic tasks.",
+      "measurement": [
+        "critical cue pass/fail",
+        "visual fallback defect count",
+        "unreadable state count",
+        "artifact/runtime errors",
+        "performance diagnostic"
+      ],
+      "prd04_title": "Renderer/Profile Certification",
+      "prd06_consumer_count_declared": 12,
+      "prd06_consumers": [
+        "PRD06-RISK-M14",
+        "PRD06-RISK-N08",
+        "PRD06-RISK-N10",
+        "PRD06-RISK-N11",
+        "PRD06-RISK-O02",
+        "PRD06-RISK-O03",
+        "PRD06-RISK-O05",
+        "PRD06-RISK-O06",
+        "PRD06-RISK-O13",
+        "PRD06-RISK-O14",
+        "PRD06-RISK-O15",
+        "PRD06-RISK-O16"
+      ],
+      "prd08_decision_relevance": "Supports O05/O06/N10/N12; final support qualification also requires PROOF-71.",
+      "prerequisites": [
+        "FIXTURE-08 representative golden scenes/assets.",
+        "ART-10 certification criteria.",
+        "MAP-00 ordinary/surveyed/magical relief samples.",
+        "Exact renderer/build/profile identity."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-08",
+        "FIXTURE-09"
+      ],
+      "proof_id": "PRD04-PROOF-53",
+      "proof_number": 53,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Do candidate renderer/profile lanes preserve required Leyforge semantic readability for representative ART/MAP content?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "renderer/profile manifest",
+        "task-based readability results",
+        "captures/video",
+        "fallback matrix",
+        "runtime diagnostics"
+      ],
+      "required_repetition": "Each candidate lane across representative golden scenes and relevant reduced-profile combinations.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "exact-renderer-profile",
+          "exact-resolution-and-settings",
+          "exact-GPU-device-and-driver-captured-at-execution"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-08",
+          "FIXTURE-09"
+        ],
+        "human_judgement_fields": [
+          "observer_ids",
+          "task_scores",
+          "capture_refs",
+          "disagreements",
+          "adjudication"
+        ],
+        "human_judgement_required": true,
+        "observation_contract": {
+          "fail": "Critical meaning disappears/misleads or lane relies on an unavailable feature with no valid fallback.",
+          "inconclusive": "Only launch/screenshot similarity is checked without semantic tasks.",
+          "measurements": [
+            "critical cue pass/fail",
+            "visual fallback defect count",
+            "unreadable state count",
+            "artifact/runtime errors",
+            "performance diagnostic"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Every lane claimed for continued support preserves all required semantic cues using approved fallbacks; unsupported lanes are explicitly rejected rather than silently certified.",
+          "question": "Do candidate renderer/profile lanes preserve required Leyforge semantic readability for representative ART/MAP content?",
+          "required_evidence_artifacts": [
+            "renderer/profile manifest",
+            "task-based readability results",
+            "captures/video",
+            "fallback matrix",
+            "runtime diagnostics"
+          ],
+          "required_repetition": "Each candidate lane across representative golden scenes and relevant reduced-profile combinations."
+        },
+        "runtime_roles": [
+          "client"
+        ],
+        "source_authorities": [
+          "ART-10",
+          "MAP-00",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture08-renderer-profile-semantic-task-matrix"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Every lane claimed for continued support preserves all required semantic cues using approved fallbacks; unsupported lanes are explicitly rejected rather than silently certified.",
+      "title": "Renderer/Profile Certification",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Golden scenes covering materials, transparency, lighting/VFX, UI/icons, cartography and state cues."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "full dev pack",
+        "server-stripped artifact",
+        "client artifact",
+        "presentation-only optional pack",
+        "authoritative required pack"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: logical semantic manifest + client/server role manifests/artifact hashes.",
+        "CANDIDATE-B: shared core pack + role-specific product layers."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.6 PRD04-PROOF-54 \u2014 Server/Client Pack Split"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Server/client disagree on authoritative definitions, join baseline becomes ambiguous, or stripping silently removes required gameplay state.",
+      "fault_hostility_matrix": [
+        "Move gameplay field into presentation resource.",
+        "Remove required dependency from server artifact.",
+        "Change role-specific artifact hash without semantic change."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0071",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 6,
+        "proof_id": "PRD04-PROOF-54",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0071"
+      },
+      "hypotheses": [
+        "H1: Logical semantic pack identity is separable from role-product hashes and stripping rules preserve required gameplay data.",
+        "H0: Role stripping removes authority or changes compatibility/dependency meaning."
+      ],
+      "inconclusive_conditions": "Pack contains only gameplay or only presentation and cannot exercise role split.",
+      "measurement": [
+        "authoritative semantic equivalence",
+        "role artifact size/count",
+        "missing gameplay field count",
+        "join/admission decision",
+        "logical vs artifact identity trace"
+      ],
+      "prd04_title": "Server/Client Pack Split",
+      "prd06_consumer_count_declared": 12,
+      "prd06_consumers": [
+        "PRD06-RISK-C07",
+        "PRD06-RISK-K12",
+        "PRD06-RISK-L02",
+        "PRD06-RISK-L06",
+        "PRD06-RISK-M03",
+        "PRD06-RISK-M04",
+        "PRD06-RISK-M07",
+        "PRD06-RISK-M09",
+        "PRD06-RISK-M10",
+        "PRD06-RISK-M13",
+        "PRD06-RISK-M15",
+        "PRD06-RISK-P03"
+      ],
+      "prd08_decision_relevance": "Supports M03/M04/M15 and L06.",
+      "prerequisites": [
+        "FIXTURE-07 representative mixed gameplay/presentation pack.",
+        "FIXTURE-05 compatibility admission baseline.",
+        "FIXTURE-09 client/server exported artifact build."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-07",
+        "FIXTURE-05",
+        "FIXTURE-09"
+      ],
+      "proof_id": "PRD04-PROOF-54",
+      "proof_number": 54,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Can one logical content pack produce role-specific client/server artifacts that preserve authoritative semantics while stripping unnecessary presentation content?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "logical/role manifests",
+        "semantic comparison",
+        "artifact hashes",
+        "admission logs",
+        "stripping report"
+      ],
+      "required_repetition": "Representative packs across several content classes and dependency combinations.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "exact-renderer-profile",
+          "exact-resolution-and-settings",
+          "exact-GPU-device-and-driver-captured-at-execution",
+          "headless-role-artifact-with-presentation-assets-absent"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-07",
+          "FIXTURE-05",
+          "FIXTURE-09"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "Server/client disagree on authoritative definitions, join baseline becomes ambiguous, or stripping silently removes required gameplay state.",
+          "inconclusive": "Pack contains only gameplay or only presentation and cannot exercise role split.",
+          "measurements": [
+            "authoritative semantic equivalence",
+            "role artifact size/count",
+            "missing gameplay field count",
+            "join/admission decision",
+            "logical vs artifact identity trace"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Client/server products retain one linked logical semantic identity; server has all required authority data; clients have required interpretation data; stripping does not alter dependency semantics.",
+          "question": "Can one logical content pack produce role-specific client/server artifacts that preserve authoritative semantics while stripping unnecessary presentation content?",
+          "required_evidence_artifacts": [
+            "logical/role manifests",
+            "semantic comparison",
+            "artifact hashes",
+            "admission logs",
+            "stripping report"
+          ],
+          "required_repetition": "Representative packs across several content classes and dependency combinations."
+        },
+        "runtime_roles": [
+          "client",
+          "dedicated-server"
+        ],
+        "source_authorities": [
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture07-logical-pack-client-server-role-split"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Client/server products retain one linked logical semantic identity; server has all required authority data; clients have required interpretation data; stripping does not alter dependency semantics.",
+      "title": "Server/Client Pack Split",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Pack containing gameplay definitions, models/textures/audio/UI and dependencies."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "script file",
+        "native library",
+        "editor plugin",
+        "resource referencing script",
+        "nested dependency escalation",
+        "path traversal/remote URI",
+        "benign valid data pack"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: strict schema/resource-type allowlist + quarantine.",
+        "CANDIDATE-B: declarative intermediate representation preventing unsafe engine-resource instantiation."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.7 PRD04-PROOF-55 \u2014 Safe Mod Smuggling"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Any safe-tier fixture executes script/native/editor capability or escapes allowed filesystem/resource boundary.",
+      "fault_hostility_matrix": [
+        "Rename extensions.",
+        "Nest unsafe resource inside allowed container.",
+        "Use transitive trusted dependency.",
+        "Use absolute/traversal/remote references."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0072",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 7,
+        "proof_id": "PRD04-PROOF-55",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0072"
+      },
+      "hypotheses": [
+        "H1: Safe-pack admission is allowlist/capability based and evaluates nested/transitive references.",
+        "H0: Disguised resources or dependencies can gain executable/unsafe capabilities."
+      ],
+      "inconclusive_conditions": "Test only checks file extensions and not actual resource/capability resolution.",
+      "measurement": [
+        "unsafe pack accepted count",
+        "code/external side-effect count",
+        "false reject count on benign fixtures",
+        "diagnostic reason coverage"
+      ],
+      "prd04_title": "Safe Mod Smuggling",
+      "prd06_consumer_count_declared": 5,
+      "prd06_consumers": [
+        "PRD06-RISK-K11",
+        "PRD06-RISK-M01",
+        "PRD06-RISK-M05",
+        "PRD06-RISK-M10",
+        "PRD06-RISK-M12"
+      ],
+      "prd08_decision_relevance": "Supports M01/M05/M10/M12 and trust/capability ADRs.",
+      "prerequisites": [
+        "FIXTURE-07 hostile pack corpus.",
+        "Controlled isolated test product.",
+        "Explicit allowed/forbidden resource/capability taxonomy."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-07"
+      ],
+      "proof_id": "PRD04-PROOF-55",
+      "proof_number": 55,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Can the default player-safe data-only mod tier reject script/native/editor/file/network capability smuggling, including transitive/nested forms?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "hostile pack corpus",
+        "validator results",
+        "side-effect monitor",
+        "quarantine reports",
+        "false-positive log"
+      ],
+      "required_repetition": "One or more hostile fixture per smuggling class plus mutation/fuzz variants.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "clean-CI-worker-or-controlled-second-environment"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-07"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "Any safe-tier fixture executes script/native/editor capability or escapes allowed filesystem/resource boundary.",
+          "inconclusive": "Test only checks file extensions and not actual resource/capability resolution.",
+          "measurements": [
+            "unsafe pack accepted count",
+            "code/external side-effect count",
+            "false reject count on benign fixtures",
+            "diagnostic reason coverage"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "All forbidden capability attempts are rejected/quarantined before unsafe execution/access; valid bounded data packs remain usable.",
+          "question": "Can the default player-safe data-only mod tier reject script/native/editor/file/network capability smuggling, including transitive/nested forms?",
+          "required_evidence_artifacts": [
+            "hostile pack corpus",
+            "validator results",
+            "side-effect monitor",
+            "quarantine reports",
+            "false-positive log"
+          ],
+          "required_repetition": "One or more hostile fixture per smuggling class plus mutation/fuzz variants."
+        },
+        "runtime_roles": [
+          "forge-ci"
+        ],
+        "source_authorities": [
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture07-hostile-capability-smuggling-corpus"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "All forbidden capability attempts are rejected/quarantined before unsafe execution/access; valid bounded data packs remain usable.",
+      "title": "Safe Mod Smuggling",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Adversarial packs designed to reach executable or external-resource capabilities while claiming safe-data status."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "huge entry count",
+        "deep nesting",
+        "dependency cycle",
+        "large texture/model/audio",
+        "generated-form explosion",
+        "shader/material permutations",
+        "compression bomb-like input"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: schema hard limits + preflight cost estimator.",
+        "CANDIDATE-B: staged import/build sandbox with enforced process/resource quotas."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.8 PRD04-PROOF-56 \u2014 Data Mod Resource Bomb"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Validator/build/runtime exhausts resources, crashes host, or accepts content that predictably exceeds safe declared bounds.",
+      "fault_hostility_matrix": [
+        "Maximize one dimension at a time.",
+        "Combine several near-limit dimensions."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0073",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 8,
+        "proof_id": "PRD04-PROOF-56",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0073"
+      },
+      "hypotheses": [
+        "H1: Data-safe admission includes quantitative budgets/preflight checks.",
+        "H0: Code-free content can still exhaust resources through valid declarative structure."
+      ],
+      "inconclusive_conditions": "Outer OS limit kills process before the Leyforge admission mechanism can be evaluated and no internal result is captured.",
+      "measurement": [
+        "peak memory",
+        "CPU time",
+        "disk output",
+        "generated entry count",
+        "shader/material count",
+        "validator rejection point",
+        "host process stability"
+      ],
+      "prd04_title": "Data Mod Resource Bomb",
+      "prd06_consumer_count_declared": 6,
+      "prd06_consumers": [
+        "PRD06-RISK-K11",
+        "PRD06-RISK-M02",
+        "PRD06-RISK-M10",
+        "PRD06-RISK-M14",
+        "PRD06-RISK-N05",
+        "PRD06-RISK-O16"
+      ],
+      "prd08_decision_relevance": "Supports M02/M14/N05/N13/O16.",
+      "prerequisites": [
+        "FIXTURE-07 resource-bomb corpus.",
+        "Outer process memory/time limits.",
+        "FIXTURE-09 resource/build metrics."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-07",
+        "FIXTURE-09"
+      ],
+      "proof_id": "PRD04-PROOF-56",
+      "proof_number": 56,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Can declarative player-safe content be bounded against CPU, memory, disk, shader/material, registry and generated-form resource exhaustion?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "resource-bomb corpus",
+        "preflight estimates",
+        "actual resource metrics",
+        "rejection reports",
+        "host stability logs"
+      ],
+      "required_repetition": "Boundary sweeps around each candidate limit plus combined stress cases.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "exact-renderer-profile",
+          "exact-resolution-and-settings",
+          "exact-GPU-device-and-driver-captured-at-execution",
+          "headless-role-artifact-with-presentation-assets-absent",
+          "clean-CI-worker-or-controlled-second-environment"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-07",
+          "FIXTURE-09"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "Validator/build/runtime exhausts resources, crashes host, or accepts content that predictably exceeds safe declared bounds.",
+          "inconclusive": "Outer OS limit kills process before the Leyforge admission mechanism can be evaluated and no internal result is captured.",
+          "measurements": [
+            "peak memory",
+            "CPU time",
+            "disk output",
+            "generated entry count",
+            "shader/material count",
+            "validator rejection point",
+            "host process stability"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Over-budget content is rejected/bounded before uncontrolled resource exhaustion and limits produce actionable diagnostics.",
+          "question": "Can declarative player-safe content be bounded against CPU, memory, disk, shader/material, registry and generated-form resource exhaustion?",
+          "required_evidence_artifacts": [
+            "resource-bomb corpus",
+            "preflight estimates",
+            "actual resource metrics",
+            "rejection reports",
+            "host stability logs"
+          ],
+          "required_repetition": "Boundary sweeps around each candidate limit plus combined stress cases."
+        },
+        "runtime_roles": [
+          "forge-ci",
+          "client",
+          "dedicated-server"
+        ],
+        "source_authorities": [
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture07-declarative-resource-budget-corpus"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Over-budget content is rejected/bounded before uncontrolled resource exhaustion and limits produce actionable diagnostics.",
+      "title": "Data Mod Resource Bomb",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Pathological but syntactically valid content approaching/exceeding declared experimental limits."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "missing authoritative pack",
+        "missing presentation-only pack",
+        "POC-only row",
+        "compat row",
+        "contextual row lacking context",
+        "many missing objects"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: W2 compatibility/quarantine mechanism with full W4 content resolver.",
+        "CANDIDATE-B: hard-load block for content classes unsafe to represent compatibly."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.9 PRD04-PROOF-57 \u2014 Missing Pack World Recovery"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Any old/missing object is guessed, test/compat content enters progression/worldgen/trade, or player-owned meaning is silently lost.",
+      "fault_hostility_matrix": [
+        "Remove pack/dependency.",
+        "Remove mapping context.",
+        "Attempt production query/crafting/worldgen of compat/test content."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0074",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 9,
+        "proof_id": "PRD04-PROOF-57",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0074"
+      },
+      "hypotheses": [
+        "H1: W2 compatibility mechanics scale to full pack/test/compat/art content without silent substitution.",
+        "H0: Content-scale or historical cases reveal missing mappings, namespace leakage or destructive fallback."
+      ],
+      "inconclusive_conditions": "Only a small W2 technical fixture is repeated without full content/historical coverage.",
+      "measurement": [
+        "silent substitution count",
+        "quarantine count",
+        "test/compat leakage count",
+        "data-loss count",
+        "world-load classification",
+        "report completeness"
+      ],
+      "prd04_title": "Missing Pack World Recovery",
+      "prd06_consumer_count_declared": 18,
+      "prd06_consumers": [
+        "PRD06-RISK-C01",
+        "PRD06-RISK-C07",
+        "PRD06-RISK-C09",
+        "PRD06-RISK-C11",
+        "PRD06-RISK-D06",
+        "PRD06-RISK-D07",
+        "PRD06-RISK-L06",
+        "PRD06-RISK-M11",
+        "PRD06-RISK-M15",
+        "PRD06-RISK-R04",
+        "PRD06-RISK-R07",
+        "PRD06-RISK-R08",
+        "PRD06-RISK-R09",
+        "PRD06-RISK-R10",
+        "PRD06-RISK-R12",
+        "PRD06-RISK-R13",
+        "PRD06-RISK-R16",
+        "PRD06-RISK-R22"
+      ],
+      "prd08_decision_relevance": "W4 revalidation of D/M/R missing-content risks.",
+      "prerequisites": [
+        "W2 PROOF-57 mechanism implementation available.",
+        "FIXTURE-07 authoritative/presentation/test/compat packs.",
+        "FCC-13E generated migration cases.",
+        "Production scans for `leyforge_test`/`leyforge_compat` leakage."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-04",
+        "FIXTURE-07"
+      ],
+      "proof_id": "PRD04-PROOF-57",
+      "proof_number": 57,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "When revalidated against the full W4 content corpus, does missing-pack recovery preserve semantic identity and test/compat isolation exactly as the locked content/migration authorities require?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "missing-pack corpus",
+        "compat/quarantine ledger",
+        "production leakage scan",
+        "load reports",
+        "semantic ID comparison"
+      ],
+      "required_repetition": "All FCC-13E outcome classes plus representative current pack classes; generated 312-row coverage shared with PROOF-58.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "headless-role-artifact-with-presentation-assets-absent",
+          "clean-CI-worker-or-controlled-second-environment"
+        ],
+        "fcc13e_rows_required": 312,
+        "fixture_identities": [
+          "FIXTURE-04",
+          "FIXTURE-07"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "Any old/missing object is guessed, test/compat content enters progression/worldgen/trade, or player-owned meaning is silently lost.",
+          "inconclusive": "Only a small W2 technical fixture is repeated without full content/historical coverage.",
+          "measurements": [
+            "silent substitution count",
+            "quarantine count",
+            "test/compat leakage count",
+            "data-loss count",
+            "world-load classification",
+            "report completeness"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Every missing/legacy case follows explicit current/FCC-13E policy; test/compat content remains isolated from normal production systems.",
+          "question": "When revalidated against the full W4 content corpus, does missing-pack recovery preserve semantic identity and test/compat isolation exactly as the locked content/migration authorities require?",
+          "required_evidence_artifacts": [
+            "missing-pack corpus",
+            "compat/quarantine ledger",
+            "production leakage scan",
+            "load reports",
+            "semantic ID comparison"
+          ],
+          "required_repetition": "All FCC-13E outcome classes plus representative current pack classes; generated 312-row coverage shared with PROOF-58."
+        },
+        "runtime_roles": [
+          "forge-ci",
+          "dedicated-server"
+        ],
+        "source_authorities": [
+          "FCC-13E-AUDIT",
+          "FCC-13E-CSV",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "w2-missing-pack-recovery-plus-fixture07-full-fcc13e-corpus"
+      },
+      "revalidated_from_w2": true,
+      "success_criterion": "Every missing/legacy case follows explicit current/FCC-13E policy; test/compat content remains isolated from normal production systems.",
+      "title": "Missing Pack World Recovery",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Saved worlds and pack graphs covering current and historical content classes."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "all 312 rows",
+        "many-to-one aliases",
+        "contextual with context",
+        "contextual without context",
+        "POC-only",
+        "rejected/removed",
+        "provider/schema upgrade combined"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: generated machine-readable 312-row conformance test over the W2 staged migration resolver.",
+        "CANDIDATE-B: same resolver plus contextual fixture variants where FCC-13E requires context."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.10 PRD04-PROOF-58 \u2014 Pack Upgrade / World Migration"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Any row silently maps to a different semantic identity, duplicates canonical physical identity, leaks POC-only content or destroys the source without recoverability.",
+      "fault_hostility_matrix": [
+        "Randomize current runtime IDs.",
+        "Remove old display/path/color metadata.",
+        "Interrupt migration.",
+        "Remove required pack/context."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0075",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 10,
+        "proof_id": "PRD04-PROOF-58",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0075"
+      },
+      "hypotheses": [
+        "H1: Every legacy row resolves to its locked semantic disposition without guessing, duplicate identity or loss of recoverability.",
+        "H0: Full corpus reveals incorrect row mapping, many-to-one duplication, namespace leakage or migration/reporting gaps."
+      ],
+      "inconclusive_conditions": "Generated fixture does not actually exercise persistence/reference migration semantics for the row.",
+      "measurement": [
+        "312 expected-vs-observed row outcomes",
+        "duplicate physical identity count",
+        "unresolved/quarantine count",
+        "report count reconciliation",
+        "backup integrity",
+        "semantic ID correctness"
+      ],
+      "prd04_title": "Pack Upgrade / World Migration",
+      "prd06_consumer_count_declared": 29,
+      "prd06_consumers": [
+        "PRD06-RISK-C01",
+        "PRD06-RISK-C03",
+        "PRD06-RISK-C07",
+        "PRD06-RISK-C09",
+        "PRD06-RISK-C10",
+        "PRD06-RISK-C11",
+        "PRD06-RISK-C12",
+        "PRD06-RISK-D06",
+        "PRD06-RISK-D07",
+        "PRD06-RISK-D08",
+        "PRD06-RISK-D10",
+        "PRD06-RISK-E07",
+        "PRD06-RISK-M04",
+        "PRD06-RISK-M07",
+        "PRD06-RISK-M08",
+        "PRD06-RISK-M11",
+        "PRD06-RISK-R04",
+        "PRD06-RISK-R07",
+        "PRD06-RISK-R08",
+        "PRD06-RISK-R09",
+        "PRD06-RISK-R10",
+        "PRD06-RISK-R12",
+        "PRD06-RISK-R13",
+        "PRD06-RISK-R14",
+        "PRD06-RISK-R15",
+        "PRD06-RISK-R16",
+        "PRD06-RISK-R17",
+        "PRD06-RISK-R18",
+        "PRD06-RISK-R22"
+      ],
+      "prd08_decision_relevance": "Principal R07\u2013R18 migration conformance evidence and W4 revalidation of PROOF-58.",
+      "prerequisites": [
+        "W2 PROOF-58 migration mechanism available.",
+        "Machine-readable FCC-13E 312-row source.",
+        "Pre-migration backup/staging and report generation.",
+        "`leyforge_test` and `leyforge_compat` isolation."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-04",
+        "FIXTURE-07"
+      ],
+      "proof_id": "PRD04-PROOF-58",
+      "proof_number": 58,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Does the W2 migration mechanism correctly implement the full FCC-13E 312-row semantic matrix plus current pack/provider/schema upgrade cases?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "312-row expected/actual CSV",
+        "migration report",
+        "backup hashes",
+        "alias convergence audit",
+        "test/compat leakage scan"
+      ],
+      "required_repetition": "All 312 rows every full conformance run; contextual/failure cases repeated under randomized runtime mappings and interruption.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "headless-role-artifact-with-presentation-assets-absent",
+          "clean-CI-worker-or-controlled-second-environment"
+        ],
+        "fcc13e_rows_required": 312,
+        "fixture_identities": [
+          "FIXTURE-04",
+          "FIXTURE-07"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "Any row silently maps to a different semantic identity, duplicates canonical physical identity, leaks POC-only content or destroys the source without recoverability.",
+          "inconclusive": "Generated fixture does not actually exercise persistence/reference migration semantics for the row.",
+          "measurements": [
+            "312 expected-vs-observed row outcomes",
+            "duplicate physical identity count",
+            "unresolved/quarantine count",
+            "report count reconciliation",
+            "backup integrity",
+            "semantic ID correctness"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "312/312 rows match locked expected disposition or explicitly expected context-dependent quarantine behavior; no old numeric/path/visual field becomes semantic authority.",
+          "question": "Does the W2 migration mechanism correctly implement the full FCC-13E 312-row semantic matrix plus current pack/provider/schema upgrade cases?",
+          "required_evidence_artifacts": [
+            "312-row expected/actual CSV",
+            "migration report",
+            "backup hashes",
+            "alias convergence audit",
+            "test/compat leakage scan"
+          ],
+          "required_repetition": "All 312 rows every full conformance run; contextual/failure cases repeated under randomized runtime mappings and interruption."
+        },
+        "runtime_roles": [
+          "forge-ci",
+          "dedicated-server"
+        ],
+        "source_authorities": [
+          "FCC-13E-AUDIT",
+          "FCC-13E-CSV",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "w2-pack-upgrade-migration-plus-fixture07-full-fcc13e-corpus"
+      },
+      "revalidated_from_w2": true,
+      "success_criterion": "312/312 rows match locked expected disposition or explicitly expected context-dependent quarantine behavior; no old numeric/path/visual field becomes semantic authority.",
+      "title": "Pack Upgrade / World Migration",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Generated legacy world/inventory/reference fixtures covering every FCC-13E row and outcome class."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "graphics preset",
+        "reduced effects",
+        "UI scale",
+        "input remap",
+        "audio/accessibility changes",
+        "per-world gameplay rule negative control"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: separately versioned global/profile/input/accessibility stores plus explicit per-world gameplay settings.",
+        "CANDIDATE-B: unified schema with hard scope metadata and enforcement."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.11 PRD04-PROOF-59 \u2014 Settings Scope Isolation"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "A graphics/accessibility/input change mutates authoritative world/simulation rules or migrations mix scopes.",
+      "fault_hostility_matrix": [
+        "Migrate settings schema.",
+        "Load another world/profile.",
+        "Split-screen/per-view override where supported by fixture."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0076",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 11,
+        "proof_id": "PRD04-PROOF-59",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0076"
+      },
+      "hypotheses": [
+        "H1: Settings stores/scopes are explicit and downstream of authoritative gameplay.",
+        "H0: Presentation/profile changes silently alter simulation, content or world authority."
+      ],
+      "inconclusive_conditions": "Scenario has no authoritative behavior sensitive enough to detect leakage.",
+      "measurement": [
+        "canonical state equality",
+        "scope leakage count",
+        "settings persistence correctness",
+        "unexpected world-setting mutation"
+      ],
+      "prd04_title": "Settings Scope Isolation",
+      "prd06_consumer_count_declared": 7,
+      "prd06_consumers": [
+        "PRD06-RISK-I05",
+        "PRD06-RISK-N11",
+        "PRD06-RISK-O01",
+        "PRD06-RISK-O09",
+        "PRD06-RISK-O11",
+        "PRD06-RISK-O12",
+        "PRD06-RISK-O17"
+      ],
+      "prd08_decision_relevance": "Supports O01/O09/O11/O17.",
+      "prerequisites": [
+        "FIXTURE-08 representative canonical scenario.",
+        "Multiple graphics/accessibility/input profiles.",
+        "Canonical state hash independent from presentation."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-08"
+      ],
+      "proof_id": "PRD04-PROOF-59",
+      "proof_number": 59,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Can graphics, accessibility, input and presentation settings change independently without mutating canonical simulation/world rules?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "settings manifests",
+        "canonical hashes",
+        "scope-diff reports",
+        "migration results"
+      ],
+      "required_repetition": "Each setting scope across restart/world switch/migration combinations.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "exact-renderer-profile",
+          "exact-resolution-and-settings",
+          "exact-GPU-device-and-driver-captured-at-execution",
+          "headless-role-artifact-with-presentation-assets-absent"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-08"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "A graphics/accessibility/input change mutates authoritative world/simulation rules or migrations mix scopes.",
+          "inconclusive": "Scenario has no authoritative behavior sensitive enough to detect leakage.",
+          "measurements": [
+            "canonical state equality",
+            "scope leakage count",
+            "settings persistence correctness",
+            "unexpected world-setting mutation"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Non-gameplay settings alter only permitted presentation/input/accessibility behavior; canonical scenario state remains equivalent.",
+          "question": "Can graphics, accessibility, input and presentation settings change independently without mutating canonical simulation/world rules?",
+          "required_evidence_artifacts": [
+            "settings manifests",
+            "canonical hashes",
+            "scope-diff reports",
+            "migration results"
+          ],
+          "required_repetition": "Each setting scope across restart/world switch/migration combinations."
+        },
+        "runtime_roles": [
+          "client",
+          "dedicated-server"
+        ],
+        "source_authorities": [
+          "ART-10",
+          "MAP-00",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture08-settings-scope-isolation"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Non-gameplay settings alter only permitted presentation/input/accessibility behavior; canonical scenario state remains equivalent.",
+      "title": "Settings Scope Isolation",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Run identical authoritative scenario while changing one non-gameplay setting scope at a time."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "unsupported renderer",
+        "invalid resolution/display",
+        "removed monitor",
+        "corrupt profile",
+        "aggressive quality setting",
+        "driver/hardware profile change simulation"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: startup watchdog/last-known-good graphics profile.",
+        "CANDIDATE-B: explicit safe-mode launch/reset path.",
+        "CANDIDATE-C: auto-detect candidate profile with reversible user override."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.12 PRD04-PROOF-60 \u2014 Safe Graphics Recovery"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Application remains stranded/crash-looped or recovery resets unrelated gameplay/accessibility data.",
+      "fault_hostility_matrix": [
+        "Write invalid settings.",
+        "Simulate prior startup failure marker.",
+        "Change display/profile identity between runs."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0077",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 12,
+        "proof_id": "PRD04-PROOF-60",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0077"
+      },
+      "hypotheses": [
+        "H1: Startup/recovery can detect unusable graphics state and choose a bounded safe presentation fallback.",
+        "H0: A bad saved setting strands the application before recovery UI is reachable."
+      ],
+      "inconclusive_conditions": "Only editor project settings are tested, not persisted runtime configuration in exported artifact.",
+      "measurement": [
+        "usable UI reached",
+        "recovery attempts",
+        "world/gameplay settings changed count",
+        "last-known-good restoration",
+        "user override persistence"
+      ],
+      "prd04_title": "Safe Graphics Recovery",
+      "prd06_consumer_count_declared": 3,
+      "prd06_consumers": [
+        "PRD06-RISK-O07",
+        "PRD06-RISK-O08",
+        "PRD06-RISK-O17"
+      ],
+      "prd08_decision_relevance": "Supports O07/O08/O17 and graphics recovery ADR.",
+      "prerequisites": [
+        "FIXTURE-08 saved graphics profiles.",
+        "FIXTURE-09 real exported client artifact.",
+        "Ability to inject invalid renderer/display/profile values."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-08",
+        "FIXTURE-09"
+      ],
+      "proof_id": "PRD04-PROOF-60",
+      "proof_number": 60,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Can invalid/unsupported saved graphics configuration recover to a usable safe mode without requiring manual file deletion or altering world/gameplay settings?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "startup/recovery logs",
+        "settings before/after",
+        "exported artifact manifest",
+        "screen captures"
+      ],
+      "required_repetition": "All invalid-profile classes across repeated restart cycles.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "exact-renderer-profile",
+          "exact-resolution-and-settings",
+          "exact-GPU-device-and-driver-captured-at-execution"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-08",
+          "FIXTURE-09"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "Application remains stranded/crash-looped or recovery resets unrelated gameplay/accessibility data.",
+          "inconclusive": "Only editor project settings are tested, not persisted runtime configuration in exported artifact.",
+          "measurements": [
+            "usable UI reached",
+            "recovery attempts",
+            "world/gameplay settings changed count",
+            "last-known-good restoration",
+            "user override persistence"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Application reaches a usable recovery state/fallback and preserves non-graphics settings/world truth; user can intentionally reconfigure afterward.",
+          "question": "Can invalid/unsupported saved graphics configuration recover to a usable safe mode without requiring manual file deletion or altering world/gameplay settings?",
+          "required_evidence_artifacts": [
+            "startup/recovery logs",
+            "settings before/after",
+            "exported artifact manifest",
+            "screen captures"
+          ],
+          "required_repetition": "All invalid-profile classes across repeated restart cycles."
+        },
+        "runtime_roles": [
+          "client"
+        ],
+        "source_authorities": [
+          "ART-10",
+          "MAP-00",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture08-invalid-graphics-safe-recovery"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Application reaches a usable recovery state/fallback and preserves non-graphics settings/world truth; user can intentionally reconfigure afterward.",
+      "title": "Safe Graphics Recovery",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Real client startup with deliberately broken presentation configuration and existing saved worlds/profiles."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "colour-reduced/high-contrast",
+        "reduced motion/flash/particles",
+        "audio muted/captioned",
+        "large text/UI scale",
+        "keyboard/controller remap",
+        "flat/non-drag map mode"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: semantic cue tokens rendered through multiple channels/fallbacks.",
+        "CANDIDATE-B: profile-specific fallback components governed by the same semantic state."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.13 PRD04-PROOF-61 \u2014 Accessibility Semantic Torture"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Required meaning depends exclusively on colour/audio/motion/3D manipulation or UI/input settings make a critical action unreachable.",
+      "fault_hostility_matrix": [
+        "Remove each sensory channel in turn.",
+        "Use long localization strings/large scale.",
+        "Disable 3D relief manipulation and use flat alternative."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0078",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 13,
+        "proof_id": "PRD04-PROOF-61",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0078"
+      },
+      "hypotheses": [
+        "H1: Critical meaning is redundantly encoded and essential interactions have accessible alternatives.",
+        "H0: One supported accessibility mode removes required gameplay information or capability."
+      ],
+      "inconclusive_conditions": "Only screenshots are compared without task-based semantic evaluation.",
+      "measurement": [
+        "task success",
+        "critical cue missed count",
+        "focus/clipping failure count",
+        "map information equivalence",
+        "input reachability",
+        "human reviewer notes"
+      ],
+      "prd04_title": "Accessibility Semantic Torture",
+      "prd06_consumer_count_declared": 10,
+      "prd06_consumers": [
+        "PRD06-RISK-N12",
+        "PRD06-RISK-O02",
+        "PRD06-RISK-O03",
+        "PRD06-RISK-O04",
+        "PRD06-RISK-O06",
+        "PRD06-RISK-O09",
+        "PRD06-RISK-O10",
+        "PRD06-RISK-O13",
+        "PRD06-RISK-O14",
+        "PRD06-RISK-O16"
+      ],
+      "prd08_decision_relevance": "Supports O02\u2013O04/O09/O10/O13/O14/O16/N12.",
+      "prerequisites": [
+        "FIXTURE-08 representative critical tasks.",
+        "ART-08/ART-10 accessibility rules.",
+        "MAP-00 ordinary/surveyed/magical relief scenarios."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-08"
+      ],
+      "proof_id": "PRD04-PROOF-61",
+      "proof_number": 61,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Do critical gameplay semantics remain available under supported colour, motion/flash, audio, scale, input and cartography accessibility constraints?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "task scripts",
+        "review records",
+        "captures/video",
+        "UI focus/layout logs",
+        "map equivalence checklist"
+      ],
+      "required_repetition": "Representative tasks across all supported accessibility profiles and input modes; human review where semantic perception is required.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "exact-renderer-profile",
+          "exact-resolution-and-settings",
+          "exact-GPU-device-and-driver-captured-at-execution"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-08"
+        ],
+        "human_judgement_fields": [
+          "observer_ids",
+          "task_scores",
+          "capture_refs",
+          "disagreements",
+          "adjudication"
+        ],
+        "human_judgement_required": true,
+        "observation_contract": {
+          "fail": "Required meaning depends exclusively on colour/audio/motion/3D manipulation or UI/input settings make a critical action unreachable.",
+          "inconclusive": "Only screenshots are compared without task-based semantic evaluation.",
+          "measurements": [
+            "task success",
+            "critical cue missed count",
+            "focus/clipping failure count",
+            "map information equivalence",
+            "input reachability",
+            "human reviewer notes"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Every critical task remains understandable/actionable using supported alternatives; magical relief exposes no essential information unavailable through an accessible alternative.",
+          "question": "Do critical gameplay semantics remain available under supported colour, motion/flash, audio, scale, input and cartography accessibility constraints?",
+          "required_evidence_artifacts": [
+            "task scripts",
+            "review records",
+            "captures/video",
+            "UI focus/layout logs",
+            "map equivalence checklist"
+          ],
+          "required_repetition": "Representative tasks across all supported accessibility profiles and input modes; human review where semantic perception is required."
+        },
+        "runtime_roles": [
+          "client"
+        ],
+        "source_authorities": [
+          "ART-10",
+          "MAP-00",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture08-accessibility-semantic-task-torture"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Every critical task remains understandable/actionable using supported alternatives; magical relief exposes no essential information unavailable through an accessible alternative.",
+      "title": "Accessibility Semantic Torture",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Tasks requiring hazard/status identification, interaction confirmation, navigation/map use and critical warnings."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "valid golden content",
+        "invalid source metadata",
+        "wrong binding",
+        "unsafe pack",
+        "resource bomb",
+        "test/compat leakage",
+        "clean source\u2192bake rebuild"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A: headless/CLI Forge validation+bake+test pipeline.",
+        "CANDIDATE-B: CI orchestration invoking the same core validation libraries as interactive Forge."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.14 PRD04-PROOF-62 \u2014 Forge CI Build"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Interactive-only state is required, unsafe/invalid content passes CI, or valid source cannot build cleanly outside the editor workstation.",
+      "fault_hostility_matrix": [
+        "Run with empty caches.",
+        "Run on clean machine/CI environment.",
+        "Inject each known invalid fixture."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0079",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 14,
+        "proof_id": "PRD04-PROOF-62",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0079"
+      },
+      "hypotheses": [
+        "H1: Production acceptance can run deterministically/automatically without relying on editor-only local state.",
+        "H0: Packs/assets pass only in interactive editor or CI misses critical production rules."
+      ],
+      "inconclusive_conditions": "Automation merely launches the editor manually or omits major validation classes.",
+      "measurement": [
+        "validator outcome parity",
+        "false negative/positive count",
+        "build reproducibility",
+        "editor-only dependency count",
+        "CI duration diagnostic"
+      ],
+      "prd04_title": "Forge CI Build",
+      "prd06_consumer_count_declared": 27,
+      "prd06_consumers": [
+        "PRD06-RISK-M03",
+        "PRD06-RISK-M04",
+        "PRD06-RISK-M05",
+        "PRD06-RISK-M06",
+        "PRD06-RISK-M07",
+        "PRD06-RISK-M08",
+        "PRD06-RISK-M10",
+        "PRD06-RISK-M13",
+        "PRD06-RISK-N01",
+        "PRD06-RISK-N02",
+        "PRD06-RISK-N03",
+        "PRD06-RISK-N04",
+        "PRD06-RISK-N05",
+        "PRD06-RISK-N07",
+        "PRD06-RISK-N09",
+        "PRD06-RISK-N13",
+        "PRD06-RISK-N14",
+        "PRD06-RISK-R01",
+        "PRD06-RISK-R02",
+        "PRD06-RISK-R03",
+        "PRD06-RISK-R04",
+        "PRD06-RISK-R07",
+        "PRD06-RISK-R11",
+        "PRD06-RISK-R12",
+        "PRD06-RISK-R20",
+        "PRD06-RISK-R21",
+        "PRD06-RISK-R22"
+      ],
+      "prd08_decision_relevance": "Supports M/N/R/P production automation risks; exact CI provider remains unlocked.",
+      "prerequisites": [
+        "FIXTURE-07 valid/invalid production corpus.",
+        "FIXTURE-09 clean automated build lane.",
+        "ART/FCC registry/source authority available."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-07",
+        "FIXTURE-09"
+      ],
+      "proof_id": "PRD04-PROOF-62",
+      "proof_number": 62,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Can Forge CI/headless automation enforce the same source, provenance, binding, trust, bake and production-validation contract used by interactive authoring?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "CI logs",
+        "machine-readable validation report",
+        "artifact manifests",
+        "editor-vs-CI outcome diff",
+        "invalid-fixture coverage"
+      ],
+      "required_repetition": "Clean CI runs across the full fixture corpus and at least two controlled environments where feasible.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "clean-CI-worker-or-controlled-second-environment"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-07",
+          "FIXTURE-09"
+        ],
+        "human_judgement_fields": [],
+        "human_judgement_required": false,
+        "observation_contract": {
+          "fail": "Interactive-only state is required, unsafe/invalid content passes CI, or valid source cannot build cleanly outside the editor workstation.",
+          "inconclusive": "Automation merely launches the editor manually or omits major validation classes.",
+          "measurements": [
+            "validator outcome parity",
+            "false negative/positive count",
+            "build reproducibility",
+            "editor-only dependency count",
+            "CI duration diagnostic"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "CI/headless path produces the same semantic accept/reject outcomes as governed interactive path and creates reproducible artifacts/evidence.",
+          "question": "Can Forge CI/headless automation enforce the same source, provenance, binding, trust, bake and production-validation contract used by interactive authoring?",
+          "required_evidence_artifacts": [
+            "CI logs",
+            "machine-readable validation report",
+            "artifact manifests",
+            "editor-vs-CI outcome diff",
+            "invalid-fixture coverage"
+          ],
+          "required_repetition": "Clean CI runs across the full fixture corpus and at least two controlled environments where feasible."
+        },
+        "runtime_roles": [
+          "forge-ci"
+        ],
+        "source_authorities": [
+          "ART-09",
+          "ART-10",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture07-clean-forge-ci-rebuild-validation"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "CI/headless path produces the same semantic accept/reject outcomes as governed interactive path and creates reproducible artifacts/evidence.",
+      "title": "Forge CI Build",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Representative source/pack corpus covering all major validators from proofs 49\u201356 and migration isolation checks."
+    },
+    {
+      "blockers": [],
+      "build_configuration_matrix": [
+        "low candidate tier",
+        "mid candidate tier",
+        "high candidate tier",
+        "renderer lanes under consideration",
+        "1-player",
+        "supported local split-screen counts",
+        "magical map active",
+        "heavy VFX/weather scene"
+      ],
+      "candidate_implementations": [
+        "CANDIDATE-A/B/...: each real renderer + hardware/profile tier under product consideration; no tier is assumed supported beforehand."
+      ],
+      "canonical_source": {
+        "prd04": ".summer/00_Docs/PRD/PRD-04_Leyforge_Architecture_Boundary_Study_v0_8_CLOSURE_CANDIDATE.md",
+        "prd07": ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md",
+        "prd07_section": "89.15 PRD04-PROOF-71 \u2014 Renderer / Hardware Lane"
+      },
+      "execution_authorized": false,
+      "failure_criterion": "Lane misses declared stability/readability/performance criteria yet remains claimed supported, or settings compensate by changing canonical simulation/world truth.",
+      "fault_hostility_matrix": [
+        "Stress scene complexity.",
+        "Increase local view count.",
+        "Use lower quality/fallback profile.",
+        "Hardware/driver lane variation."
+      ],
+      "future_identity_preview": {
+        "burned": false,
+        "evidence_id": "PRD07-EVID-0080",
+        "evidence_pack_created": false,
+        "execution_timestamp_created": false,
+        "identity_state": "PREVIEW-NOT-ALLOCATED",
+        "order": 15,
+        "proof_id": "PRD04-PROOF-71",
+        "registry_entry_created": false,
+        "reserved": false,
+        "run_id": "PRD07-RUN-0080"
+      },
+      "hypotheses": [
+        "H1: A measurable subset of candidate lanes can be qualified with explicit limits and fallbacks.",
+        "H0: Support claims based on launch/editor success collapse under representative content, hardware or split-screen load."
+      ],
+      "inconclusive_conditions": "Run lacks representative content, exact hardware/build identity or predeclared acceptance criteria.",
+      "measurement": [
+        "frame time distribution",
+        "memory/VRAM where observable",
+        "loading/stutter diagnostic",
+        "critical semantic task pass",
+        "thermal/stability notes where applicable",
+        "artifact/runtime errors"
+      ],
+      "prd04_title": "Renderer / Hardware Lane",
+      "prd06_consumer_count_declared": 19,
+      "prd06_consumers": [
+        "PRD06-RISK-A02",
+        "PRD06-RISK-A08",
+        "PRD06-RISK-B07",
+        "PRD06-RISK-K16",
+        "PRD06-RISK-N10",
+        "PRD06-RISK-N13",
+        "PRD06-RISK-O05",
+        "PRD06-RISK-O06",
+        "PRD06-RISK-O08",
+        "PRD06-RISK-O10",
+        "PRD06-RISK-O11",
+        "PRD06-RISK-O12",
+        "PRD06-RISK-O13",
+        "PRD06-RISK-O15",
+        "PRD06-RISK-P02",
+        "PRD06-RISK-P21",
+        "PRD06-RISK-P23",
+        "PRD06-RISK-P24",
+        "PRD06-RISK-R19"
+      ],
+      "prd08_decision_relevance": "Feeds final renderer/hardware support tiers; Round 6 specifies evidence only and does not set product requirements.",
+      "prerequisites": [
+        "PROOF-53 semantic renderer/profile results.",
+        "FIXTURE-08 representative golden scenes and split-screen/map cases.",
+        "FIXTURE-09 real exported client artifacts and benchmark identity."
+      ],
+      "principal_fixtures": [
+        "FIXTURE-08",
+        "FIXTURE-09"
+      ],
+      "proof_id": "PRD04-PROOF-71",
+      "proof_number": 71,
+      "proof_observation": "NOT-EXECUTED",
+      "question": "Which renderer/hardware/profile lanes actually meet the declared Leyforge presentation/readability/performance claims using real exported artifacts and representative content?",
+      "readiness_disposition": "READY",
+      "required_evidence_artifacts": [
+        "benchmark dataset",
+        "hardware/build manifest",
+        "frame-time traces",
+        "memory metrics",
+        "semantic task results",
+        "captures"
+      ],
+      "required_repetition": "Repeated benchmark/task runs per hardware/profile lane with warm-up and comparable workloads; final thresholds evaluated in PRD-08.",
+      "requirements": {
+        "dependency_identity": [
+          "godot_build_driver",
+          "godot_export_template",
+          "voxel_tools",
+          "NO-LOCAL-PATCH"
+        ],
+        "environment_requirements": [
+          "exact-published-source-revision",
+          "isolated-APPDATA-and-LOCALAPPDATA",
+          "clean-proof-output-root",
+          "no-shared-save-or-cache-state",
+          "exact-renderer-profile",
+          "exact-resolution-and-settings",
+          "exact-GPU-device-and-driver-captured-at-execution"
+        ],
+        "fcc13e_rows_required": 0,
+        "fixture_identities": [
+          "FIXTURE-08",
+          "FIXTURE-09"
+        ],
+        "human_judgement_fields": [
+          "observer_ids",
+          "task_scores",
+          "capture_refs",
+          "disagreements",
+          "adjudication"
+        ],
+        "human_judgement_required": true,
+        "observation_contract": {
+          "fail": "Lane misses declared stability/readability/performance criteria yet remains claimed supported, or settings compensate by changing canonical simulation/world truth.",
+          "inconclusive": "Run lacks representative content, exact hardware/build identity or predeclared acceptance criteria.",
+          "measurements": [
+            "frame time distribution",
+            "memory/VRAM where observable",
+            "loading/stutter diagnostic",
+            "critical semantic task pass",
+            "thermal/stability notes where applicable",
+            "artifact/runtime errors"
+          ],
+          "no_result_by_assumption": true,
+          "pass": "Each claimed lane meets predeclared test acceptance criteria and preserves semantic readability; unsupported lanes are explicitly excluded or given a narrower profile.",
+          "question": "Which renderer/hardware/profile lanes actually meet the declared Leyforge presentation/readability/performance claims using real exported artifacts and representative content?",
+          "required_evidence_artifacts": [
+            "benchmark dataset",
+            "hardware/build manifest",
+            "frame-time traces",
+            "memory metrics",
+            "semantic task results",
+            "captures"
+          ],
+          "required_repetition": "Repeated benchmark/task runs per hardware/profile lane with warm-up and comparable workloads; final thresholds evaluated in PRD-08."
+        },
+        "runtime_roles": [
+          "client"
+        ],
+        "source_authorities": [
+          "ART-10",
+          "MAP-00",
+          "PRD-04",
+          "PRD-05",
+          "PRD-06",
+          "PRD-07"
+        ],
+        "tooling_contract": "future separately authorized executor must consume this canonical observation contract and standard evidence schema; readiness exposes no execute command",
+        "tooling_route": "fixture08-renderer-hardware-semantic-task-lane"
+      },
+      "revalidated_from_w2": false,
+      "success_criterion": "Each claimed lane meets predeclared test acceptance criteria and preserves semantic readability; unsupported lanes are explicitly excluded or given a narrower profile.",
+      "title": "Renderer / Hardware Lane",
+      "title_match": true,
+      "wave": "W4",
+      "workload_state": "Representative gameplay/presentation workloads derived from ART golden scenes, MAP-00 relief mapping and normal world rendering."
+    }
+  ],
+  "r8": "CLOSED",
+  "readiness_counts": {
+    "BLOCKED": 0,
+    "NOT APPLICABLE": 0,
+    "READY": 15
+  },
+  "registry_before_and_after_readiness": {
+    "registry": {
+      "dispositions": {
+        "PRD07-RUN-0001": "PASS-OBSERVED",
+        "PRD07-RUN-0002": "INCONCLUSIVE",
+        "PRD07-RUN-0003": "PASS-OBSERVED",
+        "PRD07-RUN-0004": "PASS-OBSERVED",
+        "PRD07-RUN-0005": "PASS-OBSERVED",
+        "PRD07-RUN-0006": "PASS-OBSERVED",
+        "PRD07-RUN-0007": "PASS-OBSERVED",
+        "PRD07-RUN-0008": "PASS-OBSERVED",
+        "PRD07-RUN-0009": "PASS-OBSERVED",
+        "PRD07-RUN-0010": "PASS-OBSERVED",
+        "PRD07-RUN-0011": "PASS-OBSERVED",
+        "PRD07-RUN-0012": "PASS-OBSERVED",
+        "PRD07-RUN-0013": "PASS-OBSERVED",
+        "PRD07-RUN-0014": "PASS-OBSERVED",
+        "PRD07-RUN-0015": "PASS-OBSERVED",
+        "PRD07-RUN-0016": "PASS-OBSERVED",
+        "PRD07-RUN-0017": "PASS-OBSERVED",
+        "PRD07-RUN-0018": "PASS-OBSERVED",
+        "PRD07-RUN-0019": "PASS-OBSERVED",
+        "PRD07-RUN-0020": "PASS-OBSERVED",
+        "PRD07-RUN-0021": "PASS-OBSERVED",
+        "PRD07-RUN-0022": "PASS-OBSERVED",
+        "PRD07-RUN-0023": "PASS-OBSERVED",
+        "PRD07-RUN-0024": "PASS-OBSERVED",
+        "PRD07-RUN-0025": "PASS-OBSERVED",
+        "PRD07-RUN-0026": "PASS-OBSERVED",
+        "PRD07-RUN-0027": "PASS-OBSERVED",
+        "PRD07-RUN-0028": "PASS-OBSERVED",
+        "PRD07-RUN-0029": "PASS-OBSERVED",
+        "PRD07-RUN-0030": "PASS-OBSERVED",
+        "PRD07-RUN-0031": "PASS-OBSERVED",
+        "PRD07-RUN-0032": "PASS-OBSERVED",
+        "PRD07-RUN-0033": "PASS-OBSERVED",
+        "PRD07-RUN-0034": "PASS-OBSERVED",
+        "PRD07-RUN-0035": "PASS-OBSERVED",
+        "PRD07-RUN-0036": "PASS-OBSERVED",
+        "PRD07-RUN-0037": "PASS-OBSERVED",
+        "PRD07-RUN-0038": "PASS-OBSERVED",
+        "PRD07-RUN-0039": "PASS-OBSERVED",
+        "PRD07-RUN-0040": "PASS-OBSERVED",
+        "PRD07-RUN-0041": "PASS-OBSERVED",
+        "PRD07-RUN-0042": "PASS-OBSERVED",
+        "PRD07-RUN-0043": "PASS-OBSERVED",
+        "PRD07-RUN-0044": "PASS-OBSERVED",
+        "PRD07-RUN-0045": "PASS-OBSERVED",
+        "PRD07-RUN-0046": "PASS-OBSERVED",
+        "PRD07-RUN-0047": "PASS-OBSERVED",
+        "PRD07-RUN-0048": "PASS-OBSERVED",
+        "PRD07-RUN-0049": "PASS-OBSERVED",
+        "PRD07-RUN-0050": "PASS-OBSERVED",
+        "PRD07-RUN-0051": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0052": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0053": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0054": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0055": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0056": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0057": "QUARANTINED-ABORTED-TRANSACTION",
+        "PRD07-RUN-0058": "INVALIDATED",
+        "PRD07-RUN-0059": "PASS-OBSERVED",
+        "PRD07-RUN-0060": "PASS-OBSERVED",
+        "PRD07-RUN-0061": "PASS-OBSERVED",
+        "PRD07-RUN-0062": "PASS-OBSERVED",
+        "PRD07-RUN-0063": "PASS-OBSERVED",
+        "PRD07-RUN-0064": "PASS-OBSERVED",
+        "PRD07-RUN-0065": "PASS-OBSERVED"
+      },
+      "evidence_ids": [
+        "PRD07-EVID-0001",
+        "PRD07-EVID-0002",
+        "PRD07-EVID-0003",
+        "PRD07-EVID-0004",
+        "PRD07-EVID-0005",
+        "PRD07-EVID-0006",
+        "PRD07-EVID-0007",
+        "PRD07-EVID-0008",
+        "PRD07-EVID-0009",
+        "PRD07-EVID-0010",
+        "PRD07-EVID-0011",
+        "PRD07-EVID-0012",
+        "PRD07-EVID-0013",
+        "PRD07-EVID-0014",
+        "PRD07-EVID-0015",
+        "PRD07-EVID-0016",
+        "PRD07-EVID-0017",
+        "PRD07-EVID-0018",
+        "PRD07-EVID-0019",
+        "PRD07-EVID-0020",
+        "PRD07-EVID-0021",
+        "PRD07-EVID-0022",
+        "PRD07-EVID-0023",
+        "PRD07-EVID-0024",
+        "PRD07-EVID-0025",
+        "PRD07-EVID-0026",
+        "PRD07-EVID-0027",
+        "PRD07-EVID-0028",
+        "PRD07-EVID-0029",
+        "PRD07-EVID-0030",
+        "PRD07-EVID-0031",
+        "PRD07-EVID-0032",
+        "PRD07-EVID-0033",
+        "PRD07-EVID-0034",
+        "PRD07-EVID-0035",
+        "PRD07-EVID-0036",
+        "PRD07-EVID-0037",
+        "PRD07-EVID-0038",
+        "PRD07-EVID-0039",
+        "PRD07-EVID-0040",
+        "PRD07-EVID-0041",
+        "PRD07-EVID-0042",
+        "PRD07-EVID-0043",
+        "PRD07-EVID-0044",
+        "PRD07-EVID-0045",
+        "PRD07-EVID-0046",
+        "PRD07-EVID-0047",
+        "PRD07-EVID-0048",
+        "PRD07-EVID-0049",
+        "PRD07-EVID-0050",
+        "PRD07-EVID-0051",
+        "PRD07-EVID-0052",
+        "PRD07-EVID-0053",
+        "PRD07-EVID-0054",
+        "PRD07-EVID-0055",
+        "PRD07-EVID-0056",
+        "PRD07-EVID-0057",
+        "PRD07-EVID-0058",
+        "PRD07-EVID-0059",
+        "PRD07-EVID-0060",
+        "PRD07-EVID-0061",
+        "PRD07-EVID-0062",
+        "PRD07-EVID-0063",
+        "PRD07-EVID-0064",
+        "PRD07-EVID-0065"
+      ],
+      "evidence_paths": [
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0001",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0002",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0003",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0004",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0005",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0006",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0007",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0008",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0009",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0010",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0011",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0012",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0013",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0014",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0015",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0016",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0017",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0018",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0019",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0020",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0021",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0022",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0023",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0024",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0025",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0026",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0027",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0028",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0029",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0030",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0031",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0032",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0033",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0034",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0035",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0036",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0037",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0038",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0039",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0040",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0041",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0042",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0043",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0044",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0045",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0046",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0047",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0048",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0049",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0050",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064",
+        "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065"
+      ],
+      "mappings": {
+        "PRD07-RUN-0001": {
+          "evidence_id": "PRD07-EVID-0001",
+          "proof_id": "PRD04-PROOF-70"
+        },
+        "PRD07-RUN-0002": {
+          "evidence_id": "PRD07-EVID-0002",
+          "proof_id": "PRD04-PROOF-73"
+        },
+        "PRD07-RUN-0003": {
+          "evidence_id": "PRD07-EVID-0003",
+          "proof_id": "PRD04-PROOF-74"
+        },
+        "PRD07-RUN-0004": {
+          "evidence_id": "PRD07-EVID-0004",
+          "proof_id": "PRD04-PROOF-02"
+        },
+        "PRD07-RUN-0005": {
+          "evidence_id": "PRD07-EVID-0005",
+          "proof_id": "PRD04-PROOF-01"
+        },
+        "PRD07-RUN-0006": {
+          "evidence_id": "PRD07-EVID-0006",
+          "proof_id": "PRD04-PROOF-12"
+        },
+        "PRD07-RUN-0007": {
+          "evidence_id": "PRD07-EVID-0007",
+          "proof_id": "PRD04-PROOF-22"
+        },
+        "PRD07-RUN-0008": {
+          "evidence_id": "PRD07-EVID-0008",
+          "proof_id": "PRD04-PROOF-03"
+        },
+        "PRD07-RUN-0009": {
+          "evidence_id": "PRD07-EVID-0009",
+          "proof_id": "PRD04-PROOF-67"
+        },
+        "PRD07-RUN-0010": {
+          "evidence_id": "PRD07-EVID-0010",
+          "proof_id": "PRD04-PROOF-05"
+        },
+        "PRD07-RUN-0011": {
+          "evidence_id": "PRD07-EVID-0011",
+          "proof_id": "PRD04-PROOF-06"
+        },
+        "PRD07-RUN-0012": {
+          "evidence_id": "PRD07-EVID-0012",
+          "proof_id": "PRD04-PROOF-11"
+        },
+        "PRD07-RUN-0013": {
+          "evidence_id": "PRD07-EVID-0013",
+          "proof_id": "PRD04-PROOF-10"
+        },
+        "PRD07-RUN-0014": {
+          "evidence_id": "PRD07-EVID-0014",
+          "proof_id": "PRD04-PROOF-13"
+        },
+        "PRD07-RUN-0015": {
+          "evidence_id": "PRD07-EVID-0015",
+          "proof_id": "PRD04-PROOF-14"
+        },
+        "PRD07-RUN-0016": {
+          "evidence_id": "PRD07-EVID-0016",
+          "proof_id": "PRD04-PROOF-19"
+        },
+        "PRD07-RUN-0017": {
+          "evidence_id": "PRD07-EVID-0017",
+          "proof_id": "PRD04-PROOF-15"
+        },
+        "PRD07-RUN-0018": {
+          "evidence_id": "PRD07-EVID-0018",
+          "proof_id": "PRD04-PROOF-16"
+        },
+        "PRD07-RUN-0019": {
+          "evidence_id": "PRD07-EVID-0019",
+          "proof_id": "PRD04-PROOF-21"
+        },
+        "PRD07-RUN-0020": {
+          "evidence_id": "PRD07-EVID-0020",
+          "proof_id": "PRD04-PROOF-23"
+        },
+        "PRD07-RUN-0021": {
+          "evidence_id": "PRD07-EVID-0021",
+          "proof_id": "PRD04-PROOF-24"
+        },
+        "PRD07-RUN-0022": {
+          "evidence_id": "PRD07-EVID-0022",
+          "proof_id": "PRD04-PROOF-25"
+        },
+        "PRD07-RUN-0023": {
+          "evidence_id": "PRD07-EVID-0023",
+          "proof_id": "PRD04-PROOF-26"
+        },
+        "PRD07-RUN-0024": {
+          "evidence_id": "PRD07-EVID-0024",
+          "proof_id": "PRD04-PROOF-34"
+        },
+        "PRD07-RUN-0025": {
+          "evidence_id": "PRD07-EVID-0025",
+          "proof_id": "PRD04-PROOF-04"
+        },
+        "PRD07-RUN-0026": {
+          "evidence_id": "PRD07-EVID-0026",
+          "proof_id": "PRD04-PROOF-17"
+        },
+        "PRD07-RUN-0027": {
+          "evidence_id": "PRD07-EVID-0027",
+          "proof_id": "PRD04-PROOF-33"
+        },
+        "PRD07-RUN-0028": {
+          "evidence_id": "PRD07-EVID-0028",
+          "proof_id": "PRD04-PROOF-63"
+        },
+        "PRD07-RUN-0029": {
+          "evidence_id": "PRD07-EVID-0029",
+          "proof_id": "PRD04-PROOF-68"
+        },
+        "PRD07-RUN-0030": {
+          "evidence_id": "PRD07-EVID-0030",
+          "proof_id": "PRD04-PROOF-18"
+        },
+        "PRD07-RUN-0031": {
+          "evidence_id": "PRD07-EVID-0031",
+          "proof_id": "PRD04-PROOF-07"
+        },
+        "PRD07-RUN-0032": {
+          "evidence_id": "PRD07-EVID-0032",
+          "proof_id": "PRD04-PROOF-20"
+        },
+        "PRD07-RUN-0033": {
+          "evidence_id": "PRD07-EVID-0033",
+          "proof_id": "PRD04-PROOF-35"
+        },
+        "PRD07-RUN-0034": {
+          "evidence_id": "PRD07-EVID-0034",
+          "proof_id": "PRD04-PROOF-36"
+        },
+        "PRD07-RUN-0035": {
+          "evidence_id": "PRD07-EVID-0035",
+          "proof_id": "PRD04-PROOF-38"
+        },
+        "PRD07-RUN-0036": {
+          "evidence_id": "PRD07-EVID-0036",
+          "proof_id": "PRD04-PROOF-37"
+        },
+        "PRD07-RUN-0037": {
+          "evidence_id": "PRD07-EVID-0037",
+          "proof_id": "PRD04-PROOF-44"
+        },
+        "PRD07-RUN-0038": {
+          "evidence_id": "PRD07-EVID-0038",
+          "proof_id": "PRD04-PROOF-46"
+        },
+        "PRD07-RUN-0039": {
+          "evidence_id": "PRD07-EVID-0039",
+          "proof_id": "PRD04-PROOF-39"
+        },
+        "PRD07-RUN-0040": {
+          "evidence_id": "PRD07-EVID-0040",
+          "proof_id": "PRD04-PROOF-40"
+        },
+        "PRD07-RUN-0041": {
+          "evidence_id": "PRD07-EVID-0041",
+          "proof_id": "PRD04-PROOF-41"
+        },
+        "PRD07-RUN-0042": {
+          "evidence_id": "PRD07-EVID-0042",
+          "proof_id": "PRD04-PROOF-47"
+        },
+        "PRD07-RUN-0043": {
+          "evidence_id": "PRD07-EVID-0043",
+          "proof_id": "PRD04-PROOF-48"
+        },
+        "PRD07-RUN-0044": {
+          "evidence_id": "PRD07-EVID-0044",
+          "proof_id": "PRD04-PROOF-09"
+        },
+        "PRD07-RUN-0045": {
+          "evidence_id": "PRD07-EVID-0045",
+          "proof_id": "PRD04-PROOF-42"
+        },
+        "PRD07-RUN-0046": {
+          "evidence_id": "PRD07-EVID-0046",
+          "proof_id": "PRD04-PROOF-43"
+        },
+        "PRD07-RUN-0047": {
+          "evidence_id": "PRD07-EVID-0047",
+          "proof_id": "PRD04-PROOF-45"
+        },
+        "PRD07-RUN-0048": {
+          "evidence_id": "PRD07-EVID-0048",
+          "proof_id": "PRD04-PROOF-57"
+        },
+        "PRD07-RUN-0049": {
+          "evidence_id": "PRD07-EVID-0049",
+          "proof_id": "PRD04-PROOF-58"
+        },
+        "PRD07-RUN-0050": {
+          "evidence_id": "PRD07-EVID-0050",
+          "proof_id": "PRD04-PROOF-69"
+        },
+        "PRD07-RUN-0051": {
+          "evidence_id": "PRD07-EVID-0051",
+          "proof_id": "PRD04-PROOF-27"
+        },
+        "PRD07-RUN-0052": {
+          "evidence_id": "PRD07-EVID-0052",
+          "proof_id": "PRD04-PROOF-28"
+        },
+        "PRD07-RUN-0053": {
+          "evidence_id": "PRD07-EVID-0053",
+          "proof_id": "PRD04-PROOF-08"
+        },
+        "PRD07-RUN-0054": {
+          "evidence_id": "PRD07-EVID-0054",
+          "proof_id": "PRD04-PROOF-30"
+        },
+        "PRD07-RUN-0055": {
+          "evidence_id": "PRD07-EVID-0055",
+          "proof_id": "PRD04-PROOF-29"
+        },
+        "PRD07-RUN-0056": {
+          "evidence_id": "PRD07-EVID-0056",
+          "proof_id": "PRD04-PROOF-31"
+        },
+        "PRD07-RUN-0057": {
+          "evidence_id": "PRD07-EVID-0057",
+          "proof_id": "PRD04-PROOF-32"
+        },
+        "PRD07-RUN-0058": {
+          "evidence_id": "PRD07-EVID-0058",
+          "proof_id": "PRD04-PROOF-27"
+        },
+        "PRD07-RUN-0059": {
+          "evidence_id": "PRD07-EVID-0059",
+          "proof_id": "PRD04-PROOF-27"
+        },
+        "PRD07-RUN-0060": {
+          "evidence_id": "PRD07-EVID-0060",
+          "proof_id": "PRD04-PROOF-28"
+        },
+        "PRD07-RUN-0061": {
+          "evidence_id": "PRD07-EVID-0061",
+          "proof_id": "PRD04-PROOF-08"
+        },
+        "PRD07-RUN-0062": {
+          "evidence_id": "PRD07-EVID-0062",
+          "proof_id": "PRD04-PROOF-30"
+        },
+        "PRD07-RUN-0063": {
+          "evidence_id": "PRD07-EVID-0063",
+          "proof_id": "PRD04-PROOF-29"
+        },
+        "PRD07-RUN-0064": {
+          "evidence_id": "PRD07-EVID-0064",
+          "proof_id": "PRD04-PROOF-31"
+        },
+        "PRD07-RUN-0065": {
+          "evidence_id": "PRD07-EVID-0065",
+          "proof_id": "PRD04-PROOF-32"
+        }
+      },
+      "max_evidence_number": 65,
+      "max_run_number": 65,
+      "quarantine_paths": [
+        "docs/rebuild/r7/w3-allocation-reconciliation.json"
+      ],
+      "quarantined_run_ids": [
+        "PRD07-RUN-0051",
+        "PRD07-RUN-0052",
+        "PRD07-RUN-0053",
+        "PRD07-RUN-0054",
+        "PRD07-RUN-0055",
+        "PRD07-RUN-0056",
+        "PRD07-RUN-0057"
+      ],
+      "retained_run_ids": [
+        "PRD07-RUN-0001",
+        "PRD07-RUN-0002",
+        "PRD07-RUN-0003",
+        "PRD07-RUN-0004",
+        "PRD07-RUN-0005",
+        "PRD07-RUN-0006",
+        "PRD07-RUN-0007",
+        "PRD07-RUN-0008",
+        "PRD07-RUN-0009",
+        "PRD07-RUN-0010",
+        "PRD07-RUN-0011",
+        "PRD07-RUN-0012",
+        "PRD07-RUN-0013",
+        "PRD07-RUN-0014",
+        "PRD07-RUN-0015",
+        "PRD07-RUN-0016",
+        "PRD07-RUN-0017",
+        "PRD07-RUN-0018",
+        "PRD07-RUN-0019",
+        "PRD07-RUN-0020",
+        "PRD07-RUN-0021",
+        "PRD07-RUN-0022",
+        "PRD07-RUN-0023",
+        "PRD07-RUN-0024",
+        "PRD07-RUN-0025",
+        "PRD07-RUN-0026",
+        "PRD07-RUN-0027",
+        "PRD07-RUN-0028",
+        "PRD07-RUN-0029",
+        "PRD07-RUN-0030",
+        "PRD07-RUN-0031",
+        "PRD07-RUN-0032",
+        "PRD07-RUN-0033",
+        "PRD07-RUN-0034",
+        "PRD07-RUN-0035",
+        "PRD07-RUN-0036",
+        "PRD07-RUN-0037",
+        "PRD07-RUN-0038",
+        "PRD07-RUN-0039",
+        "PRD07-RUN-0040",
+        "PRD07-RUN-0041",
+        "PRD07-RUN-0042",
+        "PRD07-RUN-0043",
+        "PRD07-RUN-0044",
+        "PRD07-RUN-0045",
+        "PRD07-RUN-0046",
+        "PRD07-RUN-0047",
+        "PRD07-RUN-0048",
+        "PRD07-RUN-0049",
+        "PRD07-RUN-0050",
+        "PRD07-RUN-0059",
+        "PRD07-RUN-0060",
+        "PRD07-RUN-0061",
+        "PRD07-RUN-0062",
+        "PRD07-RUN-0063",
+        "PRD07-RUN-0064",
+        "PRD07-RUN-0065"
+      ],
+      "run_ids": [
+        "PRD07-RUN-0001",
+        "PRD07-RUN-0002",
+        "PRD07-RUN-0003",
+        "PRD07-RUN-0004",
+        "PRD07-RUN-0005",
+        "PRD07-RUN-0006",
+        "PRD07-RUN-0007",
+        "PRD07-RUN-0008",
+        "PRD07-RUN-0009",
+        "PRD07-RUN-0010",
+        "PRD07-RUN-0011",
+        "PRD07-RUN-0012",
+        "PRD07-RUN-0013",
+        "PRD07-RUN-0014",
+        "PRD07-RUN-0015",
+        "PRD07-RUN-0016",
+        "PRD07-RUN-0017",
+        "PRD07-RUN-0018",
+        "PRD07-RUN-0019",
+        "PRD07-RUN-0020",
+        "PRD07-RUN-0021",
+        "PRD07-RUN-0022",
+        "PRD07-RUN-0023",
+        "PRD07-RUN-0024",
+        "PRD07-RUN-0025",
+        "PRD07-RUN-0026",
+        "PRD07-RUN-0027",
+        "PRD07-RUN-0028",
+        "PRD07-RUN-0029",
+        "PRD07-RUN-0030",
+        "PRD07-RUN-0031",
+        "PRD07-RUN-0032",
+        "PRD07-RUN-0033",
+        "PRD07-RUN-0034",
+        "PRD07-RUN-0035",
+        "PRD07-RUN-0036",
+        "PRD07-RUN-0037",
+        "PRD07-RUN-0038",
+        "PRD07-RUN-0039",
+        "PRD07-RUN-0040",
+        "PRD07-RUN-0041",
+        "PRD07-RUN-0042",
+        "PRD07-RUN-0043",
+        "PRD07-RUN-0044",
+        "PRD07-RUN-0045",
+        "PRD07-RUN-0046",
+        "PRD07-RUN-0047",
+        "PRD07-RUN-0048",
+        "PRD07-RUN-0049",
+        "PRD07-RUN-0050",
+        "PRD07-RUN-0051",
+        "PRD07-RUN-0052",
+        "PRD07-RUN-0053",
+        "PRD07-RUN-0054",
+        "PRD07-RUN-0055",
+        "PRD07-RUN-0056",
+        "PRD07-RUN-0057",
+        "PRD07-RUN-0058",
+        "PRD07-RUN-0059",
+        "PRD07-RUN-0060",
+        "PRD07-RUN-0061",
+        "PRD07-RUN-0062",
+        "PRD07-RUN-0063",
+        "PRD07-RUN-0064",
+        "PRD07-RUN-0065"
+      ],
+      "state_paths": [
+        "docs/rebuild/r7/w0-execution-state.json",
+        "docs/rebuild/r7/w1-execution-state.json",
+        "docs/rebuild/r7/w2-execution-state.json",
+        "docs/rebuild/r7/w3-execution-state.json"
+      ]
+    },
+    "registry_sha256": "7336c7f0be993a75eec5532f606908136bc62a059c228da460414c2d7295a79e",
+    "w3_state_bytes": 26872,
+    "w3_state_path": "docs/rebuild/r7/w3-execution-state.json",
+    "w3_state_sha256": "adfe096c8bc657989738d84efb9cecff4b8afc0279050b04f6dcda21a1fd4880"
+  },
+  "schema_version": "prd07-w4-readiness-admission-v1",
+  "source_tree_artifacts": [
+    {
+      "bytes": 1703,
+      "path": "proofs/r7/w4/dependency-reference.json",
+      "sha256": "25aa0eb1c3942e157f769391ec9585999f9026e5bc08bc48add327fa170e47d9"
+    },
+    {
+      "bytes": 297678,
+      "path": "proofs/r7/w4/fixture-07/fcc13e-expected.json",
+      "sha256": "589bd39bacf684e6448bfffb63703de2e41e8d2da7f3011e26bec62d24f8fc73"
+    },
+    {
+      "bytes": 1967,
+      "path": "proofs/r7/w4/fixture-07/manifest.json",
+      "sha256": "47fdb1ad40a8161c03dbdd1fac06201cb914c6385c4673cd32f7e7e27f7f9343"
+    },
+    {
+      "bytes": 1544,
+      "path": "proofs/r7/w4/fixture-07/migration-worlds.json",
+      "sha256": "02ed7ee3607f73a3b9472f35da37848271e82915095ae6a775df5c97461bb637"
+    },
+    {
+      "bytes": 7126,
+      "path": "proofs/r7/w4/fixture-07/source-packages.json",
+      "sha256": "b4e1cbf2ec4487a6329e66dbffd2a9bf5ca1c59ec5c93519dbd5fdecfdb4703d"
+    },
+    {
+      "bytes": 2375,
+      "path": "proofs/r7/w4/fixture-07/trust-and-scale-cases.json",
+      "sha256": "0260bcb728e7bffe326e2a611bcb64771b8ecd7fddebbf70f520c4d3f4e7dc4f"
+    },
+    {
+      "bytes": 1245,
+      "path": "proofs/r7/w4/fixture-08/manifest.json",
+      "sha256": "dda589cf6b9a7b91364f576156c332181ee6fb415961f22f3364888ec7dbb3f1"
+    },
+    {
+      "bytes": 3231,
+      "path": "proofs/r7/w4/fixture-08/presentation-cases.json",
+      "sha256": "f8753fa7bb4357c555c51dbe1d645d33565a377d2e9fe065a8c03f9e731a093d"
+    },
+    {
+      "bytes": 4231,
+      "path": "proofs/r7/w4/future-evidence-pack.schema.json",
+      "sha256": "97df82214b437151d40f579a9056c79a5c1b78a9bd93cf832b02954314f2f49f"
+    },
+    {
+      "bytes": 2274,
+      "path": "proofs/r7/w4/future-execution-rules.json",
+      "sha256": "e11818b01bfdf69318732974e6f8a4fc296079f1940d01913cd31fa70c467b9a"
+    },
+    {
+      "bytes": 172,
+      "path": "proofs/r7/w4/presentation_probe/main.tscn",
+      "sha256": "acc3e1a00fb3eb9a48de269681d15fdbf01edfab6598e145e5ed55249f71962b"
+    },
+    {
+      "bytes": 378,
+      "path": "proofs/r7/w4/presentation_probe/project.godot",
+      "sha256": "42fd15dd0f3438f93fac3fbb22cfb7665a8c04ab08dc7774ca2b236c798e8121"
+    },
+    {
+      "bytes": 1130,
+      "path": "proofs/r7/w4/presentation_probe/src/main.gd",
+      "sha256": "5e6f0620ad6274e4e465a177c83ccee204e9b07583facd39772421bf14c69dc1"
+    },
+    {
+      "bytes": 947,
+      "path": "proofs/r7/w4/README.md",
+      "sha256": "d12d6483ccf7e3337f18028d3f97d8e22241b8187a76a732563a6345fdbe2e59"
+    },
+    {
+      "bytes": 52251,
+      "path": "tools/r7_w3_reconciliation.py",
+      "sha256": "07413947d3371a6aab823700ce44bcd2ef1a409aacf75bbd8682ee9762002ebf"
+    },
+    {
+      "bytes": 9345,
+      "path": "tools/r7_w4_audit.py",
+      "sha256": "374f80dc59bc937ad7691a231792e8893f1f6f703dc3df96d555c0da79896c87"
+    },
+    {
+      "bytes": 207,
+      "path": "tools/r7_w4_runtime/__init__.py",
+      "sha256": "19d022e8a7d4821a8c3c116965cadb3075b4eab1cc19a8eb4d8951500e7249c0"
+    },
+    {
+      "bytes": 80,
+      "path": "tools/r7_w4_runtime/__main__.py",
+      "sha256": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a"
+    },
+    {
+      "bytes": 8012,
+      "path": "tools/r7_w4_runtime/admission.py",
+      "sha256": "6bf91be8cead71cca04c549bad107915a41cd2ffd2c9c6ca5acfffebb858816e"
+    },
+    {
+      "bytes": 9698,
+      "path": "tools/r7_w4_runtime/authority.py",
+      "sha256": "f56486d9b7bc95eedf90e8f3d384b329d1c3ccca5b8a32f0e7e088ae9e503011"
+    },
+    {
+      "bytes": 4856,
+      "path": "tools/r7_w4_runtime/cli.py",
+      "sha256": "ace8d116d9852a1dd762782c88772c1dc50dfde5b87120a874e51c90821031ce"
+    },
+    {
+      "bytes": 3391,
+      "path": "tools/r7_w4_runtime/dependencies.py",
+      "sha256": "84d30b62e2785934072a38c94de5e88166b96a0bf08724d18cd4474996507f24"
+    },
+    {
+      "bytes": 4732,
+      "path": "tools/r7_w4_runtime/execution_plan.py",
+      "sha256": "eb6bf7b38271038a2c057b0843bec0ac6892d973c5811b9657bcd859b1b8c433"
+    },
+    {
+      "bytes": 17514,
+      "path": "tools/r7_w4_runtime/fixtures.py",
+      "sha256": "5025c4de22d3b471fa6291ee54fc177a302cf785d4bd609530b4407df35954f2"
+    },
+    {
+      "bytes": 16877,
+      "path": "tools/r7_w4_runtime/readiness.py",
+      "sha256": "81dd63e3a6b4200c9e433e99c838761a10a47dcd374518fcac935f98e37e5e23"
+    },
+    {
+      "bytes": 6651,
+      "path": "tools/tests/test_r7_w4_runtime.py",
+      "sha256": "92637e766e4fd51e854df76ac4445959bc518effa8c183912ab0d82b9066383e"
+    },
+    {
+      "bytes": 8178,
+      "path": "tools/verify.py",
+      "sha256": "c136e4c9866ddb680d12a0df97624710773edfea50abe7e7a86ec23393efaa18"
+    },
+    {
+      "bytes": 77809,
+      "path": "tools/verify_rebuild_boundary.py",
+      "sha256": "00b0bf8e157cfccb8b66ac13a1705a31a9c42194a4b043057311ead75d55ef6a"
+    }
+  ],
+  "source_tree_identity": "a8c44988293279ded102b6cc4f6a4a62fdff461e5fefbf351a58306b2a86beb5",
+  "starting_handoff": "HANDOFF-20260910-001",
+  "status": "PASS",
+  "task": "TASK-20260910-001",
+  "w3_terminal": {
+    "issued_high_water": 65,
+    "reconciliation": "PASS",
+    "state": "W3-EXECUTION-COMPLETE"
+  },
+  "work": "WORK-20260910-001"
+}
