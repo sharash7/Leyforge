@@ -22,9 +22,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
-| [[HANDOFF-20260909-002|HANDOFF-20260909-002]] | handoff | active | R7 W3 Fixture-launch Repair Certification to Freshly Authorized Rerun Gate |
-| [[WORK-20260909-003|WORK-20260909-003]] | work | active | Execute and reconcile the certified R7 W3 technical environment rerun |
-| [[TASK-20260909-003|TASK-20260909-003]] | work_item | active | R7 W3 technical environment execution rerun task contract |
+| [[HANDOFF-20260910-001|HANDOFF-20260910-001]] | handoff | active | R7 W3 Completion to Separately Authorized W4 Readiness Gate |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
 | [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |
 | [[WORK-20260909-001|WORK-20260909-001]] | work | cancelled | Execute and reconcile the repaired R7 W3 technical environment proof rerun |
@@ -37,6 +35,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[WORK-20260906-006|WORK-20260906-006]] | work | complete | Establish and execute the R7 W1 semantic-safety proof package |
 | [[WORK-20260906-007|WORK-20260906-007]] | work | complete | Establish and execute the R7 W2 durability and network proof package |
 | [[WORK-20260906-005|WORK-20260906-005]] | work | complete | Establish R7 W0 dependency and export readiness and execute valid proofs |
+| [[WORK-20260909-003|WORK-20260909-003]] | work | complete | Execute and reconcile the certified R7 W3 technical environment rerun |
 | [[WORK-20260906-001|WORK-20260906-001]] | work | complete | Install and validate the R5 engineering governance bootstrap |
 | [[WORK-20260909-002|WORK-20260909-002]] | work | complete | Repair and re-certify the R7 W3 fixture-launch boundary |
 | [[WORK-20260908-002|WORK-20260908-002]] | work | complete | Repair and re-certify the R7 W3 technical environment package |
@@ -57,6 +56,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[TASK-20260906-006|TASK-20260906-006]] | work_item | complete | R7 W1 ownership, worldgen, derived-spatial and transaction proof task contract |
 | [[TASK-20260906-007|TASK-20260906-007]] | work_item | complete | R7 W2 network, persistence, recovery and migration proof task contract |
 | [[TASK-20260909-002|TASK-20260909-002]] | work_item | complete | R7 W3 fixture-launch repair and re-certification task contract |
+| [[TASK-20260909-003|TASK-20260909-003]] | work_item | complete | R7 W3 technical environment execution rerun task contract |
 | [[TASK-20260908-002|TASK-20260908-002]] | work_item | complete | R7 W3 technical environment repair and re-certification task contract |
 | [[TASK-20260907-001|TASK-20260907-001]] | work_item | complete | W3 technical environment proof reconciliation and minimum-fixture readiness |
 | [[HANDOFF-20260905-001|HANDOFF-20260905-001]] | handoff | superseded | R4 Project Brain to R5 Governance Bootstrap Handoff |
@@ -68,6 +68,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[HANDOFF-20260906-006|HANDOFF-20260906-006]] | handoff | superseded | R7 W1 Execution to W2 Network, Persistence and Recovery Readiness Handoff |
 | [[HANDOFF-20260906-007|HANDOFF-20260906-007]] | handoff | superseded | R7 W2 Execution to W3 Technical Environment Proofs Readiness Handoff |
 | [[HANDOFF-20260908-002|HANDOFF-20260908-002]] | handoff | superseded | R7 W3 Execution Abort to Repair and Re-certification Handoff |
+| [[HANDOFF-20260909-002|HANDOFF-20260909-002]] | handoff | superseded | R7 W3 Fixture-launch Repair Certification to Freshly Authorized Rerun Gate |
 | [[HANDOFF-20260908-001|HANDOFF-20260908-001]] | handoff | superseded | R7 W3 Readiness Certification to Governed W3 Proof Execution Handoff |
 | [[HANDOFF-20260908-003|HANDOFF-20260908-003]] | handoff | superseded | R7 W3 Repair Certification to Freshly Authorized W3 Rerun Handoff |
 | [[HANDOFF-20260909-001|HANDOFF-20260909-001]] | handoff | superseded | R7 W3 Rerun Abort to Fixture-launch Repair and Re-certification Handoff |

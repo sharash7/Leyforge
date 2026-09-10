@@ -33,6 +33,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[AUDIT-0012|AUDIT-0012]] | audit | certified | R7 W3 Fixture-launch Repair and Re-certification Audit |
 | [[AUDIT-0009|AUDIT-0009]] | audit | certified | R7 W3 Technical Environment Execution Abort Certification |
 | [[AUDIT-0011|AUDIT-0011]] | audit | certified | R7 W3 Technical Environment Execution Rerun Abort Certification |
+| [[AUDIT-0013|AUDIT-0013]] | audit | certified | R7 W3 Technical Environment Execution Rerun Audit |
 | [[AUDIT-0010|AUDIT-0010]] | audit | certified | R7 W3 Technical Environment Repair and Re-certification Audit |
 | [[GOV-DEBT-0002|GOV-DEBT-0002]] | deviation | proposed | G1 registry and core identity validators |
 | [[GOV-DEBT-0003|GOV-DEBT-0003]] | deviation | proposed | G2 persistent V1 world-state validators |
