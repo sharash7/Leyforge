@@ -23,6 +23,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[HANDOFF-20260910-002|HANDOFF-20260910-002]] | handoff | active | R7 W4 Readiness Certification to Separately Authorized Governed Execution Gate |
+| [[WORK-20260910-002|WORK-20260910-002]] | work | active | Execute and reconcile the certified R7 W4 proof package |
+| [[TASK-20260910-002|TASK-20260910-002]] | work_item | active | R7 W4 Forge trust presentation migration governed execution task contract |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
 | [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |
 | [[WORK-20260909-001|WORK-20260909-001]] | work | cancelled | Execute and reconcile the repaired R7 W3 technical environment proof rerun |
