@@ -1,0 +1,387 @@
+{
+  "certification_commit": "325fe1fe3bcbf9faa17684143421eef0fb1f8deb",
+  "ci": {
+    "brain_integrity": {
+      "run_id": 34431773049,
+      "run_number": 38,
+      "sha": "325fe1fe3bcbf9faa17684143421eef0fb1f8deb",
+      "status": "success",
+      "url": "https://github.com/sharash7/Leyforge/actions/runs/34431773049",
+      "workflow": "Brain integrity"
+    },
+    "engineering_governance_integrity": {
+      "run_id": 34431773053,
+      "run_number": 37,
+      "sha": "325fe1fe3bcbf9faa17684143421eef0fb1f8deb",
+      "status": "success",
+      "url": "https://github.com/sharash7/Leyforge/actions/runs/34431773053",
+      "workflow": "Engineering governance integrity"
+    }
+  },
+  "dependencies": {
+    "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_export_template": "4.8.dev4.official.b56a91878",
+    "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+  },
+  "environment_hashes": {
+    "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+    "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+  },
+  "executed_source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+  "execution": {
+    "allocated_evidence_ids": [
+      "PRD07-EVID-0059",
+      "PRD07-EVID-0060",
+      "PRD07-EVID-0061",
+      "PRD07-EVID-0062",
+      "PRD07-EVID-0063",
+      "PRD07-EVID-0064",
+      "PRD07-EVID-0065"
+    ],
+    "allocated_run_ids": [
+      "PRD07-RUN-0059",
+      "PRD07-RUN-0060",
+      "PRD07-RUN-0061",
+      "PRD07-RUN-0062",
+      "PRD07-RUN-0063",
+      "PRD07-RUN-0064",
+      "PRD07-RUN-0065"
+    ],
+    "historical_invalidated_evidence_ids": [
+      "PRD07-EVID-0058"
+    ],
+    "historical_invalidated_run_ids": [
+      "PRD07-RUN-0058"
+    ],
+    "proofs": [
+      {
+        "acceptance_reason": "Total governed fluid amount remains conserved within the declared numeric representation tolerance; cross-boundary exchange is symmetric/explainable and stale work cannot replace newer state.",
+        "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+        "artifact_size_bytes": 110444544,
+        "blockers": [],
+        "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+        "evidence_id": "PRD07-EVID-0059",
+        "evidence_sha256": "c568cbfea1ce076756846d3700c5e474ac74e6cc3a5edb50a4925a9510de9f78",
+        "key_metrics": {
+          "boundary_exchanges": 10000,
+          "failed_current_exchanges": 0,
+          "maximum_conservation_error": 0,
+          "numeric_tolerance_units": 0,
+          "stale_state_commits": 0
+        },
+        "limitations": [],
+        "prd08_submission": "NOT-SUBMITTED",
+        "proof_id": "PRD04-PROOF-27",
+        "retained_pack": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0059",
+        "run_id": "PRD07-RUN-0059",
+        "state": "PASS-OBSERVED"
+      },
+      {
+        "acceptance_reason": "Only bounded local regions simulate dynamically; ocean interaction follows explicit reservoir/level rules; all local volume change is attributable to measured reservoir exchange; no infinite-spread activation occurs.",
+        "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+        "artifact_size_bytes": 110444544,
+        "blockers": [],
+        "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+        "evidence_id": "PRD07-EVID-0060",
+        "evidence_sha256": "8b76931af040df169f1b449cc8bdf8d4ade1df58f2c6875138977bcb7c2d5361",
+        "key_metrics": {
+          "active_cell_limit": 256,
+          "breach_reseal_cycles": 500,
+          "maximum_active_cells": 1,
+          "maximum_unaccounted_volume": 0,
+          "unbounded_propagation_count": 0
+        },
+        "limitations": [],
+        "prd08_submission": "NOT-SUBMITTED",
+        "proof_id": "PRD04-PROOF-28",
+        "retained_pack": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0060",
+        "run_id": "PRD07-RUN-0060",
+        "state": "PASS-OBSERVED"
+      },
+      {
+        "acceptance_reason": "Vessel keeps one semantic identity and unchanged local hull state; exactly one current owner exists; world placement changes coherently; old-region work cannot mutate the post-crossing vessel.",
+        "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+        "artifact_size_bytes": 110444544,
+        "blockers": [],
+        "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+        "evidence_id": "PRD07-EVID-0061",
+        "evidence_sha256": "147239f48cc97764698379ea5aafb2d4d39b88443be87f32530951947e3dc2c1",
+        "key_metrics": {
+          "crossings": 5000,
+          "hull_state_errors": 0,
+          "identity_errors": 0,
+          "owner_count_errors": 0,
+          "stale_old_region_commits": 0
+        },
+        "limitations": [],
+        "prd08_submission": "NOT-SUBMITTED",
+        "proof_id": "PRD04-PROOF-08",
+        "retained_pack": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0061",
+        "run_id": "PRD07-RUN-0061",
+        "state": "PASS-OBSERVED"
+      },
+      {
+        "acceptance_reason": "Occupants retain stable identity and coherent vessel-local/world positions; vessel motion is applied exactly once; transitions on/off vessel are explicit and reversible.",
+        "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+        "artifact_size_bytes": 110444512,
+        "blockers": [],
+        "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+        "evidence_id": "PRD07-EVID-0062",
+        "evidence_sha256": "58548df5ee8b68b3f46f456448678ab525ea8b0109068b175ab3648393f1f773",
+        "key_metrics": {
+          "boarding_transitions": 500,
+          "double_motion_count": 0,
+          "exported_physics_report_present": true,
+          "frame_round_trip_errors": 0,
+          "identity_errors": 0,
+          "movement_steps": 10000
+        },
+        "limitations": [],
+        "prd08_submission": "NOT-SUBMITTED",
+        "proof_id": "PRD04-PROOF-30",
+        "retained_pack": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0062",
+        "run_id": "PRD07-RUN-0062",
+        "state": "PASS-OBSERVED"
+      },
+      {
+        "acceptance_reason": "Hull edit commits exactly once; every derived property either matches the current hull revision or is explicitly stale/quarantined; old results cannot replace current vessel state.",
+        "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+        "artifact_size_bytes": 110444544,
+        "blockers": [],
+        "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+        "evidence_id": "PRD07-EVID-0063",
+        "evidence_sha256": "6f60e1282b8231b25e71159bf6252c1f959abbb5adbe4b90e8ef8b92263a8f9f",
+        "key_metrics": {
+          "current_projection_publish_failures": 0,
+          "duplicate_or_lost_hull_elements": 0,
+          "stale_publications_accepted": 0,
+          "underway_hull_edits": 2000
+        },
+        "limitations": [],
+        "prd08_submission": "NOT-SUBMITTED",
+        "proof_id": "PRD04-PROOF-29",
+        "retained_pack": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0063",
+        "run_id": "PRD07-RUN-0063",
+        "state": "PASS-OBSERVED"
+      },
+      {
+        "acceptance_reason": "At least one candidate preserves the required contact semantics, respects stale-revision quarantine and demonstrates a plausible scaling path for larger editable vessels without hidden authority inversion.",
+        "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+        "artifact_size_bytes": 110444512,
+        "blockers": [],
+        "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+        "evidence_id": "PRD07-EVID-0064",
+        "evidence_sha256": "aa7a11b3fd7f5d6b3457f932aed68155a4052d07c219261b8bbc5c60150233c3",
+        "key_metrics": {
+          "candidate_rows": 9,
+          "physics_report_errors": 0,
+          "semantic_contact_errors": 0,
+          "stale_rebuilds_accepted": 0
+        },
+        "limitations": [],
+        "prd08_submission": "NOT-SUBMITTED",
+        "proof_id": "PRD04-PROOF-31",
+        "retained_pack": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0064",
+        "run_id": "PRD07-RUN-0064",
+        "state": "PASS-OBSERVED"
+      },
+      {
+        "acceptance_reason": "Water exchange is conserved/accounted; total mass and COM reflect current contained water/cargo/hull state; buoyancy consumes compatible current revisions or explicitly degrades; repairs stop future ingress without deleting existing water.",
+        "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+        "artifact_size_bytes": 110444512,
+        "blockers": [],
+        "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+        "evidence_id": "PRD07-EVID-0065",
+        "evidence_sha256": "f44c1dc12f27330370910009be043271420c072987aec9f49494ff6bd9c6a741",
+        "key_metrics": {
+          "breach_repair_cargo_scenarios": 400,
+          "exported_physics_report_present": true,
+          "mass_errors": 0,
+          "repair_water_deletions": 0,
+          "stale_buoyancy_publications": 0,
+          "water_conservation_errors": 0
+        },
+        "limitations": [],
+        "prd08_submission": "NOT-SUBMITTED",
+        "proof_id": "PRD04-PROOF-32",
+        "retained_pack": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0065",
+        "run_id": "PRD07-RUN-0065",
+        "state": "PASS-OBSERVED"
+      }
+    ],
+    "result_counts": {
+      "FAIL-OBSERVED": 0,
+      "HISTORICAL-INVALIDATED": 1,
+      "INCONCLUSIVE": 0,
+      "INVALIDATED-IN-THIS-RERUN": 0,
+      "PASS-OBSERVED": 7
+    }
+  },
+  "execution_evidence_commit": "5605ea1157ff8129a8cdef555c81f1a14a27e021",
+  "exports": {
+    "client": {
+      "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d",
+      "artifact_size_bytes": 110444512,
+      "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+      "runtime_self_report": {
+        "build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455",
+        "contact_errors": 0,
+        "fixture_capabilities": [
+          "stable-vessel-semantic-id",
+          "vessel-local-frame",
+          "world-vessel-frame-conversion",
+          "owner-region-epochs",
+          "editable-local-hull",
+          "revisioned-derived-properties",
+          "bounded-local-fluid",
+          "explicit-ocean-reservoir",
+          "breach-repair-pump",
+          "contained-water-mass",
+          "buoyancy-diagnostic",
+          "controlled-motion",
+          "board-disembark",
+          "physics-shape-collision-corpus",
+          "stale-result-quarantine"
+        ],
+        "frame_round_trip_errors": 0,
+        "presentation_authority_dependencies": 0,
+        "production_runtime": false,
+        "proof_execution_started": false,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_errors": 0,
+        "provider_ready": true,
+        "role": "client",
+        "schema_version": "prd07-w3-fixture-self-report-v1",
+        "stable_proof_ids": [
+          "PRD04-PROOF-08",
+          "PRD04-PROOF-27",
+          "PRD04-PROOF-28",
+          "PRD04-PROOF-29",
+          "PRD04-PROOF-30",
+          "PRD04-PROOF-31",
+          "PRD04-PROOF-32"
+        ],
+        "status": "PASS"
+      },
+      "state": "PASS"
+    },
+    "headless": {
+      "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349",
+      "artifact_size_bytes": 110444544,
+      "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+      "runtime_self_report": {
+        "build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73",
+        "contact_errors": 0,
+        "fixture_capabilities": [
+          "stable-vessel-semantic-id",
+          "vessel-local-frame",
+          "world-vessel-frame-conversion",
+          "owner-region-epochs",
+          "editable-local-hull",
+          "revisioned-derived-properties",
+          "bounded-local-fluid",
+          "explicit-ocean-reservoir",
+          "breach-repair-pump",
+          "contained-water-mass",
+          "buoyancy-diagnostic",
+          "controlled-motion",
+          "board-disembark",
+          "physics-shape-collision-corpus",
+          "stale-result-quarantine"
+        ],
+        "frame_round_trip_errors": 0,
+        "presentation_authority_dependencies": 0,
+        "production_runtime": false,
+        "proof_execution_started": false,
+        "provider_class": "VoxelBuffer",
+        "provider_edition": "zylann-voxel-tools-gdextension-v1.7x",
+        "provider_errors": 0,
+        "provider_ready": true,
+        "role": "headless",
+        "schema_version": "prd07-w3-fixture-self-report-v1",
+        "stable_proof_ids": [
+          "PRD04-PROOF-08",
+          "PRD04-PROOF-27",
+          "PRD04-PROOF-28",
+          "PRD04-PROOF-29",
+          "PRD04-PROOF-30",
+          "PRD04-PROOF-31",
+          "PRD04-PROOF-32"
+        ],
+        "status": "PASS"
+      },
+      "state": "PASS"
+    }
+  },
+  "gameplay_permission": "CLOSED",
+  "next_handoff": "HANDOFF-20260910-001",
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN",
+  "prd08_evaluation": "CLOSED",
+  "prd08_submission": "NOT-SUBMITTED",
+  "production_runtime": "ABSENT",
+  "proof_implementation_commit": "05f5e8934cc0e99044117e1af4166bb424272e2f",
+  "r7_state": "ACTIVE-AWAITING-W4-GOVERNED-ACTION",
+  "reconciliation_commit": "861da104efb3c22383e330edbd2877299ae55725",
+  "registry": {
+    "evidence_high_water": 65,
+    "invalidated_identities": [
+      "PRD07-RUN-0058",
+      "PRD07-EVID-0058"
+    ],
+    "invalidated_identity_count": 1,
+    "issued_identity_count": 65,
+    "next_future_sequence": 66,
+    "quarantine_paths": [
+      "docs/rebuild/r7/w3-allocation-reconciliation.json"
+    ],
+    "quarantined_identity_count": 7,
+    "quarantined_range": "0051-0057",
+    "retained_identity_count": 57,
+    "retained_ranges": [
+      "0001-0050",
+      "0059-0065"
+    ],
+    "run_high_water": 65,
+    "state_paths": [
+      "docs/rebuild/r7/w0-execution-state.json",
+      "docs/rebuild/r7/w1-execution-state.json",
+      "docs/rebuild/r7/w2-execution-state.json",
+      "docs/rebuild/r7/w3-execution-state.json"
+    ]
+  },
+  "schema_version": "r7-w3-execution-completion-v1",
+  "starting_commit": "7fe5881374d9704ff23f1a4408cb4c0afbc48f9c",
+  "status": "COMPLETE-CERTIFIED",
+  "task": "TASK-20260909-003",
+  "verification": {
+    "clean_build": "PASS",
+    "clean_focused": {
+      "commands": 10,
+      "governance_tests": 18,
+      "r6_tests": 7,
+      "status": "PASS",
+      "tool_runtime_tests": 99
+    },
+    "clean_full": {
+      "brain_governance_r6_tests": 46,
+      "commands": 15,
+      "status": "PASS",
+      "tool_runtime_tests": 99
+    },
+    "global_boundary": {
+      "checks": 9013,
+      "failures": 0,
+      "status": "PASS"
+    },
+    "terminal_reconciliation": "PASS",
+    "w3_runtime_reconciliation_tests": {
+      "status": "PASS",
+      "tests": 46
+    }
+  },
+  "w3_state": "COMPLETE",
+  "w4_transition": "TECHNICAL-SEQUENCE-READY; OPENING-AND-EXECUTION-REQUIRE-SEPARATE-AUTHORITY",
+  "work": "WORK-20260909-003"
+}

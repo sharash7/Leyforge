@@ -1,8 +1,8 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active handoff:** `HANDOFF-20260909-002`. `WORK-20260909-003` and `TASK-20260909-003` govern the owner-authorized W3 execution rerun; its complete pre-execution gate passes without allocation.
+**Active handoff:** `HANDOFF-20260910-001`. `WORK-20260909-003` and `TASK-20260909-003` are complete; `EVID-0013` / `AUDIT-0013` certify the W3 execution rerun.
 
-**State:** ACTIVE — PRD-07 intake and W0-W2 execution are complete and certified. Both earlier W3 attempts stopped before proof observation. Pair 0058 remains durably invalidated; its fixture-launch defect and certification gap are repaired and certified. The fresh owner-authorized W3 rerun has passed its complete pre-execution gate; the single governed executor is next. W4, W5 and FINAL remain open, but W4 execution is not authorized.
+**State:** ACTIVE — PRD-07 intake and W0-W3 execution are complete and certified. Pair 0058 remains durably invalidated; successful W3 proof packs 0059-0065 are retained. W4 is the next technical wave but remains unopened pending separate readiness/admission authority; W4 execution, W5 and FINAL remain unexecuted.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
@@ -103,18 +103,20 @@ The unchanged repaired admission was the exact pre-execution boundary and does n
 
 Post-stop compilation, governance 18/18, R6 7/7, 87 unaffected tool/runtime tests, proof-harness/static W0-W3 preflights, Brain ingest/index/links, both certification Doctors and registry validation pass. The official focused wrapper fails on the one stale W3 assertion; the official full wrapper reaches 45/46 Brain/governance/R6 tests and fails only the test that requires the red clean-boundary validator. These controlled failures are retained, not waived.
 
-## W3 Technical Environment Execution Rerun — Current Authorized Package
+## W3 Technical Environment Execution Rerun — Complete
 
-Fresh owner authorization opened `TASK-20260909-003` / `WORK-20260909-003` from exact starting HEAD `7fe5881374d9704ff23f1a4408cb4c0afbc48f9c`. Lifecycle commits `3bd88a759574046ffd9cde37cc64f9bf0761bd07` and `9cebe5c6f76009e5db579a9d946e77d377481e61` are published; both required workflows pass on the latter SHA.
+Fresh owner authorization opened `TASK-20260909-003` / `WORK-20260909-003` from exact starting HEAD `7fe5881374d9704ff23f1a4408cb4c0afbc48f9c`. The final published pre-execution source was `cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489`; its exact Brain integrity #37 and Engineering governance integrity #36 workflows passed before execution.
 
-The repeated live gate validates implementation `05f5e8934cc0e99044117e1af4166bb424272e2f`, source-tree identity `ae78f07192fc7f1aa1e32d238c90303297426002556735e1c2aaacec56f93bd2`, exact 25-artifact current boundary, seven READY proofs, pinned Godot/template/Voxel identities with `NO-LOCAL-PATCH`, real client/headless exports and fixture self-reports, 46/46 Brain/governance/R6 tests, 95/95 tool/runtime tests and 8,651 clean-boundary checks. No proof or 0059+ allocation occurred.
+The governed executor durably allocated and retained pairs 0059-0065 in exact order for proofs `27, 28, 08, 30, 29, 31, 32`. All seven are `PASS-OBSERVED`; no result failed, was inconclusive, blocked, aborted or newly invalidated. Raw state/packs are immutable at `5605ea1157ff8129a8cdef555c81f1a14a27e021`.
 
-The single governed executor is next. It must derive and durably persist one pair just in time in order `27, 28, 08, 30, 29, 31, 32`, beginning from preview 0059. Historical 0001-0058 remain immutable/non-reusable according to their retained, quarantined or invalidated disposition. W4, PRD-08/09, R8, gameplay and production remain closed.
+Terminal reconciliation reports W3 COMPLETE, RUN/EVID high-water 0065, 57 retained packs, quarantined 0051-0057, invalidated 0058 and next future sequence 0066. The 82-artifact terminal boundary, exact Godot/template/Voxel identities and production boundary pass. Clean build/focused/full, W3 46/46, tool/runtime 99/99, Brain/governance/R6 46/46 and rebuild boundary 9,013/9,013 pass at published terminal checkpoint `325fe1fe3bcbf9faa17684143421eef0fb1f8deb`; Brain integrity #38 and Engineering governance integrity #37 both pass on that exact SHA.
+
+`EVID-0013` / `AUDIT-0013` certify completion. W4, PRD-08/09, R8, gameplay and production remain closed.
 
 ## Remaining R7 Work
 
-Execute and reconcile the seven W3 proofs next under the passed gate. W4, W5 and FINAL remain open, but W4 execution is not authorized. PRD04-PROOF-57 and 58 require eventual W4 corpus revalidation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W4, W5 and FINAL remain open programme work. Before any W4 proof can be READY or allocate 0066, a fresh owner-authorized readiness/admission package must implement and certify FIXTURE-07/FIXTURE-08 expansion, all 15 W4 mappings including PRD04-PROOF-57/58 full-corpus revalidation, exact dependencies and a hash-pinned boundary. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue only through [[HANDOFF-20260909-002]] and [[TASK-20260909-003]]. W3 allocation/execution is authorized only through the passed gate and governed executor. Do not reuse 0051-0058, begin W4, evaluate/open PRD-08 or open R8.
+Continue only through [[HANDOFF-20260910-001]]. W3 is COMPLETE. Do not reuse 0051-0058, allocate 0066, open/execute W4, evaluate/open PRD-08 or open R8 without the applicable fresh authority.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

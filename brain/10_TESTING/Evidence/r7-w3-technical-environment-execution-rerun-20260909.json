@@ -1,0 +1,90 @@
+{
+  "schema_version": "r7-w3-technical-environment-execution-rerun-v1",
+  "status": "COMPLETE-CERTIFIED",
+  "package": "R7-W3-TECHNICAL-ENVIRONMENT-EXECUTION-RERUN",
+  "task": "TASK-20260909-003",
+  "work": "WORK-20260909-003",
+  "evidence": "EVID-0013",
+  "audit": "AUDIT-0013",
+  "handoff": "HANDOFF-20260910-001",
+  "started_on": "2026-09-09",
+  "completed_on": "2026-09-10",
+  "repository": {
+    "workspace": "D:/AI/Projects/leyforge-rebuild",
+    "branch": "codex/chore/brain-governance-pilot",
+    "upstream": "origin/codex/chore/brain-governance-pilot",
+    "starting_commit": "7fe5881374d9704ff23f1a4408cb4c0afbc48f9c",
+    "executed_source_revision": "cc61b5d7b4ee8f58c8c6bb885a2c6bcfd7026489",
+    "execution_evidence_commit": "5605ea1157ff8129a8cdef555c81f1a14a27e021",
+    "terminal_certification_commit": "325fe1fe3bcbf9faa17684143421eef0fb1f8deb"
+  },
+  "proofs": [
+    {"run_id": "PRD07-RUN-0059", "evidence_id": "PRD07-EVID-0059", "proof_id": "PRD04-PROOF-27", "result": "PASS-OBSERVED", "evidence_sha256": "c568cbfea1ce076756846d3700c5e474ac74e6cc3a5edb50a4925a9510de9f78"},
+    {"run_id": "PRD07-RUN-0060", "evidence_id": "PRD07-EVID-0060", "proof_id": "PRD04-PROOF-28", "result": "PASS-OBSERVED", "evidence_sha256": "8b76931af040df169f1b449cc8bdf8d4ade1df58f2c6875138977bcb7c2d5361"},
+    {"run_id": "PRD07-RUN-0061", "evidence_id": "PRD07-EVID-0061", "proof_id": "PRD04-PROOF-08", "result": "PASS-OBSERVED", "evidence_sha256": "147239f48cc97764698379ea5aafb2d4d39b88443be87f32530951947e3dc2c1"},
+    {"run_id": "PRD07-RUN-0062", "evidence_id": "PRD07-EVID-0062", "proof_id": "PRD04-PROOF-30", "result": "PASS-OBSERVED", "evidence_sha256": "58548df5ee8b68b3f46f456448678ab525ea8b0109068b175ab3648393f1f773"},
+    {"run_id": "PRD07-RUN-0063", "evidence_id": "PRD07-EVID-0063", "proof_id": "PRD04-PROOF-29", "result": "PASS-OBSERVED", "evidence_sha256": "6f60e1282b8231b25e71159bf6252c1f959abbb5adbe4b90e8ef8b92263a8f9f"},
+    {"run_id": "PRD07-RUN-0064", "evidence_id": "PRD07-EVID-0064", "proof_id": "PRD04-PROOF-31", "result": "PASS-OBSERVED", "evidence_sha256": "aa7a11b3fd7f5d6b3457f932aed68155a4052d07c219261b8bbc5c60150233c3"},
+    {"run_id": "PRD07-RUN-0065", "evidence_id": "PRD07-EVID-0065", "proof_id": "PRD04-PROOF-32", "result": "PASS-OBSERVED", "evidence_sha256": "f44c1dc12f27330370910009be043271420c072987aec9f49494ff6bd9c6a741"}
+  ],
+  "result_counts": {
+    "PASS-OBSERVED": 7,
+    "FAIL-OBSERVED": 0,
+    "INCONCLUSIVE": 0,
+    "INVALIDATED-IN-THIS-RERUN": 0,
+    "HISTORICAL-INVALIDATED": 1
+  },
+  "registry": {
+    "run_high_water": 65,
+    "evidence_high_water": 65,
+    "issued_identity_count": 65,
+    "retained_identity_count": 57,
+    "quarantined_identity_count": 7,
+    "invalidated_identity_count": 1,
+    "quarantined_range": "0051-0057",
+    "historical_invalidated_pair": "0058",
+    "next_future_sequence": 66
+  },
+  "environment": {
+    "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+    "godot_export_template": "4.8.dev4.official.b56a91878",
+    "godot_export_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+    "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+    "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8",
+    "local_patch_state": "NO-LOCAL-PATCH"
+  },
+  "exports": {
+    "client": {"build_identity": "5e44641036833b0d383d527df9d8a0ed648c38f51eb648961d4f8fddbf469455", "artifact_sha256": "448a8aafb6d1c158b54a2a0afc00c694c825ffb150dc7da69753d5b50beb0a1d", "artifact_size_bytes": 110444512},
+    "headless": {"build_identity": "bae60954221b2277f9b19395384476d39677f8f4728f5804fe0cb9a818f33b73", "artifact_sha256": "f9465f4806d412cc5a80c1012102ab574f609c276cbbf8a516b0026e918a1349", "artifact_size_bytes": 110444544}
+  },
+  "verification": {
+    "w3_runtime_reconciliation_tests": {"status": "PASS", "tests": 46},
+    "clean_build": "PASS",
+    "clean_focused": {"status": "PASS", "governance_tests": 18, "r6_tests": 7, "tool_runtime_tests": 99},
+    "clean_full": {"status": "PASS", "brain_governance_r6_tests": 46, "tool_runtime_tests": 99},
+    "terminal_reconciliation": "PASS",
+    "global_boundary": {"status": "PASS", "checks": 9013, "failures": 0},
+    "terminal_artifact_ci": {
+      "brain_integrity": {"run_id": 34431773049, "run_number": 38, "status": "success", "url": "https://github.com/sharash7/Leyforge/actions/runs/34431773049"},
+      "engineering_governance_integrity": {"run_id": 34431773053, "run_number": 37, "status": "success", "url": "https://github.com/sharash7/Leyforge/actions/runs/34431773053"}
+    }
+  },
+  "boundaries": {
+    "production_runtime": "ABSENT",
+    "production_dependencies": "INACTIVE",
+    "active_poc_dependencies": 0,
+    "w3_state": "COMPLETE",
+    "w4_state": "CLOSED-PENDING-SEPARATE-READINESS-AND-ADMISSION-AUTHORITY",
+    "r7_state": "ACTIVE-AWAITING-W4-GOVERNED-ACTION",
+    "prd08_evaluation": "CLOSED",
+    "prd08_submission": "NOT-SUBMITTED",
+    "r8_gameplay_permission": "CLOSED"
+  },
+  "authoritative_receipts": [
+    "docs/rebuild/r7/w3-execution-state.json",
+    "docs/rebuild/r7/w3-readiness-execution-complete.json",
+    "docs/rebuild/r7/w3-execution-boundary-execution-complete.json",
+    "docs/rebuild/r7/w3-execution-completion-receipt.json"
+  ]
+}

@@ -6,7 +6,7 @@ title: "Engineering Governance Health"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-09"
+updated: "2026-09-10"
 authority_domain: "engineering_governance"
 authority_role: "derived_record"
 authority_status: "authoritative"
@@ -65,6 +65,9 @@ related_to:
   - "HANDOFF-20260909-002"
   - "WORK-20260909-003"
   - "TASK-20260909-003"
+  - "EVID-0013"
+  - "AUDIT-0013"
+  - "HANDOFF-20260910-001"
   - "ADR-0008"
 ---
 
@@ -185,13 +188,14 @@ related_to:
 - W3 regression 42/42, tool/runtime 95/95, Brain/governance/R6 46/46 and both Doctors pass. The clean boundary passes 8,636 checks at the certification checkpoint and 8,663 after lifecycle reconciliation. Both required workflows pass on published certification commit `8092873474cffd886c8590214079a1f7adeed185` and lifecycle closeout `fad939afc064b12fc5c9ccedb2849256ccd51a39`.
 - [[HANDOFF-20260909-002]] required fresh owner authority before W3 rerun or 0059 allocation; that requirement is satisfied only through [[TASK-20260909-003]]. W4, R7 closure, PRD-08, R8 gameplay and production activation remain closed.
 
-## R7 W3 Technical Environment Execution Rerun — Current Authorized Package
+## R7 W3 Technical Environment Execution Rerun — Complete
 
-- Fresh owner authority is active under [[TASK-20260909-003]] / [[WORK-20260909-003]] for exactly `27, 28, 08, 30, 29, 31, 32` plus required reconciliation.
-- Exact starting repository, published lifecycle, repaired source/readiness/current boundary, 25 artifact identities, dependencies, registry/history, production boundary and checkpoint CI revalidate successfully.
-- Fixed-engine client/headless fixture integration and clean build/focused/full verification pass without proof execution or allocation; the single governed executor is next.
-- Issued high-water remains 0058. The exact 0059-0065 mapping remains `PREVIEW-NOT-ALLOCATED` until each pair is durably persisted just in time after a published green checkpoint and repeated fail-closed gate.
-- 0001-0050 remain immutable, 0051-0057 quarantined and 0058 invalidated. W4, PRD-08/09, R8, gameplay and production remain closed.
+- Complete under [[TASK-20260909-003]] / [[WORK-20260909-003]] and certified by [[EVID-0013]] / [[AUDIT-0013]].
+- Actual retained pairs 0059-0065 map in order to proofs `27, 28, 08, 30, 29, 31, 32`; all seven are `PASS-OBSERVED` with empty blocker/limitation lists.
+- Issued high-water is 0065: 57 retained identities/packs, seven quarantined pairs 0051-0057 and historical invalidated 0058. No 0066 identity exists.
+- Exact fixed Godot/template/Voxel identities remained `NO-LOCAL-PATCH`; client/headless execution artifacts and runtime observations are hash-pinned. Production runtime/dependencies and active POC dependencies remained absent.
+- Clean W3 runtime/reconciliation 46/46, tool/runtime 99/99, Brain/governance/R6 46/46 and rebuild boundary 9,013/9,013 pass. Brain integrity #38 and Engineering governance integrity #37 pass on terminal checkpoint `325fe1fe3bcbf9faa17684143421eef0fb1f8deb`.
+- W3 is COMPLETE. [[HANDOFF-20260910-001]] keeps W4 closed pending fresh owner authority for readiness/admission; W4 execution/0066 allocation, PRD-08/09, R8, gameplay and production remain closed.
 
 ## Later Activation Milestones
 
@@ -201,4 +205,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260909-002]] and the bounded W3 rerun package [[TASK-20260909-003]]. W0-W2 execution is certified; both earlier W3 execution attempts are certified controlled failures before proof observation; 0058 remains durably invalidated; and the fixture-launch repair/current boundary is certified. The new rerun is authorized, its complete pre-execution gate passes and it has allocated zero identities; the governed executor is next. W4, W5 and FINAL remain open, but W4 execution is not authorized. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 remains closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260910-001]]. W0-W3 execution is certified; both earlier W3 controlled failures remain immutable, 0058 remains durably invalidated and the successful rerun is retained through 0065. W4, W5 and FINAL remain open programme work, but no W4 Task Contract, readiness state, execution authority or 0066 allocation exists. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08 remains closed, and R8 gameplay permission remains closed.

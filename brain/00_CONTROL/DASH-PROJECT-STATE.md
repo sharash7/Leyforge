@@ -6,7 +6,7 @@ title: "Project State"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-09"
+updated: "2026-09-10"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
@@ -65,6 +65,9 @@ related_to:
   - "HANDOFF-20260909-002"
   - "WORK-20260909-003"
   - "TASK-20260909-003"
+  - "EVID-0013"
+  - "AUDIT-0013"
+  - "HANDOFF-20260910-001"
   - "ADR-0008"
   - "CONFLICT-0002"
 ---
@@ -79,7 +82,7 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active — W3 rerun pre-execution gate PASS; executor next | W0-W2 execution is certified; [[EVID-0012]] / [[AUDIT-0012]] certify the repaired boundary; [[TASK-20260909-003]] / [[WORK-20260909-003]] govern the exact seven-proof rerun |
+| R7 | Active — W3 COMPLETE; awaiting separately authorized W4 readiness/admission | W0-W2 and W3 execution are certified; [[EVID-0013]] / [[AUDIT-0013]] certify seven W3 `PASS-OBSERVED` packs through 0065 |
 | R8 gameplay | Closed | No production gameplay permission is open |
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
@@ -100,4 +103,6 @@ The owner-authorized W3 execution rerun under [[TASK-20260909-001]] / [[WORK-202
 
 [[EVID-0011]] / [[AUDIT-0011]] certify the controlled failure. The subsequent owner-authorized fixture-launch repair/re-certification is complete under [[TASK-20260909-002]] / [[WORK-20260909-002]] and certified by [[EVID-0012]] / [[AUDIT-0012]]. Exact implementation `05f5e8934cc0e99044117e1af4166bb424272e2f` uses authoritative `artifact_path`; real client/headless fixture integration passes without proof execution or allocation; and the current 25-artifact boundary reconciles immutable admission with invalidated 0058 while rejecting drift. Readiness is 7 READY / 0 BLOCKED / 0 NOT APPLICABLE / 0 OBSERVED.
 
-[[HANDOFF-20260909-002]] remains the active continuation boundary and the owner-authorized rerun is active under [[TASK-20260909-003]] / [[WORK-20260909-003]]. Exact starting authority, repaired source/readiness/current boundary, dependencies, registry/history, allocation-free client/headless fixture integration, clean full verification, remote CI and production-boundary gates pass at the published lifecycle checkpoint. No proof has executed and no 0059+ identity is allocated; issued high-water remains 0058 and 0059-0065 are previews only. The single governed executor is next. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, dependency production activation remains planned/uninstalled, PRD-08 remains closed, R8 remains closed and W4 execution is not authorized.
+The owner-authorized rerun is complete under [[TASK-20260909-003]] / [[WORK-20260909-003]] and certified by [[EVID-0013]] / [[AUDIT-0013]]. Actual pairs 0059-0065 map in certified order to W3 proofs 27, 28, 08, 30, 29, 31 and 32; all seven are `PASS-OBSERVED`. Issued high-water is 0065, with 57 retained packs, quarantined 0051-0057 and invalidated 0058. Clean local validation and both exact-SHA workflows pass at terminal checkpoint `325fe1fe3bcbf9faa17684143421eef0fb1f8deb`.
+
+[[HANDOFF-20260910-001]] is the active continuation boundary. W3 is COMPLETE and R7 remains ACTIVE. W3 completion satisfies only the technical sequence prerequisite for considering W4; FIXTURE-07/FIXTURE-08 expansion and 15-proof W4 readiness/admission are not yet certified. W4 remains unopened pending fresh owner authority for a readiness/admission-only package, and W4 execution/0066 allocation remains separately closed. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, production dependencies remain inactive, PRD-08 remains closed and R8 remains closed.
