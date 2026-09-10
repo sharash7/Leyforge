@@ -21,6 +21,8 @@ def main() -> int:
     authority = sub.add_parser("initial-authority")
     admission = sub.add_parser("admission")
     admission.add_argument("--implementation-commit", required=True)
+    admission.add_argument("--brain-run-id", type=int, required=True)
+    admission.add_argument("--governance-run-id", type=int, required=True)
     admission.add_argument("--write", action="store_true")
     preflight = sub.add_parser("preflight")
     preflight.add_argument("--source-revision", required=True)
@@ -37,7 +39,11 @@ def main() -> int:
             issues = initial_authority_issues()
             value = {"status": "PASS" if not issues else "FAIL", "issues": list(issues), "proof_execution": "NOT-STARTED", "allocated_run_ids": [], "allocated_evidence_ids": []}
         elif args.command == "admission":
-            value = write_execution_admission(args.implementation_commit) if args.write else build_execution_admission(args.implementation_commit)
+            checkpoint_ci = [
+                {"workflow": "Brain integrity", "run_id": args.brain_run_id, "head_sha": args.implementation_commit, "conclusion": "success", "verification": "PUBLIC-GITHUB-ACTIONS-API", "url": "https://github.com/sharash7/Leyforge/actions/runs/" + str(args.brain_run_id)},
+                {"workflow": "Engineering governance integrity", "run_id": args.governance_run_id, "head_sha": args.implementation_commit, "conclusion": "success", "verification": "PUBLIC-GITHUB-ACTIONS-API", "url": "https://github.com/sharash7/Leyforge/actions/runs/" + str(args.governance_run_id)},
+            ]
+            value = write_execution_admission(args.implementation_commit, checkpoint_ci) if args.write else build_execution_admission(args.implementation_commit, checkpoint_ci)
         elif args.command == "preflight":
             issues = execution_admission_issues(args.source_revision, require_initial_high_water=True)
             value = {"status": "PASS" if not issues else "FAIL", "issues": list(issues), "source_revision": args.source_revision, "proof_execution": "NOT-STARTED", "allocated_run_ids": [], "allocated_evidence_ids": []}

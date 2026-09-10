@@ -203,12 +203,30 @@ def initial_authority_issues() -> Tuple[str, ...]:
     return tuple(sorted(set(issues)))
 
 
-def build_execution_admission(implementation_commit: str) -> Dict[str, Any]:
+def build_execution_admission(
+    implementation_commit: str,
+    checkpoint_ci: Sequence[Mapping[str, Any]] = (),
+) -> Dict[str, Any]:
     if _COMMIT.fullmatch(implementation_commit) is None:
         raise ValueError("implementation commit must be an exact lowercase commit")
     if _git("rev-parse", "HEAD") != implementation_commit:
         raise ValueError("execution admission must be generated at its exact implementation commit")
     issues = list(initial_authority_issues())
+    expected_workflows = {"Brain integrity", "Engineering governance integrity"}
+    observed_workflows = {
+        str(row.get("workflow")) for row in checkpoint_ci if isinstance(row, Mapping)
+    }
+    if len(checkpoint_ci) != 2 or observed_workflows != expected_workflows:
+        issues.append("execution checkpoint requires both exact workflow results")
+    for row in checkpoint_ci:
+        if (
+            not isinstance(row, Mapping)
+            or row.get("head_sha") != implementation_commit
+            or row.get("conclusion") != "success"
+            or not isinstance(row.get("run_id"), int)
+            or int(row.get("run_id", 0)) <= 0
+        ):
+            issues.append("execution checkpoint CI row is not exact successful published-SHA evidence")
     paths = execution_source_paths()
     if not paths:
         issues.append("execution source set is empty")
@@ -248,6 +266,7 @@ def build_execution_admission(implementation_commit: str) -> Dict[str, Any]:
             {"workflow": "Brain integrity", "run_id": 34462561751, "head_sha": READINESS_PACKAGE_COMMIT, "conclusion": "success", "verification": "PUBLIC-GITHUB-ACTIONS-API"},
             {"workflow": "Engineering governance integrity", "run_id": 34462561583, "head_sha": READINESS_PACKAGE_COMMIT, "conclusion": "success", "verification": "PUBLIC-GITHUB-ACTIONS-API"},
         ],
+        "execution_checkpoint_ci": [dict(row) for row in checkpoint_ci],
         "dependency_identity": readiness.get("dependency_identity"),
         "local_dependency_check": local,
         "fixtures": {fixture: artifact_records(ROOT / relative for relative in paths) for fixture, paths in FIXTURE_PATHS.items()},
@@ -265,8 +284,11 @@ def build_execution_admission(implementation_commit: str) -> Dict[str, Any]:
     }
 
 
-def write_execution_admission(implementation_commit: str) -> Dict[str, Any]:
-    value = build_execution_admission(implementation_commit)
+def write_execution_admission(
+    implementation_commit: str,
+    checkpoint_ci: Sequence[Mapping[str, Any]] = (),
+) -> Dict[str, Any]:
+    value = build_execution_admission(implementation_commit, checkpoint_ci)
     EXECUTION_ADMISSION_PATH.parent.mkdir(parents=True, exist_ok=True)
     EXECUTION_ADMISSION_PATH.write_bytes(canonical_bytes(value))
     return value
@@ -280,6 +302,19 @@ def execution_admission_issues(source_revision: str, *, require_initial_high_wat
     if admission.get("schema_version") != "prd07-w4-governed-execution-admission-v1" or admission.get("status") != "PASS":
         issues.append("W4 governed execution admission did not pass")
     implementation = str(admission.get("execution_implementation_commit", ""))
+    checkpoint_ci = admission.get("execution_checkpoint_ci", [])
+    if not isinstance(checkpoint_ci, list) or len(checkpoint_ci) != 2 or {
+        row.get("workflow") for row in checkpoint_ci if isinstance(row, dict)
+    } != {"Brain integrity", "Engineering governance integrity"}:
+        issues.append("W4 execution admission lacks both checkpoint CI results")
+    elif any(
+        not isinstance(row, dict)
+        or row.get("head_sha") != implementation
+        or row.get("conclusion") != "success"
+        or not isinstance(row.get("run_id"), int)
+        for row in checkpoint_ci
+    ):
+        issues.append("W4 execution admission checkpoint CI is not exact and successful")
     if _COMMIT.fullmatch(source_revision) is None or _git("rev-parse", "HEAD") != source_revision:
         issues.append("execution source revision does not equal current HEAD")
     if not implementation or subprocess.run(["git", "merge-base", "--is-ancestor", implementation, source_revision], cwd=ROOT).returncode:
