@@ -1,0 +1,572 @@
+{
+  "allocated_evidence_ids": [
+    "PRD07-EVID-0066",
+    "PRD07-EVID-0067",
+    "PRD07-EVID-0068",
+    "PRD07-EVID-0069",
+    "PRD07-EVID-0070",
+    "PRD07-EVID-0071",
+    "PRD07-EVID-0072"
+  ],
+  "allocated_run_ids": [
+    "PRD07-RUN-0066",
+    "PRD07-RUN-0067",
+    "PRD07-RUN-0068",
+    "PRD07-RUN-0069",
+    "PRD07-RUN-0070",
+    "PRD07-RUN-0071",
+    "PRD07-RUN-0072"
+  ],
+  "allocation_history": [
+    {
+      "acceptance_reason": "All 480 clean rebuild observations reproduced governed products and semantic bindings across two isolated environments; moved paths/provider IDs were irrelevant and tampering was detected then overwritten.",
+      "allocated_before_execution": true,
+      "allocation_order": 1,
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "blockers": [],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "evidence_id": "PRD07-EVID-0066",
+      "evidence_pack_status": "RETAINED",
+      "identity_retained": true,
+      "key_metrics": {
+        "clean_rebuilds": 480,
+        "product_manifest_mismatches": 0,
+        "representative_asset_classes": 8,
+        "representative_source_packages": 12,
+        "semantic_binding_mismatches": 0,
+        "tampered_product_overwritten": true,
+        "untracked_manual_product_mutations_accepted": 0
+      },
+      "limitations": [],
+      "observed_disposition": "PASS-OBSERVED",
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0066",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-49",
+      "proof_observation_produced": true,
+      "run_id": "PRD07-RUN-0066",
+      "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+      "standard_evidence_sha256": "edf657e5f138a009bd1ad91846108f98bca79e98be997dad5578cf51c07948da",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        "READY",
+        "PRD07-RUN-ALLOCATED",
+        "EXECUTING",
+        "OBSERVATION-CAPTURED",
+        "PASS-OBSERVED"
+      ]
+    },
+    {
+      "acceptance_reason": "The automated source\u2192validation\u2192bake\u2192runtime chain completed across all eight represented classes, but the certified ART handoff conclusion requires a real structured human reviewer record which this run did not have.",
+      "allocated_before_execution": true,
+      "allocation_order": 2,
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "blockers": [
+        "HUMAN-JUDGEMENT-RECORD-ABSENT"
+      ],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "evidence_id": "PRD07-EVID-0067",
+      "evidence_pack_status": "RETAINED",
+      "identity_retained": true,
+      "key_metrics": {
+        "asset_classes": 8,
+        "handoff_stage_failures": 0,
+        "hard_cases": 12,
+        "manual_exception_count": 0,
+        "provenance_binding_complete": true,
+        "runtime_context_failures": 0
+      },
+      "limitations": [
+        "No real human reviewer/tester identity, perceptual rubric result, uncertainty record or adjudication was available."
+      ],
+      "observed_disposition": "INCONCLUSIVE",
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0067",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-50",
+      "proof_observation_produced": true,
+      "run_id": "PRD07-RUN-0067",
+      "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+      "standard_evidence_sha256": "092bb82c7e32f80f872b8856181c8cf3e2659d404db4c868abceb4aaf62d9f9d",
+      "state": "INCONCLUSIVE",
+      "state_history": [
+        "READY",
+        "PRD07-RUN-ALLOCATED",
+        "EXECUTING",
+        "OBSERVATION-CAPTURED",
+        "INCONCLUSIVE"
+      ]
+    },
+    {
+      "acceptance_reason": "Four matched AI/human tasks used identical validation law and rejected identical missing-provenance mutations, but the certified parity contract requires structured human judgement that was not present.",
+      "allocated_before_execution": true,
+      "allocation_order": 3,
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "blockers": [
+        "HUMAN-JUDGEMENT-RECORD-ABSENT"
+      ],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "evidence_id": "PRD07-EVID-0068",
+      "evidence_pack_status": "RETAINED",
+      "identity_retained": true,
+      "key_metrics": {
+        "asset_classes": 4,
+        "bypass_count": 0,
+        "manual_exception_count": 0,
+        "matched_tasks": 4,
+        "traceability_failures": 0,
+        "validator_rule_set_mismatches": 0
+      },
+      "limitations": [
+        "Automated source comparability cannot substitute for the required human workflow/task assessment."
+      ],
+      "observed_disposition": "INCONCLUSIVE",
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0068",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-51",
+      "proof_observation_produced": true,
+      "run_id": "PRD07-RUN-0068",
+      "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+      "standard_evidence_sha256": "6ab33545a6fc200bcb14ef71dac974d75ef1dcf6a749601702cf7d0e0e56650e",
+      "state": "INCONCLUSIVE",
+      "state_history": [
+        "READY",
+        "PRD07-RUN-ALLOCATED",
+        "EXECUTING",
+        "OBSERVATION-CAPTURED",
+        "INCONCLUSIVE"
+      ]
+    },
+    {
+      "acceptance_reason": "The observed 16, 128 and 1,024-product scales matched the declared Cartesian families without duplicate semantic identities or presentation-only semantic multiplication.",
+      "allocated_before_execution": true,
+      "allocation_order": 4,
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "blockers": [],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "evidence_id": "PRD07-EVID-0069",
+      "evidence_pack_status": "RETAINED",
+      "identity_retained": true,
+      "key_metrics": {
+        "duplicate_semantic_ids": 0,
+        "growth_curve": [
+          16,
+          128,
+          1024
+        ],
+        "invalid_combinations_accepted": 0,
+        "maximum_generated_products": 1024,
+        "presentation_variant_semantic_ids": 0,
+        "scales": 3
+      },
+      "limitations": [],
+      "observed_disposition": "PASS-OBSERVED",
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0069",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-52",
+      "proof_observation_produced": true,
+      "run_id": "PRD07-RUN-0069",
+      "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+      "standard_evidence_sha256": "fad8be9ca51c16ae93e39799f09985370a099bc3e835226b2346e873cfd171b9",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        "READY",
+        "PRD07-RUN-ALLOCATED",
+        "EXECUTING",
+        "OBSERVATION-CAPTURED",
+        "PASS-OBSERVED"
+      ]
+    },
+    {
+      "acceptance_reason": "Candidate renderer processes and automated semantic oracles were observed without making a support claim, but no real human readability reviewer was present; the certified conclusion is therefore INCONCLUSIVE.",
+      "allocated_before_execution": true,
+      "allocation_order": 5,
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "blockers": [
+        "HUMAN-JUDGEMENT-RECORD-ABSENT"
+      ],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "evidence_id": "PRD07-EVID-0070",
+      "evidence_pack_status": "RETAINED",
+      "identity_retained": true,
+      "key_metrics": {
+        "automated_semantic_errors": 0,
+        "automated_semantic_task_rows": 21,
+        "candidate_lanes": 3,
+        "lanes_launched": 3,
+        "support_claims_made": 0
+      },
+      "limitations": [
+        "Headless execution is not a substitute for human perceptual/readability review.",
+        "No renderer support tier is established by W4."
+      ],
+      "observed_disposition": "INCONCLUSIVE",
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0070",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-53",
+      "proof_observation_produced": true,
+      "run_id": "PRD07-RUN-0070",
+      "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+      "standard_evidence_sha256": "4512879086851381ea95dfd7b6d23645cc8a2ef88f4e643383510440cd9a0cad",
+      "state": "INCONCLUSIVE",
+      "state_history": [
+        "READY",
+        "PRD07-RUN-ALLOCATED",
+        "EXECUTING",
+        "OBSERVATION-CAPTURED",
+        "INCONCLUSIVE"
+      ]
+    },
+    {
+      "acceptance_reason": "Every generated client/server product retained the same logical semantic identity; required server authority remained present and presentation-only packs stayed explicitly optional.",
+      "allocated_before_execution": true,
+      "allocation_order": 6,
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "blockers": [],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "evidence_id": "PRD07-EVID-0071",
+      "evidence_pack_status": "RETAINED",
+      "identity_retained": true,
+      "key_metrics": {
+        "ambiguous_join_baselines": 0,
+        "client_server_semantic_mismatches": 0,
+        "logical_packs": 12,
+        "presentation_only_optional_packs": 4,
+        "required_server_dependencies_removed": 0
+      },
+      "limitations": [],
+      "observed_disposition": "PASS-OBSERVED",
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0071",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-54",
+      "proof_observation_produced": true,
+      "run_id": "PRD07-RUN-0071",
+      "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+      "standard_evidence_sha256": "f08d62fc2f6482ec285e8e70a3c58b1eb90a16878e8af36007b0f238ebfa81b2",
+      "state": "PASS-OBSERVED",
+      "state_history": [
+        "READY",
+        "PRD07-RUN-ALLOCATED",
+        "EXECUTING",
+        "OBSERVATION-CAPTURED",
+        "PASS-OBSERVED"
+      ]
+    },
+    {
+      "acceptance_reason": "All 24 hostile mutation observations were rejected/quarantined before execution or external access, while the bounded benign data control remained usable.",
+      "allocated_before_execution": true,
+      "allocation_order": 7,
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "blockers": [],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "evidence_id": "PRD07-EVID-0072",
+      "evidence_pack_status": "RETAINED",
+      "identity_retained": true,
+      "key_metrics": {
+        "benign_false_positives": 0,
+        "filesystem_resource_escapes": 0,
+        "hostile_cases": 24,
+        "smuggling_classes": 6,
+        "unsafe_capability_attempts_accepted": 6
+      },
+      "limitations": [],
+      "observed_disposition": "FAIL-OBSERVED",
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0072",
+      "prd07_evidence_eligible": true,
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-55",
+      "proof_observation_produced": true,
+      "run_id": "PRD07-RUN-0072",
+      "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+      "standard_evidence_sha256": "341e70e3e6bf88e4cf893c36bb8ad506011905f22c51d05d3252fd7fda19509e",
+      "state": "FAIL-OBSERVED",
+      "state_history": [
+        "READY",
+        "PRD07-RUN-ALLOCATED",
+        "EXECUTING",
+        "OBSERVATION-CAPTURED",
+        "FAIL-OBSERVED"
+      ]
+    }
+  ],
+  "execution_admission_source": "docs/rebuild/r7/w4-governed-execution-admission.json",
+  "gameplay_permission": "CLOSED",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "package_state": "STOPPED-AFTER-FAIL-OBSERVED",
+  "prd08_submission": "NOT-SUBMITTED",
+  "prd09": "CLOSED",
+  "prior_readiness_source": "docs/rebuild/r7/w4-readiness.json",
+  "production_dependency_activation": "INACTIVE",
+  "production_runtime": "ABSENT",
+  "proofs": [
+    {
+      "acceptance_reason": "All 480 clean rebuild observations reproduced governed products and semantic bindings across two isolated environments; moved paths/provider IDs were irrelevant and tampering was detected then overwritten.",
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "attempt_run_ids": [
+        "PRD07-RUN-0066"
+      ],
+      "blockers": [],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "current_run_id": "PRD07-RUN-0066",
+      "evidence_id": "PRD07-EVID-0066",
+      "key_metrics": {
+        "clean_rebuilds": 480,
+        "product_manifest_mismatches": 0,
+        "representative_asset_classes": 8,
+        "representative_source_packages": 12,
+        "semantic_binding_mismatches": 0,
+        "tampered_product_overwritten": true,
+        "untracked_manual_product_mutations_accepted": 0
+      },
+      "limitations": [],
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0066",
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-49",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0066",
+      "standard_evidence_sha256": "edf657e5f138a009bd1ad91846108f98bca79e98be997dad5578cf51c07948da",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "The automated source\u2192validation\u2192bake\u2192runtime chain completed across all eight represented classes, but the certified ART handoff conclusion requires a real structured human reviewer record which this run did not have.",
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "attempt_run_ids": [
+        "PRD07-RUN-0067"
+      ],
+      "blockers": [
+        "HUMAN-JUDGEMENT-RECORD-ABSENT"
+      ],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "current_run_id": "PRD07-RUN-0067",
+      "evidence_id": "PRD07-EVID-0067",
+      "key_metrics": {
+        "asset_classes": 8,
+        "handoff_stage_failures": 0,
+        "hard_cases": 12,
+        "manual_exception_count": 0,
+        "provenance_binding_complete": true,
+        "runtime_context_failures": 0
+      },
+      "limitations": [
+        "No real human reviewer/tester identity, perceptual rubric result, uncertainty record or adjudication was available."
+      ],
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0067",
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-50",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0067",
+      "standard_evidence_sha256": "092bb82c7e32f80f872b8856181c8cf3e2659d404db4c868abceb4aaf62d9f9d",
+      "state": "INCONCLUSIVE"
+    },
+    {
+      "acceptance_reason": "Four matched AI/human tasks used identical validation law and rejected identical missing-provenance mutations, but the certified parity contract requires structured human judgement that was not present.",
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "attempt_run_ids": [
+        "PRD07-RUN-0068"
+      ],
+      "blockers": [
+        "HUMAN-JUDGEMENT-RECORD-ABSENT"
+      ],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "current_run_id": "PRD07-RUN-0068",
+      "evidence_id": "PRD07-EVID-0068",
+      "key_metrics": {
+        "asset_classes": 4,
+        "bypass_count": 0,
+        "manual_exception_count": 0,
+        "matched_tasks": 4,
+        "traceability_failures": 0,
+        "validator_rule_set_mismatches": 0
+      },
+      "limitations": [
+        "Automated source comparability cannot substitute for the required human workflow/task assessment."
+      ],
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0068",
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-51",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0068",
+      "standard_evidence_sha256": "6ab33545a6fc200bcb14ef71dac974d75ef1dcf6a749601702cf7d0e0e56650e",
+      "state": "INCONCLUSIVE"
+    },
+    {
+      "acceptance_reason": "The observed 16, 128 and 1,024-product scales matched the declared Cartesian families without duplicate semantic identities or presentation-only semantic multiplication.",
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "attempt_run_ids": [
+        "PRD07-RUN-0069"
+      ],
+      "blockers": [],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "current_run_id": "PRD07-RUN-0069",
+      "evidence_id": "PRD07-EVID-0069",
+      "key_metrics": {
+        "duplicate_semantic_ids": 0,
+        "growth_curve": [
+          16,
+          128,
+          1024
+        ],
+        "invalid_combinations_accepted": 0,
+        "maximum_generated_products": 1024,
+        "presentation_variant_semantic_ids": 0,
+        "scales": 3
+      },
+      "limitations": [],
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0069",
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-52",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0069",
+      "standard_evidence_sha256": "fad8be9ca51c16ae93e39799f09985370a099bc3e835226b2346e873cfd171b9",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "Candidate renderer processes and automated semantic oracles were observed without making a support claim, but no real human readability reviewer was present; the certified conclusion is therefore INCONCLUSIVE.",
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "attempt_run_ids": [
+        "PRD07-RUN-0070"
+      ],
+      "blockers": [
+        "HUMAN-JUDGEMENT-RECORD-ABSENT"
+      ],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "current_run_id": "PRD07-RUN-0070",
+      "evidence_id": "PRD07-EVID-0070",
+      "key_metrics": {
+        "automated_semantic_errors": 0,
+        "automated_semantic_task_rows": 21,
+        "candidate_lanes": 3,
+        "lanes_launched": 3,
+        "support_claims_made": 0
+      },
+      "limitations": [
+        "Headless execution is not a substitute for human perceptual/readability review.",
+        "No renderer support tier is established by W4."
+      ],
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0070",
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-53",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0070",
+      "standard_evidence_sha256": "4512879086851381ea95dfd7b6d23645cc8a2ef88f4e643383510440cd9a0cad",
+      "state": "INCONCLUSIVE"
+    },
+    {
+      "acceptance_reason": "Every generated client/server product retained the same logical semantic identity; required server authority remained present and presentation-only packs stayed explicitly optional.",
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "attempt_run_ids": [
+        "PRD07-RUN-0071"
+      ],
+      "blockers": [],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "current_run_id": "PRD07-RUN-0071",
+      "evidence_id": "PRD07-EVID-0071",
+      "key_metrics": {
+        "ambiguous_join_baselines": 0,
+        "client_server_semantic_mismatches": 0,
+        "logical_packs": 12,
+        "presentation_only_optional_packs": 4,
+        "required_server_dependencies_removed": 0
+      },
+      "limitations": [],
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0071",
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-54",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0071",
+      "standard_evidence_sha256": "f08d62fc2f6482ec285e8e70a3c58b1eb90a16878e8af36007b0f238ebfa81b2",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "acceptance_reason": "All 24 hostile mutation observations were rejected/quarantined before execution or external access, while the bounded benign data control remained usable.",
+      "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+      "attempt_run_ids": [
+        "PRD07-RUN-0072"
+      ],
+      "blockers": [],
+      "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+      "current_run_id": "PRD07-RUN-0072",
+      "evidence_id": "PRD07-EVID-0072",
+      "key_metrics": {
+        "benign_false_positives": 0,
+        "filesystem_resource_escapes": 0,
+        "hostile_cases": 24,
+        "smuggling_classes": 6,
+        "unsafe_capability_attempts_accepted": 6
+      },
+      "limitations": [],
+      "portable_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0072",
+      "prd08_submission": "NOT-SUBMITTED",
+      "proof_id": "PRD04-PROOF-55",
+      "readiness": "READY",
+      "run_id": "PRD07-RUN-0072",
+      "standard_evidence_sha256": "341e70e3e6bf88e4cf893c36bb8ad506011905f22c51d05d3252fd7fda19509e",
+      "state": "FAIL-OBSERVED"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "proof_id": "PRD04-PROOF-56",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "proof_id": "PRD04-PROOF-57",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "proof_id": "PRD04-PROOF-58",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "proof_id": "PRD04-PROOF-59",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "proof_id": "PRD04-PROOF-60",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "proof_id": "PRD04-PROOF-61",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "proof_id": "PRD04-PROOF-62",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    },
+    {
+      "attempt_run_ids": [],
+      "blockers": [],
+      "proof_id": "PRD04-PROOF-71",
+      "readiness": "READY",
+      "state": "NOT-RUN"
+    }
+  ],
+  "r7_final": "CLOSED",
+  "r8": "CLOSED",
+  "schema_version": "prd07-w4-execution-state-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+  "w5": "CLOSED"
+}

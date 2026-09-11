@@ -1,0 +1,1471 @@
+{
+  "artifacts": {
+    "captures video": [
+      {
+        "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+      },
+      {
+        "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+      },
+      {
+        "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+      }
+    ],
+    "fallback matrix": [
+      {
+        "claim": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+        "profile": "PROFILE-FORWARD-PLUS"
+      },
+      {
+        "claim": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+        "profile": "PROFILE-MOBILE"
+      },
+      {
+        "claim": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+        "profile": "PROFILE-COMPAT"
+      }
+    ],
+    "renderer profile manifest": [
+      {
+        "actual_renderer_argument": "forward_plus",
+        "candidate_observed": true,
+        "profile": {
+          "claim_state": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+          "profile_id": "PROFILE-FORWARD-PLUS",
+          "renderer": "Forward+"
+        },
+        "runtime": {
+          "capture_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png",
+          "capture_sha256": "fad3f0743ef39c680c439b944066b0f750fa30f257155845794973579e56e1d4",
+          "case_id": "PROFILE-FORWARD-PLUS",
+          "invocation_id": "PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS",
+          "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS",
+          "parse_error": "",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+              "--rendering-method",
+              "forward_plus",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-53",
+              "--case-id",
+              "PROFILE-FORWARD-PLUS",
+              "--capture-path",
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+            ],
+            "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS",
+            "duration_seconds": 2.355048179626465,
+            "exit_code": 0,
+            "stderr": "",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nVulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"D:\\\\AI\\\\Projects\\\\leyforge-rebuild\\\\.local\\\\r7-w4-execution-b5a52ca\\\\runtime\\\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\\\capture.png\",\"requested\":true,\"saved\":true},\"case_id\":\"PROFILE-FORWARD-PLUS\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(1920, 1080)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"proof\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-FORWARD-PLUS\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":true,\"proof_id\":\"PRD04-PROOF-53\",\"renderer\":\"forward_plus\",\"rendering_driver\":\"vulkan\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-FORWARD-PLUS\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-FORWARD-PLUS\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"NVIDIA GeForce RTX 2080 Ti\",\"video_adapter_vendor\":\"NVIDIA\"}\n",
+            "stdout_sha256": "6bb484f5701c641baf5e420122a0811bdffd7c081b91353ee4d90cd1897bf48b",
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-53",
+          "renderer_argument": "forward_plus",
+          "report": {
+            "authorised_knowledge_separate_from_live_truth": true,
+            "canonical_state_after": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "canonical_state_before": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "capture": {
+              "error": 0,
+              "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png",
+              "requested": true,
+              "saved": true
+            },
+            "case_id": "PROFILE-FORWARD-PLUS",
+            "configured_renderer": "gl_compatibility",
+            "display_size": "(1920, 1080)",
+            "frame_times_ms": [],
+            "gameplay_permission": "CLOSED",
+            "mode": "proof",
+            "persisted_profile": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-FORWARD-PLUS",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "previous_profile": {},
+            "production_runtime": false,
+            "profile_roundtrip_preserved": true,
+            "profile_write_succeeded": true,
+            "proof_execution_started": true,
+            "proof_id": "PRD04-PROOF-53",
+            "renderer": "forward_plus",
+            "rendering_driver": "vulkan",
+            "schema_version": "prd07-w4-execution-probe-v1",
+            "semantic_tasks": [
+              {
+                "alternative": "text-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "distinguish-active-damaged"
+              },
+              {
+                "alternative": "caption-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-without-particles"
+              },
+              {
+                "alternative": "caption-plus-visual-marker",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-muted"
+              },
+              {
+                "alternative": "focus-order",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-scaled-menu"
+              },
+              {
+                "alternative": "keyboard-controller-actions",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-input-remap"
+              },
+              {
+                "alternative": "flat-list-nondrag",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "magical-relief-route"
+              },
+              {
+                "completion": true,
+                "known_cells": [
+                  "A1",
+                  "A2",
+                  "B2"
+                ],
+                "semantic_errors": 0,
+                "task_id": "knowledge-boundary",
+                "unknown_cells": [
+                  "C7",
+                  "D8"
+                ]
+              }
+            ],
+            "settings_after": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-FORWARD-PLUS",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "settings_before": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-FORWARD-PLUS",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "status": "PASS",
+            "unrelated_settings_preserved": true,
+            "usable_ui_reached": true,
+            "video_adapter_name": "NVIDIA GeForce RTX 2080 Ti",
+            "video_adapter_vendor": "NVIDIA"
+          }
+        },
+        "support_claim": "NOT-MADE"
+      },
+      {
+        "actual_renderer_argument": "mobile",
+        "candidate_observed": true,
+        "profile": {
+          "claim_state": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+          "profile_id": "PROFILE-MOBILE",
+          "renderer": "Mobile"
+        },
+        "runtime": {
+          "capture_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png",
+          "capture_sha256": "3fdfcca7ebc5426d62f7d08b48693e28acd90057fa1f00ba43f35bbe5f404e18",
+          "case_id": "PROFILE-MOBILE",
+          "invocation_id": "PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE",
+          "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE",
+          "parse_error": "",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+              "--rendering-method",
+              "mobile",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-53",
+              "--case-id",
+              "PROFILE-MOBILE",
+              "--capture-path",
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+            ],
+            "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE",
+            "duration_seconds": 1.788621187210083,
+            "exit_code": 0,
+            "stderr": "",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nVulkan 1.4.341 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"D:\\\\AI\\\\Projects\\\\leyforge-rebuild\\\\.local\\\\r7-w4-execution-b5a52ca\\\\runtime\\\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\\\capture.png\",\"requested\":true,\"saved\":true},\"case_id\":\"PROFILE-MOBILE\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(1920, 1080)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"proof\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-MOBILE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":true,\"proof_id\":\"PRD04-PROOF-53\",\"renderer\":\"mobile\",\"rendering_driver\":\"vulkan\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-MOBILE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-MOBILE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"NVIDIA GeForce RTX 2080 Ti\",\"video_adapter_vendor\":\"NVIDIA\"}\n",
+            "stdout_sha256": "a678c28f182f1dd8cf6aa3cf34ed0e89c159417fa23f47ae7fceccde84bec080",
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-53",
+          "renderer_argument": "mobile",
+          "report": {
+            "authorised_knowledge_separate_from_live_truth": true,
+            "canonical_state_after": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "canonical_state_before": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "capture": {
+              "error": 0,
+              "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png",
+              "requested": true,
+              "saved": true
+            },
+            "case_id": "PROFILE-MOBILE",
+            "configured_renderer": "gl_compatibility",
+            "display_size": "(1920, 1080)",
+            "frame_times_ms": [],
+            "gameplay_permission": "CLOSED",
+            "mode": "proof",
+            "persisted_profile": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-MOBILE",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "previous_profile": {},
+            "production_runtime": false,
+            "profile_roundtrip_preserved": true,
+            "profile_write_succeeded": true,
+            "proof_execution_started": true,
+            "proof_id": "PRD04-PROOF-53",
+            "renderer": "mobile",
+            "rendering_driver": "vulkan",
+            "schema_version": "prd07-w4-execution-probe-v1",
+            "semantic_tasks": [
+              {
+                "alternative": "text-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "distinguish-active-damaged"
+              },
+              {
+                "alternative": "caption-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-without-particles"
+              },
+              {
+                "alternative": "caption-plus-visual-marker",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-muted"
+              },
+              {
+                "alternative": "focus-order",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-scaled-menu"
+              },
+              {
+                "alternative": "keyboard-controller-actions",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-input-remap"
+              },
+              {
+                "alternative": "flat-list-nondrag",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "magical-relief-route"
+              },
+              {
+                "completion": true,
+                "known_cells": [
+                  "A1",
+                  "A2",
+                  "B2"
+                ],
+                "semantic_errors": 0,
+                "task_id": "knowledge-boundary",
+                "unknown_cells": [
+                  "C7",
+                  "D8"
+                ]
+              }
+            ],
+            "settings_after": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-MOBILE",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "settings_before": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-MOBILE",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "status": "PASS",
+            "unrelated_settings_preserved": true,
+            "usable_ui_reached": true,
+            "video_adapter_name": "NVIDIA GeForce RTX 2080 Ti",
+            "video_adapter_vendor": "NVIDIA"
+          }
+        },
+        "support_claim": "NOT-MADE"
+      },
+      {
+        "actual_renderer_argument": "gl_compatibility",
+        "candidate_observed": true,
+        "profile": {
+          "claim_state": "ONLY-IF-TARGETED-NOT-SUPPORT-CERTIFIED",
+          "profile_id": "PROFILE-COMPAT",
+          "renderer": "Compatibility"
+        },
+        "runtime": {
+          "capture_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png",
+          "capture_sha256": "a2c5f87bc91cd671a94f465cf8b7d0637cc39ef5b4c247b9a3d4b830a76ed884",
+          "case_id": "PROFILE-COMPAT",
+          "invocation_id": "PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT",
+          "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT",
+          "parse_error": "",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+              "--rendering-method",
+              "gl_compatibility",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-53",
+              "--case-id",
+              "PROFILE-COMPAT",
+              "--capture-path",
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+            ],
+            "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT",
+            "duration_seconds": 1.0920228958129883,
+            "exit_code": 0,
+            "stderr": "",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"D:\\\\AI\\\\Projects\\\\leyforge-rebuild\\\\.local\\\\r7-w4-execution-b5a52ca\\\\runtime\\\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\\\capture.png\",\"requested\":true,\"saved\":true},\"case_id\":\"PROFILE-COMPAT\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(1920, 1080)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"proof\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-COMPAT\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":true,\"proof_id\":\"PRD04-PROOF-53\",\"renderer\":\"gl_compatibility\",\"rendering_driver\":\"opengl3\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-COMPAT\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-COMPAT\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"NVIDIA GeForce RTX 2080 Ti\",\"video_adapter_vendor\":\"NVIDIA\"}\n",
+            "stdout_sha256": "c47d673d42ae42a6f92e0806c43b9347f47253329be790275d09e88b4af7ec36",
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-53",
+          "renderer_argument": "gl_compatibility",
+          "report": {
+            "authorised_knowledge_separate_from_live_truth": true,
+            "canonical_state_after": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "canonical_state_before": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "capture": {
+              "error": 0,
+              "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png",
+              "requested": true,
+              "saved": true
+            },
+            "case_id": "PROFILE-COMPAT",
+            "configured_renderer": "gl_compatibility",
+            "display_size": "(1920, 1080)",
+            "frame_times_ms": [],
+            "gameplay_permission": "CLOSED",
+            "mode": "proof",
+            "persisted_profile": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-COMPAT",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "previous_profile": {},
+            "production_runtime": false,
+            "profile_roundtrip_preserved": true,
+            "profile_write_succeeded": true,
+            "proof_execution_started": true,
+            "proof_id": "PRD04-PROOF-53",
+            "renderer": "gl_compatibility",
+            "rendering_driver": "opengl3",
+            "schema_version": "prd07-w4-execution-probe-v1",
+            "semantic_tasks": [
+              {
+                "alternative": "text-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "distinguish-active-damaged"
+              },
+              {
+                "alternative": "caption-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-without-particles"
+              },
+              {
+                "alternative": "caption-plus-visual-marker",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-muted"
+              },
+              {
+                "alternative": "focus-order",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-scaled-menu"
+              },
+              {
+                "alternative": "keyboard-controller-actions",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-input-remap"
+              },
+              {
+                "alternative": "flat-list-nondrag",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "magical-relief-route"
+              },
+              {
+                "completion": true,
+                "known_cells": [
+                  "A1",
+                  "A2",
+                  "B2"
+                ],
+                "semantic_errors": 0,
+                "task_id": "knowledge-boundary",
+                "unknown_cells": [
+                  "C7",
+                  "D8"
+                ]
+              }
+            ],
+            "settings_after": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-COMPAT",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "settings_before": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-COMPAT",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "status": "PASS",
+            "unrelated_settings_preserved": true,
+            "usable_ui_reached": true,
+            "video_adapter_name": "NVIDIA GeForce RTX 2080 Ti",
+            "video_adapter_vendor": "NVIDIA"
+          }
+        },
+        "support_claim": "NOT-MADE"
+      }
+    ],
+    "runtime diagnostics": [
+      {
+        "actual_renderer_argument": "forward_plus",
+        "candidate_observed": true,
+        "profile": {
+          "claim_state": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+          "profile_id": "PROFILE-FORWARD-PLUS",
+          "renderer": "Forward+"
+        },
+        "runtime": {
+          "capture_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png",
+          "capture_sha256": "fad3f0743ef39c680c439b944066b0f750fa30f257155845794973579e56e1d4",
+          "case_id": "PROFILE-FORWARD-PLUS",
+          "invocation_id": "PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS",
+          "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS",
+          "parse_error": "",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+              "--rendering-method",
+              "forward_plus",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-53",
+              "--case-id",
+              "PROFILE-FORWARD-PLUS",
+              "--capture-path",
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+            ],
+            "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS",
+            "duration_seconds": 2.355048179626465,
+            "exit_code": 0,
+            "stderr": "",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nVulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"D:\\\\AI\\\\Projects\\\\leyforge-rebuild\\\\.local\\\\r7-w4-execution-b5a52ca\\\\runtime\\\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\\\capture.png\",\"requested\":true,\"saved\":true},\"case_id\":\"PROFILE-FORWARD-PLUS\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(1920, 1080)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"proof\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-FORWARD-PLUS\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":true,\"proof_id\":\"PRD04-PROOF-53\",\"renderer\":\"forward_plus\",\"rendering_driver\":\"vulkan\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-FORWARD-PLUS\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-FORWARD-PLUS\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"NVIDIA GeForce RTX 2080 Ti\",\"video_adapter_vendor\":\"NVIDIA\"}\n",
+            "stdout_sha256": "6bb484f5701c641baf5e420122a0811bdffd7c081b91353ee4d90cd1897bf48b",
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-53",
+          "renderer_argument": "forward_plus",
+          "report": {
+            "authorised_knowledge_separate_from_live_truth": true,
+            "canonical_state_after": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "canonical_state_before": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "capture": {
+              "error": 0,
+              "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png",
+              "requested": true,
+              "saved": true
+            },
+            "case_id": "PROFILE-FORWARD-PLUS",
+            "configured_renderer": "gl_compatibility",
+            "display_size": "(1920, 1080)",
+            "frame_times_ms": [],
+            "gameplay_permission": "CLOSED",
+            "mode": "proof",
+            "persisted_profile": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-FORWARD-PLUS",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "previous_profile": {},
+            "production_runtime": false,
+            "profile_roundtrip_preserved": true,
+            "profile_write_succeeded": true,
+            "proof_execution_started": true,
+            "proof_id": "PRD04-PROOF-53",
+            "renderer": "forward_plus",
+            "rendering_driver": "vulkan",
+            "schema_version": "prd07-w4-execution-probe-v1",
+            "semantic_tasks": [
+              {
+                "alternative": "text-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "distinguish-active-damaged"
+              },
+              {
+                "alternative": "caption-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-without-particles"
+              },
+              {
+                "alternative": "caption-plus-visual-marker",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-muted"
+              },
+              {
+                "alternative": "focus-order",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-scaled-menu"
+              },
+              {
+                "alternative": "keyboard-controller-actions",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-input-remap"
+              },
+              {
+                "alternative": "flat-list-nondrag",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "magical-relief-route"
+              },
+              {
+                "completion": true,
+                "known_cells": [
+                  "A1",
+                  "A2",
+                  "B2"
+                ],
+                "semantic_errors": 0,
+                "task_id": "knowledge-boundary",
+                "unknown_cells": [
+                  "C7",
+                  "D8"
+                ]
+              }
+            ],
+            "settings_after": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-FORWARD-PLUS",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "settings_before": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-FORWARD-PLUS",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "status": "PASS",
+            "unrelated_settings_preserved": true,
+            "usable_ui_reached": true,
+            "video_adapter_name": "NVIDIA GeForce RTX 2080 Ti",
+            "video_adapter_vendor": "NVIDIA"
+          }
+        },
+        "support_claim": "NOT-MADE"
+      },
+      {
+        "actual_renderer_argument": "mobile",
+        "candidate_observed": true,
+        "profile": {
+          "claim_state": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+          "profile_id": "PROFILE-MOBILE",
+          "renderer": "Mobile"
+        },
+        "runtime": {
+          "capture_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png",
+          "capture_sha256": "3fdfcca7ebc5426d62f7d08b48693e28acd90057fa1f00ba43f35bbe5f404e18",
+          "case_id": "PROFILE-MOBILE",
+          "invocation_id": "PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE",
+          "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE",
+          "parse_error": "",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+              "--rendering-method",
+              "mobile",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-53",
+              "--case-id",
+              "PROFILE-MOBILE",
+              "--capture-path",
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+            ],
+            "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE",
+            "duration_seconds": 1.788621187210083,
+            "exit_code": 0,
+            "stderr": "",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nVulkan 1.4.341 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"D:\\\\AI\\\\Projects\\\\leyforge-rebuild\\\\.local\\\\r7-w4-execution-b5a52ca\\\\runtime\\\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\\\capture.png\",\"requested\":true,\"saved\":true},\"case_id\":\"PROFILE-MOBILE\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(1920, 1080)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"proof\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-MOBILE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":true,\"proof_id\":\"PRD04-PROOF-53\",\"renderer\":\"mobile\",\"rendering_driver\":\"vulkan\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-MOBILE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-MOBILE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"NVIDIA GeForce RTX 2080 Ti\",\"video_adapter_vendor\":\"NVIDIA\"}\n",
+            "stdout_sha256": "a678c28f182f1dd8cf6aa3cf34ed0e89c159417fa23f47ae7fceccde84bec080",
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-53",
+          "renderer_argument": "mobile",
+          "report": {
+            "authorised_knowledge_separate_from_live_truth": true,
+            "canonical_state_after": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "canonical_state_before": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "capture": {
+              "error": 0,
+              "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png",
+              "requested": true,
+              "saved": true
+            },
+            "case_id": "PROFILE-MOBILE",
+            "configured_renderer": "gl_compatibility",
+            "display_size": "(1920, 1080)",
+            "frame_times_ms": [],
+            "gameplay_permission": "CLOSED",
+            "mode": "proof",
+            "persisted_profile": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-MOBILE",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "previous_profile": {},
+            "production_runtime": false,
+            "profile_roundtrip_preserved": true,
+            "profile_write_succeeded": true,
+            "proof_execution_started": true,
+            "proof_id": "PRD04-PROOF-53",
+            "renderer": "mobile",
+            "rendering_driver": "vulkan",
+            "schema_version": "prd07-w4-execution-probe-v1",
+            "semantic_tasks": [
+              {
+                "alternative": "text-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "distinguish-active-damaged"
+              },
+              {
+                "alternative": "caption-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-without-particles"
+              },
+              {
+                "alternative": "caption-plus-visual-marker",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-muted"
+              },
+              {
+                "alternative": "focus-order",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-scaled-menu"
+              },
+              {
+                "alternative": "keyboard-controller-actions",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-input-remap"
+              },
+              {
+                "alternative": "flat-list-nondrag",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "magical-relief-route"
+              },
+              {
+                "completion": true,
+                "known_cells": [
+                  "A1",
+                  "A2",
+                  "B2"
+                ],
+                "semantic_errors": 0,
+                "task_id": "knowledge-boundary",
+                "unknown_cells": [
+                  "C7",
+                  "D8"
+                ]
+              }
+            ],
+            "settings_after": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-MOBILE",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "settings_before": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-MOBILE",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "status": "PASS",
+            "unrelated_settings_preserved": true,
+            "usable_ui_reached": true,
+            "video_adapter_name": "NVIDIA GeForce RTX 2080 Ti",
+            "video_adapter_vendor": "NVIDIA"
+          }
+        },
+        "support_claim": "NOT-MADE"
+      },
+      {
+        "actual_renderer_argument": "gl_compatibility",
+        "candidate_observed": true,
+        "profile": {
+          "claim_state": "ONLY-IF-TARGETED-NOT-SUPPORT-CERTIFIED",
+          "profile_id": "PROFILE-COMPAT",
+          "renderer": "Compatibility"
+        },
+        "runtime": {
+          "capture_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png",
+          "capture_sha256": "a2c5f87bc91cd671a94f465cf8b7d0637cc39ef5b4c247b9a3d4b830a76ed884",
+          "case_id": "PROFILE-COMPAT",
+          "invocation_id": "PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT",
+          "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT",
+          "parse_error": "",
+          "process": {
+            "argv": [
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+              "--rendering-method",
+              "gl_compatibility",
+              "--",
+              "--mode",
+              "proof",
+              "--proof-id",
+              "PRD04-PROOF-53",
+              "--case-id",
+              "PROFILE-COMPAT",
+              "--capture-path",
+              "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+            ],
+            "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT",
+            "duration_seconds": 1.0920228958129883,
+            "exit_code": 0,
+            "stderr": "",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"D:\\\\AI\\\\Projects\\\\leyforge-rebuild\\\\.local\\\\r7-w4-execution-b5a52ca\\\\runtime\\\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\\\capture.png\",\"requested\":true,\"saved\":true},\"case_id\":\"PROFILE-COMPAT\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(1920, 1080)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"proof\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-COMPAT\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":true,\"proof_id\":\"PRD04-PROOF-53\",\"renderer\":\"gl_compatibility\",\"rendering_driver\":\"opengl3\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-COMPAT\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"PROFILE-COMPAT\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"NVIDIA GeForce RTX 2080 Ti\",\"video_adapter_vendor\":\"NVIDIA\"}\n",
+            "stdout_sha256": "c47d673d42ae42a6f92e0806c43b9347f47253329be790275d09e88b4af7ec36",
+            "timed_out": false
+          },
+          "proof_id": "PRD04-PROOF-53",
+          "renderer_argument": "gl_compatibility",
+          "report": {
+            "authorised_knowledge_separate_from_live_truth": true,
+            "canonical_state_after": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "canonical_state_before": {
+              "semantic_entities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "simulation_rule": "unchanged",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "capture": {
+              "error": 0,
+              "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png",
+              "requested": true,
+              "saved": true
+            },
+            "case_id": "PROFILE-COMPAT",
+            "configured_renderer": "gl_compatibility",
+            "display_size": "(1920, 1080)",
+            "frame_times_ms": [],
+            "gameplay_permission": "CLOSED",
+            "mode": "proof",
+            "persisted_profile": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-COMPAT",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "previous_profile": {},
+            "production_runtime": false,
+            "profile_roundtrip_preserved": true,
+            "profile_write_succeeded": true,
+            "proof_execution_started": true,
+            "proof_id": "PRD04-PROOF-53",
+            "renderer": "gl_compatibility",
+            "rendering_driver": "opengl3",
+            "schema_version": "prd07-w4-execution-probe-v1",
+            "semantic_tasks": [
+              {
+                "alternative": "text-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "distinguish-active-damaged"
+              },
+              {
+                "alternative": "caption-plus-shape",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-without-particles"
+              },
+              {
+                "alternative": "caption-plus-visual-marker",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "identify-hazard-muted"
+              },
+              {
+                "alternative": "focus-order",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-scaled-menu"
+              },
+              {
+                "alternative": "keyboard-controller-actions",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "complete-input-remap"
+              },
+              {
+                "alternative": "flat-list-nondrag",
+                "completion": true,
+                "semantic_errors": 0,
+                "task_id": "magical-relief-route"
+              },
+              {
+                "completion": true,
+                "known_cells": [
+                  "A1",
+                  "A2",
+                  "B2"
+                ],
+                "semantic_errors": 0,
+                "task_id": "knowledge-boundary",
+                "unknown_cells": [
+                  "C7",
+                  "D8"
+                ]
+              }
+            ],
+            "settings_after": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-COMPAT",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "settings_before": {
+              "accessibility": "captions-on",
+              "graphics": "PROFILE-COMPAT",
+              "input": "remapped",
+              "world_seed": "W4-FIXTURE-WORLD"
+            },
+            "status": "PASS",
+            "unrelated_settings_preserved": true,
+            "usable_ui_reached": true,
+            "video_adapter_name": "NVIDIA GeForce RTX 2080 Ti",
+            "video_adapter_vendor": "NVIDIA"
+          }
+        },
+        "support_claim": "NOT-MADE"
+      }
+    ],
+    "task based readability results": [
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "distinguish-active-damaged"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-without-particles"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-muted"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "complete-scaled-menu"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "complete-input-remap"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "magical-relief-route"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "knowledge-boundary"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "distinguish-active-damaged"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-without-particles"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-muted"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "complete-scaled-menu"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "complete-input-remap"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "magical-relief-route"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "knowledge-boundary"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "distinguish-active-damaged"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-without-particles"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-muted"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "complete-scaled-menu"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "complete-input-remap"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "magical-relief-route"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "knowledge-boundary"
+      }
+    ]
+  },
+  "blockers": [
+    "HUMAN-JUDGEMENT-RECORD-ABSENT"
+  ],
+  "extra_files": [
+    {
+      "kind": "renderer-capture-PROFILE-FORWARD-PLUS",
+      "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+    },
+    {
+      "kind": "renderer-capture-PROFILE-MOBILE",
+      "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+    },
+    {
+      "kind": "renderer-capture-PROFILE-COMPAT",
+      "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+    }
+  ],
+  "fcc13e_rows": [],
+  "human_judgement": {
+    "adjudication": "INCONCLUSIVE: automated setup and semantic oracles are retained, but they cannot impersonate the certified human-review requirement.",
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+    ],
+    "disagreements": [
+      "No real human reviewer record was supplied or observed during this authorized execution."
+    ],
+    "observer_ids": [],
+    "required": true,
+    "task_scores": [
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "distinguish-active-damaged"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-without-particles"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-muted"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "complete-scaled-menu"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "complete-input-remap"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "magical-relief-route"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "knowledge-boundary"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "distinguish-active-damaged"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-without-particles"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-muted"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "complete-scaled-menu"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "complete-input-remap"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "magical-relief-route"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "knowledge-boundary"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "distinguish-active-damaged"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-without-particles"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-muted"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "complete-scaled-menu"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "complete-input-remap"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "magical-relief-route"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "knowledge-boundary"
+      }
+    ]
+  },
+  "limitations": [
+    "Headless execution is not a substitute for human perceptual/readability review.",
+    "No renderer support tier is established by W4."
+  ],
+  "measurements": {
+    "automated_semantic_errors": 0,
+    "automated_semantic_task_rows": 21,
+    "candidate_lanes": 3,
+    "lanes_launched": 3,
+    "support_claims_made": 0
+  },
+  "outcome": "INCONCLUSIVE",
+  "reason": "Candidate renderer processes and automated semantic oracles were observed without making a support claim, but no real human readability reviewer was present; the certified conclusion is therefore INCONCLUSIVE.",
+  "repetitions": {
+    "candidate_profiles": 3,
+    "golden_semantic_tasks_per_launched_lane": 7
+  }
+}

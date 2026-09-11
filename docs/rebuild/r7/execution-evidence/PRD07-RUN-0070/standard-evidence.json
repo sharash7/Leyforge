@@ -1,0 +1,417 @@
+{
+  "admission_boundary_sha256": "b369bc00599181f5c191d71f4a6d00dbeaa3f3e9bf21cd1fd96f400d82467808",
+  "dependency_identity": {
+    "component_hashes": {
+      "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "godot_export_template_runtime_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+    },
+    "component_revisions": {
+      "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_export_template": "4.8.dev4.official.b56a91878",
+      "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+    },
+    "gameplay_permission": "CLOSED",
+    "hardware_identity_rule": "Capture exact OS, CPU, GPU/device, driver, renderer, resolution, display and settings identity at future execution; readiness makes no support-tier claim.",
+    "host_lane": "windows-x86_64",
+    "isolation_requirements": [
+      "clean-export-root",
+      "clean-import-cache",
+      "isolated-APPDATA",
+      "isolated-LOCALAPPDATA",
+      "no-shared-user-state"
+    ],
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "permitted_use": "R7 W4 proof-only Forge, trust, presentation, accessibility and migration evidence",
+    "production_dependency_state": "UNCHANGED-PLANNED-UNINSTALLED",
+    "python_tooling": "CPython-3.9-or-later-standard-library",
+    "renderer_candidates": [
+      "Forward+",
+      "Mobile",
+      "Compatibility-if-targeted"
+    ],
+    "roles": [
+      "client",
+      "dedicated-server",
+      "forge-ci"
+    ],
+    "schema_version": "leyforge-r7-w4-dependency-reference-v1",
+    "scope": "development-only-prd07-proof-runtime",
+    "source_lock": "proofs/r7/w0/dependencies.lock.json",
+    "source_lock_git_blob": "5d8bfeb3031557b927074f74cebc7101148edab1",
+    "source_lock_sha256": "f42407b74cc08b91a34aa7b9a57f856b6e4c4dbe642385401d2b8da10eb927a2"
+  },
+  "environment_identity": {
+    "artifact_identity": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+    "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+    "cpu_identity": {
+      "Manufacturer": "GenuineIntel",
+      "Name": "Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz",
+      "NumberOfCores": 6,
+      "NumberOfLogicalProcessors": 6
+    },
+    "display_identity": [
+      {
+        "MonitorManufacturer": "Remote Utilities LLC",
+        "Name": "PnP-Monitor Lock (Standard)",
+        "ScreenHeight": null,
+        "ScreenWidth": null,
+        "Status": "OK"
+      }
+    ],
+    "execution_admission_sha256": "83e3fd30a4cf398786e1d8bccbd1979b5a7f8cfb7d20322f5f69a139a9bf0a55",
+    "gpu_device": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_driver": "32.0.16.1074",
+    "isolated_profile": true,
+    "isolation": [
+      "clean-export-root",
+      "clean-import-cache",
+      "isolated-APPDATA",
+      "isolated-LOCALAPPDATA",
+      "no-shared-user-state"
+    ],
+    "machine": "AMD64",
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.9.5",
+    "renderer": "gl_compatibility",
+    "resolution": "1920x1080",
+    "role": "client",
+    "settings_identity": "f8753fa7bb4357c555c51dbe1d645d33565a377d2e9fe065a8c03f9e731a093d"
+  },
+  "evaluation": {
+    "actual_disposition": "INCONCLUSIVE",
+    "blockers": [
+      "HUMAN-JUDGEMENT-RECORD-ABSENT"
+    ],
+    "canonical_failure_criterion": "Critical meaning disappears/misleads or lane relies on an unavailable feature with no valid fallback.",
+    "canonical_inconclusive_conditions": "Only launch/screenshot similarity is checked without semantic tasks.",
+    "canonical_success_criterion": "Every lane claimed for continued support preserves all required semantic cues using approved fallbacks; unsupported lanes are explicitly rejected rather than silently certified.",
+    "limitations": [
+      "Headless execution is not a substitute for human perceptual/readability review.",
+      "No renderer support tier is established by W4."
+    ],
+    "reason": "Candidate renderer processes and automated semantic oracles were observed without making a support claim, but no real human readability reviewer was present; the certified conclusion is therefore INCONCLUSIVE."
+  },
+  "evidence_id": "PRD07-EVID-0070",
+  "fixture_identities": {
+    "paths": [
+      "proofs/r7/w4/fixture-08/manifest.json",
+      "proofs/r7/w4/fixture-08/presentation-cases.json",
+      "proofs/r7/w4/presentation_probe/project.godot",
+      "proofs/r7/w0/dependencies.lock.json",
+      "proofs/r7/w4/dependency-reference.json"
+    ],
+    "sha256": [
+      "dda589cf6b9a7b91364f576156c332181ee6fb415961f22f3364888ec7dbb3f1",
+      "f8753fa7bb4357c555c51dbe1d645d33565a377d2e9fe065a8c03f9e731a093d",
+      "42fd15dd0f3438f93fac3fbb22cfb7665a8c04ab08dc7774ca2b236c798e8121",
+      "f42407b74cc08b91a34aa7b9a57f856b6e4c4dbe642385401d2b8da10eb927a2",
+      "25aa0eb1c3942e157f769391ec9585999f9026e5bc08bc48add327fa170e47d9"
+    ]
+  },
+  "human_judgement": {
+    "adjudication": "INCONCLUSIVE: automated setup and semantic oracles are retained, but they cannot impersonate the certified human-review requirement.",
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+    ],
+    "disagreements": [
+      "No real human reviewer record was supplied or observed during this authorized execution."
+    ],
+    "observer_ids": [],
+    "required": true,
+    "task_scores": [
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "distinguish-active-damaged"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-without-particles"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-muted"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "complete-scaled-menu"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "complete-input-remap"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "magical-relief-route"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-FORWARD-PLUS\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-FORWARD-PLUS",
+        "semantic_errors": 0,
+        "task_id": "knowledge-boundary"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "distinguish-active-damaged"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-without-particles"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-muted"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "complete-scaled-menu"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "complete-input-remap"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "magical-relief-route"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-MOBILE\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-MOBILE",
+        "semantic_errors": 0,
+        "task_id": "knowledge-boundary"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "distinguish-active-damaged"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-without-particles"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "identify-hazard-muted"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "complete-scaled-menu"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "complete-input-remap"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "magical-relief-route"
+      },
+      {
+        "capture_refs": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0070-PRD04-PROOF-53-PROFILE-COMPAT\\capture.png"
+        ],
+        "completion": true,
+        "observer": "AUTOMATED-NOT-HUMAN",
+        "profile_id": "PROFILE-COMPAT",
+        "semantic_errors": 0,
+        "task_id": "knowledge-boundary"
+      }
+    ]
+  },
+  "lifecycle": {
+    "allocated_before_execution": true,
+    "gameplay_permission": "CLOSED",
+    "identity_retained": true,
+    "prd07_evidence_eligible": true,
+    "prd08_submission": "NOT-SUBMITTED",
+    "production_runtime": "ABSENT",
+    "registry_reconciled": true
+  },
+  "observation": {
+    "fcc13e_rows": [],
+    "finished_at": "2026-09-11T01:23:07.258067Z",
+    "measurements": {
+      "automated_semantic_errors": 0,
+      "automated_semantic_task_rows": 21,
+      "candidate_lanes": 3,
+      "lanes_launched": 3,
+      "support_claims_made": 0
+    },
+    "raw_artifacts": [
+      {
+        "bytes": 25371,
+        "kind": "renderer profile manifest",
+        "path": "artifacts/renderer-profile-manifest.json",
+        "sha256": "841dd53f72fd586f497da068d301f6f17680509b9a22e566b6a0a1cf65f7bc82"
+      },
+      {
+        "bytes": 7386,
+        "kind": "task based readability results",
+        "path": "artifacts/task-based-readability-results.json",
+        "sha256": "178ba8ec7a4f32941d3da4e720a23fde2475c704c88126f5a6314f333b82ecaf"
+      },
+      {
+        "bytes": 486,
+        "kind": "captures video",
+        "path": "artifacts/captures-video.json",
+        "sha256": "acd44f71f7aa093c1286d516e9884e42fd193d5534ba2044f52c373a2b576188"
+      },
+      {
+        "bytes": 276,
+        "kind": "fallback matrix",
+        "path": "artifacts/fallback-matrix.json",
+        "sha256": "925b02dce07b9eb775e7e5f897fefc18e3bc55fdadbc10da01ddc225c239ffaf"
+      },
+      {
+        "bytes": 25371,
+        "kind": "runtime diagnostics",
+        "path": "artifacts/runtime-diagnostics.json",
+        "sha256": "841dd53f72fd586f497da068d301f6f17680509b9a22e566b6a0a1cf65f7bc82"
+      },
+      {
+        "bytes": 44351,
+        "kind": "renderer-capture-PROFILE-FORWARD-PLUS",
+        "path": "artifacts/renderer-capture-profile-forward-plus.png",
+        "sha256": "fad3f0743ef39c680c439b944066b0f750fa30f257155845794973579e56e1d4"
+      },
+      {
+        "bytes": 43162,
+        "kind": "renderer-capture-PROFILE-MOBILE",
+        "path": "artifacts/renderer-capture-profile-mobile.png",
+        "sha256": "3fdfcca7ebc5426d62f7d08b48693e28acd90057fa1f00ba43f35bbe5f404e18"
+      },
+      {
+        "bytes": 48309,
+        "kind": "renderer-capture-PROFILE-COMPAT",
+        "path": "artifacts/renderer-capture-profile-compat.png",
+        "sha256": "a2c5f87bc91cd671a94f465cf8b7d0637cc39ef5b4c247b9a3d4b830a76ed884"
+      }
+    ],
+    "repetitions": {
+      "candidate_profiles": 3,
+      "golden_semantic_tasks_per_launched_lane": 7
+    },
+    "started_at": "2026-09-11T01:23:02.013877Z",
+    "state": "INCONCLUSIVE"
+  },
+  "proof_id": "PRD04-PROOF-53",
+  "run_id": "PRD07-RUN-0070",
+  "schema_version": "prd07-w4-standard-evidence-pack-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70"
+}

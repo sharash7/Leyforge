@@ -1,0 +1,594 @@
+[
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "gdscript",
+        "script"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-SCRIPT",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "declared_kind": "bounded-data",
+      "embedded_capability": "hidden-gdscript",
+      "name": "apparently-safe.png"
+    },
+    "mutation": "renamed-extension",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "gdscript",
+        "script"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 5
+    },
+    "case_id": "SMUGGLE-SCRIPT",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "archive": {
+        "entries": [
+          {
+            "metadata": {
+              "payload": "hidden-gdscript"
+            }
+          }
+        ]
+      }
+    },
+    "mutation": "nested-container",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "gdscript",
+        "script"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-SCRIPT",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "dependencies": [
+        {
+          "dependencies": [
+            {
+              "target": "hidden-gdscript"
+            }
+          ],
+          "id": "apparently-safe"
+        }
+      ]
+    },
+    "mutation": "transitive-dependency",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "ACCEPT-BOUNDED-DATA",
+    "analysis": {
+      "disposition": "ACCEPT-BOUNDED-DATA",
+      "external_access_attempted": false,
+      "forbidden_markers": [],
+      "payload_executed": false,
+      "recursive_values_inspected": 3
+    },
+    "case_id": "SMUGGLE-SCRIPT",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "reference": "b64:aGlkZGVuLWdkc2NyaXB0"
+    },
+    "mutation": "encoded-reference",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "library",
+        "native"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-NATIVE",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "declared_kind": "bounded-data",
+      "embedded_capability": "native-library",
+      "name": "apparently-safe.png"
+    },
+    "mutation": "renamed-extension",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "library",
+        "native"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 5
+    },
+    "case_id": "SMUGGLE-NATIVE",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "archive": {
+        "entries": [
+          {
+            "metadata": {
+              "payload": "native-library"
+            }
+          }
+        ]
+      }
+    },
+    "mutation": "nested-container",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "library",
+        "native"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-NATIVE",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "dependencies": [
+        {
+          "dependencies": [
+            {
+              "target": "native-library"
+            }
+          ],
+          "id": "apparently-safe"
+        }
+      ]
+    },
+    "mutation": "transitive-dependency",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "ACCEPT-BOUNDED-DATA",
+    "analysis": {
+      "disposition": "ACCEPT-BOUNDED-DATA",
+      "external_access_attempted": false,
+      "forbidden_markers": [],
+      "payload_executed": false,
+      "recursive_values_inspected": 3
+    },
+    "case_id": "SMUGGLE-NATIVE",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "reference": "b64:bmF0aXZlLWxpYnJhcnk="
+    },
+    "mutation": "encoded-reference",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "editor-plugin"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-EDITOR",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "declared_kind": "bounded-data",
+      "embedded_capability": "editor-plugin",
+      "name": "apparently-safe.png"
+    },
+    "mutation": "renamed-extension",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "editor-plugin"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 5
+    },
+    "case_id": "SMUGGLE-EDITOR",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "archive": {
+        "entries": [
+          {
+            "metadata": {
+              "payload": "editor-plugin"
+            }
+          }
+        ]
+      }
+    },
+    "mutation": "nested-container",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "editor-plugin"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-EDITOR",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "dependencies": [
+        {
+          "dependencies": [
+            {
+              "target": "editor-plugin"
+            }
+          ],
+          "id": "apparently-safe"
+        }
+      ]
+    },
+    "mutation": "transitive-dependency",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "ACCEPT-BOUNDED-DATA",
+    "analysis": {
+      "disposition": "ACCEPT-BOUNDED-DATA",
+      "external_access_attempted": false,
+      "forbidden_markers": [],
+      "payload_executed": false,
+      "recursive_values_inspected": 3
+    },
+    "case_id": "SMUGGLE-EDITOR",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "reference": "b64:ZWRpdG9yLXBsdWdpbg=="
+    },
+    "mutation": "encoded-reference",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "external-uri"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-URI",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "declared_kind": "bounded-data",
+      "embedded_capability": "external-uri",
+      "name": "apparently-safe.png"
+    },
+    "mutation": "renamed-extension",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "external-uri"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 5
+    },
+    "case_id": "SMUGGLE-URI",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "archive": {
+        "entries": [
+          {
+            "metadata": {
+              "payload": "external-uri"
+            }
+          }
+        ]
+      }
+    },
+    "mutation": "nested-container",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "external-uri"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-URI",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "dependencies": [
+        {
+          "dependencies": [
+            {
+              "target": "external-uri"
+            }
+          ],
+          "id": "apparently-safe"
+        }
+      ]
+    },
+    "mutation": "transitive-dependency",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "ACCEPT-BOUNDED-DATA",
+    "analysis": {
+      "disposition": "ACCEPT-BOUNDED-DATA",
+      "external_access_attempted": false,
+      "forbidden_markers": [],
+      "payload_executed": false,
+      "recursive_values_inspected": 3
+    },
+    "case_id": "SMUGGLE-URI",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "reference": "b64:ZXh0ZXJuYWwtdXJp"
+    },
+    "mutation": "encoded-reference",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "parent-path"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-TRAVERSAL",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "declared_kind": "bounded-data",
+      "embedded_capability": "parent-path-archive-entry",
+      "name": "apparently-safe.png"
+    },
+    "mutation": "renamed-extension",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "parent-path"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 5
+    },
+    "case_id": "SMUGGLE-TRAVERSAL",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "archive": {
+        "entries": [
+          {
+            "metadata": {
+              "payload": "parent-path-archive-entry"
+            }
+          }
+        ]
+      }
+    },
+    "mutation": "nested-container",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "parent-path"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-TRAVERSAL",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "dependencies": [
+        {
+          "dependencies": [
+            {
+              "target": "parent-path-archive-entry"
+            }
+          ],
+          "id": "apparently-safe"
+        }
+      ]
+    },
+    "mutation": "transitive-dependency",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "ACCEPT-BOUNDED-DATA",
+    "analysis": {
+      "disposition": "ACCEPT-BOUNDED-DATA",
+      "external_access_attempted": false,
+      "forbidden_markers": [],
+      "payload_executed": false,
+      "recursive_values_inspected": 3
+    },
+    "case_id": "SMUGGLE-TRAVERSAL",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "reference": "b64:cGFyZW50LXBhdGgtYXJjaGl2ZS1lbnRyeQ=="
+    },
+    "mutation": "encoded-reference",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "absolute-path"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-ABSOLUTE",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "declared_kind": "bounded-data",
+      "embedded_capability": "absolute-path-archive-entry",
+      "name": "apparently-safe.png"
+    },
+    "mutation": "renamed-extension",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "absolute-path"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 5
+    },
+    "case_id": "SMUGGLE-ABSOLUTE",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "archive": {
+        "entries": [
+          {
+            "metadata": {
+              "payload": "absolute-path-archive-entry"
+            }
+          }
+        ]
+      }
+    },
+    "mutation": "nested-container",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "REJECT-OR-QUARANTINE",
+    "analysis": {
+      "disposition": "REJECT-OR-QUARANTINE",
+      "external_access_attempted": false,
+      "forbidden_markers": [
+        "absolute-path"
+      ],
+      "payload_executed": false,
+      "recursive_values_inspected": 6
+    },
+    "case_id": "SMUGGLE-ABSOLUTE",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "dependencies": [
+        {
+          "dependencies": [
+            {
+              "target": "absolute-path-archive-entry"
+            }
+          ],
+          "id": "apparently-safe"
+        }
+      ]
+    },
+    "mutation": "transitive-dependency",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "ACCEPT-BOUNDED-DATA",
+    "analysis": {
+      "disposition": "ACCEPT-BOUNDED-DATA",
+      "external_access_attempted": false,
+      "forbidden_markers": [],
+      "payload_executed": false,
+      "recursive_values_inspected": 3
+    },
+    "case_id": "SMUGGLE-ABSOLUTE",
+    "expected": "REJECT-OR-QUARANTINE",
+    "external_resource_access": false,
+    "mutated_payload": {
+      "reference": "b64:YWJzb2x1dGUtcGF0aC1hcmNoaXZlLWVudHJ5"
+    },
+    "mutation": "encoded-reference",
+    "unsafe_capability_reached": false
+  },
+  {
+    "actual": "ACCEPT-BOUNDED-DATA",
+    "case_id": "BENIGN-DATA"
+  }
+]

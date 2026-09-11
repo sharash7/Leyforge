@@ -1,0 +1,66 @@
+[
+  {
+    "provenance": {
+      "author_route": "codex",
+      "licence": "fixture-original",
+      "review_required": true
+    },
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "provenance": {
+      "author_route": "human",
+      "licence": "fixture-original",
+      "review_required": true
+    },
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "provenance": {
+      "author_route": "codex",
+      "licence": "fixture-original",
+      "review_required": true
+    },
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "provenance": {
+      "author_route": "human",
+      "licence": "fixture-original",
+      "review_required": true
+    },
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "provenance": {
+      "author_route": "codex",
+      "licence": "fixture-original",
+      "review_required": true
+    },
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "provenance": {
+      "author_route": "human",
+      "licence": "fixture-original",
+      "review_required": true
+    },
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "provenance": {
+      "author_route": "codex",
+      "licence": "fixture-original",
+      "review_required": true
+    },
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "provenance": {
+      "author_route": "human",
+      "licence": "fixture-original",
+      "review_required": true
+    },
+    "source_id": "W4-SRC-008-HUMAN"
+  }
+]

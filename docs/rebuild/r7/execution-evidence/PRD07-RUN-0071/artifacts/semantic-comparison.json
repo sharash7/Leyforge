@@ -1,0 +1,50 @@
+[
+  {
+    "match": true,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "match": true,
+    "source_id": "W4-SRC-012"
+  }
+]

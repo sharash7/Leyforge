@@ -1,0 +1,128 @@
+{
+  "artifacts": {
+    "bake runtime metrics": [
+      {
+        "actual": 16,
+        "cold_bake_ms": 0.032400000009147334,
+        "duplicates": 0,
+        "expected": 16,
+        "forms": 2,
+        "manifest_sha256": "d998e08119cf05684c8c5d62b93f1746b3e0911f2299441744db43264c25e67f",
+        "materials": 2,
+        "presentation_variant_semantic_ids": 0,
+        "semantic_ids": 16,
+        "states": 4,
+        "warm_hash_ms": 0.10590000000831878
+      },
+      {
+        "actual": 128,
+        "cold_bake_ms": 0.09690000000261989,
+        "duplicates": 0,
+        "expected": 128,
+        "forms": 4,
+        "manifest_sha256": "287cc715b24fa4f1354d28475d14b59f362813c3b616ca8cf4623dab758b0a71",
+        "materials": 8,
+        "presentation_variant_semantic_ids": 0,
+        "semantic_ids": 128,
+        "states": 4,
+        "warm_hash_ms": 0.2857000000062726
+      },
+      {
+        "actual": 1024,
+        "cold_bake_ms": 0.7434000000046126,
+        "duplicates": 0,
+        "expected": 1024,
+        "forms": 8,
+        "manifest_sha256": "bbdfa9895a97e0e5382207833bb0958d546747563e560a506babb1b213862409",
+        "materials": 32,
+        "presentation_variant_semantic_ids": 0,
+        "semantic_ids": 1024,
+        "states": 4,
+        "warm_hash_ms": 2.424300000001267
+      }
+    ],
+    "binding audit": {
+      "duplicates": 0,
+      "semantic_id_rule": "material identity plus form/state projection; presentation variants do not create semantic IDs"
+    },
+    "count curves": [
+      {
+        "count": 16,
+        "scale": 1
+      },
+      {
+        "count": 128,
+        "scale": 2
+      },
+      {
+        "count": 1024,
+        "scale": 3
+      }
+    ],
+    "duplicate ID report": [],
+    "generation manifest": [
+      {
+        "actual": 16,
+        "cold_bake_ms": 0.032400000009147334,
+        "duplicates": 0,
+        "expected": 16,
+        "forms": 2,
+        "manifest_sha256": "d998e08119cf05684c8c5d62b93f1746b3e0911f2299441744db43264c25e67f",
+        "materials": 2,
+        "presentation_variant_semantic_ids": 0,
+        "semantic_ids": 16,
+        "states": 4,
+        "warm_hash_ms": 0.10590000000831878
+      },
+      {
+        "actual": 128,
+        "cold_bake_ms": 0.09690000000261989,
+        "duplicates": 0,
+        "expected": 128,
+        "forms": 4,
+        "manifest_sha256": "287cc715b24fa4f1354d28475d14b59f362813c3b616ca8cf4623dab758b0a71",
+        "materials": 8,
+        "presentation_variant_semantic_ids": 0,
+        "semantic_ids": 128,
+        "states": 4,
+        "warm_hash_ms": 0.2857000000062726
+      },
+      {
+        "actual": 1024,
+        "cold_bake_ms": 0.7434000000046126,
+        "duplicates": 0,
+        "expected": 1024,
+        "forms": 8,
+        "manifest_sha256": "bbdfa9895a97e0e5382207833bb0958d546747563e560a506babb1b213862409",
+        "materials": 32,
+        "presentation_variant_semantic_ids": 0,
+        "semantic_ids": 1024,
+        "states": 4,
+        "warm_hash_ms": 2.424300000001267
+      }
+    ]
+  },
+  "blockers": [],
+  "extra_files": [],
+  "fcc13e_rows": [],
+  "limitations": [],
+  "measurements": {
+    "duplicate_semantic_ids": 0,
+    "growth_curve": [
+      16,
+      128,
+      1024
+    ],
+    "invalid_combinations_accepted": 0,
+    "maximum_generated_products": 1024,
+    "presentation_variant_semantic_ids": 0,
+    "scales": 3
+  },
+  "outcome": "PASS-OBSERVED",
+  "reason": "The observed 16, 128 and 1,024-product scales matched the declared Cartesian families without duplicate semantic identities or presentation-only semantic multiplication.",
+  "repetitions": {
+    "cardinality_scales": 3,
+    "cold_warm_comparisons": 3,
+    "maximum_family": "32x8x4"
+  }
+}

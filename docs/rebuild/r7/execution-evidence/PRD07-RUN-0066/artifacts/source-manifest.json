@@ -1,0 +1,50 @@
+[
+  {
+    "source_id": "W4-SRC-001-AI",
+    "source_sha256": "573b09087f8f6fc395bb8c4d60370678f209d0018abb34922588ae951174e322"
+  },
+  {
+    "source_id": "W4-SRC-002-HUMAN",
+    "source_sha256": "a63461b2a8a544587e866f8661afdb84ac277acd4c0ce82ac1edb4a4405d66b0"
+  },
+  {
+    "source_id": "W4-SRC-003-AI",
+    "source_sha256": "177826e60657128d3052c6e3d7cb8d029726117bb57a9690fa3f04b06664070d"
+  },
+  {
+    "source_id": "W4-SRC-004-HUMAN",
+    "source_sha256": "12381129b87cc7d4e7d37460625638c95d7b41fc44017b951963cace3815f965"
+  },
+  {
+    "source_id": "W4-SRC-005-AI",
+    "source_sha256": "422109bc1fabf7d7da2c2d6421281b54f070fd1894a208b2a126de160d736875"
+  },
+  {
+    "source_id": "W4-SRC-006-HUMAN",
+    "source_sha256": "fb18f5edfc28fa721433be34d5ebd942fc6ddb91b82dd05a5e47df131c4b8e89"
+  },
+  {
+    "source_id": "W4-SRC-007-AI",
+    "source_sha256": "05451f96ee0b26f792461b1cf19301e3f0b9ef411ef55d33a31a99a7f0f5a31d"
+  },
+  {
+    "source_id": "W4-SRC-008-HUMAN",
+    "source_sha256": "972604bdbf58e279eda1439aeaf66247b71edbba652dbad7ba4d98c72b9165b3"
+  },
+  {
+    "source_id": "W4-SRC-009",
+    "source_sha256": "1056a82792afb6a389d4b76163729e8e5a6a21f9f060f2989e62ed8bf7ed9ebb"
+  },
+  {
+    "source_id": "W4-SRC-010",
+    "source_sha256": "4f772b9746188e6da23b38290b941e31aa3d35478b47abe6d40438d48a0087d1"
+  },
+  {
+    "source_id": "W4-SRC-011",
+    "source_sha256": "56f13bcc7de96d055f27c5eb777e9bd3e7928e6f4a203531223a80a13f3782bb"
+  },
+  {
+    "source_id": "W4-SRC-012",
+    "source_sha256": "20cbdd0457d5ace00f0c547031eff08ae27b447b8300139d526d3f7ce4dbbf5b"
+  }
+]

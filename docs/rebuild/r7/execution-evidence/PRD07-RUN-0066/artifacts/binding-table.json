@@ -1,0 +1,88 @@
+[
+  {
+    "binding": {
+      "authority": "FCC-13E-row-1",
+      "legacy_original_id": "terrain.grass.basic",
+      "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+    },
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "binding": {
+      "authority": "FCC-13E-row-1",
+      "legacy_original_id": "terrain.grass.basic",
+      "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+    },
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "binding": {
+      "authority": "FCC-13E-legacy-binding",
+      "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+    },
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "binding": {
+      "authority": "FCC-13E-legacy-binding",
+      "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+    },
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "binding": {
+      "authority": "ART-09/10",
+      "target": "ART-10-golden-creature-fixture"
+    },
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "binding": {
+      "authority": "ART-09/10",
+      "target": "ART-10-golden-creature-fixture"
+    },
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "binding": {
+      "authority": "MAP-00",
+      "target": "MAP-00-authorised-knowledge-fixture"
+    },
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "binding": {
+      "authority": "MAP-00",
+      "target": "MAP-00-authorised-knowledge-fixture"
+    },
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "binding": {
+      "authority": "PRD-07",
+      "target": "PRD-07-vessel-part-fixture"
+    },
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "binding": {
+      "authority": "ART-09/10",
+      "target": "ART-10-golden-vfx-fixture"
+    },
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "binding": {
+      "authority": "ART-09/10",
+      "target": "ART-10-golden-audio-fixture"
+    },
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "binding": {
+      "authority": "FCC-13E",
+      "target": "FCC-13A/B-generated-form-contract"
+    },
+    "source_id": "W4-SRC-012"
+  }
+]

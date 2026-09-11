@@ -1,0 +1,50 @@
+{
+  "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+  "artifact_size_bytes": 110449984,
+  "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+  "evidence_artifacts": [
+    {
+      "bytes": 1093,
+      "kind": "generation manifest",
+      "path": "artifacts/generation-manifest.json",
+      "sha256": "3bcaf16cdaf6a514c6475dc62f0c69c172a19eb0b9693831250f1505f0354a18"
+    },
+    {
+      "bytes": 129,
+      "kind": "count curves",
+      "path": "artifacts/count-curves.json",
+      "sha256": "3baf16bc3b72de82c57e56e79bf05790ff56e39a26ba3433ce8cb13db20e20a1"
+    },
+    {
+      "bytes": 142,
+      "kind": "binding audit",
+      "path": "artifacts/binding-audit.json",
+      "sha256": "df210935f5ef0f71935afaa70add828cb8f9a6ddd4ede5069307a54c5bcf604c"
+    },
+    {
+      "bytes": 1093,
+      "kind": "bake runtime metrics",
+      "path": "artifacts/bake-runtime-metrics.json",
+      "sha256": "3bcaf16cdaf6a514c6475dc62f0c69c172a19eb0b9693831250f1505f0354a18"
+    },
+    {
+      "bytes": 3,
+      "kind": "duplicate ID report",
+      "path": "artifacts/duplicate-id-report.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0069",
+  "evidence_sha256": "fad8be9ca51c16ae93e39799f09985370a099bc3e835226b2346e873cfd171b9",
+  "execution_kind": "ACTUAL",
+  "gameplay_permission": "CLOSED",
+  "outcome": "PASS-OBSERVED",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "production_runtime": "ABSENT",
+  "proof_id": "PRD04-PROOF-52",
+  "run_id": "PRD07-RUN-0069",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70"
+}

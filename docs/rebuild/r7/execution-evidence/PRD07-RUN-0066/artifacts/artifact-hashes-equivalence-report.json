@@ -1,0 +1,6242 @@
+[
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-A",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-001-AI"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "block-material",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-003-AI"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "item-machine-structure",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-005-AI"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "character-creature-animation",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-007-AI"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "ui-icon-cartography",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vessel-part",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-009"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "vfx-magic-weather",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-010"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "audio-cue",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-011"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 1,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 2,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 3,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 4,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 5,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 6,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 7,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 8,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 9,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 10,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 11,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 12,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 13,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 14,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 15,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 16,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 17,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 18,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "cold-deleted",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 19,
+    "source_id": "W4-SRC-012"
+  },
+  {
+    "asset_class": "item-tool-form",
+    "cache": "warm-diagnostic",
+    "environment": "isolated-clean-B",
+    "equivalence": {
+      "logical_pack_identity": true,
+      "products": true,
+      "semantic_binding_identity": true
+    },
+    "rebuild_success": true,
+    "repetition": 20,
+    "source_id": "W4-SRC-012"
+  }
+]

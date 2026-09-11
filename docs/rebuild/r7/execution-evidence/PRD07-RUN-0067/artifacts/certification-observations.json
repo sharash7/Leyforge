@@ -1,0 +1,786 @@
+[
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "distinguish-active-damaged"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-without-particles"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-muted"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-scaled-menu"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-input-remap"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "magical-relief-route"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "knowledge-boundary"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "distinguish-active-damaged"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-without-particles"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-muted"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-scaled-menu"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-input-remap"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "magical-relief-route"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "knowledge-boundary"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "distinguish-active-damaged"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-without-particles"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-muted"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-scaled-menu"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-input-remap"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "magical-relief-route"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "knowledge-boundary"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "distinguish-active-damaged"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-without-particles"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-muted"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-scaled-menu"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-input-remap"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "magical-relief-route"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "knowledge-boundary"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "distinguish-active-damaged"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-without-particles"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-muted"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-scaled-menu"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-input-remap"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "magical-relief-route"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "knowledge-boundary"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "distinguish-active-damaged"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-without-particles"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-muted"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-scaled-menu"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-input-remap"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "magical-relief-route"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "knowledge-boundary"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "distinguish-active-damaged"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-without-particles"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "identify-hazard-muted"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-scaled-menu"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "complete-input-remap"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "magical-relief-route"
+  },
+  {
+    "capture_refs": [
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-BLOCK-MACHINE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-CREATURE\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-VFX-WEATHER\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-AUDIO\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-UI\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-MAP\\capture.png",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PRD07-RUN-0067-PRD04-PROOF-50-W4-SCENE-SPLIT\\capture.png"
+    ],
+    "completion": true,
+    "observer": "AUTOMATED-NOT-HUMAN",
+    "profile_id": "AUTOMATED-ORACLE",
+    "semantic_errors": 0,
+    "task_id": "knowledge-boundary"
+  }
+]

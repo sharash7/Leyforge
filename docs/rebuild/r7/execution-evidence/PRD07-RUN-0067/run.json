@@ -1,0 +1,98 @@
+{
+  "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+  "artifact_size_bytes": 110449984,
+  "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+  "evidence_artifacts": [
+    {
+      "bytes": 2474,
+      "kind": "golden source packages",
+      "path": "artifacts/golden-source-packages.json",
+      "sha256": "9a97c26364545587dcfc516f74c8775fe0d48995ecf934dbad2169e3d88163d0"
+    },
+    {
+      "bytes": 4515,
+      "kind": "validation reports",
+      "path": "artifacts/validation-reports.json",
+      "sha256": "99bb1c70cb0dbdbe4162b28fc491214bc345b8d4de3a99bd8570860aff63b7b6"
+    },
+    {
+      "bytes": 55275,
+      "kind": "runtime captures",
+      "path": "artifacts/runtime-captures.json",
+      "sha256": "fbee215213b7cfa4abbb6917e189baa6afbcdfe57db43e500543c9386cd8f9e2"
+    },
+    {
+      "bytes": 3425,
+      "kind": "ART rule traceability matrix",
+      "path": "artifacts/art-rule-traceability-matrix.json",
+      "sha256": "e49c75bf01ef8692b0ce5745db55f8b30ca2e13784a590610b76e7fc1e3bb2c2"
+    },
+    {
+      "bytes": 60350,
+      "kind": "certification observations",
+      "path": "artifacts/certification-observations.json",
+      "sha256": "7f6af6a59f0cf4ad49b7954fb4496b7192181f653b3971932a19c9ad3dd8e2b1"
+    },
+    {
+      "bytes": 17866,
+      "kind": "bake outputs",
+      "path": "artifacts/bake-outputs.json",
+      "sha256": "4e032865a9530bc73821b16261a97a62333fed900336555291167c3682e317b3"
+    },
+    {
+      "bytes": 49963,
+      "kind": "runtime-capture-W4-SCENE-BLOCK-MACHINE",
+      "path": "artifacts/runtime-capture-w4-scene-block-machine.png",
+      "sha256": "a893f637d17a6071ea2524964cb47c51a7637b3c5778a2ecde7b8e5ccdfb02e9"
+    },
+    {
+      "bytes": 49088,
+      "kind": "runtime-capture-W4-SCENE-CREATURE",
+      "path": "artifacts/runtime-capture-w4-scene-creature.png",
+      "sha256": "fb19db861e15d853ba1867ef50b647000f5373ad2d84e18940f897a1c997d5a1"
+    },
+    {
+      "bytes": 49829,
+      "kind": "runtime-capture-W4-SCENE-VFX-WEATHER",
+      "path": "artifacts/runtime-capture-w4-scene-vfx-weather.png",
+      "sha256": "c5a73f0a3c35fcd3edea64932a109247d461b551cd7275352bd724b12862ab8f"
+    },
+    {
+      "bytes": 48976,
+      "kind": "runtime-capture-W4-SCENE-AUDIO",
+      "path": "artifacts/runtime-capture-w4-scene-audio.png",
+      "sha256": "53ec9445473564caf7ee897768d5249f6f6dbe1d147399754afae86524dee01c"
+    },
+    {
+      "bytes": 48543,
+      "kind": "runtime-capture-W4-SCENE-UI",
+      "path": "artifacts/runtime-capture-w4-scene-ui.png",
+      "sha256": "d44c88f53ce3af31ae5dd9122afae247f8625359575a6f2e0e2bb4e395ba3282"
+    },
+    {
+      "bytes": 49027,
+      "kind": "runtime-capture-W4-SCENE-MAP",
+      "path": "artifacts/runtime-capture-w4-scene-map.png",
+      "sha256": "fa6485306066787472ea926c5f5531831b32711bb70284f01039a94ec29bef9c"
+    },
+    {
+      "bytes": 48544,
+      "kind": "runtime-capture-W4-SCENE-SPLIT",
+      "path": "artifacts/runtime-capture-w4-scene-split.png",
+      "sha256": "bd2392897cc9868f23bfd9402a31b0c273291ca3e2ce9ce7929f21160a971bc6"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0067",
+  "evidence_sha256": "092bb82c7e32f80f872b8856181c8cf3e2659d404db4c868abceb4aaf62d9f9d",
+  "execution_kind": "ACTUAL",
+  "gameplay_permission": "CLOSED",
+  "outcome": "INCONCLUSIVE",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "production_runtime": "ABSENT",
+  "proof_id": "PRD04-PROOF-50",
+  "run_id": "PRD07-RUN-0067",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70"
+}

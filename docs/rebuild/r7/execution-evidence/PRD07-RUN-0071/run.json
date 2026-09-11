@@ -1,0 +1,50 @@
+{
+  "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+  "artifact_size_bytes": 110449984,
+  "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+  "evidence_artifacts": [
+    {
+      "bytes": 15838,
+      "kind": "logical role manifests",
+      "path": "artifacts/logical-role-manifests.json",
+      "sha256": "f82b6ac46734252b5db45718ce3223f1560ca929b7f0d599f0fd07d0f8f44aae"
+    },
+    {
+      "bytes": 735,
+      "kind": "semantic comparison",
+      "path": "artifacts/semantic-comparison.json",
+      "sha256": "6cbf388819723514ee0f773c26dbd2340c76667d70c9f73ee490bbc3687581aa"
+    },
+    {
+      "bytes": 2475,
+      "kind": "artifact hashes",
+      "path": "artifacts/artifact-hashes.json",
+      "sha256": "9fd5646e745162a3f120a64cd3742a140d95cff75c9cd6a434fe8619fd755d15"
+    },
+    {
+      "bytes": 38,
+      "kind": "admission logs",
+      "path": "artifacts/admission-logs.json",
+      "sha256": "48c458407b10fe2b581c8cc35609c0a308e28f3cef555c2501ba7aeb65a7d134"
+    },
+    {
+      "bytes": 15838,
+      "kind": "stripping report",
+      "path": "artifacts/stripping-report.json",
+      "sha256": "f82b6ac46734252b5db45718ce3223f1560ca929b7f0d599f0fd07d0f8f44aae"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0071",
+  "evidence_sha256": "f08d62fc2f6482ec285e8e70a3c58b1eb90a16878e8af36007b0f238ebfa81b2",
+  "execution_kind": "ACTUAL",
+  "gameplay_permission": "CLOSED",
+  "outcome": "PASS-OBSERVED",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "production_runtime": "ABSENT",
+  "proof_id": "PRD04-PROOF-54",
+  "run_id": "PRD07-RUN-0071",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70"
+}

@@ -1,0 +1,1142 @@
+{
+  "artifacts": {
+    "admission logs": {
+      "accepted": 12,
+      "rejected": 0
+    },
+    "artifact hashes": [
+      {
+        "client": "6f1c17e09bc7b335f43aed916b1f3dfc8f3b29a7f5394c9a0e96709832da5f35",
+        "server": "268e533117a1fce0291515792eab652fc0591561a53ab06d750be47ae1eaf62e",
+        "source_id": "W4-SRC-001-AI"
+      },
+      {
+        "client": "ef98d266a7861b4344c092995fae375527c5c0425adbb9743e148dd12e54d5ba",
+        "server": "f56ead011eb33e24b6dfadf731203bf27a2dd85d369e18e15797d0a55aa96ced",
+        "source_id": "W4-SRC-002-HUMAN"
+      },
+      {
+        "client": "c87cf389665464b0205a22d821bc82f65f906ce852f3f219d79bee06ec4859a0",
+        "server": "ddd24a3b8a148e0504164c7b41acd7d78d9487bb46014308b14481dc8196558b",
+        "source_id": "W4-SRC-003-AI"
+      },
+      {
+        "client": "27c4a0e0fff9208fb3c744910d77488138baf6cd730b950a34b38b8f3868cc2a",
+        "server": "c6343a8740df1dd03bd489f3e902b123dbf082d83d127e2d4284eaac0c4b1819",
+        "source_id": "W4-SRC-004-HUMAN"
+      },
+      {
+        "client": "8f16293dd5f28cffc26c7d6b4c42eec8b7639e2a8acb37a1ac3ac7cff98abcc4",
+        "server": "fc291f07699339b71cf2d0888410cadc24cfc744324faca7399528b7763583ff",
+        "source_id": "W4-SRC-005-AI"
+      },
+      {
+        "client": "0f02ed7c56ec74e33acc61d3325d94bfba8379f00901b4c19dc488970d5b1e8f",
+        "server": "3ca74c2f45ad5ab05bab36018f69297d37c0a0c3aa92268298205ace59d8ba9a",
+        "source_id": "W4-SRC-006-HUMAN"
+      },
+      {
+        "client": "2b380e0628179f63da1330cc75068cc4a412081df303af28d1ccbb20d80d2b2f",
+        "server": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed",
+        "source_id": "W4-SRC-007-AI"
+      },
+      {
+        "client": "d320bba2a292a4ae6f0d2a4e7d9108799adff8972020853060c49e74d502f2e2",
+        "server": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed",
+        "source_id": "W4-SRC-008-HUMAN"
+      },
+      {
+        "client": "25f632c5c171aedfeee7070dc242e8d3819f3e1a30198d1c4ebda7db2550fc64",
+        "server": "32c6a219e14f2ad5308e4cb20db9b042841ff53e3839b07c6986b1e20c8e01ea",
+        "source_id": "W4-SRC-009"
+      },
+      {
+        "client": "f66d4faa8b5bf1bd9916c20d382b4c7107cca260e2e72322a4d1c3d5bfd97f1b",
+        "server": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed",
+        "source_id": "W4-SRC-010"
+      },
+      {
+        "client": "05dba5e0d863206d6c8fe98e609b545e92bf9b84e9861575f1bd41e4b0792c76",
+        "server": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed",
+        "source_id": "W4-SRC-011"
+      },
+      {
+        "client": "2316a46761fd16aeaaeaaa1a7e503c402adefa473d736e6ac774958172c81d5b",
+        "server": "c751ea69c189157d3a8d33bcbd8fa9f57404362805cb35744c8e295a532f0450",
+        "source_id": "W4-SRC-012"
+      }
+    ],
+    "logical role manifests": [
+      {
+        "client_artifact": {
+          "artifact_identity": "56371172eb9bfb468ed3e2fb3460953c2daec403441baf2eb84681cdd63bae21",
+          "canonical_binding": {
+            "authority": "FCC-13E-row-1",
+            "legacy_original_id": "terrain.grass.basic",
+            "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+          },
+          "logical_pack_identity": "25d24f217e18996052b27e399ffff3d862d28f8efb8266ba83e6d74de65c1c81",
+          "payload": {
+            "parameters": {
+              "forms": [
+                "block",
+                "surface"
+              ],
+              "material": "canonical-soil",
+              "states": [
+                "dry",
+                "wet"
+              ]
+            },
+            "recipe": "soil-surface-cube"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "25d24f217e18996052b27e399ffff3d862d28f8efb8266ba83e6d74de65c1c81",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "90fdeeee05b337776308dc8180937c971253e21885787a1e1ed8df049e34757d",
+          "canonical_binding": {
+            "authority": "FCC-13E-row-1",
+            "legacy_original_id": "terrain.grass.basic",
+            "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+          },
+          "logical_pack_identity": "25d24f217e18996052b27e399ffff3d862d28f8efb8266ba83e6d74de65c1c81",
+          "payload": {
+            "parameters": {
+              "forms": [
+                "block",
+                "surface"
+              ],
+              "material": "canonical-soil",
+              "states": [
+                "dry",
+                "wet"
+              ]
+            },
+            "recipe": "soil-surface-cube"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-001-AI"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "d5da96a4fe48793b05539ebfee48e08a16cc3dfff9d62918ee75822d1a47e093",
+          "canonical_binding": {
+            "authority": "FCC-13E-row-1",
+            "legacy_original_id": "terrain.grass.basic",
+            "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+          },
+          "logical_pack_identity": "63b631bc5f733d07378cb4658bbc2dec6c39544ff574c45f49f09f10661b0ff5",
+          "payload": {
+            "parameters": {
+              "forms": [
+                "block",
+                "surface"
+              ],
+              "material": "canonical-soil",
+              "states": [
+                "dry",
+                "wet"
+              ]
+            },
+            "recipe": "soil-surface-cube"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "63b631bc5f733d07378cb4658bbc2dec6c39544ff574c45f49f09f10661b0ff5",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "ec3a16772c280cd17194e2b92a49c75710266c22254d8ce31fb7abccaa637e6b",
+          "canonical_binding": {
+            "authority": "FCC-13E-row-1",
+            "legacy_original_id": "terrain.grass.basic",
+            "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+          },
+          "logical_pack_identity": "63b631bc5f733d07378cb4658bbc2dec6c39544ff574c45f49f09f10661b0ff5",
+          "payload": {
+            "parameters": {
+              "forms": [
+                "block",
+                "surface"
+              ],
+              "material": "canonical-soil",
+              "states": [
+                "dry",
+                "wet"
+              ]
+            },
+            "recipe": "soil-surface-cube"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-002-HUMAN"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "0ad0f9abe25b3de6d4f21b23932c8147d9004ff39db2e0b5e06a1c725d4b2eeb",
+          "canonical_binding": {
+            "authority": "FCC-13E-legacy-binding",
+            "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+          },
+          "logical_pack_identity": "0ad5d74fe60872d4e42c3f92cacf5b5a694499d5a40fad04579fa57ffdba6285",
+          "payload": {
+            "parameters": {
+              "parts": 12,
+              "states": [
+                "idle",
+                "active",
+                "damaged"
+              ]
+            },
+            "recipe": "powered-machine"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "0ad5d74fe60872d4e42c3f92cacf5b5a694499d5a40fad04579fa57ffdba6285",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "87112af0471d988a38d9470a98aab5b79bd3e4fdc2428d1fefc5c08ecf30565a",
+          "canonical_binding": {
+            "authority": "FCC-13E-legacy-binding",
+            "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+          },
+          "logical_pack_identity": "0ad5d74fe60872d4e42c3f92cacf5b5a694499d5a40fad04579fa57ffdba6285",
+          "payload": {
+            "parameters": {
+              "parts": 12,
+              "states": [
+                "idle",
+                "active",
+                "damaged"
+              ]
+            },
+            "recipe": "powered-machine"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-003-AI"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "443659afeac57499b51d00514206b22a2aeadbb1c19205745917387b4fb044ba",
+          "canonical_binding": {
+            "authority": "FCC-13E-legacy-binding",
+            "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+          },
+          "logical_pack_identity": "1cc57c2df581c08a76e9ef7611eb7dd13fb570eb1e48b178f5a2e6d911dd5283",
+          "payload": {
+            "parameters": {
+              "parts": 12,
+              "states": [
+                "idle",
+                "active",
+                "damaged"
+              ]
+            },
+            "recipe": "powered-machine"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "1cc57c2df581c08a76e9ef7611eb7dd13fb570eb1e48b178f5a2e6d911dd5283",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "078b2ca2ef128af1571e4b35ad96fd7651b2ecdffc47f2ad6540322a233a150a",
+          "canonical_binding": {
+            "authority": "FCC-13E-legacy-binding",
+            "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+          },
+          "logical_pack_identity": "1cc57c2df581c08a76e9ef7611eb7dd13fb570eb1e48b178f5a2e6d911dd5283",
+          "payload": {
+            "parameters": {
+              "parts": 12,
+              "states": [
+                "idle",
+                "active",
+                "damaged"
+              ]
+            },
+            "recipe": "powered-machine"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-004-HUMAN"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "3fd115ffb35dd01461c30cf900a0f383f4767236d5b6a95b1a413ad98a5e2ef0",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-creature-fixture"
+          },
+          "logical_pack_identity": "dfc9cc78ca1fb8f261b7bde3c76c8db76c0a227e5b87be2471f5d44ea191e856",
+          "payload": {
+            "parameters": {
+              "bones": 28,
+              "clips": [
+                "idle",
+                "walk",
+                "attack",
+                "hurt"
+              ]
+            },
+            "recipe": "quadruped-creature"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "dfc9cc78ca1fb8f261b7bde3c76c8db76c0a227e5b87be2471f5d44ea191e856",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "0b90f8510320f5bf3cf3675f04e35f572ada8d8789c0c794a0f7c3ac5563fa1b",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-creature-fixture"
+          },
+          "logical_pack_identity": "dfc9cc78ca1fb8f261b7bde3c76c8db76c0a227e5b87be2471f5d44ea191e856",
+          "payload": {
+            "parameters": {
+              "bones": 28,
+              "clips": [
+                "idle",
+                "walk",
+                "attack",
+                "hurt"
+              ]
+            },
+            "recipe": "quadruped-creature"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-005-AI"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "0901156a904670f280a4a970baa0f4b3bc30773cdec8223b6a358067773dff2d",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-creature-fixture"
+          },
+          "logical_pack_identity": "29c75bb67654147cf8b7367828a2fd43d72b04b8a16c43b6c86058b223b5b2b6",
+          "payload": {
+            "parameters": {
+              "bones": 28,
+              "clips": [
+                "idle",
+                "walk",
+                "attack",
+                "hurt"
+              ]
+            },
+            "recipe": "quadruped-creature"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "29c75bb67654147cf8b7367828a2fd43d72b04b8a16c43b6c86058b223b5b2b6",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "b84c6a35e6c8761fbde7a8060f35eb35553e97d571b8b1176b5d4e86629b393d",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-creature-fixture"
+          },
+          "logical_pack_identity": "29c75bb67654147cf8b7367828a2fd43d72b04b8a16c43b6c86058b223b5b2b6",
+          "payload": {
+            "parameters": {
+              "bones": 28,
+              "clips": [
+                "idle",
+                "walk",
+                "attack",
+                "hurt"
+              ]
+            },
+            "recipe": "quadruped-creature"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-006-HUMAN"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "80ad84883d18bb66036fcfb3049124918db215267a86efaa84d9dceef90c4ddb",
+          "canonical_binding": {
+            "authority": "MAP-00",
+            "target": "MAP-00-authorised-knowledge-fixture"
+          },
+          "logical_pack_identity": "da333e5d06dccf96a8164471e35c67c68a6e25b7e7c8a20ec5af3bca3800cf34",
+          "payload": {
+            "parameters": {
+              "alternatives": [
+                "flat",
+                "list",
+                "non-drag"
+              ],
+              "modes": [
+                "field",
+                "surveyed",
+                "magical-relief"
+              ]
+            },
+            "recipe": "relief-map-symbol-set"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "da333e5d06dccf96a8164471e35c67c68a6e25b7e7c8a20ec5af3bca3800cf34",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": null,
+        "server_required": false,
+        "source_id": "W4-SRC-007-AI"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "e4957b277ba145dacc29a130413999189d08f46e1ea6c1bf75aebdadcdbd65d1",
+          "canonical_binding": {
+            "authority": "MAP-00",
+            "target": "MAP-00-authorised-knowledge-fixture"
+          },
+          "logical_pack_identity": "457caca079d37e67ac25a4c6041d35d905046f5e64cbef14d2095202084e55bf",
+          "payload": {
+            "parameters": {
+              "alternatives": [
+                "flat",
+                "list",
+                "non-drag"
+              ],
+              "modes": [
+                "field",
+                "surveyed",
+                "magical-relief"
+              ]
+            },
+            "recipe": "relief-map-symbol-set"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "457caca079d37e67ac25a4c6041d35d905046f5e64cbef14d2095202084e55bf",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": null,
+        "server_required": false,
+        "source_id": "W4-SRC-008-HUMAN"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "e5b2bafaf3d3dc83b2c6d4052c78ba9eda29ab788d6dd0ee1f8309ad31bfd1c8",
+          "canonical_binding": {
+            "authority": "PRD-07",
+            "target": "PRD-07-vessel-part-fixture"
+          },
+          "logical_pack_identity": "cd7e06808059481b1a1174ea673d6a19552427aa4f0400b788491c79b67cda0f",
+          "payload": {
+            "parameters": {
+              "collision_lods": 3,
+              "damage_states": 4
+            },
+            "recipe": "editable-hull-section"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "cd7e06808059481b1a1174ea673d6a19552427aa4f0400b788491c79b67cda0f",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "eaf31c0942011cef434cddf6900551205589a583389a16249b06f3d03d90158a",
+          "canonical_binding": {
+            "authority": "PRD-07",
+            "target": "PRD-07-vessel-part-fixture"
+          },
+          "logical_pack_identity": "cd7e06808059481b1a1174ea673d6a19552427aa4f0400b788491c79b67cda0f",
+          "payload": {
+            "parameters": {
+              "collision_lods": 3,
+              "damage_states": 4
+            },
+            "recipe": "editable-hull-section"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-009"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "05875ec812d7c1e5e9464413a4257cb5aa8c955ba16a06bab7f5b30bc240d047",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-vfx-fixture"
+          },
+          "logical_pack_identity": "bd72db5fad8cbc3e7ea25217edf57170a670cce59a2055f745e977eff421b964",
+          "payload": {
+            "parameters": {
+              "flash": true,
+              "non_colour_marker": true,
+              "particles": true,
+              "reduced_motion": true
+            },
+            "recipe": "storm-magic-cue"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "bd72db5fad8cbc3e7ea25217edf57170a670cce59a2055f745e977eff421b964",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": null,
+        "server_required": false,
+        "source_id": "W4-SRC-010"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "24f79ba82d84eea7607e4fb1ff47e1360f2d0a98401a8523327ac7f96f523b3a",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-audio-fixture"
+          },
+          "logical_pack_identity": "47e3dc3c8293079f1a5b9d022d656c181bb75567638ad846975e6da7f9d5baa7",
+          "payload": {
+            "parameters": {
+              "caption_key": "fixture.hazard.caption",
+              "channels": [
+                "effects",
+                "voice"
+              ],
+              "visual_alternative": true
+            },
+            "recipe": "hazard-audio-cue"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "47e3dc3c8293079f1a5b9d022d656c181bb75567638ad846975e6da7f9d5baa7",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": null,
+        "server_required": false,
+        "source_id": "W4-SRC-011"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "fa2bbfabca123e541559c06406f8235532ed2fa9970591e9c3011741df159a81",
+          "canonical_binding": {
+            "authority": "FCC-13E",
+            "target": "FCC-13A/B-generated-form-contract"
+          },
+          "logical_pack_identity": "099b0429449d92eba130bf724f94b7701fe0121535b9af202ff08b7a23caadbe",
+          "payload": {
+            "parameters": {
+              "forms": 8,
+              "materials": 32,
+              "states": 4
+            },
+            "recipe": "material-tool-family"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "099b0429449d92eba130bf724f94b7701fe0121535b9af202ff08b7a23caadbe",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "c3e66dffde00d67e9d07b495e8de2c2b647744bcdf49e05bae2ecda5333febd0",
+          "canonical_binding": {
+            "authority": "FCC-13E",
+            "target": "FCC-13A/B-generated-form-contract"
+          },
+          "logical_pack_identity": "099b0429449d92eba130bf724f94b7701fe0121535b9af202ff08b7a23caadbe",
+          "payload": {
+            "parameters": {
+              "forms": 8,
+              "materials": 32,
+              "states": 4
+            },
+            "recipe": "material-tool-family"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-012"
+      }
+    ],
+    "semantic comparison": [
+      {
+        "match": true,
+        "source_id": "W4-SRC-001-AI"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-002-HUMAN"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-003-AI"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-004-HUMAN"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-005-AI"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-006-HUMAN"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-007-AI"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-008-HUMAN"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-009"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-010"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-011"
+      },
+      {
+        "match": true,
+        "source_id": "W4-SRC-012"
+      }
+    ],
+    "stripping report": [
+      {
+        "client_artifact": {
+          "artifact_identity": "56371172eb9bfb468ed3e2fb3460953c2daec403441baf2eb84681cdd63bae21",
+          "canonical_binding": {
+            "authority": "FCC-13E-row-1",
+            "legacy_original_id": "terrain.grass.basic",
+            "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+          },
+          "logical_pack_identity": "25d24f217e18996052b27e399ffff3d862d28f8efb8266ba83e6d74de65c1c81",
+          "payload": {
+            "parameters": {
+              "forms": [
+                "block",
+                "surface"
+              ],
+              "material": "canonical-soil",
+              "states": [
+                "dry",
+                "wet"
+              ]
+            },
+            "recipe": "soil-surface-cube"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "25d24f217e18996052b27e399ffff3d862d28f8efb8266ba83e6d74de65c1c81",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "90fdeeee05b337776308dc8180937c971253e21885787a1e1ed8df049e34757d",
+          "canonical_binding": {
+            "authority": "FCC-13E-row-1",
+            "legacy_original_id": "terrain.grass.basic",
+            "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+          },
+          "logical_pack_identity": "25d24f217e18996052b27e399ffff3d862d28f8efb8266ba83e6d74de65c1c81",
+          "payload": {
+            "parameters": {
+              "forms": [
+                "block",
+                "surface"
+              ],
+              "material": "canonical-soil",
+              "states": [
+                "dry",
+                "wet"
+              ]
+            },
+            "recipe": "soil-surface-cube"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-001-AI"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "d5da96a4fe48793b05539ebfee48e08a16cc3dfff9d62918ee75822d1a47e093",
+          "canonical_binding": {
+            "authority": "FCC-13E-row-1",
+            "legacy_original_id": "terrain.grass.basic",
+            "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+          },
+          "logical_pack_identity": "63b631bc5f733d07378cb4658bbc2dec6c39544ff574c45f49f09f10661b0ff5",
+          "payload": {
+            "parameters": {
+              "forms": [
+                "block",
+                "surface"
+              ],
+              "material": "canonical-soil",
+              "states": [
+                "dry",
+                "wet"
+              ]
+            },
+            "recipe": "soil-surface-cube"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "63b631bc5f733d07378cb4658bbc2dec6c39544ff574c45f49f09f10661b0ff5",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "ec3a16772c280cd17194e2b92a49c75710266c22254d8ce31fb7abccaa637e6b",
+          "canonical_binding": {
+            "authority": "FCC-13E-row-1",
+            "legacy_original_id": "terrain.grass.basic",
+            "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+          },
+          "logical_pack_identity": "63b631bc5f733d07378cb4658bbc2dec6c39544ff574c45f49f09f10661b0ff5",
+          "payload": {
+            "parameters": {
+              "forms": [
+                "block",
+                "surface"
+              ],
+              "material": "canonical-soil",
+              "states": [
+                "dry",
+                "wet"
+              ]
+            },
+            "recipe": "soil-surface-cube"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-002-HUMAN"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "0ad0f9abe25b3de6d4f21b23932c8147d9004ff39db2e0b5e06a1c725d4b2eeb",
+          "canonical_binding": {
+            "authority": "FCC-13E-legacy-binding",
+            "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+          },
+          "logical_pack_identity": "0ad5d74fe60872d4e42c3f92cacf5b5a694499d5a40fad04579fa57ffdba6285",
+          "payload": {
+            "parameters": {
+              "parts": 12,
+              "states": [
+                "idle",
+                "active",
+                "damaged"
+              ]
+            },
+            "recipe": "powered-machine"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "0ad5d74fe60872d4e42c3f92cacf5b5a694499d5a40fad04579fa57ffdba6285",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "87112af0471d988a38d9470a98aab5b79bd3e4fdc2428d1fefc5c08ecf30565a",
+          "canonical_binding": {
+            "authority": "FCC-13E-legacy-binding",
+            "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+          },
+          "logical_pack_identity": "0ad5d74fe60872d4e42c3f92cacf5b5a694499d5a40fad04579fa57ffdba6285",
+          "payload": {
+            "parameters": {
+              "parts": 12,
+              "states": [
+                "idle",
+                "active",
+                "damaged"
+              ]
+            },
+            "recipe": "powered-machine"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-003-AI"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "443659afeac57499b51d00514206b22a2aeadbb1c19205745917387b4fb044ba",
+          "canonical_binding": {
+            "authority": "FCC-13E-legacy-binding",
+            "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+          },
+          "logical_pack_identity": "1cc57c2df581c08a76e9ef7611eb7dd13fb570eb1e48b178f5a2e6d911dd5283",
+          "payload": {
+            "parameters": {
+              "parts": 12,
+              "states": [
+                "idle",
+                "active",
+                "damaged"
+              ]
+            },
+            "recipe": "powered-machine"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "1cc57c2df581c08a76e9ef7611eb7dd13fb570eb1e48b178f5a2e6d911dd5283",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "078b2ca2ef128af1571e4b35ad96fd7651b2ecdffc47f2ad6540322a233a150a",
+          "canonical_binding": {
+            "authority": "FCC-13E-legacy-binding",
+            "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+          },
+          "logical_pack_identity": "1cc57c2df581c08a76e9ef7611eb7dd13fb570eb1e48b178f5a2e6d911dd5283",
+          "payload": {
+            "parameters": {
+              "parts": 12,
+              "states": [
+                "idle",
+                "active",
+                "damaged"
+              ]
+            },
+            "recipe": "powered-machine"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-004-HUMAN"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "3fd115ffb35dd01461c30cf900a0f383f4767236d5b6a95b1a413ad98a5e2ef0",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-creature-fixture"
+          },
+          "logical_pack_identity": "dfc9cc78ca1fb8f261b7bde3c76c8db76c0a227e5b87be2471f5d44ea191e856",
+          "payload": {
+            "parameters": {
+              "bones": 28,
+              "clips": [
+                "idle",
+                "walk",
+                "attack",
+                "hurt"
+              ]
+            },
+            "recipe": "quadruped-creature"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "dfc9cc78ca1fb8f261b7bde3c76c8db76c0a227e5b87be2471f5d44ea191e856",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "0b90f8510320f5bf3cf3675f04e35f572ada8d8789c0c794a0f7c3ac5563fa1b",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-creature-fixture"
+          },
+          "logical_pack_identity": "dfc9cc78ca1fb8f261b7bde3c76c8db76c0a227e5b87be2471f5d44ea191e856",
+          "payload": {
+            "parameters": {
+              "bones": 28,
+              "clips": [
+                "idle",
+                "walk",
+                "attack",
+                "hurt"
+              ]
+            },
+            "recipe": "quadruped-creature"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-005-AI"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "0901156a904670f280a4a970baa0f4b3bc30773cdec8223b6a358067773dff2d",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-creature-fixture"
+          },
+          "logical_pack_identity": "29c75bb67654147cf8b7367828a2fd43d72b04b8a16c43b6c86058b223b5b2b6",
+          "payload": {
+            "parameters": {
+              "bones": 28,
+              "clips": [
+                "idle",
+                "walk",
+                "attack",
+                "hurt"
+              ]
+            },
+            "recipe": "quadruped-creature"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "29c75bb67654147cf8b7367828a2fd43d72b04b8a16c43b6c86058b223b5b2b6",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "b84c6a35e6c8761fbde7a8060f35eb35553e97d571b8b1176b5d4e86629b393d",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-creature-fixture"
+          },
+          "logical_pack_identity": "29c75bb67654147cf8b7367828a2fd43d72b04b8a16c43b6c86058b223b5b2b6",
+          "payload": {
+            "parameters": {
+              "bones": 28,
+              "clips": [
+                "idle",
+                "walk",
+                "attack",
+                "hurt"
+              ]
+            },
+            "recipe": "quadruped-creature"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-006-HUMAN"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "80ad84883d18bb66036fcfb3049124918db215267a86efaa84d9dceef90c4ddb",
+          "canonical_binding": {
+            "authority": "MAP-00",
+            "target": "MAP-00-authorised-knowledge-fixture"
+          },
+          "logical_pack_identity": "da333e5d06dccf96a8164471e35c67c68a6e25b7e7c8a20ec5af3bca3800cf34",
+          "payload": {
+            "parameters": {
+              "alternatives": [
+                "flat",
+                "list",
+                "non-drag"
+              ],
+              "modes": [
+                "field",
+                "surveyed",
+                "magical-relief"
+              ]
+            },
+            "recipe": "relief-map-symbol-set"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "da333e5d06dccf96a8164471e35c67c68a6e25b7e7c8a20ec5af3bca3800cf34",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": null,
+        "server_required": false,
+        "source_id": "W4-SRC-007-AI"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "e4957b277ba145dacc29a130413999189d08f46e1ea6c1bf75aebdadcdbd65d1",
+          "canonical_binding": {
+            "authority": "MAP-00",
+            "target": "MAP-00-authorised-knowledge-fixture"
+          },
+          "logical_pack_identity": "457caca079d37e67ac25a4c6041d35d905046f5e64cbef14d2095202084e55bf",
+          "payload": {
+            "parameters": {
+              "alternatives": [
+                "flat",
+                "list",
+                "non-drag"
+              ],
+              "modes": [
+                "field",
+                "surveyed",
+                "magical-relief"
+              ]
+            },
+            "recipe": "relief-map-symbol-set"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "457caca079d37e67ac25a4c6041d35d905046f5e64cbef14d2095202084e55bf",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": null,
+        "server_required": false,
+        "source_id": "W4-SRC-008-HUMAN"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "e5b2bafaf3d3dc83b2c6d4052c78ba9eda29ab788d6dd0ee1f8309ad31bfd1c8",
+          "canonical_binding": {
+            "authority": "PRD-07",
+            "target": "PRD-07-vessel-part-fixture"
+          },
+          "logical_pack_identity": "cd7e06808059481b1a1174ea673d6a19552427aa4f0400b788491c79b67cda0f",
+          "payload": {
+            "parameters": {
+              "collision_lods": 3,
+              "damage_states": 4
+            },
+            "recipe": "editable-hull-section"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "cd7e06808059481b1a1174ea673d6a19552427aa4f0400b788491c79b67cda0f",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "eaf31c0942011cef434cddf6900551205589a583389a16249b06f3d03d90158a",
+          "canonical_binding": {
+            "authority": "PRD-07",
+            "target": "PRD-07-vessel-part-fixture"
+          },
+          "logical_pack_identity": "cd7e06808059481b1a1174ea673d6a19552427aa4f0400b788491c79b67cda0f",
+          "payload": {
+            "parameters": {
+              "collision_lods": 3,
+              "damage_states": 4
+            },
+            "recipe": "editable-hull-section"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-009"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "05875ec812d7c1e5e9464413a4257cb5aa8c955ba16a06bab7f5b30bc240d047",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-vfx-fixture"
+          },
+          "logical_pack_identity": "bd72db5fad8cbc3e7ea25217edf57170a670cce59a2055f745e977eff421b964",
+          "payload": {
+            "parameters": {
+              "flash": true,
+              "non_colour_marker": true,
+              "particles": true,
+              "reduced_motion": true
+            },
+            "recipe": "storm-magic-cue"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "bd72db5fad8cbc3e7ea25217edf57170a670cce59a2055f745e977eff421b964",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": null,
+        "server_required": false,
+        "source_id": "W4-SRC-010"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "24f79ba82d84eea7607e4fb1ff47e1360f2d0a98401a8523327ac7f96f523b3a",
+          "canonical_binding": {
+            "authority": "ART-09/10",
+            "target": "ART-10-golden-audio-fixture"
+          },
+          "logical_pack_identity": "47e3dc3c8293079f1a5b9d022d656c181bb75567638ad846975e6da7f9d5baa7",
+          "payload": {
+            "parameters": {
+              "caption_key": "fixture.hazard.caption",
+              "channels": [
+                "effects",
+                "voice"
+              ],
+              "visual_alternative": true
+            },
+            "recipe": "hazard-audio-cue"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "47e3dc3c8293079f1a5b9d022d656c181bb75567638ad846975e6da7f9d5baa7",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": null,
+        "server_required": false,
+        "source_id": "W4-SRC-011"
+      },
+      {
+        "client_artifact": {
+          "artifact_identity": "fa2bbfabca123e541559c06406f8235532ed2fa9970591e9c3011741df159a81",
+          "canonical_binding": {
+            "authority": "FCC-13E",
+            "target": "FCC-13A/B-generated-form-contract"
+          },
+          "logical_pack_identity": "099b0429449d92eba130bf724f94b7701fe0121535b9af202ff08b7a23caadbe",
+          "payload": {
+            "parameters": {
+              "forms": 8,
+              "materials": 32,
+              "states": 4
+            },
+            "recipe": "material-tool-family"
+          },
+          "role": "client-presentation"
+        },
+        "logical_pack_identity": "099b0429449d92eba130bf724f94b7701fe0121535b9af202ff08b7a23caadbe",
+        "presentation_stripped_from_server": true,
+        "semantic_match": true,
+        "server_artifact": {
+          "artifact_identity": "c3e66dffde00d67e9d07b495e8de2c2b647744bcdf49e05bae2ecda5333febd0",
+          "canonical_binding": {
+            "authority": "FCC-13E",
+            "target": "FCC-13A/B-generated-form-contract"
+          },
+          "logical_pack_identity": "099b0429449d92eba130bf724f94b7701fe0121535b9af202ff08b7a23caadbe",
+          "payload": {
+            "parameters": {
+              "forms": 8,
+              "materials": 32,
+              "states": 4
+            },
+            "recipe": "material-tool-family"
+          },
+          "role": "server-semantic"
+        },
+        "server_required": true,
+        "source_id": "W4-SRC-012"
+      }
+    ]
+  },
+  "blockers": [],
+  "extra_files": [],
+  "fcc13e_rows": [],
+  "limitations": [],
+  "measurements": {
+    "ambiguous_join_baselines": 0,
+    "client_server_semantic_mismatches": 0,
+    "logical_packs": 12,
+    "presentation_only_optional_packs": 4,
+    "required_server_dependencies_removed": 0
+  },
+  "outcome": "PASS-OBSERVED",
+  "reason": "Every generated client/server product retained the same logical semantic identity; required server authority remained present and presentation-only packs stayed explicitly optional.",
+  "repetitions": {
+    "content_classes": 12,
+    "dependency_combinations": 12,
+    "roles": 2
+  }
+}

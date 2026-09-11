@@ -1,0 +1,68 @@
+{
+  "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+  "artifact_size_bytes": 110449984,
+  "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+  "evidence_artifacts": [
+    {
+      "bytes": 25371,
+      "kind": "renderer profile manifest",
+      "path": "artifacts/renderer-profile-manifest.json",
+      "sha256": "841dd53f72fd586f497da068d301f6f17680509b9a22e566b6a0a1cf65f7bc82"
+    },
+    {
+      "bytes": 7386,
+      "kind": "task based readability results",
+      "path": "artifacts/task-based-readability-results.json",
+      "sha256": "178ba8ec7a4f32941d3da4e720a23fde2475c704c88126f5a6314f333b82ecaf"
+    },
+    {
+      "bytes": 486,
+      "kind": "captures video",
+      "path": "artifacts/captures-video.json",
+      "sha256": "acd44f71f7aa093c1286d516e9884e42fd193d5534ba2044f52c373a2b576188"
+    },
+    {
+      "bytes": 276,
+      "kind": "fallback matrix",
+      "path": "artifacts/fallback-matrix.json",
+      "sha256": "925b02dce07b9eb775e7e5f897fefc18e3bc55fdadbc10da01ddc225c239ffaf"
+    },
+    {
+      "bytes": 25371,
+      "kind": "runtime diagnostics",
+      "path": "artifacts/runtime-diagnostics.json",
+      "sha256": "841dd53f72fd586f497da068d301f6f17680509b9a22e566b6a0a1cf65f7bc82"
+    },
+    {
+      "bytes": 44351,
+      "kind": "renderer-capture-PROFILE-FORWARD-PLUS",
+      "path": "artifacts/renderer-capture-profile-forward-plus.png",
+      "sha256": "fad3f0743ef39c680c439b944066b0f750fa30f257155845794973579e56e1d4"
+    },
+    {
+      "bytes": 43162,
+      "kind": "renderer-capture-PROFILE-MOBILE",
+      "path": "artifacts/renderer-capture-profile-mobile.png",
+      "sha256": "3fdfcca7ebc5426d62f7d08b48693e28acd90057fa1f00ba43f35bbe5f404e18"
+    },
+    {
+      "bytes": 48309,
+      "kind": "renderer-capture-PROFILE-COMPAT",
+      "path": "artifacts/renderer-capture-profile-compat.png",
+      "sha256": "a2c5f87bc91cd671a94f465cf8b7d0637cc39ef5b4c247b9a3d4b830a76ed884"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0070",
+  "evidence_sha256": "4512879086851381ea95dfd7b6d23645cc8a2ef88f4e643383510440cd9a0cad",
+  "execution_kind": "ACTUAL",
+  "gameplay_permission": "CLOSED",
+  "outcome": "INCONCLUSIVE",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "production_runtime": "ABSENT",
+  "proof_id": "PRD04-PROOF-53",
+  "run_id": "PRD07-RUN-0070",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70"
+}

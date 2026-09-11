@@ -1,0 +1,706 @@
+{
+  "artifact_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+  "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+  "artifact_size_bytes": 110449984,
+  "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+  "dependency_check": {
+    "issues": [],
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "paths": {
+      "godot_driver": "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+      "godot_template_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\Godot_v4.8-dev4_export_templates.tpz",
+      "godot_template_runtime": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\godot-4.8-dev4-templates\\templates\\windows_release_x86_64.exe",
+      "voxel_package": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\GodotVoxelExtension-v1.7x.zip",
+      "voxel_root": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w0-deps\\v1.7x\\addons\\zylann.voxel"
+    },
+    "schema_version": "leyforge-r7-w0-local-dependency-verification-v1",
+    "status": "PASS"
+  },
+  "environment": {
+    "hardware": {
+      "cpu": {
+        "Manufacturer": "GenuineIntel",
+        "Name": "Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz",
+        "NumberOfCores": 6,
+        "NumberOfLogicalProcessors": 6
+      },
+      "display": [
+        {
+          "MonitorManufacturer": "Remote Utilities LLC",
+          "Name": "PnP-Monitor Lock (Standard)",
+          "ScreenHeight": null,
+          "ScreenWidth": null,
+          "Status": "OK"
+        }
+      ],
+      "gpu": [
+        {
+          "AdapterRAM": 4293918720,
+          "CurrentHorizontalResolution": 1920,
+          "CurrentVerticalResolution": 1080,
+          "DriverVersion": "32.0.16.1074",
+          "Name": "NVIDIA GeForce RTX 2080 Ti",
+          "VideoProcessor": "NVIDIA GeForce RTX 2080 Ti"
+        }
+      ]
+    },
+    "hardware_capture_exit_code": 0,
+    "hardware_capture_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "machine": "AMD64",
+    "os": "Windows-10-10.0.19045-SP0",
+    "os_release": "10",
+    "os_system": "Windows",
+    "processor": "Intel64 Family 6 Model 158 Stepping 12, GenuineIntel",
+    "python": "3.9.5"
+  },
+  "export_process": {
+    "argv": [
+      "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+      "--headless",
+      "--path",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\workspace",
+      "--export-release",
+      "W4 Client Probe",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe"
+    ],
+    "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\workspace",
+    "duration_seconds": 4.853668212890625,
+    "exit_code": 0,
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1msavepack\u001b[22m | Started Packing (102 steps)\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://fixture-inputs/presentation-cases.json\u001b[39m\u001b[0m\n[  21% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://fixture-inputs/source-packages.json\u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://fixture-inputs/trust-and-scale-cases.json\u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gdc\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://src/main.gd.remap\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://main.tscn.remap\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/global_script_class_cache.cfg\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://.godot/uid_cache.bin\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1msavepack\u001b[22m | Storing File: res://project.binary\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1msavepack\u001b[22m\n\u001b[0m\n",
+    "stdout_sha256": "e2f78e19d0f89639e85cbe8f718736ed8aea31db6323f8ee2334383d784df45b",
+    "timed_out": false
+  },
+  "gameplay_permission": "CLOSED",
+  "identity_allocation_started": false,
+  "parse_process": {
+    "argv": [
+      "D:\\AI\\Projects\\leyforge\\.local\\Godot_v4.8-dev-a9c94-shutdown-fixed\\godot.windows.editor.x86_64.console.exe",
+      "--headless",
+      "--path",
+      "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\workspace",
+      "--editor",
+      "--quit"
+    ],
+    "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\workspace",
+    "duration_seconds": 7.067743301391602,
+    "exit_code": 0,
+    "stderr": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "Godot Engine v4.8.dev.custom_build.a9c94cd21 (2026-07-25 09:47:59 UTC) - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Loading editor (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading editor layout...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading docks...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+    "stdout_sha256": "e0e6c069d7ed457069be16f4a74cfedbf9322048cff37e3d8a287bbd7dc2c1b4",
+    "timed_out": false
+  },
+  "probe_source_identity": "2c15d879c408b9b84f1b6d8574751bd549336ece8a7aac0e46df684ff3560ff7",
+  "production_runtime": "ABSENT",
+  "proof_execution_started": false,
+  "rendered_smoke_processes": {
+    "forward_plus": {
+      "capture_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-FORWARD_PLUS\\capture.png",
+      "capture_sha256": "f6fffeb95f6587cd35c94fbe76965c07db13afb10d7553fbbf3659d03663a4f2",
+      "case_id": "BASELINE",
+      "invocation_id": "PREALLOCATION-RENDERED-FORWARD_PLUS",
+      "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\preallocation-rendered-forward_plus",
+      "parse_error": "",
+      "process": {
+        "argv": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+          "--rendering-method",
+          "forward_plus",
+          "--",
+          "--mode",
+          "smoke",
+          "--proof-id",
+          "NONE",
+          "--case-id",
+          "BASELINE",
+          "--capture-path",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-FORWARD_PLUS\\capture.png"
+        ],
+        "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-FORWARD_PLUS",
+        "duration_seconds": 3.7889904975891113,
+        "exit_code": 0,
+        "stderr": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nVulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"D:\\\\AI\\\\Projects\\\\leyforge-rebuild\\\\.local\\\\r7-w4-execution-b5a52ca\\\\runtime\\\\PREALLOCATION-RENDERED-FORWARD_PLUS\\\\capture.png\",\"requested\":true,\"saved\":true},\"case_id\":\"BASELINE\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(1920, 1080)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"smoke\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":false,\"proof_id\":\"NONE\",\"renderer\":\"forward_plus\",\"rendering_driver\":\"vulkan\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"NVIDIA GeForce RTX 2080 Ti\",\"video_adapter_vendor\":\"NVIDIA\"}\n",
+        "stdout_sha256": "47eefecaed2f0b7dfb1de779a27fd41b4e0f9016b9d0417739537c715b48f34e",
+        "timed_out": false
+      },
+      "proof_id": "NONE",
+      "renderer_argument": "forward_plus",
+      "report": {
+        "authorised_knowledge_separate_from_live_truth": true,
+        "canonical_state_after": {
+          "semantic_entities": [
+            "A",
+            "B",
+            "C"
+          ],
+          "simulation_rule": "unchanged",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "canonical_state_before": {
+          "semantic_entities": [
+            "A",
+            "B",
+            "C"
+          ],
+          "simulation_rule": "unchanged",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "capture": {
+          "error": 0,
+          "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-FORWARD_PLUS\\capture.png",
+          "requested": true,
+          "saved": true
+        },
+        "case_id": "BASELINE",
+        "configured_renderer": "gl_compatibility",
+        "display_size": "(1920, 1080)",
+        "frame_times_ms": [],
+        "gameplay_permission": "CLOSED",
+        "mode": "smoke",
+        "persisted_profile": {
+          "accessibility": "captions-on",
+          "graphics": "BASELINE",
+          "input": "remapped",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "previous_profile": {},
+        "production_runtime": false,
+        "profile_roundtrip_preserved": true,
+        "profile_write_succeeded": true,
+        "proof_execution_started": false,
+        "proof_id": "NONE",
+        "renderer": "forward_plus",
+        "rendering_driver": "vulkan",
+        "schema_version": "prd07-w4-execution-probe-v1",
+        "semantic_tasks": [
+          {
+            "alternative": "text-plus-shape",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "distinguish-active-damaged"
+          },
+          {
+            "alternative": "caption-plus-shape",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "identify-hazard-without-particles"
+          },
+          {
+            "alternative": "caption-plus-visual-marker",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "identify-hazard-muted"
+          },
+          {
+            "alternative": "focus-order",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "complete-scaled-menu"
+          },
+          {
+            "alternative": "keyboard-controller-actions",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "complete-input-remap"
+          },
+          {
+            "alternative": "flat-list-nondrag",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "magical-relief-route"
+          },
+          {
+            "completion": true,
+            "known_cells": [
+              "A1",
+              "A2",
+              "B2"
+            ],
+            "semantic_errors": 0,
+            "task_id": "knowledge-boundary",
+            "unknown_cells": [
+              "C7",
+              "D8"
+            ]
+          }
+        ],
+        "settings_after": {
+          "accessibility": "captions-on",
+          "graphics": "BASELINE",
+          "input": "remapped",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "settings_before": {
+          "accessibility": "captions-on",
+          "graphics": "BASELINE",
+          "input": "remapped",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "status": "PASS",
+        "unrelated_settings_preserved": true,
+        "usable_ui_reached": true,
+        "video_adapter_name": "NVIDIA GeForce RTX 2080 Ti",
+        "video_adapter_vendor": "NVIDIA"
+      }
+    },
+    "gl_compatibility": {
+      "capture_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-GL_COMPATIBILITY\\capture.png",
+      "capture_sha256": "dd8cdf0267fa4b1b1f1ab8997535c3e77ef3732a459b35372d69f465c2ebfbc2",
+      "case_id": "BASELINE",
+      "invocation_id": "PREALLOCATION-RENDERED-GL_COMPATIBILITY",
+      "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\preallocation-rendered-gl_compatibility",
+      "parse_error": "",
+      "process": {
+        "argv": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+          "--rendering-method",
+          "gl_compatibility",
+          "--",
+          "--mode",
+          "smoke",
+          "--proof-id",
+          "NONE",
+          "--case-id",
+          "BASELINE",
+          "--capture-path",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-GL_COMPATIBILITY\\capture.png"
+        ],
+        "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-GL_COMPATIBILITY",
+        "duration_seconds": 1.2104179859161377,
+        "exit_code": 0,
+        "stderr": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"D:\\\\AI\\\\Projects\\\\leyforge-rebuild\\\\.local\\\\r7-w4-execution-b5a52ca\\\\runtime\\\\PREALLOCATION-RENDERED-GL_COMPATIBILITY\\\\capture.png\",\"requested\":true,\"saved\":true},\"case_id\":\"BASELINE\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(1920, 1080)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"smoke\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":false,\"proof_id\":\"NONE\",\"renderer\":\"gl_compatibility\",\"rendering_driver\":\"opengl3\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"NVIDIA GeForce RTX 2080 Ti\",\"video_adapter_vendor\":\"NVIDIA\"}\n",
+        "stdout_sha256": "ac2f2d1984d5d454f118f179f3b4359ebf3e0ba064bf901c1bbf98daf40f7093",
+        "timed_out": false
+      },
+      "proof_id": "NONE",
+      "renderer_argument": "gl_compatibility",
+      "report": {
+        "authorised_knowledge_separate_from_live_truth": true,
+        "canonical_state_after": {
+          "semantic_entities": [
+            "A",
+            "B",
+            "C"
+          ],
+          "simulation_rule": "unchanged",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "canonical_state_before": {
+          "semantic_entities": [
+            "A",
+            "B",
+            "C"
+          ],
+          "simulation_rule": "unchanged",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "capture": {
+          "error": 0,
+          "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-GL_COMPATIBILITY\\capture.png",
+          "requested": true,
+          "saved": true
+        },
+        "case_id": "BASELINE",
+        "configured_renderer": "gl_compatibility",
+        "display_size": "(1920, 1080)",
+        "frame_times_ms": [],
+        "gameplay_permission": "CLOSED",
+        "mode": "smoke",
+        "persisted_profile": {
+          "accessibility": "captions-on",
+          "graphics": "BASELINE",
+          "input": "remapped",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "previous_profile": {},
+        "production_runtime": false,
+        "profile_roundtrip_preserved": true,
+        "profile_write_succeeded": true,
+        "proof_execution_started": false,
+        "proof_id": "NONE",
+        "renderer": "gl_compatibility",
+        "rendering_driver": "opengl3",
+        "schema_version": "prd07-w4-execution-probe-v1",
+        "semantic_tasks": [
+          {
+            "alternative": "text-plus-shape",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "distinguish-active-damaged"
+          },
+          {
+            "alternative": "caption-plus-shape",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "identify-hazard-without-particles"
+          },
+          {
+            "alternative": "caption-plus-visual-marker",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "identify-hazard-muted"
+          },
+          {
+            "alternative": "focus-order",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "complete-scaled-menu"
+          },
+          {
+            "alternative": "keyboard-controller-actions",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "complete-input-remap"
+          },
+          {
+            "alternative": "flat-list-nondrag",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "magical-relief-route"
+          },
+          {
+            "completion": true,
+            "known_cells": [
+              "A1",
+              "A2",
+              "B2"
+            ],
+            "semantic_errors": 0,
+            "task_id": "knowledge-boundary",
+            "unknown_cells": [
+              "C7",
+              "D8"
+            ]
+          }
+        ],
+        "settings_after": {
+          "accessibility": "captions-on",
+          "graphics": "BASELINE",
+          "input": "remapped",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "settings_before": {
+          "accessibility": "captions-on",
+          "graphics": "BASELINE",
+          "input": "remapped",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "status": "PASS",
+        "unrelated_settings_preserved": true,
+        "usable_ui_reached": true,
+        "video_adapter_name": "NVIDIA GeForce RTX 2080 Ti",
+        "video_adapter_vendor": "NVIDIA"
+      }
+    },
+    "mobile": {
+      "capture_path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-MOBILE\\capture.png",
+      "capture_sha256": "f6fffeb95f6587cd35c94fbe76965c07db13afb10d7553fbbf3659d03663a4f2",
+      "case_id": "BASELINE",
+      "invocation_id": "PREALLOCATION-RENDERED-MOBILE",
+      "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\preallocation-rendered-mobile",
+      "parse_error": "",
+      "process": {
+        "argv": [
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+          "--rendering-method",
+          "mobile",
+          "--",
+          "--mode",
+          "smoke",
+          "--proof-id",
+          "NONE",
+          "--case-id",
+          "BASELINE",
+          "--capture-path",
+          "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-MOBILE\\capture.png"
+        ],
+        "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-MOBILE",
+        "duration_seconds": 1.9437534809112549,
+        "exit_code": 0,
+        "stderr": "",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\nVulkan 1.4.341 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 2080 Ti\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"D:\\\\AI\\\\Projects\\\\leyforge-rebuild\\\\.local\\\\r7-w4-execution-b5a52ca\\\\runtime\\\\PREALLOCATION-RENDERED-MOBILE\\\\capture.png\",\"requested\":true,\"saved\":true},\"case_id\":\"BASELINE\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(1920, 1080)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"smoke\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":false,\"proof_id\":\"NONE\",\"renderer\":\"mobile\",\"rendering_driver\":\"vulkan\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"NVIDIA GeForce RTX 2080 Ti\",\"video_adapter_vendor\":\"NVIDIA\"}\n",
+        "stdout_sha256": "48defb756d23d8db4b0984c3fd485ee93ba6dc2fc2e38e7100864ee4fff60cdd",
+        "timed_out": false
+      },
+      "proof_id": "NONE",
+      "renderer_argument": "mobile",
+      "report": {
+        "authorised_knowledge_separate_from_live_truth": true,
+        "canonical_state_after": {
+          "semantic_entities": [
+            "A",
+            "B",
+            "C"
+          ],
+          "simulation_rule": "unchanged",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "canonical_state_before": {
+          "semantic_entities": [
+            "A",
+            "B",
+            "C"
+          ],
+          "simulation_rule": "unchanged",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "capture": {
+          "error": 0,
+          "path": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\PREALLOCATION-RENDERED-MOBILE\\capture.png",
+          "requested": true,
+          "saved": true
+        },
+        "case_id": "BASELINE",
+        "configured_renderer": "gl_compatibility",
+        "display_size": "(1920, 1080)",
+        "frame_times_ms": [],
+        "gameplay_permission": "CLOSED",
+        "mode": "smoke",
+        "persisted_profile": {
+          "accessibility": "captions-on",
+          "graphics": "BASELINE",
+          "input": "remapped",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "previous_profile": {},
+        "production_runtime": false,
+        "profile_roundtrip_preserved": true,
+        "profile_write_succeeded": true,
+        "proof_execution_started": false,
+        "proof_id": "NONE",
+        "renderer": "mobile",
+        "rendering_driver": "vulkan",
+        "schema_version": "prd07-w4-execution-probe-v1",
+        "semantic_tasks": [
+          {
+            "alternative": "text-plus-shape",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "distinguish-active-damaged"
+          },
+          {
+            "alternative": "caption-plus-shape",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "identify-hazard-without-particles"
+          },
+          {
+            "alternative": "caption-plus-visual-marker",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "identify-hazard-muted"
+          },
+          {
+            "alternative": "focus-order",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "complete-scaled-menu"
+          },
+          {
+            "alternative": "keyboard-controller-actions",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "complete-input-remap"
+          },
+          {
+            "alternative": "flat-list-nondrag",
+            "completion": true,
+            "semantic_errors": 0,
+            "task_id": "magical-relief-route"
+          },
+          {
+            "completion": true,
+            "known_cells": [
+              "A1",
+              "A2",
+              "B2"
+            ],
+            "semantic_errors": 0,
+            "task_id": "knowledge-boundary",
+            "unknown_cells": [
+              "C7",
+              "D8"
+            ]
+          }
+        ],
+        "settings_after": {
+          "accessibility": "captions-on",
+          "graphics": "BASELINE",
+          "input": "remapped",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "settings_before": {
+          "accessibility": "captions-on",
+          "graphics": "BASELINE",
+          "input": "remapped",
+          "world_seed": "W4-FIXTURE-WORLD"
+        },
+        "status": "PASS",
+        "unrelated_settings_preserved": true,
+        "usable_ui_reached": true,
+        "video_adapter_name": "NVIDIA GeForce RTX 2080 Ti",
+        "video_adapter_vendor": "NVIDIA"
+      }
+    }
+  },
+  "role": "client",
+  "schema_version": "prd07-w4-proof-build-v1",
+  "smoke_process": {
+    "capture_path": "",
+    "capture_sha256": "",
+    "case_id": "BASELINE",
+    "invocation_id": "SMOKE",
+    "isolated_profile": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\profiles\\preallocation-smoke",
+    "parse_error": "",
+    "process": {
+      "argv": [
+        "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\build\\output\\leyforge-w4-proof.exe",
+        "--headless",
+        "--rendering-method",
+        "gl_compatibility",
+        "--",
+        "--mode",
+        "smoke",
+        "--proof-id",
+        "NONE",
+        "--case-id",
+        "BASELINE"
+      ],
+      "cwd": "D:\\AI\\Projects\\leyforge-rebuild\\.local\\r7-w4-execution-b5a52ca\\runtime\\SMOKE",
+      "duration_seconds": 1.4010910987854004,
+      "exit_code": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "Godot Engine v4.8.dev4.official.b56a91878 - https://godotengine.org\n\nLEYFORGE_W4_EXECUTION_REPORT {\"authorised_knowledge_separate_from_live_truth\":true,\"canonical_state_after\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"canonical_state_before\":{\"semantic_entities\":[\"A\",\"B\",\"C\"],\"simulation_rule\":\"unchanged\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"capture\":{\"error\":0,\"path\":\"\",\"requested\":false,\"saved\":false},\"case_id\":\"BASELINE\",\"configured_renderer\":\"gl_compatibility\",\"display_size\":\"(0, 0)\",\"frame_times_ms\":[],\"gameplay_permission\":\"CLOSED\",\"mode\":\"smoke\",\"persisted_profile\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"previous_profile\":{},\"production_runtime\":false,\"profile_roundtrip_preserved\":true,\"profile_write_succeeded\":true,\"proof_execution_started\":false,\"proof_id\":\"NONE\",\"renderer\":\"gl_compatibility\",\"rendering_driver\":\"opengl3\",\"schema_version\":\"prd07-w4-execution-probe-v1\",\"semantic_tasks\":[{\"alternative\":\"text-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"distinguish-active-damaged\"},{\"alternative\":\"caption-plus-shape\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-without-particles\"},{\"alternative\":\"caption-plus-visual-marker\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"identify-hazard-muted\"},{\"alternative\":\"focus-order\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-scaled-menu\"},{\"alternative\":\"keyboard-controller-actions\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"complete-input-remap\"},{\"alternative\":\"flat-list-nondrag\",\"completion\":true,\"semantic_errors\":0,\"task_id\":\"magical-relief-route\"},{\"completion\":true,\"known_cells\":[\"A1\",\"A2\",\"B2\"],\"semantic_errors\":0,\"task_id\":\"knowledge-boundary\",\"unknown_cells\":[\"C7\",\"D8\"]}],\"settings_after\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"settings_before\":{\"accessibility\":\"captions-on\",\"graphics\":\"BASELINE\",\"input\":\"remapped\",\"world_seed\":\"W4-FIXTURE-WORLD\"},\"status\":\"PASS\",\"unrelated_settings_preserved\":true,\"usable_ui_reached\":true,\"video_adapter_name\":\"\",\"video_adapter_vendor\":\"\"}\n",
+      "stdout_sha256": "313c151bd8101bc6e0c7ce0ef2ae5a5f148526119f8bb04471344bdc2212d140",
+      "timed_out": false
+    },
+    "proof_id": "NONE",
+    "renderer_argument": "gl_compatibility",
+    "report": {
+      "authorised_knowledge_separate_from_live_truth": true,
+      "canonical_state_after": {
+        "semantic_entities": [
+          "A",
+          "B",
+          "C"
+        ],
+        "simulation_rule": "unchanged",
+        "world_seed": "W4-FIXTURE-WORLD"
+      },
+      "canonical_state_before": {
+        "semantic_entities": [
+          "A",
+          "B",
+          "C"
+        ],
+        "simulation_rule": "unchanged",
+        "world_seed": "W4-FIXTURE-WORLD"
+      },
+      "capture": {
+        "error": 0,
+        "path": "",
+        "requested": false,
+        "saved": false
+      },
+      "case_id": "BASELINE",
+      "configured_renderer": "gl_compatibility",
+      "display_size": "(0, 0)",
+      "frame_times_ms": [],
+      "gameplay_permission": "CLOSED",
+      "mode": "smoke",
+      "persisted_profile": {
+        "accessibility": "captions-on",
+        "graphics": "BASELINE",
+        "input": "remapped",
+        "world_seed": "W4-FIXTURE-WORLD"
+      },
+      "previous_profile": {},
+      "production_runtime": false,
+      "profile_roundtrip_preserved": true,
+      "profile_write_succeeded": true,
+      "proof_execution_started": false,
+      "proof_id": "NONE",
+      "renderer": "gl_compatibility",
+      "rendering_driver": "opengl3",
+      "schema_version": "prd07-w4-execution-probe-v1",
+      "semantic_tasks": [
+        {
+          "alternative": "text-plus-shape",
+          "completion": true,
+          "semantic_errors": 0,
+          "task_id": "distinguish-active-damaged"
+        },
+        {
+          "alternative": "caption-plus-shape",
+          "completion": true,
+          "semantic_errors": 0,
+          "task_id": "identify-hazard-without-particles"
+        },
+        {
+          "alternative": "caption-plus-visual-marker",
+          "completion": true,
+          "semantic_errors": 0,
+          "task_id": "identify-hazard-muted"
+        },
+        {
+          "alternative": "focus-order",
+          "completion": true,
+          "semantic_errors": 0,
+          "task_id": "complete-scaled-menu"
+        },
+        {
+          "alternative": "keyboard-controller-actions",
+          "completion": true,
+          "semantic_errors": 0,
+          "task_id": "complete-input-remap"
+        },
+        {
+          "alternative": "flat-list-nondrag",
+          "completion": true,
+          "semantic_errors": 0,
+          "task_id": "magical-relief-route"
+        },
+        {
+          "completion": true,
+          "known_cells": [
+            "A1",
+            "A2",
+            "B2"
+          ],
+          "semantic_errors": 0,
+          "task_id": "knowledge-boundary",
+          "unknown_cells": [
+            "C7",
+            "D8"
+          ]
+        }
+      ],
+      "settings_after": {
+        "accessibility": "captions-on",
+        "graphics": "BASELINE",
+        "input": "remapped",
+        "world_seed": "W4-FIXTURE-WORLD"
+      },
+      "settings_before": {
+        "accessibility": "captions-on",
+        "graphics": "BASELINE",
+        "input": "remapped",
+        "world_seed": "W4-FIXTURE-WORLD"
+      },
+      "status": "PASS",
+      "unrelated_settings_preserved": true,
+      "usable_ui_reached": true,
+      "video_adapter_name": "",
+      "video_adapter_vendor": ""
+    }
+  },
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70"
+}

@@ -1,0 +1,206 @@
+[
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-001-AI",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-002-HUMAN",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-003-AI",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-004-HUMAN",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-005-AI",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-006-HUMAN",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-007-AI",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-008-HUMAN",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-009",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-010",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-011",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  },
+  {
+    "accepted": true,
+    "missing_fields": [],
+    "source_id": "W4-SRC-012",
+    "validator_rules": [
+      "source_id",
+      "source_origin",
+      "asset_class",
+      "editable_source",
+      "canonical_binding",
+      "provenance",
+      "role_products",
+      "provenance.author_route",
+      "provenance.licence",
+      "provenance.review_required"
+    ]
+  }
+]

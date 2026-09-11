@@ -1,0 +1,179 @@
+{
+  "admission_boundary_sha256": "b369bc00599181f5c191d71f4a6d00dbeaa3f3e9bf21cd1fd96f400d82467808",
+  "dependency_identity": {
+    "component_hashes": {
+      "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "godot_export_template_runtime_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+    },
+    "component_revisions": {
+      "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_export_template": "4.8.dev4.official.b56a91878",
+      "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+    },
+    "gameplay_permission": "CLOSED",
+    "hardware_identity_rule": "Capture exact OS, CPU, GPU/device, driver, renderer, resolution, display and settings identity at future execution; readiness makes no support-tier claim.",
+    "host_lane": "windows-x86_64",
+    "isolation_requirements": [
+      "clean-export-root",
+      "clean-import-cache",
+      "isolated-APPDATA",
+      "isolated-LOCALAPPDATA",
+      "no-shared-user-state"
+    ],
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "permitted_use": "R7 W4 proof-only Forge, trust, presentation, accessibility and migration evidence",
+    "production_dependency_state": "UNCHANGED-PLANNED-UNINSTALLED",
+    "python_tooling": "CPython-3.9-or-later-standard-library",
+    "renderer_candidates": [
+      "Forward+",
+      "Mobile",
+      "Compatibility-if-targeted"
+    ],
+    "roles": [
+      "client",
+      "dedicated-server",
+      "forge-ci"
+    ],
+    "schema_version": "leyforge-r7-w4-dependency-reference-v1",
+    "scope": "development-only-prd07-proof-runtime",
+    "source_lock": "proofs/r7/w0/dependencies.lock.json",
+    "source_lock_git_blob": "5d8bfeb3031557b927074f74cebc7101148edab1",
+    "source_lock_sha256": "f42407b74cc08b91a34aa7b9a57f856b6e4c4dbe642385401d2b8da10eb927a2"
+  },
+  "environment_identity": {
+    "artifact_identity": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+    "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+    "cpu_identity": {
+      "Manufacturer": "GenuineIntel",
+      "Name": "Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz",
+      "NumberOfCores": 6,
+      "NumberOfLogicalProcessors": 6
+    },
+    "display_identity": [
+      {
+        "MonitorManufacturer": "Remote Utilities LLC",
+        "Name": "PnP-Monitor Lock (Standard)",
+        "ScreenHeight": null,
+        "ScreenWidth": null,
+        "Status": "OK"
+      }
+    ],
+    "execution_admission_sha256": "83e3fd30a4cf398786e1d8bccbd1979b5a7f8cfb7d20322f5f69a139a9bf0a55",
+    "gpu_device": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_driver": "32.0.16.1074",
+    "isolated_profile": true,
+    "isolation": [
+      "clean-export-root",
+      "clean-import-cache",
+      "isolated-APPDATA",
+      "isolated-LOCALAPPDATA",
+      "no-shared-user-state"
+    ],
+    "machine": "AMD64",
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.9.5",
+    "renderer": "gl_compatibility",
+    "resolution": "1920x1080",
+    "role": "forge-ci",
+    "settings_identity": "f8753fa7bb4357c555c51dbe1d645d33565a377d2e9fe065a8c03f9e731a093d"
+  },
+  "evaluation": {
+    "actual_disposition": "PASS-OBSERVED",
+    "blockers": [],
+    "canonical_failure_criterion": "Combinatorics create duplicate physical identities, unbounded generated products, or implausible bake/runtime growth.",
+    "canonical_inconclusive_conditions": "Stress family is too small to expose combinatorial behavior.",
+    "canonical_success_criterion": "Semantic identity remains canonical/derived rather than multiplying per visual variant; product/resource counts remain within explicit experiment bounds and demonstrate a plausible scaling path.",
+    "limitations": [],
+    "reason": "The observed 16, 128 and 1,024-product scales matched the declared Cartesian families without duplicate semantic identities or presentation-only semantic multiplication."
+  },
+  "evidence_id": "PRD07-EVID-0069",
+  "fixture_identities": {
+    "paths": [
+      "proofs/r7/w4/fixture-07/manifest.json",
+      "proofs/r7/w4/fixture-07/source-packages.json",
+      "proofs/r7/w4/fixture-07/trust-and-scale-cases.json",
+      "proofs/r7/w4/fixture-07/migration-worlds.json",
+      "proofs/r7/w4/fixture-07/fcc13e-expected.json",
+      "proofs/r7/w0/dependencies.lock.json",
+      "proofs/r7/w4/dependency-reference.json"
+    ],
+    "sha256": [
+      "47fdb1ad40a8161c03dbdd1fac06201cb914c6385c4673cd32f7e7e27f7f9343",
+      "b4e1cbf2ec4487a6329e66dbffd2a9bf5ca1c59ec5c93519dbd5fdecfdb4703d",
+      "0260bcb728e7bffe326e2a611bcb64771b8ecd7fddebbf70f520c4d3f4e7dc4f",
+      "02ed7ee3607f73a3b9472f35da37848271e82915095ae6a775df5c97461bb637",
+      "589bd39bacf684e6448bfffb63703de2e41e8d2da7f3011e26bec62d24f8fc73",
+      "f42407b74cc08b91a34aa7b9a57f856b6e4c4dbe642385401d2b8da10eb927a2",
+      "25aa0eb1c3942e157f769391ec9585999f9026e5bc08bc48add327fa170e47d9"
+    ]
+  },
+  "lifecycle": {
+    "allocated_before_execution": true,
+    "gameplay_permission": "CLOSED",
+    "identity_retained": true,
+    "prd07_evidence_eligible": true,
+    "prd08_submission": "NOT-SUBMITTED",
+    "production_runtime": "ABSENT",
+    "registry_reconciled": true
+  },
+  "observation": {
+    "fcc13e_rows": [],
+    "finished_at": "2026-09-11T01:22:58.181831Z",
+    "measurements": {
+      "duplicate_semantic_ids": 0,
+      "growth_curve": [
+        16,
+        128,
+        1024
+      ],
+      "invalid_combinations_accepted": 0,
+      "maximum_generated_products": 1024,
+      "presentation_variant_semantic_ids": 0,
+      "scales": 3
+    },
+    "raw_artifacts": [
+      {
+        "bytes": 1093,
+        "kind": "generation manifest",
+        "path": "artifacts/generation-manifest.json",
+        "sha256": "3bcaf16cdaf6a514c6475dc62f0c69c172a19eb0b9693831250f1505f0354a18"
+      },
+      {
+        "bytes": 129,
+        "kind": "count curves",
+        "path": "artifacts/count-curves.json",
+        "sha256": "3baf16bc3b72de82c57e56e79bf05790ff56e39a26ba3433ce8cb13db20e20a1"
+      },
+      {
+        "bytes": 142,
+        "kind": "binding audit",
+        "path": "artifacts/binding-audit.json",
+        "sha256": "df210935f5ef0f71935afaa70add828cb8f9a6ddd4ede5069307a54c5bcf604c"
+      },
+      {
+        "bytes": 1093,
+        "kind": "bake runtime metrics",
+        "path": "artifacts/bake-runtime-metrics.json",
+        "sha256": "3bcaf16cdaf6a514c6475dc62f0c69c172a19eb0b9693831250f1505f0354a18"
+      },
+      {
+        "bytes": 3,
+        "kind": "duplicate ID report",
+        "path": "artifacts/duplicate-id-report.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      }
+    ],
+    "repetitions": {
+      "cardinality_scales": 3,
+      "cold_warm_comparisons": 3,
+      "maximum_family": "32x8x4"
+    },
+    "started_at": "2026-09-11T01:22:58.177368Z",
+    "state": "PASS-OBSERVED"
+  },
+  "proof_id": "PRD04-PROOF-52",
+  "run_id": "PRD07-RUN-0069",
+  "schema_version": "prd07-w4-standard-evidence-pack-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70"
+}

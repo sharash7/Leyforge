@@ -1,0 +1,50 @@
+{
+  "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+  "artifact_size_bytes": 110449984,
+  "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+  "evidence_artifacts": [
+    {
+      "bytes": 15447,
+      "kind": "hostile pack corpus",
+      "path": "artifacts/hostile-pack-corpus.json",
+      "sha256": "dc4d263474d7bcd2ef68f8071363d2c60d2f1066f802635df37f5d1b17a25f43"
+    },
+    {
+      "bytes": 15522,
+      "kind": "validator results",
+      "path": "artifacts/validator-results.json",
+      "sha256": "c28e771fe381f9beafae8c32db7411e8bb4e9edde3c99b734770eb27a6157c4b"
+    },
+    {
+      "bytes": 82,
+      "kind": "side effect monitor",
+      "path": "artifacts/side-effect-monitor.json",
+      "sha256": "2368c5f8c51d8d904cb88beed9227197aa896f168308a23d978d6d042b425724"
+    },
+    {
+      "bytes": 12267,
+      "kind": "quarantine reports",
+      "path": "artifacts/quarantine-reports.json",
+      "sha256": "cb981df228c40675831f2a4d66205a816dcdb8b009ae9fe560036856e2e15155"
+    },
+    {
+      "bytes": 3,
+      "kind": "false positive log",
+      "path": "artifacts/false-positive-log.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0072",
+  "evidence_sha256": "341e70e3e6bf88e4cf893c36bb8ad506011905f22c51d05d3252fd7fda19509e",
+  "execution_kind": "ACTUAL",
+  "gameplay_permission": "CLOSED",
+  "outcome": "FAIL-OBSERVED",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "production_runtime": "ABSENT",
+  "proof_id": "PRD04-PROOF-55",
+  "run_id": "PRD07-RUN-0072",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70"
+}

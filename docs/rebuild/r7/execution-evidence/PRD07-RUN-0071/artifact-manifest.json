@@ -1,0 +1,7 @@
+{
+  "artifact_path": "ignored-local-proof-build",
+  "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+  "artifact_size_bytes": 110449984,
+  "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+  "reproducer": "python -m tools.r7_w4_execution execute --actual-execution-authorized ..."
+}

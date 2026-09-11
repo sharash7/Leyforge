@@ -1,0 +1,546 @@
+{
+  "W4-SRC-001-AI": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "25d24f217e18996052b27e399ffff3d862d28f8efb8266ba83e6d74de65c1c81",
+    "products": [
+      {
+        "artifact_identity": "56371172eb9bfb468ed3e2fb3460953c2daec403441baf2eb84681cdd63bae21",
+        "canonical_binding": {
+          "authority": "FCC-13E-row-1",
+          "legacy_original_id": "terrain.grass.basic",
+          "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+        },
+        "logical_pack_identity": "25d24f217e18996052b27e399ffff3d862d28f8efb8266ba83e6d74de65c1c81",
+        "payload": {
+          "parameters": {
+            "forms": [
+              "block",
+              "surface"
+            ],
+            "material": "canonical-soil",
+            "states": [
+              "dry",
+              "wet"
+            ]
+          },
+          "recipe": "soil-surface-cube"
+        },
+        "role": "client-presentation"
+      },
+      {
+        "artifact_identity": "90fdeeee05b337776308dc8180937c971253e21885787a1e1ed8df049e34757d",
+        "canonical_binding": {
+          "authority": "FCC-13E-row-1",
+          "legacy_original_id": "terrain.grass.basic",
+          "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+        },
+        "logical_pack_identity": "25d24f217e18996052b27e399ffff3d862d28f8efb8266ba83e6d74de65c1c81",
+        "payload": {
+          "parameters": {
+            "forms": [
+              "block",
+              "surface"
+            ],
+            "material": "canonical-soil",
+            "states": [
+              "dry",
+              "wet"
+            ]
+          },
+          "recipe": "soil-surface-cube"
+        },
+        "role": "server-semantic"
+      }
+    ],
+    "semantic_binding_identity": "8e3b1452bc7299e9937ee2b55e3c9e0a12aa9f2992759b874b08abeefee26664",
+    "source_id": "W4-SRC-001-AI"
+  },
+  "W4-SRC-002-HUMAN": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "63b631bc5f733d07378cb4658bbc2dec6c39544ff574c45f49f09f10661b0ff5",
+    "products": [
+      {
+        "artifact_identity": "d5da96a4fe48793b05539ebfee48e08a16cc3dfff9d62918ee75822d1a47e093",
+        "canonical_binding": {
+          "authority": "FCC-13E-row-1",
+          "legacy_original_id": "terrain.grass.basic",
+          "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+        },
+        "logical_pack_identity": "63b631bc5f733d07378cb4658bbc2dec6c39544ff574c45f49f09f10661b0ff5",
+        "payload": {
+          "parameters": {
+            "forms": [
+              "block",
+              "surface"
+            ],
+            "material": "canonical-soil",
+            "states": [
+              "dry",
+              "wet"
+            ]
+          },
+          "recipe": "soil-surface-cube"
+        },
+        "role": "client-presentation"
+      },
+      {
+        "artifact_identity": "ec3a16772c280cd17194e2b92a49c75710266c22254d8ce31fb7abccaa637e6b",
+        "canonical_binding": {
+          "authority": "FCC-13E-row-1",
+          "legacy_original_id": "terrain.grass.basic",
+          "legacy_unique_id": "VXL_BLK_Terrain_GrassBlock"
+        },
+        "logical_pack_identity": "63b631bc5f733d07378cb4658bbc2dec6c39544ff574c45f49f09f10661b0ff5",
+        "payload": {
+          "parameters": {
+            "forms": [
+              "block",
+              "surface"
+            ],
+            "material": "canonical-soil",
+            "states": [
+              "dry",
+              "wet"
+            ]
+          },
+          "recipe": "soil-surface-cube"
+        },
+        "role": "server-semantic"
+      }
+    ],
+    "semantic_binding_identity": "8e3b1452bc7299e9937ee2b55e3c9e0a12aa9f2992759b874b08abeefee26664",
+    "source_id": "W4-SRC-002-HUMAN"
+  },
+  "W4-SRC-003-AI": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "0ad5d74fe60872d4e42c3f92cacf5b5a694499d5a40fad04579fa57ffdba6285",
+    "products": [
+      {
+        "artifact_identity": "0ad0f9abe25b3de6d4f21b23932c8147d9004ff39db2e0b5e06a1c725d4b2eeb",
+        "canonical_binding": {
+          "authority": "FCC-13E-legacy-binding",
+          "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+        },
+        "logical_pack_identity": "0ad5d74fe60872d4e42c3f92cacf5b5a694499d5a40fad04579fa57ffdba6285",
+        "payload": {
+          "parameters": {
+            "parts": 12,
+            "states": [
+              "idle",
+              "active",
+              "damaged"
+            ]
+          },
+          "recipe": "powered-machine"
+        },
+        "role": "client-presentation"
+      },
+      {
+        "artifact_identity": "87112af0471d988a38d9470a98aab5b79bd3e4fdc2428d1fefc5c08ecf30565a",
+        "canonical_binding": {
+          "authority": "FCC-13E-legacy-binding",
+          "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+        },
+        "logical_pack_identity": "0ad5d74fe60872d4e42c3f92cacf5b5a694499d5a40fad04579fa57ffdba6285",
+        "payload": {
+          "parameters": {
+            "parts": 12,
+            "states": [
+              "idle",
+              "active",
+              "damaged"
+            ]
+          },
+          "recipe": "powered-machine"
+        },
+        "role": "server-semantic"
+      }
+    ],
+    "semantic_binding_identity": "6a97a1a2c142ddfcdfb7b73fbacbd1a8af02f479fe9b883dd26b31226eabb627",
+    "source_id": "W4-SRC-003-AI"
+  },
+  "W4-SRC-004-HUMAN": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "1cc57c2df581c08a76e9ef7611eb7dd13fb570eb1e48b178f5a2e6d911dd5283",
+    "products": [
+      {
+        "artifact_identity": "443659afeac57499b51d00514206b22a2aeadbb1c19205745917387b4fb044ba",
+        "canonical_binding": {
+          "authority": "FCC-13E-legacy-binding",
+          "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+        },
+        "logical_pack_identity": "1cc57c2df581c08a76e9ef7611eb7dd13fb570eb1e48b178f5a2e6d911dd5283",
+        "payload": {
+          "parameters": {
+            "parts": 12,
+            "states": [
+              "idle",
+              "active",
+              "damaged"
+            ]
+          },
+          "recipe": "powered-machine"
+        },
+        "role": "client-presentation"
+      },
+      {
+        "artifact_identity": "078b2ca2ef128af1571e4b35ad96fd7651b2ecdffc47f2ad6540322a233a150a",
+        "canonical_binding": {
+          "authority": "FCC-13E-legacy-binding",
+          "legacy_unique_id": "VXL_BLK_Functional_CraftingTable"
+        },
+        "logical_pack_identity": "1cc57c2df581c08a76e9ef7611eb7dd13fb570eb1e48b178f5a2e6d911dd5283",
+        "payload": {
+          "parameters": {
+            "parts": 12,
+            "states": [
+              "idle",
+              "active",
+              "damaged"
+            ]
+          },
+          "recipe": "powered-machine"
+        },
+        "role": "server-semantic"
+      }
+    ],
+    "semantic_binding_identity": "6a97a1a2c142ddfcdfb7b73fbacbd1a8af02f479fe9b883dd26b31226eabb627",
+    "source_id": "W4-SRC-004-HUMAN"
+  },
+  "W4-SRC-005-AI": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "dfc9cc78ca1fb8f261b7bde3c76c8db76c0a227e5b87be2471f5d44ea191e856",
+    "products": [
+      {
+        "artifact_identity": "3fd115ffb35dd01461c30cf900a0f383f4767236d5b6a95b1a413ad98a5e2ef0",
+        "canonical_binding": {
+          "authority": "ART-09/10",
+          "target": "ART-10-golden-creature-fixture"
+        },
+        "logical_pack_identity": "dfc9cc78ca1fb8f261b7bde3c76c8db76c0a227e5b87be2471f5d44ea191e856",
+        "payload": {
+          "parameters": {
+            "bones": 28,
+            "clips": [
+              "idle",
+              "walk",
+              "attack",
+              "hurt"
+            ]
+          },
+          "recipe": "quadruped-creature"
+        },
+        "role": "client-presentation"
+      },
+      {
+        "artifact_identity": "0b90f8510320f5bf3cf3675f04e35f572ada8d8789c0c794a0f7c3ac5563fa1b",
+        "canonical_binding": {
+          "authority": "ART-09/10",
+          "target": "ART-10-golden-creature-fixture"
+        },
+        "logical_pack_identity": "dfc9cc78ca1fb8f261b7bde3c76c8db76c0a227e5b87be2471f5d44ea191e856",
+        "payload": {
+          "parameters": {
+            "bones": 28,
+            "clips": [
+              "idle",
+              "walk",
+              "attack",
+              "hurt"
+            ]
+          },
+          "recipe": "quadruped-creature"
+        },
+        "role": "server-semantic"
+      }
+    ],
+    "semantic_binding_identity": "d767411a683413d25491895e73d20b43334256536d2ce869e7f066d8f3a61777",
+    "source_id": "W4-SRC-005-AI"
+  },
+  "W4-SRC-006-HUMAN": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "29c75bb67654147cf8b7367828a2fd43d72b04b8a16c43b6c86058b223b5b2b6",
+    "products": [
+      {
+        "artifact_identity": "0901156a904670f280a4a970baa0f4b3bc30773cdec8223b6a358067773dff2d",
+        "canonical_binding": {
+          "authority": "ART-09/10",
+          "target": "ART-10-golden-creature-fixture"
+        },
+        "logical_pack_identity": "29c75bb67654147cf8b7367828a2fd43d72b04b8a16c43b6c86058b223b5b2b6",
+        "payload": {
+          "parameters": {
+            "bones": 28,
+            "clips": [
+              "idle",
+              "walk",
+              "attack",
+              "hurt"
+            ]
+          },
+          "recipe": "quadruped-creature"
+        },
+        "role": "client-presentation"
+      },
+      {
+        "artifact_identity": "b84c6a35e6c8761fbde7a8060f35eb35553e97d571b8b1176b5d4e86629b393d",
+        "canonical_binding": {
+          "authority": "ART-09/10",
+          "target": "ART-10-golden-creature-fixture"
+        },
+        "logical_pack_identity": "29c75bb67654147cf8b7367828a2fd43d72b04b8a16c43b6c86058b223b5b2b6",
+        "payload": {
+          "parameters": {
+            "bones": 28,
+            "clips": [
+              "idle",
+              "walk",
+              "attack",
+              "hurt"
+            ]
+          },
+          "recipe": "quadruped-creature"
+        },
+        "role": "server-semantic"
+      }
+    ],
+    "semantic_binding_identity": "d767411a683413d25491895e73d20b43334256536d2ce869e7f066d8f3a61777",
+    "source_id": "W4-SRC-006-HUMAN"
+  },
+  "W4-SRC-007-AI": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "da333e5d06dccf96a8164471e35c67c68a6e25b7e7c8a20ec5af3bca3800cf34",
+    "products": [
+      {
+        "artifact_identity": "80ad84883d18bb66036fcfb3049124918db215267a86efaa84d9dceef90c4ddb",
+        "canonical_binding": {
+          "authority": "MAP-00",
+          "target": "MAP-00-authorised-knowledge-fixture"
+        },
+        "logical_pack_identity": "da333e5d06dccf96a8164471e35c67c68a6e25b7e7c8a20ec5af3bca3800cf34",
+        "payload": {
+          "parameters": {
+            "alternatives": [
+              "flat",
+              "list",
+              "non-drag"
+            ],
+            "modes": [
+              "field",
+              "surveyed",
+              "magical-relief"
+            ]
+          },
+          "recipe": "relief-map-symbol-set"
+        },
+        "role": "client-presentation"
+      }
+    ],
+    "semantic_binding_identity": "a85dee6b48a262583cc91d0d0f242102f997f1d880b41ec137d6ecc9a575d038",
+    "source_id": "W4-SRC-007-AI"
+  },
+  "W4-SRC-008-HUMAN": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "457caca079d37e67ac25a4c6041d35d905046f5e64cbef14d2095202084e55bf",
+    "products": [
+      {
+        "artifact_identity": "e4957b277ba145dacc29a130413999189d08f46e1ea6c1bf75aebdadcdbd65d1",
+        "canonical_binding": {
+          "authority": "MAP-00",
+          "target": "MAP-00-authorised-knowledge-fixture"
+        },
+        "logical_pack_identity": "457caca079d37e67ac25a4c6041d35d905046f5e64cbef14d2095202084e55bf",
+        "payload": {
+          "parameters": {
+            "alternatives": [
+              "flat",
+              "list",
+              "non-drag"
+            ],
+            "modes": [
+              "field",
+              "surveyed",
+              "magical-relief"
+            ]
+          },
+          "recipe": "relief-map-symbol-set"
+        },
+        "role": "client-presentation"
+      }
+    ],
+    "semantic_binding_identity": "a85dee6b48a262583cc91d0d0f242102f997f1d880b41ec137d6ecc9a575d038",
+    "source_id": "W4-SRC-008-HUMAN"
+  },
+  "W4-SRC-009": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "cd7e06808059481b1a1174ea673d6a19552427aa4f0400b788491c79b67cda0f",
+    "products": [
+      {
+        "artifact_identity": "e5b2bafaf3d3dc83b2c6d4052c78ba9eda29ab788d6dd0ee1f8309ad31bfd1c8",
+        "canonical_binding": {
+          "authority": "PRD-07",
+          "target": "PRD-07-vessel-part-fixture"
+        },
+        "logical_pack_identity": "cd7e06808059481b1a1174ea673d6a19552427aa4f0400b788491c79b67cda0f",
+        "payload": {
+          "parameters": {
+            "collision_lods": 3,
+            "damage_states": 4
+          },
+          "recipe": "editable-hull-section"
+        },
+        "role": "client-presentation"
+      },
+      {
+        "artifact_identity": "eaf31c0942011cef434cddf6900551205589a583389a16249b06f3d03d90158a",
+        "canonical_binding": {
+          "authority": "PRD-07",
+          "target": "PRD-07-vessel-part-fixture"
+        },
+        "logical_pack_identity": "cd7e06808059481b1a1174ea673d6a19552427aa4f0400b788491c79b67cda0f",
+        "payload": {
+          "parameters": {
+            "collision_lods": 3,
+            "damage_states": 4
+          },
+          "recipe": "editable-hull-section"
+        },
+        "role": "server-semantic"
+      }
+    ],
+    "semantic_binding_identity": "25134820a1ec4e90c31d8c4cccb584c3abe1dbe0fa0a35e194c5f539e69891c4",
+    "source_id": "W4-SRC-009"
+  },
+  "W4-SRC-010": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "bd72db5fad8cbc3e7ea25217edf57170a670cce59a2055f745e977eff421b964",
+    "products": [
+      {
+        "artifact_identity": "05875ec812d7c1e5e9464413a4257cb5aa8c955ba16a06bab7f5b30bc240d047",
+        "canonical_binding": {
+          "authority": "ART-09/10",
+          "target": "ART-10-golden-vfx-fixture"
+        },
+        "logical_pack_identity": "bd72db5fad8cbc3e7ea25217edf57170a670cce59a2055f745e977eff421b964",
+        "payload": {
+          "parameters": {
+            "flash": true,
+            "non_colour_marker": true,
+            "particles": true,
+            "reduced_motion": true
+          },
+          "recipe": "storm-magic-cue"
+        },
+        "role": "client-presentation"
+      }
+    ],
+    "semantic_binding_identity": "26033bd699f067ea1898a3cc154e373442c1d3874740ab1ed73a38ad3a5fc0ca",
+    "source_id": "W4-SRC-010"
+  },
+  "W4-SRC-011": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "47e3dc3c8293079f1a5b9d022d656c181bb75567638ad846975e6da7f9d5baa7",
+    "products": [
+      {
+        "artifact_identity": "24f79ba82d84eea7607e4fb1ff47e1360f2d0a98401a8523327ac7f96f523b3a",
+        "canonical_binding": {
+          "authority": "ART-09/10",
+          "target": "ART-10-golden-audio-fixture"
+        },
+        "logical_pack_identity": "47e3dc3c8293079f1a5b9d022d656c181bb75567638ad846975e6da7f9d5baa7",
+        "payload": {
+          "parameters": {
+            "caption_key": "fixture.hazard.caption",
+            "channels": [
+              "effects",
+              "voice"
+            ],
+            "visual_alternative": true
+          },
+          "recipe": "hazard-audio-cue"
+        },
+        "role": "client-presentation"
+      }
+    ],
+    "semantic_binding_identity": "39d05a1b0fab0289e1ccf5073637d81680e2dd458e326736ffb55eeb71bc90b8",
+    "source_id": "W4-SRC-011"
+  },
+  "W4-SRC-012": {
+    "ignored_local_context": {
+      "provider_local_id": "REFERENCE",
+      "source_path": "REFERENCE"
+    },
+    "logical_pack_identity": "099b0429449d92eba130bf724f94b7701fe0121535b9af202ff08b7a23caadbe",
+    "products": [
+      {
+        "artifact_identity": "fa2bbfabca123e541559c06406f8235532ed2fa9970591e9c3011741df159a81",
+        "canonical_binding": {
+          "authority": "FCC-13E",
+          "target": "FCC-13A/B-generated-form-contract"
+        },
+        "logical_pack_identity": "099b0429449d92eba130bf724f94b7701fe0121535b9af202ff08b7a23caadbe",
+        "payload": {
+          "parameters": {
+            "forms": 8,
+            "materials": 32,
+            "states": 4
+          },
+          "recipe": "material-tool-family"
+        },
+        "role": "client-presentation"
+      },
+      {
+        "artifact_identity": "c3e66dffde00d67e9d07b495e8de2c2b647744bcdf49e05bae2ecda5333febd0",
+        "canonical_binding": {
+          "authority": "FCC-13E",
+          "target": "FCC-13A/B-generated-form-contract"
+        },
+        "logical_pack_identity": "099b0429449d92eba130bf724f94b7701fe0121535b9af202ff08b7a23caadbe",
+        "payload": {
+          "parameters": {
+            "forms": 8,
+            "materials": 32,
+            "states": 4
+          },
+          "recipe": "material-tool-family"
+        },
+        "role": "server-semantic"
+      }
+    ],
+    "semantic_binding_identity": "10643ec3836a15808efa3ef1f1a09b1ae16da6219d6922eb17ab2863affd79cb",
+    "source_id": "W4-SRC-012"
+  }
+}

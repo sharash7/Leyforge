@@ -1,0 +1,50 @@
+{
+  "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+  "artifact_size_bytes": 110449984,
+  "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e",
+  "evidence_artifacts": [
+    {
+      "bytes": 9183,
+      "kind": "paired source packages",
+      "path": "artifacts/paired-source-packages.json",
+      "sha256": "8a6d22774543eaea5337a0482f4f644a415c5bbe254b6f3fcf24b8e85bb38fff"
+    },
+    {
+      "bytes": 9183,
+      "kind": "validator reports",
+      "path": "artifacts/validator-reports.json",
+      "sha256": "8a6d22774543eaea5337a0482f4f644a415c5bbe254b6f3fcf24b8e85bb38fff"
+    },
+    {
+      "bytes": 1351,
+      "kind": "provenance records",
+      "path": "artifacts/provenance-records.json",
+      "sha256": "bd920b782067109cbf19532bad4598e56afa44ed81735b45098eac0a753879ab"
+    },
+    {
+      "bytes": 13867,
+      "kind": "bake outputs",
+      "path": "artifacts/bake-outputs.json",
+      "sha256": "0c0c227bf89233c0fbf4f8959dbe83b08c1fe29acc17c09d4c39ebb01059804f"
+    },
+    {
+      "bytes": 3,
+      "kind": "exception log",
+      "path": "artifacts/exception-log.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  ],
+  "evidence_id": "PRD07-EVID-0068",
+  "evidence_sha256": "6ab33545a6fc200bcb14ef71dac974d75ef1dcf6a749601702cf7d0e0e56650e",
+  "execution_kind": "ACTUAL",
+  "gameplay_permission": "CLOSED",
+  "outcome": "INCONCLUSIVE",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "prd07_evidence_eligible": true,
+  "prd08_submission": "NOT-SUBMITTED",
+  "production_runtime": "ABSENT",
+  "proof_id": "PRD04-PROOF-51",
+  "run_id": "PRD07-RUN-0068",
+  "schema_version": "prd07-portable-run-record-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70"
+}
