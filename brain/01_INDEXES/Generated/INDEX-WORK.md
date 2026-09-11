@@ -23,6 +23,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
 | [[HANDOFF-20260911-001|HANDOFF-20260911-001]] | handoff | active | R7 W4 Controlled Stop to Measurement-harness Repair and Rerun Recertification Gate |
+| [[WORK-20260911-001|WORK-20260911-001]] | work | active | Repair and recertify the R7 W4 measurement and rerun-readiness boundary |
+| [[TASK-20260911-001|TASK-20260911-001]] | work_item | active | R7 W4 measurement-harness repair, recertification and rerun-readiness task contract |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
 | [[WORK-20260910-002|WORK-20260910-002]] | work | cancelled | Execute and reconcile the certified R7 W4 proof package |
 | [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |

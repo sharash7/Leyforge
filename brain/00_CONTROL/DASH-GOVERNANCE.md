@@ -13,6 +13,8 @@ authority_status: "authoritative"
 depends_on:
   - "SYS-ENGINEERING-GOVERNANCE"
 related_to:
+  - "WORK-20260911-001"
+  - "TASK-20260911-001"
   - "WORK-20260910-002"
   - "TASK-20260910-002"
   - "EVID-0015"
@@ -226,6 +228,14 @@ related_to:
 - Stopped reconciliation 125/125, independent terminal audit 193/193, stopped-boundary audit 86/86, W3 regression 46/46, tool regression 120/120, clean full stable 18/18 and global rebuild boundary 10,073/10,073 pass.
 - [[HANDOFF-20260911-001]] requires fresh owner authority for measurement-harness repair, recertification and rerun readiness. It does not authorize proof execution or 0073 allocation.
 
+## R7 W4 Measurement-harness Repair, Recertification and Rerun Readiness
+
+- Fresh owner authorization is active under [[TASK-20260911-001]] / [[WORK-20260911-001]].
+- Scope is limited to proof-55 measurement repair, allocation-free independent harness recertification, pending human-review mechanisms for proofs 50/51/53, and a superseding future-rerun readiness boundary.
+- Immutable pairs/packs 0066–0072, the raw proof-55 result, W3 history and stopped lifecycle remain unchanged. No 0073+ identity or proof observation may be created.
+- The nine protected user-local paths remain byte-pinned and excluded. The known live Doctor diagnostic requires clean-tree certification, not normalization of the protected inbox note.
+- W4 rerun, W5, FINAL, PRD-08/09, R8, gameplay and production remain closed.
+
 ## Later Activation Milestones
 
 - G1 registry and core identity: planned in [[GOV-DEBT-0002]].
@@ -234,4 +244,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260911-001]]. W0-W3 execution and W4 readiness/admission remain certified; both earlier W3 controlled failures remain immutable, 0058 remains durably invalidated and the successful W3 rerun remains retained through 0065. W4 is incomplete after seven retained observations through 0072 and requires fresh repair/recertification authority. W5 and FINAL are not ready. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08/09 remain closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260911-001]] and bounded repair authority [[TASK-20260911-001]]. W0-W3 execution and W4 readiness/admission remain certified; immutable W4 history ends at issued high-water 0072. Measurement repair/recertification/readiness is active without proof or allocation authority. W5 and FINAL are not ready. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08/09 remain closed, and R8 gameplay permission remains closed.
