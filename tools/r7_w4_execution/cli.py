@@ -47,6 +47,7 @@ def main() -> int:
     execute.add_argument("--actual-execution-authorized", action="store_true")
     reconcile = sub.add_parser("reconcile")
     reconcile.add_argument("--static-only", action="store_true")
+    reconcile.add_argument("--write", action="store_true")
     for command in (authority, source_boundary, admission, preflight, execute, reconcile):
         command.add_argument("--format", choices=("text", "json"), default="text")
     args = parser.parse_args()
@@ -93,7 +94,7 @@ def main() -> int:
         elif args.command == "execute":
             value = execute_w4(args.source_revision, args.run_root, actual_execution_authorized=args.actual_execution_authorized)
         else:
-            value = reconcile_w4(check_local=not args.static_only)
+            value = reconcile_w4(check_local=not args.static_only, write=args.write)
         _emit(value, args.format)
         return 0 if value.get("status") in {"PASS", "COMPLETE"} else 1
     except BaseException as exc:

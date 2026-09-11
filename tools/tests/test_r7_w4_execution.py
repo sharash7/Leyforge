@@ -19,8 +19,9 @@ from tools.r7_w4_execution.contracts import (
     sha256_file,
 )
 from tools.r7_w4_execution.evidence import evidence_issues
+from tools.r7_w4_execution.execution import reconcile_w4
 from tools.r7_w4_execution.journal import W4ExecutionJournal
-from tools.r7_w4_execution.observations import _fcc_observation_row
+from tools.r7_w4_execution.observations import _fcc_observation_row, _proof_55, _smuggling_analysis
 from tools.r7_w4_runtime.dependencies import load_reference
 
 
@@ -132,6 +133,28 @@ class R7W4ExecutionTests(unittest.TestCase):
         first = _fcc_observation_row("PRD04-PROOF-57", row, "PASS-OBSERVED", "MAPPED-EXPLICIT")
         second = _fcc_observation_row("PRD04-PROOF-58", row, "PASS-OBSERVED", "MAPPED-EXPLICIT")
         self.assertNotEqual(first["observation_identity"], second["observation_identity"])
+
+    def test_smuggling_oracle_preserves_base64_case_and_cannot_claim_pass(self) -> None:
+        encoded = {"reference": "b64:aGlkZGVuLWdkc2NyaXB0"}
+        analysis = _smuggling_analysis(encoded)
+        self.assertEqual("REJECT-OR-QUARANTINE", analysis["disposition"])
+        self.assertIn("gdscript", analysis["forbidden_markers"])
+        observed = _proof_55("PRD07-RUN-TEST", ROOT, {})
+        self.assertEqual("INCONCLUSIVE", observed["outcome"])
+        self.assertEqual(0, observed["measurements"]["unsafe_capability_attempts_accepted"])
+        self.assertIn("CAPABILITY-RESOLUTION-OBSERVATION-ABSENT", observed["blockers"])
+
+    def test_stopped_execution_reconciles_without_allocating_the_unentered_suffix(self) -> None:
+        state_path = ROOT / "docs/rebuild/r7/w4-execution-state.json"
+        if not state_path.is_file():
+            self.skipTest("W4 stopped execution state is not present at this lifecycle point")
+        report = reconcile_w4(check_local=False)
+        self.assertEqual("PASS", report["status"], report["failures"])
+        self.assertEqual(72, report["issued_high_water"])
+        self.assertEqual("0073-NOT-ALLOCATED", report["next_possible_identity"])
+        self.assertEqual(0, report["fcc13e"]["PRD04-PROOF-57"]["observed_rows"])
+        self.assertEqual(0, report["fcc13e"]["PRD04-PROOF-58"]["observed_rows"])
+        self.assertEqual("MEASUREMENT-DEFECT", report["measurement_defect"]["finding_class"])
 
     def test_journal_allocates_only_one_exact_pair_at_a_time(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

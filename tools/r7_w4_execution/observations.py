@@ -420,11 +420,14 @@ def _smuggling_analysis(case: Mapping[str, Any]) -> Dict[str, Any]:
             for nested in value:
                 visit(nested)
         else:
-            text = str(value).lower()
+            raw_text = str(value)
+            text = raw_text.lower()
             discovered.append(text)
             if text.startswith("b64:"):
                 try:
-                    visit(base64.b64decode(text[4:].encode("ascii"), validate=True).decode("utf-8"))
+                    # Base64 is case-sensitive.  Preserve the original token for
+                    # decoding while retaining normalized text for marker matching.
+                    visit(base64.b64decode(raw_text[4:].encode("ascii"), validate=True).decode("utf-8"))
                 except (ValueError, UnicodeError):
                     discovered.append("invalid-encoded-reference")
 
@@ -475,13 +478,20 @@ def _proof_55(run_id: str, run_root: Path, build: Mapping[str, Any]) -> Dict[str
             rows.append({"case_id": case["case_id"], "mutation": mutation, "mutated_payload": mutated, "expected": expected, "actual": actual, "analysis": analysis, "unsafe_capability_reached": False, "external_resource_access": False})
     benign = {"case_id": "BENIGN-DATA", "payload": "bounded-json-definitions"}
     benign_result = _smuggling_disposition(benign)
-    passed = escapes == 0 and benign_result == "ACCEPT-BOUNDED-DATA"
+    marker_scan_passed = escapes == 0 and benign_result == "ACCEPT-BOUNDED-DATA"
     return _result(
-        "PASS-OBSERVED" if passed else "FAIL-OBSERVED",
+        "INCONCLUSIVE",
         {"hostile_cases": len(rows), "smuggling_classes": len(cases), "unsafe_capability_attempts_accepted": escapes, "filesystem_resource_escapes": 0, "benign_false_positives": int(benign_result != "ACCEPT-BOUNDED-DATA")},
         {"hostile_fixtures_per_class": len(mutations), "classes": len(cases), "benign_controls": 1},
         {"hostile pack corpus": rows, "validator results": rows + [{"case_id": benign["case_id"], "actual": benign_result}], "side effect monitor": {"executed_payloads": 0, "filesystem_changes": 0, "external_accesses": 0}, "quarantine reports": [row for row in rows if row["actual"] == "REJECT-OR-QUARANTINE"], "false positive log": []},
-        "All 24 hostile mutation observations were rejected/quarantined before execution or external access, while the bounded benign data control remained usable.",
+        (
+            "The recursive capability-marker oracle rejected all hostile mutations and retained the benign control, "
+            "but it did not exercise actual engine resource/capability resolution; the certified conclusion is INCONCLUSIVE."
+            if marker_scan_passed
+            else "The recursive marker oracle accepted {0} hostile mutations and did not exercise actual engine resource/capability resolution; the certified conclusion is INCONCLUSIVE.".format(escapes)
+        ),
+        limitations=["Marker/allowlist inspection is not actual resource or capability resolution."],
+        blockers=["CAPABILITY-RESOLUTION-OBSERVATION-ABSENT"],
     )
 
 

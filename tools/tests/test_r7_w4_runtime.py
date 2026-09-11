@@ -53,16 +53,23 @@ class R7W4ReadinessTests(unittest.TestCase):
         if state_path.is_file():
             state = json.loads(state_path.read_text(encoding="utf-8-sig"))
             self.assertEqual(
-                ["PRD07-RUN-{0:04d}".format(number) for number in range(66, 81)],
+                ["PRD07-RUN-{0:04d}".format(number) for number in range(66, 73)],
                 state.get("allocated_run_ids"),
             )
             self.assertEqual(
-                ["PRD07-EVID-{0:04d}".format(number) for number in range(66, 81)],
+                ["PRD07-EVID-{0:04d}".format(number) for number in range(66, 73)],
                 state.get("allocated_evidence_ids"),
             )
-            self.assertTrue(
-                all(row.get("state") in {"PASS-OBSERVED", "FAIL-OBSERVED", "INCONCLUSIVE"} for row in state.get("proofs", []))
+            self.assertEqual(
+                [
+                    "PASS-OBSERVED", "INCONCLUSIVE", "INCONCLUSIVE", "PASS-OBSERVED",
+                    "INCONCLUSIVE", "PASS-OBSERVED", "FAIL-OBSERVED",
+                    "NOT-RUN", "NOT-RUN", "NOT-RUN", "NOT-RUN", "NOT-RUN",
+                    "NOT-RUN", "NOT-RUN", "NOT-RUN",
+                ],
+                [row.get("state") for row in state.get("proofs", [])],
             )
+            self.assertEqual("STOPPED-AFTER-FAIL-OBSERVED", state.get("package_state"))
             return
         before = registry_snapshot()
         plan = preview_execution_plan()
