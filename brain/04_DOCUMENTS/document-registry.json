@@ -7,8 +7,8 @@
   "edit_policy": "do_not_edit",
   "source_archive_commit": "799305859bb0ba4230ef87d934e961cc21220afa",
   "source_snapshot_commit": "9b3254e23f89056ae37e84f09bdcf4ea13df5128",
-  "artifact_count": 446,
-  "markdown_count": 405,
+  "artifact_count": 445,
+  "markdown_count": 404,
   "priority_proxy_count": 52,
   "artifacts": [
     {
@@ -6428,21 +6428,6 @@
       "source_intake_manifest": null,
       "declared_status": "unresolved",
       "status_basis": "no deterministic status marker",
-      "ingestion": "registered_only",
-      "proxy_id": null
-    },
-    {
-      "path": ".summer/00_Docs/FCC-01-14/FCC14/Leyforge_FCC-14_Final_Cross-Realm_Certification_Package_v0_1/FCC-14D_Final_Hold_Amendment_Register_Completeness_Audit_Package_Manifest_and_Cross-Realm_Certification_Lock_v0_1.md",
-      "family": "FCC-01-14",
-      "extension": ".md",
-      "current_blob_hash": "01459279cec425d5f059c52eaef7842b8ca6c085",
-      "archive_blob_hash": "01459279cec425d5f059c52eaef7842b8ca6c085",
-      "controlled_blob_hash": "01459279cec425d5f059c52eaef7842b8ca6c085",
-      "changed_from_archive": false,
-      "changed_from_controlled": false,
-      "source_intake_manifest": null,
-      "declared_status": "active",
-      "status_basis": "filename FINAL marker",
       "ingestion": "registered_only",
       "proxy_id": null
     },

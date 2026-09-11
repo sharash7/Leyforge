@@ -36,6 +36,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[AUDIT-0013|AUDIT-0013]] | audit | certified | R7 W3 Technical Environment Execution Rerun Audit |
 | [[AUDIT-0010|AUDIT-0010]] | audit | certified | R7 W3 Technical Environment Repair and Re-certification Audit |
 | [[AUDIT-0014|AUDIT-0014]] | audit | certified | R7 W4 Forge Trust Presentation Migration Readiness and Admission Audit |
+| [[AUDIT-0015|AUDIT-0015]] | audit | certified | R7 W4 Governed Execution Controlled-stop Certification |
 | [[GOV-DEBT-0002|GOV-DEBT-0002]] | deviation | proposed | G1 registry and core identity validators |
 | [[GOV-DEBT-0003|GOV-DEBT-0003]] | deviation | proposed | G2 persistent V1 world-state validators |
 | [[GOV-DEBT-0004|GOV-DEBT-0004]] | deviation | proposed | G3 external Forge and mod-content validators |

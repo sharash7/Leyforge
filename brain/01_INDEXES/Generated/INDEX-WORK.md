@@ -22,15 +22,15 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
-| [[HANDOFF-20260910-002|HANDOFF-20260910-002]] | handoff | active | R7 W4 Readiness Certification to Separately Authorized Governed Execution Gate |
-| [[WORK-20260910-002|WORK-20260910-002]] | work | active | Execute and reconcile the certified R7 W4 proof package |
-| [[TASK-20260910-002|TASK-20260910-002]] | work_item | active | R7 W4 Forge trust presentation migration governed execution task contract |
+| [[HANDOFF-20260911-001|HANDOFF-20260911-001]] | handoff | active | R7 W4 Controlled Stop to Measurement-harness Repair and Rerun Recertification Gate |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
+| [[WORK-20260910-002|WORK-20260910-002]] | work | cancelled | Execute and reconcile the certified R7 W4 proof package |
 | [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |
 | [[WORK-20260909-001|WORK-20260909-001]] | work | cancelled | Execute and reconcile the repaired R7 W3 technical environment proof rerun |
 | [[TASK-20260909-001|TASK-20260909-001]] | work_item | cancelled | R7 W3 technical environment execution rerun task contract |
 | [[TASK-20260908-001|TASK-20260908-001]] | work_item | cancelled | R7 W3 technical environment execution task contract |
 | [[TASK-20260906-008|TASK-20260906-008]] | work_item | cancelled | R7 W3 technical environment proofs readiness task contract |
+| [[TASK-20260910-002|TASK-20260910-002]] | work_item | cancelled | R7 W4 Forge trust presentation migration governed execution task contract |
 | [[WORK-20260906-003|WORK-20260906-003]] | work | complete | Admit PRD-07 and establish the R7 execution boundary |
 | [[WORK-20260905-004|WORK-20260905-004]] | work | complete | Bootstrap and certify Leyforge Project Brain v0.1 |
 | [[WORK-20260906-004|WORK-20260906-004]] | work | complete | Bootstrap the reusable R7 W0 proof harness |
@@ -77,3 +77,4 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[HANDOFF-20260908-001|HANDOFF-20260908-001]] | handoff | superseded | R7 W3 Readiness Certification to Governed W3 Proof Execution Handoff |
 | [[HANDOFF-20260908-003|HANDOFF-20260908-003]] | handoff | superseded | R7 W3 Repair Certification to Freshly Authorized W3 Rerun Handoff |
 | [[HANDOFF-20260909-001|HANDOFF-20260909-001]] | handoff | superseded | R7 W3 Rerun Abort to Fixture-launch Repair and Re-certification Handoff |
+| [[HANDOFF-20260910-002|HANDOFF-20260910-002]] | handoff | superseded | R7 W4 Readiness Certification to Separately Authorized Governed Execution Gate |
