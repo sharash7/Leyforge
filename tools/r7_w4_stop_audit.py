@@ -37,8 +37,10 @@ RUNS = tuple("PRD07-RUN-{0:04d}".format(value) for value in range(66, 73))
 EVIDENCE = tuple("PRD07-EVID-{0:04d}".format(value) for value in range(66, 73))
 LIFECYCLE_PATHS = (
     "tools/r7_w4_execution/cli.py",
+    "tools/r7_w4_execution/contracts.py",
     "tools/r7_w4_execution/execution.py",
     "tools/r7_w4_execution/observations.py",
+    "tools/r7_w4_execution_audit.py",
     "tools/r7_w4_stop_audit.py",
     "tools/tests/test_r7_w4_execution.py",
     "tools/tests/test_r7_w4_runtime.py",

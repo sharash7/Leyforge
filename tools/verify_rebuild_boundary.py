@@ -952,11 +952,20 @@ if w4_source_active:
     implementation = str(w4_source_boundary.get('implementation_commit', ''))
     check(re.fullmatch(r'[0-9a-f]{40}', implementation) is not None, 'R7 W4 execution source implementation commit is not exact')
     for rel, candidate, artifact in w4_source_artifacts:
-        current_blob = subprocess.run(['git','hash-object','--',rel], cwd=root, text=True, capture_output=True)
         implementation_blob = subprocess.run(['git','rev-parse',implementation + ':' + rel], cwd=root, text=True, capture_output=True)
-        canonical_data = candidate.read_bytes().replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10]))
-        check(current_blob.returncode == 0 and implementation_blob.returncode == 0, 'R7 W4 execution-source Git lookup failed: ' + rel)
-        check(current_blob.stdout.strip() == artifact.get('git_blob') == implementation_blob.stdout.strip(), 'R7 W4 execution-source Git identity differs: ' + rel)
+        if w4_state_path.is_file():
+            historical_blob = str(artifact.get('git_blob', ''))
+            historical_data = subprocess.run(['git','cat-file','blob',historical_blob], cwd=root, capture_output=True)
+            actual_blob = historical_blob
+            canonical_data = historical_data.stdout.replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10])) if historical_data.returncode == 0 else b''
+            check(historical_data.returncode == 0, 'Historical R7 W4 execution-source blob cannot be resolved: ' + rel)
+        else:
+            current_blob = subprocess.run(['git','hash-object','--',rel], cwd=root, text=True, capture_output=True)
+            actual_blob = current_blob.stdout.strip() if current_blob.returncode == 0 else ''
+            canonical_data = candidate.read_bytes().replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10]))
+            check(current_blob.returncode == 0, 'R7 W4 execution-source Git lookup failed: ' + rel)
+        check(implementation_blob.returncode == 0, 'R7 W4 execution-source implementation lookup failed: ' + rel)
+        check(actual_blob == artifact.get('git_blob') == implementation_blob.stdout.strip(), 'R7 W4 execution-source Git identity differs: ' + rel)
         check(len(canonical_data) == artifact.get('bytes'), 'R7 W4 execution-source canonical size differs: ' + rel)
         check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'R7 W4 execution-source canonical SHA-256 differs: ' + rel)
     head_result = subprocess.run(['git','rev-parse','HEAD'], cwd=root, text=True, capture_output=True)

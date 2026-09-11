@@ -96,6 +96,15 @@ def _source_paths() -> list[str]:
     return sorted(paths)
 
 
+def _source_paths_at_revision(revision: str) -> list[str]:
+    fixed = set(SOURCE_FIXED)
+    output = str(_git("ls-tree", "-r", "--name-only", revision))
+    return sorted(
+        relative for relative in output.splitlines()
+        if relative in fixed or relative.startswith(SOURCE_PREFIXES)
+    )
+
+
 def _identity_rows(state: str) -> list[dict[str, Any]]:
     return [
         {"order": index + 1, "proof_id": proof, "run_id": run, "evidence_id": evidence, "state": state}
@@ -110,6 +119,7 @@ def audit_source(source_revision: str, *, require_unallocated: bool, check_prote
         return {"status": "FAIL", "phase": "source", "checks": audit.checks, "failures": audit.failures}
     boundary = _load(SOURCE_BOUNDARY)
     implementation = str(boundary.get("implementation_commit", ""))
+    historical_execution = STATE.is_file() and not require_unallocated
     audit.check(boundary.get("schema_version") == "prd07-w4-governed-execution-source-boundary-v1", "source-boundary schema differs")
     audit.check(boundary.get("manifest_version") == 1, "source-boundary manifest version differs")
     audit.check(boundary.get("package") == PACKAGE, "source-boundary package differs")
@@ -139,7 +149,8 @@ def audit_source(source_revision: str, *, require_unallocated: bool, check_prote
     artifacts = boundary.get("artifacts", [])
     rows = artifacts if isinstance(artifacts, list) else []
     paths = [str(row.get("path", "")) for row in rows if isinstance(row, dict)]
-    audit.check(len(rows) == len(paths) and paths == _source_paths(), "source-boundary artifact path set differs")
+    expected_paths = _source_paths_at_revision(implementation) if historical_execution else _source_paths()
+    audit.check(len(rows) == len(paths) and paths == expected_paths, "source-boundary artifact path set differs")
     for row in rows:
         if not isinstance(row, dict):
             audit.check(False, "source-boundary contains a non-object artifact")
@@ -151,12 +162,20 @@ def audit_source(source_revision: str, *, require_unallocated: bool, check_prote
         audit.check(path.is_file(), "source-boundary artifact is missing: " + relative)
         if not path.is_file():
             continue
-        data = _canonical(path)
+        if historical_execution:
+            blob = str(row.get("git_blob", ""))
+            try:
+                data = _git("cat-file", "blob", blob, binary=True).replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+            except RuntimeError:
+                data = b""
+                audit.check(False, "source-boundary historical blob cannot be resolved: " + relative)
+        else:
+            data = _canonical(path)
         audit.check(len(data) == row.get("bytes") and hashlib.sha256(data).hexdigest() == row.get("sha256"), "source-boundary content identity differs: " + relative)
         try:
-            current_blob = _git("hash-object", "--", relative)
             implementation_blob = _git("rev-parse", implementation + ":" + relative)
-            audit.check(current_blob == row.get("git_blob") == implementation_blob, "source-boundary Git identity differs: " + relative)
+            actual_blob = implementation_blob if historical_execution else _git("hash-object", "--", relative)
+            audit.check(actual_blob == row.get("git_blob") == implementation_blob, "source-boundary Git identity differs: " + relative)
         except RuntimeError:
             audit.check(False, "source-boundary Git identity cannot be resolved: " + relative)
     audit.check("tools/r7_w4_execution_audit.py" in paths, "independent audit is not source-admitted")
@@ -213,6 +232,35 @@ def audit_terminal(source_revision: str, *, check_protected: bool) -> Dict[str, 
     if not STATE.is_file():
         return {"status": "FAIL", "phase": "terminal", "checks": audit.checks + int(source.get("checks", 0)), "failures": sorted(set(audit.failures + list(source.get("failures", []))))}
     state = _load(STATE)
+    if state.get("package_state") == "STOPPED-AFTER-FAIL-OBSERVED":
+        # Keep the established audit entry point while requiring the dedicated
+        # stopped audit's superset: historical source/admission, immutable
+        # observation commit, current hash-pinned lifecycle source, registry,
+        # evidence, defect classification, and prohibited-boundary checks.
+        from tools.r7_w4_stop_audit import audit as audit_stopped
+
+        stopped = audit_stopped(source_revision, check_protected=check_protected)
+        failures = sorted(set(list(source.get("failures", [])) + audit.failures + list(stopped.get("failures", []))))
+        return {
+            "schema_version": "prd07-w4-stopped-execution-independent-audit-v1",
+            "status": "PASS" if not failures else "FAIL",
+            "phase": "terminal-stopped",
+            "certification_meaning": "INTEGRITY-OF-STOPPED-PACKAGE-ONLY-NOT-W4-SUCCESS",
+            "checks": int(source.get("checks", 0)) + audit.checks + int(stopped.get("checks", 0)),
+            "source_revision": source_revision,
+            "execution_source_revision": stopped.get("execution_source_revision"),
+            "observation_commit": stopped.get("observation_commit"),
+            "lifecycle_validation_commit": stopped.get("lifecycle_validation_commit"),
+            "result_counts": stopped.get("result_counts", {}),
+            "issued_high_water": stopped.get("issued_high_water"),
+            "next_possible_identity": stopped.get("next_possible_identity"),
+            "fcc13e": stopped.get("fcc13e", {}),
+            "measurement_defect": stopped.get("measurement_defect", {}),
+            "production_runtime": "ABSENT",
+            "gameplay_permission": "CLOSED",
+            "w5": "CLOSED-NOT-READY",
+            "failures": failures,
+        }
     audit.check(state.get("schema_version") == "prd07-w4-execution-state-v1", "execution-state schema differs")
     audit.check(state.get("package") == PACKAGE, "execution-state package differs")
     audit.check(state.get("allocated_run_ids") == list(RUNS), "terminal RUN order differs")

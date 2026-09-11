@@ -28,6 +28,8 @@ EXECUTION_ROSTER = tuple(W4_PROOF_IDS)
 SOURCE_BOUNDARY_PATH = ROOT / "docs/rebuild/r7/w4-governed-execution-source-boundary.json"
 EXECUTION_ADMISSION_PATH = ROOT / "docs/rebuild/r7/w4-governed-execution-admission.json"
 STATE_PATH = ROOT / "docs/rebuild/r7/w4-execution-state.json"
+STOPPED_RECONCILIATION_PATH = ROOT / "docs/rebuild/r7/w4-stopped-execution-reconciliation.json"
+STOPPED_BOUNDARY_PATH = ROOT / "docs/rebuild/r7/w4-stopped-execution-boundary.json"
 RETAINED_ROOT = ROOT / "docs/rebuild/r7/execution-evidence"
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
 
@@ -47,6 +49,19 @@ SOURCE_BOUNDARY_FIXED_FILES = (
 SOURCE_BOUNDARY_TREES = (
     "tools/r7_w4_execution",
     "proofs/r7/w4_execution",
+)
+STOPPED_LIFECYCLE_PATHS = (
+    "tools/r7_w4_execution/cli.py",
+    "tools/r7_w4_execution/contracts.py",
+    "tools/r7_w4_execution/execution.py",
+    "tools/r7_w4_execution/observations.py",
+    "tools/r7_w4_execution_audit.py",
+    "tools/r7_w4_stop_audit.py",
+    "tools/tests/test_r7_w4_execution.py",
+    "tools/tests/test_r7_w4_runtime.py",
+    "tools/verify.py",
+    "tools/verify_rebuild_boundary.py",
+    "docs/rebuild/r7/w4-stopped-execution-reconciliation.json",
 )
 
 PROTECTED_LOCAL_PATHS: Mapping[str, Tuple[int, str]] = {
@@ -145,6 +160,17 @@ def execution_boundary_paths() -> Tuple[Path, ...]:
         if path.is_file():
             paths.add(path)
     return tuple(sorted(paths))
+
+
+def execution_boundary_relatives_at_revision(revision: str) -> Tuple[str, ...]:
+    """Enumerate the admitted execution source at its historical Git timepoint."""
+    output = _git("ls-tree", "-r", "--name-only", revision)
+    fixed = set(SOURCE_BOUNDARY_FIXED_FILES)
+    prefixes = tuple(relative.rstrip("/") + "/" for relative in SOURCE_BOUNDARY_TREES)
+    return tuple(sorted(
+        relative for relative in output.splitlines()
+        if relative in fixed or relative.startswith(prefixes)
+    ))
 
 
 def execution_source_paths() -> Tuple[Path, ...]:
@@ -256,6 +282,62 @@ def _artifact_record_issues(
             except RuntimeError:
                 issues.append("admitted artifact cannot be Git-hashed: " + relative)
     return issues
+
+
+def stopped_lifecycle_issues(source_revision: str) -> Tuple[str, ...]:
+    """Validate the current source that supersedes the historical run source.
+
+    Historical execution files may differ only when this separately committed
+    boundary hash-pins the current lifecycle validators and reconciliation.
+    """
+    issues: List[str] = []
+    if not STOPPED_BOUNDARY_PATH.is_file() or not STOPPED_RECONCILIATION_PATH.is_file():
+        return ("W4 stopped lifecycle boundary/reconciliation is missing",)
+    boundary = load_json(STOPPED_BOUNDARY_PATH)
+    if (
+        boundary.get("schema_version") != "prd07-w4-stopped-execution-boundary-v1"
+        or boundary.get("manifest_version") != 1
+        or boundary.get("status") != "PASS"
+        or boundary.get("certification_meaning") != "INTEGRITY-OF-STOPPED-PACKAGE-ONLY-NOT-W4-SUCCESS"
+        or boundary.get("lifecycle_role") != "CURRENT-FAIL-CLOSED-STOPPED-EXECUTION-BOUNDARY"
+        or boundary.get("package_state") != "STOPPED-AFTER-FAIL-OBSERVED"
+    ):
+        issues.append("W4 stopped lifecycle boundary identity/status differs")
+    validation_commit = str(boundary.get("lifecycle_validation_commit", ""))
+    if _COMMIT.fullmatch(validation_commit) is None or not _is_ancestor(validation_commit, source_revision):
+        issues.append("W4 stopped lifecycle validation commit is invalid or not an ancestor")
+    records = boundary.get("artifacts", [])
+    paths = [str(row.get("path", "")) for row in records if isinstance(row, dict)] if isinstance(records, list) else []
+    if not isinstance(records, list) or paths != list(STOPPED_LIFECYCLE_PATHS) or len(paths) != len(records):
+        issues.append("W4 stopped lifecycle artifact set differs")
+    else:
+        for row in records:
+            issues.extend(_artifact_record_issues(row, require_current=True, required_revision=validation_commit))
+    reconciliation = boundary.get("reconciliation", {})
+    if (
+        not isinstance(reconciliation, dict)
+        or reconciliation.get("path") != STOPPED_RECONCILIATION_PATH.relative_to(ROOT).as_posix()
+        or reconciliation.get("sha256") != sha256_file(STOPPED_RECONCILIATION_PATH)
+        or reconciliation.get("status") != "PASS"
+    ):
+        issues.append("W4 stopped reconciliation identity/status differs")
+    if (
+        boundary.get("issued_high_water") != 72
+        or boundary.get("next_possible_identity") != "0073-NOT-ALLOCATED"
+        or boundary.get("allocated_run_ids") != ["PRD07-RUN-{0:04d}".format(value) for value in range(66, 73)]
+        or boundary.get("allocated_evidence_ids") != ["PRD07-EVID-{0:04d}".format(value) for value in range(66, 73)]
+    ):
+        issues.append("W4 stopped lifecycle identity boundary differs")
+    if (
+        boundary.get("gameplay_permission") != "CLOSED"
+        or boundary.get("production_runtime") != "ABSENT"
+        or boundary.get("production_dependency_activation") != "INACTIVE"
+        or boundary.get("prd08_submission") != "NOT-SUBMITTED"
+        or boundary.get("w5") != "CLOSED-NOT-READY"
+        or any(boundary.get(field) != "CLOSED" for field in ("r7_final", "prd09", "r8"))
+    ):
+        issues.append("W4 stopped lifecycle boundary crossed a prohibited gate")
+    return tuple(sorted(set(issues)))
 
 
 def certified_readiness_history_issues() -> Tuple[str, ...]:
@@ -445,6 +527,7 @@ def source_boundary_issues(
     check_local: bool,
 ) -> Tuple[str, ...]:
     issues: List[str] = []
+    stopped_lifecycle = STATE_PATH.is_file()
     if not SOURCE_BOUNDARY_PATH.is_file():
         return ("W4 governed execution source boundary is missing",)
     boundary = load_json(SOURCE_BOUNDARY_PATH)
@@ -490,14 +573,24 @@ def source_boundary_issues(
         issues.append("W4 source-boundary implementation commit is invalid or not an ancestor")
     if not _is_ancestor(READINESS_PACKAGE_COMMIT, source_revision):
         issues.append("certified W4 readiness package is not an ancestor of current source")
-    expected_relatives = [path.relative_to(ROOT).as_posix() for path in execution_boundary_paths()]
+    if stopped_lifecycle:
+        issues.extend(stopped_lifecycle_issues(source_revision))
+    try:
+        expected_relatives = (
+            list(execution_boundary_relatives_at_revision(implementation))
+            if stopped_lifecycle
+            else [path.relative_to(ROOT).as_posix() for path in execution_boundary_paths()]
+        )
+    except RuntimeError as exc:
+        expected_relatives = []
+        issues.append(str(exc))
     artifacts = boundary.get("artifacts", [])
     artifact_relatives = [str(row.get("path", "")) for row in artifacts if isinstance(row, dict)] if isinstance(artifacts, list) else []
     if not isinstance(artifacts, list) or artifact_relatives != expected_relatives or len(artifact_relatives) != len(artifacts):
         issues.append("W4 source-boundary artifact path set differs")
     else:
         for row in artifacts:
-            issues.extend(_artifact_record_issues(row, require_current=True, required_revision=implementation))
+            issues.extend(_artifact_record_issues(row, require_current=not stopped_lifecycle, required_revision=implementation))
     readiness_records = boundary.get("readiness_artifacts", {})
     for key, path in (("readiness", READINESS_PATH), ("admission", READINESS_ADMISSION_PATH)):
         record = readiness_records.get(key, {}) if isinstance(readiness_records, dict) else {}
@@ -522,6 +615,13 @@ def source_boundary_issues(
         except RuntimeError as exc:
             issues.append(str(exc))
         governed = expected_relatives + [SOURCE_BOUNDARY_PATH.relative_to(ROOT).as_posix()]
+        if stopped_lifecycle:
+            governed = [
+                SOURCE_BOUNDARY_PATH.relative_to(ROOT).as_posix(),
+                STOPPED_RECONCILIATION_PATH.relative_to(ROOT).as_posix(),
+                STOPPED_BOUNDARY_PATH.relative_to(ROOT).as_posix(),
+                *STOPPED_LIFECYCLE_PATHS,
+            ]
         if _git("status", "--porcelain", "--", *governed):
             issues.append("governed W4 source boundary has uncommitted changes")
     return tuple(sorted(set(issues)))
