@@ -49,6 +49,21 @@ class R7W4ReadinessTests(unittest.TestCase):
         self.assertTrue(all(row["observation_status"] == "NOT-EXECUTED" for row in value["rows"]))
 
     def test_preview_is_exact_and_side_effect_free(self) -> None:
+        state_path = ROOT / "docs/rebuild/r7/w4-execution-state.json"
+        if state_path.is_file():
+            state = json.loads(state_path.read_text(encoding="utf-8-sig"))
+            self.assertEqual(
+                ["PRD07-RUN-{0:04d}".format(number) for number in range(66, 81)],
+                state.get("allocated_run_ids"),
+            )
+            self.assertEqual(
+                ["PRD07-EVID-{0:04d}".format(number) for number in range(66, 81)],
+                state.get("allocated_evidence_ids"),
+            )
+            self.assertTrue(
+                all(row.get("state") in {"PASS-OBSERVED", "FAIL-OBSERVED", "INCONCLUSIVE"} for row in state.get("proofs", []))
+            )
+            return
         before = registry_snapshot()
         plan = preview_execution_plan()
         after = registry_snapshot()
@@ -59,11 +74,14 @@ class R7W4ReadinessTests(unittest.TestCase):
         self.assertTrue(all(row["identity_state"] == "PREVIEW-NOT-ALLOCATED" for row in plan))
         self.assertEqual((), allocation_issues())
 
-    def test_no_w4_execute_command_or_execution_module_exists(self) -> None:
+    def test_readiness_runtime_cannot_execute_and_governed_executor_is_separate(self) -> None:
         cli = (ROOT / "tools/r7_w4_runtime/cli.py").read_text(encoding="utf-8")
         self.assertNotIn('add_parser("execute")', cli)
         self.assertFalse((ROOT / "tools/r7_w4_runtime/execution.py").exists())
-        self.assertFalse((ROOT / "docs/rebuild/r7/w4-execution-state.json").exists())
+        executor = ROOT / "tools/r7_w4_execution/execution.py"
+        if (ROOT / "docs/rebuild/r7/w4-execution-state.json").exists():
+            self.assertTrue(executor.is_file())
+            self.assertTrue((ROOT / "docs/rebuild/r7/w4-governed-execution-source-boundary.json").is_file())
 
     def test_fixture08_readiness_script_refuses_normal_execution(self) -> None:
         source = (ROOT / "proofs/r7/w4/presentation_probe/src/main.gd").read_text(encoding="utf-8")
@@ -77,6 +95,13 @@ class R7W4ReadinessTests(unittest.TestCase):
         self.assertTrue(all(route and roles for route, roles, _human in ROUTES.values()))
 
     def test_readiness_can_only_pass_all_fifteen_without_allocation(self) -> None:
+        if (ROOT / "docs/rebuild/r7/w4-execution-state.json").is_file():
+            stored = json.loads((ROOT / "docs/rebuild/r7/w4-readiness.json").read_text(encoding="utf-8-sig"))
+            self.assertEqual("PASS", stored.get("status"))
+            self.assertEqual("NOT-STARTED", stored.get("proof_execution"))
+            self.assertEqual([], stored.get("allocated_run_ids"))
+            self.assertEqual([], stored.get("allocated_evidence_ids"))
+            return
         receipt = {
             "schema_version":"prd07-w4-fixture-readiness-validation-v1", "status":"PASS",
             "implementation_commit":"0"*40, "dynamic_readiness_self_report":{"performed":True,"status":"PASS"},

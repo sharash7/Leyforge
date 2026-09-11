@@ -822,6 +822,9 @@ for required_path in w3_exact_paths:
 
 w4_manifest_path = root / 'docs/rebuild/r7/w4-readiness-admission-boundary.json'
 w4_manifest = json.loads(w4_manifest_path.read_text(encoding='utf-8')) if w4_manifest_path.is_file() else {}
+w4_source_boundary_path = root / 'docs/rebuild/r7/w4-governed-execution-source-boundary.json'
+w4_source_boundary = json.loads(w4_source_boundary_path.read_text(encoding='utf-8')) if w4_source_boundary_path.is_file() else {}
+w4_source_active = bool(w4_source_boundary)
 check(w4_manifest.get('schema_version') == 'prd07-w4-readiness-admission-boundary-v1', 'R7 W4 readiness/admission boundary is missing or unsupported')
 check(w4_manifest.get('manifest_version') == 1, 'R7 W4 readiness/admission manifest version differs')
 check(w4_manifest.get('package') == 'R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION', 'R7 W4 package identity changed')
@@ -875,17 +878,22 @@ for artifact in w4_manifest.get('artifacts', []):
     check(candidate.suffix.lower() not in {'.exe','.dll','.pck','.res','.tres'}, 'Binary/production resource admitted through R7 W4: ' + rel)
     if candidate.is_file():
         w4_admitted_artifacts.append((rel, candidate, artifact))
-w4_hash_result = subprocess.run(
-    ['git','hash-object','--stdin-paths'], cwd=root,
-    input=chr(10).join(rel for rel, _, _ in w4_admitted_artifacts) + chr(10),
-    text=True, capture_output=True,
-)
-check(w4_hash_result.returncode == 0, 'R7 W4 Git-clean blob hashing failed')
-w4_blob_hashes = w4_hash_result.stdout.splitlines() if w4_hash_result.returncode == 0 else []
-check(len(w4_blob_hashes) == len(w4_admitted_artifacts), 'R7 W4 Git-clean blob count differs')
-for index, (rel, candidate, artifact) in enumerate(w4_admitted_artifacts):
-    actual_blob = w4_blob_hashes[index] if index < len(w4_blob_hashes) else ''
-    canonical_data = candidate.read_bytes().replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10]))
+for rel, candidate, artifact in w4_admitted_artifacts:
+    historical_shared = w4_source_active and rel in {
+        'tools/tests/test_r7_w4_runtime.py',
+        'tools/verify.py',
+        'tools/verify_rebuild_boundary.py',
+    }
+    if historical_shared:
+        actual_blob = str(artifact.get('git_blob', ''))
+        historical_data = subprocess.run(['git', 'cat-file', 'blob', actual_blob], cwd=root, capture_output=True)
+        canonical_data = historical_data.stdout.replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10])) if historical_data.returncode == 0 else b''
+        check(historical_data.returncode == 0, 'Historical R7 W4 readiness blob cannot be resolved: ' + rel)
+    else:
+        current_blob = subprocess.run(['git', 'hash-object', '--', rel], cwd=root, text=True, capture_output=True)
+        actual_blob = current_blob.stdout.strip() if current_blob.returncode == 0 else ''
+        canonical_data = candidate.read_bytes().replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10]))
+        check(current_blob.returncode == 0, 'R7 W4 Git-clean blob hashing failed: ' + rel)
     check(actual_blob == artifact.get('git_blob'), 'Admitted R7 W4 Git-clean blob changed: ' + rel)
     check(len(canonical_data) == artifact.get('bytes'), 'Admitted R7 W4 canonical size changed: ' + rel)
     check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'Admitted R7 W4 canonical SHA-256 changed: ' + rel)
@@ -893,15 +901,111 @@ for required_path in w4_exact_paths:
     check(required_path in w4_admitted_paths, 'R7 W4 boundary does not hash-pin: ' + required_path)
 check(not any(path.startswith('docs/rebuild/r7/execution-evidence/PRD07-RUN-00') for path in w4_admitted_paths), 'R7 W4 readiness boundary admitted a standard execution pack')
 
-w4_verify = subprocess.run(
-    [sys.executable, '-m', 'tools.r7_w4_runtime', 'verify', '--implementation-commit', str(w4_manifest.get('implementation_commit', '')), '--format', 'json'],
-    cwd=root, text=True, capture_output=True,
-)
-try:
-    w4_verify_report = json.loads(w4_verify.stdout) if w4_verify.stdout else {}
-except json.JSONDecodeError:
-    w4_verify_report = {}
-check(w4_verify.returncode == 0 and w4_verify_report.get('status') == 'PASS', 'R7 W4 canonical readiness/admission verification failed: ' + (w4_verify.stderr.strip() or '; '.join(w4_verify_report.get('issues', []))))
+w4_state_path = root / 'docs/rebuild/r7/w4-execution-state.json'
+w4_execution_admission_path = root / 'docs/rebuild/r7/w4-governed-execution-admission.json'
+w4_report_run_ids = []
+w4_report_evidence_ids = []
+if w4_source_active:
+    check(w4_source_boundary.get('schema_version') == 'prd07-w4-governed-execution-source-boundary-v1', 'R7 W4 execution source boundary is unsupported')
+    check(w4_source_boundary.get('manifest_version') == 1, 'R7 W4 execution source-boundary version differs')
+    check(w4_source_boundary.get('package') == 'R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION', 'R7 W4 execution source package differs')
+    check(w4_source_boundary.get('lifecycle_role') == 'CURRENT-PRE-EXECUTION-SOURCE-ADMISSION', 'R7 W4 execution source lifecycle role differs')
+    check(w4_source_boundary.get('scope') == 'development-only-prd07-proof-execution-runtime', 'R7 W4 execution source scope is not proof-only')
+    check(w4_source_boundary.get('status') == 'PASS' and w4_source_boundary.get('issues') == [], 'R7 W4 execution source boundary is not clean PASS')
+    check(w4_source_boundary.get('proof_roster') == expected_w4_proofs, 'R7 W4 execution source proof roster/order differs')
+    check(w4_source_boundary.get('proof_execution') == 'NOT-STARTED', 'R7 W4 execution source boundary claims execution')
+    check(w4_source_boundary.get('allocated_run_ids') == [] and w4_source_boundary.get('allocated_evidence_ids') == [], 'R7 W4 execution source boundary allocated identities')
+    check(w4_source_boundary.get('execution_gate') == 'CLOSED-PENDING-EXACT-SHA-CI-AND-GOVERNED-EXECUTION-ADMISSION', 'R7 W4 execution source gate differs')
+    check(w4_source_boundary.get('gameplay_permission') == 'CLOSED' and w4_source_boundary.get('production_runtime') == 'ABSENT', 'R7 W4 execution source crossed gameplay/production')
+    check(all(w4_source_boundary.get(field) == 'CLOSED' for field in ('w5','r7_final','prd08','prd09','r8')), 'R7 W4 execution source opened a later programme gate')
+    w4_source_prefixes = ('proofs/r7/w4_execution/', 'tools/r7_w4_execution/')
+    w4_source_exact = {
+        'tools/tests/test_r7_w4_execution.py',
+        'tools/tests/test_r7_w4_runtime.py',
+        'tools/r7_w4_execution_audit.py',
+        'tools/verify.py',
+        'tools/verify_rebuild_boundary.py',
+    }
+    w4_source_paths = set()
+    w4_source_artifacts = []
+    for artifact in w4_source_boundary.get('artifacts', []):
+        rel = artifact.get('path') if isinstance(artifact, dict) else None
+        valid_path = (
+            isinstance(rel, str)
+            and (rel.startswith(w4_source_prefixes) or rel in w4_source_exact)
+            and '..' not in Path(rel).parts
+            and not Path(rel).is_absolute()
+        )
+        check(valid_path, 'Invalid R7 W4 execution-source path: ' + str(rel))
+        if not valid_path:
+            continue
+        check(rel not in w4_source_paths, 'Duplicate R7 W4 execution-source path: ' + rel)
+        w4_source_paths.add(rel)
+        w4_admitted_paths.add(rel)
+        candidate = root / rel
+        check(candidate.is_file(), 'R7 W4 execution-source path is missing: ' + rel)
+        check(candidate.suffix.lower() in {'.py','.json','.md','.gd','.tscn','.godot'}, 'Unsupported R7 W4 execution-source type: ' + rel)
+        check(candidate.suffix.lower() not in {'.exe','.dll','.pck','.res','.tres'}, 'Binary/production resource admitted through R7 W4 execution source: ' + rel)
+        if candidate.is_file():
+            w4_source_artifacts.append((rel, candidate, artifact))
+    check(w4_source_exact.issubset(w4_source_paths), 'R7 W4 execution source does not hash-pin every required control')
+    implementation = str(w4_source_boundary.get('implementation_commit', ''))
+    check(re.fullmatch(r'[0-9a-f]{40}', implementation) is not None, 'R7 W4 execution source implementation commit is not exact')
+    for rel, candidate, artifact in w4_source_artifacts:
+        current_blob = subprocess.run(['git','hash-object','--',rel], cwd=root, text=True, capture_output=True)
+        implementation_blob = subprocess.run(['git','rev-parse',implementation + ':' + rel], cwd=root, text=True, capture_output=True)
+        canonical_data = candidate.read_bytes().replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10]))
+        check(current_blob.returncode == 0 and implementation_blob.returncode == 0, 'R7 W4 execution-source Git lookup failed: ' + rel)
+        check(current_blob.stdout.strip() == artifact.get('git_blob') == implementation_blob.stdout.strip(), 'R7 W4 execution-source Git identity differs: ' + rel)
+        check(len(canonical_data) == artifact.get('bytes'), 'R7 W4 execution-source canonical size differs: ' + rel)
+        check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'R7 W4 execution-source canonical SHA-256 differs: ' + rel)
+    head_result = subprocess.run(['git','rev-parse','HEAD'], cwd=root, text=True, capture_output=True)
+    current_head = head_result.stdout.strip()
+    source_verify_command = [sys.executable, '-m', 'tools.r7_w4_execution', 'source-boundary', '--source-revision', current_head, '--static-only', '--format', 'json']
+    if not w4_state_path.is_file():
+        source_verify_command.insert(-2, '--require-initial-high-water')
+    w4_verify = subprocess.run(source_verify_command, cwd=root, text=True, capture_output=True)
+    try:
+        w4_verify_report = json.loads(w4_verify.stdout) if w4_verify.stdout else {}
+    except json.JSONDecodeError:
+        w4_verify_report = {}
+    check(w4_verify.returncode == 0 and w4_verify_report.get('status') == 'PASS', 'R7 W4 governed execution source verification failed: ' + (w4_verify.stderr.strip() or '; '.join(w4_verify_report.get('issues', []))))
+    if w4_state_path.is_file():
+        w4_state = json.loads(w4_state_path.read_text(encoding='utf-8'))
+        w4_report_run_ids = w4_state.get('allocated_run_ids', [])
+        w4_report_evidence_ids = w4_state.get('allocated_evidence_ids', [])
+        w4_reconcile = subprocess.run([sys.executable, '-m', 'tools.r7_w4_execution', 'reconcile', '--static-only', '--format', 'json'], cwd=root, text=True, capture_output=True)
+        try:
+            w4_reconcile_report = json.loads(w4_reconcile.stdout) if w4_reconcile.stdout else {}
+        except json.JSONDecodeError:
+            w4_reconcile_report = {}
+        check(w4_reconcile.returncode == 0 and w4_reconcile_report.get('status') == 'PASS', 'R7 W4 terminal reconciliation failed: ' + (w4_reconcile.stderr.strip() or '; '.join(w4_reconcile_report.get('failures', []))))
+        audit_phase = 'terminal'
+    else:
+        if w4_execution_admission_path.is_file():
+            w4_preflight = subprocess.run([sys.executable, '-m', 'tools.r7_w4_execution', 'preflight', '--source-revision', current_head, '--static-only', '--format', 'json'], cwd=root, text=True, capture_output=True)
+            try:
+                w4_preflight_report = json.loads(w4_preflight.stdout) if w4_preflight.stdout else {}
+            except json.JSONDecodeError:
+                w4_preflight_report = {}
+            check(w4_preflight.returncode == 0 and w4_preflight_report.get('status') == 'PASS', 'R7 W4 execution admission preflight failed: ' + (w4_preflight.stderr.strip() or '; '.join(w4_preflight_report.get('issues', []))))
+        audit_phase = 'source'
+    w4_audit = subprocess.run([sys.executable, 'tools/r7_w4_execution_audit.py', '--phase', audit_phase, '--source-revision', current_head, '--format', 'json'], cwd=root, text=True, capture_output=True)
+    try:
+        w4_audit_report = json.loads(w4_audit.stdout) if w4_audit.stdout else {}
+    except json.JSONDecodeError:
+        w4_audit_report = {}
+    check(w4_audit.returncode == 0 and w4_audit_report.get('status') == 'PASS', 'Independent R7 W4 execution audit failed: ' + (w4_audit.stderr.strip() or '; '.join(w4_audit_report.get('failures', []))))
+else:
+    w4_verify = subprocess.run(
+        [sys.executable, '-m', 'tools.r7_w4_runtime', 'verify', '--implementation-commit', str(w4_manifest.get('implementation_commit', '')), '--format', 'json'],
+        cwd=root, text=True, capture_output=True,
+    )
+    try:
+        w4_verify_report = json.loads(w4_verify.stdout) if w4_verify.stdout else {}
+    except json.JSONDecodeError:
+        w4_verify_report = {}
+    check(w4_verify.returncode == 0 and w4_verify_report.get('status') == 'PASS', 'R7 W4 canonical readiness/admission verification failed: ' + (w4_verify.stderr.strip() or '; '.join(w4_verify_report.get('issues', []))))
 
 baseline_docs = manifest['source_document_blobs']
 intake_docs = {}
@@ -977,5 +1081,5 @@ check(not (root/'project.godot').exists(), 'Unexpected Godot runtime entry point
 for name in ['addons','assets','content','data','generated','scripts','development','.profiles','.tmp']:
     check(not (root/name).exists(), 'Retired root remains: '+name)
 check((root/'tools/verify_rebuild_boundary.py').is_file(), 'Controlled validator missing')
-print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,r7_w3_manifest=w3_manifest_path.relative_to(root).as_posix(),r7_w3_paths=len(w3_admitted_paths),r7_w3_proof_run_ids=w3_run_ids,r7_w3_proof_evidence_ids=w3_evidence_ids,r7_w4_manifest=w4_manifest_path.relative_to(root).as_posix(),r7_w4_paths=len(w4_admitted_paths),r7_w4_proof_run_ids=w4_manifest.get('allocated_run_ids', []),r7_w4_proof_evidence_ids=w4_manifest.get('allocated_evidence_ids', []),r7_w4_identity_previews=w4_previews,active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
+print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,r7_w3_manifest=w3_manifest_path.relative_to(root).as_posix(),r7_w3_paths=len(w3_admitted_paths),r7_w3_proof_run_ids=w3_run_ids,r7_w3_proof_evidence_ids=w3_evidence_ids,r7_w4_manifest=w4_manifest_path.relative_to(root).as_posix(),r7_w4_source_boundary=w4_source_boundary_path.relative_to(root).as_posix() if w4_source_active else None,r7_w4_paths=len(w4_admitted_paths),r7_w4_proof_run_ids=w4_report_run_ids,r7_w4_proof_evidence_ids=w4_report_evidence_ids,r7_w4_identity_previews=w4_previews if not w4_state_path.is_file() else [],active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
 sys.exit(1 if failures else 0)

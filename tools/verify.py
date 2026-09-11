@@ -20,10 +20,12 @@ PROOF_HARNESS_PYTHON = sorted(
         ROOT / "tools" / "r7_w2_runtime",
         ROOT / "tools" / "r7_w3_runtime",
         ROOT / "tools" / "r7_w4_runtime",
+        ROOT / "tools" / "r7_w4_execution",
         ROOT / "tools" / "tests",
         ROOT / "proofs" / "r7" / "w1" / "runtime",
         ROOT / "proofs" / "r7" / "w2" / "runtime",
         ROOT / "proofs" / "r7" / "w3" / "runtime",
+        ROOT / "proofs" / "r7" / "w4_execution",
     )
     for path in base.rglob("*.py")
 )
@@ -94,6 +96,34 @@ def w4_implementation_commit() -> str:
 
 
 def w4_verification_commands(python: str) -> list[list[str]]:
+    source_boundary = ROOT / "docs/rebuild/r7/w4-governed-execution-source-boundary.json"
+    execution_admission = ROOT / "docs/rebuild/r7/w4-governed-execution-admission.json"
+    state = ROOT / "docs/rebuild/r7/w4-execution-state.json"
+    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True).stdout.strip()
+    if source_boundary.is_file():
+        source_command = [
+            python, "-m", "tools.r7_w4_execution", "source-boundary",
+            "--source-revision", head, "--static-only", "--format", "json",
+        ]
+        if not state.is_file():
+            source_command.insert(-2, "--require-initial-high-water")
+        commands = [source_command]
+        if state.is_file():
+            commands.extend([
+                [python, "-m", "tools.r7_w4_execution", "reconcile", "--static-only", "--format", "json"],
+                [python, "tools/r7_w4_execution_audit.py", "--phase", "terminal", "--source-revision", head, "--format", "json"],
+            ])
+        else:
+            if execution_admission.is_file():
+                commands.append([
+                    python, "-m", "tools.r7_w4_execution", "preflight",
+                    "--source-revision", head, "--static-only", "--format", "json",
+                ])
+            commands.append([
+                python, "tools/r7_w4_execution_audit.py", "--phase", "source",
+                "--source-revision", head, "--format", "json",
+            ])
+        return commands
     commit = w4_implementation_commit()
     return [
         [python, "-m", "tools.r7_w4_runtime", "verify", "--implementation-commit", commit, "--format", "json"],
@@ -126,6 +156,7 @@ def commands_for(tier: str) -> list[list[str]]:
         "tools/verify.py",
         "tools/verify_rebuild_boundary.py",
         "tools/r7_w4_audit.py",
+        "tools/r7_w4_execution_audit.py",
     ] + PROOF_HARNESS_PYTHON
     if tier == "build":
         return [compile_command]

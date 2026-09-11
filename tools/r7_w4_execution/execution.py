@@ -124,7 +124,7 @@ def execute_w4(source_revision: str, run_root: Path, *, actual_execution_authori
     }
 
 
-def reconcile_w4() -> Dict[str, Any]:
+def reconcile_w4(*, check_local: bool = True) -> Dict[str, Any]:
     failures: List[str] = []
     if not STATE_PATH.is_file():
         return {"status": "FAIL", "failures": ["W4 execution state is missing"]}
@@ -183,7 +183,8 @@ def reconcile_w4() -> Dict[str, Any]:
             failures.append("global registry W4 suffix differs from exact sequence")
     except Exception as exc:
         failures.append("global execution registry reconciliation failed: " + str(exc))
-    failures.extend(protected_local_issues())
+    if check_local:
+        failures.extend(protected_local_issues())
     w3 = ROOT / "docs/rebuild/r7/w3-execution-state.json"
     readiness = load_json(ROOT / "docs/rebuild/r7/w4-readiness.json")
     expected_w3 = readiness.get("registry_before_and_after_readiness", {}).get("w3_state_sha256")
@@ -205,7 +206,11 @@ def reconcile_w4() -> Dict[str, Any]:
         "retained_packs": packs,
         "fcc13e": {"PRD04-PROOF-57": len(fcc_rows.get("PRD04-PROOF-57", [])), "PRD04-PROOF-58": len(fcc_rows.get("PRD04-PROOF-58", [])), "independent_observation_identities": not bool(failures)},
         "issued_high_water": 80 if not failures else None,
-        "protected_local_paths": "UNCHANGED" if not protected_local_issues() else "CHANGED",
+        "protected_local_paths": (
+            "UNCHANGED" if check_local and not protected_local_issues()
+            else "CHANGED" if check_local
+            else "NOT-CHECKED-STATIC-RECONCILIATION"
+        ),
         "w3_history": "UNCHANGED" if w3.is_file() and sha256_file(w3) == expected_w3 else "CHANGED",
         "production_runtime": "ABSENT",
         "gameplay_permission": "CLOSED",
