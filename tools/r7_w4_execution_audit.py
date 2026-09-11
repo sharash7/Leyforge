@@ -73,6 +73,10 @@ def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _canonical_sha(path: Path) -> str:
+    return hashlib.sha256(_canonical(path)).hexdigest()
+
+
 def _git(*args: str, binary: bool = False) -> Any:
     result = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=not binary)
     if result.returncode:
@@ -160,7 +164,7 @@ def audit_source(source_revision: str, *, require_unallocated: bool, check_prote
         audit.check(path.is_file(), label + " is missing")
         if path.is_file():
             record = boundary.get("readiness_artifacts", {}).get("readiness" if path == READINESS else "admission", {})
-            audit.check(record.get("sha256") == _sha(path), label + " hash differs from source boundary")
+            audit.check(record.get("sha256") == _canonical_sha(path), label + " hash differs from source boundary")
     if READINESS.is_file():
         readiness = _load(READINESS)
         audit.check(readiness.get("status") == "PASS" and readiness.get("readiness_counts") == {"READY": 15, "BLOCKED": 0, "NOT APPLICABLE": 0}, "certified readiness is not 15/15 PASS")

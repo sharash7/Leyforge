@@ -109,6 +109,10 @@ def canonical_file_bytes(path: Path) -> bytes:
     return path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
 
 
+def canonical_file_sha256(path: Path) -> str:
+    return hashlib.sha256(canonical_file_bytes(path)).hexdigest()
+
+
 def _blob_bytes(blob: str) -> bytes:
     completed = subprocess.run(["git", "cat-file", "blob", blob], cwd=ROOT, capture_output=True)
     if completed.returncode:
@@ -402,8 +406,8 @@ def build_source_boundary(implementation_commit: str, *, check_local: bool = Tru
         "allocated_evidence_ids": [],
         "execution_gate": "CLOSED-PENDING-EXACT-SHA-CI-AND-GOVERNED-EXECUTION-ADMISSION",
         "readiness_artifacts": {
-            "readiness": {"path": READINESS_PATH.relative_to(ROOT).as_posix(), "sha256": sha256_file(READINESS_PATH)},
-            "admission": {"path": READINESS_ADMISSION_PATH.relative_to(ROOT).as_posix(), "sha256": sha256_file(READINESS_ADMISSION_PATH)},
+            "readiness": {"path": READINESS_PATH.relative_to(ROOT).as_posix(), "sha256": canonical_file_sha256(READINESS_PATH)},
+            "admission": {"path": READINESS_ADMISSION_PATH.relative_to(ROOT).as_posix(), "sha256": canonical_file_sha256(READINESS_ADMISSION_PATH)},
             "source_tree_identity": readiness.get("source_tree_identity"),
         },
         "dependency_identity": readiness.get("dependency_identity"),
@@ -497,7 +501,7 @@ def source_boundary_issues(
     readiness_records = boundary.get("readiness_artifacts", {})
     for key, path in (("readiness", READINESS_PATH), ("admission", READINESS_ADMISSION_PATH)):
         record = readiness_records.get(key, {}) if isinstance(readiness_records, dict) else {}
-        if not isinstance(record, dict) or record.get("path") != path.relative_to(ROOT).as_posix() or record.get("sha256") != sha256_file(path):
+        if not isinstance(record, dict) or record.get("path") != path.relative_to(ROOT).as_posix() or record.get("sha256") != canonical_file_sha256(path):
             issues.append("W4 source boundary readiness identity differs: " + key)
     issues.extend(certified_readiness_history_issues())
     issues.extend(_production_boundary_issues())
@@ -600,14 +604,14 @@ def build_execution_admission(
         "required_branch": EXPECTED_BRANCH,
         "required_upstream": EXPECTED_UPSTREAM,
         "readiness_artifacts": {
-            "readiness": {"path": READINESS_PATH.relative_to(ROOT).as_posix(), "sha256": sha256_file(READINESS_PATH)},
-            "admission": {"path": READINESS_ADMISSION_PATH.relative_to(ROOT).as_posix(), "sha256": sha256_file(READINESS_ADMISSION_PATH)},
+            "readiness": {"path": READINESS_PATH.relative_to(ROOT).as_posix(), "sha256": canonical_file_sha256(READINESS_PATH)},
+            "admission": {"path": READINESS_ADMISSION_PATH.relative_to(ROOT).as_posix(), "sha256": canonical_file_sha256(READINESS_ADMISSION_PATH)},
             "source_tree_identity": readiness.get("source_tree_identity"),
             "admission_boundary_sha256": hashlib.sha256(canonical_bytes(readiness_admission)).hexdigest(),
         },
         "source_boundary": {
             "path": SOURCE_BOUNDARY_PATH.relative_to(ROOT).as_posix(),
-            "sha256": sha256_file(SOURCE_BOUNDARY_PATH) if SOURCE_BOUNDARY_PATH.is_file() else "",
+            "sha256": canonical_file_sha256(SOURCE_BOUNDARY_PATH) if SOURCE_BOUNDARY_PATH.is_file() else "",
             "implementation_commit": source_boundary.get("implementation_commit"),
             "lifecycle_role": source_boundary.get("lifecycle_role"),
         },
@@ -685,7 +689,7 @@ def execution_admission_issues(
         not isinstance(source_boundary, dict)
         or source_boundary.get("path") != SOURCE_BOUNDARY_PATH.relative_to(ROOT).as_posix()
         or not SOURCE_BOUNDARY_PATH.is_file()
-        or source_boundary.get("sha256") != sha256_file(SOURCE_BOUNDARY_PATH)
+        or source_boundary.get("sha256") != canonical_file_sha256(SOURCE_BOUNDARY_PATH)
     ):
         issues.append("W4 execution admission source-boundary identity differs")
     issues.extend(
@@ -712,7 +716,7 @@ def execution_admission_issues(
     for key in ("readiness", "admission"):
         record = readiness_records.get(key, {}) if isinstance(readiness_records, dict) else {}
         path = ROOT / str(record.get("path", ""))
-        if not path.is_file() or sha256_file(path) != record.get("sha256"):
+        if not path.is_file() or canonical_file_sha256(path) != record.get("sha256"):
             issues.append("certified readiness artifact differs: " + key)
     issues.extend(historical_readiness_issues())
     if check_local:
