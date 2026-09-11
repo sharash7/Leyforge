@@ -36,6 +36,8 @@ ROSTER = tuple("PRD04-PROOF-{0:02d}".format(value) for value in (49, 50, 51, 52,
 RUNS = tuple("PRD07-RUN-{0:04d}".format(value) for value in range(66, 73))
 EVIDENCE = tuple("PRD07-EVID-{0:04d}".format(value) for value in range(66, 73))
 LIFECYCLE_PATHS = (
+    "tools/tests/test_r7_w3_reconciliation.py",
+    "tools/tests/test_r7_w3_runtime.py",
     "tools/r7_w4_execution/cli.py",
     "tools/r7_w4_execution/contracts.py",
     "tools/r7_w4_execution/execution.py",

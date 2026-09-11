@@ -223,13 +223,20 @@ class R7W3RuntimeTests(unittest.TestCase):
         registry = inspect_execution_registry(ROOT)
         plan = preview_execution_plan(ROOT)
         after = sorted((ROOT / "docs/rebuild/r7/execution-evidence").iterdir())
-        self.assertEqual(65, registry.max_run_number)
-        self.assertEqual(65, registry.max_evidence_number)
-        self.assertEqual(57, len(registry.retained_run_ids))
+        stopped_w4 = ROOT / "docs/rebuild/r7/w4-stopped-execution-boundary.json"
+        if stopped_w4.is_file():
+            self.assertEqual(72, registry.max_run_number)
+            self.assertEqual(72, registry.max_evidence_number)
+            self.assertEqual(64, len(registry.retained_run_ids))
+            self.assertEqual(tuple(f"PRD07-RUN-{number:04d}" for number in range(66, 73)), registry.retained_run_ids[-7:])
+        else:
+            self.assertEqual(65, registry.max_run_number)
+            self.assertEqual(65, registry.max_evidence_number)
+            self.assertEqual(57, len(registry.retained_run_ids))
+            self.assertEqual(tuple(f"PRD07-RUN-{number:04d}" for number in range(59, 66)), registry.retained_run_ids[-7:])
         self.assertEqual(tuple(f"PRD07-RUN-{number:04d}" for number in range(51, 58)), registry.quarantined_run_ids)
         invalidated = tuple(run_id for run_id in registry.run_ids if registry.dispositions[run_id] == "INVALIDATED")
         self.assertEqual(("PRD07-RUN-0058",), invalidated)
-        self.assertEqual(tuple(f"PRD07-RUN-{number:04d}" for number in range(59, 66)), registry.retained_run_ids[-7:])
         self.assertEqual((), plan)
         self.assertEqual(before, after)
 

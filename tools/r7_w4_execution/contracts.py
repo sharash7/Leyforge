@@ -51,6 +51,8 @@ SOURCE_BOUNDARY_TREES = (
     "proofs/r7/w4_execution",
 )
 STOPPED_LIFECYCLE_PATHS = (
+    "tools/tests/test_r7_w3_reconciliation.py",
+    "tools/tests/test_r7_w3_runtime.py",
     "tools/r7_w4_execution/cli.py",
     "tools/r7_w4_execution/contracts.py",
     "tools/r7_w4_execution/execution.py",

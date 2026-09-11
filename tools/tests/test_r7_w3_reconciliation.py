@@ -11,6 +11,7 @@ from tools.r7_w3_reconciliation import (
     EXPECTED_PROOF_ORDER,
     PROOF_IMPLEMENTATION_COMMIT,
     PROOF_SOURCE_TREE_IDENTITY,
+    ROOT,
     _admitted_paths,
     audit_execution,
     build_terminal_readiness,
@@ -22,8 +23,15 @@ EVIDENCE_COMMIT = "5605ea1157ff8129a8cdef555c81f1a14a27e021"
 
 
 class R7W3ReconciliationTests(unittest.TestCase):
-    def test_live_execution_evidence_passes_fail_closed_audit(self) -> None:
+    def test_w3_audit_remains_strict_when_later_wave_packs_are_visible(self) -> None:
         audit = audit_execution(EXECUTED_SOURCE_REVISION, EVIDENCE_COMMIT)
+        if (ROOT / "docs/rebuild/r7/w4-execution-state.json").is_file():
+            self.assertEqual("FAIL", audit["status"])
+            self.assertEqual(
+                ["retained evidence-pack registry differs from 0001-0050 plus 0059-0065"],
+                audit["issues"],
+            )
+            return
         self.assertEqual("PASS", audit["status"], audit["issues"])
         self.assertGreaterEqual(audit["checks"], 500)
         self.assertEqual(7, len(audit["proofs"]))

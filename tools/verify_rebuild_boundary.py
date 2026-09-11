@@ -1,10 +1,13 @@
 """Read-only clean-rebuild boundary validation; Python standard library only."""
 import hashlib
+import io
 import json
 import os
 import re
 import subprocess
 import sys
+import tarfile
+import tempfile
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
@@ -728,18 +731,71 @@ check(w3_readiness.get('status') == 'PASS' and w3_readiness.get('w3_state') == '
 check(w3_readiness.get('proof_execution') == 'OBSERVED', 'Terminal R7 W3 readiness does not retain observed execution')
 check(w3_readiness.get('gameplay_permission') == 'CLOSED' and w3_readiness.get('prd08_evaluation') == 'CLOSED', 'Terminal R7 W3 readiness crossed the gameplay/PRD-08 boundary')
 
-w3_terminal_process = subprocess.run(
-    [sys.executable, str(root / 'tools/r7_w3_reconciliation.py'), 'verify', '--format', 'json'],
+w3_terminal_snapshot = 'a2f5255bee3ad202d6be7847ecd6a9ab88e53e5a'
+w3_snapshot_ancestry = subprocess.run(
+    ['git', 'merge-base', '--is-ancestor', w3_terminal_snapshot, 'HEAD'],
     cwd=root, text=True, capture_output=True,
 )
-try:
-    w3_terminal_report = json.loads(w3_terminal_process.stdout) if w3_terminal_process.stdout else {}
-except json.JSONDecodeError:
-    w3_terminal_report = {}
-check(w3_terminal_process.returncode == 0, 'Terminal R7 W3 reconciliation process failed: ' + (w3_terminal_process.stderr.strip() or '; '.join(w3_terminal_report.get('issues', []))))
-check(w3_terminal_report.get('status') == 'PASS', 'Terminal R7 W3 reconciliation did not pass')
+check(w3_snapshot_ancestry.returncode == 0, 'Certified terminal R7 W3 snapshot is not an ancestor of current HEAD')
+w3_snapshot_paths = [
+    'tools/r7_w3_reconciliation.py',
+    'tools/tests/test_r7_w3_reconciliation.py',
+    'tools/tests/test_r7_w3_runtime.py',
+    'tools/verify.py',
+    'tools/verify_rebuild_boundary.py',
+    'tools/r7_w3_runtime',
+    'proofs/r7/w0/dependencies.lock.json',
+    'proofs/r7/w3',
+    'docs/rebuild/r7',
+    'brain/10_TESTING/Evidence',
+    'brain/11_AUDIT/Reports',
+]
+w3_archive_process = subprocess.run(
+    ['git', 'archive', '--format=tar', w3_terminal_snapshot, '--', *w3_snapshot_paths],
+    cwd=root, capture_output=True,
+)
+check(w3_archive_process.returncode == 0, 'Certified terminal R7 W3 snapshot archive failed')
+w3_git_dir_process = subprocess.run(
+    ['git', 'rev-parse', '--absolute-git-dir'],
+    cwd=root, text=True, capture_output=True,
+)
+check(w3_git_dir_process.returncode == 0, 'Certified terminal R7 W3 snapshot Git directory lookup failed')
+w3_terminal_report = {}
+w3_terminal_returncode = 1
+w3_terminal_stderr = ''
+if w3_archive_process.returncode == 0:
+    with tempfile.TemporaryDirectory(prefix='leyforge-w3-terminal-') as temporary:
+        snapshot_root = Path(temporary)
+        with tarfile.open(fileobj=io.BytesIO(w3_archive_process.stdout), mode='r:') as archive:
+            members = archive.getmembers()
+            safe_members = all(
+                not Path(member.name).is_absolute()
+                and '..' not in Path(member.name).parts
+                and not member.issym()
+                and not member.islnk()
+                for member in members
+            )
+            check(safe_members, 'Certified terminal R7 W3 snapshot archive contains an unsafe member')
+            if safe_members:
+                archive.extractall(snapshot_root)
+        if safe_members:
+            snapshot_environment = os.environ.copy()
+            snapshot_environment['GIT_DIR'] = w3_git_dir_process.stdout.strip()
+            snapshot_environment['GIT_WORK_TREE'] = str(snapshot_root)
+            w3_terminal_process = subprocess.run(
+                [sys.executable, str(snapshot_root / 'tools/r7_w3_reconciliation.py'), 'verify', '--format', 'json'],
+                cwd=snapshot_root, text=True, capture_output=True, env=snapshot_environment,
+            )
+            w3_terminal_returncode = w3_terminal_process.returncode
+            w3_terminal_stderr = w3_terminal_process.stderr.strip()
+            try:
+                w3_terminal_report = json.loads(w3_terminal_process.stdout) if w3_terminal_process.stdout else {}
+            except json.JSONDecodeError:
+                w3_terminal_report = {}
+check(w3_terminal_returncode == 0, 'Terminal R7 W3 reconciliation process failed at certified snapshot: ' + (w3_terminal_stderr or '; '.join(w3_terminal_report.get('issues', []))))
+check(w3_terminal_report.get('status') == 'PASS', 'Terminal R7 W3 reconciliation did not pass at certified snapshot')
 for issue in w3_terminal_report.get('issues', []):
-    check(False, 'Terminal R7 W3 reconciliation issue: ' + str(issue))
+    check(False, 'Terminal R7 W3 reconciliation issue at certified snapshot: ' + str(issue))
 
 w3_run_ids = w3_manifest.get('successful_rerun_run_ids', [])
 w3_evidence_ids = w3_manifest.get('successful_rerun_evidence_ids', [])
@@ -798,7 +854,13 @@ check(w3_hash_result.returncode == 0, 'Terminal R7 W3 Git-clean blob hashing fai
 w3_blob_hashes = w3_hash_result.stdout.splitlines() if w3_hash_result.returncode == 0 else []
 check(len(w3_blob_hashes) == len(w3_admitted_artifacts), 'Terminal R7 W3 Git-clean blob count differs')
 for index, (rel, candidate, artifact) in enumerate(w3_admitted_artifacts):
-    lifecycle_shared = rel in {'tools/r7_w3_reconciliation.py', 'tools/verify.py', 'tools/verify_rebuild_boundary.py'}
+    lifecycle_shared = rel in {
+        'tools/r7_w3_reconciliation.py',
+        'tools/tests/test_r7_w3_reconciliation.py',
+        'tools/tests/test_r7_w3_runtime.py',
+        'tools/verify.py',
+        'tools/verify_rebuild_boundary.py',
+    }
     if lifecycle_shared:
         historical_blob_result = subprocess.run(
             ['git', 'rev-parse', f"{w3_manifest.get('reconciliation_commit', '')}:{rel}"],
@@ -903,8 +965,69 @@ check(not any(path.startswith('docs/rebuild/r7/execution-evidence/PRD07-RUN-00')
 
 w4_state_path = root / 'docs/rebuild/r7/w4-execution-state.json'
 w4_execution_admission_path = root / 'docs/rebuild/r7/w4-governed-execution-admission.json'
+w4_stopped_boundary_path = root / 'docs/rebuild/r7/w4-stopped-execution-boundary.json'
+w4_stopped_boundary = json.loads(w4_stopped_boundary_path.read_text(encoding='utf-8')) if w4_stopped_boundary_path.is_file() else {}
 w4_report_run_ids = []
 w4_report_evidence_ids = []
+if w4_state_path.is_file():
+    expected_stopped_runs = [f'PRD07-RUN-{number:04d}' for number in range(66, 73)]
+    expected_stopped_evidence = [f'PRD07-EVID-{number:04d}' for number in range(66, 73)]
+    stopped_lifecycle_paths = [
+        'tools/tests/test_r7_w3_reconciliation.py',
+        'tools/tests/test_r7_w3_runtime.py',
+        'tools/r7_w4_execution/cli.py',
+        'tools/r7_w4_execution/contracts.py',
+        'tools/r7_w4_execution/execution.py',
+        'tools/r7_w4_execution/observations.py',
+        'tools/r7_w4_execution_audit.py',
+        'tools/r7_w4_stop_audit.py',
+        'tools/tests/test_r7_w4_execution.py',
+        'tools/tests/test_r7_w4_runtime.py',
+        'tools/verify.py',
+        'tools/verify_rebuild_boundary.py',
+        'docs/rebuild/r7/w4-stopped-execution-reconciliation.json',
+    ]
+    check(w4_stopped_boundary_path.is_file(), 'R7 W4 stopped lifecycle boundary is missing')
+    check(w4_stopped_boundary.get('schema_version') == 'prd07-w4-stopped-execution-boundary-v1', 'R7 W4 stopped lifecycle schema differs')
+    check(w4_stopped_boundary.get('manifest_version') == 1, 'R7 W4 stopped lifecycle manifest version differs')
+    check(w4_stopped_boundary.get('status') == 'PASS', 'R7 W4 stopped lifecycle boundary is not PASS')
+    check(w4_stopped_boundary.get('certification_meaning') == 'INTEGRITY-OF-STOPPED-PACKAGE-ONLY-NOT-W4-SUCCESS', 'R7 W4 stopped lifecycle certification meaning differs')
+    check(w4_stopped_boundary.get('lifecycle_role') == 'CURRENT-FAIL-CLOSED-STOPPED-EXECUTION-BOUNDARY', 'R7 W4 stopped lifecycle role differs')
+    check(w4_stopped_boundary.get('package_state') == 'STOPPED-AFTER-FAIL-OBSERVED', 'R7 W4 stopped package state differs')
+    check(w4_stopped_boundary.get('allocated_run_ids') == expected_stopped_runs, 'R7 W4 stopped RUN identities differ')
+    check(w4_stopped_boundary.get('allocated_evidence_ids') == expected_stopped_evidence, 'R7 W4 stopped EVID identities differ')
+    check(w4_stopped_boundary.get('issued_high_water') == 72, 'R7 W4 stopped high-water differs')
+    check(w4_stopped_boundary.get('next_possible_identity') == '0073-NOT-ALLOCATED', 'R7 W4 stopped next identity differs')
+    check(w4_stopped_boundary.get('gameplay_permission') == 'CLOSED' and w4_stopped_boundary.get('production_runtime') == 'ABSENT', 'R7 W4 stopped boundary crossed gameplay/production')
+    check(w4_stopped_boundary.get('production_dependency_activation') == 'INACTIVE', 'R7 W4 stopped boundary activated production dependencies')
+    check(w4_stopped_boundary.get('w5') == 'CLOSED-NOT-READY' and all(w4_stopped_boundary.get(field) == 'CLOSED' for field in ('r7_final','prd09','r8')), 'R7 W4 stopped boundary opened a later programme gate')
+    lifecycle_validation_commit = str(w4_stopped_boundary.get('lifecycle_validation_commit', ''))
+    check(re.fullmatch(r'[0-9a-f]{40}', lifecycle_validation_commit) is not None, 'R7 W4 stopped lifecycle validation commit is not exact')
+    lifecycle_ancestry = subprocess.run(
+        ['git', 'merge-base', '--is-ancestor', lifecycle_validation_commit, 'HEAD'],
+        cwd=root, text=True, capture_output=True,
+    ) if re.fullmatch(r'[0-9a-f]{40}', lifecycle_validation_commit) is not None else None
+    check(lifecycle_ancestry is not None and lifecycle_ancestry.returncode == 0, 'R7 W4 stopped lifecycle validation commit is not an ancestor')
+    stopped_artifacts = w4_stopped_boundary.get('artifacts', [])
+    stopped_paths = [str(row.get('path', '')) for row in stopped_artifacts if isinstance(row, dict)] if isinstance(stopped_artifacts, list) else []
+    check(stopped_paths == stopped_lifecycle_paths and len(stopped_paths) == len(stopped_artifacts), 'R7 W4 stopped lifecycle artifact set differs')
+    for artifact in stopped_artifacts if isinstance(stopped_artifacts, list) else []:
+        rel = artifact.get('path') if isinstance(artifact, dict) else None
+        valid_path = isinstance(rel, str) and rel in stopped_lifecycle_paths and '..' not in Path(rel).parts and not Path(rel).is_absolute()
+        check(valid_path, 'Invalid R7 W4 stopped lifecycle path: ' + str(rel))
+        if not valid_path:
+            continue
+        w4_admitted_paths.add(rel)
+        candidate = root / rel
+        check(candidate.is_file(), 'R7 W4 stopped lifecycle path is missing: ' + rel)
+        check(candidate.suffix.lower() not in {'.exe','.dll','.pck','.res','.tres'}, 'Binary/production resource admitted through R7 W4 stopped lifecycle: ' + rel)
+        current_blob = subprocess.run(['git','hash-object','--',rel], cwd=root, text=True, capture_output=True)
+        validation_blob = subprocess.run(['git','rev-parse',lifecycle_validation_commit + ':' + rel], cwd=root, text=True, capture_output=True) if lifecycle_ancestry is not None else None
+        canonical_data = candidate.read_bytes().replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10])) if candidate.is_file() else b''
+        check(current_blob.returncode == 0 and validation_blob is not None and validation_blob.returncode == 0, 'R7 W4 stopped lifecycle Git lookup failed: ' + rel)
+        check(current_blob.stdout.strip() == artifact.get('git_blob') == (validation_blob.stdout.strip() if validation_blob is not None else ''), 'R7 W4 stopped lifecycle Git identity differs: ' + rel)
+        check(len(canonical_data) == artifact.get('bytes'), 'R7 W4 stopped lifecycle canonical size differs: ' + rel)
+        check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'R7 W4 stopped lifecycle canonical SHA-256 differs: ' + rel)
 if w4_source_active:
     check(w4_source_boundary.get('schema_version') == 'prd07-w4-governed-execution-source-boundary-v1', 'R7 W4 execution source boundary is unsupported')
     check(w4_source_boundary.get('manifest_version') == 1, 'R7 W4 execution source-boundary version differs')

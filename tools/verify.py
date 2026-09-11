@@ -67,6 +67,14 @@ def w3_implementation_commit() -> str:
 def w3_verification_command(python: str) -> list[str]:
     state_path = ROOT / "docs/rebuild/r7/w3-execution-state.json"
     terminal_boundary = ROOT / "docs/rebuild/r7/w3-execution-boundary-execution-complete.json"
+    w4_state_path = ROOT / "docs/rebuild/r7/w4-execution-state.json"
+    w4_stopped_boundary = ROOT / "docs/rebuild/r7/w4-stopped-execution-boundary.json"
+    if w4_state_path.is_file() and w4_stopped_boundary.is_file():
+        # The clean-rebuild validator checks W3 at its exact certified snapshot
+        # and W4 at the later fail-closed lifecycle timepoint.  Running the W3
+        # terminal reconciler directly against a later wave's packs would
+        # incorrectly reinterpret lawful subsequent evidence as W3 drift.
+        return [python, "tools/verify_rebuild_boundary.py"]
     if state_path.is_file() and terminal_boundary.is_file():
         state = json.loads(state_path.read_text(encoding="utf-8-sig"))
         if state.get("package_state") == "W3-EXECUTION-COMPLETE":
