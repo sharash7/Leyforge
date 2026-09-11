@@ -1,0 +1,193 @@
+{
+  "allocated_evidence_ids": [
+    "PRD07-EVID-0066",
+    "PRD07-EVID-0067",
+    "PRD07-EVID-0068",
+    "PRD07-EVID-0069",
+    "PRD07-EVID-0070",
+    "PRD07-EVID-0071",
+    "PRD07-EVID-0072"
+  ],
+  "allocated_run_ids": [
+    "PRD07-RUN-0066",
+    "PRD07-RUN-0067",
+    "PRD07-RUN-0068",
+    "PRD07-RUN-0069",
+    "PRD07-RUN-0070",
+    "PRD07-RUN-0071",
+    "PRD07-RUN-0072"
+  ],
+  "artifacts": [
+    {
+      "bytes": 5818,
+      "git_blob": "eb7fab0df91d1cf3fcdd76555003f18baf99112b",
+      "path": "tools/r7_w4_execution/cli.py",
+      "sha256": "9037a1116215a6330fdf5c16ba3203bb922e769ada46292a108ccdaa7c8dc160"
+    },
+    {
+      "bytes": 43762,
+      "git_blob": "aa45c1f20382dd98c97bd9a02a092b89fd2b29e7",
+      "path": "tools/r7_w4_execution/contracts.py",
+      "sha256": "3e725033c55d713163229b4962edef0d33a0c7b10a17867d787f6ed6689ff6ed"
+    },
+    {
+      "bytes": 18697,
+      "git_blob": "0ddeaa3123f59d0f353e229e8e5fcc86461182fc",
+      "path": "tools/r7_w4_execution/execution.py",
+      "sha256": "5425c99b8e8bac85acbb7fc7eabedbf033c266ca02d5f8616710c79f1a6cf94c"
+    },
+    {
+      "bytes": 57079,
+      "git_blob": "7f064f2cb53978c061962cf3fb340f24f7f3004c",
+      "path": "tools/r7_w4_execution/observations.py",
+      "sha256": "1408d3ef248d292cf22a048e5b756a4100ca3c9267cfeaa0b4ffd2c568db0897"
+    },
+    {
+      "bytes": 22985,
+      "git_blob": "4c6d0ce0eaad602268bb64e8d818fd3faa214b39",
+      "path": "tools/r7_w4_execution_audit.py",
+      "sha256": "ccbadd1ee2ae5dbaa3a6e96322b55f602f4a90f6a2212bec2faf8f6e9b707eaf"
+    },
+    {
+      "bytes": 19850,
+      "git_blob": "48ffa2fb33b061809461cc31538fc84bf1ec9cc6",
+      "path": "tools/r7_w4_stop_audit.py",
+      "sha256": "020bc858e8d66ac4882904514f1f348e1bcb51296d19043f3ce14812798804f2"
+    },
+    {
+      "bytes": 9566,
+      "git_blob": "b42180d3bc467acacaa38e69838b558c5e1b648e",
+      "path": "tools/tests/test_r7_w4_execution.py",
+      "sha256": "a007eaa2c341d6acf34932b6f70df2c4f3919deeb394faac4e680fbb90db247c"
+    },
+    {
+      "bytes": 8423,
+      "git_blob": "f4d652f537987d2728d5d5bcb0357364e97ac3d9",
+      "path": "tools/tests/test_r7_w4_runtime.py",
+      "sha256": "035babadbce41374640c85d92dba81dffaa4312fa6e69ed57ad2a9a81203a54c"
+    },
+    {
+      "bytes": 9810,
+      "git_blob": "821a4198daf82bb1e7c3da27fa1d106c0d2e7dad",
+      "path": "tools/verify.py",
+      "sha256": "448b73d0c6db06bbace04747ada6eb086b48638e51bc8fd786cb7737ec5ff5e2"
+    },
+    {
+      "bytes": 87246,
+      "git_blob": "fe78ee65728a7387e1fac3cdb7a6821ab853e0f1",
+      "path": "tools/verify_rebuild_boundary.py",
+      "sha256": "91094559b1ca8116ca187f351c17f194946158b2ad0d5567f8940c0e5184973f"
+    },
+    {
+      "bytes": 9921,
+      "git_blob": "4240b5b38757266cbc7c1475a6ac84d4b7fe162c",
+      "path": "docs/rebuild/r7/w4-stopped-execution-reconciliation.json",
+      "sha256": "2821f7b8882f776266da47d8da83ce34245c549ecc35a3c917eef74a96917d00"
+    }
+  ],
+  "certification_meaning": "INTEGRITY-OF-STOPPED-PACKAGE-ONLY-NOT-W4-SUCCESS",
+  "execution_source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+  "fcc13e": {
+    "PRD04-PROOF-57": {
+      "observed_rows": 0,
+      "required_rows": 312,
+      "state": "NOT-RUN-DUE-PRIOR-FAIL-CLOSED"
+    },
+    "PRD04-PROOF-58": {
+      "observed_rows": 0,
+      "required_rows": 312,
+      "state": "NOT-RUN-DUE-PRIOR-FAIL-CLOSED"
+    },
+    "coverage_claim": "NONE",
+    "sampling_or_waiver": false
+  },
+  "gameplay_permission": "CLOSED",
+  "historical_admission": {
+    "path": "docs/rebuild/r7/w4-governed-execution-admission.json",
+    "sha256": "83e3fd30a4cf398786e1d8bccbd1979b5a7f8cfb7d20322f5f69a139a9bf0a55",
+    "source_boundary_path": "docs/rebuild/r7/w4-governed-execution-source-boundary.json",
+    "source_boundary_sha256": "c89eef49ea9d7ae9d8ddd3c55d5f53bb87b6f647e4d2625cb65581938aa84923"
+  },
+  "issued_high_water": 72,
+  "lifecycle_role": "CURRENT-FAIL-CLOSED-STOPPED-EXECUTION-BOUNDARY",
+  "lifecycle_validation_commit": "bea9c71883a61768af4c320e6e322b1b615233a8",
+  "manifest_version": 1,
+  "measurement_defect": {
+    "canonical_failure_criterion_observed": false,
+    "canonical_inconclusive_condition_applies": true,
+    "evidence_admission_disposition": "RETAINED-NOT-ADMISSIBLE-AS-CANDIDATE-FAILURE",
+    "evidence_id": "PRD07-EVID-0072",
+    "finding_class": "MEASUREMENT-DEFECT",
+    "finding_id": "W4-MEASUREMENT-DEFECT-001",
+    "observed_accepted_encoded_rows": 6,
+    "observed_accepted_rows": 6,
+    "observed_encoded_rows": 6,
+    "observed_hostile_rows": 24,
+    "observed_side_effects": {
+      "external_accesses": 0,
+      "filesystem_changes": 0,
+      "payload_executions": 0
+    },
+    "original_observation_retained_immutable": true,
+    "original_observation_state": "FAIL-OBSERVED",
+    "prd07_followup": "RERUN-REQUIRED-AFTER-HARNESS-REPAIR-AND-RECERTIFICATION",
+    "proof_id": "PRD04-PROOF-55",
+    "reason_contradicts_raw_measurement": true,
+    "repair_state": "SOURCE-SAFEGUARD-IMPLEMENTED-NOT-RERUN",
+    "retained_pack_sha256": "341e70e3e6bf88e4cf893c36bb8ad506011905f22c51d05d3252fd7fda19509e",
+    "root_cause": "The proof-only oracle lowercased the case-sensitive base64 token before decoding, corrupting every encoded reference; it also used marker inspection rather than actual engine resource/capability resolution.",
+    "run_id": "PRD07-RUN-0072"
+  },
+  "next_possible_identity": "0073-NOT-ALLOCATED",
+  "observation_commit": "cd9bba06cb9cf8ffa6a70c6332bd391a8cce4da7",
+  "observation_state": {
+    "evidence_tree": "ebc98f36d162fa15a8baee57a650ffd47255ee3e",
+    "paths": [
+      "docs/rebuild/r7/w4-execution-state.json",
+      "docs/rebuild/r7/execution-evidence/PRD07-RUN-0066",
+      "docs/rebuild/r7/execution-evidence/PRD07-RUN-0067",
+      "docs/rebuild/r7/execution-evidence/PRD07-RUN-0068",
+      "docs/rebuild/r7/execution-evidence/PRD07-RUN-0069",
+      "docs/rebuild/r7/execution-evidence/PRD07-RUN-0070",
+      "docs/rebuild/r7/execution-evidence/PRD07-RUN-0071",
+      "docs/rebuild/r7/execution-evidence/PRD07-RUN-0072"
+    ],
+    "state_blob": "88d85dea7b35bf714b86aed9ec9676d645d19117"
+  },
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "package_state": "STOPPED-AFTER-FAIL-OBSERVED",
+  "prd08_submission": "NOT-SUBMITTED",
+  "prd09": "CLOSED",
+  "production_dependency_activation": "INACTIVE",
+  "production_runtime": "ABSENT",
+  "proof_roster": [
+    "PRD04-PROOF-49",
+    "PRD04-PROOF-50",
+    "PRD04-PROOF-51",
+    "PRD04-PROOF-52",
+    "PRD04-PROOF-53",
+    "PRD04-PROOF-54",
+    "PRD04-PROOF-55",
+    "PRD04-PROOF-56",
+    "PRD04-PROOF-57",
+    "PRD04-PROOF-58",
+    "PRD04-PROOF-59",
+    "PRD04-PROOF-60",
+    "PRD04-PROOF-61",
+    "PRD04-PROOF-62",
+    "PRD04-PROOF-71"
+  ],
+  "r7_final": "CLOSED",
+  "r8": "CLOSED",
+  "readiness_package_commit": "26548f7561974239b8996c473f25644d61f099fa",
+  "reconciliation": {
+    "checks": 125,
+    "path": "docs/rebuild/r7/w4-stopped-execution-reconciliation.json",
+    "sha256": "2821f7b8882f776266da47d8da83ce34245c549ecc35a3c917eef74a96917d00",
+    "status": "PASS"
+  },
+  "schema_version": "prd07-w4-stopped-execution-boundary-v1",
+  "status": "PASS",
+  "w4_lifecycle_state": "INCOMPLETE-REPAIR-RECERTIFICATION-AND-FRESH-RERUN-AUTHORIZATION-REQUIRED",
+  "w5": "CLOSED-NOT-READY"
+}
