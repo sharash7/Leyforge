@@ -1,0 +1,293 @@
+{
+  "allocated_evidence_ids": [
+    "PRD07-EVID-0066",
+    "PRD07-EVID-0067",
+    "PRD07-EVID-0068",
+    "PRD07-EVID-0069",
+    "PRD07-EVID-0070",
+    "PRD07-EVID-0071",
+    "PRD07-EVID-0072"
+  ],
+  "allocated_run_ids": [
+    "PRD07-RUN-0066",
+    "PRD07-RUN-0067",
+    "PRD07-RUN-0068",
+    "PRD07-RUN-0069",
+    "PRD07-RUN-0070",
+    "PRD07-RUN-0071",
+    "PRD07-RUN-0072"
+  ],
+  "certification_meaning": "INTEGRITY-OF-STOPPED-PACKAGE-ONLY-NOT-W4-SUCCESS",
+  "checks": 125,
+  "failures": [],
+  "fcc13e": {
+    "PRD04-PROOF-57": {
+      "observed_rows": 0,
+      "required_rows": 312,
+      "state": "NOT-RUN-DUE-PRIOR-FAIL-CLOSED"
+    },
+    "PRD04-PROOF-58": {
+      "observed_rows": 0,
+      "required_rows": 312,
+      "state": "NOT-RUN-DUE-PRIOR-FAIL-CLOSED"
+    },
+    "coverage_claim": "NONE",
+    "sampling_or_waiver": false
+  },
+  "future_identity_authority": "CLOSED",
+  "gameplay_permission": "CLOSED",
+  "issued_high_water": 72,
+  "measurement_defect": {
+    "canonical_failure_criterion_observed": false,
+    "canonical_inconclusive_condition_applies": true,
+    "evidence_admission_disposition": "RETAINED-NOT-ADMISSIBLE-AS-CANDIDATE-FAILURE",
+    "evidence_id": "PRD07-EVID-0072",
+    "finding_class": "MEASUREMENT-DEFECT",
+    "finding_id": "W4-MEASUREMENT-DEFECT-001",
+    "observed_accepted_encoded_rows": 6,
+    "observed_accepted_rows": 6,
+    "observed_encoded_rows": 6,
+    "observed_hostile_rows": 24,
+    "observed_side_effects": {
+      "external_accesses": 0,
+      "filesystem_changes": 0,
+      "payload_executions": 0
+    },
+    "original_observation_retained_immutable": true,
+    "original_observation_state": "FAIL-OBSERVED",
+    "prd07_followup": "RERUN-REQUIRED-AFTER-HARNESS-REPAIR-AND-RECERTIFICATION",
+    "proof_id": "PRD04-PROOF-55",
+    "reason_contradicts_raw_measurement": true,
+    "repair_state": "SOURCE-SAFEGUARD-IMPLEMENTED-NOT-RERUN",
+    "retained_pack_sha256": "341e70e3e6bf88e4cf893c36bb8ad506011905f22c51d05d3252fd7fda19509e",
+    "root_cause": "The proof-only oracle lowercased the case-sensitive base64 token before decoding, corrupting every encoded reference; it also used marker inspection rather than actual engine resource/capability resolution.",
+    "run_id": "PRD07-RUN-0072"
+  },
+  "next_possible_identity": "0073-NOT-ALLOCATED",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "package_state": "STOPPED-AFTER-FAIL-OBSERVED",
+  "prd08_submission": "NOT-SUBMITTED",
+  "prd09": "CLOSED",
+  "production_dependency_activation": "INACTIVE",
+  "production_runtime": "ABSENT",
+  "proof_dispositions": [
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0066",
+      "execution_disposition": "PASS-OBSERVED",
+      "identity_state": "ALLOCATED-AND-RETAINED",
+      "order": 1,
+      "proof_id": "PRD04-PROOF-49",
+      "run_id": "PRD07-RUN-0066"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0067",
+      "execution_disposition": "INCONCLUSIVE",
+      "identity_state": "ALLOCATED-AND-RETAINED",
+      "order": 2,
+      "proof_id": "PRD04-PROOF-50",
+      "run_id": "PRD07-RUN-0067"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0068",
+      "execution_disposition": "INCONCLUSIVE",
+      "identity_state": "ALLOCATED-AND-RETAINED",
+      "order": 3,
+      "proof_id": "PRD04-PROOF-51",
+      "run_id": "PRD07-RUN-0068"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0069",
+      "execution_disposition": "PASS-OBSERVED",
+      "identity_state": "ALLOCATED-AND-RETAINED",
+      "order": 4,
+      "proof_id": "PRD04-PROOF-52",
+      "run_id": "PRD07-RUN-0069"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0070",
+      "execution_disposition": "INCONCLUSIVE",
+      "identity_state": "ALLOCATED-AND-RETAINED",
+      "order": 5,
+      "proof_id": "PRD04-PROOF-53",
+      "run_id": "PRD07-RUN-0070"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0071",
+      "execution_disposition": "PASS-OBSERVED",
+      "identity_state": "ALLOCATED-AND-RETAINED",
+      "order": 6,
+      "proof_id": "PRD04-PROOF-54",
+      "run_id": "PRD07-RUN-0071"
+    },
+    {
+      "evidence_admission": "RETAINED-NOT-ADMISSIBLE-AS-CANDIDATE-FAILURE",
+      "evidence_id": "PRD07-EVID-0072",
+      "execution_disposition": "FAIL-OBSERVED",
+      "identity_state": "ALLOCATED-AND-RETAINED",
+      "order": 7,
+      "proof_id": "PRD04-PROOF-55",
+      "run_id": "PRD07-RUN-0072"
+    },
+    {
+      "evidence_admission": "NONE-FAIL-CLOSED-BEFORE-ENTRY",
+      "evidence_id": null,
+      "execution_disposition": "NOT-RUN",
+      "identity_state": "NOT-ALLOCATED",
+      "order": 8,
+      "proof_id": "PRD04-PROOF-56",
+      "run_id": null
+    },
+    {
+      "evidence_admission": "NONE-FAIL-CLOSED-BEFORE-ENTRY",
+      "evidence_id": null,
+      "execution_disposition": "NOT-RUN",
+      "identity_state": "NOT-ALLOCATED",
+      "order": 9,
+      "proof_id": "PRD04-PROOF-57",
+      "run_id": null
+    },
+    {
+      "evidence_admission": "NONE-FAIL-CLOSED-BEFORE-ENTRY",
+      "evidence_id": null,
+      "execution_disposition": "NOT-RUN",
+      "identity_state": "NOT-ALLOCATED",
+      "order": 10,
+      "proof_id": "PRD04-PROOF-58",
+      "run_id": null
+    },
+    {
+      "evidence_admission": "NONE-FAIL-CLOSED-BEFORE-ENTRY",
+      "evidence_id": null,
+      "execution_disposition": "NOT-RUN",
+      "identity_state": "NOT-ALLOCATED",
+      "order": 11,
+      "proof_id": "PRD04-PROOF-59",
+      "run_id": null
+    },
+    {
+      "evidence_admission": "NONE-FAIL-CLOSED-BEFORE-ENTRY",
+      "evidence_id": null,
+      "execution_disposition": "NOT-RUN",
+      "identity_state": "NOT-ALLOCATED",
+      "order": 12,
+      "proof_id": "PRD04-PROOF-60",
+      "run_id": null
+    },
+    {
+      "evidence_admission": "NONE-FAIL-CLOSED-BEFORE-ENTRY",
+      "evidence_id": null,
+      "execution_disposition": "NOT-RUN",
+      "identity_state": "NOT-ALLOCATED",
+      "order": 13,
+      "proof_id": "PRD04-PROOF-61",
+      "run_id": null
+    },
+    {
+      "evidence_admission": "NONE-FAIL-CLOSED-BEFORE-ENTRY",
+      "evidence_id": null,
+      "execution_disposition": "NOT-RUN",
+      "identity_state": "NOT-ALLOCATED",
+      "order": 14,
+      "proof_id": "PRD04-PROOF-62",
+      "run_id": null
+    },
+    {
+      "evidence_admission": "NONE-FAIL-CLOSED-BEFORE-ENTRY",
+      "evidence_id": null,
+      "execution_disposition": "NOT-RUN",
+      "identity_state": "NOT-ALLOCATED",
+      "order": 15,
+      "proof_id": "PRD04-PROOF-71",
+      "run_id": null
+    }
+  ],
+  "proofs_authorized": 15,
+  "proofs_entered": 7,
+  "proofs_not_run": 8,
+  "protected_local_paths": "NOT-CHECKED-STATIC-RECONCILIATION",
+  "r7_final": "CLOSED",
+  "r8": "CLOSED",
+  "result_counts": {
+    "FAIL-OBSERVED": 1,
+    "INCONCLUSIVE": 3,
+    "NOT-RUN": 8,
+    "PASS-OBSERVED": 3
+  },
+  "retained_packs": [
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0066",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0066",
+      "proof_id": "PRD04-PROOF-49",
+      "run_id": "PRD07-RUN-0066",
+      "sha256": "edf657e5f138a009bd1ad91846108f98bca79e98be997dad5578cf51c07948da",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0067",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0067",
+      "proof_id": "PRD04-PROOF-50",
+      "run_id": "PRD07-RUN-0067",
+      "sha256": "092bb82c7e32f80f872b8856181c8cf3e2659d404db4c868abceb4aaf62d9f9d",
+      "state": "INCONCLUSIVE"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0068",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0068",
+      "proof_id": "PRD04-PROOF-51",
+      "run_id": "PRD07-RUN-0068",
+      "sha256": "6ab33545a6fc200bcb14ef71dac974d75ef1dcf6a749601702cf7d0e0e56650e",
+      "state": "INCONCLUSIVE"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0069",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0069",
+      "proof_id": "PRD04-PROOF-52",
+      "run_id": "PRD07-RUN-0069",
+      "sha256": "fad8be9ca51c16ae93e39799f09985370a099bc3e835226b2346e873cfd171b9",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0070",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0070",
+      "proof_id": "PRD04-PROOF-53",
+      "run_id": "PRD07-RUN-0070",
+      "sha256": "4512879086851381ea95dfd7b6d23645cc8a2ef88f4e643383510440cd9a0cad",
+      "state": "INCONCLUSIVE"
+    },
+    {
+      "evidence_admission": "RETAINED-RAW-OBSERVATION",
+      "evidence_id": "PRD07-EVID-0071",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0071",
+      "proof_id": "PRD04-PROOF-54",
+      "run_id": "PRD07-RUN-0071",
+      "sha256": "f08d62fc2f6482ec285e8e70a3c58b1eb90a16878e8af36007b0f238ebfa81b2",
+      "state": "PASS-OBSERVED"
+    },
+    {
+      "evidence_admission": "RETAINED-NOT-ADMISSIBLE-AS-CANDIDATE-FAILURE",
+      "evidence_id": "PRD07-EVID-0072",
+      "path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0072",
+      "proof_id": "PRD04-PROOF-55",
+      "run_id": "PRD07-RUN-0072",
+      "sha256": "341e70e3e6bf88e4cf893c36bb8ad506011905f22c51d05d3252fd7fda19509e",
+      "state": "FAIL-OBSERVED"
+    }
+  ],
+  "schema_version": "prd07-w4-stopped-execution-reconciliation-v1",
+  "source_revision": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+  "status": "PASS",
+  "w3_history": "UNCHANGED",
+  "w4_lifecycle_state": "INCOMPLETE-REPAIR-RECERTIFICATION-AND-FRESH-RERUN-AUTHORIZATION-REQUIRED",
+  "w5": "CLOSED-NOT-READY"
+}
