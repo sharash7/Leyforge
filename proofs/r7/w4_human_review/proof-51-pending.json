@@ -1,0 +1,78 @@
+{
+  "adjudication": {
+    "adjudicator_role_id": null,
+    "result": null,
+    "status": "PENDING-SEPARATE-ADJUDICATION",
+    "unmasked_after_review_attestation": false
+  },
+  "asset_class": null,
+  "attestation": {
+    "signed_at_utc": null,
+    "signed_by": null,
+    "statement": "I performed the recorded human review against the bound sources, build, fixtures, criteria, and evidence."
+  },
+  "criteria": [
+    {
+      "criterion_id": "TASK-COMPLETION",
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "observed_result": null,
+      "prompt": "Does each masked source complete the same assigned task?"
+    },
+    {
+      "criterion_id": "EDITABILITY",
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "observed_result": null,
+      "prompt": "Can each masked source be edited under the same canonical workflow?"
+    },
+    {
+      "criterion_id": "SEMANTIC-ERRORS",
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "observed_result": null,
+      "prompt": "What semantic errors are present in each masked source and its baked result?"
+    },
+    {
+      "criterion_id": "EXCEPTION-BURDEN",
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "observed_result": null,
+      "prompt": "What manual exceptions or bypasses are required for each masked source?"
+    },
+    {
+      "criterion_id": "PARITY-JUDGEMENT",
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "observed_result": null,
+      "prompt": "Are the masked sources equivalent, materially different, or not judgeable on the canonical dimensions?"
+    }
+  ],
+  "evidence_references": [],
+  "identity_allocation_started": false,
+  "identity_binding": {
+    "build_identity": null,
+    "fixture_identities": [],
+    "source_revision": null
+  },
+  "judgement": "PENDING",
+  "masked_sources": [
+    "SOURCE-A",
+    "SOURCE-B"
+  ],
+  "origin_mapping_reference": null,
+  "overall_defects_or_ambiguities": [],
+  "proof_id": "PRD04-PROOF-51",
+  "proof_observation_created": false,
+  "review_lifecycle_id": null,
+  "reviewer": {
+    "independence_declaration": null,
+    "pseudonymous_reviewer_id": null,
+    "role_id": null,
+    "unnecessary_personal_data": "NOT-COLLECTED"
+  },
+  "reviewer_can_see_source_origin": false,
+  "schema_version": "prd07-w4-human-review-v1",
+  "status": "PENDING-HUMAN-REVIEW",
+  "unmasking_policy": "SEPARATE-ADJUDICATOR-REQUIRED"
+}

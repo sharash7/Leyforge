@@ -17,7 +17,9 @@ from typing import Any, Callable, Dict, List, Mapping, MutableMapping, Sequence,
 
 from proofs.r7.w2.runtime.model import MigrationEngine
 
-from .builds import run_probe_process
+from tools.r7_w4_repair.measurement import classify_proof_55, measure_case
+
+from .builds import run_capability_process, run_probe_process
 from .contracts import ROOT, canonical_bytes, load_json
 
 
@@ -409,6 +411,12 @@ def _proof_54(run_id: str, run_root: Path, build: Mapping[str, Any]) -> Dict[str
 
 
 def _smuggling_analysis(case: Mapping[str, Any]) -> Dict[str, Any]:
+    """Return a non-authoritative marker diagnostic retained for proof 62.
+
+    This diagnostic cannot establish proof-55 capability safety. The repaired
+    proof-55 route below uses actual fixed-engine resource preflight and
+    independent side-effect monitors.
+    """
     discovered: List[str] = []
 
     def visit(value: Any) -> None:
@@ -463,35 +471,126 @@ def _smuggling_mutation(case: Mapping[str, Any], mutation: str) -> Dict[str, Any
     raise ValueError("unsupported smuggling mutation")
 
 
+def _proof_55_request(case_id: str) -> Dict[str, Any]:
+    requests = {
+        "SMUGGLE-SCRIPT": {
+            "resource_path": "res://capability_fixtures/file_canary.gd",
+            "requested_capability": "script",
+        },
+        "SMUGGLE-NATIVE": {
+            "resource_path": "res://capability_fixtures/benign_data.tres",
+            "requested_capability": "native_extension",
+        },
+        "SMUGGLE-EDITOR": {
+            "resource_path": "res://capability_fixtures/editor_plugin_canary.gd",
+            "requested_capability": "editor_plugin",
+        },
+        "SMUGGLE-URI": {
+            "resource_path": "https://127.0.0.1/leyforge-w4-denied",
+            "requested_capability": "bounded_data",
+        },
+        "SMUGGLE-TRAVERSAL": {
+            "resource_path": "res://capability_fixtures/../src/main.gd",
+            "requested_capability": "bounded_data",
+        },
+        "SMUGGLE-ABSOLUTE": {
+            "resource_path": "C:/leyforge-w4-denied/resource.tres",
+            "requested_capability": "bounded_data",
+        },
+    }
+    if case_id not in requests:
+        raise ValueError("unsupported proof-55 smuggling case: " + case_id)
+    return dict(requests[case_id])
+
+
+def _proof_55_mutation(request: Mapping[str, Any], mutation: str) -> Dict[str, Any]:
+    value = dict(request)
+    if mutation == "renamed-extension":
+        return {"name": "apparently-safe.png", "declared_kind": "bounded-data", "embedded_request": value}
+    if mutation == "nested-container":
+        return {"archive": {"entries": [{"metadata": {"request": value}}]}}
+    if mutation == "transitive-dependency":
+        return {"dependencies": [{"id": "apparently-safe", "dependencies": [{"request": value}]}]}
+    if mutation == "encoded-reference":
+        encoded = base64.b64encode(json.dumps(value, sort_keys=True, separators=(",", ":")).encode("utf-8")).decode("ascii")
+        return {"reference": "b64:" + encoded}
+    raise ValueError("unsupported proof-55 mutation")
+
+
 def _proof_55(run_id: str, run_root: Path, build: Mapping[str, Any]) -> Dict[str, Any]:
+    if not build.get("artifact_path"):
+        raise ValueError("PROOF-55 requires the exact exported capability artifact")
     cases = load_json(TRUST_SCALE)["smuggling_cases"]
     mutations = ("renamed-extension", "nested-container", "transitive-dependency", "encoded-reference")
     rows = []
-    escapes = 0
     for case in cases:
         for mutation in mutations:
-            mutated = _smuggling_mutation(case, mutation)
-            analysis = _smuggling_analysis(mutated)
-            actual = analysis["disposition"]
-            expected = case["expected_policy_disposition"]
-            escapes += int(actual != expected)
-            rows.append({"case_id": case["case_id"], "mutation": mutation, "mutated_payload": mutated, "expected": expected, "actual": actual, "analysis": analysis, "unsafe_capability_reached": False, "external_resource_access": False})
-    benign = {"case_id": "BENIGN-DATA", "payload": "bounded-json-definitions"}
-    benign_result = _smuggling_disposition(benign)
-    marker_scan_passed = escapes == 0 and benign_result == "ACCEPT-BOUNDED-DATA"
-    return _result(
-        "INCONCLUSIVE",
-        {"hostile_cases": len(rows), "smuggling_classes": len(cases), "unsafe_capability_attempts_accepted": escapes, "filesystem_resource_escapes": 0, "benign_false_positives": int(benign_result != "ACCEPT-BOUNDED-DATA")},
-        {"hostile_fixtures_per_class": len(mutations), "classes": len(cases), "benign_controls": 1},
-        {"hostile pack corpus": rows, "validator results": rows + [{"case_id": benign["case_id"], "actual": benign_result}], "side effect monitor": {"executed_payloads": 0, "filesystem_changes": 0, "external_accesses": 0}, "quarantine reports": [row for row in rows if row["actual"] == "REJECT-OR-QUARANTINE"], "false positive log": []},
-        (
-            "The recursive capability-marker oracle rejected all hostile mutations and retained the benign control, "
-            "but it did not exercise actual engine resource/capability resolution; the certified conclusion is INCONCLUSIVE."
-            if marker_scan_passed
-            else "The recursive marker oracle accepted {0} hostile mutations and did not exercise actual engine resource/capability resolution; the certified conclusion is INCONCLUSIVE.".format(escapes)
+            request = _proof_55_request(str(case["case_id"]))
+            mutated = _proof_55_mutation(request, mutation)
+            invocation = _safe(run_id + "-PRD04-PROOF-55-" + str(case["case_id"]) + "-" + mutation)
+            row = measure_case(
+                str(case["case_id"]) + "/" + mutation,
+                mutated,
+                str(case["expected_policy_disposition"]),
+                lambda resolved, invocation_id=invocation: run_capability_process(
+                    Path(str(build["artifact_path"])), run_root, invocation_id, resolved, calibration=False
+                ),
+            )
+            row["mutation"] = mutation
+            row["mutated_payload"] = mutated
+            rows.append(row)
+    benign_request = {
+        "resource_path": "res://capability_fixtures/benign_data.tres",
+        "requested_capability": "bounded_data",
+        "case_sensitive_token": "AbCdEfZ+/09",
+        "description": "harmless script native editor-plugin external-uri marker text",
+    }
+    benign = measure_case(
+        "BENIGN-DATA/FALSE-POSITIVE-CONTROL",
+        benign_request,
+        "ACCEPT-BOUNDED-DATA",
+        lambda resolved: run_capability_process(
+            Path(str(build["artifact_path"])),
+            run_root,
+            _safe(run_id + "-PRD04-PROOF-55-BENIGN"),
+            resolved,
+            calibration=False,
         ),
-        limitations=["Marker/allowlist inspection is not actual resource or capability resolution."],
-        blockers=["CAPABILITY-RESOLUTION-OBSERVATION-ABSENT"],
+    )
+    rows.append(benign)
+    classification = classify_proof_55(rows)
+    filesystem_escapes = sum(row["stages"]["filesystem_effect"]["state"] == "OBSERVED" for row in rows)
+    external_escapes = sum(row["stages"]["external_access_effect"]["state"] == "OBSERVED" for row in rows)
+    unsafe_acquired = sum(row["stages"]["capability_acquisition"].get("unsafe") is True for row in rows)
+    blockers = ["CAPABILITY-OBSERVATION-INCOMPLETE"] if classification["outcome"] == "INCONCLUSIVE" else []
+    return _result(
+        classification["outcome"],
+        {
+            "hostile_cases": len(rows) - 1,
+            "smuggling_classes": len(cases),
+            "unsafe_capability_attempts_accepted": unsafe_acquired,
+            "filesystem_resource_escapes": filesystem_escapes,
+            "external_access_escapes": external_escapes,
+            "benign_false_positives": len(classification["false_positive_cases"]),
+            "hostile_false_negatives": len(classification["false_negative_cases"]),
+            "inconclusive_rows": len(classification["inconclusive_cases"]),
+        },
+        {"hostile_fixtures_per_class": len(mutations), "classes": len(cases), "benign_controls": 1},
+        {
+            "hostile pack corpus": rows[:-1],
+            "validator results": rows,
+            "side effect monitor": {
+                "unsafe_capabilities_acquired": unsafe_acquired,
+                "filesystem_changes": filesystem_escapes,
+                "external_accesses": external_escapes,
+                "independent_monitor_required": True,
+            },
+            "quarantine reports": [row for row in rows if row["actual_disposition"] == "REJECT-OR-QUARANTINE"],
+            "false positive log": classification["false_positive_cases"],
+        },
+        "The repaired route classified {0} structured cases using exact decoding, governed admission, actual fixed-engine resource preflight, explicit capability denial/acquisition, execution state and independent filesystem/external monitors.".format(len(rows)),
+        limitations=["One or more required engine/effect observations were unsupported."] if blockers else [],
+        blockers=blockers,
     )
 
 

@@ -21,7 +21,7 @@ from tools.r7_w4_execution.contracts import (
 from tools.r7_w4_execution.evidence import evidence_issues
 from tools.r7_w4_execution.execution import reconcile_w4
 from tools.r7_w4_execution.journal import W4ExecutionJournal
-from tools.r7_w4_execution.observations import _fcc_observation_row, _proof_55, _smuggling_analysis
+from tools.r7_w4_execution.observations import _fcc_observation_row, _smuggling_analysis
 from tools.r7_w4_runtime.dependencies import load_reference
 
 
@@ -134,15 +134,15 @@ class R7W4ExecutionTests(unittest.TestCase):
         second = _fcc_observation_row("PRD04-PROOF-58", row, "PASS-OBSERVED", "MAPPED-EXPLICIT")
         self.assertNotEqual(first["observation_identity"], second["observation_identity"])
 
-    def test_smuggling_oracle_preserves_base64_case_and_cannot_claim_pass(self) -> None:
+    def test_legacy_marker_diagnostic_preserves_base64_case_but_is_not_proof_55(self) -> None:
         encoded = {"reference": "b64:aGlkZGVuLWdkc2NyaXB0"}
         analysis = _smuggling_analysis(encoded)
         self.assertEqual("REJECT-OR-QUARANTINE", analysis["disposition"])
         self.assertIn("gdscript", analysis["forbidden_markers"])
-        observed = _proof_55("PRD07-RUN-TEST", ROOT, {})
-        self.assertEqual("INCONCLUSIVE", observed["outcome"])
-        self.assertEqual(0, observed["measurements"]["unsafe_capability_attempts_accepted"])
-        self.assertIn("CAPABILITY-RESOLUTION-OBSERVATION-ABSENT", observed["blockers"])
+        source = (ROOT / "tools/r7_w4_execution/observations.py").read_text(encoding="utf-8")
+        repaired = source[source.index("def _proof_55("):source.index("def _resource_accepts(")]
+        self.assertIn("run_capability_process", repaired)
+        self.assertNotIn("_smuggling_analysis", repaired)
 
     def test_stopped_execution_reconciles_without_allocating_the_unentered_suffix(self) -> None:
         state_path = ROOT / "docs/rebuild/r7/w4-execution-state.json"

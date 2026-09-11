@@ -1,6 +1,7 @@
 extends Node
 
 const REPORT_PREFIX := "LEYFORGE_W4_EXECUTION_REPORT "
+const BENIGN_CAPABILITY_RESOURCE := preload("res://capability_fixtures/benign_data.tres")
 
 
 func _arg_value(args: PackedStringArray, key: String, fallback: String = "") -> String:
@@ -77,11 +78,88 @@ func _write_profile(path: String, value: Dictionary) -> bool:
 	return true
 
 
+func _run_capability(args: PackedStringArray, mode: String, proof_id: String, case_id: String) -> void:
+	var resource_path := _arg_value(args, "--resource-path", "")
+	var requested_capability := _arg_value(args, "--requested-capability", "")
+	var canary_path := _arg_value(args, "--canary-path", "")
+	var external_host := _arg_value(args, "--external-host", "127.0.0.1")
+	var external_port := _arg_value(args, "--external-port", "0").to_int()
+	var resource_type := ResourceLoader.get_resource_type(resource_path)
+	var dependencies := Array(ResourceLoader.get_dependencies(resource_path))
+	var preloaded_benign := resource_path == "res://capability_fixtures/benign_data.tres"
+	if resource_type == "" and preloaded_benign:
+		resource_type = BENIGN_CAPABILITY_RESOURCE.get_class()
+	var engine_resolution := {
+		"state":"UNSUPPORTED" if resource_type == "" else "TYPE-RESOLVED",
+		"resource_path":resource_path,
+		"resource_type":resource_type,
+		"dependencies":dependencies
+	}
+	var capability_acquisition := {"state":"UNKNOWN","unsafe":null}
+	var execution := {"state":"NOT-EXECUTED","instance_class":""}
+	var supported := resource_type != ""
+	if requested_capability == "bounded_data" and supported:
+		var bounded_resource: Variant = ResourceLoader.load(resource_path, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if bounded_resource == null and preloaded_benign:
+			bounded_resource = BENIGN_CAPABILITY_RESOURCE.duplicate(true)
+		if bounded_resource != null and not bounded_resource is Script:
+			engine_resolution["state"] = "RESOLVED"
+			engine_resolution["loaded_class"] = bounded_resource.get_class()
+			engine_resolution["resource_name"] = bounded_resource.resource_name
+			engine_resolution["preloaded_export_dependency"] = preloaded_benign
+			capability_acquisition = {"state":"BOUNDED-DATA-ACQUIRED","unsafe":false}
+		else:
+			supported = false
+			engine_resolution["state"] = "UNSUPPORTED"
+			capability_acquisition = {"state":"UNKNOWN","unsafe":null}
+	elif requested_capability == "script" or requested_capability == "editor_plugin":
+		if supported and (resource_type == "GDScript" or resource_type == "Script"):
+			capability_acquisition = {"state":"DENIED-AFTER-ENGINE-PREFLIGHT","unsafe":false,"observed_resource_type":resource_type}
+		else:
+			supported = false
+	elif (requested_capability == "filesystem" or requested_capability == "external_network") and mode == "capability-calibration" and supported:
+		var canary_script: Variant = ResourceLoader.load(resource_path, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if canary_script is Script:
+			capability_acquisition = {"state":"UNSAFE-CAPABILITY-ACQUIRED","unsafe":true,"observed_resource_type":resource_type}
+			var instance: Variant = canary_script.new(canary_path, external_host, external_port)
+			execution = {"state":"EXECUTED","instance_class":instance.get_class() if instance != null else ""}
+			engine_resolution["state"] = "RESOLVED"
+		else:
+			supported = false
+			engine_resolution["state"] = "UNSUPPORTED"
+	else:
+		supported = false
+	var report := {
+		"schema_version":"prd07-w4-capability-probe-v1",
+		"status":"PASS" if supported else "INCONCLUSIVE",
+		"mode":mode,
+		"proof_id":proof_id,
+		"case_id":case_id,
+		"proof_execution_started":mode == "proof-capability",
+		"identity_allocation_started":mode == "proof-capability",
+		"production_runtime":false,
+		"gameplay_permission":"CLOSED",
+		"measurement":{
+			"supported":supported,
+			"engine_resolution":engine_resolution,
+			"capability_acquisition":capability_acquisition,
+			"execution":execution,
+			"filesystem_effect":{"state":"OBSERVED" if canary_path != "" and FileAccess.file_exists(canary_path) else "ABSENT"},
+			"external_access_effect":{"state":"NOT-OBSERVED-BY-ENGINE","independent_monitor_required":true}
+		}
+	}
+	print(REPORT_PREFIX + JSON.stringify(report))
+	get_tree().quit(0 if supported else 3)
+
+
 func _run() -> void:
 	var args := OS.get_cmdline_user_args()
 	var mode := _arg_value(args, "--mode", "refuse")
 	var proof_id := _arg_value(args, "--proof-id", "NONE")
 	var case_id := _arg_value(args, "--case-id", "BASELINE")
+	if mode == "capability-calibration" or mode == "proof-capability":
+		await _run_capability(args, mode, proof_id, case_id)
+		return
 	var capture_path := _arg_value(args, "--capture-path", "")
 	_build_surface(proof_id, case_id)
 	await get_tree().process_frame

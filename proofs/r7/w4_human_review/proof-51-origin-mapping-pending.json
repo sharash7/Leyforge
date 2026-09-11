@@ -1,0 +1,26 @@
+{
+  "schema_version": "prd07-w4-proof-51-origin-mapping-v1",
+  "status": "PENDING-SEPARATE-ADJUDICATION",
+  "reviewer_visible": false,
+  "review_record_reference": null,
+  "identity_binding": {
+    "source_revision": null,
+    "build_identity": null,
+    "fixture_identities": []
+  },
+  "masked_source_mapping": {
+    "SOURCE-A": null,
+    "SOURCE-B": null
+  },
+  "adjudicator": {
+    "pseudonymous_adjudicator_id": null,
+    "role_id": null,
+    "unnecessary_personal_data": "NOT-COLLECTED"
+  },
+  "unmasked_after_review_attestation": false,
+  "adjudication_result": null,
+  "signed_by": null,
+  "signed_at_utc": null,
+  "proof_observation_created": false,
+  "identity_allocation_started": false
+}

@@ -1,0 +1,81 @@
+{
+  "$comment": "Conditional completion/attestation, masked parity, exact identity and renderer support-claim law is enforced by tools.r7_w4_repair.human_review.review_issues.",
+  "$id": "https://leyforge.local/schemas/prd07-w4-human-review-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "attestation": {
+      "required": [
+        "statement",
+        "signed_by",
+        "signed_at_utc"
+      ],
+      "type": "object"
+    },
+    "criteria": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "identity_allocation_started": {
+      "const": false
+    },
+    "identity_binding": {
+      "required": [
+        "source_revision",
+        "build_identity",
+        "fixture_identities"
+      ],
+      "type": "object"
+    },
+    "judgement": {
+      "enum": [
+        "PENDING",
+        "PASS-OBSERVED",
+        "FAIL-OBSERVED",
+        "INCONCLUSIVE"
+      ]
+    },
+    "proof_id": {
+      "enum": [
+        "PRD04-PROOF-50",
+        "PRD04-PROOF-51",
+        "PRD04-PROOF-53"
+      ]
+    },
+    "proof_observation_created": {
+      "const": false
+    },
+    "reviewer": {
+      "required": [
+        "pseudonymous_reviewer_id",
+        "role_id",
+        "unnecessary_personal_data",
+        "independence_declaration"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "prd07-w4-human-review-v1"
+    },
+    "status": {
+      "enum": [
+        "PENDING-HUMAN-REVIEW",
+        "COMPLETE"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "proof_id",
+    "status",
+    "identity_binding",
+    "reviewer",
+    "criteria",
+    "judgement",
+    "attestation",
+    "proof_observation_created",
+    "identity_allocation_started"
+  ],
+  "title": "Leyforge W4 governed human review",
+  "type": "object"
+}

@@ -7,7 +7,9 @@ import json
 import os
 import platform
 import shutil
+import socket
 import subprocess
+import threading
 import time
 from pathlib import Path
 from typing import Any, Dict, Mapping, Optional, Sequence, Tuple
@@ -308,3 +310,124 @@ def run_probe_process(
         "capture_path": str(capture_path.resolve()) if capture_path.is_file() else "",
         "capture_sha256": sha256_file(capture_path) if capture_path.is_file() else "",
     }
+
+
+def run_capability_process(
+    artifact: Path,
+    run_root: Path,
+    invocation_id: str,
+    request: Mapping[str, Any],
+    *,
+    calibration: bool,
+) -> Dict[str, Any]:
+    """Observe an actual Godot resource/capability route with independent monitors.
+
+    Calibration mode is allocation-free and cannot report that proof execution
+    started. The future proof route must pass ``calibration=False`` and can only
+    be reached by the separately governed execution journal.
+    """
+    invocation_root = run_root / "capability-runtime" / invocation_id
+    invocation_root.mkdir(parents=True, exist_ok=False)
+    profile = run_root / "capability-profiles" / invocation_id
+    profile.mkdir(parents=True, exist_ok=False)
+    environment = os.environ.copy()
+    environment["APPDATA"] = str((profile / "appdata").resolve())
+    environment["LOCALAPPDATA"] = str((profile / "localappdata").resolve())
+    canary_path = invocation_root / "filesystem-canary.txt"
+
+    listener: Optional[socket.socket] = None
+    listener_thread: Optional[threading.Thread] = None
+    external_observed = threading.Event()
+    external_port = 0
+    if request.get("requested_capability") == "external_network" and request.get("intentional_execution") is True:
+        listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        listener.bind(("127.0.0.1", 0))
+        listener.listen(1)
+        listener.settimeout(10.0)
+        external_port = int(listener.getsockname()[1])
+
+        def accept_once() -> None:
+            assert listener is not None
+            try:
+                connection, _address = listener.accept()
+                external_observed.set()
+                connection.close()
+            except (OSError, socket.timeout):
+                return
+
+        listener_thread = threading.Thread(target=accept_once, name="w4-capability-monitor", daemon=True)
+        listener_thread.start()
+
+    argv = [
+        str(artifact.resolve()),
+        "--headless",
+        "--rendering-method",
+        "gl_compatibility",
+        "--",
+        "--mode",
+        "capability-calibration" if calibration else "proof-capability",
+        "--proof-id",
+        "NONE" if calibration else "PRD04-PROOF-55",
+        "--case-id",
+        invocation_id,
+        "--resource-path",
+        str(request.get("resource_path", "")),
+        "--requested-capability",
+        str(request.get("requested_capability", "")),
+        "--canary-path",
+        str(canary_path.resolve()),
+        "--external-host",
+        "127.0.0.1",
+        "--external-port",
+        str(external_port),
+    ]
+    process = _process(argv, invocation_root, environment, 60.0)
+    if listener_thread is not None:
+        listener_thread.join(timeout=1.0)
+    if listener is not None:
+        listener.close()
+
+    report: Dict[str, Any] = {}
+    parse_error = ""
+    try:
+        report = _parse_report(str(process.get("stdout", "")))
+    except Exception as exc:
+        parse_error = str(exc)
+    measurement = report.get("measurement", {}) if isinstance(report.get("measurement"), dict) else {}
+    supported = (
+        process.get("exit_code") == 0
+        and not process.get("timed_out")
+        and not parse_error
+        and report.get("proof_execution_started") is (not calibration)
+        and report.get("identity_allocation_started") is (not calibration)
+        and report.get("production_runtime") is False
+        and report.get("gameplay_permission") == "CLOSED"
+        and measurement.get("supported") is True
+    )
+    result: Dict[str, Any] = {
+        "supported": supported,
+        "engine_resolution": dict(measurement.get("engine_resolution", {"state": "UNSUPPORTED"})),
+        "capability_acquisition": dict(measurement.get("capability_acquisition", {"state": "UNKNOWN", "unsafe": None})),
+        "execution": dict(measurement.get("execution", {"state": "UNKNOWN"})),
+        "filesystem_effect": {
+            "state": "OBSERVED" if canary_path.is_file() else "ABSENT",
+            "independent_monitor": True,
+            "canary_path": str(canary_path.resolve()),
+            "sha256": sha256_file(canary_path) if canary_path.is_file() else "",
+        },
+        "external_access_effect": {
+            "state": "OBSERVED" if external_observed.is_set() else "ABSENT",
+            "independent_monitor": True,
+            "listener": "127.0.0.1:{0}".format(external_port) if external_port else "NOT-OPENED",
+        },
+        "process": process,
+        "report": report,
+        "parse_error": parse_error,
+        "proof_execution_started": report.get("proof_execution_started"),
+        "identity_allocation_started": report.get("identity_allocation_started"),
+        "calibration": calibration,
+    }
+    if not supported:
+        result["limitation"] = parse_error or "fixed-engine capability observation was incomplete"
+    return result

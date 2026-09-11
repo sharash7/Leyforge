@@ -1,0 +1,58 @@
+{
+  "asset_class": null,
+  "attestation": {
+    "signed_at_utc": null,
+    "signed_by": null,
+    "statement": "I performed the recorded human review against the bound sources, build, fixtures, criteria, and evidence."
+  },
+  "criteria": [
+    {
+      "criterion_id": "HANDOFF-EDITABILITY",
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "observed_result": null,
+      "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
+    },
+    {
+      "criterion_id": "RUNTIME-SEMANTICS",
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "observed_result": null,
+      "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
+    },
+    {
+      "criterion_id": "PROVENANCE-BINDING",
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "observed_result": null,
+      "prompt": "Are source provenance and canonical binding understandable and traceable?"
+    },
+    {
+      "criterion_id": "DEFECT-AMBIGUITY",
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "observed_result": null,
+      "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
+    }
+  ],
+  "evidence_references": [],
+  "identity_allocation_started": false,
+  "identity_binding": {
+    "build_identity": null,
+    "fixture_identities": [],
+    "source_revision": null
+  },
+  "judgement": "PENDING",
+  "overall_defects_or_ambiguities": [],
+  "proof_id": "PRD04-PROOF-50",
+  "proof_observation_created": false,
+  "review_lifecycle_id": null,
+  "reviewer": {
+    "independence_declaration": null,
+    "pseudonymous_reviewer_id": null,
+    "role_id": null,
+    "unnecessary_personal_data": "NOT-COLLECTED"
+  },
+  "schema_version": "prd07-w4-human-review-v1",
+  "status": "PENDING-HUMAN-REVIEW"
+}
