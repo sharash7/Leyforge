@@ -1,0 +1,321 @@
+{
+  "active_poc_dependencies": 0,
+  "allocated_evidence_ids": [],
+  "allocated_run_ids": [],
+  "artifacts": [
+    {
+      "bytes": 173,
+      "git_blob": "1ff881d4b303aed8333bc9a9148ddd7541436fcf",
+      "path": "proofs/r7/w4_execution/presentation_probe/main.tscn",
+      "sha256": "6a8559ac77f2c3471ced2775fcdbfba1fa77de3a2e94726d0241e5ff57219362"
+    },
+    {
+      "bytes": 525,
+      "git_blob": "a294e4df4bc4ae53b994393739953676148eaadb",
+      "path": "proofs/r7/w4_execution/presentation_probe/project.godot",
+      "sha256": "4d6fa929a1adf35a4b0389a01885da016a28d5db12a4e67c5b2c35f850758c84"
+    },
+    {
+      "bytes": 6632,
+      "git_blob": "ea9d0f2be30470e21830c439a2339f7e22a7cc35",
+      "path": "proofs/r7/w4_execution/presentation_probe/src/main.gd",
+      "sha256": "66da6d4692cc0642c94e40672472170ba8197328a48e623bc7e1d509998c74bc"
+    },
+    {
+      "bytes": 234,
+      "git_blob": "dd4e16fa55c049bab7afcdfaa58217251326814a",
+      "path": "tools/r7_w4_execution/__init__.py",
+      "sha256": "1dda193a1689de84b6018018bd9166cf97e297be2600271561a0bd97f1d1afc9"
+    },
+    {
+      "bytes": 80,
+      "git_blob": "a049ad7aea97f34e4aab96cc8d30e116fa89790d",
+      "path": "tools/r7_w4_execution/__main__.py",
+      "sha256": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a"
+    },
+    {
+      "bytes": 12543,
+      "git_blob": "e015eedb89dc0579b291c923cd9cddac777fb0d1",
+      "path": "tools/r7_w4_execution/builds.py",
+      "sha256": "ef1324cf7da0401d7e0e16a2a2467913d51d2915642e9a81656d626f2d8a1e96"
+    },
+    {
+      "bytes": 5741,
+      "git_blob": "b51f14a310f24259f7e66e17501b55f04d748978",
+      "path": "tools/r7_w4_execution/cli.py",
+      "sha256": "f344d9b2573a905a04f842af93cefd2255594232e2d88a926d18875a6b9b84ef"
+    },
+    {
+      "bytes": 38429,
+      "git_blob": "7da147da33cfe917905c22d7c1b35a80214c7426",
+      "path": "tools/r7_w4_execution/contracts.py",
+      "sha256": "4a042fc2bc4696cdf0d65adaa1daaf084d44c1021d4397e48bedfdf8cd49457c"
+    },
+    {
+      "bytes": 17697,
+      "git_blob": "c4eccaf79c0e33e8158a73b46e975604fefd085f",
+      "path": "tools/r7_w4_execution/evidence.py",
+      "sha256": "820e1e6cb6e99b2f379f06dcf967fe25ca4bfd522dfc93d81120d129f29d4842"
+    },
+    {
+      "bytes": 11929,
+      "git_blob": "36db9f71f7dba044bc129f76e6475716bc55647c",
+      "path": "tools/r7_w4_execution/execution.py",
+      "sha256": "94558ac25d86aabb5013fd56fd63dc9c097d2a3a9f3b54b4ff8ecabbb5d148ca"
+    },
+    {
+      "bytes": 10604,
+      "git_blob": "71f5770aa80931bf8fbbb82eb0f89e3a4444aedc",
+      "path": "tools/r7_w4_execution/journal.py",
+      "sha256": "fab4cef6af6e4eb105b55aea07d8cbafd8d41d5f35ee06e691d771ffcc2bb2a5"
+    },
+    {
+      "bytes": 56397,
+      "git_blob": "cb3ba50aec3ca0ec72176aa05a569ab509352b80",
+      "path": "tools/r7_w4_execution/observations.py",
+      "sha256": "7931997ac8464f8f3479c5fe76b4bfae10c77ebd8438a53f35a724c8e94292dd"
+    },
+    {
+      "bytes": 20145,
+      "git_blob": "9fa40b561c8638a2e4fc7bf0b16521c2c3c36b5d",
+      "path": "tools/r7_w4_execution_audit.py",
+      "sha256": "a62521e42bbad28a7c2624e783ece7fa03a89ad4d831c991414a2008138bc7c4"
+    },
+    {
+      "bytes": 8025,
+      "git_blob": "9a20287b43c70f29aed501b66b3e19987fb5f5bf",
+      "path": "tools/tests/test_r7_w4_execution.py",
+      "sha256": "3633cde4365bb5c54458b5772f0f15be30ff9901ff54ed68ec2f108a9ace52d0"
+    },
+    {
+      "bytes": 8069,
+      "git_blob": "7884e2726a47ebfc7a1260faae75aab443a32d44",
+      "path": "tools/tests/test_r7_w4_runtime.py",
+      "sha256": "80011b0e56fabf1df6dc716e95e1ec2f342d15aa8db64572cafbb3fe46971bf1"
+    },
+    {
+      "bytes": 9810,
+      "git_blob": "821a4198daf82bb1e7c3da27fa1d106c0d2e7dad",
+      "path": "tools/verify.py",
+      "sha256": "448b73d0c6db06bbace04747ada6eb086b48638e51bc8fd786cb7737ec5ff5e2"
+    },
+    {
+      "bytes": 86522,
+      "git_blob": "ee13a003308b9c3dd16857c289a032e2f1b280d2",
+      "path": "tools/verify_rebuild_boundary.py",
+      "sha256": "f4fe886bd810e9cdc2333ea8a38d26e34289d80aa3f7ca0e7fc01bbaab9145db"
+    }
+  ],
+  "dependency_identity": {
+    "component_hashes": {
+      "godot_build_driver_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "godot_export_template_runtime_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f",
+      "voxel_tools_package_sha256": "600737572a5e25541ba6f503e842a3717ba19afafa5474510a6ceff995a1d2d8"
+    },
+    "component_revisions": {
+      "godot_build_driver": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+      "godot_export_template": "4.8.dev4.official.b56a91878",
+      "voxel_tools": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041"
+    },
+    "gameplay_permission": "CLOSED",
+    "hardware_identity_rule": "Capture exact OS, CPU, GPU/device, driver, renderer, resolution, display and settings identity at future execution; readiness makes no support-tier claim.",
+    "host_lane": "windows-x86_64",
+    "isolation_requirements": [
+      "clean-export-root",
+      "clean-import-cache",
+      "isolated-APPDATA",
+      "isolated-LOCALAPPDATA",
+      "no-shared-user-state"
+    ],
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "permitted_use": "R7 W4 proof-only Forge, trust, presentation, accessibility and migration evidence",
+    "production_dependency_state": "UNCHANGED-PLANNED-UNINSTALLED",
+    "python_tooling": "CPython-3.9-or-later-standard-library",
+    "renderer_candidates": [
+      "Forward+",
+      "Mobile",
+      "Compatibility-if-targeted"
+    ],
+    "roles": [
+      "client",
+      "dedicated-server",
+      "forge-ci"
+    ],
+    "schema_version": "leyforge-r7-w4-dependency-reference-v1",
+    "scope": "development-only-prd07-proof-runtime",
+    "source_lock": "proofs/r7/w0/dependencies.lock.json",
+    "source_lock_git_blob": "5d8bfeb3031557b927074f74cebc7101148edab1",
+    "source_lock_sha256": "f42407b74cc08b91a34aa7b9a57f856b6e4c4dbe642385401d2b8da10eb927a2"
+  },
+  "execution_gate": "CLOSED-PENDING-EXACT-SHA-CI-AND-GOVERNED-EXECUTION-ADMISSION",
+  "fcc13e": {
+    "coverage_rule": "312/312-REQUIRED-NO-SAMPLING-NO-WAIVER",
+    "independent_observations_required": true,
+    "proofs": [
+      "PRD04-PROOF-57",
+      "PRD04-PROOF-58"
+    ]
+  },
+  "fixtures": {
+    "FIXTURE-07": "READY",
+    "FIXTURE-08": "READY",
+    "validation_receipt": "docs/rebuild/r7/w4-fixture-readiness-validation.json"
+  },
+  "gameplay_permission": "CLOSED",
+  "identity_order": [
+    {
+      "evidence_id": "PRD07-EVID-0066",
+      "order": 1,
+      "proof_id": "PRD04-PROOF-49",
+      "run_id": "PRD07-RUN-0066",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0067",
+      "order": 2,
+      "proof_id": "PRD04-PROOF-50",
+      "run_id": "PRD07-RUN-0067",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0068",
+      "order": 3,
+      "proof_id": "PRD04-PROOF-51",
+      "run_id": "PRD07-RUN-0068",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0069",
+      "order": 4,
+      "proof_id": "PRD04-PROOF-52",
+      "run_id": "PRD07-RUN-0069",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0070",
+      "order": 5,
+      "proof_id": "PRD04-PROOF-53",
+      "run_id": "PRD07-RUN-0070",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0071",
+      "order": 6,
+      "proof_id": "PRD04-PROOF-54",
+      "run_id": "PRD07-RUN-0071",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0072",
+      "order": 7,
+      "proof_id": "PRD04-PROOF-55",
+      "run_id": "PRD07-RUN-0072",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0073",
+      "order": 8,
+      "proof_id": "PRD04-PROOF-56",
+      "run_id": "PRD07-RUN-0073",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0074",
+      "order": 9,
+      "proof_id": "PRD04-PROOF-57",
+      "run_id": "PRD07-RUN-0074",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0075",
+      "order": 10,
+      "proof_id": "PRD04-PROOF-58",
+      "run_id": "PRD07-RUN-0075",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0076",
+      "order": 11,
+      "proof_id": "PRD04-PROOF-59",
+      "run_id": "PRD07-RUN-0076",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0077",
+      "order": 12,
+      "proof_id": "PRD04-PROOF-60",
+      "run_id": "PRD07-RUN-0077",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0078",
+      "order": 13,
+      "proof_id": "PRD04-PROOF-61",
+      "run_id": "PRD07-RUN-0078",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0079",
+      "order": 14,
+      "proof_id": "PRD04-PROOF-62",
+      "run_id": "PRD07-RUN-0079",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0080",
+      "order": 15,
+      "proof_id": "PRD04-PROOF-71",
+      "run_id": "PRD07-RUN-0080",
+      "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
+    }
+  ],
+  "implementation_commit": "e39e452e8ca06a70ec6b139d7eb944fedfa34a5e",
+  "issues": [],
+  "lifecycle_role": "CURRENT-PRE-EXECUTION-SOURCE-ADMISSION",
+  "manifest_version": 1,
+  "owner_authorization": "R7 W4 Governed Execution Authorization received 2026-09-10",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "prd08": "CLOSED",
+  "prd09": "CLOSED",
+  "production_dependency_activation": "INACTIVE",
+  "production_runtime": "ABSENT",
+  "proof_execution": "NOT-STARTED",
+  "proof_roster": [
+    "PRD04-PROOF-49",
+    "PRD04-PROOF-50",
+    "PRD04-PROOF-51",
+    "PRD04-PROOF-52",
+    "PRD04-PROOF-53",
+    "PRD04-PROOF-54",
+    "PRD04-PROOF-55",
+    "PRD04-PROOF-56",
+    "PRD04-PROOF-57",
+    "PRD04-PROOF-58",
+    "PRD04-PROOF-59",
+    "PRD04-PROOF-60",
+    "PRD04-PROOF-61",
+    "PRD04-PROOF-62",
+    "PRD04-PROOF-71"
+  ],
+  "r7_final": "CLOSED",
+  "r8": "CLOSED",
+  "readiness_artifacts": {
+    "admission": {
+      "path": "docs/rebuild/r7/w4-readiness-admission-boundary.json",
+      "sha256": "954aced12b98b364bf2f43d611b52f4aa0660c07f23068a5fb53da2f86d96d7c"
+    },
+    "readiness": {
+      "path": "docs/rebuild/r7/w4-readiness.json",
+      "sha256": "5a85cf2dfbba56367479183bc46ce66238f5d0b4e4222acd3f73eb14c2b04e8c"
+    },
+    "source_tree_identity": "a8c44988293279ded102b6cc4f6a4a62fdff461e5fefbf351a58306b2a86beb5"
+  },
+  "readiness_implementation_commit": "7ff70fae0bad97287602e946deae409ac3df74b8",
+  "readiness_package_commit": "26548f7561974239b8996c473f25644d61f099fa",
+  "required_branch": "codex/chore/brain-governance-pilot",
+  "required_upstream": "origin/codex/chore/brain-governance-pilot",
+  "schema_version": "prd07-w4-governed-execution-source-boundary-v1",
+  "scope": "development-only-prd07-proof-execution-runtime",
+  "status": "PASS",
+  "w5": "CLOSED"
+}
