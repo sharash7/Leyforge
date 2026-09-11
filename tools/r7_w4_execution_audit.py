@@ -14,6 +14,9 @@ from typing import Any, Dict, Iterable, Mapping, Sequence
 
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 SOURCE_BOUNDARY = ROOT / "docs/rebuild/r7/w4-governed-execution-source-boundary.json"
 EXECUTION_ADMISSION = ROOT / "docs/rebuild/r7/w4-governed-execution-admission.json"
 STATE = ROOT / "docs/rebuild/r7/w4-execution-state.json"
