@@ -46,10 +46,10 @@
       "sha256": "f344d9b2573a905a04f842af93cefd2255594232e2d88a926d18875a6b9b84ef"
     },
     {
-      "bytes": 38429,
-      "git_blob": "7da147da33cfe917905c22d7c1b35a80214c7426",
+      "bytes": 38623,
+      "git_blob": "a00c3701ad7edf5218cce51950f503bf753e4419",
       "path": "tools/r7_w4_execution/contracts.py",
-      "sha256": "4a042fc2bc4696cdf0d65adaa1daaf084d44c1021d4397e48bedfdf8cd49457c"
+      "sha256": "728a2322b0e981f0c6cffead778dffae80f77e8758b9ba9a1f848b0f55ebafd2"
     },
     {
       "bytes": 17697,
@@ -76,10 +76,10 @@
       "sha256": "7931997ac8464f8f3479c5fe76b4bfae10c77ebd8438a53f35a724c8e94292dd"
     },
     {
-      "bytes": 20145,
-      "git_blob": "9fa40b561c8638a2e4fc7bf0b16521c2c3c36b5d",
+      "bytes": 20252,
+      "git_blob": "ec056cf37c2fd05a5790c54d6abd75c261d24b4b",
       "path": "tools/r7_w4_execution_audit.py",
-      "sha256": "a62521e42bbad28a7c2624e783ece7fa03a89ad4d831c991414a2008138bc7c4"
+      "sha256": "10630e1326ad80fb62b669211d3f07a325d89a22209ba6a15b49ebeba3b90368"
     },
     {
       "bytes": 8025,
@@ -269,7 +269,7 @@
       "state": "AUTHORIZED-JIT-NOT-ALLOCATED"
     }
   ],
-  "implementation_commit": "e39e452e8ca06a70ec6b139d7eb944fedfa34a5e",
+  "implementation_commit": "7e3f9c3fc7ba8d09fc4379d10117bd888ad1c747",
   "issues": [],
   "lifecycle_role": "CURRENT-PRE-EXECUTION-SOURCE-ADMISSION",
   "manifest_version": 1,
@@ -302,11 +302,11 @@
   "readiness_artifacts": {
     "admission": {
       "path": "docs/rebuild/r7/w4-readiness-admission-boundary.json",
-      "sha256": "954aced12b98b364bf2f43d611b52f4aa0660c07f23068a5fb53da2f86d96d7c"
+      "sha256": "b369bc00599181f5c191d71f4a6d00dbeaa3f3e9bf21cd1fd96f400d82467808"
     },
     "readiness": {
       "path": "docs/rebuild/r7/w4-readiness.json",
-      "sha256": "5a85cf2dfbba56367479183bc46ce66238f5d0b4e4222acd3f73eb14c2b04e8c"
+      "sha256": "8a3d02a9b0b239c983e4a8e88fc850ae01b95d4684224a72e079713a9d336acd"
     },
     "source_tree_identity": "a8c44988293279ded102b6cc4f6a4a62fdff461e5fefbf351a58306b2a86beb5"
   },
