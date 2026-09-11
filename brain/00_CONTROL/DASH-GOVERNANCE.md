@@ -223,7 +223,7 @@ related_to:
 - Actual pairs 0066–0072 were issued one at a time and retained. Proofs 49, 52 and 54 are PASS; proofs 50, 51 and 53 are INCONCLUSIVE for absent required human judgement; proof 55 retains raw FAIL.
 - `W4-MEASUREMENT-DEFECT-001` makes the raw proof-55 pack ineligible as a candidate proof failure: six encoded references were accepted because the proof-only oracle lowercased case-sensitive base64 and used marker inspection rather than actual capability resolution. Zero payload, filesystem or external-access side effects occurred.
 - Proofs 56–62 and 71 were not run. PROOF-57 and PROOF-58 each retain 0/312 FCC observations and no coverage claim. Issued high-water is 0072; 0073 remains unallocated with no certified mapping.
-- Stopped reconciliation 125/125, independent terminal audit 193/193, stopped-boundary audit 86/86, W3 regression 46/46, tool regression 120/120, clean full stable 18/18 and global rebuild boundary 10,079/10,079 pass.
+- Stopped reconciliation 125/125, independent terminal audit 193/193, stopped-boundary audit 86/86, W3 regression 46/46, tool regression 120/120, clean full stable 18/18 and global rebuild boundary 10,073/10,073 pass.
 - [[HANDOFF-20260911-001]] requires fresh owner authority for measurement-harness repair, recertification and rerun readiness. It does not authorize proof execution or 0073 allocation.
 
 ## Later Activation Milestones

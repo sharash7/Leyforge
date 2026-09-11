@@ -276,7 +276,7 @@
     "w4_stopped_boundary_audit": "PASS-86-OF-86",
     "w3_reconciliation_and_runtime_regression": "PASS-46-OF-46",
     "tool_regression": "PASS-120-OF-120",
-    "global_rebuild_boundary": "PASS-10079-OF-10079",
+    "global_rebuild_boundary": "PASS-10073-OF-10073",
     "clean_full_stable_validation": "PASS-18-OF-18-AT-4303d106f31380956a7544a3bdb3e66e59b3a39b",
     "live_checkout_full_tier": "EXPECTED-FAIL-PROTECTED-EMPTY-INBOX-NOT-MODIFIED",
     "remote_final_sha_ci": "PENDING-POST-PUBLICATION"

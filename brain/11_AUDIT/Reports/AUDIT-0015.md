@@ -66,7 +66,7 @@ Proof 55 retained raw `FAIL-OBSERVED`: its pack reports six accepted unsafe atte
 
 Proofs 56, 57, 58, 59, 60, 61, 62 and 71 were not run. Proofs 57 and 58 therefore each have 0/312 FCC-13E rows observed and no coverage claim. Issued high-water is 0072; 0073 is not allocated and has no certified future mapping.
 
-The post-observation source safeguard was not rerun and is not execution evidence. The stopped reconciliation, terminal independent audit, stopped-boundary audit, W3 regression, tool regression and 10,079-check production/rebuild boundary all pass. Clean full validation passes all 18 commands; protected user-local paths remain byte-identical and excluded.
+The post-observation source safeguard was not rerun and is not execution evidence. The stopped reconciliation, terminal independent audit, stopped-boundary audit, W3 regression, tool regression and 10,073-check production/rebuild boundary all pass. Clean full validation passes all 18 commands; protected user-local paths remain byte-identical and excluded.
 
 ## Result
 
