@@ -17,11 +17,14 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, Mapping, Sequence
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from tools.r7_w4_execution.contracts import PROTECTED_LOCAL_PATHS
 from tools.r7_w4_execution.execution import RECONCILIATION_PATH, reconcile_w4
 
 
-ROOT = Path(__file__).resolve().parents[1]
 BOUNDARY = ROOT / "docs/rebuild/r7/w4-stopped-execution-boundary.json"
 STATE = ROOT / "docs/rebuild/r7/w4-execution-state.json"
 SOURCE_BOUNDARY = ROOT / "docs/rebuild/r7/w4-governed-execution-source-boundary.json"
