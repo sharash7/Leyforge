@@ -6,13 +6,18 @@ title: "Engineering Governance Health"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-10"
+updated: "2026-09-11"
 authority_domain: "engineering_governance"
 authority_role: "derived_record"
 authority_status: "authoritative"
 depends_on:
   - "SYS-ENGINEERING-GOVERNANCE"
 related_to:
+  - "WORK-20260910-002"
+  - "TASK-20260910-002"
+  - "EVID-0015"
+  - "AUDIT-0015"
+  - "HANDOFF-20260911-001"
   - "WORK-20260910-001"
   - "TASK-20260910-001"
   - "EVID-0014"
@@ -212,6 +217,15 @@ related_to:
 - All future pairs 0066-0080 are `PREVIEW-NOT-ALLOCATED`. Registry/W3 state remain unchanged through issued high-water 0065.
 - W4 independent audit 132/132 and global rebuild boundary 9,421/9,421 pass. W4 proof execution and allocation remain closed through [[HANDOFF-20260910-002]].
 
+## R7 W4 Forge Trust Presentation Migration Governed Execution
+
+- Cancelled under [[TASK-20260910-002]] / [[WORK-20260910-002]] after the exact fail-closed stop; controlled-stop evidence is [[EVID-0015]] and programme result FAIL is certified by [[AUDIT-0015]].
+- Actual pairs 0066–0072 were issued one at a time and retained. Proofs 49, 52 and 54 are PASS; proofs 50, 51 and 53 are INCONCLUSIVE for absent required human judgement; proof 55 retains raw FAIL.
+- `W4-MEASUREMENT-DEFECT-001` makes the raw proof-55 pack ineligible as a candidate proof failure: six encoded references were accepted because the proof-only oracle lowercased case-sensitive base64 and used marker inspection rather than actual capability resolution. Zero payload, filesystem or external-access side effects occurred.
+- Proofs 56–62 and 71 were not run. PROOF-57 and PROOF-58 each retain 0/312 FCC observations and no coverage claim. Issued high-water is 0072; 0073 remains unallocated with no certified mapping.
+- Stopped reconciliation 125/125, independent terminal audit 193/193, stopped-boundary audit 86/86, W3 regression 46/46, tool regression 120/120, clean full stable 18/18 and global rebuild boundary 10,079/10,079 pass.
+- [[HANDOFF-20260911-001]] requires fresh owner authority for measurement-harness repair, recertification and rerun readiness. It does not authorize proof execution or 0073 allocation.
+
 ## Later Activation Milestones
 
 - G1 registry and core identity: planned in [[GOV-DEBT-0002]].
@@ -220,4 +234,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260910-002]]. W0-W3 execution and W4 readiness/admission are certified; both earlier W3 controlled failures remain immutable, 0058 remains durably invalidated and the successful rerun is retained through 0065. W4 execution, W5 and FINAL remain open programme work, but no W4 proof observation, execution authority or 0066 allocation exists. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08/09 remain closed, and R8 gameplay permission remains closed.
+R7 remains active under [[HANDOFF-20260911-001]]. W0-W3 execution and W4 readiness/admission remain certified; both earlier W3 controlled failures remain immutable, 0058 remains durably invalidated and the successful W3 rerun remains retained through 0065. W4 is incomplete after seven retained observations through 0072 and requires fresh repair/recertification authority. W5 and FINAL are not ready. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08/09 remain closed, and R8 gameplay permission remains closed.

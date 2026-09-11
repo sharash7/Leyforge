@@ -1,8 +1,8 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active handoff:** `HANDOFF-20260910-002`. `WORK-20260910-001` and `TASK-20260910-001` are complete; `EVID-0014` / `AUDIT-0014` certify W4 readiness/admission.
+**Active handoff:** `HANDOFF-20260911-001`. `WORK-20260910-002` and `TASK-20260910-002` are cancelled after the governed stop; `EVID-0015` / `AUDIT-0015` certify stopped-package integrity and W4 programme-level FAIL.
 
-**State:** ACTIVE — PRD-07 intake and W0-W3 execution are complete and certified. W4 readiness/admission is certified 15 READY / 0 BLOCKED / 0 NOT APPLICABLE; no W4 proof has executed. Pair 0058 remains durably invalidated; successful W3 proof packs 0059-0065 are retained; 0066-0080 remain preview-only. W4 execution, W5 and FINAL remain unexecuted.
+**State:** ACTIVE — PRD-07 intake and W0-W3 execution are complete and certified. W4 execution is incomplete after a governed fail-closed stop: pairs 0066–0072 are retained as three PASS, three INCONCLUSIVE and one raw FAIL; eight proofs are NOT-RUN. Issued high-water is 0072 and 0073 is not allocated. W5 and FINAL are not ready.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
@@ -119,12 +119,20 @@ The owner-authorized `R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADM
 
 FIXTURE-07 and FIXTURE-08 revision `W4-R1` are deterministic, reproducible, non-production proof/readiness fixtures. The FCC-13E ledger covers exactly all 312 rows without sampling or waiver and remains unobserved. Readiness/admission pins 30 exact artifacts at source-tree identity `a8c44988293279ded102b6cc4f6a4a62fdff461e5fefbf351a58306b2a86beb5`.
 
-The durable identity high-water remains 0065. Proposed pairs 0066-0080 follow PRD-07 W4 order and are all `PREVIEW-NOT-ALLOCATED`; no registry entry, standard pack, reservation, burn, timestamp or execution transition exists. W4 execution requires fresh owner authority through `HANDOFF-20260910-002`.
+At readiness certification the durable identity high-water was 0065 and proposed pairs 0066-0080 were `PREVIEW-NOT-ALLOCATED`. That historical readiness state is preserved; later owner-authorized execution is recorded separately below.
+
+## W4 Governed Execution — Controlled Stop
+
+The admitted source was `b5a52ca8411aa4712e1c2bad5917455867f61b70`. Exact starting-SHA workflows, source/readiness equality, dependencies, fixtures, registry, W3 history, protected fingerprints and the production boundary passed before allocation. The proof-only artifact used the fixed Godot driver, official `4.8.dev4.official.b56a91878` template and certified Voxel Tools revision with `NO-LOCAL-PATCH`.
+
+Actual pairs 0066–0072 map to proofs 49, 50, 51, 52, 53, 54 and 55. Results are PASS, INCONCLUSIVE, INCONCLUSIVE, PASS, INCONCLUSIVE, PASS and raw FAIL. The three inconclusive results preserve absent required human judgement. The proof-55 pack remains immutable, while stopped reconciliation records `W4-MEASUREMENT-DEFECT-001` and admission `RETAINED-NOT-ADMISSIBLE-AS-CANDIDATE-FAILURE`; the oracle lowercased case-sensitive base64 and did not exercise actual engine capability resolution. No proof was rerun.
+
+Proofs 56, 57, 58, 59, 60, 61, 62 and 71 were not entered. PROOF-57 and PROOF-58 each observed 0/312 FCC-13E rows, so no migration-coverage result exists. The issued high-water is 0072; 0073 and later remain unallocated. [[EVID-0015]] / [[AUDIT-0015]] certify the controlled stop and W4 programme-level FAIL.
 
 ## Remaining R7 Work
 
-W4 execution, W5 and FINAL remain open programme work. Before any W4 proof executes or allocates 0066, a fresh owner-authorized governed execution package must revalidate all 15 readiness rows, exact dependencies/source/fixtures, the full 312-row FCC-13E boundary, registry state and production boundary. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+W4 repair, recertification and a later separately authorized rerun remain open programme work. The next optional package is `R7-W4-MEASUREMENT-HARNESS-REPAIR-RECERTIFICATION-AND-RERUN-READINESS`; it must preserve 0066–0072, validate a capable proof-55 observation route, establish the lawful future order/identity preview and stop without proof execution or 0073 allocation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-Continue only through [[HANDOFF-20260910-002]]. W3 is COMPLETE and W4 readiness/admission is CERTIFIED. Do not reuse 0051-0058, allocate 0066, execute W4, open W5, evaluate/open PRD-08/09 or open R8 without the applicable fresh authority.
+Continue only through [[HANDOFF-20260911-001]]. W3 is COMPLETE and W4 is INCOMPLETE. Do not reuse 0051-0058, alter 0066–0072, allocate 0073, rerun W4, open W5, evaluate/open PRD-08/09 or open R8 without the applicable fresh authority.
 
 **R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**

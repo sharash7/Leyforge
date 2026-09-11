@@ -1,0 +1,299 @@
+{
+  "schema_version": "leyforge-r7-w4-governed-execution-stopped-evidence-v1",
+  "package": "R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION",
+  "recorded_date": "2026-09-11",
+  "status": "PASS",
+  "certification_meaning": "INTEGRITY-OF-CONTROLLED-STOP-ONLY-NOT-W4-SUCCESS",
+  "programme_result": "FAIL",
+  "package_state": "STOPPED-AFTER-FAIL-OBSERVED",
+  "w4_lifecycle_state": "INCOMPLETE-REPAIR-RECERTIFICATION-AND-FRESH-RERUN-AUTHORIZATION-REQUIRED",
+  "authority": {
+    "workspace": "D:/AI/Projects/leyforge-rebuild",
+    "branch": "codex/chore/brain-governance-pilot",
+    "upstream": "origin/codex/chore/brain-governance-pilot",
+    "readiness_package_commit": "26548f7561974239b8996c473f25644d61f099fa",
+    "execution_source_commit": "b5a52ca8411aa4712e1c2bad5917455867f61b70",
+    "immutable_observation_commit": "cd9bba06cb9cf8ffa6a70c6332bd391a8cce4da7",
+    "stopped_boundary_checkpoint": "4303d106f31380956a7544a3bdb3e66e59b3a39b",
+    "readiness_is_ancestor": true,
+    "execution_source_is_ancestor": true
+  },
+  "lifecycle": {
+    "task": "TASK-20260910-002",
+    "task_status": "cancelled",
+    "work": "WORK-20260910-002",
+    "work_status": "cancelled",
+    "evidence": "EVID-0015",
+    "audit": "AUDIT-0015",
+    "audit_result": "FAIL",
+    "superseded_handoff": "HANDOFF-20260910-002",
+    "active_handoff": "HANDOFF-20260911-001"
+  },
+  "identity_state": {
+    "starting_high_water": 65,
+    "issued_high_water": 72,
+    "allocated_run_ids": [
+      "PRD07-RUN-0066",
+      "PRD07-RUN-0067",
+      "PRD07-RUN-0068",
+      "PRD07-RUN-0069",
+      "PRD07-RUN-0070",
+      "PRD07-RUN-0071",
+      "PRD07-RUN-0072"
+    ],
+    "allocated_evidence_ids": [
+      "PRD07-EVID-0066",
+      "PRD07-EVID-0067",
+      "PRD07-EVID-0068",
+      "PRD07-EVID-0069",
+      "PRD07-EVID-0070",
+      "PRD07-EVID-0071",
+      "PRD07-EVID-0072"
+    ],
+    "next_possible_identity": "0073-NOT-ALLOCATED",
+    "future_identity_authority": "CLOSED",
+    "w3_history": "UNCHANGED"
+  },
+  "proofs": [
+    {
+      "order": 1,
+      "proof_id": "PRD04-PROOF-49",
+      "title": "Source → Bake Reproducibility",
+      "run_id": "PRD07-RUN-0066",
+      "evidence_id": "PRD07-EVID-0066",
+      "result": "PASS-OBSERVED",
+      "evidence_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0066",
+      "standard_evidence_sha256": "edf657e5f138a009bd1ad91846108f98bca79e98be997dad5578cf51c07948da",
+      "reason": "All 480 clean rebuild observations reproduced governed products and semantic bindings across two isolated environments; moved paths and provider IDs were irrelevant and tampering was detected then overwritten."
+    },
+    {
+      "order": 2,
+      "proof_id": "PRD04-PROOF-50",
+      "title": "Art Production Handoff Fixture",
+      "run_id": "PRD07-RUN-0067",
+      "evidence_id": "PRD07-EVID-0067",
+      "result": "INCONCLUSIVE",
+      "evidence_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0067",
+      "standard_evidence_sha256": "092bb82c7e32f80f872b8856181c8cf3e2659d404db4c868abceb4aaf62d9f9d",
+      "reason": "The automated chain completed across all eight represented classes, but the required real structured human reviewer record was absent."
+    },
+    {
+      "order": 3,
+      "proof_id": "PRD04-PROOF-51",
+      "title": "AI vs Human Source Parity",
+      "run_id": "PRD07-RUN-0068",
+      "evidence_id": "PRD07-EVID-0068",
+      "result": "INCONCLUSIVE",
+      "evidence_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0068",
+      "standard_evidence_sha256": "6ab33545a6fc200bcb14ef71dac974d75ef1dcf6a749601702cf7d0e0e56650e",
+      "reason": "Four matched tasks used identical validation law and rejected identical missing-provenance mutations, but the required structured human workflow judgement was absent."
+    },
+    {
+      "order": 4,
+      "proof_id": "PRD04-PROOF-52",
+      "title": "Generated Form Explosion",
+      "run_id": "PRD07-RUN-0069",
+      "evidence_id": "PRD07-EVID-0069",
+      "result": "PASS-OBSERVED",
+      "evidence_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0069",
+      "standard_evidence_sha256": "fad8be9ca51c16ae93e39799f09985370a099bc3e835226b2346e873cfd171b9",
+      "reason": "Observed scales 16, 128 and 1024 matched declared Cartesian families without duplicate semantic identities or presentation-only semantic multiplication."
+    },
+    {
+      "order": 5,
+      "proof_id": "PRD04-PROOF-53",
+      "title": "Renderer/Profile Certification",
+      "run_id": "PRD07-RUN-0070",
+      "evidence_id": "PRD07-EVID-0070",
+      "result": "INCONCLUSIVE",
+      "evidence_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0070",
+      "standard_evidence_sha256": "4512879086851381ea95dfd7b6d23645cc8a2ef88f4e643383510440cd9a0cad",
+      "reason": "Three candidate renderer lanes launched with zero automated semantic errors and no support claim, but the required real human readability reviewer was absent."
+    },
+    {
+      "order": 6,
+      "proof_id": "PRD04-PROOF-54",
+      "title": "Server/Client Pack Split",
+      "run_id": "PRD07-RUN-0071",
+      "evidence_id": "PRD07-EVID-0071",
+      "result": "PASS-OBSERVED",
+      "evidence_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0071",
+      "standard_evidence_sha256": "f08d62fc2f6482ec285e8e70a3c58b1eb90a16878e8af36007b0f238ebfa81b2",
+      "reason": "All 12 logical packs retained equal client and server semantic identity, required server authority remained present and four presentation-only packs remained optional."
+    },
+    {
+      "order": 7,
+      "proof_id": "PRD04-PROOF-55",
+      "title": "Safe Mod Smuggling",
+      "run_id": "PRD07-RUN-0072",
+      "evidence_id": "PRD07-EVID-0072",
+      "result": "FAIL-OBSERVED",
+      "evidence_path": "docs/rebuild/r7/execution-evidence/PRD07-RUN-0072",
+      "standard_evidence_sha256": "341e70e3e6bf88e4cf893c36bb8ad506011905f22c51d05d3252fd7fda19509e",
+      "evidence_admission": "RETAINED-NOT-ADMISSIBLE-AS-CANDIDATE-FAILURE",
+      "reason": "The immutable raw pack reports six accepted unsafe attempts among 24 hostile rows. Independent reconciliation found the stated reason contradictory and the result affected by measurement-defect W4-MEASUREMENT-DEFECT-001."
+    },
+    {
+      "order": 8,
+      "proof_id": "PRD04-PROOF-56",
+      "title": "Data Mod Resource Bomb",
+      "run_id": null,
+      "evidence_id": null,
+      "result": "NOT-RUN",
+      "reason": "Fail-closed stop before entry."
+    },
+    {
+      "order": 9,
+      "proof_id": "PRD04-PROOF-57",
+      "title": "Missing Pack World Recovery",
+      "run_id": null,
+      "evidence_id": null,
+      "result": "NOT-RUN",
+      "reason": "Fail-closed stop before entry; zero of 312 FCC-13E rows observed."
+    },
+    {
+      "order": 10,
+      "proof_id": "PRD04-PROOF-58",
+      "title": "Pack Upgrade / World Migration",
+      "run_id": null,
+      "evidence_id": null,
+      "result": "NOT-RUN",
+      "reason": "Fail-closed stop before entry; zero of 312 FCC-13E rows observed."
+    },
+    {
+      "order": 11,
+      "proof_id": "PRD04-PROOF-59",
+      "title": "Settings Scope Isolation",
+      "run_id": null,
+      "evidence_id": null,
+      "result": "NOT-RUN",
+      "reason": "Fail-closed stop before entry."
+    },
+    {
+      "order": 12,
+      "proof_id": "PRD04-PROOF-60",
+      "title": "Safe Graphics Recovery",
+      "run_id": null,
+      "evidence_id": null,
+      "result": "NOT-RUN",
+      "reason": "Fail-closed stop before entry."
+    },
+    {
+      "order": 13,
+      "proof_id": "PRD04-PROOF-61",
+      "title": "Accessibility Semantic Torture",
+      "run_id": null,
+      "evidence_id": null,
+      "result": "NOT-RUN",
+      "reason": "Fail-closed stop before entry."
+    },
+    {
+      "order": 14,
+      "proof_id": "PRD04-PROOF-62",
+      "title": "Forge CI Build",
+      "run_id": null,
+      "evidence_id": null,
+      "result": "NOT-RUN",
+      "reason": "Fail-closed stop before entry."
+    },
+    {
+      "order": 15,
+      "proof_id": "PRD04-PROOF-71",
+      "title": "Renderer / Hardware Lane",
+      "run_id": null,
+      "evidence_id": null,
+      "result": "NOT-RUN",
+      "reason": "Fail-closed stop before entry."
+    }
+  ],
+  "result_counts": {
+    "PASS-OBSERVED": 3,
+    "INCONCLUSIVE": 3,
+    "FAIL-OBSERVED": 1,
+    "NOT-RUN": 8
+  },
+  "measurement_defect": {
+    "finding_id": "W4-MEASUREMENT-DEFECT-001",
+    "finding_class": "MEASUREMENT-DEFECT",
+    "proof_id": "PRD04-PROOF-55",
+    "original_observation_state": "FAIL-OBSERVED",
+    "original_observation_retained_immutable": true,
+    "canonical_failure_criterion_observed": false,
+    "canonical_inconclusive_condition_applies": true,
+    "root_cause": "The proof-only oracle lowercased a case-sensitive base64 token before decoding and used marker inspection rather than actual engine resource or capability resolution.",
+    "observed_hostile_rows": 24,
+    "observed_encoded_rows": 6,
+    "observed_accepted_encoded_rows": 6,
+    "observed_side_effects": {
+      "payload_executions": 0,
+      "filesystem_changes": 0,
+      "external_accesses": 0
+    },
+    "repair_state": "SOURCE-SAFEGUARD-IMPLEMENTED-NOT-RERUN",
+    "required_followup": "HARNESS-REPAIR-RECERTIFICATION-AND-FRESH-RERUN-AUTHORIZATION"
+  },
+  "fcc13e": {
+    "required_rows_per_proof": 312,
+    "sampling_or_waiver": false,
+    "coverage_claim": "NONE",
+    "PRD04-PROOF-57": {
+      "observed_rows": 0,
+      "state": "NOT-RUN-DUE-PRIOR-FAIL-CLOSED"
+    },
+    "PRD04-PROOF-58": {
+      "observed_rows": 0,
+      "state": "NOT-RUN-DUE-PRIOR-FAIL-CLOSED"
+    }
+  },
+  "fixtures_and_dependencies": {
+    "fixture_07": "FIXTURE-07-W4-R1",
+    "fixture_08": "FIXTURE-08-W4-R1",
+    "godot_driver_revision": "a9c94cd21fc1e95c56a17aca0b310c346e6c41fa",
+    "official_export_template": "4.8.dev4.official.b56a91878",
+    "voxel_tools_revision": "75d3c6d996ed2331c80edcd8c3ebc947afc0f041",
+    "local_patch_status": "NO-LOCAL-PATCH",
+    "artifact_sha256": "ddce502032c426f789e96b6b81d4e6f612acddea81c89e819e6568c246efa0ff",
+    "artifact_size_bytes": 110449984,
+    "build_identity": "c357f423ff4a06c9f755269ffcb957bd44dbb5d6a76df2d8624accf80cba035e"
+  },
+  "environment": {
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.9.5",
+    "cpu": "Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz",
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "driver": "32.0.16.1074",
+    "resolution": "1920x1080",
+    "renderer_smokes": [
+      "forward_plus/vulkan",
+      "mobile/vulkan",
+      "gl_compatibility/opengl3"
+    ],
+    "isolation": "CLEAN-EXPORT-IMPORT-ROOTS-AND-ISOLATED-APPDATA-LOCALAPPDATA"
+  },
+  "validation": {
+    "w4_stopped_reconciliation": "PASS-125-OF-125",
+    "w4_terminal_independent_audit": "PASS-193-OF-193",
+    "w4_stopped_boundary_audit": "PASS-86-OF-86",
+    "w3_reconciliation_and_runtime_regression": "PASS-46-OF-46",
+    "tool_regression": "PASS-120-OF-120",
+    "global_rebuild_boundary": "PASS-10079-OF-10079",
+    "clean_full_stable_validation": "PASS-18-OF-18-AT-4303d106f31380956a7544a3bdb3e66e59b3a39b",
+    "live_checkout_full_tier": "EXPECTED-FAIL-PROTECTED-EMPTY-INBOX-NOT-MODIFIED",
+    "remote_final_sha_ci": "PENDING-POST-PUBLICATION"
+  },
+  "protected_local_paths": {
+    "count": 9,
+    "status": "UNCHANGED-UNSTAGED-EXCLUDED-FROM-GOVERNED-PACKAGE"
+  },
+  "boundary": {
+    "w5": "CLOSED-NOT-READY",
+    "r7_final": "CLOSED",
+    "prd08_submission": "NOT-SUBMITTED",
+    "prd09": "CLOSED",
+    "r8": "CLOSED",
+    "gameplay_permission": "CLOSED",
+    "production_runtime": "ABSENT",
+    "production_dependency_activation": "INACTIVE",
+    "summer_custom_poc": "ARCHIVED-FROZEN-NOT-A-PRODUCTION-DEPENDENCY"
+  }
+}

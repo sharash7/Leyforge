@@ -6,11 +6,16 @@ title: "Project State"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-10"
+updated: "2026-09-11"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
 related_to:
+  - "WORK-20260910-002"
+  - "TASK-20260910-002"
+  - "EVID-0015"
+  - "AUDIT-0015"
+  - "HANDOFF-20260911-001"
   - "WORK-20260910-001"
   - "TASK-20260910-001"
   - "EVID-0014"
@@ -87,7 +92,7 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active — W4 readiness/admission certified; awaiting separate W4 execution authority | W0-W3 execution is certified; [[EVID-0014]] / [[AUDIT-0014]] certify 15 W4 proofs READY without execution or allocation |
+| R7 | Active — W4 execution incomplete after governed fail-closed stop; awaiting repair/recertification authority | W0-W3 execution is certified; [[EVID-0015]] / [[AUDIT-0015]] retain seven W4 observations through 0072 and certify programme-level FAIL |
 | R8 gameplay | Closed | No production gameplay permission is open |
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
@@ -110,6 +115,8 @@ The owner-authorized W3 execution rerun under [[TASK-20260909-001]] / [[WORK-202
 
 The owner-authorized rerun is complete under [[TASK-20260909-003]] / [[WORK-20260909-003]] and certified by [[EVID-0013]] / [[AUDIT-0013]]. Actual pairs 0059-0065 map in certified order to W3 proofs 27, 28, 08, 30, 29, 31 and 32; all seven are `PASS-OBSERVED`. Issued high-water is 0065, with 57 retained packs, quarantined 0051-0057 and invalidated 0058. Clean local validation and both exact-SHA workflows pass at terminal checkpoint `325fe1fe3bcbf9faa17684143421eef0fb1f8deb`.
 
-The owner-authorized W4 readiness/admission package is complete under [[TASK-20260910-001]] / [[WORK-20260910-001]] and certified by [[EVID-0014]] / [[AUDIT-0014]]. Exact proofs 49-62 and 71 are 15 READY / 0 BLOCKED / 0 NOT APPLICABLE; every observation is `NOT-EXECUTED`. FIXTURE-07/FIXTURE-08 revision `W4-R1` are deterministic non-production proof infrastructure. The FCC-13E expected ledger is exact 312/312, unsampled and unobserved. The 30-path W4 boundary and independent 132-check audit pass.
+The owner-authorized W4 readiness/admission package is complete under [[TASK-20260910-001]] / [[WORK-20260910-001]] and certified by [[EVID-0014]] / [[AUDIT-0014]]. Exact proofs 49-62 and 71 were admitted 15 READY / 0 BLOCKED / 0 NOT APPLICABLE. FIXTURE-07/FIXTURE-08 revision `W4-R1` remain deterministic non-production proof infrastructure. The FCC-13E expected ledger remains exact 312/312 and unsampled.
 
-[[HANDOFF-20260910-002]] is the active continuation boundary. R7 remains ACTIVE at `ACTIVE-AWAITING-W4-EXECUTION-AUTHORIZATION`. Durable high-water remains 0065 and all 0066-0080 identities are `PREVIEW-NOT-ALLOCATED`; W4 execution and allocation remain closed pending fresh owner authority. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, production dependencies remain inactive, PRD-08/09 remain closed and R8 remains closed.
+The separately owner-authorized W4 execution under cancelled [[TASK-20260910-002]] / [[WORK-20260910-002]] entered seven proofs and stopped fail-closed at proof 55. Retained pairs 0066–0072 contain three PASS, three INCONCLUSIVE and one raw FAIL. The raw proof-55 observation remains immutable but is not admissible as a candidate proof failure after independent `W4-MEASUREMENT-DEFECT-001` reconciliation. Eight proofs were not run; PROOF-57 and PROOF-58 each remain 0/312 observed with no coverage claim. Issued high-water is 0072 and 0073 is not allocated.
+
+[[HANDOFF-20260911-001]] is the active continuation boundary. R7 remains ACTIVE at `ACTIVE-W4-INCOMPLETE-AWAITING-REPAIR-RECERTIFICATION-AUTHORITY`. W4 rerun/allocation, W5 and FINAL remain closed. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, production dependencies remain inactive, PRD-08/09 remain closed and R8 remains closed.

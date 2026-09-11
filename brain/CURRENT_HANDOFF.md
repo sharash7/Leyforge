@@ -6,12 +6,17 @@ title: "Current Handoff"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-10"
+updated: "2026-09-11"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260910-002"
+current_handoff: "HANDOFF-20260911-001"
 related_to:
+  - "HANDOFF-20260911-001"
+  - "EVID-0015"
+  - "AUDIT-0015"
+  - "WORK-20260910-002"
+  - "TASK-20260910-002"
   - "HANDOFF-20260910-002"
   - "EVID-0014"
   - "AUDIT-0014"
@@ -53,8 +58,8 @@ related_to:
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260910-002]]. The owner-authorized `R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION` package is complete under [[TASK-20260910-001]] / [[WORK-20260910-001]] and certified by [[EVID-0014]] / [[AUDIT-0014]]. All 15 W4 proofs are READY; zero are BLOCKED or NOT APPLICABLE. FIXTURE-07 and FIXTURE-08 are READY, and the FCC-13E expected-input boundary covers exactly 312/312 rows. No proof observation occurred.
+The active formal handoff is [[HANDOFF-20260911-001]]. The owner-authorized `R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION` package stopped fail-closed under cancelled [[TASK-20260910-002]] / [[WORK-20260910-002]] and is certified by [[EVID-0015]] / [[AUDIT-0015]] as a controlled stop with programme result FAIL, not W4 success.
 
-The registry high-water remains 0065: 0001-0050 and 0059-0065 are retained standard evidence, 0051-0057 remain permanently quarantined/evidence-ineligible, and 0058 remains invalidated as `ABORTED-BEFORE-PROOF-OBSERVATION`. Preview pairs 0066-0080 are all `PREVIEW-NOT-ALLOCATED`; no 0066+ identity is allocated, reserved or burned.
+Exactly 0066–0072 were allocated and retained in order. Proofs 49, 52 and 54 are `PASS-OBSERVED`; proofs 50, 51 and 53 are `INCONCLUSIVE` for absent required human judgement; proof 55 retains raw `FAIL-OBSERVED` but is not admissible as a candidate proof failure after `W4-MEASUREMENT-DEFECT-001`. Proofs 56–62 and 71 are `NOT-RUN`. PROOF-57 and PROOF-58 each have 0/312 FCC-13E rows observed and no coverage claim.
 
-R7 remains ACTIVE at `ACTIVE-AWAITING-W4-EXECUTION-AUTHORIZATION`. The next optional governed action requires fresh owner authority for the bounded `R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION` package. W4 execution/allocation, W5, FINAL, R7 closure, PRD-08/09, R8 gameplay and production remain closed.
+The issued high-water is 0072; `0073-NOT-ALLOCATED` has no certified proof mapping. R7 remains ACTIVE at `ACTIVE-W4-INCOMPLETE-AWAITING-REPAIR-RECERTIFICATION-AUTHORITY`. The next optional governed action requires fresh owner authority for `R7-W4-MEASUREMENT-HARNESS-REPAIR-RECERTIFICATION-AND-RERUN-READINESS`. It may not run a proof or allocate 0073. W5, FINAL, R7 closure, PRD-08/09, R8, gameplay and production remain closed.
