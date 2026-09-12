@@ -11,6 +11,16 @@ import tempfile
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
+if str(root) not in sys.path:
+    sys.path.insert(0, str(root))
+
+from tools.r7_w4_repair.admission import (
+    MANIFEST_PATH as W4_REPAIR_ADMISSION_PATH,
+    STOPPED_SUPERSEDED_PATHS as W4_REPAIR_STOPPED_SUPERSEDED_PATHS,
+    admitted_paths as w4_repair_admitted_paths,
+    manifest_issues as w4_repair_manifest_issues,
+)
+
 manifest = json.loads((root / 'docs/rebuild/r3/baseline-manifest.json').read_text(encoding='utf-8'))
 failures = []
 checks = 0
@@ -887,6 +897,17 @@ w4_manifest = json.loads(w4_manifest_path.read_text(encoding='utf-8')) if w4_man
 w4_source_boundary_path = root / 'docs/rebuild/r7/w4-governed-execution-source-boundary.json'
 w4_source_boundary = json.loads(w4_source_boundary_path.read_text(encoding='utf-8')) if w4_source_boundary_path.is_file() else {}
 w4_source_active = bool(w4_source_boundary)
+w4_repair_admission = json.loads(W4_REPAIR_ADMISSION_PATH.read_text(encoding='utf-8')) if W4_REPAIR_ADMISSION_PATH.is_file() else {}
+w4_repair_head = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=root, text=True, capture_output=True)
+w4_repair_issues = (
+    w4_repair_manifest_issues(w4_repair_admission, w4_repair_head.stdout.strip())
+    if W4_REPAIR_ADMISSION_PATH.is_file() and w4_repair_head.returncode == 0
+    else ('R7 W4 repair admission boundary is missing or HEAD cannot be resolved',)
+)
+for issue in w4_repair_issues:
+    check(False, 'R7 W4 repair admission: ' + str(issue))
+w4_repair_paths = set(w4_repair_admitted_paths(w4_repair_admission)) if not w4_repair_issues else set()
+w4_repair_stopped_superseded = set(W4_REPAIR_STOPPED_SUPERSEDED_PATHS) if not w4_repair_issues else set()
 check(w4_manifest.get('schema_version') == 'prd07-w4-readiness-admission-boundary-v1', 'R7 W4 readiness/admission boundary is missing or unsupported')
 check(w4_manifest.get('manifest_version') == 1, 'R7 W4 readiness/admission manifest version differs')
 check(w4_manifest.get('package') == 'R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-READINESS-AND-ADMISSION', 'R7 W4 package identity changed')
@@ -1021,13 +1042,20 @@ if w4_state_path.is_file():
         candidate = root / rel
         check(candidate.is_file(), 'R7 W4 stopped lifecycle path is missing: ' + rel)
         check(candidate.suffix.lower() not in {'.exe','.dll','.pck','.res','.tres'}, 'Binary/production resource admitted through R7 W4 stopped lifecycle: ' + rel)
-        current_blob = subprocess.run(['git','hash-object','--',rel], cwd=root, text=True, capture_output=True)
+        historical_blob = str(artifact.get('git_blob', ''))
+        historical_data = subprocess.run(['git','cat-file','blob',historical_blob], cwd=root, capture_output=True)
         validation_blob = subprocess.run(['git','rev-parse',lifecycle_validation_commit + ':' + rel], cwd=root, text=True, capture_output=True) if lifecycle_ancestry is not None else None
-        canonical_data = candidate.read_bytes().replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10])) if candidate.is_file() else b''
-        check(current_blob.returncode == 0 and validation_blob is not None and validation_blob.returncode == 0, 'R7 W4 stopped lifecycle Git lookup failed: ' + rel)
-        check(current_blob.stdout.strip() == artifact.get('git_blob') == (validation_blob.stdout.strip() if validation_blob is not None else ''), 'R7 W4 stopped lifecycle Git identity differs: ' + rel)
-        check(len(canonical_data) == artifact.get('bytes'), 'R7 W4 stopped lifecycle canonical size differs: ' + rel)
-        check(hashlib.sha256(canonical_data).hexdigest() == artifact.get('sha256'), 'R7 W4 stopped lifecycle canonical SHA-256 differs: ' + rel)
+        canonical_historical = historical_data.stdout.replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10])) if historical_data.returncode == 0 else b''
+        check(historical_data.returncode == 0 and validation_blob is not None and validation_blob.returncode == 0, 'R7 W4 stopped lifecycle historical Git lookup failed: ' + rel)
+        check(historical_blob == (validation_blob.stdout.strip() if validation_blob is not None else ''), 'R7 W4 stopped lifecycle historical Git identity differs: ' + rel)
+        check(len(canonical_historical) == artifact.get('bytes'), 'R7 W4 stopped lifecycle historical canonical size differs: ' + rel)
+        check(hashlib.sha256(canonical_historical).hexdigest() == artifact.get('sha256'), 'R7 W4 stopped lifecycle historical canonical SHA-256 differs: ' + rel)
+        if rel not in w4_repair_stopped_superseded:
+            current_blob = subprocess.run(['git','hash-object','--',rel], cwd=root, text=True, capture_output=True)
+            canonical_current = candidate.read_bytes().replace(bytes([13,10]),bytes([10])).replace(bytes([13]),bytes([10])) if candidate.is_file() else b''
+            check(current_blob.returncode == 0 and current_blob.stdout.strip() == historical_blob, 'R7 W4 stopped lifecycle current Git identity differs: ' + rel)
+            check(len(canonical_current) == artifact.get('bytes'), 'R7 W4 stopped lifecycle current canonical size differs: ' + rel)
+            check(hashlib.sha256(canonical_current).hexdigest() == artifact.get('sha256'), 'R7 W4 stopped lifecycle current canonical SHA-256 differs: ' + rel)
 if w4_source_active:
     check(w4_source_boundary.get('schema_version') == 'prd07-w4-governed-execution-source-boundary-v1', 'R7 W4 execution source boundary is unsupported')
     check(w4_source_boundary.get('manifest_version') == 1, 'R7 W4 execution source-boundary version differs')
@@ -1139,6 +1167,8 @@ else:
         w4_verify_report = {}
     check(w4_verify.returncode == 0 and w4_verify_report.get('status') == 'PASS', 'R7 W4 canonical readiness/admission verification failed: ' + (w4_verify.stderr.strip() or '; '.join(w4_verify_report.get('issues', []))))
 
+w4_admitted_paths.update(w4_repair_paths)
+
 baseline_docs = manifest['source_document_blobs']
 intake_docs = {}
 intake_manifests = []
@@ -1213,5 +1243,5 @@ check(not (root/'project.godot').exists(), 'Unexpected Godot runtime entry point
 for name in ['addons','assets','content','data','generated','scripts','development','.profiles','.tmp']:
     check(not (root/name).exists(), 'Retired root remains: '+name)
 check((root/'tools/verify_rebuild_boundary.py').is_file(), 'Controlled validator missing')
-print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,r7_w3_manifest=w3_manifest_path.relative_to(root).as_posix(),r7_w3_paths=len(w3_admitted_paths),r7_w3_proof_run_ids=w3_run_ids,r7_w3_proof_evidence_ids=w3_evidence_ids,r7_w4_manifest=w4_manifest_path.relative_to(root).as_posix(),r7_w4_source_boundary=w4_source_boundary_path.relative_to(root).as_posix() if w4_source_active else None,r7_w4_paths=len(w4_admitted_paths),r7_w4_proof_run_ids=w4_report_run_ids,r7_w4_proof_evidence_ids=w4_report_evidence_ids,r7_w4_identity_previews=w4_previews if not w4_state_path.is_file() else [],active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
+print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,r7_w3_manifest=w3_manifest_path.relative_to(root).as_posix(),r7_w3_paths=len(w3_admitted_paths),r7_w3_proof_run_ids=w3_run_ids,r7_w3_proof_evidence_ids=w3_evidence_ids,r7_w4_manifest=w4_manifest_path.relative_to(root).as_posix(),r7_w4_source_boundary=w4_source_boundary_path.relative_to(root).as_posix() if w4_source_active else None,r7_w4_repair_admission=W4_REPAIR_ADMISSION_PATH.relative_to(root).as_posix(),r7_w4_repair_paths=len(w4_repair_paths),r7_w4_paths=len(w4_admitted_paths),r7_w4_proof_run_ids=w4_report_run_ids,r7_w4_proof_evidence_ids=w4_report_evidence_ids,r7_w4_identity_previews=w4_previews if not w4_state_path.is_file() else [],active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
 sys.exit(1 if failures else 0)

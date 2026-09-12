@@ -16,6 +16,11 @@ from tools.r7_w4_runtime.authority import W4_PROOF_IDS
 from tools.r7_w4_runtime.dependencies import local_dependency_report
 from tools.r7_w4_runtime.fixtures import fixture_issues
 from tools.r7_w4_runtime.readiness import READINESS_PATH, readiness_report
+from tools.r7_w4_repair.admission import (
+    MANIFEST_PATH as REPAIR_ADMISSION_PATH,
+    STOPPED_SUPERSEDED_PATHS,
+    manifest_issues as repair_admission_issues,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -287,14 +292,14 @@ def _artifact_record_issues(
 
 
 def stopped_lifecycle_issues(source_revision: str) -> Tuple[str, ...]:
-    """Validate the current source that supersedes the historical run source.
-
-    Historical execution files may differ only when this separately committed
-    boundary hash-pins the current lifecycle validators and reconciliation.
-    """
+    """Validate the stopped timepoint and exact post-stop repair admission."""
     issues: List[str] = []
     if not STOPPED_BOUNDARY_PATH.is_file() or not STOPPED_RECONCILIATION_PATH.is_file():
         return ("W4 stopped lifecycle boundary/reconciliation is missing",)
+    repair_admission = load_json(REPAIR_ADMISSION_PATH) if REPAIR_ADMISSION_PATH.is_file() else {}
+    repair_issues = repair_admission_issues(repair_admission, source_revision)
+    issues.extend(repair_issues)
+    superseded_paths = set(STOPPED_SUPERSEDED_PATHS) if not repair_issues else set()
     boundary = load_json(STOPPED_BOUNDARY_PATH)
     if (
         boundary.get("schema_version") != "prd07-w4-stopped-execution-boundary-v1"
@@ -314,7 +319,14 @@ def stopped_lifecycle_issues(source_revision: str) -> Tuple[str, ...]:
         issues.append("W4 stopped lifecycle artifact set differs")
     else:
         for row in records:
-            issues.extend(_artifact_record_issues(row, require_current=True, required_revision=validation_commit))
+            relative = str(row.get("path", ""))
+            issues.extend(
+                _artifact_record_issues(
+                    row,
+                    require_current=relative not in superseded_paths,
+                    required_revision=validation_commit,
+                )
+            )
     reconciliation = boundary.get("reconciliation", {})
     if (
         not isinstance(reconciliation, dict)

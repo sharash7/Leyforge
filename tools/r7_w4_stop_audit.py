@@ -23,6 +23,11 @@ if str(ROOT) not in sys.path:
 
 from tools.r7_w4_execution.contracts import PROTECTED_LOCAL_PATHS
 from tools.r7_w4_execution.execution import RECONCILIATION_PATH, reconcile_w4
+from tools.r7_w4_repair.admission import (
+    MANIFEST_PATH as REPAIR_ADMISSION,
+    STOPPED_SUPERSEDED_PATHS,
+    manifest_issues as repair_admission_issues,
+)
 
 
 BOUNDARY = ROOT / "docs/rebuild/r7/w4-stopped-execution-boundary.json"
@@ -210,6 +215,11 @@ def audit(source_revision: str, *, check_protected: bool) -> Dict[str, Any]:
         return {"status": "FAIL", "checks": audit.checks, "failures": audit.failures}
 
     boundary = _load(BOUNDARY)
+    repair_admission = _load(REPAIR_ADMISSION) if REPAIR_ADMISSION.is_file() else {}
+    repair_failures = repair_admission_issues(repair_admission, source_revision)
+    for failure in repair_failures:
+        audit.check(False, "repair admission: " + failure)
+    superseded_paths = set(STOPPED_SUPERSEDED_PATHS) if not repair_failures else set()
     reconciliation = reconcile_w4(check_local=False)
     stored_reconciliation = _load(RECONCILIATION_PATH)
     audit.check(reconciliation.get("status") == "PASS", "dynamic stopped reconciliation failed")
@@ -242,10 +252,14 @@ def audit(source_revision: str, *, check_protected: bool) -> Dict[str, Any]:
         audit.check(candidate.is_file(), "stopped-boundary artifact is missing: " + relative)
         if not candidate.is_file():
             continue
-        data = _canonical_file(candidate)
-        audit.check(len(data) == row.get("bytes") and hashlib.sha256(data).hexdigest() == row.get("sha256"), "stopped-boundary current content differs: " + relative)
         try:
-            audit.check(_git("hash-object", "--", relative) == row.get("git_blob") == _git("rev-parse", validation_commit + ":" + relative), "stopped-boundary Git identity differs: " + relative)
+            historical = _blob_bytes(str(row.get("git_blob", ""))).replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+            audit.check(len(historical) == row.get("bytes") and hashlib.sha256(historical).hexdigest() == row.get("sha256"), "stopped-boundary historical content differs: " + relative)
+            audit.check(row.get("git_blob") == _git("rev-parse", validation_commit + ":" + relative), "stopped-boundary historical Git identity differs: " + relative)
+            if relative not in superseded_paths:
+                current = _canonical_file(candidate)
+                audit.check(len(current) == row.get("bytes") and hashlib.sha256(current).hexdigest() == row.get("sha256"), "stopped-boundary current content differs: " + relative)
+                audit.check(_git("hash-object", "--", relative) == row.get("git_blob"), "stopped-boundary current Git identity differs: " + relative)
         except RuntimeError:
             audit.check(False, "stopped-boundary Git identity cannot be resolved: " + relative)
 
