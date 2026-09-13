@@ -5,12 +5,25 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import sys
 from pathlib import Path
 from typing import Any, Dict, Mapping, Sequence
 
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools.r7_w3_runtime.execution_plan import inspect_execution_registry
+from tools.r7_w4_repair.integration_admission import (
+    MANIFEST_PATH as INTEGRATION_REPAIR_ADMISSION_PATH,
+    MODE_ENV as INTEGRATION_ADMISSION_MODE_ENV,
+    ORCHESTRATION_MODES as INTEGRATION_ADMISSION_MODES,
+    manifest_issues as integration_repair_admission_issues,
+)
+
+
 RECERTIFICATION_PATH = ROOT / "docs/rebuild/r7/w4-measurement-recertification.json"
 READINESS_PATH = ROOT / "docs/rebuild/r7/w4-rerun-readiness.json"
 
@@ -50,8 +63,93 @@ class Audit:
             self.failures.append(message)
 
 
-def audit_values(recertification: Mapping[str, Any], readiness: Mapping[str, Any], root: Path = ROOT) -> Dict[str, Any]:
+def execution_state_identity_issues(state: Mapping[str, Any], root: Path = ROOT) -> Sequence[str]:
+    """Derive issued W4 identity facts from state, packs, and the global registry."""
+    issues = []
+    run_pattern = re.compile(r"PRD07-RUN-(\d{4})")
+    evidence_pattern = re.compile(r"PRD07-EVID-(\d{4})")
+    runs = state.get("allocated_run_ids")
+    evidence = state.get("allocated_evidence_ids")
+    history = state.get("allocation_history")
+    if not isinstance(runs, list) or not isinstance(evidence, list) or not isinstance(history, list):
+        return ["canonical stopped state allocation arrays/history are malformed"]
+    if len(runs) != len(set(runs)) or len(evidence) != len(set(evidence)):
+        issues.append("canonical stopped state duplicates an allocated identity")
+    run_numbers = [int(match.group(1)) for value in runs if isinstance(value, str) and (match := run_pattern.fullmatch(value))]
+    evidence_numbers = [int(match.group(1)) for value in evidence if isinstance(value, str) and (match := evidence_pattern.fullmatch(value))]
+    if len(run_numbers) != len(runs) or len(evidence_numbers) != len(evidence):
+        issues.append("canonical stopped state contains a malformed allocated identity")
+    if run_numbers != list(range(66, 73)) or evidence_numbers != list(range(66, 73)):
+        issues.append("canonical stopped W4 allocated arrays are not exactly the issued 0066-0072 prefix")
+    history_runs = [row.get("run_id") for row in history if isinstance(row, Mapping)]
+    history_evidence = [row.get("evidence_id") for row in history if isinstance(row, Mapping)]
+    if len(history_runs) != len(history) or history_runs != runs or history_evidence != evidence:
+        issues.append("canonical stopped state allocation arrays disagree with allocation history")
+    if any(number >= 73 for number in run_numbers + evidence_numbers):
+        issues.append("canonical stopped state contains a false 0073+ allocation")
+
+    proof_rows = state.get("proofs")
+    if not isinstance(proof_rows, list):
+        issues.append("canonical stopped state proof rows are malformed")
+    else:
+        issued_proofs = [row for row in proof_rows if isinstance(row, Mapping) and row.get("run_id")]
+        if [row.get("run_id") for row in issued_proofs] != runs or [row.get("evidence_id") for row in issued_proofs] != evidence:
+            issues.append("canonical stopped state proof rows disagree with allocated arrays")
+
+    evidence_root = root / "docs/rebuild/r7/execution-evidence"
+    suffix = []
+    for path in evidence_root.glob("PRD07-RUN-*"):
+        match = run_pattern.fullmatch(path.name)
+        if path.is_dir() and match and int(match.group(1)) >= 73:
+            suffix.append(path.name)
+    if suffix:
+        issues.append("0073+ execution-evidence directories exist: " + ", ".join(sorted(suffix)))
+
+    try:
+        registry = inspect_execution_registry(root)
+        if registry.max_run_number != 72 or registry.max_evidence_number != 72:
+            issues.append("global execution registry high-water is not RUN/EVID 0072")
+        if tuple(runs) != tuple(value for value in registry.run_ids if int(value.rsplit("-", 1)[1]) >= 66):
+            issues.append("W4 allocated run array disagrees with the global registry")
+        if tuple(evidence) != tuple(value for value in registry.evidence_ids if int(value.rsplit("-", 1)[1]) >= 66):
+            issues.append("W4 allocated evidence array disagrees with the global registry")
+        for row in history:
+            if not isinstance(row, Mapping):
+                continue
+            expected = registry.mappings.get(str(row.get("run_id")))
+            if expected != (str(row.get("proof_id")), str(row.get("evidence_id"))):
+                issues.append("state/registry proof identity mapping disagrees: " + str(row.get("run_id")))
+    except Exception as exc:
+        issues.append("global execution registry is ambiguous: " + str(exc))
+
+    readiness_relative = state.get("prior_readiness_source")
+    if isinstance(readiness_relative, str) and readiness_relative:
+        readiness_path = root / readiness_relative
+        try:
+            prior = json.loads(readiness_path.read_text(encoding="utf-8-sig"))
+            if prior.get("allocated_run_ids") != [] or prior.get("allocated_evidence_ids") != []:
+                issues.append("historical readiness represents preview labels as allocated identities")
+            for row in prior.get("proofs", []):
+                preview = row.get("future_identity_preview") if isinstance(row, Mapping) else None
+                if isinstance(preview, Mapping) and preview.get("identity_state") != "PREVIEW-NOT-ALLOCATED":
+                    issues.append("historical readiness identity label is not preview-only")
+        except (OSError, json.JSONDecodeError) as exc:
+            issues.append("historical readiness preview source cannot be validated: " + str(exc))
+    return tuple(sorted(set(issues)))
+
+
+def audit_values(
+    recertification: Mapping[str, Any],
+    readiness: Mapping[str, Any],
+    root: Path = ROOT,
+    *,
+    integration_admission_mode: str = "preparation",
+) -> Dict[str, Any]:
     audit = Audit()
+    if root.resolve() == ROOT.resolve():
+        integration = json.loads(INTEGRATION_REPAIR_ADMISSION_PATH.read_text(encoding="utf-8-sig")) if INTEGRATION_REPAIR_ADMISSION_PATH.is_file() else {}
+        integration_issues = integration_repair_admission_issues(integration, mode=integration_admission_mode) if integration else ("integration repair admission is missing",)
+        audit.check(not integration_issues, "integration repair admission failed: " + "; ".join(integration_issues))
     audit.check(recertification.get("schema_version") == "prd07-w4-measurement-recertification-v1", "recertification schema differs")
     audit.check(recertification.get("state") == "PASS", "recertification is not PASS")
     audit.check(recertification.get("scope") == "HARNESS-RECERTIFICATION-NOT-PROOF-OBSERVATION", "recertification scope differs")
@@ -126,24 +224,31 @@ def audit_values(recertification: Mapping[str, Any], readiness: Mapping[str, Any
         fcc = readiness.get("fcc13e", {}).get(proof_id, {})
         audit.check(fcc.get("observed_rows") == 0 and fcc.get("future_requirement") == "312/312-REQUIRED-NO-SAMPLING-NO-WAIVER", proof_id + " FCC-13E boundary differs")
 
-    evidence_root = root / "docs/rebuild/r7/execution-evidence"
-    allocated_suffix = [path.name for path in evidence_root.glob("PRD07-RUN-*") if path.is_dir() and int(path.name.rsplit("-", 1)[-1]) >= 73]
-    audit.check(allocated_suffix == [], "0073+ execution-evidence directories exist")
     state = json.loads((root / "docs/rebuild/r7/w4-execution-state.json").read_text(encoding="utf-8-sig"))
-    audit.check(state.get("next_possible_identity") == "0073-NOT-ALLOCATED", "canonical stopped state no longer says 0073 is unallocated")
-    audit.check(state.get("issued_high_water") == 72, "canonical stopped high-water differs")
-    return {"status": "PASS" if not audit.failures else "FAIL", "checks": audit.checks, "failures": audit.failures}
+    identity_issues = execution_state_identity_issues(state, root)
+    audit.check(not identity_issues, "canonical stopped identity derivation failed: " + "; ".join(identity_issues))
+    return {
+        "status": "PASS" if not audit.failures else "FAIL",
+        "checks": audit.checks,
+        "integration_admission_mode": integration_admission_mode,
+        "failures": audit.failures,
+    }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Audit W4 repair/recertification readiness")
     parser.add_argument("--recertification", default=str(RECERTIFICATION_PATH))
     parser.add_argument("--readiness", default=str(READINESS_PATH))
+    parser.add_argument(
+        "--integration-admission-mode",
+        choices=INTEGRATION_ADMISSION_MODES,
+        default=os.environ.get(INTEGRATION_ADMISSION_MODE_ENV, "auto"),
+    )
     parser.add_argument("--format", choices=("text", "json"), default="text")
     args = parser.parse_args()
     recertification = json.loads(Path(args.recertification).read_text(encoding="utf-8-sig"))
     readiness = json.loads(Path(args.readiness).read_text(encoding="utf-8-sig"))
-    report = audit_values(recertification, readiness)
+    report = audit_values(recertification, readiness, integration_admission_mode=args.integration_admission_mode)
     if args.format == "json":
         print(json.dumps(report, indent=2))
     else:

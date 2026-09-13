@@ -168,13 +168,43 @@ def evidence_issues(value: Mapping[str, Any]) -> Tuple[str, ...]:
             issues.append("standard evidence human judgement section is incomplete")
         if human.get("required") is not human_required:
             issues.append("standard evidence human judgement requirement differs from certified readiness")
+        review_state = human.get("review_state")
+        if review_state is not None:
+            required_ingestion_fields = {
+                "review_state", "validated_judgement", "review_record_identity",
+                "review_record", "validation_issues",
+            }
+            if not required_ingestion_fields.issubset(human):
+                issues.append("standard evidence governed human-review ingestion record is incomplete")
+            if review_state == "ACCEPTED-PRODUCTION-HUMAN":
+                from tools.r7_w4_repair.human_review import review_issues
+
+                review = human.get("review_record")
+                if not isinstance(review, dict):
+                    issues.append("accepted human review lacks its structured retained record")
+                else:
+                    issues.extend("accepted human review: " + issue for issue in review_issues(review))
+                    binding = review.get("identity_binding", {})
+                    if not isinstance(binding, dict) or binding.get("source_revision") != source_revision:
+                        issues.append("accepted human review source binding differs from standard evidence")
+                    if isinstance(environment, dict) and binding.get("build_identity") != environment.get("artifact_identity"):
+                        issues.append("accepted human review build binding differs from standard evidence")
+                    if human.get("validated_judgement") != review.get("judgement"):
+                        issues.append("accepted human review disposition differs from its retained record")
+                if human.get("validation_issues") != []:
+                    issues.append("accepted human review retains validation failures")
+                record_identity = human.get("review_record_identity")
+                if not isinstance(record_identity, dict) or re.fullmatch(r"[0-9a-f]{64}", str(record_identity.get("sha256", ""))) is None:
+                    issues.append("accepted human review record identity is invalid")
     if human_required and outcome == "PASS-OBSERVED" and (
         not isinstance(human, dict)
+        or human.get("review_state") != "ACCEPTED-PRODUCTION-HUMAN"
+        or human.get("validated_judgement") != "PASS-OBSERVED"
         or not human.get("observer_ids")
         or not human.get("task_scores")
         or not human.get("capture_refs")
     ):
-        issues.append("PASS-OBSERVED is not allowed without a complete human reviewer record")
+        issues.append("PASS-OBSERVED is not allowed without an accepted exact-bound production-human review")
     lifecycle = value.get("lifecycle", {})
     expected_lifecycle = {"allocated_before_execution": True, "identity_retained": True, "registry_reconciled": True, "prd07_evidence_eligible": True, "prd08_submission": "NOT-SUBMITTED", "gameplay_permission": "CLOSED", "production_runtime": "ABSENT"}
     if not isinstance(lifecycle, dict) or any(lifecycle.get(key) != expected for key, expected in expected_lifecycle.items()):

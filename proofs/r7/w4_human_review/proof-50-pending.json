@@ -1,15 +1,359 @@
 {
-  "asset_class": null,
+  "asset_class_identity": "a696f59f65dc53920e29e90013514bc4ce2cd18df47d82fd7b2ac731b697934e",
+  "asset_class_reviews": [
+    {
+      "asset_class": "audio-cue",
+      "criteria": [
+        {
+          "criterion_id": "HANDOFF-EDITABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
+        },
+        {
+          "criterion_id": "RUNTIME-SEMANTICS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
+        },
+        {
+          "criterion_id": "PROVENANCE-BINDING",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are source provenance and canonical binding understandable and traceable?"
+        },
+        {
+          "criterion_id": "DEFECT-AMBIGUITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "judgement": "PENDING",
+      "source_ids": [
+        "W4-SRC-011"
+      ]
+    },
+    {
+      "asset_class": "block-material",
+      "criteria": [
+        {
+          "criterion_id": "HANDOFF-EDITABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
+        },
+        {
+          "criterion_id": "RUNTIME-SEMANTICS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
+        },
+        {
+          "criterion_id": "PROVENANCE-BINDING",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are source provenance and canonical binding understandable and traceable?"
+        },
+        {
+          "criterion_id": "DEFECT-AMBIGUITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "judgement": "PENDING",
+      "source_ids": [
+        "W4-SRC-001-AI",
+        "W4-SRC-002-HUMAN"
+      ]
+    },
+    {
+      "asset_class": "character-creature-animation",
+      "criteria": [
+        {
+          "criterion_id": "HANDOFF-EDITABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
+        },
+        {
+          "criterion_id": "RUNTIME-SEMANTICS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
+        },
+        {
+          "criterion_id": "PROVENANCE-BINDING",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are source provenance and canonical binding understandable and traceable?"
+        },
+        {
+          "criterion_id": "DEFECT-AMBIGUITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "judgement": "PENDING",
+      "source_ids": [
+        "W4-SRC-005-AI",
+        "W4-SRC-006-HUMAN"
+      ]
+    },
+    {
+      "asset_class": "item-machine-structure",
+      "criteria": [
+        {
+          "criterion_id": "HANDOFF-EDITABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
+        },
+        {
+          "criterion_id": "RUNTIME-SEMANTICS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
+        },
+        {
+          "criterion_id": "PROVENANCE-BINDING",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are source provenance and canonical binding understandable and traceable?"
+        },
+        {
+          "criterion_id": "DEFECT-AMBIGUITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "judgement": "PENDING",
+      "source_ids": [
+        "W4-SRC-003-AI",
+        "W4-SRC-004-HUMAN"
+      ]
+    },
+    {
+      "asset_class": "item-tool-form",
+      "criteria": [
+        {
+          "criterion_id": "HANDOFF-EDITABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
+        },
+        {
+          "criterion_id": "RUNTIME-SEMANTICS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
+        },
+        {
+          "criterion_id": "PROVENANCE-BINDING",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are source provenance and canonical binding understandable and traceable?"
+        },
+        {
+          "criterion_id": "DEFECT-AMBIGUITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "judgement": "PENDING",
+      "source_ids": [
+        "W4-SRC-012"
+      ]
+    },
+    {
+      "asset_class": "ui-icon-cartography",
+      "criteria": [
+        {
+          "criterion_id": "HANDOFF-EDITABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
+        },
+        {
+          "criterion_id": "RUNTIME-SEMANTICS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
+        },
+        {
+          "criterion_id": "PROVENANCE-BINDING",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are source provenance and canonical binding understandable and traceable?"
+        },
+        {
+          "criterion_id": "DEFECT-AMBIGUITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "judgement": "PENDING",
+      "source_ids": [
+        "W4-SRC-007-AI",
+        "W4-SRC-008-HUMAN"
+      ]
+    },
+    {
+      "asset_class": "vessel-part",
+      "criteria": [
+        {
+          "criterion_id": "HANDOFF-EDITABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
+        },
+        {
+          "criterion_id": "RUNTIME-SEMANTICS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
+        },
+        {
+          "criterion_id": "PROVENANCE-BINDING",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are source provenance and canonical binding understandable and traceable?"
+        },
+        {
+          "criterion_id": "DEFECT-AMBIGUITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "judgement": "PENDING",
+      "source_ids": [
+        "W4-SRC-009"
+      ]
+    },
+    {
+      "asset_class": "vfx-magic-weather",
+      "criteria": [
+        {
+          "criterion_id": "HANDOFF-EDITABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
+        },
+        {
+          "criterion_id": "RUNTIME-SEMANTICS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
+        },
+        {
+          "criterion_id": "PROVENANCE-BINDING",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are source provenance and canonical binding understandable and traceable?"
+        },
+        {
+          "criterion_id": "DEFECT-AMBIGUITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "judgement": "PENDING",
+      "source_ids": [
+        "W4-SRC-010"
+      ]
+    }
+  ],
   "attestation": {
+    "signature_state": "UNSIGNED",
     "signed_at_utc": null,
     "signed_by": null,
-    "statement": "I performed the recorded human review against the bound sources, build, fixtures, criteria, and evidence."
+    "statement": "I performed the recorded human review against the bound sources, build, fixtures, environment, criteria, and evidence."
   },
   "criteria": [
     {
       "criterion_id": "HANDOFF-EDITABILITY",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Can the governed editable source be continued without an undocumented manual exception?"
     },
@@ -17,6 +361,7 @@
       "criterion_id": "RUNTIME-SEMANTICS",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Does the baked artifact communicate the intended semantic role in the runtime capture?"
     },
@@ -24,6 +369,7 @@
       "criterion_id": "PROVENANCE-BINDING",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Are source provenance and canonical binding understandable and traceable?"
     },
@@ -31,6 +377,7 @@
       "criterion_id": "DEFECT-AMBIGUITY",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Are visible defects, ambiguities, or handoff blockers completely recorded?"
     }
@@ -38,21 +385,56 @@
   "evidence_references": [],
   "identity_allocation_started": false,
   "identity_binding": {
+    "artifact_sha256": null,
     "build_identity": null,
-    "fixture_identities": [],
+    "environment_identity": null,
+    "fixture_identities": {
+      "paths": [
+        "proofs/r7/w4/fixture-07/manifest.json",
+        "proofs/r7/w4/fixture-07/source-packages.json",
+        "proofs/r7/w4/fixture-07/trust-and-scale-cases.json",
+        "proofs/r7/w4/fixture-07/migration-worlds.json",
+        "proofs/r7/w4/fixture-07/fcc13e-expected.json",
+        "proofs/r7/w4/fixture-08/manifest.json",
+        "proofs/r7/w4/fixture-08/presentation-cases.json",
+        "proofs/r7/w4/presentation_probe/project.godot"
+      ],
+      "sha256": [
+        "47fdb1ad40a8161c03dbdd1fac06201cb914c6385c4673cd32f7e7e27f7f9343",
+        "b4e1cbf2ec4487a6329e66dbffd2a9bf5ca1c59ec5c93519dbd5fdecfdb4703d",
+        "0260bcb728e7bffe326e2a611bcb64771b8ecd7fddebbf70f520c4d3f4e7dc4f",
+        "02ed7ee3607f73a3b9472f35da37848271e82915095ae6a775df5c97461bb637",
+        "589bd39bacf684e6448bfffb63703de2e41e8d2da7f3011e26bec62d24f8fc73",
+        "dda589cf6b9a7b91364f576156c332181ee6fb415961f22f3364888ec7dbb3f1",
+        "f8753fa7bb4357c555c51dbe1d645d33565a377d2e9fe065a8c03f9e731a093d",
+        "42fd15dd0f3438f93fac3fbb22cfb7665a8c04ab08dc7774ca2b236c798e8121"
+      ]
+    },
     "source_revision": null
   },
   "judgement": "PENDING",
   "overall_defects_or_ambiguities": [],
   "proof_id": "PRD04-PROOF-50",
   "proof_observation_created": false,
+  "required_asset_classes": [
+    "audio-cue",
+    "block-material",
+    "character-creature-animation",
+    "item-machine-structure",
+    "item-tool-form",
+    "ui-icon-cartography",
+    "vessel-part",
+    "vfx-magic-weather"
+  ],
   "review_lifecycle_id": null,
+  "review_purpose": "UNASSIGNED",
   "reviewer": {
     "independence_declaration": null,
     "pseudonymous_reviewer_id": null,
+    "reviewer_kind": null,
     "role_id": null,
     "unnecessary_personal_data": "NOT-COLLECTED"
   },
-  "schema_version": "prd07-w4-human-review-v1",
+  "schema_version": "prd07-w4-human-review-v2",
   "status": "PENDING-HUMAN-REVIEW"
 }

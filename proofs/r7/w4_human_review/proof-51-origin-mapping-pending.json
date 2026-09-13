@@ -1,26 +1,38 @@
 {
-  "schema_version": "prd07-w4-proof-51-origin-mapping-v1",
-  "status": "PENDING-SEPARATE-ADJUDICATION",
-  "reviewer_visible": false,
-  "review_record_reference": null,
-  "identity_binding": {
-    "source_revision": null,
-    "build_identity": null,
-    "fixture_identities": []
-  },
-  "masked_source_mapping": {
-    "SOURCE-A": null,
-    "SOURCE-B": null
-  },
   "adjudicator": {
     "pseudonymous_adjudicator_id": null,
     "role_id": null,
-    "unnecessary_personal_data": "NOT-COLLECTED"
+    "signature_state": "UNSIGNED",
+    "signed_at_utc": null
   },
-  "unmasked_after_review_attestation": false,
-  "adjudication_result": null,
-  "signed_by": null,
-  "signed_at_utc": null,
+  "identity_allocation_started": false,
+  "mappings": [
+    {
+      "SOURCE-A": null,
+      "SOURCE-B": null,
+      "task_id": "W4-TASK-BLOCK-MATERIAL"
+    },
+    {
+      "SOURCE-A": null,
+      "SOURCE-B": null,
+      "task_id": "W4-TASK-CARTOGRAPHY"
+    },
+    {
+      "SOURCE-A": null,
+      "SOURCE-B": null,
+      "task_id": "W4-TASK-CREATURE"
+    },
+    {
+      "SOURCE-A": null,
+      "SOURCE-B": null,
+      "task_id": "W4-TASK-MACHINE"
+    }
+  ],
+  "proof_id": "PRD04-PROOF-51",
   "proof_observation_created": false,
-  "identity_allocation_started": false
+  "review_attestation_sha256": null,
+  "reviewer_blinded_during_review": true,
+  "schema_version": "prd07-w4-proof-51-origin-mapping-v2",
+  "status": "PENDING-SEPARATE-ADJUDICATION",
+  "unmasked_after_review_attestation": false
 }

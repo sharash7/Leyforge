@@ -6,11 +6,12 @@ PRD04-PROOF-50, PRD04-PROOF-51, and PRD04-PROOF-53. Every shipped form is
 
 ## Common binding and completion law
 
-At the start of a separately authorized future proof run, copy the applicable
-pending form into that run's allocated evidence workspace. Bind it to the exact
-40-character source revision, 64-character build identity, and every governed
-fixture hash used by the observation. Record only a pseudonymous reviewer ID and
-auditable role ID; do not collect unrelated personal data.
+For a separately authorized future proof run, the execution route reads only
+the exact governed file named for the entered proof in this directory. Bind it
+to the exact 40-character source revision, build identity, artifact hash,
+canonical fixture identities, and captured execution environment. A file's
+presence or `COMPLETE` label is never sufficient. Record only a pseudonymous
+reviewer ID and auditable role ID; do not collect unrelated personal data.
 
 The reviewer must record an observation and evidence reference for every
 criterion, list defects or ambiguity, select `PASS-OBSERVED`, `FAIL-OBSERVED`,
@@ -19,15 +20,22 @@ attestation with a governed UTC timestamp. Automated output may be evidence for
 the reviewer but cannot sign or supply the human judgement.
 
 Run `review_issues` from `tools.r7_w4_repair.human_review` before accepting a
-completed record. The validator rejects incomplete identity, criteria,
-reviewer, evidence, judgement, and attestation fields.
+completed record. Execution then independently revalidates the record, all
+referenced files and hashes, and its source/build/fixture/environment binding.
+The validator rejects incomplete identity, proof-specific coverage, criteria,
+reviewer, evidence, judgement derivation, and attestation fields.
+
+Synthetic validator fixtures must use `SYNTHETIC-VALIDATOR-TEST` and
+`SYNTHETIC-TEST-ONLY`. They may test the completion law outside this directory,
+but production ingestion always rejects them. Automation and Codex may not use
+the production-human purpose or impersonate either human role.
 
 ## Proof 50 — art-production handoff
 
-Use one bound copy per reviewed asset class/source package. Review the editable
-source, validation/bake trace, runtime capture, provenance, canonical binding,
-manual exceptions, and visible defects. A successful automated launch is not a
-human handoff judgement.
+Complete every exact required asset-class row and its bound source identities.
+For every class, review the editable source, validation/bake trace, runtime
+capture, provenance, canonical binding, manual exceptions, and visible defects.
+A successful automated launch is not a human handoff judgement.
 
 ## Proof 51 — masked AI/human parity
 
@@ -36,13 +44,15 @@ the origin map separately using `proof-51-origin-mapping-pending.json`. The
 reviewer sees only `SOURCE-A` and `SOURCE-B`, receives the same task, evidence
 shape, and canonical criteria for both, and must not be told which is expected
 to be better. The reviewer signs before unmasking. The separate adjudicator then
-records that unmasking occurred after attestation and reconciles the comparison;
-automation cannot perform either human role.
+records an independently signed exact origin map, proves that unmasking occurred
+after reviewer attestation, and reconciles every paired task. Automation cannot
+perform either human role.
 
 ## Proof 53 — renderer/profile certification
 
-Complete every applicable Forward+, Mobile, and Compatibility lane. Bind each
-lane to its exact runtime capture and diagnostics, assess readability,
-presentation integrity, and task usability, and record lane defects. Keep
-`support_claim` as `NOT-MADE` until the whole canonical lane contract—including
-human review—is complete.
+Complete every required Forward+, Mobile, and Compatibility lane. Bind each lane
+to its exact renderer argument, runtime capture, diagnostics, build and captured
+environment; assess readability, presentation integrity, and task usability;
+and record lane defects. Each lane must explicitly state whether support is
+claimed, claimed with an approved fallback, rejected, or undetermined. The
+overall judgement is derived from those lane dispositions and judgements.

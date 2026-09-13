@@ -14,6 +14,7 @@ from tools.r7_w4_repair.admission import (
     STOPPED_SUPERSEDED_PATHS,
     admitted_paths,
     manifest_issues,
+    published_superseded_paths,
     scanner_admits,
 )
 
@@ -31,7 +32,9 @@ class R7W4RepairAdmissionTests(unittest.TestCase):
         ).stdout.strip()
 
     def test_manifest_validates_historical_stop_and_current_repair_separately(self) -> None:
-        self.assertEqual((), manifest_issues(self.manifest, self.head))
+        superseded, issues = published_superseded_paths(self.head)
+        self.assertEqual((), issues)
+        self.assertEqual(tuple(self.manifest["historical_stopped_boundary"]["superseded_current_paths"]), superseded)
         historical = self.manifest["historical_stopped_boundary"]
         repair = self.manifest["repair_boundary"]
         self.assertEqual("IMMUTABLE-HISTORICAL-STOPPED-EXECUTION-BOUNDARY", historical["current_lifecycle_role"])
@@ -61,6 +64,7 @@ class R7W4RepairAdmissionTests(unittest.TestCase):
         for relative in (
             "proofs/r7/w4_execution/presentation_probe/capability_fixtures/not-admitted.tres",
             "tools/r7_w4_repair/not_admitted.py",
+            "tools/r7_w4_execution/superseded-looking-but-unlisted.py",
             "scripts/main.gd",
         ):
             self.assertFalse(scanner_admits(relative, paths), relative)

@@ -5,12 +5,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+W4_INTEGRATION_ADMISSION_MODE_ENV = "LEYFORGE_W4_INTEGRATION_ADMISSION_MODE"
+W4_INTEGRATION_ADMISSION_MODES = ("preparation", "staged", "published", "auto")
 PROOF_HARNESS_PYTHON = sorted(
     str(path.relative_to(ROOT))
     for base in (
@@ -104,10 +107,11 @@ def w4_implementation_commit() -> str:
     return result.stdout.strip()
 
 
-def w4_verification_commands(python: str) -> list[list[str]]:
+def w4_verification_commands(python: str, integration_admission_mode: str = "auto") -> list[list[str]]:
     source_boundary = ROOT / "docs/rebuild/r7/w4-governed-execution-source-boundary.json"
     execution_admission = ROOT / "docs/rebuild/r7/w4-governed-execution-admission.json"
     repair_admission = ROOT / "docs/rebuild/r7/w4-repair-admission-boundary.json"
+    integration_repair_admission = ROOT / "docs/rebuild/r7/w4-integration-repair-admission-boundary.json"
     state = ROOT / "docs/rebuild/r7/w4-execution-state.json"
     head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True).stdout.strip()
     if source_boundary.is_file():
@@ -118,7 +122,13 @@ def w4_verification_commands(python: str) -> list[list[str]]:
         if not state.is_file():
             source_command.insert(-2, "--require-initial-high-water")
         commands = []
-        if repair_admission.is_file():
+        if integration_repair_admission.is_file():
+            commands.append([
+                python, "-m", "tools.r7_w4_repair.integration_admission", "verify",
+                "--mode", integration_admission_mode,
+                "--format", "json",
+            ])
+        elif repair_admission.is_file():
             commands.append([
                 python, "-m", "tools.r7_w4_repair.admission", "verify",
                 "--source-revision", head, "--format", "json",
@@ -147,8 +157,10 @@ def w4_verification_commands(python: str) -> list[list[str]]:
     ]
 
 
-def run(command: list[str]) -> dict[str, object]:
-    completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
+def run(command: list[str], *, integration_admission_mode: str = "auto") -> dict[str, object]:
+    environment = dict(os.environ)
+    environment[W4_INTEGRATION_ADMISSION_MODE_ENV] = integration_admission_mode
+    completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, env=environment)
     return {
         "command": command,
         "exit_code": completed.returncode,
@@ -157,7 +169,7 @@ def run(command: list[str]) -> dict[str, object]:
     }
 
 
-def commands_for(tier: str) -> list[list[str]]:
+def commands_for(tier: str, integration_admission_mode: str = "auto") -> list[list[str]]:
     python = sys.executable
     compile_command = [
         python,
@@ -188,7 +200,7 @@ def commands_for(tier: str) -> list[list[str]]:
             [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
             [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
             w3_verification_command(python),
-            *w4_verification_commands(python),
+            *w4_verification_commands(python, integration_admission_mode),
             [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "full", "--format", "json"],
         ]
     return [
@@ -200,7 +212,7 @@ def commands_for(tier: str) -> list[list[str]]:
         [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
         [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
         w3_verification_command(python),
-        *w4_verification_commands(python),
+        *w4_verification_commands(python, integration_admission_mode),
         [python, "brain/92_SCRIPTS/brain.py", "ingest", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "index", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "links", "--format", "json"],
@@ -214,16 +226,29 @@ def commands_for(tier: str) -> list[list[str]]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Leyforge rebuild verification")
     parser.add_argument("--tier", choices=("build", "focused", "full"), required=True)
+    parser.add_argument(
+        "--w4-integration-admission-mode",
+        choices=W4_INTEGRATION_ADMISSION_MODES,
+        default=os.environ.get(W4_INTEGRATION_ADMISSION_MODE_ENV, "auto"),
+    )
     parser.add_argument("--format", choices=("text", "json"), default="text")
     args = parser.parse_args()
+    commands = commands_for(args.tier, args.w4_integration_admission_mode)
     runs = []
-    for command in commands_for(args.tier):
-        result = run(command)
+    for command in commands:
+        result = run(command, integration_admission_mode=args.w4_integration_admission_mode)
         runs.append(result)
         if result["exit_code"] != 0:
             break
-    status = "PASS" if len(runs) == len(commands_for(args.tier)) and all(item["exit_code"] == 0 for item in runs) else "FAIL"
-    summary = {"tool": "Leyforge rebuild verification", "tier": args.tier, "status": status, "commands": runs, "gameplay_permission": "CLOSED"}
+    status = "PASS" if len(runs) == len(commands) and all(item["exit_code"] == 0 for item in runs) else "FAIL"
+    summary = {
+        "tool": "Leyforge rebuild verification",
+        "tier": args.tier,
+        "status": status,
+        "w4_integration_admission_mode": args.w4_integration_admission_mode,
+        "commands": runs,
+        "gameplay_permission": "CLOSED",
+    }
     if args.format == "json":
         print(json.dumps(summary, indent=2, ensure_ascii=True))
     else:

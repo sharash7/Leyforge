@@ -17,9 +17,7 @@ from tools.r7_w4_runtime.dependencies import local_dependency_report
 from tools.r7_w4_runtime.fixtures import fixture_issues
 from tools.r7_w4_runtime.readiness import READINESS_PATH, readiness_report
 from tools.r7_w4_repair.admission import (
-    MANIFEST_PATH as REPAIR_ADMISSION_PATH,
-    STOPPED_SUPERSEDED_PATHS,
-    manifest_issues as repair_admission_issues,
+    published_superseded_paths,
 )
 
 
@@ -296,10 +294,9 @@ def stopped_lifecycle_issues(source_revision: str) -> Tuple[str, ...]:
     issues: List[str] = []
     if not STOPPED_BOUNDARY_PATH.is_file() or not STOPPED_RECONCILIATION_PATH.is_file():
         return ("W4 stopped lifecycle boundary/reconciliation is missing",)
-    repair_admission = load_json(REPAIR_ADMISSION_PATH) if REPAIR_ADMISSION_PATH.is_file() else {}
-    repair_issues = repair_admission_issues(repair_admission, source_revision)
+    superseded_paths_value, repair_issues = published_superseded_paths(source_revision)
     issues.extend(repair_issues)
-    superseded_paths = set(STOPPED_SUPERSEDED_PATHS) if not repair_issues else set()
+    superseded_paths = set(superseded_paths_value) if not repair_issues else set()
     boundary = load_json(STOPPED_BOUNDARY_PATH)
     if (
         boundary.get("schema_version") != "prd07-w4-stopped-execution-boundary-v1"

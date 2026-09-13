@@ -105,7 +105,7 @@ class R7W4ExecutionTests(unittest.TestCase):
             "disagreements": ["No real human reviewer."],
             "adjudication": "INCONCLUSIVE",
         }
-        self.assertIn("PASS-OBSERVED is not allowed without a complete human reviewer record", evidence_issues(value))
+        self.assertIn("PASS-OBSERVED is not allowed without an accepted exact-bound production-human review", evidence_issues(value))
         value["observation"]["state"] = "INCONCLUSIVE"
         value["evaluation"]["actual_disposition"] = "INCONCLUSIVE"
         self.assertEqual((), evidence_issues(value))

@@ -1,21 +1,27 @@
 {
   "adjudication": {
+    "adjudicator_pseudonymous_id": null,
     "adjudicator_role_id": null,
+    "evidence_references": [],
+    "origin_mapping_sha256": null,
     "result": null,
+    "reviewer_attestation_sha256": null,
     "status": "PENDING-SEPARATE-ADJUDICATION",
-    "unmasked_after_review_attestation": false
+    "unmasked_after_review_attestation": false,
+    "unmasked_at_utc": null
   },
-  "asset_class": null,
   "attestation": {
+    "signature_state": "UNSIGNED",
     "signed_at_utc": null,
     "signed_by": null,
-    "statement": "I performed the recorded human review against the bound sources, build, fixtures, criteria, and evidence."
+    "statement": "I performed the recorded human review against the bound sources, build, fixtures, environment, criteria, and evidence."
   },
   "criteria": [
     {
       "criterion_id": "TASK-COMPLETION",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Does each masked source complete the same assigned task?"
     },
@@ -23,6 +29,7 @@
       "criterion_id": "EDITABILITY",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Can each masked source be edited under the same canonical workflow?"
     },
@@ -30,6 +37,7 @@
       "criterion_id": "SEMANTIC-ERRORS",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "What semantic errors are present in each masked source and its baked result?"
     },
@@ -37,6 +45,7 @@
       "criterion_id": "EXCEPTION-BURDEN",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "What manual exceptions or bypasses are required for each masked source?"
     },
@@ -44,6 +53,7 @@
       "criterion_id": "PARITY-JUDGEMENT",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Are the masked sources equivalent, materially different, or not judgeable on the canonical dimensions?"
     }
@@ -51,8 +61,25 @@
   "evidence_references": [],
   "identity_allocation_started": false,
   "identity_binding": {
+    "artifact_sha256": null,
     "build_identity": null,
-    "fixture_identities": [],
+    "environment_identity": null,
+    "fixture_identities": {
+      "paths": [
+        "proofs/r7/w4/fixture-07/manifest.json",
+        "proofs/r7/w4/fixture-07/source-packages.json",
+        "proofs/r7/w4/fixture-07/trust-and-scale-cases.json",
+        "proofs/r7/w4/fixture-07/migration-worlds.json",
+        "proofs/r7/w4/fixture-07/fcc13e-expected.json"
+      ],
+      "sha256": [
+        "47fdb1ad40a8161c03dbdd1fac06201cb914c6385c4673cd32f7e7e27f7f9343",
+        "b4e1cbf2ec4487a6329e66dbffd2a9bf5ca1c59ec5c93519dbd5fdecfdb4703d",
+        "0260bcb728e7bffe326e2a611bcb64771b8ecd7fddebbf70f520c4d3f4e7dc4f",
+        "02ed7ee3607f73a3b9472f35da37848271e82915095ae6a775df5c97461bb637",
+        "589bd39bacf684e6448bfffb63703de2e41e8d2da7f3011e26bec62d24f8fc73"
+      ]
+    },
     "source_revision": null
   },
   "judgement": "PENDING",
@@ -62,17 +89,374 @@
   ],
   "origin_mapping_reference": null,
   "overall_defects_or_ambiguities": [],
+  "paired_task_identity": "9a4c6ca8149739b33a49aa5e2d46e33c30e452d7618c26bc8072364a5a4f50ec",
+  "paired_task_reviews": [
+    {
+      "asset_class": "block-material",
+      "comparison_evidence_references": [],
+      "comparison_judgement": "PENDING",
+      "comparison_observation": null,
+      "masked_source_reviews": [
+        {
+          "criteria": [
+            {
+              "criterion_id": "TASK-COMPLETION",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Does each masked source complete the same assigned task?"
+            },
+            {
+              "criterion_id": "EDITABILITY",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Can each masked source be edited under the same canonical workflow?"
+            },
+            {
+              "criterion_id": "SEMANTIC-ERRORS",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What semantic errors are present in each masked source and its baked result?"
+            },
+            {
+              "criterion_id": "EXCEPTION-BURDEN",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What manual exceptions or bypasses are required for each masked source?"
+            }
+          ],
+          "defects_or_ambiguities": [],
+          "judgement": "PENDING",
+          "source_label": "SOURCE-A"
+        },
+        {
+          "criteria": [
+            {
+              "criterion_id": "TASK-COMPLETION",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Does each masked source complete the same assigned task?"
+            },
+            {
+              "criterion_id": "EDITABILITY",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Can each masked source be edited under the same canonical workflow?"
+            },
+            {
+              "criterion_id": "SEMANTIC-ERRORS",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What semantic errors are present in each masked source and its baked result?"
+            },
+            {
+              "criterion_id": "EXCEPTION-BURDEN",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What manual exceptions or bypasses are required for each masked source?"
+            }
+          ],
+          "defects_or_ambiguities": [],
+          "judgement": "PENDING",
+          "source_label": "SOURCE-B"
+        }
+      ],
+      "revealed_source_ids": null,
+      "task_id": "W4-TASK-BLOCK-MATERIAL"
+    },
+    {
+      "asset_class": "ui-icon-cartography",
+      "comparison_evidence_references": [],
+      "comparison_judgement": "PENDING",
+      "comparison_observation": null,
+      "masked_source_reviews": [
+        {
+          "criteria": [
+            {
+              "criterion_id": "TASK-COMPLETION",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Does each masked source complete the same assigned task?"
+            },
+            {
+              "criterion_id": "EDITABILITY",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Can each masked source be edited under the same canonical workflow?"
+            },
+            {
+              "criterion_id": "SEMANTIC-ERRORS",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What semantic errors are present in each masked source and its baked result?"
+            },
+            {
+              "criterion_id": "EXCEPTION-BURDEN",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What manual exceptions or bypasses are required for each masked source?"
+            }
+          ],
+          "defects_or_ambiguities": [],
+          "judgement": "PENDING",
+          "source_label": "SOURCE-A"
+        },
+        {
+          "criteria": [
+            {
+              "criterion_id": "TASK-COMPLETION",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Does each masked source complete the same assigned task?"
+            },
+            {
+              "criterion_id": "EDITABILITY",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Can each masked source be edited under the same canonical workflow?"
+            },
+            {
+              "criterion_id": "SEMANTIC-ERRORS",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What semantic errors are present in each masked source and its baked result?"
+            },
+            {
+              "criterion_id": "EXCEPTION-BURDEN",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What manual exceptions or bypasses are required for each masked source?"
+            }
+          ],
+          "defects_or_ambiguities": [],
+          "judgement": "PENDING",
+          "source_label": "SOURCE-B"
+        }
+      ],
+      "revealed_source_ids": null,
+      "task_id": "W4-TASK-CARTOGRAPHY"
+    },
+    {
+      "asset_class": "character-creature-animation",
+      "comparison_evidence_references": [],
+      "comparison_judgement": "PENDING",
+      "comparison_observation": null,
+      "masked_source_reviews": [
+        {
+          "criteria": [
+            {
+              "criterion_id": "TASK-COMPLETION",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Does each masked source complete the same assigned task?"
+            },
+            {
+              "criterion_id": "EDITABILITY",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Can each masked source be edited under the same canonical workflow?"
+            },
+            {
+              "criterion_id": "SEMANTIC-ERRORS",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What semantic errors are present in each masked source and its baked result?"
+            },
+            {
+              "criterion_id": "EXCEPTION-BURDEN",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What manual exceptions or bypasses are required for each masked source?"
+            }
+          ],
+          "defects_or_ambiguities": [],
+          "judgement": "PENDING",
+          "source_label": "SOURCE-A"
+        },
+        {
+          "criteria": [
+            {
+              "criterion_id": "TASK-COMPLETION",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Does each masked source complete the same assigned task?"
+            },
+            {
+              "criterion_id": "EDITABILITY",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Can each masked source be edited under the same canonical workflow?"
+            },
+            {
+              "criterion_id": "SEMANTIC-ERRORS",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What semantic errors are present in each masked source and its baked result?"
+            },
+            {
+              "criterion_id": "EXCEPTION-BURDEN",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What manual exceptions or bypasses are required for each masked source?"
+            }
+          ],
+          "defects_or_ambiguities": [],
+          "judgement": "PENDING",
+          "source_label": "SOURCE-B"
+        }
+      ],
+      "revealed_source_ids": null,
+      "task_id": "W4-TASK-CREATURE"
+    },
+    {
+      "asset_class": "item-machine-structure",
+      "comparison_evidence_references": [],
+      "comparison_judgement": "PENDING",
+      "comparison_observation": null,
+      "masked_source_reviews": [
+        {
+          "criteria": [
+            {
+              "criterion_id": "TASK-COMPLETION",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Does each masked source complete the same assigned task?"
+            },
+            {
+              "criterion_id": "EDITABILITY",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Can each masked source be edited under the same canonical workflow?"
+            },
+            {
+              "criterion_id": "SEMANTIC-ERRORS",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What semantic errors are present in each masked source and its baked result?"
+            },
+            {
+              "criterion_id": "EXCEPTION-BURDEN",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What manual exceptions or bypasses are required for each masked source?"
+            }
+          ],
+          "defects_or_ambiguities": [],
+          "judgement": "PENDING",
+          "source_label": "SOURCE-A"
+        },
+        {
+          "criteria": [
+            {
+              "criterion_id": "TASK-COMPLETION",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Does each masked source complete the same assigned task?"
+            },
+            {
+              "criterion_id": "EDITABILITY",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "Can each masked source be edited under the same canonical workflow?"
+            },
+            {
+              "criterion_id": "SEMANTIC-ERRORS",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What semantic errors are present in each masked source and its baked result?"
+            },
+            {
+              "criterion_id": "EXCEPTION-BURDEN",
+              "defects_or_ambiguities": [],
+              "evidence_references": [],
+              "judgement": "PENDING",
+              "observed_result": null,
+              "prompt": "What manual exceptions or bypasses are required for each masked source?"
+            }
+          ],
+          "defects_or_ambiguities": [],
+          "judgement": "PENDING",
+          "source_label": "SOURCE-B"
+        }
+      ],
+      "revealed_source_ids": null,
+      "task_id": "W4-TASK-MACHINE"
+    }
+  ],
   "proof_id": "PRD04-PROOF-51",
   "proof_observation_created": false,
   "review_lifecycle_id": null,
+  "review_purpose": "UNASSIGNED",
   "reviewer": {
     "independence_declaration": null,
     "pseudonymous_reviewer_id": null,
+    "reviewer_kind": null,
     "role_id": null,
     "unnecessary_personal_data": "NOT-COLLECTED"
   },
   "reviewer_can_see_source_origin": false,
-  "schema_version": "prd07-w4-human-review-v1",
+  "schema_version": "prd07-w4-human-review-v2",
   "status": "PENDING-HUMAN-REVIEW",
-  "unmasking_policy": "SEPARATE-ADJUDICATOR-REQUIRED"
+  "unmasking_policy": "SEPARATE-ADJUDICATOR-POST-ATTESTATION"
 }

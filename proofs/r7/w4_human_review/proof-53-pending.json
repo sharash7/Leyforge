@@ -1,15 +1,16 @@
 {
-  "asset_class": null,
   "attestation": {
+    "signature_state": "UNSIGNED",
     "signed_at_utc": null,
     "signed_by": null,
-    "statement": "I performed the recorded human review against the bound sources, build, fixtures, criteria, and evidence."
+    "statement": "I performed the recorded human review against the bound sources, build, fixtures, environment, criteria, and evidence."
   },
   "criteria": [
     {
       "criterion_id": "READABILITY",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Are required labels, state cues, and text readable in this renderer/profile lane?"
     },
@@ -17,6 +18,7 @@
       "criterion_id": "PRESENTATION-INTEGRITY",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Are required presentation semantics visible without clipping, corruption, or misleading substitution?"
     },
@@ -24,6 +26,7 @@
       "criterion_id": "TASK-USABILITY",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Can the canonical review tasks be completed from the presented lane?"
     },
@@ -31,6 +34,7 @@
       "criterion_id": "SUPPORT-BLOCKERS",
       "defects_or_ambiguities": [],
       "evidence_references": [],
+      "judgement": "PENDING",
       "observed_result": null,
       "prompt": "Are all lane-specific defects and support blockers recorded?"
     }
@@ -38,41 +42,195 @@
   "evidence_references": [],
   "identity_allocation_started": false,
   "identity_binding": {
+    "artifact_sha256": null,
     "build_identity": null,
-    "fixture_identities": [],
+    "environment_identity": null,
+    "fixture_identities": {
+      "paths": [
+        "proofs/r7/w4/fixture-08/manifest.json",
+        "proofs/r7/w4/fixture-08/presentation-cases.json",
+        "proofs/r7/w4/presentation_probe/project.godot",
+        "proofs/r7/w0/dependencies.lock.json",
+        "proofs/r7/w4/dependency-reference.json"
+      ],
+      "sha256": [
+        "dda589cf6b9a7b91364f576156c332181ee6fb415961f22f3364888ec7dbb3f1",
+        "f8753fa7bb4357c555c51dbe1d645d33565a377d2e9fe065a8c03f9e731a093d",
+        "42fd15dd0f3438f93fac3fbb22cfb7665a8c04ab08dc7774ca2b236c798e8121",
+        "f42407b74cc08b91a34aa7b9a57f856b6e4c4dbe642385401d2b8da10eb927a2",
+        "25aa0eb1c3942e157f769391ec9585999f9026e5bc08bc48add327fa170e47d9"
+      ]
+    },
     "source_revision": null
   },
   "judgement": "PENDING",
   "overall_defects_or_ambiguities": [],
   "proof_id": "PRD04-PROOF-53",
   "proof_observation_created": false,
-  "renderer_lanes": [
+  "renderer_lane_identity": "736804ef06b535de3f1be2b77d3094f4ce5fe8d62d306e933a389cba142f1f32",
+  "renderer_lane_reviews": [
     {
-      "profile_id": "profile-forward-plus",
-      "renderer": "forward_plus",
-      "status": "PENDING-HUMAN-REVIEW",
-      "support_claim": "NOT-MADE"
+      "candidate_claim_state": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+      "criteria": [
+        {
+          "criterion_id": "READABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are required labels, state cues, and text readable in this renderer/profile lane?"
+        },
+        {
+          "criterion_id": "PRESENTATION-INTEGRITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are required presentation semantics visible without clipping, corruption, or misleading substitution?"
+        },
+        {
+          "criterion_id": "TASK-USABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the canonical review tasks be completed from the presented lane?"
+        },
+        {
+          "criterion_id": "SUPPORT-BLOCKERS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are all lane-specific defects and support blockers recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "judgement": "PENDING",
+      "profile_id": "PROFILE-FORWARD-PLUS",
+      "renderer": "Forward+",
+      "renderer_argument": "forward_plus",
+      "support_disposition": "UNDETERMINED"
     },
     {
-      "profile_id": "profile-mobile",
-      "renderer": "mobile",
-      "status": "PENDING-HUMAN-REVIEW",
-      "support_claim": "NOT-MADE"
+      "candidate_claim_state": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+      "criteria": [
+        {
+          "criterion_id": "READABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are required labels, state cues, and text readable in this renderer/profile lane?"
+        },
+        {
+          "criterion_id": "PRESENTATION-INTEGRITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are required presentation semantics visible without clipping, corruption, or misleading substitution?"
+        },
+        {
+          "criterion_id": "TASK-USABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the canonical review tasks be completed from the presented lane?"
+        },
+        {
+          "criterion_id": "SUPPORT-BLOCKERS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are all lane-specific defects and support blockers recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "judgement": "PENDING",
+      "profile_id": "PROFILE-MOBILE",
+      "renderer": "Mobile",
+      "renderer_argument": "mobile",
+      "support_disposition": "UNDETERMINED"
     },
     {
-      "profile_id": "profile-compat",
-      "renderer": "gl_compatibility",
-      "status": "PENDING-HUMAN-REVIEW",
-      "support_claim": "NOT-MADE"
+      "candidate_claim_state": "ONLY-IF-TARGETED-NOT-SUPPORT-CERTIFIED",
+      "criteria": [
+        {
+          "criterion_id": "READABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are required labels, state cues, and text readable in this renderer/profile lane?"
+        },
+        {
+          "criterion_id": "PRESENTATION-INTEGRITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are required presentation semantics visible without clipping, corruption, or misleading substitution?"
+        },
+        {
+          "criterion_id": "TASK-USABILITY",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Can the canonical review tasks be completed from the presented lane?"
+        },
+        {
+          "criterion_id": "SUPPORT-BLOCKERS",
+          "defects_or_ambiguities": [],
+          "evidence_references": [],
+          "judgement": "PENDING",
+          "observed_result": null,
+          "prompt": "Are all lane-specific defects and support blockers recorded?"
+        }
+      ],
+      "defects_or_ambiguities": [],
+      "evidence_references": [],
+      "judgement": "PENDING",
+      "profile_id": "PROFILE-COMPAT",
+      "renderer": "Compatibility",
+      "renderer_argument": "gl_compatibility",
+      "support_disposition": "UNDETERMINED"
+    }
+  ],
+  "required_renderer_lanes": [
+    {
+      "candidate_claim_state": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+      "profile_id": "PROFILE-FORWARD-PLUS",
+      "renderer": "Forward+",
+      "renderer_argument": "forward_plus"
+    },
+    {
+      "candidate_claim_state": "CANDIDATE-NOT-SUPPORT-CERTIFIED",
+      "profile_id": "PROFILE-MOBILE",
+      "renderer": "Mobile",
+      "renderer_argument": "mobile"
+    },
+    {
+      "candidate_claim_state": "ONLY-IF-TARGETED-NOT-SUPPORT-CERTIFIED",
+      "profile_id": "PROFILE-COMPAT",
+      "renderer": "Compatibility",
+      "renderer_argument": "gl_compatibility"
     }
   ],
   "review_lifecycle_id": null,
+  "review_purpose": "UNASSIGNED",
   "reviewer": {
     "independence_declaration": null,
     "pseudonymous_reviewer_id": null,
+    "reviewer_kind": null,
     "role_id": null,
     "unnecessary_personal_data": "NOT-COLLECTED"
   },
-  "schema_version": "prd07-w4-human-review-v1",
+  "schema_version": "prd07-w4-human-review-v2",
   "status": "PENDING-HUMAN-REVIEW"
 }

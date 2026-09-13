@@ -9,6 +9,8 @@ import subprocess
 from pathlib import Path
 from typing import Any, Dict, List, Mapping, Tuple
 
+from tools.r7_w4_repair.admission import published_superseded_paths
+
 
 ROOT = Path(__file__).resolve().parents[2]
 REPAIR_SOURCE_RELATIVES = (
@@ -21,12 +23,6 @@ REPAIR_SOURCE_RELATIVES = (
     "tools/tests/test_r7_w4_execution.py",
     "tools/tests/test_r7_w4_repair.py",
 )
-LAWFULLY_SUPERSEDED_STOP_SOURCE = {
-    "tools/r7_w4_execution/observations.py",
-    "tools/tests/test_r7_w4_execution.py",
-}
-
-
 W4_PROOFS = (
     "PRD04-PROOF-49", "PRD04-PROOF-50", "PRD04-PROOF-51", "PRD04-PROOF-52",
     "PRD04-PROOF-53", "PRD04-PROOF-54", "PRD04-PROOF-55", "PRD04-PROOF-56",
@@ -183,6 +179,9 @@ def _source_identity(source_revision: str) -> Tuple[Dict[str, Any], List[str]]:
 def _stopped_history_issues(source_revision: str) -> Tuple[str, ...]:
     """Validate the immutable stop at its commit while allowing named repair sources to supersede it."""
     issues = []
+    superseded_paths, supersession_issues = published_superseded_paths(source_revision)
+    issues.extend("published repair admission: " + issue for issue in supersession_issues)
+    superseded = set(superseded_paths)
     boundary_path = ROOT / "docs/rebuild/r7/w4-stopped-execution-boundary.json"
     reconciliation_path = ROOT / "docs/rebuild/r7/w4-stopped-execution-reconciliation.json"
     if not boundary_path.is_file() or not reconciliation_path.is_file():
@@ -216,7 +215,7 @@ def _stopped_history_issues(source_revision: str) -> Tuple[str, ...]:
         at_commit = subprocess.run(["git", "rev-parse", validation_commit + ":" + relative], cwd=ROOT, text=True, capture_output=True)
         if at_commit.returncode or at_commit.stdout.strip() != blob:
             issues.append("W4 stopped artifact was not bound to its lifecycle commit: " + relative)
-        if relative not in LAWFULLY_SUPERSEDED_STOP_SOURCE:
+        if relative not in superseded:
             current = ROOT / relative
             if not current.is_file():
                 issues.append("non-superseded W4 stopped artifact is missing: " + relative)

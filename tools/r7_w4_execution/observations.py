@@ -18,6 +18,7 @@ from typing import Any, Callable, Dict, List, Mapping, MutableMapping, Sequence,
 from proofs.r7.w2.runtime.model import MigrationEngine
 
 from tools.r7_w4_repair.measurement import classify_proof_55, measure_case
+from tools.r7_w4_repair.human_review import combine_observations, ingest_review_for_execution
 
 from .builds import run_capability_process, run_probe_process
 from .contracts import ROOT, canonical_bytes, load_json
@@ -96,6 +97,23 @@ def _human_gap(captures: Sequence[str], task_scores: Sequence[Mapping[str, Any]]
         "disagreements": ["No real human reviewer record was supplied or observed during this authorized execution."],
         "adjudication": "INCONCLUSIVE: automated setup and semantic oracles are retained, but they cannot impersonate the certified human-review requirement.",
     }
+
+
+def _ingest_human_review(
+    proof_id: str,
+    run_root: Path,
+    build: Mapping[str, Any],
+    automated_pass: bool,
+) -> Tuple[Dict[str, Any], str, str, List[str]]:
+    """Bind the one governed review record after automated artifacts exist."""
+    review = ingest_review_for_execution(
+        proof_id,
+        str(build.get("source_revision", "")),
+        build,
+        run_root,
+    )
+    outcome, reason, blockers = combine_observations(automated_pass, review)
+    return review, outcome, reason, blockers
 
 
 def _result(
@@ -252,8 +270,11 @@ def _proof_50(run_id: str, run_root: Path, build: Mapping[str, Any]) -> Dict[str
         {"task_id": task["task_id"], "profile_id": "AUTOMATED-ORACLE", "completion": task["completion"], "semantic_errors": task["semantic_errors"], "observer": "AUTOMATED-NOT-HUMAN", "capture_refs": captures}
         for report in runtime_rows for task in report.get("report", {}).get("semantic_tasks", [])
     ]
+    human, outcome, reason, blockers = _ingest_human_review(
+        "PRD04-PROOF-50", run_root, build, automated_pass
+    )
     return _result(
-        "INCONCLUSIVE" if automated_pass else "FAIL-OBSERVED",
+        outcome,
         {
             "asset_classes": len({row["asset_class"] for row in packages}),
             "hard_cases": sum(str(row.get("difficulty", "")).startswith("hard-") for row in packages),
@@ -270,11 +291,12 @@ def _proof_50(run_id: str, run_root: Path, build: Mapping[str, Any]) -> Dict[str
             "ART rule traceability matrix": [{"source_id": row["source_id"], "authority": row["provenance"], "binding": row["canonical_binding"]} for row in packages],
             "certification observations": task_scores,
             "bake outputs": bakes,
+            "governed human review": human,
         },
-        "The automated source→validation→bake→runtime chain completed across all eight represented classes, but the certified ART handoff conclusion requires a real structured human reviewer record which this run did not have.",
-        limitations=["No real human reviewer/tester identity, perceptual rubric result, uncertainty record or adjudication was available."],
-        blockers=["HUMAN-JUDGEMENT-RECORD-ABSENT"],
-        human_judgement=_human_gap(captures, task_scores),
+        reason,
+        limitations=[] if human.get("review_state") == "ACCEPTED-PRODUCTION-HUMAN" else ["No admissible exact-bound production-human ART handoff review was available."],
+        blockers=blockers,
+        human_judgement=human,
         extra_files=extra_files,
     )
 
@@ -303,15 +325,18 @@ def _proof_51(run_id: str, run_root: Path, build: Mapping[str, Any]) -> Dict[str
         comparisons.append({"task": task, "comparable": comparable, "origins": sorted(by_origin), "validator_rules_equal": len({_hash(row["validator_rules"]) for row in validators}) == 1, "valid_results": validators, "intentional_invalid_results": invalid_results})
     automated_pass = len(groups) >= 4 and bypasses == exceptions == 0 and all(row["comparable"] and row["validator_rules_equal"] for row in comparisons)
     task_scores = [{"task_id": row["task"], "completion": row["comparable"], "semantic_errors": 0 if row["comparable"] else 1, "observer": "AUTOMATED-NOT-HUMAN", "capture_refs": []} for row in comparisons]
+    human, outcome, reason, blockers = _ingest_human_review(
+        "PRD04-PROOF-51", run_root, build, automated_pass
+    )
     return _result(
-        "INCONCLUSIVE" if automated_pass else "FAIL-OBSERVED",
+        outcome,
         {"matched_tasks": len(groups), "asset_classes": len({rows[0]["asset_class"] for rows in groups.values()}), "validator_rule_set_mismatches": sum(not row["validator_rules_equal"] for row in comparisons), "bypass_count": bypasses, "manual_exception_count": exceptions, "traceability_failures": sum(not row["comparable"] for row in comparisons)},
         {"matched_tasks": len(groups), "origins_per_task": 2, "intentional_invalid_origin_cases": len(groups) * 2},
-        {"paired source packages": comparisons, "validator reports": comparisons, "provenance records": [{"source_id": row["source_id"], "provenance": row["provenance"]} for row in _packages() if row.get("matched_task")], "bake outputs": [{"source_id": row["source_id"], "bake": _bake(row, source_path="parity", provider_local_id="parity")} for row in _packages() if row.get("matched_task")], "exception log": []},
-        "Four matched AI/human tasks used identical validation law and rejected identical missing-provenance mutations, but the certified parity contract requires structured human judgement that was not present.",
-        limitations=["Automated source comparability cannot substitute for the required human workflow/task assessment."],
-        blockers=["HUMAN-JUDGEMENT-RECORD-ABSENT"],
-        human_judgement=_human_gap([], task_scores),
+        {"paired source packages": comparisons, "validator reports": comparisons, "provenance records": [{"source_id": row["source_id"], "provenance": row["provenance"]} for row in _packages() if row.get("matched_task")], "bake outputs": [{"source_id": row["source_id"], "bake": _bake(row, source_path="parity", provider_local_id="parity")} for row in _packages() if row.get("matched_task")], "exception log": [], "governed human review": human},
+        reason,
+        limitations=[] if human.get("review_state") == "ACCEPTED-PRODUCTION-HUMAN" else ["Automated source comparability cannot substitute for an admissible masked production-human parity review."],
+        blockers=blockers,
+        human_judgement=human,
     )
 
 
@@ -371,15 +396,18 @@ def _proof_53(run_id: str, run_root: Path, build: Mapping[str, Any]) -> Dict[str
     automated_failures = sum(not row["candidate_observed"] for row in rows) + sum(
         not row["completion"] or row["semantic_errors"] for row in task_scores
     )
+    human, outcome, reason, blockers = _ingest_human_review(
+        "PRD04-PROOF-53", run_root, build, automated_failures == 0
+    )
     return _result(
-        "FAIL-OBSERVED" if automated_failures else "INCONCLUSIVE",
+        outcome,
         {"candidate_lanes": len(rows), "lanes_launched": sum(row["candidate_observed"] for row in rows), "support_claims_made": 0, "automated_semantic_task_rows": len(task_scores), "automated_semantic_errors": sum(row["semantic_errors"] for row in task_scores)},
         {"candidate_profiles": len(rows), "golden_semantic_tasks_per_launched_lane": 7},
-        {"renderer profile manifest": rows, "task based readability results": task_scores, "captures video": [{"path": value} for value in captures], "fallback matrix": [{"profile": row["profile"]["profile_id"], "claim": "CANDIDATE-NOT-SUPPORT-CERTIFIED"} for row in rows], "runtime diagnostics": rows},
-        "A renderer/capture/semantic runtime condition failed." if automated_failures else "Candidate renderer processes and automated semantic oracles were observed without making a support claim, but no real human readability reviewer was present; the certified conclusion is therefore INCONCLUSIVE.",
-        limitations=["Headless execution is not a substitute for human perceptual/readability review.", "No renderer support tier is established by W4."],
-        blockers=(["TECHNICAL-RENDERER-OBSERVATION-FAILED"] if automated_failures else ["HUMAN-JUDGEMENT-RECORD-ABSENT"]),
-        human_judgement=_human_gap(captures, task_scores),
+        {"renderer profile manifest": rows, "task based readability results": task_scores, "captures video": [{"path": value} for value in captures], "fallback matrix": [{"profile": row["profile"]["profile_id"], "claim": "CANDIDATE-NOT-SUPPORT-CERTIFIED"} for row in rows], "runtime diagnostics": rows, "governed human review": human},
+        reason,
+        limitations=[] if human.get("review_state") == "ACCEPTED-PRODUCTION-HUMAN" else ["Automated renderer execution cannot substitute for an admissible lane-specific production-human review.", "No renderer support tier is established without that review."],
+        blockers=blockers,
+        human_judgement=human,
         extra_files=extras,
     )
 

@@ -26,6 +26,7 @@ EVIDENCE_ROOT = ROOT / "docs/rebuild/r7/execution-evidence"
 
 REPAIR_COMMIT = "861b721a8be8bdfb298b626c0ed141cb082d8b28"
 REPAIR_PARENT_COMMIT = "17865d7d52ad4e90778888d191ebdb5644aa4014"
+PUBLISHED_ADMISSION_COMMIT = "6ec72ee03d2c2aac6909f7d1ee1d1750d0cec273"
 REPAIR_PATH_STATUS = (
     ("proofs/r7/w4_execution/presentation_probe/capability_fixtures/benign_data.tres", "ADDED"),
     ("proofs/r7/w4_execution/presentation_probe/capability_fixtures/editor_plugin_canary.gd", "ADDED"),
@@ -245,6 +246,103 @@ def admitted_paths(value: Mapping[str, Any]) -> tuple[str, ...]:
 def scanner_admits(relative: str, paths: Iterable[str]) -> bool:
     """Return true only for an exact path in the validated repair admission."""
     return relative in frozenset(paths)
+
+
+def published_superseded_paths(source_revision: str) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    """Read the six-way supersession law from its exact published manifest.
+
+    The path set is intentionally not duplicated in this function.  It is
+    derived from the hash-pinned published repair manifest and independently
+    reconciled with the stopped-boundary artifact list at its historical
+    lifecycle commit.  Any ambiguity returns an empty set.
+    """
+    issues: list[str] = []
+    if _COMMIT.fullmatch(source_revision) is None:
+        return (), ("published repair supersession consumer source revision is invalid",)
+    if not _is_ancestor(PUBLISHED_ADMISSION_COMMIT, source_revision):
+        issues.append("published repair admission is not an ancestor of the consumer revision")
+    relative_manifest = MANIFEST_PATH.relative_to(ROOT).as_posix()
+    try:
+        manifest_blob = str(_git("rev-parse", PUBLISHED_ADMISSION_COMMIT + ":" + relative_manifest))
+        published_data = _blob_bytes(manifest_blob)
+        value = json.loads(published_data.decode("utf-8-sig"))
+    except (RuntimeError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        return (), ("published repair admission cannot be loaded: " + str(exc),)
+    if not isinstance(value, Mapping):
+        return (), ("published repair admission is not an object",)
+    if not MANIFEST_PATH.is_file() or _canonical_file(MANIFEST_PATH) != published_data:
+        issues.append("current published repair admission file differs from its exact published Git blob")
+    if (
+        value.get("schema_version") != "prd07-w4-repair-admission-boundary-v1"
+        or value.get("manifest_version") != 1
+        or value.get("status") != "PASS"
+        or value.get("lifecycle_role") != "CURRENT-POST-REPAIR-PRE-RECERTIFICATION-ADMISSION"
+    ):
+        issues.append("published repair admission identity/status differs")
+    controls = value.get("admission_controls", {})
+    if not isinstance(controls, Mapping) or (
+        controls.get("validation_law") != "EXACT-PATH-HASH-PINNED-FAIL-CLOSED"
+        or controls.get("blanket_scanner_bypasses") != []
+        or controls.get("broad_prefix_exclusions") != []
+    ):
+        issues.append("published repair admission exact-path law differs")
+
+    repair = value.get("repair_boundary", {})
+    repair_rows = repair.get("artifacts", []) if isinstance(repair, Mapping) else []
+    control_rows = controls.get("artifacts", []) if isinstance(controls, Mapping) else []
+    if not isinstance(repair_rows, list) or not isinstance(control_rows, list):
+        return (), tuple(sorted(set(issues + ["published repair admission artifact rows are malformed"])))
+    admitted: list[str] = []
+    for label, rows, revision in (
+        ("published repair artifact", repair_rows, REPAIR_COMMIT),
+        ("published repair control", control_rows, PUBLISHED_ADMISSION_COMMIT),
+    ):
+        for row in rows:
+            if not isinstance(row, Mapping):
+                issues.append(label + " row is not an object")
+                continue
+            relative = str(row.get("path", ""))
+            if not relative or Path(relative).is_absolute() or ".." in Path(relative).parts or any(marker in relative for marker in "*?[]"):
+                issues.append(label + " has an unsafe or non-exact path: " + relative)
+                continue
+            admitted.append(relative)
+            issues.extend(_record_issues(row, label=label, revision=revision, require_current=False))
+    if len(admitted) != len(set(admitted)):
+        issues.append("published repair admission duplicates an admitted exact path")
+
+    historical = value.get("historical_stopped_boundary", {})
+    declared = historical.get("superseded_current_paths", []) if isinstance(historical, Mapping) else []
+    boundary_row = historical.get("boundary_artifact", {}) if isinstance(historical, Mapping) else {}
+    lifecycle_commit = str(historical.get("lifecycle_validation_commit", "")) if isinstance(historical, Mapping) else ""
+    stopped_paths: set[str] = set()
+    if not isinstance(declared, list) or not all(isinstance(path, str) for path in declared):
+        issues.append("published repair superseded path list is malformed")
+        declared = []
+    if len(declared) != len(set(declared)) or any(
+        not path or Path(path).is_absolute() or ".." in Path(path).parts or any(marker in path for marker in "*?[]")
+        for path in declared
+    ):
+        issues.append("published repair superseded paths are duplicate, unsafe, or non-exact")
+    if _COMMIT.fullmatch(lifecycle_commit) is None or not isinstance(boundary_row, Mapping):
+        issues.append("published repair historical stopped-boundary binding is malformed")
+    else:
+        issues.extend(_record_issues(boundary_row, label="published historical stopped boundary", revision=REPAIR_COMMIT, require_current=False))
+        if not _is_ancestor(lifecycle_commit, REPAIR_COMMIT):
+            issues.append("published historical stopped lifecycle commit is not before the repair")
+        try:
+            stopped = json.loads(_blob_bytes(str(boundary_row.get("git_blob", ""))).decode("utf-8-sig"))
+            rows = stopped.get("artifacts", []) if isinstance(stopped, Mapping) else []
+            if not isinstance(rows, list):
+                raise ValueError("artifact rows are malformed")
+            stopped_paths = {str(row.get("path", "")) for row in rows if isinstance(row, Mapping)}
+        except (RuntimeError, UnicodeDecodeError, json.JSONDecodeError, ValueError) as exc:
+            issues.append("published historical stopped boundary cannot be inspected: " + str(exc))
+    derived = sorted(stopped_paths.intersection(admitted))
+    if list(declared) != derived or not derived:
+        issues.append("published repair supersession list does not equal the exact stopped/admitted path intersection")
+    if issues:
+        return (), tuple(sorted(set(issues)))
+    return tuple(derived), ()
 
 
 def manifest_issues(value: Mapping[str, Any], source_revision: str) -> tuple[str, ...]:
