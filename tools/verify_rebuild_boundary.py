@@ -27,6 +27,13 @@ from tools.r7_w4_repair.integration_admission import (
     admitted_paths as w4_integration_repair_admitted_paths,
     manifest_issues as w4_integration_repair_manifest_issues,
 )
+from tools.r7_w4_repair.correction_admission import (
+    MANIFEST_PATH as W4_CORRECTION_ADMISSION_PATH,
+    MODE_ENV as W4_CORRECTION_ADMISSION_MODE_ENV,
+    ORCHESTRATION_MODES as W4_CORRECTION_ADMISSION_MODES,
+    admitted_paths as w4_correction_admitted_paths,
+    manifest_issues as w4_correction_manifest_issues,
+)
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument(
@@ -34,8 +41,14 @@ parser.add_argument(
     choices=W4_INTEGRATION_REPAIR_MODES,
     default=os.environ.get(W4_INTEGRATION_REPAIR_MODE_ENV, 'auto'),
 )
+parser.add_argument(
+    '--w4-correction-admission-mode',
+    choices=W4_CORRECTION_ADMISSION_MODES,
+    default=os.environ.get(W4_CORRECTION_ADMISSION_MODE_ENV, 'auto'),
+)
 args = parser.parse_args()
 os.environ[W4_INTEGRATION_REPAIR_MODE_ENV] = args.w4_integration_admission_mode
+os.environ[W4_CORRECTION_ADMISSION_MODE_ENV] = args.w4_correction_admission_mode
 
 manifest = json.loads((root / 'docs/rebuild/r3/baseline-manifest.json').read_text(encoding='utf-8'))
 failures = []
@@ -915,6 +928,7 @@ w4_source_boundary = json.loads(w4_source_boundary_path.read_text(encoding='utf-
 w4_source_active = bool(w4_source_boundary)
 w4_repair_admission = json.loads(W4_REPAIR_ADMISSION_PATH.read_text(encoding='utf-8')) if W4_REPAIR_ADMISSION_PATH.is_file() else {}
 w4_integration_repair_admission = json.loads(W4_INTEGRATION_REPAIR_ADMISSION_PATH.read_text(encoding='utf-8')) if W4_INTEGRATION_REPAIR_ADMISSION_PATH.is_file() else {}
+w4_correction_admission = json.loads(W4_CORRECTION_ADMISSION_PATH.read_text(encoding='utf-8')) if W4_CORRECTION_ADMISSION_PATH.is_file() else {}
 w4_repair_head = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=root, text=True, capture_output=True)
 w4_repair_superseded, w4_repair_issues = (
     w4_published_superseded_paths(w4_repair_head.stdout.strip())
@@ -934,9 +948,22 @@ w4_integration_repair_issues = (
 )
 for issue in w4_integration_repair_issues:
     check(False, 'R7 W4 integration repair admission: ' + str(issue))
+w4_correction_issues = (
+    w4_correction_manifest_issues(
+        w4_correction_admission,
+        w4_repair_head.stdout.strip(),
+        mode=args.w4_correction_admission_mode,
+    )
+    if W4_CORRECTION_ADMISSION_PATH.is_file() and w4_repair_head.returncode == 0
+    else ('R7 W4 correction admission boundary is missing or HEAD cannot be resolved',)
+)
+for issue in w4_correction_issues:
+    check(False, 'R7 W4 correction admission: ' + str(issue))
 w4_repair_paths = set(w4_repair_admitted_paths(w4_repair_admission)) if not w4_repair_issues else set()
 if not w4_integration_repair_issues:
     w4_repair_paths.update(w4_integration_repair_admitted_paths(w4_integration_repair_admission))
+if not w4_correction_issues:
+    w4_repair_paths.update(w4_correction_admitted_paths(w4_correction_admission))
 w4_repair_stopped_superseded = set(w4_repair_superseded) if not w4_repair_issues else set()
 check(w4_manifest.get('schema_version') == 'prd07-w4-readiness-admission-boundary-v1', 'R7 W4 readiness/admission boundary is missing or unsupported')
 check(w4_manifest.get('manifest_version') == 1, 'R7 W4 readiness/admission manifest version differs')
@@ -1273,5 +1300,5 @@ check(not (root/'project.godot').exists(), 'Unexpected Godot runtime entry point
 for name in ['addons','assets','content','data','generated','scripts','development','.profiles','.tmp']:
     check(not (root/name).exists(), 'Retired root remains: '+name)
 check((root/'tools/verify_rebuild_boundary.py').is_file(), 'Controlled validator missing')
-print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,r7_w3_manifest=w3_manifest_path.relative_to(root).as_posix(),r7_w3_paths=len(w3_admitted_paths),r7_w3_proof_run_ids=w3_run_ids,r7_w3_proof_evidence_ids=w3_evidence_ids,r7_w4_manifest=w4_manifest_path.relative_to(root).as_posix(),r7_w4_source_boundary=w4_source_boundary_path.relative_to(root).as_posix() if w4_source_active else None,r7_w4_repair_admission=W4_REPAIR_ADMISSION_PATH.relative_to(root).as_posix(),r7_w4_integration_repair_admission=W4_INTEGRATION_REPAIR_ADMISSION_PATH.relative_to(root).as_posix(),r7_w4_integration_repair_mode=args.w4_integration_admission_mode,r7_w4_integration_repair_paths=len(w4_integration_repair_admitted_paths(w4_integration_repair_admission)) if not w4_integration_repair_issues else 0,r7_w4_repair_paths=len(w4_repair_paths),r7_w4_paths=len(w4_admitted_paths),r7_w4_proof_run_ids=w4_report_run_ids,r7_w4_proof_evidence_ids=w4_report_evidence_ids,r7_w4_identity_previews=w4_previews if not w4_state_path.is_file() else [],active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
+print(json.dumps(dict(status='PASS' if not failures else 'FAIL',checks=checks,failures=failures,source_documents=len(expected_docs),r3_source_documents=len(baseline_docs),post_r3_intake_documents=len(intake_docs),source_intake_manifests=intake_manifests,unchanged_source_documents=len(unchanged),approved_document_updates=manifest['approved_document_updates'],retired_paths=len(manifest['retired_paths']),archived_validation_admitted=[],w0_harness_manifest=w0_manifest_path.relative_to(root).as_posix(),w0_harness_paths=len(w0_admitted_paths),w0_proof_run_ids=w0_manifest.get('allocated_run_ids', []),w0_proof_evidence_ids=w0_manifest.get('allocated_evidence_ids', []),r7_w0_manifest=r7_manifest_path.relative_to(root).as_posix(),r7_w0_paths=len(r7_admitted_paths),r7_w0_proof_run_ids=r7_manifest.get('allocated_run_ids', []),r7_w0_proof_evidence_ids=r7_manifest.get('allocated_evidence_ids', []),r7_w1_manifest=w1_manifest_path.relative_to(root).as_posix(),r7_w1_paths=len(w1_admitted_paths),r7_w1_proof_run_ids=w1_run_ids,r7_w1_proof_evidence_ids=w1_evidence_ids,r7_w2_manifest=w2_manifest_path.relative_to(root).as_posix(),r7_w2_paths=len(w2_admitted_paths),r7_w2_proof_run_ids=w2_run_ids,r7_w2_proof_evidence_ids=w2_evidence_ids,r7_w3_manifest=w3_manifest_path.relative_to(root).as_posix(),r7_w3_paths=len(w3_admitted_paths),r7_w3_proof_run_ids=w3_run_ids,r7_w3_proof_evidence_ids=w3_evidence_ids,r7_w4_manifest=w4_manifest_path.relative_to(root).as_posix(),r7_w4_source_boundary=w4_source_boundary_path.relative_to(root).as_posix() if w4_source_active else None,r7_w4_repair_admission=W4_REPAIR_ADMISSION_PATH.relative_to(root).as_posix(),r7_w4_integration_repair_admission=W4_INTEGRATION_REPAIR_ADMISSION_PATH.relative_to(root).as_posix(),r7_w4_integration_repair_mode=args.w4_integration_admission_mode,r7_w4_integration_repair_paths=len(w4_integration_repair_admitted_paths(w4_integration_repair_admission)) if not w4_integration_repair_issues else 0,r7_w4_correction_admission=W4_CORRECTION_ADMISSION_PATH.relative_to(root).as_posix(),r7_w4_correction_mode=args.w4_correction_admission_mode,r7_w4_correction_paths=len(w4_correction_admitted_paths(w4_correction_admission)) if not w4_correction_issues else 0,r7_w4_repair_paths=len(w4_repair_paths),r7_w4_paths=len(w4_admitted_paths),r7_w4_proof_run_ids=w4_report_run_ids,r7_w4_proof_evidence_ids=w4_report_evidence_ids,r7_w4_identity_previews=w4_previews if not w4_state_path.is_file() else [],active_poc_dependencies=0 if not failures else None,reference_classifications=matches),indent=2))
 sys.exit(1 if failures else 0)

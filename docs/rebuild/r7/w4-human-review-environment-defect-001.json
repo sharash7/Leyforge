@@ -1,0 +1,214 @@
+{
+  "affected_review_routes": {
+    "PRD04-PROOF-50": "NO-OWNER-FACING-BOUND-REVIEW-FLOW",
+    "PRD04-PROOF-51": "NO-OWNER-FACING-MASKED-ORIGIN-BOUND-REVIEW-FLOW",
+    "PRD04-PROOF-53": "SHARED-PRESENTATION-SCRIPT-FAILED-TO-PARSE"
+  },
+  "attempt_disposition": {
+    "human_judgement_recorded": false,
+    "human_review_status": "NOT-PERFORMED",
+    "identity_allocation_started": false,
+    "proof_execution_started": false,
+    "proof_observation_created": false
+  },
+  "attempts": [
+    {
+      "accepted_at_utc": "2026-09-13T10:44:29Z",
+      "configured_renderer": "gl_compatibility",
+      "debugger_session_active": false,
+      "error_count": 0,
+      "finding": "The project was a readiness self-report fixture that printed one allocation-free machine report and quit. It did not contain or launch a human-review interface.",
+      "project_id": "552c717ab24b48f4a45e30b62aee5a30",
+      "project_path": "D:/AI/Projects/leyforge-rebuild/proofs/r7/w4/presentation_probe",
+      "route": "FIXTURE-08-READINESS-SELF-REPORT-NOT-HUMAN-REVIEW",
+      "source_main_gd": {
+        "bytes": 1130,
+        "sha256": "5e6f0620ad6274e4e465a177c83ccee204e9b07583facd39772421bf14c69dc1"
+      },
+      "status": "NOT-A-HUMAN-REVIEW-ROUTE"
+    },
+    {
+      "accepted_at_utc": "2026-09-13T10:46:01Z",
+      "configured_renderer": "gl_compatibility",
+      "debugger_session_active": false,
+      "error_count": 4,
+      "errors_exact": [
+        "[url]modules\\gdscript\\gdscript_resource_format.cpp:46[/url] - Failed to load script \"res://src/main.gd\" with error \"Parse error\".",
+        "[url]res://src/main.gd:100[/url] - Parse Error: Cannot infer the type of \"supported\" variable because the value doesn't have a set type.",
+        "[url]res://src/main.gd:87[/url] - Parse Error: Cannot infer the type of \"resource_type\" variable because the value doesn't have a set type.",
+        "[url]res://src/main.gd:87[/url] - Parse Error: Static function \"get_resource_type()\" not found in base \"GDScriptNativeClass\"."
+      ],
+      "project_id": "129882869f804704ba751ac0aa9566ad",
+      "project_path": "D:/AI/Projects/leyforge-rebuild/proofs/r7/w4_execution/presentation_probe",
+      "route": "SHARED-W4-EXECUTION-PRESENTATION-SOURCE-PROJECT",
+      "source_main_gd": {
+        "bytes": 10694,
+        "sha256": "750b5edbf5c3b0c9096f4c26e5f05e7053ca8ef4f150a45045b42123a720799b"
+      },
+      "status": "PARSE-FAILED-BEFORE-RUNTIME"
+    }
+  ],
+  "build_identity_at_attempt": {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "build_identity": null,
+    "disposition": "ABSENT-SOURCE-PROJECT-OPENED-DIRECTLY",
+    "export_template_identity": null
+  },
+  "classification": "CORRECTIVE-DIAGNOSTIC-NOT-HUMAN-JUDGEMENT-NOT-PROOF-EVIDENCE",
+  "engine_at_attempt": {
+    "binary_bytes": 186761280,
+    "binary_path": "C:/Users/ashby/AppData/Local/SummerEngine/current/Summer.exe",
+    "binary_sha256": "10dd1fcf69f73f4eb6c5980c3d5156283735585a82ffaec04d4bb0087b36876d",
+    "file_version": "4.7.2",
+    "last_write_time_utc": "2026-09-05T04:44:53Z",
+    "product_name": "Summer Engine",
+    "product_version": "4.7.2.stable.mono.custom_build"
+  },
+  "finding_class": "REVIEW-ENVIRONMENT-PRECONDITION-DEFECT",
+  "finding_id": "W4-HUMAN-REVIEW-ENVIRONMENT-DEFECT-001",
+  "future_owner_route": {
+    "allowed_output": "DRAFT-UNSIGNED-NOT-PROOF-EVIDENCE",
+    "exact_build_required": true,
+    "exact_evidence_hash_binding_required": true,
+    "exact_fixture_hash_binding_required": true,
+    "exact_published_source_required": true,
+    "fresh_human_review_authorization_required": true,
+    "governed_forms_modified_by_presenter": false,
+    "owner_retry_state": "DEFERRED-PENDING-PUBLICATION-EXACT-SHA-CI-EXACT-BUILD-AND-FUTURE-REVIEW-BINDING",
+    "proof_execution_started_by_presenter": false
+  },
+  "profile_at_attempt": {
+    "generated_project_state": [
+      ".godot/",
+      ".summer/",
+      ".gitignore",
+      "main.tscn.bak",
+      "project.godot.bak",
+      "src/main.gd.uid"
+    ],
+    "isolated_profile": false,
+    "profile_scope": "HOST-GLOBAL-SUMMER-ENGINE-PROFILE",
+    "source_tree_opened_directly": true
+  },
+  "receipts": [
+    {
+      "bytes": 2953,
+      "kind": "FIRST-PROJECT-CONSOLE-AND-DEBUGGER",
+      "path": "C:/Users/ashby/AppData/Roaming/SummerEngine/bridge-receipts/c2e57cb194591bad7b8bc74a4b71ec4f7c669ee73489e0a6cb4606400482a236.json",
+      "sha256": "10f74e2d72703daa40aeb554f6050d482bdc691f6e26f1f918f146b573ed0966"
+    },
+    {
+      "bytes": 4167,
+      "kind": "FIRST-PROJECT-SETTINGS-AND-ENGINE",
+      "path": "C:/Users/ashby/AppData/Roaming/SummerEngine/bridge-receipts/cf156ea3fb264ea1fea6b18b03f8e50e58b9d9e6dc9abd258677980c056ca116.json",
+      "sha256": "9e6aecde40c4030684c8e76812c95e76ace6ae53644d39d91a0fe6cda28e7d98"
+    },
+    {
+      "bytes": 3104,
+      "kind": "FIRST-PROJECT-MAIN-SOURCE",
+      "path": "C:/Users/ashby/AppData/Roaming/SummerEngine/bridge-receipts/12dbd32b70d77a9d17aa76e4ce46172773be75aa651c3101a10a2f1bf80ae82e.json",
+      "sha256": "54f16791f3ed2e52d83243338ffe99cbcd53e242f55e7a496496231e7e8f7b41"
+    },
+    {
+      "bytes": 3642,
+      "kind": "SECOND-PROJECT-CONSOLE-AND-DEBUGGER",
+      "path": "C:/Users/ashby/AppData/Roaming/SummerEngine/bridge-receipts/71889351e608297a7a600fbd4867051bafc30ef547c2c24a7e98fcb88bb3ef88.json",
+      "sha256": "80d851487deef11bc71632dcf9a3ddf7ac473451d62c9c23440a3c9e8c2f6773"
+    },
+    {
+      "bytes": 14859,
+      "kind": "SECOND-PROJECT-MAIN-SOURCE",
+      "path": "C:/Users/ashby/AppData/Roaming/SummerEngine/bridge-receipts/9f00904af811927dcbb550b88e80574f7631e3fab8d719373314c38357189f3b.json",
+      "sha256": "772227aad3d81300e99b7eb106b1603556b7b56d7df2813aac98ee0209854a1c"
+    }
+  ],
+  "renderer_at_attempt": {
+    "actual_renderer": null,
+    "configured_renderer": "gl_compatibility",
+    "rendering_driver": null,
+    "runtime_session_started": false,
+    "video_adapter": null
+  },
+  "repair": {
+    "build_input_law": "EXACT-COMMIT-ALLOWLIST-ONLY-NO-WORKING-TREE-COPY-NO-EDITOR-RESIDUE",
+    "engine": {
+      "binary_bytes": 301056,
+      "binary_path": "D:/AI/Projects/leyforge/.local/Godot_v4.8-dev-a9c94-shutdown-fixed/godot.windows.editor.x86_64.console.exe",
+      "binary_sha256": "06e7be7ed0298e81be421076a4a3166a7ae0e6b72c8a948d6faefd5823b3ee1a",
+      "version": "4.8.dev.custom_build.a9c94cd21"
+    },
+    "export_template": {
+      "package_bytes": 1415878829,
+      "package_path": "D:/AI/Projects/leyforge-rebuild/.local/r7-w0-deps/Godot_v4.8-dev4_export_templates.tpz",
+      "package_sha256": "cebaad066428083f111515c74fba35e3ca64942eadf2323f1c7241d23abb73ea",
+      "windows_release_template_bytes": 110569472,
+      "windows_release_template_path": "D:/AI/Projects/leyforge-rebuild/.local/r7-w0-deps/godot-4.8-dev4-templates/templates/windows_release_x86_64.exe",
+      "windows_release_template_sha256": "d66dd49185e7d6bc27594f755347ca68f8e3828f074742b1788a98950491ac3f"
+    },
+    "presentation_behavior": "OWNER-SELECTABLE-JUDGEMENTS-AND-NOTES-WITH-UNSIGNED-DRAFT-OUTPUT-ONLY",
+    "review_routes": [
+      "PRD04-PROOF-50",
+      "PRD04-PROOF-51",
+      "PRD04-PROOF-53"
+    ],
+    "source_parse": "PASS-ISOLATED-FIXED-GODOT-EDITOR-IMPORT",
+    "state": "PREPARED-NOT-PUBLISHED"
+  },
+  "repair_verification": {
+    "artifact_sha256": "9b70b1b13a4c06735b0dc1aaa0e06be1dfbc6190bb3c6af46b742b6a87fce171",
+    "artifact_size_bytes": 110452672,
+    "build_identity": "6ae8f4a1a1f5aafab6dadbfc4660685c0c6133fb483108d8d8a69867e06f98cf",
+    "classification": "SYNTHETIC-REVIEW-PREFLIGHT-NOT-HUMAN-REVIEW-NOT-PROOF-OBSERVATION",
+    "configured_profile_isolated": true,
+    "forms_modified": false,
+    "proof_routes": {
+      "PRD04-PROOF-50": {
+        "criteria_presented": 32,
+        "status": "PASS"
+      },
+      "PRD04-PROOF-51": {
+        "criteria_presented": 36,
+        "origin_visibility": "MASKED-SOURCE-LABELS-ONLY",
+        "status": "PASS"
+      },
+      "PRD04-PROOF-53": {
+        "criteria_presented": 12,
+        "renderer_preflights": {
+          "forward_plus": "PASS-VULKAN",
+          "gl_compatibility": "PASS-OPENGL3",
+          "mobile": "PASS-VULKAN"
+        },
+        "status": "PASS"
+      }
+    },
+    "proof_execution_started": false,
+    "source_content_identity": "bea23b6bdfd4079e0da1a47588390f664fa829eb033b1af9edb6b4cddc5b95ae",
+    "source_lifecycle": "PREPARATION-WORKING-TREE-NOT-PUBLISHED"
+  },
+  "review_records": {
+    "attestation": "UNSIGNED",
+    "judgement": "PENDING",
+    "origin_mapping": "PENDING-SEPARATE-ADJUDICATION",
+    "review_purpose": "UNASSIGNED",
+    "status": "PENDING-HUMAN-REVIEW"
+  },
+  "root_cause": [
+    "The owner was directed to source projects rather than an exact exported and hash-bound review artifact.",
+    "The FIXTURE-08 project was only a readiness self-report and had no human-review interaction.",
+    "The shared execution presentation script used ResourceLoader.get_resource_type(), which is unavailable in the observed Summer Engine API, and inferred Variant-derived values without explicit types, causing parse failure before runtime.",
+    "The build path copied the mutable source directory wholesale, so generated editor residue could contaminate the claimed source/build identity.",
+    "No orchestration bound the pending proof-50, proof-51, or proof-53 review criteria to exact evidence, fixtures, renderer, build, and source identities."
+  ],
+  "schema_version": "prd07-w4-human-review-environment-defect-v1",
+  "source_revision": "11900c72c92f8869c0072907899f0899b524dc32",
+  "source_revision_committed_at": "2026-09-13T10:34:05Z",
+  "source_revision_parent": "6ec72ee03d2c2aac6909f7d1ee1d1750d0cec273",
+  "source_residue_disposition": {
+    "archive_path": "D:/AI/Projects/leyforge-rebuild/.local/w4-human-review-attempt-20260913-source-residue",
+    "archived_file_count": 99,
+    "base_tracked_project_files_restored": true,
+    "classification": "RECOVERABLE-IGNORED-LOCAL-ARCHIVE-NOT-ADMITTED-PACKAGE-CONTENT",
+    "deleted": false
+  }
+}

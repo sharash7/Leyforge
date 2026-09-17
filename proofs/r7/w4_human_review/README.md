@@ -30,6 +30,38 @@ Synthetic validator fixtures must use `SYNTHETIC-VALIDATOR-TEST` and
 but production ingestion always rejects them. Automation and Codex may not use
 the production-human purpose or impersonate either human role.
 
+## Owner-facing presentation route
+
+Do not open either source-only `presentation_probe` directory as the review
+application. The FIXTURE-08 readiness project only emits a non-executing
+self-report, while the execution probe is source material for an exact exported
+artifact. Opening either project in an editor does not establish a source,
+build, artifact, environment, evidence, or review-lifecycle binding.
+
+For a separately authorized future review, first build the exact published
+source with the pinned Godot driver and export template. Prepare a presentation
+context with `tools.r7_w4_repair.review_presentation.build_context`; this binds
+the exact source revision, probe-source identity, build identity, artifact hash,
+fixture identities, captured environment, renderer argument, and every evidence
+file and hash. Run its non-interactive `preflight` command in an isolated
+profile before presenting anything to the reviewer. The route refuses missing,
+changed, unmasked, pre-answered, or execution-shaped material.
+
+After publication, exact-SHA CI, a successful exact-build preflight, lawful
+future proof binding, and fresh human-review authorization, the `present`
+command opens the bound artifact and supplies the context. It displays the
+canonical prompts and lets the reviewer enter responses without editing these
+JSON files. The application can save only an unsigned
+`DRAFT-UNSIGNED-NOT-PROOF-EVIDENCE` file at the expressly supplied output path;
+it never edits these governed forms, derives an overall judgement, signs an
+attestation, creates proof evidence, or allocates identity. A later governed
+human-controlled completion step must still bind references, derive the
+canonical result, attest it, and, for proof 51, complete separate adjudication.
+
+The failed 2026-09-13 source-project load is a review-environment precondition
+defect only. It supplies no human observation or partial judgement, and all
+forms in this directory remain pending and unsigned.
+
 ## Proof 50 — art-production handoff
 
 Complete every exact required asset-class row and its bound source identities.

@@ -1,0 +1,265 @@
+{
+  "artifacts": [
+    {
+      "bytes": 10001,
+      "change": "ADDED",
+      "git_blob": "4a31d1fce8a45c46b6ff5e025913545548765e37",
+      "path": "docs/rebuild/r7/w4-human-review-environment-defect-001.json",
+      "sha256": "25141a67a16109bf52d1677b9409246fff7e33a3d61112bd5854de1a65b50d1a"
+    },
+    {
+      "bytes": 24224,
+      "change": "MODIFIED",
+      "git_blob": "18e66ae43fed8df5df8db2742b3f18822b4a8b79",
+      "path": "proofs/r7/w4_execution/presentation_probe/src/main.gd",
+      "sha256": "c947f312e521ed7e6e6cafc941751015b428e07b288d7a11fac1b140c5bc2728"
+    },
+    {
+      "bytes": 5241,
+      "change": "MODIFIED",
+      "git_blob": "33ddb4b2a6e5e126928a48a9d01deb9ba5e220c8",
+      "path": "proofs/r7/w4_human_review/README.md",
+      "sha256": "0936ce31c4ad04060725c4ec8464c5ce2848e5f4cc0b4dca51c91e4776180f9f"
+    },
+    {
+      "bytes": 20354,
+      "change": "MODIFIED",
+      "git_blob": "f527b848b0efbbdc2cd42f8dd1342a99bfdf0ff3",
+      "path": "tools/r7_w4_execution/builds.py",
+      "sha256": "a6ffaded35475826732408b1773d39f483d349e847901c60239973100f041e15"
+    },
+    {
+      "bytes": 31518,
+      "change": "ADDED",
+      "git_blob": "f8eaa618fdc872d6b3a7f9710cb319a31a7d7b25",
+      "path": "tools/r7_w4_repair/correction_admission.py",
+      "sha256": "dcfd82609945e5ceb3c2364ec34e106885c526b47f6c4c51e5360013c493eae8"
+    },
+    {
+      "bytes": 27652,
+      "change": "ADDED",
+      "git_blob": "0f2035db15264f6c957107fbbb48963eb164a804",
+      "path": "tools/r7_w4_repair/review_presentation.py",
+      "sha256": "ad941c0168238ee49fb968158dd60725f6d8a20f1d55e029ddf7c1a423a862e5"
+    },
+    {
+      "bytes": 9357,
+      "change": "ADDED",
+      "git_blob": "00920afe5f365793191a6a9394c88da67df0c27f",
+      "path": "tools/tests/test_r7_w4_correction_admission.py",
+      "sha256": "36fab7e1061bbfa6e3ee437e39387c058307cc8e4209b55f36823bc215cd1df2"
+    },
+    {
+      "bytes": 12889,
+      "change": "MODIFIED",
+      "git_blob": "a7d5219db1589b3dfc14e72d447d642e9a95fe5b",
+      "path": "tools/tests/test_r7_w4_integration_repair.py",
+      "sha256": "3eb769fbb241152db1cc3772e130645b83618a2cd1d9e27404c7fa7ab882bc03"
+    },
+    {
+      "bytes": 12700,
+      "change": "ADDED",
+      "git_blob": "9dd17e0bc6baa47a1b9c7edbf1ccd411c0a4c1b2",
+      "path": "tools/tests/test_r7_w4_review_presentation.py",
+      "sha256": "cc2b1b7659321cd70e00ce3068ce55a1980787e408a766e98932125b8917415e"
+    },
+    {
+      "bytes": 13311,
+      "change": "MODIFIED",
+      "git_blob": "962714218dceced77f01d15b4f581caae3e45cc8",
+      "path": "tools/verify.py",
+      "sha256": "c18746c02113eb7d765d97179295e9e4578f5c22b538e707ed99d672a9e1ad2b"
+    },
+    {
+      "bytes": 101275,
+      "change": "MODIFIED",
+      "git_blob": "a5bcedb88b1a3fe5f244cb362360437d8170ac65",
+      "path": "tools/verify_rebuild_boundary.py",
+      "sha256": "94d3a208b735774253c66b24c5d4a1d4744f1139abb6257899aa7460add60820"
+    }
+  ],
+  "base_revision": "11900c72c92f8869c0072907899f0899b524dc32",
+  "broad_prefix_exclusions": [],
+  "excluded_blocked_attempt_diagnostics": [
+    {
+      "disposition": "EXCLUDED-UNTRACKED-BLOCKED-ATTEMPT-REVIEW-OUTPUT",
+      "observed_bytes": 45346,
+      "observed_sha256": "38b75bb65eb35f701ec846f3c2b471b3eacbfa944e4975fffeae2161c35934ea",
+      "path": "docs/rebuild/r7/w4-measurement-recertification.json"
+    },
+    {
+      "disposition": "EXCLUDED-UNTRACKED-BLOCKED-ATTEMPT-REVIEW-OUTPUT",
+      "observed_bytes": 22656,
+      "observed_sha256": "a2256a9a1f21f6b6079db406c29b15fd421a57d2db157611b931bbf631f63762",
+      "path": "docs/rebuild/r7/w4-rerun-readiness.json"
+    }
+  ],
+  "execution_gate": "CLOSED-PENDING-SEPARATE-PUBLICATION-CI-BUILD-REVIEW-BINDING-AND-RERUN-AUTHORIZATION",
+  "failed_review_attempt": "ENVIRONMENT-PRECONDITION-DEFECT-NOT-HUMAN-JUDGEMENT-NOT-PROOF-OBSERVATION",
+  "fcc13e": {
+    "future_rule": "312/312-REQUIRED-NO-SAMPLING-NO-WAIVER",
+    "observed_rows": {
+      "PRD04-PROOF-57": 0,
+      "PRD04-PROOF-58": 0
+    },
+    "proof_observations_created": 0,
+    "proofs": [
+      "PRD04-PROOF-57",
+      "PRD04-PROOF-58"
+    ]
+  },
+  "gameplay_permission": "CLOSED",
+  "identity_allocation_started": false,
+  "issued_evidence_high_water": 72,
+  "issued_run_high_water": 72,
+  "lifecycle_role": "PREPARED-UNPUBLISHED-APPEND-ONLY-CORRECTION-ADMISSION",
+  "manifest_path": "docs/rebuild/r7/w4-correction-admission-boundary.json",
+  "manifest_payload_sha256": "43f75a2eac2558a4a1ee3930a0c928ddd9d36acdff825083bf6ce0c9aacfa695",
+  "manifest_version": 1,
+  "package": "R7-W4-INTEGRATION-LIFECYCLE-AND-HUMAN-REVIEW-PRESENTATION-CORRECTION",
+  "package_allocated_evidence_ids": [],
+  "package_allocated_run_ids": [],
+  "prd08_submission": "NOT-SUBMITTED",
+  "prd09": "CLOSED",
+  "production_runtime": "ABSENT",
+  "proof_execution_started": false,
+  "proof_observation_created": false,
+  "protected_local_path_count": 9,
+  "published_integration_repair_admission": {
+    "bytes": 10662,
+    "git_blob": "de2377ab8922f2df2779c0b3648e0d3c7d961f1d",
+    "path": "docs/rebuild/r7/w4-integration-repair-admission-boundary.json",
+    "revision": "11900c72c92f8869c0072907899f0899b524dc32",
+    "sha256": "96e0b9e60bc6d346f7f1d3534bb06fb8a60ea3c54ed7ff66f22141a9bff42540"
+  },
+  "r7_final": "CLOSED",
+  "r8": "CLOSED",
+  "rerun_preview": [
+    {
+      "evidence_id": "PRD07-EVID-0073",
+      "proof_id": "PRD04-PROOF-50",
+      "run_id": "PRD07-RUN-0073",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0074",
+      "proof_id": "PRD04-PROOF-51",
+      "run_id": "PRD07-RUN-0074",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0075",
+      "proof_id": "PRD04-PROOF-53",
+      "run_id": "PRD07-RUN-0075",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0076",
+      "proof_id": "PRD04-PROOF-55",
+      "run_id": "PRD07-RUN-0076",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0077",
+      "proof_id": "PRD04-PROOF-56",
+      "run_id": "PRD07-RUN-0077",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0078",
+      "proof_id": "PRD04-PROOF-57",
+      "run_id": "PRD07-RUN-0078",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0079",
+      "proof_id": "PRD04-PROOF-58",
+      "run_id": "PRD07-RUN-0079",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0080",
+      "proof_id": "PRD04-PROOF-59",
+      "run_id": "PRD07-RUN-0080",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0081",
+      "proof_id": "PRD04-PROOF-60",
+      "run_id": "PRD07-RUN-0081",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0082",
+      "proof_id": "PRD04-PROOF-61",
+      "run_id": "PRD07-RUN-0082",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0083",
+      "proof_id": "PRD04-PROOF-62",
+      "run_id": "PRD07-RUN-0083",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0084",
+      "proof_id": "PRD04-PROOF-71",
+      "run_id": "PRD07-RUN-0084",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    }
+  ],
+  "review_route_state": "REPAIR-PREPARED-NOT-PUBLISHED-OWNER-RETRY-DEFERRED",
+  "scanner_bypasses": [],
+  "schema_version": "prd07-w4-correction-admission-v1",
+  "state": "PASS-PREPARED-NOT-STAGED",
+  "unchanged_pending_review_forms": [
+    {
+      "bytes": 15485,
+      "git_blob": "d6d16860d553fc4b979e8fa6e21aad13b019e37a",
+      "path": "proofs/r7/w4_human_review/proof-50-pending.json",
+      "revision": "11900c72c92f8869c0072907899f0899b524dc32",
+      "sha256": "5eb48109707411f9653441107834b6931c4238be40f844f83cfd880be48208aa"
+    },
+    {
+      "bytes": 905,
+      "git_blob": "5e824c6958c40e3009eb509ebd0a153094bd4e48",
+      "path": "proofs/r7/w4_human_review/proof-51-origin-mapping-pending.json",
+      "revision": "11900c72c92f8869c0072907899f0899b524dc32",
+      "sha256": "2da95d3fb72192ecbac83aac3e9ead83ad6a2378d87f3aa9ebb164eab359cc37"
+    },
+    {
+      "bytes": 16977,
+      "git_blob": "eded67ccb1f94a03b93c21f34c4c8a04d7c34c72",
+      "path": "proofs/r7/w4_human_review/proof-51-pending.json",
+      "revision": "11900c72c92f8869c0072907899f0899b524dc32",
+      "sha256": "84b95fc97de9c736bdd10f5146ebc0c75566532e2939df00ae347f4be4ccd920"
+    },
+    {
+      "bytes": 8419,
+      "git_blob": "1b7de210cc459cf215b807b462841c7c1d548db6",
+      "path": "proofs/r7/w4_human_review/proof-53-pending.json",
+      "revision": "11900c72c92f8869c0072907899f0899b524dc32",
+      "sha256": "29c2476e8abc668bb988049550818546c8b2fd2fafe6d3a7a812aaec0281fac2"
+    }
+  ],
+  "validation_law": "EXACT-PATH-HASH-PINNED-FAIL-CLOSED",
+  "validation_modes": {
+    "preparation": {
+      "content_source": "WORKING-TREE",
+      "index_rule": "EMPTY",
+      "pass_state": "PASS-PREPARED-NOT-STAGED"
+    },
+    "published": {
+      "content_source": "EXACT-COMMIT-TREE",
+      "index_rule": "NOT-AUTHORITY",
+      "pass_state": "PASS-PUBLISHED-EXACT-COMMIT"
+    },
+    "staged": {
+      "content_source": "GIT-INDEX-BLOBS",
+      "index_rule": "EXACT-MANIFEST-PATH-SET",
+      "pass_state": "PASS-STAGED-EXACT-PACKAGE"
+    }
+  },
+  "w5": "CLOSED-NOT-READY",
+  "wildcard_admissions": []
+}

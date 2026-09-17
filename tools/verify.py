@@ -14,6 +14,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 W4_INTEGRATION_ADMISSION_MODE_ENV = "LEYFORGE_W4_INTEGRATION_ADMISSION_MODE"
 W4_INTEGRATION_ADMISSION_MODES = ("preparation", "staged", "published", "auto")
+W4_CORRECTION_ADMISSION_MODE_ENV = "LEYFORGE_W4_CORRECTION_ADMISSION_MODE"
+W4_CORRECTION_ADMISSION_MODES = ("preparation", "staged", "published", "auto")
 PROOF_HARNESS_PYTHON = sorted(
     str(path.relative_to(ROOT))
     for base in (
@@ -107,11 +109,16 @@ def w4_implementation_commit() -> str:
     return result.stdout.strip()
 
 
-def w4_verification_commands(python: str, integration_admission_mode: str = "auto") -> list[list[str]]:
+def w4_verification_commands(
+    python: str,
+    integration_admission_mode: str = "auto",
+    correction_admission_mode: str = "auto",
+) -> list[list[str]]:
     source_boundary = ROOT / "docs/rebuild/r7/w4-governed-execution-source-boundary.json"
     execution_admission = ROOT / "docs/rebuild/r7/w4-governed-execution-admission.json"
     repair_admission = ROOT / "docs/rebuild/r7/w4-repair-admission-boundary.json"
     integration_repair_admission = ROOT / "docs/rebuild/r7/w4-integration-repair-admission-boundary.json"
+    correction_admission = ROOT / "docs/rebuild/r7/w4-correction-admission-boundary.json"
     state = ROOT / "docs/rebuild/r7/w4-execution-state.json"
     head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True).stdout.strip()
     if source_boundary.is_file():
@@ -132,6 +139,11 @@ def w4_verification_commands(python: str, integration_admission_mode: str = "aut
             commands.append([
                 python, "-m", "tools.r7_w4_repair.admission", "verify",
                 "--source-revision", head, "--format", "json",
+            ])
+        if correction_admission.is_file():
+            commands.append([
+                python, "-m", "tools.r7_w4_repair.correction_admission", "verify",
+                "--mode", correction_admission_mode,
             ])
         commands.append(source_command)
         if state.is_file():
@@ -157,9 +169,15 @@ def w4_verification_commands(python: str, integration_admission_mode: str = "aut
     ]
 
 
-def run(command: list[str], *, integration_admission_mode: str = "auto") -> dict[str, object]:
+def run(
+    command: list[str],
+    *,
+    integration_admission_mode: str = "auto",
+    correction_admission_mode: str = "auto",
+) -> dict[str, object]:
     environment = dict(os.environ)
     environment[W4_INTEGRATION_ADMISSION_MODE_ENV] = integration_admission_mode
+    environment[W4_CORRECTION_ADMISSION_MODE_ENV] = correction_admission_mode
     completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, env=environment)
     return {
         "command": command,
@@ -169,7 +187,11 @@ def run(command: list[str], *, integration_admission_mode: str = "auto") -> dict
     }
 
 
-def commands_for(tier: str, integration_admission_mode: str = "auto") -> list[list[str]]:
+def commands_for(
+    tier: str,
+    integration_admission_mode: str = "auto",
+    correction_admission_mode: str = "auto",
+) -> list[list[str]]:
     python = sys.executable
     compile_command = [
         python,
@@ -200,7 +222,7 @@ def commands_for(tier: str, integration_admission_mode: str = "auto") -> list[li
             [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
             [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
             w3_verification_command(python),
-            *w4_verification_commands(python, integration_admission_mode),
+            *w4_verification_commands(python, integration_admission_mode, correction_admission_mode),
             [python, "brain/92_SCRIPTS/governance.py", "doctor", "--profile", "full", "--format", "json"],
         ]
     return [
@@ -212,7 +234,7 @@ def commands_for(tier: str, integration_admission_mode: str = "auto") -> list[li
         [python, "-m", "tools.r7_w1_runtime", "preflight", "--implementation-commit", w1_implementation_commit(), "--static-only", "--format", "json"],
         [python, "-m", "tools.r7_w2_runtime", "preflight", "--implementation-commit", w2_implementation_commit(), "--static-only", "--format", "json"],
         w3_verification_command(python),
-        *w4_verification_commands(python, integration_admission_mode),
+        *w4_verification_commands(python, integration_admission_mode, correction_admission_mode),
         [python, "brain/92_SCRIPTS/brain.py", "ingest", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "index", "--check"],
         [python, "brain/92_SCRIPTS/brain.py", "links", "--format", "json"],
@@ -231,12 +253,25 @@ def main() -> int:
         choices=W4_INTEGRATION_ADMISSION_MODES,
         default=os.environ.get(W4_INTEGRATION_ADMISSION_MODE_ENV, "auto"),
     )
+    parser.add_argument(
+        "--w4-correction-admission-mode",
+        choices=W4_CORRECTION_ADMISSION_MODES,
+        default=os.environ.get(W4_CORRECTION_ADMISSION_MODE_ENV, "auto"),
+    )
     parser.add_argument("--format", choices=("text", "json"), default="text")
     args = parser.parse_args()
-    commands = commands_for(args.tier, args.w4_integration_admission_mode)
+    commands = commands_for(
+        args.tier,
+        args.w4_integration_admission_mode,
+        args.w4_correction_admission_mode,
+    )
     runs = []
     for command in commands:
-        result = run(command, integration_admission_mode=args.w4_integration_admission_mode)
+        result = run(
+            command,
+            integration_admission_mode=args.w4_integration_admission_mode,
+            correction_admission_mode=args.w4_correction_admission_mode,
+        )
         runs.append(result)
         if result["exit_code"] != 0:
             break
@@ -246,6 +281,7 @@ def main() -> int:
         "tier": args.tier,
         "status": status,
         "w4_integration_admission_mode": args.w4_integration_admission_mode,
+        "w4_correction_admission_mode": args.w4_correction_admission_mode,
         "commands": runs,
         "gameplay_permission": "CLOSED",
     }

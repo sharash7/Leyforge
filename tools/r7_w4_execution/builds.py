@@ -6,7 +6,7 @@ import hashlib
 import json
 import os
 import platform
-import shutil
+import re
 import socket
 import subprocess
 import threading
@@ -21,14 +21,102 @@ from .contracts import ROOT, canonical_bytes, sha256_file
 
 PROBE_SOURCE = ROOT / "proofs/r7/w4_execution/presentation_probe"
 REPORT_PREFIX = "LEYFORGE_W4_EXECUTION_REPORT "
+PROBE_SOURCE_FILES = (
+    "capability_fixtures/benign_data.tres",
+    "capability_fixtures/editor_plugin_canary.gd",
+    "capability_fixtures/file_canary.gd",
+    "capability_fixtures/network_canary.gd",
+    "main.tscn",
+    "project.godot",
+    "src/main.gd",
+)
+FIXTURE_INPUT_FILES = (
+    "proofs/r7/w4/fixture-07/source-packages.json",
+    "proofs/r7/w4/fixture-07/trust-and-scale-cases.json",
+    "proofs/r7/w4/fixture-08/presentation-cases.json",
+)
+_COMMIT = re.compile(r"[0-9a-f]{40}")
 
 
-def _tree_identity(root: Path) -> str:
+def _commit_file_data(source_revision: str, relative: str) -> bytes:
+    result = subprocess.run(
+        ["git", "show", source_revision + ":" + relative],
+        cwd=ROOT,
+        capture_output=True,
+    )
+    if result.returncode:
+        raise RuntimeError(
+            "W4 exact source file cannot be materialized: {0}: {1}".format(
+                relative,
+                result.stderr.decode("utf-8", errors="replace").strip(),
+            )
+        )
+    return result.stdout
+
+
+def _exact_probe_tree(source_revision: str) -> dict[str, bytes]:
+    if _COMMIT.fullmatch(source_revision) is None:
+        raise ValueError("W4 build source revision must be an exact 40-character commit")
+    resolved = subprocess.run(
+        ["git", "rev-parse", "--verify", source_revision + "^{commit}"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+    if resolved.returncode or resolved.stdout.strip() != source_revision:
+        raise ValueError("W4 build source revision does not resolve to the named exact commit")
+    prefix = PROBE_SOURCE.relative_to(ROOT).as_posix()
+    listing = subprocess.run(
+        ["git", "ls-tree", "-r", "--name-only", source_revision, "--", prefix],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+    actual = tuple(
+        sorted(
+            line[len(prefix) + 1 :]
+            for line in listing.stdout.splitlines()
+            if line.startswith(prefix + "/")
+        )
+    )
+    if listing.returncode or actual != PROBE_SOURCE_FILES:
+        raise RuntimeError("W4 exact probe source path set differs: " + ", ".join(actual))
+    return {
+        relative: _commit_file_data(source_revision, prefix + "/" + relative)
+        for relative in PROBE_SOURCE_FILES
+    }
+
+
+def _exact_fixture_input_tree(source_revision: str) -> dict[str, bytes]:
+    return {
+        relative: _commit_file_data(source_revision, relative)
+        for relative in FIXTURE_INPUT_FILES
+    }
+
+
+def _tree_identity(files: Mapping[str, bytes]) -> str:
     digest = hashlib.sha256()
-    for path in sorted(item for item in root.rglob("*") if item.is_file() and ".godot" not in item.parts):
-        relative = path.relative_to(root).as_posix()
-        digest.update(relative.encode("utf-8") + b"\0" + path.read_bytes() + b"\0")
+    for relative in sorted(files):
+        digest.update(relative.encode("utf-8") + b"\0" + files[relative] + b"\0")
     return digest.hexdigest()
+
+
+def _materialize_exact_source(
+    source_revision: str,
+    workspace: Path,
+) -> tuple[dict[str, bytes], dict[str, bytes]]:
+    files = _exact_probe_tree(source_revision)
+    fixture_inputs = _exact_fixture_input_tree(source_revision)
+    workspace.mkdir(parents=True)
+    for relative, data in files.items():
+        path = workspace / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+    input_root = workspace / "fixture-inputs"
+    input_root.mkdir()
+    for relative, data in fixture_inputs.items():
+        (input_root / Path(relative).name).write_bytes(data)
+    return files, fixture_inputs
 
 
 def _process(argv: Sequence[str], cwd: Path, environment: Mapping[str, str], timeout: float) -> Dict[str, Any]:
@@ -150,15 +238,7 @@ def build_probe(source_revision: str, run_root: Path) -> Dict[str, Any]:
     output_root = run_root / "build/output"
     profile = run_root / "build/profile"
     workspace.parent.mkdir(parents=True)
-    shutil.copytree(PROBE_SOURCE, workspace)
-    input_root = workspace / "fixture-inputs"
-    input_root.mkdir()
-    for relative in (
-        "proofs/r7/w4/fixture-07/source-packages.json",
-        "proofs/r7/w4/fixture-07/trust-and-scale-cases.json",
-        "proofs/r7/w4/fixture-08/presentation-cases.json",
-    ):
-        shutil.copy2(ROOT / relative, input_root / Path(relative).name)
+    probe_files, fixture_inputs = _materialize_exact_source(source_revision, workspace)
     template = Path(str(local["paths"]["godot_template_runtime"]))
     driver = Path(str(local["paths"]["godot_driver"]))
     (workspace / "export_presets.cfg").write_text(_export_preset(template), encoding="utf-8")
@@ -184,11 +264,13 @@ def build_probe(source_revision: str, run_root: Path) -> Dict[str, Any]:
     )
     if export["exit_code"] != 0 or export["timed_out"] or not artifact.is_file():
         raise RuntimeError("W4 fixed-Godot export preflight failed: " + json.dumps(export, ensure_ascii=True))
-    probe_identity = _tree_identity(PROBE_SOURCE)
+    probe_identity = _tree_identity(probe_files)
+    fixture_input_identity = _tree_identity(fixture_inputs)
     dependency_identity = load_reference()
     build_material = {
         "source_revision": source_revision,
         "probe_source_identity": probe_identity,
+        "fixture_input_identity": fixture_input_identity,
         "godot_driver_sha256": sha256_file(driver),
         "godot_template_sha256": sha256_file(template),
         "voxel_tools_sha256": dependency_identity.get("component_hashes", {}).get("voxel_tools_package_sha256", "") if isinstance(dependency_identity.get("component_hashes"), dict) else "",
@@ -250,6 +332,7 @@ def build_probe(source_revision: str, run_root: Path) -> Dict[str, Any]:
         "role": "client",
         "build_identity": build_identity,
         "probe_source_identity": probe_identity,
+        "fixture_input_identity": fixture_input_identity,
         "artifact_path": str(artifact.resolve()),
         "artifact_sha256": sha256_file(artifact),
         "artifact_size_bytes": artifact.stat().st_size,
