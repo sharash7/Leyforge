@@ -10,6 +10,7 @@ from unittest.mock import patch
 
 from tools.r7_w4_execution.contracts import PROTECTED_LOCAL_PATHS, ROOT
 from tools.r7_w4_repair import correction_admission
+from tools.r7_w4_repair.audit_wiring_admission import CORRECTION_REVISION
 from tools.r7_w4_repair.correction_admission import (
     DIAGNOSTIC_PATHS,
     MANIFEST_PATH,
@@ -33,8 +34,10 @@ class R7W4CorrectionAdmissionTests(unittest.TestCase):
     def _exact_package_snapshot(cls) -> dict[str, tuple[str, bytes]]:
         snapshot: dict[str, tuple[str, bytes]] = {}
         for relative in PACKAGE_PATHS:
-            data = correction_admission._file_data(ROOT / relative)
-            snapshot[relative] = (str(correction_admission._git("hash-object", "--", relative)), data)
+            # This published package can be superseded by later source-only
+            # corrections; its fixture must use the exact committed tree.
+            blob = str(correction_admission._git("rev-parse", CORRECTION_REVISION + ":" + relative))
+            snapshot[relative] = (blob, correction_admission._blob_data(blob))
         return snapshot
 
     @staticmethod
