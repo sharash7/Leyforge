@@ -17,10 +17,13 @@ if str(ROOT) not in sys.path:
 
 from tools.r7_w3_runtime.execution_plan import inspect_execution_registry
 from tools.r7_w4_repair.integration_admission import (
-    MANIFEST_PATH as INTEGRATION_REPAIR_ADMISSION_PATH,
     MODE_ENV as INTEGRATION_ADMISSION_MODE_ENV,
     ORCHESTRATION_MODES as INTEGRATION_ADMISSION_MODES,
-    manifest_issues as integration_repair_admission_issues,
+)
+from tools.r7_w4_repair.audit_wiring_admission import (
+    MODE_ENV as AUDIT_WIRING_ADMISSION_MODE_ENV,
+    MODES as AUDIT_WIRING_ADMISSION_MODES,
+    layered_issues,
 )
 
 
@@ -143,13 +146,14 @@ def audit_values(
     readiness: Mapping[str, Any],
     root: Path = ROOT,
     *,
-    integration_admission_mode: str = "preparation",
+    integration_admission_mode: str = "auto",
+    audit_wiring_admission_mode: str = "auto",
 ) -> Dict[str, Any]:
     audit = Audit()
     if root.resolve() == ROOT.resolve():
-        integration = json.loads(INTEGRATION_REPAIR_ADMISSION_PATH.read_text(encoding="utf-8-sig")) if INTEGRATION_REPAIR_ADMISSION_PATH.is_file() else {}
-        integration_issues = integration_repair_admission_issues(integration, mode=integration_admission_mode) if integration else ("integration repair admission is missing",)
-        audit.check(not integration_issues, "integration repair admission failed: " + "; ".join(integration_issues))
+        audit.check(integration_admission_mode in ("auto", "published"), "published integration layer requires auto or published mode")
+        admission_issues = layered_issues(mode=audit_wiring_admission_mode)
+        audit.check(not admission_issues, "layered W4 admission failed: " + "; ".join(admission_issues))
     audit.check(recertification.get("schema_version") == "prd07-w4-measurement-recertification-v1", "recertification schema differs")
     audit.check(recertification.get("state") == "PASS", "recertification is not PASS")
     audit.check(recertification.get("scope") == "HARNESS-RECERTIFICATION-NOT-PROOF-OBSERVATION", "recertification scope differs")
@@ -231,6 +235,7 @@ def audit_values(
         "status": "PASS" if not audit.failures else "FAIL",
         "checks": audit.checks,
         "integration_admission_mode": integration_admission_mode,
+        "audit_wiring_admission_mode": audit_wiring_admission_mode,
         "failures": audit.failures,
     }
 
@@ -244,11 +249,21 @@ def main() -> int:
         choices=INTEGRATION_ADMISSION_MODES,
         default=os.environ.get(INTEGRATION_ADMISSION_MODE_ENV, "auto"),
     )
+    parser.add_argument(
+        "--audit-wiring-admission-mode",
+        choices=AUDIT_WIRING_ADMISSION_MODES,
+        default=os.environ.get(AUDIT_WIRING_ADMISSION_MODE_ENV, "auto"),
+    )
     parser.add_argument("--format", choices=("text", "json"), default="text")
     args = parser.parse_args()
     recertification = json.loads(Path(args.recertification).read_text(encoding="utf-8-sig"))
     readiness = json.loads(Path(args.readiness).read_text(encoding="utf-8-sig"))
-    report = audit_values(recertification, readiness, integration_admission_mode=args.integration_admission_mode)
+    report = audit_values(
+        recertification,
+        readiness,
+        integration_admission_mode=args.integration_admission_mode,
+        audit_wiring_admission_mode=args.audit_wiring_admission_mode,
+    )
     if args.format == "json":
         print(json.dumps(report, indent=2))
     else:
