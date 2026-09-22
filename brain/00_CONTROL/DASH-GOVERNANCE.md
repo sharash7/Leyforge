@@ -6,13 +6,18 @@ title: "Engineering Governance Health"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-11"
+updated: "2026-09-22"
 authority_domain: "engineering_governance"
 authority_role: "derived_record"
 authority_status: "authoritative"
 depends_on:
   - "SYS-ENGINEERING-GOVERNANCE"
 related_to:
+  - "WORK-20260922-001"
+  - "TASK-20260922-001"
+  - "EVID-0016"
+  - "AUDIT-0016"
+  - "HANDOFF-20260922-001"
   - "WORK-20260911-001"
   - "TASK-20260911-001"
   - "WORK-20260910-002"
@@ -230,11 +235,19 @@ related_to:
 
 ## R7 W4 Measurement-harness Repair, Recertification and Rerun Readiness
 
-- Fresh owner authorization is active under [[TASK-20260911-001]] / [[WORK-20260911-001]].
+- Complete under [[TASK-20260911-001]] / [[WORK-20260911-001]] for bounded repair and recertification only; this is not W4 completion.
 - Scope is limited to proof-55 measurement repair, allocation-free independent harness recertification, pending human-review mechanisms for proofs 50/51/53, and a superseding future-rerun readiness boundary.
 - Immutable pairs/packs 0066–0072, the raw proof-55 result, W3 history and stopped lifecycle remain unchanged. No 0073+ identity or proof observation may be created.
 - The nine protected user-local paths remain byte-pinned and excluded. The known live Doctor diagnostic requires clean-tree certification, not normalization of the protected inbox note.
-- W4 rerun, W5, FINAL, PRD-08/09, R8, gameplay and production remain closed.
+- Final hermetic repair endpoint `62210f87ba34ab2ae4e5973421a1b16afe6918e7` passed Brain integrity run `35720743513` and Engineering governance integrity run `35720743568` on the exact SHA.
+- [[EVID-0016]] / [[AUDIT-0016]] certify repository repair and truthful lifecycle preservation, not W4 or R7 success.
+
+## R7 Historical Supersession and PROD Admission Boundary
+
+- Owner direction under [[TASK-20260922-001]] / [[WORK-20260922-001]] preserves R7/W4 as historical, incomplete and `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION`.
+- Proofs 49/52/54 remain PASS; 50/51/53 remain INCONCLUSIVE with no human review; 55 retains raw FAIL affected by `W4-MEASUREMENT-DEFECT-001`; 56–62 and 71 remain NOT-RUN.
+- Issued high-water remains 0072; 0073 is not allocated; proofs 57/58 remain 0/312 observed.
+- [[HANDOFF-20260922-001]] makes PROD production-admission preparation the next package. Production, dependencies, PROD ingestion/lock, PG-00 and P01 remain closed.
 
 ## Later Activation Milestones
 
@@ -244,4 +257,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 remains active under [[HANDOFF-20260911-001]] and bounded repair authority [[TASK-20260911-001]]. W0-W3 execution and W4 readiness/admission remain certified; immutable W4 history ends at issued high-water 0072. Measurement repair/recertification/readiness is active without proof or allocation authority. W5 and FINAL are not ready. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08/09 remain closed, and R8 gameplay permission remains closed.
+R7 is historical, incomplete and superseded for current sequencing under [[HANDOFF-20260922-001]]. W0-W3 execution and W4 readiness/admission remain certified; immutable W4 history ends at issued high-water 0072. W5 and FINAL were not executed. ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, PRD-08/09 and R8 gameplay permission remain closed, and production remains closed pending separate PROD/PG-00 admission.

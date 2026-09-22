@@ -6,12 +6,17 @@ title: "Current Handoff"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-11"
+updated: "2026-09-22"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260911-001"
+current_handoff: "HANDOFF-20260922-001"
 related_to:
+  - "HANDOFF-20260922-001"
+  - "TASK-20260922-001"
+  - "WORK-20260922-001"
+  - "EVID-0016"
+  - "AUDIT-0016"
   - "HANDOFF-20260911-001"
   - "EVID-0015"
   - "AUDIT-0015"
@@ -58,8 +63,8 @@ related_to:
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260911-001]]. The owner-authorized `R7-W4-FORGE-TRUST-PRESENTATION-MIGRATION-GOVERNED-EXECUTION` package stopped fail-closed under cancelled [[TASK-20260910-002]] / [[WORK-20260910-002]] and is certified by [[EVID-0015]] / [[AUDIT-0015]] as a controlled stop with programme result FAIL, not W4 success.
+The active formal handoff is [[HANDOFF-20260922-001]]. The repository repair is certified at exact SHA `62210f87ba34ab2ae4e5973421a1b16afe6918e7`; Brain integrity run `35720743513` and Engineering governance integrity run `35720743568` both succeeded on that SHA. [[EVID-0016]] / [[AUDIT-0016]] record the repair and lifecycle consequence without claiming W4 or R7 success.
 
-Exactly 0066–0072 were allocated and retained in order. Proofs 49, 52 and 54 are `PASS-OBSERVED`; proofs 50, 51 and 53 are `INCONCLUSIVE` for absent required human judgement; proof 55 retains raw `FAIL-OBSERVED` but is not admissible as a candidate proof failure after `W4-MEASUREMENT-DEFECT-001`. Proofs 56–62 and 71 are `NOT-RUN`. PROOF-57 and PROOF-58 each have 0/312 FCC-13E rows observed and no coverage claim.
+R7/W4 is `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION`. Historical truth remains exact: proofs 49, 52 and 54 are `PASS-OBSERVED`; 50, 51 and 53 are `INCONCLUSIVE` with human review not performed; proof 55 retains raw `FAIL-OBSERVED` affected by `W4-MEASUREMENT-DEFECT-001` and is not admissible as a genuine candidate proof failure; proofs 56–62 and 71 are `NOT-RUN`. Proofs 57/58 each remain 0/312 observed. Issued high-water is 0072 and `0073-NOT-ALLOCATED` remains unallocated.
 
-The issued high-water is 0072; `0073-NOT-ALLOCATED` has no certified proof mapping. R7 remains ACTIVE at `ACTIVE-W4-INCOMPLETE-AWAITING-REPAIR-RECERTIFICATION-AUTHORITY`. The next optional governed action requires fresh owner authority for `R7-W4-MEASUREMENT-HARNESS-REPAIR-RECERTIFICATION-AND-RERUN-READINESS`. It may not run a proof or allocate 0073. W5, FINAL, R7 closure, PRD-08/09, R8, gameplay and production remain closed.
+The next separately authorized package is `PROD-PRODUCTION-ADMISSION-PREPARATION`: reconcile the locally present/untracked PROD corpus, obtain owner lock, ingest canonically, decide production dependencies and prepare PG-00. Production runtime is ABSENT, production dependencies are INACTIVE, PROD is not canonical or locked, PG-00 is CLOSED and P01 is CLOSED. This handoff alone authorizes none of those future actions.

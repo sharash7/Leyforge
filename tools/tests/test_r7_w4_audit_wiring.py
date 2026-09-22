@@ -35,11 +35,13 @@ class R7W4AuditWiringTests(unittest.TestCase):
         cls.value = json.loads(wiring.MANIFEST_PATH.read_text(encoding="utf-8-sig"))
         cls.snapshot = {}
         for row in cls.value["artifacts"]:
-            data = (ROOT / row["path"]).read_bytes()
-            blob = hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
+            relative = row["path"]
+            data = wiring._git("show", wiring.CERTIFIED_REVISION + ":" + relative, binary=True)
+            blob = str(wiring._git("rev-parse", wiring.CERTIFIED_REVISION + ":" + relative))
             cls.snapshot[row["path"]] = (blob, data)
-        data = correction_admission._canonical_manifest_bytes(cls.value)
-        blob = hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
+        manifest_relative = cls.value["manifest_path"]
+        data = wiring._git("show", wiring.CERTIFIED_REVISION + ":" + manifest_relative, binary=True)
+        blob = str(wiring._git("rev-parse", wiring.CERTIFIED_REVISION + ":" + manifest_relative))
         cls.snapshot[cls.value["manifest_path"]] = (blob, data)
 
     @classmethod
@@ -284,6 +286,47 @@ class R7W4AuditWiringTests(unittest.TestCase):
             self.assertEqual(wiring.CORRECTION_REVISION, correction[correction.index("--source-revision") + 1])
             self.assertEqual(head, wiring_command[wiring_command.index("--source-revision") + 1])
             self.assertNotEqual(wiring.CORRECTION_REVISION, integration[integration.index("--source-revision") + 1])
+
+    def test_certified_atomic_revision_is_validated_from_git_objects_for_descendants(self) -> None:
+        descendant = "f" * 40
+        with patch.object(wiring, "_git", return_value=descendant), patch.object(
+            wiring, "_commit_exists", return_value=True
+        ), patch.object(
+            wiring, "_is_ancestor", return_value=True
+        ), patch.object(
+            wiring, "published_chain_issues", return_value=()
+        ), patch.object(
+            wiring, "manifest_issues", return_value=()
+        ) as validate:
+            self.assertEqual((), wiring.layered_issues(descendant, mode="published"))
+        validate.assert_called_once_with(
+            self.value,
+            wiring.CERTIFIED_REVISION,
+            mode="published",
+            check_local=False,
+        )
+
+    def test_unrelated_revision_cannot_use_certified_atomic_revision(self) -> None:
+        unrelated = "e" * 40
+        with patch.object(wiring, "_git", return_value=unrelated), patch.object(
+            wiring, "_commit_exists", return_value=True
+        ), patch.object(
+            wiring, "_is_ancestor", return_value=False
+        ), patch.object(
+            wiring, "published_chain_issues", return_value=()
+        ), patch.object(
+            wiring, "manifest_issues", return_value=("synthetic unrelated failure",)
+        ) as validate:
+            self.assertEqual(
+                ("synthetic unrelated failure",),
+                wiring.layered_issues(unrelated, mode="published"),
+            )
+        validate.assert_called_once_with(
+            self.value,
+            unrelated,
+            mode="published",
+            check_local=True,
+        )
 
     def test_wrong_integration_parent_fails(self) -> None:
         actual_parent = wiring._parent

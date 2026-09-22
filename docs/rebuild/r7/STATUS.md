@@ -1,8 +1,8 @@
 # R7 Controlled Pre-Rebuild Technical Programme
 
-**Active handoff:** `HANDOFF-20260911-001`. `WORK-20260910-002` and `TASK-20260910-002` are cancelled after the governed stop; `EVID-0015` / `AUDIT-0015` certify stopped-package integrity and W4 programme-level FAIL.
+**Active handoff:** `HANDOFF-20260922-001`. `EVID-0016` / `AUDIT-0016` certify the final repository repair and truthful lifecycle supersession; `EVID-0015` / `AUDIT-0015` continue to preserve stopped-package integrity and W4 programme-level FAIL.
 
-**State:** ACTIVE — PRD-07 intake and W0-W3 execution are complete and certified. W4 execution is incomplete after a governed fail-closed stop: pairs 0066–0072 are retained as three PASS, three INCONCLUSIVE and one raw FAIL; eight proofs are NOT-RUN. Issued high-water is 0072 and 0073 is not allocated. W5 and FINAL are not ready.
+**State:** `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION` — PRD-07 intake and W0-W3 execution are complete and certified. W4 remains incomplete after a governed fail-closed stop: pairs 0066–0072 are retained as three PASS, three INCONCLUSIVE and one raw FAIL affected by `W4-MEASUREMENT-DEFECT-001`; eight proofs are NOT-RUN. Issued high-water is 0072 and 0073 is not allocated. W5 and FINAL were not executed. This is not W4 PASS or R7 successful completion.
 
 **Branch:** `codex/chore/brain-governance-pilot`.
 
@@ -129,10 +129,12 @@ Actual pairs 0066–0072 map to proofs 49, 50, 51, 52, 53, 54 and 55. Results ar
 
 Proofs 56, 57, 58, 59, 60, 61, 62 and 71 were not entered. PROOF-57 and PROOF-58 each observed 0/312 FCC-13E rows, so no migration-coverage result exists. The issued high-water is 0072; 0073 and later remain unallocated. [[EVID-0015]] / [[AUDIT-0015]] certify the controlled stop and W4 programme-level FAIL.
 
-## Remaining R7 Work
+## R7 Final Historical Disposition
 
-W4 repair, recertification and a later separately authorized rerun remain open programme work. The next optional package is `R7-W4-MEASUREMENT-HARNESS-REPAIR-RECERTIFICATION-AND-RERUN-READINESS`; it must preserve 0066–0072, validate a capable proof-55 observation route, establish the lawful future order/identity preview and stop without proof execution or 0073 allocation. PRD04-PROOF-73 remains inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
+The bounded measurement/audit-wiring repair is repository-certified at `62210f87ba34ab2ae4e5973421a1b16afe6918e7`; both required exact-SHA workflows succeeded. No proof ran, no 0073 identity was allocated and no human review was fabricated during repair.
 
-Continue only through [[HANDOFF-20260911-001]]. W3 is COMPLETE and W4 is INCOMPLETE. Do not reuse 0051-0058, alter 0066–0072, allocate 0073, rerun W4, open W5, evaluate/open PRD-08/09 or open R8 without the applicable fresh authority.
+By explicit owner decision, the old W4 proof programme is not being continued merely to manufacture a completion state. Its remaining obligations are preserved as historical unfinished work: proofs 50/51/53 remain INCONCLUSIVE, proof 55 retains raw FAIL affected by `W4-MEASUREMENT-DEFECT-001`, and proofs 56–62/71 remain NOT-RUN. PRD04-PROOF-73 remains historically inconclusive. [[CONFLICT-0002]], Branch C final certification and Branch D G5 readiness remain outstanding.
 
-**R7 remains ACTIVE. PRD-08 evaluation remains CLOSED.**
+Continue only through [[HANDOFF-20260922-001]]. The next package is PROD production-admission preparation. Production remains closed pending separate PROD/PG-00 admission; do not ingest or owner-lock PROD, activate dependencies/runtime, open PG-00 or create/begin P01 without fresh authority.
+
+**R7 is HISTORICAL, INCOMPLETE AND SUPERSEDED FOR CURRENT SEQUENCING. PRD-08 evaluation remains CLOSED.**

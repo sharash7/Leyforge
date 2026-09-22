@@ -223,13 +223,18 @@ class BrainAcceptanceTests(unittest.TestCase):
 
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260910-002")
-        self.assertEqual(handoff.metadata["next_gate"], "R7")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260922-001")
+        self.assertEqual(handoff.metadata["next_gate"], "PROD")
         self.assertEqual(
             handoff.metadata["next_package"],
-            "R7-W4-MEASUREMENT-HARNESS-REPAIR-RECERTIFICATION-AND-RERUN-READINESS",
+            "PROD-PRODUCTION-ADMISSION-PREPARATION",
         )
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260910-002")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260911-001")
+        self.assertEqual(self.by_id["HANDOFF-20260911-001"].metadata["status"], "superseded")
+        self.assertEqual(
+            self.by_id["HANDOFF-20260911-001"].metadata["superseded_by"],
+            "HANDOFF-20260922-001",
+        )
         self.assertEqual(self.by_id["HANDOFF-20260910-002"].metadata["status"], "superseded")
         self.assertEqual(
             self.by_id["HANDOFF-20260910-002"].metadata["superseded_by"],
@@ -270,15 +275,52 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(self.by_id["TASK-20260910-002"].metadata["status"], "cancelled")
         self.assertEqual(self.by_id["WORK-20260910-002"].metadata["status"], "cancelled")
         self.assertEqual(self.by_id["AUDIT-0015"].metadata["result"], "FAIL")
-        self.assertIn("W4 GOVERNED EXECUTION STOPPED FAIL-CLOSED", handoff.body)
+        self.assertEqual(self.by_id["TASK-20260911-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["WORK-20260911-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["TASK-20260922-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["WORK-20260922-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["AUDIT-0016"].metadata["result"], "PASS")
+        self.assertIn("SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION", handoff.body)
         self.assertIn("W4-MEASUREMENT-DEFECT-001", handoff.body)
         self.assertIn("0066–0072", handoff.body)
         self.assertIn("0073-NOT-ALLOCATED", handoff.body)
         self.assertIn("0/312", handoff.body)
         self.assertIn("Production runtime is ABSENT", handoff.body)
         self.assertIn("PRD04-PROOF-73 remains INCONCLUSIVE", handoff.body)
+        self.assertIn("PG-00 is CLOSED", handoff.body)
+        self.assertIn("P01 is CLOSED", handoff.body)
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
             self.assertIn(f"## {heading}", handoff.body)
+
+        state = json.loads((brain.REPO_ROOT / "docs/rebuild/r7/w4-execution-state.json").read_text(encoding="utf-8"))
+        proof_states = {row["proof_id"]: row["state"] for row in state["proofs"]}
+        self.assertEqual(
+            proof_states,
+            {
+                "PRD04-PROOF-49": "PASS-OBSERVED",
+                "PRD04-PROOF-50": "INCONCLUSIVE",
+                "PRD04-PROOF-51": "INCONCLUSIVE",
+                "PRD04-PROOF-52": "PASS-OBSERVED",
+                "PRD04-PROOF-53": "INCONCLUSIVE",
+                "PRD04-PROOF-54": "PASS-OBSERVED",
+                "PRD04-PROOF-55": "FAIL-OBSERVED",
+                "PRD04-PROOF-56": "NOT-RUN",
+                "PRD04-PROOF-57": "NOT-RUN",
+                "PRD04-PROOF-58": "NOT-RUN",
+                "PRD04-PROOF-59": "NOT-RUN",
+                "PRD04-PROOF-60": "NOT-RUN",
+                "PRD04-PROOF-61": "NOT-RUN",
+                "PRD04-PROOF-62": "NOT-RUN",
+                "PRD04-PROOF-71": "NOT-RUN",
+            },
+        )
+        self.assertEqual(len(state["allocated_run_ids"]), 7)
+        self.assertEqual(len(state["allocated_evidence_ids"]), 7)
+        self.assertEqual(state["allocated_run_ids"][-1], "PRD07-RUN-0072")
+        self.assertEqual(state["allocated_evidence_ids"][-1], "PRD07-EVID-0072")
+        self.assertNotIn("PRD07-RUN-0073", state["allocated_run_ids"])
+        self.assertEqual(state["production_runtime"], "ABSENT")
+        self.assertEqual(state["production_dependency_activation"], "INACTIVE")
 
     def test_09_BRAIN_AT_009_adr_decision_lifecycle(self) -> None:
         self.assertEqual(self.schema["record_types"]["decision"], ["proposed", "accepted", "superseded", "rejected"])

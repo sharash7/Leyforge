@@ -35,6 +35,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[EVID-0011|EVID-0011]] | evidence | active | R7 W3 technical environment execution rerun abort evidence |
 | [[EVID-0013|EVID-0013]] | evidence | active | R7 W3 technical environment execution rerun evidence |
 | [[EVID-0010|EVID-0010]] | evidence | active | R7 W3 technical environment repair and re-certification evidence |
+| [[EVID-0016|EVID-0016]] | evidence | active | R7 W4 final repair certification and lifecycle preservation evidence |
 | [[EVID-0014|EVID-0014]] | evidence | active | R7 W4 Forge trust presentation migration readiness and admission evidence |
 | [[EVID-0015|EVID-0015]] | evidence | active | R7 W4 governed execution controlled-stop evidence |
 | [[TEST-BRAIN-ACCEPTANCE|TEST-BRAIN-ACCEPTANCE]] | test | active | Brain v0.1 Acceptance Suite |

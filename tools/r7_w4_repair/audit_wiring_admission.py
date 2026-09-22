@@ -19,6 +19,7 @@ REPAIR_REVISION = integration_admission.BASE_REVISION
 INTEGRATION_REVISION = correction_admission.BASE_REVISION
 CORRECTION_REVISION = "a32f433eb693a43a47ea1f09d33d8bebb9ffc24f"
 BASE_REVISION = CORRECTION_REVISION
+CERTIFIED_REVISION = "62210f87ba34ab2ae4e5973421a1b16afe6918e7"
 MANIFEST_PATH = ROOT / "docs/rebuild/r7/w4-audit-wiring-admission-boundary.json"
 MODE_ENV = "LEYFORGE_W4_AUDIT_WIRING_ADMISSION_MODE"
 MODES = ("preparation", "staged", "published", "auto")
@@ -74,6 +75,14 @@ def _commit_exists(revision: str) -> bool:
         cwd=ROOT, text=True, capture_output=True,
     )
     return result.returncode == 0 and result.stdout.strip() == revision
+
+
+def _is_ancestor(ancestor: str, descendant: str) -> bool:
+    return subprocess.run(
+        ["git", "merge-base", "--is-ancestor", ancestor, descendant],
+        cwd=ROOT,
+        capture_output=True,
+    ).returncode == 0
 
 
 def _load(path: Path) -> dict[str, Any] | None:
@@ -223,6 +232,7 @@ def manifest_issues(
     source_revision: str | None = None,
     *,
     mode: str = "auto",
+    check_local: bool = True,
 ) -> tuple[str, ...]:
     source_revision = source_revision or str(_git("rev-parse", "HEAD"))
     selected, mode_issues = _selected_mode(mode, source_revision)
@@ -322,11 +332,12 @@ def manifest_issues(
         changed = set(str(_git("diff", "--name-only", BASE_REVISION, source_revision, "--")).splitlines())
         if changed != set(PACKAGE_PATHS):
             issues.append("W4 audit-wiring published exact commit path set differs")
-        unexpected_local = correction_admission._working_changed_paths().difference(
-            set(PROTECTED_LOCAL_PATHS).union(DIAGNOSTIC_PATHS)
-        )
-        if unexpected_local:
-            issues.append("W4 audit-wiring published source has unadmitted local paths")
+        if check_local:
+            unexpected_local = correction_admission._working_changed_paths().difference(
+                set(PROTECTED_LOCAL_PATHS).union(DIAGNOSTIC_PATHS)
+            )
+            if unexpected_local:
+                issues.append("W4 audit-wiring published source has unadmitted local paths")
     for key, relative, revision in (
         ("published_integration_admission", integration_admission.MANIFEST_PATH.relative_to(ROOT).as_posix(), INTEGRATION_REVISION),
         ("published_correction_admission", correction_admission.MANIFEST_PATH.relative_to(ROOT).as_posix(), CORRECTION_REVISION),
@@ -382,15 +393,31 @@ def manifest_issues(
 def layered_issues(source_revision: str | None = None, *, mode: str = "auto") -> tuple[str, ...]:
     source_revision = source_revision or str(_git("rev-parse", "HEAD"))
     issues: list[str] = []
-    if source_revision != str(_git("rev-parse", "HEAD")):
+    head = str(_git("rev-parse", "HEAD"))
+    if source_revision != head:
         issues.append("W4 layered audit source does not equal HEAD")
+    atomic_revision = source_revision
+    historical_certification = (
+        mode in ("auto", "published")
+        and _commit_exists(CERTIFIED_REVISION)
+        and _is_ancestor(CERTIFIED_REVISION, source_revision)
+    )
+    if historical_certification:
+        atomic_revision = CERTIFIED_REVISION
     value = _load(MANIFEST_PATH)
     if value is None:
         issues.append("W4 audit-wiring admission manifest is missing or malformed")
         issues.extend(published_chain_issues())
     else:
         try:
-            issues.extend(manifest_issues(value, source_revision, mode=mode))
+            issues.extend(
+                manifest_issues(
+                    value,
+                    atomic_revision,
+                    mode=mode,
+                    check_local=not historical_certification,
+                )
+            )
         except (RuntimeError, ValueError, OSError, KeyError) as exc:
             issues.append("W4 layered admission could not validate exact authority: " + str(exc))
     return tuple(sorted(set(issues)))
@@ -414,6 +441,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "status": "PASS" if not issues else "FAIL",
         "state": success_state if not issues else "FAIL-CLOSED",
         "source_revision": source_revision,
+        "certified_atomic_revision": CERTIFIED_REVISION,
         "integration_revision": INTEGRATION_REVISION,
         "correction_revision": CORRECTION_REVISION,
         "mode": args.mode,

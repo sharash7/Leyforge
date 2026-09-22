@@ -6,11 +6,16 @@ title: "Project State"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-11"
+updated: "2026-09-22"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
 related_to:
+  - "WORK-20260922-001"
+  - "TASK-20260922-001"
+  - "EVID-0016"
+  - "AUDIT-0016"
+  - "HANDOFF-20260922-001"
   - "WORK-20260911-001"
   - "TASK-20260911-001"
   - "WORK-20260910-002"
@@ -94,8 +99,9 @@ related_to:
 | R4 | Complete and certified | [[WORK-20260905-004]] and [[AUDIT-0001]] |
 | R5 | Complete and certified | [[WORK-20260906-001]], [[AUDIT-0002]], [[EVID-0002]] and [[CHANGE-20260906-001]] |
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
-| R7 | Active — W4 measurement repair/recertification and rerun-readiness authorized | W0-W3 execution is certified; [[EVID-0015]] / [[AUDIT-0015]] retain the controlled W4 stop; [[TASK-20260911-001]] / [[WORK-20260911-001]] govern repair without proof/allocation authority |
+| R7 | Historical — incomplete and superseded for current sequencing by owner direction | W0-W3 execution is certified; W4 remains three PASS, three INCONCLUSIVE, one retained raw FAIL affected by a measurement defect, and eight NOT-RUN; [[EVID-0016]] / [[AUDIT-0016]] certify repair and truthful supersession, not W4 or R7 success |
 | R8 gameplay | Closed | No production gameplay permission is open |
+| PROD admission | Preparation next — closed pending separate authorization | [[HANDOFF-20260922-001]] permits no ingestion, owner lock, dependency activation, PG-00 or P01 action by itself |
 
 The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
 
@@ -121,4 +127,4 @@ The owner-authorized W4 readiness/admission package is complete under [[TASK-202
 
 The separately owner-authorized W4 execution under cancelled [[TASK-20260910-002]] / [[WORK-20260910-002]] entered seven proofs and stopped fail-closed at proof 55. Retained pairs 0066–0072 contain three PASS, three INCONCLUSIVE and one raw FAIL. The raw proof-55 observation remains immutable but is not admissible as a candidate proof failure after independent `W4-MEASUREMENT-DEFECT-001` reconciliation. Eight proofs were not run; PROOF-57 and PROOF-58 each remain 0/312 observed with no coverage claim. Issued high-water is 0072 and 0073 is not allocated.
 
-[[HANDOFF-20260911-001]] remains the active continuation boundary and fresh owner authority is active only through [[TASK-20260911-001]] / [[WORK-20260911-001]] for measurement repair, independent recertification, human-review preparation and rerun readiness. No W4 proof observation or 0073+ allocation is authorized. R7 remains ACTIVE; W4 rerun, W5 and FINAL remain closed. [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, production dependencies remain inactive, PRD-08/09 remain closed and R8 remains closed.
+The repair package is complete under [[TASK-20260911-001]] / [[WORK-20260911-001]] at certified endpoint `62210f87ba34ab2ae4e5973421a1b16afe6918e7`. [[HANDOFF-20260922-001]] is the active continuation boundary. R7/W4 is `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION`; no W4 proof observation or 0073+ allocation occurred. W5 and FINAL were not executed. Production remains closed pending separate PROD/PG-00 admission; production dependencies remain inactive, PROD is not canonical or locked, PG-00 and P01 remain closed, [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, and R8 remains closed.
