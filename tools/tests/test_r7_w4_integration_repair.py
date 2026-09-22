@@ -148,7 +148,7 @@ class R7W4IntegrationRepairAdmissionTests(unittest.TestCase):
     def test_staged_mode_fails_with_blocked_diagnostic(self) -> None:
         snapshot = self._exact_staged_snapshot()
         relative = DIAGNOSTIC_PATHS[0]
-        data = (ROOT / relative).read_bytes()
+        data = b'{"fixture":"blocked-diagnostic"}\n'
         snapshot[relative] = (self._git_blob(data), data)
         with self._staged_context(snapshot):
             issues = manifest_issues(self.value, source_revision=integration_admission.BASE_REVISION, mode="staged")

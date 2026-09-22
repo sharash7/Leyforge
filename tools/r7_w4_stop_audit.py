@@ -28,10 +28,13 @@ from tools.r7_w4_repair.admission import (
     published_superseded_paths,
 )
 from tools.r7_w4_repair.integration_admission import (
-    MANIFEST_PATH as INTEGRATION_REPAIR_ADMISSION,
     MODE_ENV as INTEGRATION_ADMISSION_MODE_ENV,
     ORCHESTRATION_MODES as INTEGRATION_ADMISSION_MODES,
-    manifest_issues as integration_repair_admission_issues,
+)
+from tools.r7_w4_repair.audit_wiring_admission import (
+    MODE_ENV as AUDIT_WIRING_ADMISSION_MODE_ENV,
+    MODES as AUDIT_WIRING_ADMISSION_MODES,
+    layered_issues,
 )
 
 
@@ -210,9 +213,11 @@ def audit(
     *,
     check_protected: bool,
     integration_admission_mode: str | None = None,
+    audit_wiring_admission_mode: str | None = None,
 ) -> Dict[str, Any]:
     audit = Audit()
     selected_integration_mode = integration_admission_mode or os.environ.get(INTEGRATION_ADMISSION_MODE_ENV, "auto")
+    selected_wiring_mode = audit_wiring_admission_mode or os.environ.get(AUDIT_WIRING_ADMISSION_MODE_ENV, "auto")
     audit.check(re.fullmatch(r"[0-9a-f]{40}", source_revision) is not None, "audit source revision is not exact")
     try:
         head = _git("rev-parse", "HEAD")
@@ -230,14 +235,10 @@ def audit(
     for failure in repair_failures:
         audit.check(False, "repair admission: " + failure)
     superseded_paths = set(superseded_paths_value) if not repair_failures else set()
-    integration_admission = _load(INTEGRATION_REPAIR_ADMISSION) if INTEGRATION_REPAIR_ADMISSION.is_file() else {}
-    integration_failures = integration_repair_admission_issues(
-        integration_admission,
-        source_revision,
-        mode=selected_integration_mode,
-    ) if integration_admission else ("integration repair admission is missing",)
-    for failure in integration_failures:
-        audit.check(False, "integration repair admission: " + failure)
+    if selected_integration_mode not in ("auto", "published"):
+        audit.check(False, "published W4 integration layer requires auto or published mode")
+    for failure in layered_issues(source_revision, mode=selected_wiring_mode):
+        audit.check(False, "layered W4 admission: " + failure)
     reconciliation = reconcile_w4(check_local=False)
     stored_reconciliation = _load(RECONCILIATION_PATH)
     audit.check(reconciliation.get("status") == "PASS", "dynamic stopped reconciliation failed")
@@ -334,6 +335,7 @@ def audit(
         "checks": audit.checks,
         "source_revision": source_revision,
         "integration_admission_mode": selected_integration_mode,
+        "audit_wiring_admission_mode": selected_wiring_mode,
         "execution_source_revision": EXECUTION_SOURCE_REVISION,
         "observation_commit": observation_commit,
         "lifecycle_validation_commit": validation_commit,
@@ -359,6 +361,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         choices=INTEGRATION_ADMISSION_MODES,
         default=os.environ.get(INTEGRATION_ADMISSION_MODE_ENV, "auto"),
     )
+    parser.add_argument(
+        "--audit-wiring-admission-mode",
+        choices=AUDIT_WIRING_ADMISSION_MODES,
+        default=os.environ.get(AUDIT_WIRING_ADMISSION_MODE_ENV, "auto"),
+    )
     parser.add_argument("--write-boundary", action="store_true")
     parser.add_argument("--validation-commit")
     parser.add_argument("--format", choices=("text", "json"), default="text")
@@ -372,6 +379,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             args.source_revision or str(_git("rev-parse", "HEAD")),
             check_protected=args.check_protected_local,
             integration_admission_mode=args.integration_admission_mode,
+            audit_wiring_admission_mode=args.audit_wiring_admission_mode,
         )
     if args.format == "json":
         print(json.dumps(result, indent=2, sort_keys=True, ensure_ascii=True))

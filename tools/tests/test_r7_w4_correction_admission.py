@@ -10,6 +10,7 @@ from unittest.mock import patch
 
 from tools.r7_w4_execution.contracts import PROTECTED_LOCAL_PATHS, ROOT
 from tools.r7_w4_repair import correction_admission
+from tools.r7_w4_repair.audit_wiring_admission import CORRECTION_REVISION
 from tools.r7_w4_repair.correction_admission import (
     DIAGNOSTIC_PATHS,
     MANIFEST_PATH,
@@ -33,8 +34,10 @@ class R7W4CorrectionAdmissionTests(unittest.TestCase):
     def _exact_package_snapshot(cls) -> dict[str, tuple[str, bytes]]:
         snapshot: dict[str, tuple[str, bytes]] = {}
         for relative in PACKAGE_PATHS:
-            data = correction_admission._file_data(ROOT / relative)
-            snapshot[relative] = (str(correction_admission._git("hash-object", "--", relative)), data)
+            # This published package can be superseded by later source-only
+            # corrections; its fixture must use the exact committed tree.
+            blob = str(correction_admission._git("rev-parse", CORRECTION_REVISION + ":" + relative))
+            snapshot[relative] = (blob, correction_admission._blob_data(blob))
         return snapshot
 
     @staticmethod
@@ -127,7 +130,7 @@ class R7W4CorrectionAdmissionTests(unittest.TestCase):
         cases.append((protected, "protected or blocked-diagnostic paths"))
         blocked = self._exact_package_snapshot()
         blocked_path = DIAGNOSTIC_PATHS[0]
-        blocked_data = (ROOT / blocked_path).read_bytes()
+        blocked_data = b'{"fixture":"blocked-diagnostic"}\n'
         blocked[blocked_path] = (self._git_blob(blocked_data), blocked_data)
         cases.append((blocked, "protected or blocked-diagnostic paths"))
         for snapshot, expected in cases:

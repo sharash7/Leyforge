@@ -1,0 +1,216 @@
+{
+  "artifacts": [
+    {
+      "bytes": 21402,
+      "change": "ADDED",
+      "git_blob": "3944dd46025ebc8c4616ab97258ab7003e7eda77",
+      "path": "tools/r7_w4_repair/audit_wiring_admission.py",
+      "sha256": "7b06afff4b168cc0de033449c4084850e35d027d07d10f66ceb07d527f740a1d"
+    },
+    {
+      "bytes": 17689,
+      "change": "MODIFIED",
+      "git_blob": "db33788193d5cf003b89d6b71aff7c0bde89d729",
+      "path": "tools/r7_w4_repair_audit.py",
+      "sha256": "40f4d6c93f1a2119c70108cae518bc66b6bdc6817c17747ae4449205d310710f"
+    },
+    {
+      "bytes": 22454,
+      "change": "MODIFIED",
+      "git_blob": "017bdbad080da8cdc0407c792b01c6e57e9599a8",
+      "path": "tools/r7_w4_stop_audit.py",
+      "sha256": "05079955ddfd6737cef7a512bd1f520a95e834226331ac82c778577689c6b020"
+    },
+    {
+      "bytes": 25979,
+      "change": "ADDED",
+      "git_blob": "309fa9fcadc5503699a83c5fca37f2be61ba343b",
+      "path": "tools/tests/test_r7_w4_audit_wiring.py",
+      "sha256": "3facbe680c924ace46e7d7aeb33c9269b0b927f2fbc1b2db3b0ab2b92b7b6f14"
+    },
+    {
+      "bytes": 9593,
+      "change": "MODIFIED",
+      "git_blob": "8a27819aef91631adb4303f05c03a3baea23996a",
+      "path": "tools/tests/test_r7_w4_correction_admission.py",
+      "sha256": "f034f9bac7e65f5797686e870cb2ab96d869b277c82019a4481cda69db801d6a"
+    },
+    {
+      "bytes": 12896,
+      "change": "MODIFIED",
+      "git_blob": "36e5306c82515c5bd9349d955bc3bff3afeb782d",
+      "path": "tools/tests/test_r7_w4_integration_repair.py",
+      "sha256": "ec4d644e5184cc2037d45227445b281de352059399f853dff1bfeb4ea4fd8ad6"
+    },
+    {
+      "bytes": 14798,
+      "change": "MODIFIED",
+      "git_blob": "f30be366a1a968c4410abde685d8d483bf0dc58d",
+      "path": "tools/verify.py",
+      "sha256": "990f165ed872a6493f65ebb0764991f41b582506dbb3e0a6fd22d21146c11f62"
+    },
+    {
+      "bytes": 101926,
+      "change": "MODIFIED",
+      "git_blob": "6d3fbc7b4dd8771c02e89a934f41af12a9e0ef60",
+      "path": "tools/verify_rebuild_boundary.py",
+      "sha256": "6b024884507d5bee8ee9e3f972df7896a2b80ee0557dea5d7097d83bb30c575a"
+    }
+  ],
+  "base_revision": "a32f433eb693a43a47ea1f09d33d8bebb9ffc24f",
+  "broad_prefix_exclusions": [],
+  "correction_revision": "a32f433eb693a43a47ea1f09d33d8bebb9ffc24f",
+  "execution_gate": "CLOSED-PENDING-SEPARATE-PUBLICATION-AND-RERUN-AUTHORIZATION",
+  "fcc13e_observed_rows": {
+    "PRD04-PROOF-57": 0,
+    "PRD04-PROOF-58": 0
+  },
+  "gameplay_permission": "CLOSED",
+  "historical_evidence_tree": "ebc98f36d162fa15a8baee57a650ffd47255ee3e",
+  "historical_state": {
+    "bytes": 23016,
+    "git_blob": "88d85dea7b35bf714b86aed9ec9676d645d19117",
+    "path": "docs/rebuild/r7/w4-execution-state.json",
+    "revision": "a32f433eb693a43a47ea1f09d33d8bebb9ffc24f",
+    "sha256": "58a364059f1c86720bcfa4ace0237b850d96632b9e291d24e78e6a50b72135d6"
+  },
+  "identity_allocation_started": false,
+  "integration_revision": "11900c72c92f8869c0072907899f0899b524dc32",
+  "issued_evidence_high_water": 72,
+  "issued_run_high_water": 72,
+  "lifecycle_role": "PREPARED-UNPUBLISHED-APPEND-ONLY-ADMISSION",
+  "manifest_path": "docs/rebuild/r7/w4-audit-wiring-admission-boundary.json",
+  "manifest_payload_sha256": "2deb3632b460b05122da8591a5922a63f12b472ba59b1f015bf562d63ca97678",
+  "manifest_version": 1,
+  "next_possible_identity": "0073-NOT-ALLOCATED",
+  "package": "R7-W4-LAYERED-AUDIT-WIRING-CORRECTION",
+  "package_allocated_evidence_ids": [],
+  "package_allocated_run_ids": [],
+  "production_runtime": "ABSENT",
+  "proof_execution_started": false,
+  "proof_observation_created": false,
+  "protected_local_path_count": 9,
+  "published_correction_admission": {
+    "bytes": 9332,
+    "git_blob": "2d8b21272f1b80399827cbb743750999c6996343",
+    "path": "docs/rebuild/r7/w4-correction-admission-boundary.json",
+    "revision": "a32f433eb693a43a47ea1f09d33d8bebb9ffc24f",
+    "sha256": "4e1894da4ce26df0aee8de9ec98024a38feee088b7a4826eb6e9f161e4e1497d"
+  },
+  "published_integration_admission": {
+    "bytes": 10662,
+    "git_blob": "de2377ab8922f2df2779c0b3648e0d3c7d961f1d",
+    "path": "docs/rebuild/r7/w4-integration-repair-admission-boundary.json",
+    "revision": "11900c72c92f8869c0072907899f0899b524dc32",
+    "sha256": "96e0b9e60bc6d346f7f1d3534bb06fb8a60ea3c54ed7ff66f22141a9bff42540"
+  },
+  "rerun_preview": [
+    {
+      "evidence_id": "PRD07-EVID-0073",
+      "proof_id": "PRD04-PROOF-50",
+      "run_id": "PRD07-RUN-0073",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0074",
+      "proof_id": "PRD04-PROOF-51",
+      "run_id": "PRD07-RUN-0074",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0075",
+      "proof_id": "PRD04-PROOF-53",
+      "run_id": "PRD07-RUN-0075",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0076",
+      "proof_id": "PRD04-PROOF-55",
+      "run_id": "PRD07-RUN-0076",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0077",
+      "proof_id": "PRD04-PROOF-56",
+      "run_id": "PRD07-RUN-0077",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0078",
+      "proof_id": "PRD04-PROOF-57",
+      "run_id": "PRD07-RUN-0078",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0079",
+      "proof_id": "PRD04-PROOF-58",
+      "run_id": "PRD07-RUN-0079",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0080",
+      "proof_id": "PRD04-PROOF-59",
+      "run_id": "PRD07-RUN-0080",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0081",
+      "proof_id": "PRD04-PROOF-60",
+      "run_id": "PRD07-RUN-0081",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0082",
+      "proof_id": "PRD04-PROOF-61",
+      "run_id": "PRD07-RUN-0082",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0083",
+      "proof_id": "PRD04-PROOF-62",
+      "run_id": "PRD07-RUN-0083",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    },
+    {
+      "evidence_id": "PRD07-EVID-0084",
+      "proof_id": "PRD04-PROOF-71",
+      "run_id": "PRD07-RUN-0084",
+      "state": "PREVIEW-NOT-ALLOCATED"
+    }
+  ],
+  "scanner_bypasses": [],
+  "schema_version": "prd07-w4-audit-wiring-admission-v1",
+  "state": "PASS-PREPARED-NOT-STAGED",
+  "unchanged_pending_review_forms": [
+    {
+      "bytes": 15485,
+      "git_blob": "d6d16860d553fc4b979e8fa6e21aad13b019e37a",
+      "path": "proofs/r7/w4_human_review/proof-50-pending.json",
+      "revision": "a32f433eb693a43a47ea1f09d33d8bebb9ffc24f",
+      "sha256": "5eb48109707411f9653441107834b6931c4238be40f844f83cfd880be48208aa"
+    },
+    {
+      "bytes": 905,
+      "git_blob": "5e824c6958c40e3009eb509ebd0a153094bd4e48",
+      "path": "proofs/r7/w4_human_review/proof-51-origin-mapping-pending.json",
+      "revision": "a32f433eb693a43a47ea1f09d33d8bebb9ffc24f",
+      "sha256": "2da95d3fb72192ecbac83aac3e9ead83ad6a2378d87f3aa9ebb164eab359cc37"
+    },
+    {
+      "bytes": 16977,
+      "git_blob": "eded67ccb1f94a03b93c21f34c4c8a04d7c34c72",
+      "path": "proofs/r7/w4_human_review/proof-51-pending.json",
+      "revision": "a32f433eb693a43a47ea1f09d33d8bebb9ffc24f",
+      "sha256": "84b95fc97de9c736bdd10f5146ebc0c75566532e2939df00ae347f4be4ccd920"
+    },
+    {
+      "bytes": 8419,
+      "git_blob": "1b7de210cc459cf215b807b462841c7c1d548db6",
+      "path": "proofs/r7/w4_human_review/proof-53-pending.json",
+      "revision": "a32f433eb693a43a47ea1f09d33d8bebb9ffc24f",
+      "sha256": "29c2476e8abc668bb988049550818546c8b2fd2fafe6d3a7a812aaec0281fac2"
+    }
+  ],
+  "validation_law": "EXACT-PATH-HASH-PINNED-FAIL-CLOSED",
+  "wildcard_admissions": []
+}
