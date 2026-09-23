@@ -1,0 +1,113 @@
+{
+  "package_id": "Leyforge_PROD_00-17_Production_Handoff_Package_v0_1",
+  "version": "0.1",
+  "date": "2026-09-21",
+  "status": "DRAFT_FOR_OWNER_REVIEW",
+  "formal_prod_documents": 18,
+  "production_arcs": 20,
+  "parent_slices": 192,
+  "range": "P01-P192",
+  "production_handoff_ready": false,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1768,
+      "sha256": "1fc3a13b1a560c54d322a3743fa485ded24a660edcd9a5c10c8c6a76f35afe3a"
+    },
+    {
+      "path": "docs/PROD-00_Leyforge_Production_Constitution_Authority_and_Scope_v0_1.md",
+      "bytes": 40407,
+      "sha256": "4ad550fb1e1c97a0e657e82e4dc8ef2214b08052cf46c194f5737bece1e94a56"
+    },
+    {
+      "path": "docs/PROD-01_Leyforge_Legacy_Canon_and_Source_Crosswalk_v0_1.md",
+      "bytes": 52293,
+      "sha256": "862fe31ea7b10b47472b2684a783e3db84be829a43a7252737c65a91a2a57e51"
+    },
+    {
+      "path": "docs/PROD-02_Leyforge_Master_Production_Roadmap_and_Dependency_Atlas_v0_1.md",
+      "bytes": 68191,
+      "sha256": "cc7d7182b31961f6c3c07591319e704bcd385621ba6158b421c429f84d605b2b"
+    },
+    {
+      "path": "docs/PROD-03_Leyforge_Runtime_Engineering_Architecture_v0_1.md",
+      "bytes": 64969,
+      "sha256": "d4e6a5e5a6f8e0cd512aa0cc8781e337246af95b5f77df7965d14923bcd9776a"
+    },
+    {
+      "path": "docs/PROD-04_Leyforge_Forge_Engineering_and_Creation_Journey_Architecture_v0_1.md",
+      "bytes": 68279,
+      "sha256": "7d6fb5adbf8af5634373c0f45641f3655f88d3d113bc940921cae01eb96e5418"
+    },
+    {
+      "path": "docs/PROD-05_Leyforge_Universal_Simulation_Primitives_and_Cross-System_Contracts_v0_1.md",
+      "bytes": 55728,
+      "sha256": "99ecec87b69e1bb80b9b2f4e5c956339983a12cf41008a41285f123cea1e8bd9"
+    },
+    {
+      "path": "docs/PROD-06_Leyforge_Production_Governance_Task_Contracts_and_Evidence_Standard_v0_1.md",
+      "bytes": 64522,
+      "sha256": "150e58d6991125c2ed5e9c9a02a4d9270ff7624bb3381400835fe43eb297785b"
+    },
+    {
+      "path": "docs/PROD-07_Leyforge_Arcs_I-II_Production_Contracts_P01-P11_v0_1.md",
+      "bytes": 82124,
+      "sha256": "926b82641642e213172bd34b626ffae8b13671ee52432e38b9cf2e59112abdbd"
+    },
+    {
+      "path": "docs/PROD-08_Leyforge_Arcs_III-IV_Production_Contracts_P12-P24_v0_1.md",
+      "bytes": 87216,
+      "sha256": "93f76c736df7c09f93ba589e5fac3e855e761f004227011bcf12dfa9a10bdba1"
+    },
+    {
+      "path": "docs/PROD-09_Leyforge_Arcs_V-VI_Production_Contracts_P25-P38_v0_1.md",
+      "bytes": 94218,
+      "sha256": "5ea99d4d50b4a8b11e0052b386371f35da97c5767b887edd8499106b2159691c"
+    },
+    {
+      "path": "docs/PROD-10_Leyforge_Arcs_VII-VIII_Production_Contracts_P39-P63_v0_1.md",
+      "bytes": 122730,
+      "sha256": "ec0cb72ba49f614aabc4362a80f3678f27844641f7978b3e70f3200ec64b206e"
+    },
+    {
+      "path": "docs/PROD-11_Leyforge_Arcs_IX-X_Production_Contracts_P64-P82_v0_1.md",
+      "bytes": 105581,
+      "sha256": "7f97f2cc672734e3dd3ef320b22ff970948ada75b7fdf43624d3f3d0df7ddf03"
+    },
+    {
+      "path": "docs/PROD-12_Leyforge_Arcs_XI-XII_Production_Contracts_P83-P102_v0_1.md",
+      "bytes": 102509,
+      "sha256": "cb6f9ad841ce5f631ba4f7d47078f6470cbf0158f5b8f4208d819c302b6419f8"
+    },
+    {
+      "path": "docs/PROD-13_Leyforge_Arcs_XIII-XIV_Production_Contracts_P103-P126_v0_1.md",
+      "bytes": 66612,
+      "sha256": "ac025ca96a0da744de4a1e53630747d03def77589f15721fd3157ea56e7d9825"
+    },
+    {
+      "path": "docs/PROD-14_Leyforge_Arcs_XV-XVI_Production_Contracts_P127-P148_v0_1.md",
+      "bytes": 65928,
+      "sha256": "74e217eaf1eb69f35685309331f34aa11eea0eb83802835a5c3e3fe9e32c4b10"
+    },
+    {
+      "path": "docs/PROD-15_Leyforge_Arcs_XVII-XVIII_Production_Contracts_P149-P170_v0_1.md",
+      "bytes": 56797,
+      "sha256": "960cabef929861d31cb4b8a818d13d7252a3b277c55593f3462501947ab7684e"
+    },
+    {
+      "path": "docs/PROD-16_Leyforge_Arcs_XIX-XX_Production_Contracts_P171-P192_v0_1.md",
+      "bytes": 66709,
+      "sha256": "624be4ec7c59b9bdcc56d897d8322ac1b64247449e09c30ebf9a7e469c2a4d1d"
+    },
+    {
+      "path": "docs/PROD-17_Leyforge_Master_Verification_Certification_and_Production_Handoff_Register_v0_1.md",
+      "bytes": 28177,
+      "sha256": "183f88fa24faf8a4bc111f054f1785d0497beee53b7e21d1448317d521e8c530"
+    },
+    {
+      "path": "registry/Leyforge_ProductionRegistry_v0_1.json",
+      "bytes": 516913,
+      "sha256": "79d4cb6b24f0f087e54bbaf6424fec6aa652c3228d7af6bd311682da143a36ef"
+    }
+  ]
+}
