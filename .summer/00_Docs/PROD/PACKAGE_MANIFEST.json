@@ -8,12 +8,12 @@
   "production_arcs": 20,
   "parent_slices": 192,
   "range": "P01-P192",
-  "production_handoff_ready": false,
+  "production_handoff_ready": true,
   "files": [
     {
       "path": "README.md",
-      "bytes": 2369,
-      "sha256": "6b37ea08cd272a62b5e73c5281170fa2a404e4bfd08e35357aa28bc7b3f9731e"
+      "bytes": 2644,
+      "sha256": "0f5404ba3abfadbcf706654e554a09dcfd7d742e1106ebff9c63933861f236e4"
     },
     {
       "path": "docs/PROD-00_Leyforge_Production_Constitution_Authority_and_Scope_v0_1.md",
@@ -102,13 +102,13 @@
     },
     {
       "path": "docs/PROD-17_Leyforge_Master_Verification_Certification_and_Production_Handoff_Register_v0_1.md",
-      "bytes": 30306,
-      "sha256": "718972b40bd659611e93e7d7dee39632720f133bc0a0303d3d41406590c68160"
+      "bytes": 31422,
+      "sha256": "ebfa5fd5a2aa43306d92f89633cd37f277e87a0386cefe13c68e4041956c5cdb"
     },
     {
       "path": "registry/Leyforge_ProductionRegistry_v0_1.json",
-      "bytes": 514769,
-      "sha256": "7e6f973353591e332cd9ab0e62ce992390b615b7b3a2e327ecf48e43362b54cb"
+      "bytes": 515383,
+      "sha256": "15b45f7cfb25e677ac1392a7072379108552967222ca64bdfea784b91e2c24e3"
     }
   ]
 }

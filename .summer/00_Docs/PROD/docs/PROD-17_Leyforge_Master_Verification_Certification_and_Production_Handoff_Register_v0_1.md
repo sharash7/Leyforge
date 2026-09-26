@@ -18,7 +18,7 @@
 **Machine-readable companion:** `Leyforge_ProductionRegistry_v0_1.json`  
 **Parent production scope:** P01–P192  
 **Programme gates:** PG-00 through PG-20  
-**Current determination:** **PROD CORPUS OWNER-LOCKED — PG-00 REQUIRES GOVERNED REPOSITORY AND EXACT-SHA CI ADMISSION**
+**Current determination:** **PROD CORPUS OWNER-LOCKED — PG-00 PASS — P01 PREPARED, IMPLEMENTATION NOT STARTED**
 
 ---
 
@@ -27,6 +27,12 @@
 The project owner explicitly approved and locked PROD-00 through PROD-17 and the ProductionRegistry as the current bounded production planning, sequencing, architecture, contract and evidence authority. The owner also accepted ADR-0001 (Godot 4.7.2 stable), ADR-0002 (Zylann Voxel Tools 1.7), and ADR-0003 (upstream-owned Zylann with Leyforge-owned integration/adapters and no default private fork). DEP-GODOT and DEP-ZYLANN remain planned and uninstalled. No production runtime, installed dependency, implementation proof or P01 completion is implied.
 
 The repository and CI observations below describe the **pre-lock e042e755 snapshot**, not the current owner decision or a later published SHA. PG-00 and P01 permission must be read from the live Project Brain lifecycle records and exact-SHA certification. This owner lock permits governed future amendments; it does not make every P-slice immutable.
+
+## Governed PG-00 admission disposition — 27 September 2026
+
+The canonical owner-locked 22-file package and ProductionRegistry were ingested into the Project Brain. Commit A `abdabcb35bb749f01edb4da9201d54206d166099` passed clean local exact-SHA certification and both required exact-SHA workflows: Brain integrity `36261249951` and Engineering governance integrity `36261249978`. The final [[AUDIT-0018]] / [[EVID-0018]] admission package records **PG-00 PASS**, with [[TASK-20260927-001]], [[WORK-20260927-001]] and [[HANDOFF-20260927-001]] preparing P01 — The Empty Canvas. P01 execution permission remains conditional on this separate lifecycle commit's clean exact-SHA local and remote certification. No P01 implementation, production runtime or dependency installation has occurred.
+
+The pre-lock status tables and e042e755 repository observations retained below are historical snapshots, not the current gate outcome. PG-01 through PG-20 remain not started; P02-P192 remain blocked by their own prerequisites. R7/W4 remains `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION`, issued high-water 0072, 0073 unallocated.
 
 ---
 

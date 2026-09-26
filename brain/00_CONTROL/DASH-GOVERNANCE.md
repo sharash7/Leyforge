@@ -6,13 +6,18 @@ title: "Engineering Governance Health"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-26"
+updated: "2026-09-27"
 authority_domain: "engineering_governance"
 authority_role: "derived_record"
 authority_status: "authoritative"
 depends_on:
   - "SYS-ENGINEERING-GOVERNANCE"
 related_to:
+  - "HANDOFF-20260927-001"
+  - "TASK-20260927-001"
+  - "WORK-20260927-001"
+  - "EVID-0018"
+  - "AUDIT-0018"
   - "HANDOFF-20260926-001"
   - "TASK-20260926-001"
   - "WORK-20260926-001"
@@ -255,7 +260,7 @@ related_to:
 - Owner direction under [[TASK-20260922-001]] / [[WORK-20260922-001]] preserves R7/W4 as historical, incomplete and `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION`.
 - Proofs 49/52/54 remain PASS; 50/51/53 remain INCONCLUSIVE with no human review; 55 retains raw FAIL affected by `W4-MEASUREMENT-DEFECT-001`; 56–62 and 71 remain NOT-RUN.
 - Issued high-water remains 0072; 0073 is not allocated; proofs 57/58 remain 0/312 observed.
-- [[HANDOFF-20260926-001]] supersedes the pre-lock handoff. PROD-00 through PROD-17 and the ProductionRegistry are owner-locked and canonically ingested; ADR-0001/0002/0003 are accepted. DEP-GODOT and DEP-ZYLANN are governance-planned and uninstalled. PG-00 exact-SHA certification is pending; P01 implementation remains closed.
+- [[HANDOFF-20260927-001]] supersedes the provisional owner-lock handoff. PROD-00 through PROD-17 and the ProductionRegistry are owner-locked and canonically ingested; ADR-0001/0002/0003 are accepted. DEP-GODOT and DEP-ZYLANN are governance-planned and uninstalled. Commit A `abdabcb35bb749f01edb4da9201d54206d166099` passed both exact-SHA workflows. [[AUDIT-0018]] records PG-00 PASS; P01 Task/Work are prepared, implementation not started, and execution permission awaits final lifecycle exact-SHA CI.
 
 ## Later Activation Milestones
 
@@ -265,4 +270,4 @@ related_to:
 - G4 multiplayer/server exposure: planned in [[GOV-DEBT-0005]].
 - G5 release/distribution: planned in [[GOV-DEBT-0006]].
 
-R7 is historical, incomplete and superseded for current sequencing under [[HANDOFF-20260926-001]]. W0-W3 execution and W4 readiness/admission remain certified; immutable W4 history ends at issued high-water 0072. W5 and FINAL were not executed. ADR-0001/0002/0003 are owner-accepted; ADR-0004 through ADR-0007 remain proposed. [[CONFLICT-0002]] remains open as a broad source-status issue, not an inferred P01 admission. PRD-08/09 and historical R8 gameplay permission remain closed. Production planning authority is owner-locked; production implementation remains closed until PG-00 exact-SHA admission.
+R7 is historical, incomplete and superseded for current sequencing under [[HANDOFF-20260927-001]]. W0-W3 execution and W4 readiness/admission remain certified; immutable W4 history ends at issued high-water 0072. W5 and FINAL were not executed. ADR-0001/0002/0003 are owner-accepted; ADR-0004 through ADR-0007 remain proposed. [[CONFLICT-0002]] remains open as a broad source-status issue, not an inferred P01 blocker or waiver. PRD-08/09 and historical R8 gameplay permission remain closed. Production planning authority is owner-locked; PG-00 is PASS; bounded P01 execution becomes effective only after final lifecycle exact-SHA local and remote certification.

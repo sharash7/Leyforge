@@ -4,8 +4,19 @@
   "generated_date": "2026-09-26",
   "programme": "Leyforge PROD",
   "registry_status": "LOCKED",
-  "production_handoff_ready": false,
-  "current_programme_determination": "PROD-00 through PROD-17 and this registry are owner-locked production authority. PG-00 admission and exact-SHA repository certification remain separate; P01 implementation has not begun.",
+  "production_handoff_ready": true,
+  "current_programme_determination": "PROD-00 through PROD-17 and this registry are owner-locked production authority. PG-00 PASS is recorded from certified Commit A and the governed P01 lifecycle package. P01 implementation has not begun; execution permission requires final lifecycle exact-SHA local and remote certification.",
+  "pg00_admission": {
+    "result": "PASS",
+    "evidence": "EVID-0018",
+    "audit": "AUDIT-0018",
+    "commit_a_sha": "abdabcb35bb749f01edb4da9201d54206d166099",
+    "brain_integrity_run": 36261249951,
+    "engineering_governance_integrity_run": 36261249978,
+    "p01_handoff": "HANDOFF-20260927-001",
+    "p01_implementation": "NOT_STARTED",
+    "p01_execution_permission": "CONDITIONAL_ON_COMMIT_B_EXACT_SHA_LOCAL_AND_REMOTE_CERTIFICATION"
+  },
   "repository_admission_snapshot": {
     "snapshot_role": "HISTORICAL_PRE_LOCK_E042E755",
     "verified_at": "2026-09-26",
@@ -89,7 +100,7 @@
       "ARC-20": 13
     },
     "programme_gate_count_including_pg00": 21,
-    "current_pg00_state": "BLOCKED",
+    "current_pg00_state": "PASS",
     "future_pg01_pg20_state": "NOT_STARTED_BLOCKED_UPSTREAM"
   },
   "documents": [
@@ -232,9 +243,9 @@
     {
       "id": "PROD-17",
       "file": "PROD-17_Leyforge_Master_Verification_Certification_and_Production_Handoff_Register_v0_1.md",
-      "lines": 692,
-      "bytes": 30306,
-      "sha256": "718972b40bd659611e93e7d7dee39632720f133bc0a0303d3d41406590c68160",
+      "lines": 698,
+      "bytes": 31422,
+      "sha256": "ebfa5fd5a2aa43306d92f89633cd37f277e87a0386cefe13c68e4041956c5cdb",
       "status": "LOCKED - OWNER-APPROVED PRODUCTION AUTHORITY"
     }
   ],
@@ -242,7 +253,7 @@
     {
       "id": "PG-00",
       "title": "PRODUCTION ADMISSION",
-      "state": "BLOCKED"
+      "state": "PASS"
     },
     {
       "id": "PG-01",
@@ -361,11 +372,11 @@
         "⚙ FOUNDATION"
       ],
       "contract_state": "LOCKED",
-      "execution_status": "BLOCKED_UPSTREAM",
+      "execution_status": "READY_NOT_STARTED",
       "completion_status": "NOT_STARTED",
       "readiness": {
-        "state": "BLOCKED_UPSTREAM",
-        "reason": "PG-00 production admission is not yet open under the current authoritative repository handoff."
+        "state": "READY",
+        "reason": "PG-00 PASS is recorded from certified Commit A and the governed P01 lifecycle package. Execution permission requires the final lifecycle commit's exact-SHA local and remote certification; P01 implementation has not started."
       },
       "primary_prerequisites_text": "PROD handoff gate; clean production repository",
       "dependency_ids": [],
@@ -404,7 +415,9 @@
           "title": "parent reconciliation"
         }
       ],
-      "tasks": [],
+      "tasks": [
+        "TASK-20260927-001"
+      ],
       "acceptance_gate": {
         "criteria": [
           "Current governed production repository/branch/HEAD are verified before implementation",
@@ -422,9 +435,7 @@
         "evidence_status": "NOT_COLLECTED"
       },
       "evidence": [],
-      "blockers": [
-        "Current Project Brain / handoff explicitly keeps production closed."
-      ]
+      "blockers": []
     },
     {
       "id": "P02",

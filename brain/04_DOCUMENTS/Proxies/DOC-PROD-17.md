@@ -11,7 +11,7 @@ authority_domain: "production"
 authority_role: "derived_record"
 authority_status: "authoritative"
 canonical_path: ".summer/00_Docs/PROD/docs/PROD-17_Leyforge_Master_Verification_Certification_and_Production_Handoff_Register_v0_1.md"
-source_hash: "bf90b147f82fdb4550ffd97d25ad7c84c0d789f6"
+source_hash: "552006808d28c156caadbcd7e240e5bc728d3ea1"
 source_commit: "9b3254e23f89056ae37e84f09bdcf4ea13df5128"
 source_status: "locked"
 status_basis: "production document status declaration"
@@ -27,4 +27,4 @@ This record is a navigation and traceability proxy for `.summer/00_Docs/PROD/doc
 
 - Source status classification: **locked**
 - Classification basis: production document status declaration
-- Source blob: `bf90b147f82fdb4550ffd97d25ad7c84c0d789f6`
+- Source blob: `552006808d28c156caadbcd7e240e5bc728d3ea1`

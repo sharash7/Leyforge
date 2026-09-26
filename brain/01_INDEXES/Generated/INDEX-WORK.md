@@ -22,9 +22,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
-| [[HANDOFF-20260926-001|HANDOFF-20260926-001]] | handoff | active | Owner-locked PROD to PG-00 exact-SHA certification |
-| [[WORK-20260926-001|WORK-20260926-001]] | work | active | PROD owner lock and PG-00 certification preparation |
-| [[TASK-20260926-001|TASK-20260926-001]] | work_item | active | Owner-lock PROD and prepare PG-00 exact-SHA admission |
+| [[HANDOFF-20260927-001|HANDOFF-20260927-001]] | handoff | active | PG-00 admitted production to P01 The Empty Canvas |
+| [[TASK-20260927-001|TASK-20260927-001]] | work_item | active | P01 The Empty Canvas governed execution preparation |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
 | [[WORK-20260910-002|WORK-20260910-002]] | work | cancelled | Execute and reconcile the certified R7 W4 proof package |
 | [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |
@@ -42,6 +41,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[WORK-20260906-005|WORK-20260906-005]] | work | complete | Establish R7 W0 dependency and export readiness and execute valid proofs |
 | [[WORK-20260909-003|WORK-20260909-003]] | work | complete | Execute and reconcile the certified R7 W3 technical environment rerun |
 | [[WORK-20260906-001|WORK-20260906-001]] | work | complete | Install and validate the R5 engineering governance bootstrap |
+| [[WORK-20260926-001|WORK-20260926-001]] | work | complete | PROD owner lock and PG-00 certification preparation |
 | [[WORK-20260922-001|WORK-20260922-001]] | work | complete | Reconcile and supersede the incomplete R7 W4 lifecycle |
 | [[WORK-20260909-002|WORK-20260909-002]] | work | complete | Repair and re-certify the R7 W3 fixture-launch boundary |
 | [[WORK-20260908-002|WORK-20260908-002]] | work | complete | Repair and re-certify the R7 W3 technical environment package |
@@ -55,6 +55,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[CHANGE-20260906-004|CHANGE-20260906-004]] | work_item | complete | Complete and certify the R7 W0 reusable proof-harness bootstrap |
 | [[CHANGE-20260906-001|CHANGE-20260906-001]] | work_item | complete | Complete the R5 engineering governance bootstrap |
 | [[CHANGE-20260906-002|CHANGE-20260906-002]] | work_item | complete | Complete the R6 Brain-to-governance operating pilot |
+| [[TASK-20260926-001|TASK-20260926-001]] | work_item | complete | Owner-lock PROD and prepare PG-00 exact-SHA admission |
 | [[TASK-20260906-001|TASK-20260906-001]] | work_item | complete | R5 engineering governance bootstrap task contract |
 | [[TASK-20260906-002|TASK-20260906-002]] | work_item | complete | R6 Brain-to-governance operating pilot task contract |
 | [[TASK-20260906-003|TASK-20260906-003]] | work_item | complete | R7 PRD-07 controlled intake and execution-readiness task contract |
@@ -69,6 +70,8 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[TASK-20260922-001|TASK-20260922-001]] | work_item | complete | R7 W4 lifecycle reconciliation and governed branch authority restoration |
 | [[TASK-20260911-001|TASK-20260911-001]] | work_item | complete | R7 W4 measurement-harness repair, recertification and rerun-readiness task contract |
 | [[TASK-20260907-001|TASK-20260907-001]] | work_item | complete | W3 technical environment proof reconciliation and minimum-fixture readiness |
+| [[WORK-20260927-001|WORK-20260927-001]] | work | planned | P01 The Empty Canvas execution work record |
+| [[HANDOFF-20260926-001|HANDOFF-20260926-001]] | handoff | superseded | Owner-locked PROD to PG-00 exact-SHA certification |
 | [[HANDOFF-20260905-001|HANDOFF-20260905-001]] | handoff | superseded | R4 Project Brain to R5 Governance Bootstrap Handoff |
 | [[HANDOFF-20260906-001|HANDOFF-20260906-001]] | handoff | superseded | R5 Engineering Governance to R6 Operating Pilot Handoff |
 | [[HANDOFF-20260906-002|HANDOFF-20260906-002]] | handoff | superseded | R6 Operating Pilot to R7 Pre-Rebuild Technical Programme Handoff |

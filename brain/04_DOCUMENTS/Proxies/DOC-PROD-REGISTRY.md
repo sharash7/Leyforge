@@ -11,7 +11,7 @@ authority_domain: "production"
 authority_role: "derived_record"
 authority_status: "authoritative"
 canonical_path: ".summer/00_Docs/PROD/registry/Leyforge_ProductionRegistry_v0_1.json"
-source_hash: "e03fa41136eabc214fd2a887cfce04a534366926"
+source_hash: "cd0a9259b57174edd0079b511928b5d76a620925"
 source_commit: "9b3254e23f89056ae37e84f09bdcf4ea13df5128"
 source_status: "locked"
 status_basis: "production registry status"
@@ -27,4 +27,4 @@ This record is a navigation and traceability proxy for `.summer/00_Docs/PROD/reg
 
 - Source status classification: **locked**
 - Classification basis: production registry status
-- Source blob: `e03fa41136eabc214fd2a887cfce04a534366926`
+- Source blob: `cd0a9259b57174edd0079b511928b5d76a620925`

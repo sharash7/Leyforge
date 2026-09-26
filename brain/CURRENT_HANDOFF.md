@@ -6,12 +6,17 @@ title: "Current Handoff"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-26"
+updated: "2026-09-27"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260926-001"
+current_handoff: "HANDOFF-20260927-001"
 related_to:
+  - "HANDOFF-20260927-001"
+  - "TASK-20260927-001"
+  - "WORK-20260927-001"
+  - "EVID-0018"
+  - "AUDIT-0018"
   - "HANDOFF-20260926-001"
   - "TASK-20260926-001"
   - "WORK-20260926-001"
@@ -71,8 +76,8 @@ related_to:
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260926-001]]. The owner locked PROD-00 through PROD-17 and the ProductionRegistry and accepted ADR-0001/0002/0003. PG-00 is open for exact-SHA admission evaluation, not yet PASS. [[HANDOFF-20260922-001]] is historical and superseded. The repository repair remains certified at `62210f87ba34ab2ae4e5973421a1b16afe6918e7`; [[EVID-0016]] / [[AUDIT-0016]] certify that repair and historical lifecycle consequence, not W4 or R7 success.
+The active formal handoff is [[HANDOFF-20260927-001]]. The owner locked PROD-00 through PROD-17 and the ProductionRegistry and accepted ADR-0001/0002/0003. PG-00 is PASS under [[EVID-0018]] / [[AUDIT-0018]], after Commit A `abdabcb35bb749f01edb4da9201d54206d166099` passed clean exact-SHA certification and both required workflows. [[HANDOFF-20260926-001]] and [[HANDOFF-20260922-001]] are historical and superseded. The repository repair remains certified at `62210f87ba34ab2ae4e5973421a1b16afe6918e7`; [[EVID-0016]] / [[AUDIT-0016]] certify that repair and historical lifecycle consequence, not W4 or R7 success.
 
 R7/W4 is `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION`. Historical truth remains exact: proofs 49, 52 and 54 are `PASS-OBSERVED`; 50, 51 and 53 are `INCONCLUSIVE` with human review not performed; proof 55 retains raw `FAIL-OBSERVED` affected by `W4-MEASUREMENT-DEFECT-001` and is not admissible as a genuine candidate proof failure; proofs 56–62 and 71 are `NOT-RUN`. Proofs 57/58 each remain 0/312 observed. Issued high-water is 0072 and `0073-NOT-ALLOCATED` remains unallocated.
 
-The canonical PROD package is owner-locked and ingested into the Project Brain. DEP-GODOT and DEP-ZYLANN are governance-planned and `UNINSTALLED`. The production runtime is ABSENT. Commit A clean exact-SHA certification and both published-SHA workflows must pass before a separate PG-00 PASS/P01 preparation package can be created. P01 implementation remains CLOSED; no engine or voxel artifact may be installed under this handoff.
+The canonical PROD package is owner-locked and ingested into the Project Brain. DEP-GODOT and DEP-ZYLANN are governance-planned and `UNINSTALLED`. The production runtime is ABSENT. [[TASK-20260927-001]] / [[WORK-20260927-001]] prepare P01 — The Empty Canvas. P01 implementation is NOT STARTED; execution permission becomes effective only after this lifecycle commit passes clean exact-SHA local certification and both exact-SHA remote workflows. This admission handoff itself installs no engine or voxel artifact and creates no production runtime.

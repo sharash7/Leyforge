@@ -223,13 +223,16 @@ class BrainAcceptanceTests(unittest.TestCase):
 
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260926-001")
-        self.assertEqual(handoff.metadata["next_gate"], "PG-00")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260927-001")
+        self.assertEqual(handoff.metadata["next_gate"], "P01")
         self.assertEqual(
             handoff.metadata["next_package"],
-            "PROD-PG-00-FINAL-ADMISSION",
+            "P01-THE-EMPTY-CANVAS-EXECUTION",
         )
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260922-001")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260926-001")
+        provisional_handoff = self.by_id["HANDOFF-20260926-001"]
+        self.assertEqual(provisional_handoff.metadata["status"], "superseded")
+        self.assertEqual(provisional_handoff.metadata["superseded_by"], "HANDOFF-20260927-001")
         historical_handoff = self.by_id["HANDOFF-20260922-001"]
         self.assertEqual(historical_handoff.metadata["status"], "superseded")
         self.assertEqual(historical_handoff.metadata["superseded_by"], "HANDOFF-20260926-001")
@@ -292,8 +295,14 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertIn("PRD04-PROOF-73 remains INCONCLUSIVE", historical_handoff.body)
         self.assertIn("PG-00 is CLOSED", historical_handoff.body)
         self.assertIn("P01 is CLOSED", historical_handoff.body)
-        self.assertIn("PG-00 is the active admission gate, **not yet PASS**", handoff.body)
-        self.assertIn("P01 execution", handoff.body)
+        self.assertIn("PG-00 PASS", handoff.body)
+        self.assertIn("P01 implementation has **not started**", handoff.body)
+        self.assertEqual(self.by_id["TASK-20260926-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["WORK-20260926-001"].metadata["status"], "complete")
+        self.assertEqual(self.by_id["AUDIT-0017"].metadata["result"], "PASS")
+        self.assertEqual(self.by_id["TASK-20260927-001"].metadata["status"], "active")
+        self.assertEqual(self.by_id["WORK-20260927-001"].metadata["status"], "planned")
+        self.assertEqual(self.by_id["AUDIT-0018"].metadata["result"], "PASS")
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
             self.assertIn(f"## {heading}", historical_handoff.body)
 

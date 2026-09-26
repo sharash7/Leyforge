@@ -14,9 +14,9 @@ This canonical package is the complete v0.1 PROD production-handoff corpus appro
 
 ## Important current status
 
-The corpus and 192-entry ProductionRegistry are **owner-locked production planning, sequencing, architecture, contract and evidence authority**. Lock does not assert feature implementation, installed dependencies, PG-00 passage, P01 completion or immutable future contracts; governed amendments remain possible.
+The corpus and 192-entry ProductionRegistry are **owner-locked production planning, sequencing, architecture, contract and evidence authority**. PG-00 has passed under the governed admission audit; P01 is prepared but implementation has not started. Lock and admission do not assert feature implementation, installed dependencies, P01 completion or immutable future contracts; governed amendments remain possible.
 
-`PROD-17` preserves the pre-lock repository snapshot at governed SHA `e042e755782160cf8d10c0ff7c253ec05fd29656` as history. The owner has since accepted ADR-0001 (Godot 4.7.2 stable), ADR-0002 (Zylann Voxel Tools 1.7), and ADR-0003 (upstream Zylann with Leyforge-owned adapters and no default private fork). DEP-GODOT and DEP-ZYLANN remain planned and uninstalled. The live Brain handoff and exact-SHA certification determine whether PG-00 admits P01; this package alone does not open production execution.
+`PROD-17` preserves the pre-lock repository snapshot at governed SHA `e042e755782160cf8d10c0ff7c253ec05fd29656` as history and records the later PG-00 disposition. The owner accepted ADR-0001 (Godot 4.7.2 stable), ADR-0002 (Zylann Voxel Tools 1.7), and ADR-0003 (upstream Zylann with Leyforge-owned adapters and no default private fork). DEP-GODOT and DEP-ZYLANN remain planned and uninstalled. Commit A `abdabcb35bb749f01edb4da9201d54206d166099` passed both exact-SHA workflows. [[AUDIT-0018]] records PG-00 PASS and the live Brain handoff prepares P01; execution permission is conditional on the separate lifecycle commit passing clean exact-SHA local and remote certification.
 
 ## Directory layout
 

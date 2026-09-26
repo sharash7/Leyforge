@@ -22,6 +22,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
+| [[EVID-0018|EVID-0018]] | evidence | active | PG-00 owner-lock admission and P01 preparation evidence |
 | [[EVID-0017|EVID-0017]] | evidence | active | PROD owner-lock source intake and PG-00 provisional evidence |
 | [[EVID-0001|EVID-0001]] | evidence | active | R4 Brain Pilot Certification Evidence |
 | [[EVID-0002|EVID-0002]] | evidence | active | R5 Engineering Governance Certification Evidence |
