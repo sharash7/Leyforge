@@ -22,6 +22,7 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 
 | ID | Type | Status | Title |
 | --- | --- | --- | --- |
+| [[AUDIT-0017|AUDIT-0017]] | audit | active | PG-00 provisional admission audit |
 | [[AUDIT-0001|AUDIT-0001]] | audit | certified | Brain v0.1 Pilot Certification |
 | [[AUDIT-0002|AUDIT-0002]] | audit | certified | R5 Engineering Governance Bootstrap Certification |
 | [[AUDIT-0003|AUDIT-0003]] | audit | certified | R6 Brain-to-Governance Operating Pilot Certification |

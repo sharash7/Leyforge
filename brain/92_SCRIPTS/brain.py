@@ -52,6 +52,8 @@ SELECTED_SOURCE_PATTERNS = (
     re.compile(r"^C-AUD-0[0-2]_"),
     re.compile(r"^D-ROAD-0[0-2]_"),
     re.compile(r"^PRD-0[0-7]_.*\.md$"),
+    re.compile(r"^PROD-(?:0[0-9]|1[0-7])_.*\.md$"),
+    re.compile(r"^Leyforge_ProductionRegistry_v0_1\.json$"),
     re.compile(r"^REBUILD-00_"),
 )
 
@@ -243,9 +245,11 @@ def diag(severity: str, code: str, path: str, message: str) -> dict[str, str]:
 
 
 def source_code(filename: str) -> str | None:
+    if filename == "Leyforge_ProductionRegistry_v0_1.json":
+        return "PROD-REGISTRY"
     match = re.match(
         r"(LF-BRAIN-SET-A|LF-BRAIN-(?:0[1-9]|1[0-3])|ENG-GOV-(?:0[0-9]|1[0-5])|"
-        r"B-OPS-0[0-6]|C-AUD-0[0-2]|D-ROAD-0[0-2]|PRD-0[0-7]|REBUILD-00)(?:_|\.)",
+        r"B-OPS-0[0-6]|C-AUD-0[0-2]|D-ROAD-0[0-2]|PRD-0[0-7]|PROD-(?:0[0-9]|1[0-7])|REBUILD-00)(?:_|\.)",
         filename,
     )
     return match.group(1) if match else None
@@ -266,6 +270,14 @@ def classify_source(path: Path, text: str) -> tuple[str, str]:
     normalized = path.as_posix().lower()
     filename = path.name.lower()
     tail = text[-16000:].lower()
+    if filename == "leyforge_productionregistry_v0_1.json":
+        try:
+            if json.loads(path.read_text(encoding="utf-8-sig")).get("registry_status") == "LOCKED":
+                return "locked", "production registry status"
+        except (OSError, json.JSONDecodeError):
+            pass
+    if re.search(r"^\*\*Status:\*\*\s+\*\*LOCKED\b", text, re.IGNORECASE | re.MULTILINE):
+        return "locked", "production document status declaration"
     if "/old/" in normalized or any(part.lower() in {"archive", "archived"} for part in path.parts):
         return "historical", "directory disposition"
     if re.search(r"this document is \*\*locked|status.{0,30}\*\*locked|\*\*locked as", tail):
@@ -282,6 +294,8 @@ def classify_source(path: Path, text: str) -> tuple[str, str]:
 
 
 def authority_domain_for_source(relpath: str) -> str:
+    if "/PROD/" in "/" + relpath:
+        return "production"
     if "/A-BRAIN/" in "/" + relpath:
         return "brain_operations"
     if "/B-ENG-GOV+B-OPS/" in "/" + relpath:

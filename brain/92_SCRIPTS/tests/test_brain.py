@@ -223,13 +223,16 @@ class BrainAcceptanceTests(unittest.TestCase):
 
         handoff = self.by_id[root.metadata["current_handoff"]]
         self.assertEqual(handoff.metadata["status"], "active")
-        self.assertEqual(handoff.metadata["from_work"], "WORK-20260922-001")
-        self.assertEqual(handoff.metadata["next_gate"], "PROD")
+        self.assertEqual(handoff.metadata["from_work"], "WORK-20260926-001")
+        self.assertEqual(handoff.metadata["next_gate"], "PG-00")
         self.assertEqual(
             handoff.metadata["next_package"],
-            "PROD-PRODUCTION-ADMISSION-PREPARATION",
+            "PROD-PG-00-FINAL-ADMISSION",
         )
-        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260911-001")
+        self.assertEqual(handoff.metadata["supersedes"], "HANDOFF-20260922-001")
+        historical_handoff = self.by_id["HANDOFF-20260922-001"]
+        self.assertEqual(historical_handoff.metadata["status"], "superseded")
+        self.assertEqual(historical_handoff.metadata["superseded_by"], "HANDOFF-20260926-001")
         self.assertEqual(self.by_id["HANDOFF-20260911-001"].metadata["status"], "superseded")
         self.assertEqual(
             self.by_id["HANDOFF-20260911-001"].metadata["superseded_by"],
@@ -280,17 +283,19 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(self.by_id["TASK-20260922-001"].metadata["status"], "complete")
         self.assertEqual(self.by_id["WORK-20260922-001"].metadata["status"], "complete")
         self.assertEqual(self.by_id["AUDIT-0016"].metadata["result"], "PASS")
-        self.assertIn("SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION", handoff.body)
-        self.assertIn("W4-MEASUREMENT-DEFECT-001", handoff.body)
-        self.assertIn("0066–0072", handoff.body)
-        self.assertIn("0073-NOT-ALLOCATED", handoff.body)
-        self.assertIn("0/312", handoff.body)
-        self.assertIn("Production runtime is ABSENT", handoff.body)
-        self.assertIn("PRD04-PROOF-73 remains INCONCLUSIVE", handoff.body)
-        self.assertIn("PG-00 is CLOSED", handoff.body)
-        self.assertIn("P01 is CLOSED", handoff.body)
+        self.assertIn("SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION", historical_handoff.body)
+        self.assertIn("W4-MEASUREMENT-DEFECT-001", historical_handoff.body)
+        self.assertIn("0066–0072", historical_handoff.body)
+        self.assertIn("0073-NOT-ALLOCATED", historical_handoff.body)
+        self.assertIn("0/312", historical_handoff.body)
+        self.assertIn("Production runtime is ABSENT", historical_handoff.body)
+        self.assertIn("PRD04-PROOF-73 remains INCONCLUSIVE", historical_handoff.body)
+        self.assertIn("PG-00 is CLOSED", historical_handoff.body)
+        self.assertIn("P01 is CLOSED", historical_handoff.body)
+        self.assertIn("PG-00 is the active admission gate, **not yet PASS**", handoff.body)
+        self.assertIn("P01 execution", handoff.body)
         for heading in ("Completed State", "Start Here", "Next Gate", "Open Items", "Boundary", "Verification"):
-            self.assertIn(f"## {heading}", handoff.body)
+            self.assertIn(f"## {heading}", historical_handoff.body)
 
         state = json.loads((brain.REPO_ROOT / "docs/rebuild/r7/w4-execution-state.json").read_text(encoding="utf-8"))
         proof_states = {row["proof_id"]: row["state"] for row in state["proofs"]}
@@ -362,13 +367,18 @@ class BrainAcceptanceTests(unittest.TestCase):
         registry, proxies = brain.build_source_inventory()
         expected, admissions = brain.controlled_source_expectations()
         self.assertEqual(registry["artifact_count"], len(expected))
-        self.assertEqual(registry["markdown_count"], 405)
-        self.assertEqual(len(admissions), 5)
+        self.assertEqual(registry["artifact_count"], 468)
+        self.assertEqual(registry["markdown_count"], 424)
+        self.assertEqual(len(admissions), 27)
         prd07_path = ".summer/00_Docs/PRD/PRD-07_Leyforge_Prototype_Benchmark_and_Proof_Execution_Programme_v1_0_CLOSURE_CANDIDATE_Round10.md"
         handoff_path = ".summer/00_Docs/PRD/PRD-07_to_PRD-08_Executable_Handoff_Manifest_v1_0.txt"
         self.assertEqual("DOC-PRD-07", proxies[prd07_path])
         self.assertNotIn(handoff_path, proxies)
-        self.assertEqual({"DOC-PRD-05", "DOC-PRD-06", "DOC-PRD-07"}, {item["proxy_id"] for item in registry["artifacts"] if item["path"] in admissions and item["proxy_id"]})
+        self.assertEqual({"DOC-PRD-05", "DOC-PRD-06", "DOC-PRD-07"}, {item["proxy_id"] for item in registry["artifacts"] if item["path"] in admissions and item["family"] == "PRD" and item["proxy_id"]})
+        prod = [item for item in registry["artifacts"] if item["family"] == "PROD"]
+        self.assertEqual(len(prod), 22)
+        self.assertEqual(sum(item["declared_status"] == "locked" for item in prod), 20)
+        self.assertEqual(sum(bool(item["proxy_id"]) for item in prod), 19)
         historical = [item for item in registry["artifacts"] if item["declared_status"] == "historical"]
         self.assertTrue(historical)
         self.assertTrue(any("/OLD/" in item["path"] or "/ARCHIVED/" in item["path"] for item in historical))
@@ -400,7 +410,7 @@ class BrainAcceptanceTests(unittest.TestCase):
         workflow_text = workflow.read_text(encoding="utf-8")
         self.assertIn("doctor --profile certification", workflow_text)
         self.assertIn("verify_rebuild_boundary.py", workflow_text)
-        boundary = subprocess.run([sys.executable, "tools/verify_rebuild_boundary.py"], cwd=brain.REPO_ROOT, text=True, capture_output=True)
+        boundary = subprocess.run([sys.executable, "tools/verify_rebuild_boundary.py", "--w4-audit-wiring-admission-mode", "published"], cwd=brain.REPO_ROOT, text=True, capture_output=True)
         self.assertEqual(boundary.returncode, 0, boundary.stderr)
         self.assertEqual(json.loads(boundary.stdout)["status"], "PASS")
         manifest = brain.load_json(brain.REPO_ROOT / "docs/rebuild/r7/w0-harness-boundary.json")
@@ -426,7 +436,7 @@ class BrainAcceptanceTests(unittest.TestCase):
         self.assertEqual(positions, sorted(positions))
         handoff = self.by_id[self.by_id["CURRENT-HANDOFF"].metadata["current_handoff"]]
         self.assertIn("R7", handoff.body)
-        self.assertIn("R8 gameplay permission remains closed", handoff.body)
+        self.assertIn("P01 execution", handoff.body)
         for canvas in (brain.BRAIN_ROOT / "81_CANVAS").glob("*.canvas"):
             data = json.loads(canvas.read_text(encoding="utf-8"))
             for node in data["nodes"]:

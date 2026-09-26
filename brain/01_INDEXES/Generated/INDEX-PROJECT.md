@@ -25,8 +25,10 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[CURRENT-HANDOFF|CURRENT-HANDOFF]] | dashboard | active | Current Handoff |
 | [[DASH-GOVERNANCE|DASH-GOVERNANCE]] | dashboard | active | Engineering Governance Health |
 | [[DASH-PROJECT-STATE|DASH-PROJECT-STATE]] | dashboard | active | Project State |
-| [[HANDOFF-20260922-001|HANDOFF-20260922-001]] | handoff | active | R7 W4 Superseded Incomplete to PROD Production-admission Preparation |
+| [[HANDOFF-20260926-001|HANDOFF-20260926-001]] | handoff | active | Owner-locked PROD to PG-00 exact-SHA certification |
 | [[HOME|HOME]] | home | active | Leyforge Project Brain |
+| [[WORK-20260926-001|WORK-20260926-001]] | work | active | PROD owner lock and PG-00 certification preparation |
+| [[TASK-20260926-001|TASK-20260926-001]] | work_item | active | Owner-lock PROD and prepare PG-00 exact-SHA admission |
 | [[WORK-20260906-008|WORK-20260906-008]] | work | cancelled | Establish and execute the R7 W3 technical environment proof package |
 | [[WORK-20260910-002|WORK-20260910-002]] | work | cancelled | Execute and reconcile the certified R7 W4 proof package |
 | [[WORK-20260908-001|WORK-20260908-001]] | work | cancelled | Execute and reconcile the R7 W3 technical environment proof package |
@@ -87,3 +89,4 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[HANDOFF-20260909-001|HANDOFF-20260909-001]] | handoff | superseded | R7 W3 Rerun Abort to Fixture-launch Repair and Re-certification Handoff |
 | [[HANDOFF-20260911-001|HANDOFF-20260911-001]] | handoff | superseded | R7 W4 Controlled Stop to Measurement-harness Repair and Rerun Recertification Gate |
 | [[HANDOFF-20260910-002|HANDOFF-20260910-002]] | handoff | superseded | R7 W4 Readiness Certification to Separately Authorized Governed Execution Gate |
+| [[HANDOFF-20260922-001|HANDOFF-20260922-001]] | handoff | superseded | R7 W4 Superseded Incomplete to PROD Production-admission Preparation |

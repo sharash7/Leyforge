@@ -86,7 +86,12 @@ class GovernanceAcceptanceTests(unittest.TestCase):
         self.assertTrue(any(item["code"] == "GOV-E025" for item in governance.validate_records([record])))
 
     def test_09_GOV_AT_009_adr_backlog_and_supersession(self) -> None:
-        for number in range(1, 8):
+        for number in range(1, 4):
+            record = self.by_id[f"ADR-{number:04d}"]
+            self.assertEqual(record.metadata["status"], "accepted")
+            self.assertEqual(record.metadata["accepted"], "2026-09-26")
+            self.assertEqual(record.metadata["accepted_by"], "Ash, project owner")
+        for number in range(4, 8):
             record = self.by_id[f"ADR-{number:04d}"]
             self.assertEqual(record.metadata["status"], "proposed")
             self.assertTrue(record.metadata["reconstructed"])

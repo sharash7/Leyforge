@@ -6,12 +6,20 @@ title: "Current Handoff"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-22"
+updated: "2026-09-26"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
-current_handoff: "HANDOFF-20260922-001"
+current_handoff: "HANDOFF-20260926-001"
 related_to:
+  - "HANDOFF-20260926-001"
+  - "TASK-20260926-001"
+  - "WORK-20260926-001"
+  - "EVID-0017"
+  - "AUDIT-0017"
+  - "DOC-PROD-00"
+  - "DOC-PROD-17"
+  - "DOC-PROD-REGISTRY"
   - "HANDOFF-20260922-001"
   - "TASK-20260922-001"
   - "WORK-20260922-001"
@@ -63,8 +71,8 @@ related_to:
 
 # Current Handoff
 
-The active formal handoff is [[HANDOFF-20260922-001]]. The repository repair is certified at exact SHA `62210f87ba34ab2ae4e5973421a1b16afe6918e7`; Brain integrity run `35720743513` and Engineering governance integrity run `35720743568` both succeeded on that SHA. [[EVID-0016]] / [[AUDIT-0016]] record the repair and lifecycle consequence without claiming W4 or R7 success.
+The active formal handoff is [[HANDOFF-20260926-001]]. The owner locked PROD-00 through PROD-17 and the ProductionRegistry and accepted ADR-0001/0002/0003. PG-00 is open for exact-SHA admission evaluation, not yet PASS. [[HANDOFF-20260922-001]] is historical and superseded. The repository repair remains certified at `62210f87ba34ab2ae4e5973421a1b16afe6918e7`; [[EVID-0016]] / [[AUDIT-0016]] certify that repair and historical lifecycle consequence, not W4 or R7 success.
 
 R7/W4 is `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION`. Historical truth remains exact: proofs 49, 52 and 54 are `PASS-OBSERVED`; 50, 51 and 53 are `INCONCLUSIVE` with human review not performed; proof 55 retains raw `FAIL-OBSERVED` affected by `W4-MEASUREMENT-DEFECT-001` and is not admissible as a genuine candidate proof failure; proofs 56–62 and 71 are `NOT-RUN`. Proofs 57/58 each remain 0/312 observed. Issued high-water is 0072 and `0073-NOT-ALLOCATED` remains unallocated.
 
-The next separately authorized package is `PROD-PRODUCTION-ADMISSION-PREPARATION`: reconcile the locally present/untracked PROD corpus, obtain owner lock, ingest canonically, decide production dependencies and prepare PG-00. Production runtime is ABSENT, production dependencies are INACTIVE, PROD is not canonical or locked, PG-00 is CLOSED and P01 is CLOSED. This handoff alone authorizes none of those future actions.
+The canonical PROD package is owner-locked and ingested into the Project Brain. DEP-GODOT and DEP-ZYLANN are governance-planned and `UNINSTALLED`. The production runtime is ABSENT. Commit A clean exact-SHA certification and both published-SHA workflows must pass before a separate PG-00 PASS/P01 preparation package can be created. P01 implementation remains CLOSED; no engine or voxel artifact may be installed under this handoff.

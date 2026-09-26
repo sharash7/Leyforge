@@ -6,10 +6,10 @@ title: "Zylann Voxel"
 status: "proposed"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-07"
+updated: "2026-09-26"
 authority_domain: "implementation_state"
-authority_role: "provisional_record"
-authority_status: "proposed"
+authority_role: "implementation_record"
+authority_status: "authoritative"
 repository_paths:
   - "UNINSTALLED"
 record_type: "dependency"
@@ -43,7 +43,13 @@ related_to:
 
 ## Purpose
 
-Foundational voxel-provider candidate identified by the Branch B reconstruction backlog and the exact provider used by the bounded R7 W0 GDExtension proof lane.
+Foundational production voxel-provider candidate identified by the Branch B reconstruction backlog and the exact provider used by the bounded R7 W0 GDExtension proof lane. Those roles remain distinct.
+
+## Accepted PROD Direction — Uninstalled Until P01
+
+The owner accepted **Zylann Voxel Tools 1.7** as the production voxel substrate on 26 September 2026, paired with the accepted Godot 4.7.2 stable baseline and governed by [[ADR-0002]] and [[ADR-0003]]. Zylann owns supported voxel storage, terrain editing, meshing, streaming and materialisation; Leyforge retains semantic rules, stable identity, authoritative mutation, gameplay, persistence coordination, content and Forge authority behind its adapter boundary.
+
+The Brain implementation-module status remains `proposed` because the production artifact is not yet selected or installed; engineering governance status remains `planned` and repository path `UNINSTALLED`. Owner acceptance approves the provider family and default upstream-plus-adapter ownership mode, not an installed artifact. P01 must choose and pin the exact compatible module or GDExtension edition/build, commit/archive, hashes, licence materials, export profile and diagnostics before activation or completion. The R7 W0 GDExtension artifact below remains proof-only and is not silently promoted.
 
 ## Governed R7 W0 State
 
@@ -89,6 +95,7 @@ The exact `v1.7x` GDExtension loaded in all six exported runtime smokes and pass
 
 ## Production Activation Conditions
 
-- [[ADR-0002]] and [[ADR-0003]] are independently resolved.
+- [[ADR-0002]] and [[ADR-0003]] explicitly accept or replace the proposed provider family and upstream-plus-adapter ownership mode.
 - The governing implementation gate opens the selected provider edition.
-- Later PRD-07 provider-dependent and dependency-upgrade evidence supports the production choice.
+- P01 pins and verifies the exact compatible production edition/build, provenance, hashes, licence materials, packaging and diagnostics before activation or completion.
+- Later provider-dependent, performance and dependency-upgrade evidence remains required at its owning production gates.

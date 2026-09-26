@@ -6,11 +6,19 @@ title: "Project State"
 status: "active"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-22"
+updated: "2026-09-26"
 authority_domain: "project_control"
 authority_role: "delegated"
 authority_status: "authoritative"
 related_to:
+  - "HANDOFF-20260926-001"
+  - "TASK-20260926-001"
+  - "WORK-20260926-001"
+  - "EVID-0017"
+  - "AUDIT-0017"
+  - "DOC-PROD-00"
+  - "DOC-PROD-17"
+  - "DOC-PROD-REGISTRY"
   - "WORK-20260922-001"
   - "TASK-20260922-001"
   - "EVID-0016"
@@ -101,9 +109,9 @@ related_to:
 | R6 | Complete and certified | [[WORK-20260906-002]], [[AUDIT-0003]], [[EVID-0003]] and [[CHANGE-20260906-002]] |
 | R7 | Historical — incomplete and superseded for current sequencing by owner direction | W0-W3 execution is certified; W4 remains three PASS, three INCONCLUSIVE, one retained raw FAIL affected by a measurement defect, and eight NOT-RUN; [[EVID-0016]] / [[AUDIT-0016]] certify repair and truthful supersession, not W4 or R7 success |
 | R8 gameplay | Closed | No production gameplay permission is open |
-| PROD admission | Preparation next — closed pending separate authorization | [[HANDOFF-20260922-001]] permits no ingestion, owner lock, dependency activation, PG-00 or P01 action by itself |
+| PROD admission | Owner-locked and canonically ingested; PG-00 exact-SHA certification pending | [[HANDOFF-20260926-001]] permits admission evaluation only; P01 implementation remains closed |
 
-The source registry contains 446 controlled artifacts: the immutable 441-file R3 baseline plus five hash-pinned post-R3 intake artifacts covering PRD-05, PRD-06 and PRD-07. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
+The source registry contains 468 controlled artifacts: the immutable 441-file R3 baseline, five hash-pinned post-R3 PRD intake artifacts, and the 22-file owner-locked PROD package. The W0 harness boundary admits 24 exact paths. The W0 proof-runtime/evidence boundary admits 95 exact Git-clean paths and zero active POC dependencies.
 
 The `R7-W0-DEPENDENCY-EXPORT-READINESS` package is complete and certified. All 13 W0 proofs were individually readied and executed: 12 `PASS-OBSERVED`, zero `FAIL-OBSERVED`, one `INCONCLUSIVE` and zero `INVALIDATED`. Thirteen `PRD07-RUN-*` and 13 `PRD07-EVID-*` IDs are retained; none is submitted to PRD-08.
 
@@ -127,4 +135,4 @@ The owner-authorized W4 readiness/admission package is complete under [[TASK-202
 
 The separately owner-authorized W4 execution under cancelled [[TASK-20260910-002]] / [[WORK-20260910-002]] entered seven proofs and stopped fail-closed at proof 55. Retained pairs 0066–0072 contain three PASS, three INCONCLUSIVE and one raw FAIL. The raw proof-55 observation remains immutable but is not admissible as a candidate proof failure after independent `W4-MEASUREMENT-DEFECT-001` reconciliation. Eight proofs were not run; PROOF-57 and PROOF-58 each remain 0/312 observed with no coverage claim. Issued high-water is 0072 and 0073 is not allocated.
 
-The repair package is complete under [[TASK-20260911-001]] / [[WORK-20260911-001]] at certified endpoint `62210f87ba34ab2ae4e5973421a1b16afe6918e7`. [[HANDOFF-20260922-001]] is the active continuation boundary. R7/W4 is `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION`; no W4 proof observation or 0073+ allocation occurred. W5 and FINAL were not executed. Production remains closed pending separate PROD/PG-00 admission; production dependencies remain inactive, PROD is not canonical or locked, PG-00 and P01 remain closed, [[ADR-0008]] remains accepted, ADR-0001 through ADR-0007 remain proposed, [[CONFLICT-0002]] remains open, and R8 remains closed.
+The repair package remains certified at `62210f87ba34ab2ae4e5973421a1b16afe6918e7`, and its pre-lock [[HANDOFF-20260922-001]] is superseded by [[HANDOFF-20260926-001]]. R7/W4 remains `SUPERSEDED-INCOMPLETE-BY-OWNER-DIRECTION`; no W4 proof observation or 0073+ allocation occurred, and W5/FINAL were not executed. PROD-00 through PROD-17 and the ProductionRegistry are owner-locked and ingested; ADR-0001/0002/0003 are accepted, while ADR-0004 through ADR-0007 remain proposed. DEP-GODOT/DEP-ZYLANN remain planned/uninstalled, the production runtime is absent, and PG-00 awaits exact-SHA certification. P01 implementation and historical R8 gameplay permission remain closed. [[CONFLICT-0002]] remains open without an inferred P01 blocker or waiver.

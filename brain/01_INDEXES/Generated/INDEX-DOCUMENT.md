@@ -63,6 +63,25 @@ Generated from validated Brain records. Use `python brain/92_SCRIPTS/brain.py qu
 | [[DOC-PRD-06|DOC-PRD-06]] | document | draft | PRD-06 — Leyforge Technical Risk & Proof Register |
 | [[DOC-PRD-07|DOC-PRD-07]] | document | draft | PRD-07 — Leyforge Prototype, Benchmark & Proof Execution Programme |
 | [[SRC-LEGACY-POC-ARCHIVE|SRC-LEGACY-POC-ARCHIVE]] | source | historical | Legacy POC archive and recovery evidence |
+| [[DOC-PROD-00|DOC-PROD-00]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-01|DOC-PROD-01]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-02|DOC-PROD-02]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-03|DOC-PROD-03]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-04|DOC-PROD-04]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-05|DOC-PROD-05]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-06|DOC-PROD-06]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-07|DOC-PROD-07]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-08|DOC-PROD-08]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-09|DOC-PROD-09]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-10|DOC-PROD-10]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-11|DOC-PROD-11]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-12|DOC-PROD-12]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-13|DOC-PROD-13]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-14|DOC-PROD-14]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-15|DOC-PROD-15]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-16|DOC-PROD-16]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-17|DOC-PROD-17]] | document | locked | LEYFORGE PRODUCTION PROGRAMME |
+| [[DOC-PROD-REGISTRY|DOC-PROD-REGISTRY]] | document | locked | Leyforge ProductionRegistry v0 1 |
 | [[DOC-LF-BRAIN-01|DOC-LF-BRAIN-01]] | document | locked | LEYFORGE PROJECT BRAIN |
 | [[DOC-LF-BRAIN-02|DOC-LF-BRAIN-02]] | document | locked | LEYFORGE PROJECT BRAIN |
 | [[DOC-LF-BRAIN-03|DOC-LF-BRAIN-03]] | document | locked | LEYFORGE PROJECT BRAIN |

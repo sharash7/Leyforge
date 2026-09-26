@@ -6,10 +6,10 @@ title: "Godot Engine"
 status: "proposed"
 information_class: "authored"
 created: "2026-09-06"
-updated: "2026-09-07"
+updated: "2026-09-26"
 authority_domain: "implementation_state"
-authority_role: "provisional_record"
-authority_status: "proposed"
+authority_role: "implementation_record"
+authority_status: "authoritative"
 repository_paths:
   - "UNINSTALLED"
 record_type: "dependency"
@@ -40,7 +40,13 @@ related_to:
 
 ## Purpose
 
-Foundational engine candidate for later V1 runtime work and the exact build/runtime dependency used by the bounded R7 W0 proof lane.
+Foundational engine candidate for production runtime work and the exact build/runtime dependency used by the bounded R7 W0 proof lane. Those two roles remain distinct.
+
+## Accepted PROD Direction — Uninstalled Until P01
+
+The owner accepted **Godot 4.7.2 stable** as the production engine-shell baseline under [[ADR-0001]] on 26 September 2026. The Brain implementation-module status remains `proposed` because the production artifact is not yet selected or installed; engineering governance status remains `planned` and repository path `UNINSTALLED`. Acceptance does not install a runtime or complete P01.
+
+P01 must pin the exact official acquisition artifact, hashes, supported platform/export profile, licence/notice handling and runtime diagnostics before the dependency becomes active. The fixed 4.8-dev proof runner below remains proof tooling and is not a production fallback.
 
 ## Governed R7 W0 State
 
@@ -82,6 +88,7 @@ Six real Windows x86_64 exports built and smoked successfully: three client and 
 
 ## Production Activation Conditions
 
-- [[ADR-0001]] is accepted through its own authority process.
+- [[ADR-0001]] explicitly accepts or replaces the proposed Godot 4.7.2 stable production baseline.
 - The governing implementation gate opens production runtime work.
-- Final supported platform/profile, release packaging and dependency evidence pass the later PRD-07 qualification waves.
+- P01 pins and verifies the exact production artifact, hashes, platform/profile, release packaging and diagnostics before activation or completion.
+- Later provider-dependent and release qualification evidence remains required at its owning production gates.
